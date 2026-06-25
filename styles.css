@@ -1,0 +1,346 @@
+/* AI 资讯日报 - 样式表 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+}
+
+/* 导航栏 */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .back-link {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.navbar .back-link:hover {
+    color: white;
+}
+
+/* 主容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero 区域 */
+.hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* 报告列表 */
+.reports-list, .all-reports {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.reports-list h2, .all-reports h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* 报告卡片网格 */
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.report-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.report-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.report-card h3 {
+    color: #667eea;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.report-card time {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* 报告类型标签 */
+.report-type {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.type-morning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.type-noon {
+    background: #d4edda;
+    color: #155724;
+}
+
+.type-evening {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* 归档列表 */
+.report-archive {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.archive-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+}
+
+.archive-item:hover {
+    background: #f8f9fa;
+}
+
+.archive-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+}
+
+.archive-item a:hover {
+    text-decoration: underline;
+}
+
+.archive-item time {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0 1rem;
+}
+
+/* 报告内容页 */
+.report-content {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.report-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.report-header h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.report-header .meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #666;
+}
+
+.report-header time {
+    font-size: 0.9rem;
+}
+
+/* 文章内容样式 */
+.content h1, .content h2, .content h3, .content h4 {
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content h1 { font-size: 1.8rem; }
+.content h2 { font-size: 1.5rem; }
+.content h3 { font-size: 1.3rem; }
+.content h4 { font-size: 1.1rem; }
+
+.content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.content ul, .content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.content li {
+    margin-bottom: 0.5rem;
+}
+
+.content code {
+    background: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+}
+
+.content pre {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+.content blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.content th, .content td {
+    border: 1px solid #e0e0e0;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+.content th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.content a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .report-content {
+        padding: 1.5rem;
+    }
+    
+    .archive-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .archive-item time {
+        margin: 0;
+    }
+}

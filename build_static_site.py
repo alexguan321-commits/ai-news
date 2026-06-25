@@ -186,6 +186,8 @@ def main():
     css_source = Path("styles.css")
     if css_source.exists():
         shutil.copy(css_source, SITE_DIR / "styles.css")
+    else:
+        print(f"⚠️ 警告: styles.css 不存在")
     
     # 处理所有帖子
     posts = []
