@@ -1,5 +1,8 @@
 {
-  "buildCommand": "jekyll build",
+  "buildCommand": "python3 build_static_site.py",
   "outputDirectory": "_site",
-  "framework": "jekyll"
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
 }

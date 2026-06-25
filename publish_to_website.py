@@ -1,106 +1,172 @@
 #!/usr/bin/env python3
 """
-AI News 网站自动发布脚本
-用于将 Hermes Agent 生成的报告发布到 Jekyll 网站
+AI 资讯报告发布脚本
+1. 读取报告文件
+2. 保存到 _posts/ 目录
+3. 构建静态网站
+4. Git push 触发 Vercel 部署
 """
 
-import os
 import sys
-import subprocess
-from datetime import datetime
+import os
 from pathlib import Path
+from datetime import datetime
+import subprocess
+import shutil
+import re
 
 WEBSITE_DIR = Path.home() / "projects" / "ai-news-website"
 POSTS_DIR = WEBSITE_DIR / "_posts"
 
-def get_report_type_from_schedule():
-    """根据当前时间判断报告类型"""
-    hour = datetime.now().hour
-    if hour < 12:
-        return "morning"
-    elif hour < 18:
-        return "noon"
+def extract_metadata(report_content, report_path):
+    """从报告内容中提取元数据"""
+    # 从文件名提取日期和类型
+    filename = report_path.stem
+    
+    # 尝试匹配日期格式
+    date_match = re.search(r'(\d{4}-\d{2}-\d{2})', filename)
+    if date_match:
+        date_str = date_match.group(1)
     else:
-        return "evening"
-
-def create_jekyll_post(report_content: str, report_type: str) -> str:
-    """创建 Jekyll 格式的 Markdown 文件"""
-    now = datetime.now()
-    date_str = now.strftime("%Y-%m-%d")
-    time_str = now.strftime("%H:%M:%S")
+        date_str = datetime.now().strftime("%Y-%m-%d")
     
-    # 生成中文标题
-    type_names = {
-        "morning": "早报",
-        "noon": "午报",
-        "evening": "晚报"
+    # 确定报告类型
+    if "morning" in filename or "早报" in report_content[:200]:
+        report_type = "morning"
+        title = f"AI 早报 - {date_str}"
+    elif "noon" in filename or "午报" in report_content[:200]:
+        report_type = "noon"
+        title = f"AI 午报 - {date_str}"
+    elif "evening" in filename or "晚报" in report_content[:200]:
+        report_type = "evening"
+        title = f"AI 晚报 - {date_str}"
+    else:
+        report_type = "morning"
+        title = f"AI 资讯 - {date_str}"
+    
+    # 提取时间
+    time_match = re.search(r'(\d{2}:\d{2}:\d{2})', report_content)
+    time_str = time_match.group(1) if time_match else "08:00:00"
+    
+    return {
+        "title": title,
+        "date": f"{date_str} {time_str} +0800",
+        "report_type": report_type,
+        "filename": f"{date_str}-{report_type}.md"
     }
-    type_name = type_names.get(report_type, "资讯")
+
+def save_to_posts(report_content, metadata):
+    """保存报告到 _posts 目录"""
+    POSTS_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Jekyll front matter
-    front_matter = f"""---
+    # 生成 frontmatter
+    frontmatter = f"""---
 layout: report
-title: "AI {type_name} - {now.strftime('%Y年%m月%d日')}"
-date: {date_str} {time_str} +0800
-report_type: {report_type}
+title: "{metadata['title']}"
+date: {metadata['date']}
+report_type: {metadata['report_type']}
 ---
 
 """
     
-    # 组合内容
-    full_content = front_matter + report_content
-    
-    # 生成文件名
-    filename = f"{date_str}-{report_type}.md"
-    filepath = POSTS_DIR / filename
-    
     # 写入文件
-    with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(full_content)
+    post_file = POSTS_DIR / metadata["filename"]
+    post_file.write_text(frontmatter + report_content, encoding="utf-8")
     
-    return str(filepath)
+    print(f"✅ 已保存: {post_file.name}")
+    return post_file
 
-def git_commit_and_push(filepath: str, report_type: str):
-    """Git commit 和 push"""
+def build_site():
+    """构建静态网站"""
+    print("\n🔨 构建静态网站...")
+    result = subprocess.run(
+        ["python3", "build_static_site.py"],
+        cwd=WEBSITE_DIR,
+        capture_output=True,
+        text=True
+    )
+    
+    if result.returncode != 0:
+        print(f"❌ 构建失败: {result.stderr}")
+        return False
+    
+    print(result.stdout)
+    return True
+
+def git_push(commit_msg):
+    """Git 提交并推送"""
+    print("\n📤 推送到 GitHub...")
+    
     os.chdir(WEBSITE_DIR)
     
     # Git add
-    subprocess.run(['git', 'add', filepath], check=True)
+    subprocess.run(["git", "add", "."], check=True)
     
     # Git commit
-    now = datetime.now()
-    commit_msg = f"Add AI {report_type.capitalize()} report - {now.strftime('%Y-%m-%d %H:%M')}"
-    subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+    result = subprocess.run(
+        ["git", "commit", "-m", commit_msg],
+        capture_output=True,
+        text=True
+    )
+    
+    if result.returncode != 0:
+        if "nothing to commit" in result.stdout:
+            print("⚠️  没有变化需要提交")
+            return True
+        else:
+            print(f"❌ 提交失败: {result.stderr}")
+            return False
+    
+    print(f"✅ 已提交: {commit_msg}")
     
     # Git push
-    subprocess.run(['git', 'push'], check=True)
+    result = subprocess.run(
+        ["git", "push"],
+        capture_output=True,
+        text=True
+    )
+    
+    if result.returncode != 0:
+        print(f"❌ 推送失败: {result.stderr}")
+        return False
+    
+    print("✅ 已推送到 GitHub")
+    print("🚀 Vercel 将自动部署...")
+    return True
 
 def main():
-    """主函数"""
     if len(sys.argv) < 2:
-        print("用法: python publish_to_website.py <report_file> [report_type]")
-        print("report_type: morning | noon | evening (默认根据时间自动判断)")
+        print("用法: python3 publish_to_website.py <报告文件路径>")
         sys.exit(1)
     
-    report_file = sys.argv[1]
-    report_type = sys.argv[2] if len(sys.argv) > 2 else get_report_type_from_schedule()
+    report_path = Path(sys.argv[1])
     
-    # 读取报告内容
-    with open(report_file, 'r', encoding='utf-8') as f:
-        report_content = f.read()
-    
-    # 创建 Jekyll 帖子
-    filepath = create_jekyll_post(report_content, report_type)
-    print(f"✅ 创建帖子: {filepath}")
-    
-    # Git commit 和 push
-    try:
-        git_commit_and_push(filepath, report_type)
-        print(f"✅ 已推送到 GitHub")
-        print(f"🌐 网站将在 1-2 分钟后自动更新")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Git 操作失败: {e}")
+    if not report_path.exists():
+        print(f"❌ 文件不存在: {report_path}")
         sys.exit(1)
+    
+    # 读取报告
+    print(f"📄 读取报告: {report_path.name}")
+    report_content = report_path.read_text(encoding="utf-8")
+    
+    # 提取元数据
+    metadata = extract_metadata(report_content, report_path)
+    print(f"📊 元数据: {metadata}")
+    
+    # 保存到 _posts
+    post_file = save_to_posts(report_content, metadata)
+    
+    # 构建网站
+    if not build_site():
+        sys.exit(1)
+    
+    # Git push
+    commit_msg = f"Add {metadata['title']}"
+    if not git_push(commit_msg):
+        sys.exit(1)
+    
+    print("\n✅ 发布完成！")
+    print("🌐 网站: https://ai-news-olive-tau.vercel.app")
 
 if __name__ == "__main__":
     main()
