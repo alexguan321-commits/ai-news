@@ -14,6 +14,7 @@ import shutil
 POSTS_DIR = Path("_posts")
 SITE_DIR = Path("_site")
 TEMPLATES_DIR = Path("_templates")
+BASE_URL = "/ai-news"  # GitHub Pages base path
 
 def parse_frontmatter(content):
     """解析 frontmatter"""
@@ -65,12 +66,12 @@ def build_post_page(metadata, body, output_path):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} - AI 资讯日报</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="{BASE_URL}/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="logo">🤖 AI 资讯日报</a>
-        <a href="/" class="back-link">← 返回首页</a>
+        <a href="{BASE_URL}/" class="logo">🤖 AI 资讯日报</a>
+        <a href="{BASE_URL}/" class="back-link">← 返回首页</a>
     </nav>
     
     <main class="container">
@@ -90,7 +91,7 @@ def build_post_page(metadata, body, output_path):
     </main>
     
     <footer class="footer">
-        <p>由 Hermes Agent 自动生成 | <a href="/">返回首页</a></p>
+        <p>由 Hermes Agent 自动生成 | <a href="{BASE_URL}/">返回首页</a></p>
     </footer>
 </body>
 </html>"""
@@ -110,7 +111,7 @@ def build_index_page(posts):
         report_type_label = extract_report_type(post["filename"])
         latest_html += f"""
         <article class="report-card">
-            <a href="{post['url']}">
+            <a href="{BASE_URL}{post['url']}">
                 <h3>{post['title']}</h3>
                 <time>{post['date']}</time>
                 <span class="report-type type-{post.get('report_type', '')}">{report_type_label}</span>
@@ -124,7 +125,7 @@ def build_index_page(posts):
         report_type_label = extract_report_type(post["filename"])
         archive_html += f"""
         <div class="archive-item">
-            <a href="{post['url']}">{post['title']}</a>
+            <a href="{BASE_URL}{post['url']}">{post['title']}</a>
             <time>{post['date']}</time>
             <span class="report-type type-{post.get('report_type', '')}">{report_type_label}</span>
         </div>
@@ -136,11 +137,11 @@ def build_index_page(posts):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 资讯日报 - 每日 AI 行业资讯</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="{BASE_URL}/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="logo">🤖 AI 资讯日报</a>
+        <a href="{BASE_URL}/" class="logo">🤖 AI 资讯日报</a>
     </nav>
     
     <main class="container">
