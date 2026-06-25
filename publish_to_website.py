@@ -4,7 +4,7 @@ AI 资讯报告发布脚本
 1. 读取报告文件
 2. 保存到 _posts/ 目录
 3. 构建静态网站
-4. Git push 触发 Vercel 部署
+4. Git push 触发 GitHub Pages 部署
 """
 
 import sys
@@ -91,6 +91,22 @@ def build_site():
         return False
     
     print(result.stdout)
+    
+    # 复制构建结果到根目录
+    print("\n📋 复制构建结果到根目录...")
+    site_dir = WEBSITE_DIR / "_site"
+    for item in site_dir.iterdir():
+        dest = WEBSITE_DIR / item.name
+        if dest.exists():
+            if dest.is_dir():
+                shutil.rmtree(dest)
+            else:
+                dest.unlink()
+        if item.is_dir():
+            shutil.copytree(item, dest)
+        else:
+            shutil.copy2(item, dest)
+    
     return True
 
 def git_push(commit_msg):
@@ -131,7 +147,7 @@ def git_push(commit_msg):
         return False
     
     print("✅ 已推送到 GitHub")
-    print("🚀 Vercel 将自动部署...")
+    print("🚀 GitHub Pages 将自动部署...")
     return True
 
 def main():
@@ -166,7 +182,7 @@ def main():
         sys.exit(1)
     
     print("\n✅ 发布完成！")
-    print("🌐 网站: https://ai-news-olive-tau.vercel.app")
+    print("🌐 网站: https://alexguan321-commits.github.io/ai-news/")
 
 if __name__ == "__main__":
     main()
