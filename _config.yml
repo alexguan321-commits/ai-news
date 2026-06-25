@@ -1,0 +1,41 @@
+# Site settings
+title: "AI 资讯日报"
+description: "每日 AI 行业资讯 - 早报/午报/晚报"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Default values
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "report"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .sass-cache
+  - _site
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+# Timezone
+timezone: Asia/Shanghai

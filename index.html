@@ -1,0 +1,47 @@
+---
+layout: default
+title: 首页
+---
+<div class="home">
+    <section class="hero">
+        <h1>🤖 AI 资讯日报</h1>
+        <p>每日 AI 行业资讯，由 Hermes Agent 自动采集和生成</p>
+    </section>
+
+    <section class="reports-list">
+        <h2 id="latest">📰 最新报告</h2>
+        {% assign latest_posts = site.posts | slice: 0, 6 %}
+        <div class="report-grid">
+            {% for post in latest_posts %}
+            <article class="report-card">
+                <a href="{{ post.url | relative_url }}">
+                    <h3>{{ post.title }}</h3>
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%Y-%m-%d %H:%M" }}
+                    </time>
+                    {% if post.report_type %}
+                    <span class="report-type type-{{ post.report_type }}">{{ post.report_type }}</span>
+                    {% endif %}
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="all-reports">
+        <h2 id="all">📚 全部报告</h2>
+        <div class="report-archive">
+            {% for post in site.posts %}
+            <div class="archive-item">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%m-%d %H:%M" }}
+                </time>
+                {% if post.report_type %}
+                <span class="report-type type-{{ post.report_type }}">{{ post.report_type }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
