@@ -31,7 +31,7 @@
 <p>[IMPORTANT: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]</p>
 <h2 id="script-error">Script Error</h2>
 <p>The data-collection script failed. Report this to the user.</p>
-<pre class="codehilite"><code>Script exited with code 1
+<div class="codehilite"><pre><span></span><code>Script exited with code 1
 stderr:
 Traceback (most recent call last):
   File &quot;/Users/alexguan/.hermes/scripts/ai_news_collector.py&quot;, line 887, in &lt;module&gt;
@@ -42,8 +42,8 @@ Traceback (most recent call last):
   File &quot;/Users/alexguan/.hermes/scripts/ai_news_collector.py&quot;, line 102, in ensure_output_dir
     os.makedirs(folder, exist_ok=True)
   File &quot;&lt;frozen os&gt;&quot;, line 225, in makedirs
-PermissionError: [Errno 1] Operation not permitted: '/Volumes/WD_Gold_4TB/AI_News/2026-06-10_0800'
-</code></pre>
+PermissionError: [Errno 1] Operation not permitted: &#39;/Volumes/WD_Gold_4TB/AI_News/2026-06-10_0800&#39;
+</code></pre></div>
 
 <p>你是一名资深 AI 行业分析师。下方的 script output 是今天采集到的 AI 新闻原始数据。</p>
 <p>你的唯一任务是：基于这些数据，直接用中文生成一份「AI 早报」。</p>
