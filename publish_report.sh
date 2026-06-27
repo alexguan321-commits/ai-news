@@ -1,7 +1,7 @@
 #!/bin/bash
 # AI News 自动发布脚本
 # 用法: ./publish_report.sh <report_file> <report_type>
-
+#
 set -e
 
 REPORT_FILE="$1"
@@ -39,11 +39,24 @@ EOF
 # 追加报告内容（跳过可能的原始 front matter）
 cat "$REPORT_FILE" >> "$POSTS_DIR/$FILENAME"
 
-# Git 操作
+# 重新生成 index.html（自动扫描 _posts/ 目录）
 cd "$WEBSITE_DIR"
-git add "_posts/$FILENAME"
-git commit -m "Add AI ${REPORT_TYPE^} report - $(date +%Y-%m-%d\ %H:%M)"
-git push
+python3 generate_index.py
 
-echo "✅ 报告已发布: $FILENAME"
-echo "🌐 网站将在 1-2 分钟后更新"
+# Git 操作（带重试）
+git add "_posts/$FILENAME" index.html
+git commit -m "Add AI ${REPORT_TYPE^} - $(date +%Y-%m-%d\ %H:%M)"
+
+# Push with retry (3 attempts, exponential backoff)
+for i in 1 2 3; do
+    if git push 2>&1; then
+        echo "✅ 报告已发布: $FILENAME"
+        echo "🌐 网站将在 1-2 分钟后更新"
+        exit 0
+    fi
+    echo "⚠️ Push 失败 (尝试 $i/3)，${i}0s 后重试..."
+    sleep $((i * 10))
+done
+
+echo "❌ 发布失败: git push 3 次重试均失败"
+exit 1

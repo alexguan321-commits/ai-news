@@ -68,6 +68,69 @@ body {
     font-size: 1.1rem;
 }
 
+/* 搜索区域 */
+.search-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+    border-color: #667eea;
+}
+
+.search-count {
+    color: #999;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.filter-tag {
+    padding: 0.4rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    color: #666;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-tag:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.filter-tag.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
 /* 报告列表 */
 .reports-list, .all-reports {
     background: white;
