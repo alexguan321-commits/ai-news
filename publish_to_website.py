@@ -55,6 +55,23 @@ def extract_metadata(report_content, report_path):
         "filename": f"{date_str}-{report_type}.md"
     }
 
+def extract_report_content(content):
+    """从 cron 输出文件中提取实际报告内容"""
+    # 查找报告的起始位置（以 "# AI 早报" 或 "# AI 午报" 或 "# AI 晚报" 开头）
+    report_start = None
+    for pattern in [r'^# AI 早报', r'^# AI 午报', r'^# AI 晚报', r'^# AI 资讯']:
+        match = re.search(pattern, content, re.MULTILINE)
+        if match:
+            report_start = match.start()
+            break
+    
+    if report_start is not None:
+        # 提取从报告开始到文件末尾的内容
+        return content[report_start:]
+    else:
+        # 如果没有找到报告标记，返回原始内容
+        return content
+
 def save_to_posts(report_content, metadata):
     """保存报告到 _posts 目录"""
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -163,7 +180,11 @@ def main():
     
     # 读取报告
     print(f"📄 读取报告: {report_path.name}")
-    report_content = report_path.read_text(encoding="utf-8")
+    raw_content = report_path.read_text(encoding="utf-8")
+    
+    # 提取实际报告内容（去除 cron 元数据和原始数据）
+    report_content = extract_report_content(raw_content)
+    print(f"📝 提取报告内容: {len(report_content)} 字符")
     
     # 提取元数据
     metadata = extract_metadata(report_content, report_path)
