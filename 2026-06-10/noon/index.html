@@ -31,551 +31,551 @@
 <p>[IMPORTANT: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]</p>
 <h2 id="script-output">Script Output</h2>
 <p>The following data was collected by a pre-run script. Use it as context for your analysis.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[No new RSS items found]</span>
-
-<span class="c1">## arXiv cs.AI — Latest Papers</span>
-<span class="na">- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Tong Xie, Yuanhao Ban, Yunqi Hong et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11189v1</span>
-
-<span class="na">- [2026-06-09] EEVEE</span><span class="o">:</span><span class="w"> </span><span class="s">Towards Test-time Prompt Learning in the Real World for Self-Improving Agents</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Weixian Xu, Shilong Liu, Mengdi Wang</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11182v1 | Categories: cs.LG, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">In this paper, we propose EEVEE, the first multi-dataset test-time prompt learning framework for LLM agents, enabling test-time prompt learning under real-world task streams. Existing methods are largely designed for single-dataset settings, while real-world applications require models to handle het...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11182v1</span>
-
-<span class="na">- [2026-06-09] The Role of Feedback Alignment in Self-Distillation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Semih Kara, Oğuzhan Ersoy</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11173v1 | Categories: cs.AI, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Conditioning a language model on additional context, such as feedback on a previous attempt, typically improves its response. Self-distillation trains the model to retain this improvement when the context is not present. The method works by matching the model&#39;s output distribution under two settings...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11173v1</span>
-
-<span class="na">- [2026-06-09] Piper</span><span class="o">:</span><span class="w"> </span><span class="s">A Programmable Distributed Training System</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Megan Frisella, Shubham Tiwari, Andy Ruan et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11169v1 | Categories: cs.DC, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Large-scale model training increasingly relies on composing multiple parallelism strategies, such as data, pipeline, and expert parallelism, together with memory-saving optimizations like ZeRO. Deployed systems for foundation model pretraining often rely on human experts to manually design a high-le...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11169v1</span>
-
-<span class="na">- [2026-06-09] Flaws in the LLM Automation Narrative</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">George Perrett, Javae Elliott, Jennifer Hill et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11166v1 | Categories: stat.OT, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Large Language Models (LLMs) are increasingly described as performing at the level of human experts on knowledge economy tasks. These claims are primarily based on how LLMs perform on benchmarking tasks that measure average performance across standardized datasets. Primary limitations of many benchm...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11166v1</span>
-
-<span class="na">- [2026-06-09] ReasonAlloc</span><span class="o">:</span><span class="w"> </span><span class="s">Hierarchical Decoding-Time KV Cache Budget Allocation for Reasoning Models</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Wenhao Liu, Hao Shi, Yunhe Li et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11164v1 | Categories: cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Long chain-of-thought (CoT) trajectories in large language model (LLM) reasoning cause severe inference bottlenecks due to rapid key-value (KV) cache growth. Current decoding-time compression methods mitigate this issue via token eviction, but typically assume a uniform budget distribution across al...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11164v1</span>
-
-<span class="na">- [2026-06-09] ABC-Bench</span><span class="o">:</span><span class="w"> </span><span class="s">An Agentic Bio-Capabilities Benchmark for Biosecurity</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Andrew Bo Liu, Samira Nedungadi, Bryce Cai et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11150v1 | Categories: cs.AI, cs.CY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Large language models (LLMs) are rapidly acquiring capabilities relevant to biological research, from literature synthesis to interpretation of experimental data. Increasingly, LLM agents can also perform in silico biology tasks that previously required experienced human biologists. These emerging A...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11150v1</span>
-
-<span class="na">- [2026-06-09] Data assimilation for subsurface flow using latent diffusion model parameterization</span><span class="o">:</span><span class="w"> </span><span class="s">performance of ensemble-Kalman and Monte Carlo techniques</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Guido Di Federico, Wenchao Teng, Louis J. Durlofsky</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11140v1 | Categories: physics.geo-ph, cs.AI, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Data assimilation (DA) in subsurface flow entails calibrating model parameters to match observed data, typically at wells, while preserving geological realism. Latent diffusion models (LDMs) provide efficient mappings from high-dimensional geological model space to a low-dimensional latent variable,...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11140v1</span>
-
-
-<span class="c1">## arXiv cs.LG — Latest Papers</span>
-<span class="na">- [2026-06-09] When to Align, When to Predict</span><span class="o">:</span><span class="w"> </span><span class="s">A Phase Diagram for Multimodal Learning</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Ilay Kamai, Hugues Van Assel, Aviv Regev et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11190v1 | Categories: cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Cross-modal alignment (CA) and cross-modal prediction (CP) are the dominant paradigms for multimodal representation learning, yet there is no systematic understanding of when each succeeds, when each fails, and when cross-modal training helps at all -- a gap that leaves practitioners, especially in ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11190v1</span>
-
-<span class="na">- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Tong Xie, Yuanhao Ban, Yunqi Hong et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11189v1</span>
-
-<span class="na">- [2026-06-09] EEVEE</span><span class="o">:</span><span class="w"> </span><span class="s">Towards Test-time Prompt Learning in the Real World for Self-Improving Agents</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Weixian Xu, Shilong Liu, Mengdi Wang</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11182v1 | Categories: cs.LG, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">In this paper, we propose EEVEE, the first multi-dataset test-time prompt learning framework for LLM agents, enabling test-time prompt learning under real-world task streams. Existing methods are largely designed for single-dataset settings, while real-world applications require models to handle het...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11182v1</span>
-
-<span class="na">- [2026-06-09] The Role of Feedback Alignment in Self-Distillation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Semih Kara, Oğuzhan Ersoy</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11173v1 | Categories: cs.AI, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Conditioning a language model on additional context, such as feedback on a previous attempt, typically improves its response. Self-distillation trains the model to retain this improvement when the context is not present. The method works by matching the model&#39;s output distribution under two settings...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11173v1</span>
-
-<span class="na">- [2026-06-09] Predicting Future Behaviors in Reasoning Models Enables Better Steering</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Evgenii Kortukov, Piotr Komorowski, Florian Klein et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11172v1 | Categories: cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Deployed large reasoning models (LRMs) often behave unexpectedly. Test-time steering controls LRM outputs by intervening on their hidden representations, but it can degrade output quality. We argue that prior steering work implicitly relies on internal features that detect behavior in already genera...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11172v1</span>
-
-<span class="na">- [2026-06-09] Algorithmic and Minimax Complexities in Kernel Bandits</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yunbei Xu</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11171v1 | Categories: cs.LG, cond-mat.stat-mech, cs.IT</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Gaussian-process upper confidence bound (GP-UCB) and decision-estimation-coefficient (DEC) methods may appear, at first sight, to belong to different theories. This paper places the two viewpoints in a common algorithmic-information language for frequentist RKHS bandits. GP-UCB fixes an algorithmic,...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11171v1</span>
-
-<span class="na">- [2026-06-09] COGENT</span><span class="o">:</span><span class="w"> </span><span class="s">Continuous Graph Emulators with Neural Ordinary Differential Equations for Long-Term Physical Forecasting</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zesheng Liu, Maryam Rahnemoonfar</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11162v1 | Categories: cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">In this work, we present COGENT, a continuous graph emulator with Neural Ordinary Differential Equations for long-term physical forecasting on irregular geospatial meshes. COGENT encodes a finite history of system states and associated forcing fields and external forcings with a graph-based history ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11162v1</span>
-
-<span class="na">- [2026-06-09] Itô maps for any-step SDEs</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zhengkai Pan, Peter Potaptchik, Wenxi Yao et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11156v1 | Categories: stat.ML, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Recent one-step generative models accelerate sampling by learning deterministic flow maps of the underlying dynamics. These methods rely on learning from ordinary differential equations, leaving open how to define an exact distillation procedure for stochastic dynamics. We introduce the Itô map, an ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11156v1</span>
-
+<pre class="codehilite"><code>[No new RSS items found]
+
+## arXiv cs.AI — Latest Papers
+- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design
+  Authors: Tong Xie, Yuanhao Ban, Yunqi Hong et al.
+  arXiv: 2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL
+  Abstract: Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...
+  PDF: https://arxiv.org/pdf/2606.11189v1
+
+- [2026-06-09] EEVEE: Towards Test-time Prompt Learning in the Real World for Self-Improving Agents
+  Authors: Weixian Xu, Shilong Liu, Mengdi Wang
+  arXiv: 2606.11182v1 | Categories: cs.LG, cs.AI
+  Abstract: In this paper, we propose EEVEE, the first multi-dataset test-time prompt learning framework for LLM agents, enabling test-time prompt learning under real-world task streams. Existing methods are largely designed for single-dataset settings, while real-world applications require models to handle het...
+  PDF: https://arxiv.org/pdf/2606.11182v1
+
+- [2026-06-09] The Role of Feedback Alignment in Self-Distillation
+  Authors: Semih Kara, Oğuzhan Ersoy
+  arXiv: 2606.11173v1 | Categories: cs.AI, cs.LG
+  Abstract: Conditioning a language model on additional context, such as feedback on a previous attempt, typically improves its response. Self-distillation trains the model to retain this improvement when the context is not present. The method works by matching the model's output distribution under two settings...
+  PDF: https://arxiv.org/pdf/2606.11173v1
+
+- [2026-06-09] Piper: A Programmable Distributed Training System
+  Authors: Megan Frisella, Shubham Tiwari, Andy Ruan et al.
+  arXiv: 2606.11169v1 | Categories: cs.DC, cs.AI
+  Abstract: Large-scale model training increasingly relies on composing multiple parallelism strategies, such as data, pipeline, and expert parallelism, together with memory-saving optimizations like ZeRO. Deployed systems for foundation model pretraining often rely on human experts to manually design a high-le...
+  PDF: https://arxiv.org/pdf/2606.11169v1
+
+- [2026-06-09] Flaws in the LLM Automation Narrative
+  Authors: George Perrett, Javae Elliott, Jennifer Hill et al.
+  arXiv: 2606.11166v1 | Categories: stat.OT, cs.AI
+  Abstract: Large Language Models (LLMs) are increasingly described as performing at the level of human experts on knowledge economy tasks. These claims are primarily based on how LLMs perform on benchmarking tasks that measure average performance across standardized datasets. Primary limitations of many benchm...
+  PDF: https://arxiv.org/pdf/2606.11166v1
+
+- [2026-06-09] ReasonAlloc: Hierarchical Decoding-Time KV Cache Budget Allocation for Reasoning Models
+  Authors: Wenhao Liu, Hao Shi, Yunhe Li et al.
+  arXiv: 2606.11164v1 | Categories: cs.AI
+  Abstract: Long chain-of-thought (CoT) trajectories in large language model (LLM) reasoning cause severe inference bottlenecks due to rapid key-value (KV) cache growth. Current decoding-time compression methods mitigate this issue via token eviction, but typically assume a uniform budget distribution across al...
+  PDF: https://arxiv.org/pdf/2606.11164v1
+
+- [2026-06-09] ABC-Bench: An Agentic Bio-Capabilities Benchmark for Biosecurity
+  Authors: Andrew Bo Liu, Samira Nedungadi, Bryce Cai et al.
+  arXiv: 2606.11150v1 | Categories: cs.AI, cs.CY
+  Abstract: Large language models (LLMs) are rapidly acquiring capabilities relevant to biological research, from literature synthesis to interpretation of experimental data. Increasingly, LLM agents can also perform in silico biology tasks that previously required experienced human biologists. These emerging A...
+  PDF: https://arxiv.org/pdf/2606.11150v1
+
+- [2026-06-09] Data assimilation for subsurface flow using latent diffusion model parameterization: performance of ensemble-Kalman and Monte Carlo techniques
+  Authors: Guido Di Federico, Wenchao Teng, Louis J. Durlofsky
+  arXiv: 2606.11140v1 | Categories: physics.geo-ph, cs.AI, cs.LG
+  Abstract: Data assimilation (DA) in subsurface flow entails calibrating model parameters to match observed data, typically at wells, while preserving geological realism. Latent diffusion models (LDMs) provide efficient mappings from high-dimensional geological model space to a low-dimensional latent variable,...
+  PDF: https://arxiv.org/pdf/2606.11140v1
+
+
+## arXiv cs.LG — Latest Papers
+- [2026-06-09] When to Align, When to Predict: A Phase Diagram for Multimodal Learning
+  Authors: Ilay Kamai, Hugues Van Assel, Aviv Regev et al.
+  arXiv: 2606.11190v1 | Categories: cs.LG
+  Abstract: Cross-modal alignment (CA) and cross-modal prediction (CP) are the dominant paradigms for multimodal representation learning, yet there is no systematic understanding of when each succeeds, when each fails, and when cross-modal training helps at all -- a gap that leaves practitioners, especially in ...
+  PDF: https://arxiv.org/pdf/2606.11190v1
+
+- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design
+  Authors: Tong Xie, Yuanhao Ban, Yunqi Hong et al.
+  arXiv: 2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL
+  Abstract: Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...
+  PDF: https://arxiv.org/pdf/2606.11189v1
+
+- [2026-06-09] EEVEE: Towards Test-time Prompt Learning in the Real World for Self-Improving Agents
+  Authors: Weixian Xu, Shilong Liu, Mengdi Wang
+  arXiv: 2606.11182v1 | Categories: cs.LG, cs.AI
+  Abstract: In this paper, we propose EEVEE, the first multi-dataset test-time prompt learning framework for LLM agents, enabling test-time prompt learning under real-world task streams. Existing methods are largely designed for single-dataset settings, while real-world applications require models to handle het...
+  PDF: https://arxiv.org/pdf/2606.11182v1
+
+- [2026-06-09] The Role of Feedback Alignment in Self-Distillation
+  Authors: Semih Kara, Oğuzhan Ersoy
+  arXiv: 2606.11173v1 | Categories: cs.AI, cs.LG
+  Abstract: Conditioning a language model on additional context, such as feedback on a previous attempt, typically improves its response. Self-distillation trains the model to retain this improvement when the context is not present. The method works by matching the model's output distribution under two settings...
+  PDF: https://arxiv.org/pdf/2606.11173v1
+
+- [2026-06-09] Predicting Future Behaviors in Reasoning Models Enables Better Steering
+  Authors: Evgenii Kortukov, Piotr Komorowski, Florian Klein et al.
+  arXiv: 2606.11172v1 | Categories: cs.LG
+  Abstract: Deployed large reasoning models (LRMs) often behave unexpectedly. Test-time steering controls LRM outputs by intervening on their hidden representations, but it can degrade output quality. We argue that prior steering work implicitly relies on internal features that detect behavior in already genera...
+  PDF: https://arxiv.org/pdf/2606.11172v1
+
+- [2026-06-09] Algorithmic and Minimax Complexities in Kernel Bandits
+  Authors: Yunbei Xu
+  arXiv: 2606.11171v1 | Categories: cs.LG, cond-mat.stat-mech, cs.IT
+  Abstract: Gaussian-process upper confidence bound (GP-UCB) and decision-estimation-coefficient (DEC) methods may appear, at first sight, to belong to different theories. This paper places the two viewpoints in a common algorithmic-information language for frequentist RKHS bandits. GP-UCB fixes an algorithmic,...
+  PDF: https://arxiv.org/pdf/2606.11171v1
+
+- [2026-06-09] COGENT: Continuous Graph Emulators with Neural Ordinary Differential Equations for Long-Term Physical Forecasting
+  Authors: Zesheng Liu, Maryam Rahnemoonfar
+  arXiv: 2606.11162v1 | Categories: cs.LG
+  Abstract: In this work, we present COGENT, a continuous graph emulator with Neural Ordinary Differential Equations for long-term physical forecasting on irregular geospatial meshes. COGENT encodes a finite history of system states and associated forcing fields and external forcings with a graph-based history ...
+  PDF: https://arxiv.org/pdf/2606.11162v1
+
+- [2026-06-09] Itô maps for any-step SDEs
+  Authors: Zhengkai Pan, Peter Potaptchik, Wenxi Yao et al.
+  arXiv: 2606.11156v1 | Categories: stat.ML, cs.LG
+  Abstract: Recent one-step generative models accelerate sampling by learning deterministic flow maps of the underlying dynamics. These methods rely on learning from ordinary differential equations, leaving open how to define an exact distillation procedure for stochastic dynamics. We introduce the Itô map, an ...
+  PDF: https://arxiv.org/pdf/2606.11156v1
+
 
-<span class="c1">## arXiv cs.CL — Latest Papers</span>
-<span class="na">- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Tong Xie, Yuanhao Ban, Yunqi Hong et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11189v1</span>
-
-<span class="na">- [2026-06-09] Data Journalist Agent</span><span class="o">:</span><span class="w"> </span><span class="s">Transforming Data into Verifiable Multimodal Stories</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Kevin Qinghong Lin, Batu EI, Yuhong Shi et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11176v1 | Categories: cs.CV, cs.CL, cs.CY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Data tells stories that shape society</span><span class="c1">; the data journalist&#39;s job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11176v1</span>
-
-<span class="na">- [2026-06-09] Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Atsumoto Ohashi, Neil Zeghidour, Alexandre Défossez et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11167v1 | Categories: cs.CL, eess.AS</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Full-duplex spoken dialogue models can listen and speak simultaneously, making them a promising architecture for natural conversation. However, current models are trained solely with supervised learning through token-level likelihood maximization, which does not directly optimize interaction-level b...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11167v1</span>
-
-<span class="na">- [2026-06-09] Provenance-Grounded Gating and Adaptive Recovery in Synthetic Post-Training Data Curation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Soham Bhattacharjee, Karun Sharma, Vinay Kumar Sankarapu et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11127v1 | Categories: cs.CL, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Synthetic post-training pipelines commonly filter generated samples with reward models or holistic LLM judges, yet two practices remain rarely examined together: whether the filtering signal is grounded in the source evidence that induced each generation, and whether rejected samples can be systemat...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11127v1</span>
-
-<span class="na">- [2026-06-09] TRACE</span><span class="o">:</span><span class="w"> </span><span class="s">A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Heming Zou, Qi Wang, Yun Qu et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11119v1 | Categories: cs.LG, cs.AI, cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Reinforcement learning with verifiable rewards (RLVR) is a promising approach for enhancing reasoning and agentic behavior in large language models. However, rollout-intensive policy optimization is often limited by insufficient reward contrast, arising when overly simple or complex prompts generate...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11119v1</span>
-
-<span class="na">- [2026-06-09] PhantomBench</span><span class="o">:</span><span class="w"> </span><span class="s">Benchmarking the Non-existential Threat of Language Models</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Haeji Jung, Hila Gonen</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11105v1 | Categories: cs.CL, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Hallucinations, where language models (LMs) generate factually ungrounded responses, pose serious risks, as users tend to blindly rely on them. This is particularly concerning in high-stakes domains, where consequences of such model behavior can lead to significant harms. Despite notable progress in...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11105v1</span>
-
-<span class="na">- [2026-06-09] The Shibboleth Effect</span><span class="o">:</span><span class="w"> </span><span class="s">Auditing the Cross-Lingual Distributional Skew of Large Language Models</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Hakan Mehmetcik</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11082v1 | Categories: cs.CL, cs.CY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">This study investigates cross-lingual distributional skew (the Shibboleth Effect) in frontier large language models (LLMs) subjected to sustained adversarial conditions. We develop a multi-agent geopolitical wargame, the Cerulean Sea Crisis, a synthetic maritime territorial dispute designed to mirro...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11082v1</span>
-
-<span class="na">- [2026-06-09] VISTA</span><span class="o">:</span><span class="w"> </span><span class="s">A Versatile Interactive User Simulation Toolkit for Agent Evaluation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yunan Lu, Ryan Shea, Yusen Zhang et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11079v1 | Categories: cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Evaluation remains a critical bottleneck for interactive agent development. Existing evaluation methods often rely on static benchmarks, which fail to capture the dynamic, multi-step nature of agentic behavior and struggle to expose meaningful failure modes. While user-simulation-based evaluation of...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11079v1</span>
-
-
-<span class="c1">## arXiv cs.CV — Latest Papers</span>
-<span class="na">- [2026-06-09] ARM</span><span class="o">:</span><span class="w"> </span><span class="s">An AutoRegressive Large Multimodal Model with Unified Discrete Representations</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Junke Wang, Xiao Wang, Jiacheng Pan et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11188v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">This paper introduces ARM, a discrete representation-based AutoRegressive Model that unifies image understanding, generation, and editing within a next-token prediction framework. ARM is built on three efforts: first, we train a discrete semantic visual tokenizer that maps images into compact token ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11188v1</span>
-
-<span class="na">- [2026-06-09] Next Forcing</span><span class="o">:</span><span class="w"> </span><span class="s">Causal World Modeling with Multi-Chunk Prediction</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Gangwei Xu, Qihang Zhang, Jiaming Zhou et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11187v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Autoregressive video generation has emerged as a powerful paradigm for World Action Models (WAMs). However, existing approaches suffer from slow training convergence and limited converged accuracy, particularly at high frame rates, as the training supervision is confined to the current chunk without...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11187v1</span>
-
-<span class="na">- [2026-06-09] AnyMod-LLVE</span><span class="o">:</span><span class="w"> </span><span class="s">Low-Light Video Enhancement with Modality-Agnostic Inference</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Hangfeng Liang, Yutao Hu, Yanhan Hu et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11186v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Low-light video enhancement (LLVE) remains a challenging task due to severe information degradation under low-illumination conditions. Recent multimodal approaches have significantly improved enhancement performance by incorporating auxiliary modalities, such as event streams and infrared images. Ho...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11186v1</span>
-
-<span class="na">- [2026-06-09] Lip Forcing</span><span class="o">:</span><span class="w"> </span><span class="s">Few-Step Autoregressive Diffusion for Real-time Lip Synchronization</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Paul Hyunbin Cho, Jinhyuk Jang, SeokYoung Lee et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11180v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Diffusion-based lip synchronization models achieve strong visual quality and audio-visual alignment, but full-sequence bidirectional attention and many denoising steps make them impractical for real-time inference. We present Lip Forcing, to our knowledge the first autoregressive diffusion method fo...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11180v1</span>
-
-<span class="na">- [2026-06-09] Data Journalist Agent</span><span class="o">:</span><span class="w"> </span><span class="s">Transforming Data into Verifiable Multimodal Stories</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Kevin Qinghong Lin, Batu EI, Yuhong Shi et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11176v1 | Categories: cs.CV, cs.CL, cs.CY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Data tells stories that shape society</span><span class="c1">; the data journalist&#39;s job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11176v1</span>
-
-<span class="na">- [2026-06-09] Mean Flow Distillation</span><span class="o">:</span><span class="w"> </span><span class="s">Robust and Stable Distillation for Flow Matching Models</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">An Zhao, Shengyuan Zhang, Zhongjian Sun et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11155v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Flow Matching models have demonstrated strong performance across a wide range of generative tasks. However, their reliance on ODE-based iterative sampling incurs substantial computational overhead in inference, which limits their applicability in real-time scenes. While distillation is a promising s...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11155v1</span>
-
-<span class="na">- [2026-06-09] P3D-Bench</span><span class="o">:</span><span class="w"> </span><span class="s">Benchmarking MLLMs for Parametric 3D Generation and Structural Reasoning</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yikang Yang, Zhanpeng Hu, Youtian Lin et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11152v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Multimodal large language models can write code to produce complex programs as well as use programs to do 3D modeling, which opens up a new avenue for 3D generation powered by their priors, world knowledge and reasoning. Yet existing benchmarks rarely evaluate 3D modeling through code. Such modeling...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11152v1</span>
-
-<span class="na">- [2026-06-09] MOFA-VTON</span><span class="o">:</span><span class="w"> </span><span class="s">More Fashion Possibilities with Fine-Grained Adaptations in Virtual Try-On</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Xiaoyu Han, Chenyang Wang, Jing Wang et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11148v1 | Categories: cs.CV</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Virtual try-on aims to fit an in-shop clothing image onto a specific human body. An optimal virtual try-on method should provide diverse and flexible dressing options, accurately reflecting the varied wearing styles encountered in real-life scenarios, tailored to individual preferences and fashion a...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11148v1</span>
-
-
-<span class="c1">## arXiv cs.RO — Latest Papers</span>
-<span class="na">- [2026-06-09] TacForeSight</span><span class="o">:</span><span class="w"> </span><span class="s">Force-Guided Tactile World Model for Contact-Rich Manipulation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yujie Zang, Yuhang Zheng, Xian Nie et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11184v1 | Categories: cs.RO</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Contact-rich manipulation requires robots to continuously perceive and regulate evolving physical interactions under dynamic contact transitions or complex surface geometries. Recent imitation learning methods improve contact-aware control by incorporating tactile or force feedback, but they rarely ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11184v1</span>
-
-<span class="na">- [2026-06-09] JOIN</span><span class="o">:</span><span class="w"> </span><span class="s">Anchor-Grasp-Conditioned Joining via Opposition, Inference, and Navigation for Bimanual Assistive Manipulation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Drake Moore, Matt Cheng, Xiang Zhi Tan et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11151v1 | Categories: cs.RO</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Assistive mobility and manipulation platforms have received increasing attention as a means of restoring independence to individuals with disabilities. While effective for many basic activities of daily living (ADLs), a significant percentage of everyday tasks such as opening a jar, pouring a liquid...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11151v1</span>
-
-<span class="na">- [2026-06-09] EM-Fall</span><span class="o">:</span><span class="w"> </span><span class="s">Embodied mmWave Sensing for Day-and-Night Fall Detection on Humanoid Robots</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yanshuo Lu, Yuxuan Hu, Shenghai Yuan et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11109v1 | Categories: cs.RO</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Falls are one of the leading causes of injury and hospitalization among elderly individuals, making reliable fall awareness an essential capability for safety monitoring in residential environments. However, existing fall detection systems often rely on wearable devices or fixed sensing installation...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11109v1</span>
-
-<span class="na">- [2026-06-09] RoboNaldo</span><span class="o">:</span><span class="w"> </span><span class="s">Accurate, Stable and Powerful Humanoid Soccer Shooting via Motion-Guided Curriculum Reinforcement Learning</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yichao Zhong, Yidan Lu, Yuhang Lu et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11092v1 | Categories: cs.RO, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Elite humanoid soccer shooting requires whole-body stability, high-impulse whole-body interactions, and accuracy to targets. Motion tracking-driven reinforcement learning (RL) provides stability in whole-body movement coordination, but a fixed reference makes it hard to adapt to varied ball position...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11092v1</span>
-
-<span class="na">- [2026-06-09] A Distributed Multi-UGV Exploration Framework With Loop-Aware Planning and Descriptor-Aided Localization in Resource-Limited Environments</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zhiwei Li, Haiou Liu, Xijun Zhao et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11088v1 | Categories: cs.RO</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Robust and efficient cooperative exploration with multiple unmanned ground vehicles (UGVs) in unknown, GPSdenied, and bandwidth-limited environments without prior maps remains challenging, as localization drift degrades map consistency and induces redundant coverage. This paper presents a fully dist...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11088v1</span>
-
-<span class="na">- [2026-06-09] Generation of Diverse and Functional Robot Designs using Superquadrics Parametrisation and Quality-Diversity</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Leni Le Goff, Simon Smith, Emma Hart</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11037v1 | Categories: cs.RO</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Generative design of robots requires navigating a vast search-space, encompassing physical configurations and behavioural parameters. Evolutionary Algorithms (EAs) have shown promising results, but often converge prematurely to a small set of sub-optimal designs. Most EAs fail to maintain sufficient...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11037v1</span>
-
-<span class="na">- [2026-06-09] A Spiking Neural Architecture for Coordinating Arm and Locomotor Control</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Lea Steffen, Kathryn Simone, Graeme Damberger et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11034v1 | Categories: cs.RO, cs.NE</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Spiking Neural Networks (SNNs) coupled with neuromorphic hardware offer energy-efficient solutions for humanoid robot control. However, existing SNN-based motor control systems address bipedal locomotion and arm control in isolation, leaving integrated control of both unaddressed. We present a spiki...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11034v1</span>
-
-<span class="na">- [2026-06-09] Diffusion Forcing Planner</span><span class="o">:</span><span class="w"> </span><span class="s">History-Annealed Planning with Time-Dependent Guidance for Autonomous Driving</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zehan Zhang, Neng Zhang, Yaoyi Li et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11019v1 | Categories: cs.RO, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Learning-based motion planners, despite recent progress, often suffer from temporal inconsistency. Small perturbations across frames can accumulate into unstable trajectories, degrading comfort and safety in closed-loop driving. Several methods attempt to inject history as a static conditioning sign...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11019v1</span>
-
-
-<span class="c1">## arXiv cs.MA — Latest Papers</span>
-<span class="na">- [2026-06-09] LLM-Mediated Demand Response Coordination in Smart Microgrids</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">J. de Curtò, I. de Zarzà</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11050v1 | Categories: cs.MA, cs.GT, eess.SY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Effective demand response in smart microgrids requires prosumers to cooperate voluntarily under strategic self-interest, a coordination problem structurally equivalent to a repeated Prisoner&#39;s Dilemma on a social network. This paper presents a multi-agent simulation in which a Large Language Model (...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11050v1</span>
-
-<span class="na">- [2026-06-09] Decentralized Multi-Agent Systems with Shared Context</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yuzhen Mao, Azalia Mirhoseini</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10662v1 | Categories: cs.MA, cs.AI</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Multi-agent systems (MAS) can scale large language model reasoning at test time by decomposing complex problems into parallel subtasks. However, most existing MAS rely on centralized orchestration, where a main agent assigns work, collects outputs, and merges results. As the number of subtasks grows...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10662v1</span>
-
-<span class="na">- [2026-06-09] SkillAxe</span><span class="o">:</span><span class="w"> </span><span class="s">Sharpening LLM-Authored Agent Skills Through Evaluation-Guided Self-Refinement</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Srishti Gautam, Arjun Radhakrishna, Sumit Gulwani</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10546v1 | Categories: cs.MA</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Skill documents, structured natural-language instructions that guide Large Language Model (LLM) agents, are critical to modern agent frameworks, yet LLMs struggle to write skills that actually work. On SkillsBench, human-authored skills improve pass rates by 16.2 percentage points, while LLM-authore...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10546v1</span>
-
-<span class="na">- [2026-06-09] Decoupling Thought from Speech</span><span class="o">:</span><span class="w"> </span><span class="s">Knowledge-Grounded Counterfactual Reasoning for Resilient Multi-Agent Argumentation</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Jakub Masłowski, Jarosław A. Chudziak</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10475v1 | Categories: cs.MA, cs.AI, cs.CL</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Multi-agent debate frameworks have been shown to improve large language model performance in convergent tasks, but they are currently optimized in a way that heavily favors final output accuracy rather than stability of the process. During long-horizon exchanges reactive systems under sustained pert...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10475v1</span>
-
-<span class="na">- [2026-06-09] Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Saeid Jamshidi, Amin Nikanjam, Arghavan Moradi Dakhel et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10322v1 | Categories: cs.CR, cs.MA</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Large Language Models (LLMs) in multi-turn interactions maintain evolving context rather than generating isolated responses, making them vulnerable to prompt-injection and context-poisoning attacks in which locally plausible adversarial fragments gradually distort reasoning trajectories. Existing de...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10322v1</span>
-
-<span class="na">- [2026-06-09] What Spatial Memory Must Store</span><span class="o">:</span><span class="w"> </span><span class="s">Occlusion as the Test for Language-Agent Memory</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Doeon Kwon, Junho Bang</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10299v1 | Categories: cs.AI, cs.CV, cs.MA</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Language-agent &quot;memory palace&quot; systems anchor each memory to a world coordinate, on the intuition that geometry adds something text cannot. We make that intuition testable and report three results. First, the memory-palace default of folding spatial proximity into a linear blend beside recency and i...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10299v1</span>
-
-<span class="na">- [2026-06-08] Deployment-Time Memorization in Foundation-Model Agents</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w">  </span><span class="s">Lei,  Chen, Guilin Zhang et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10062v1 | Categories: cs.AI, cs.MA</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Foundation-model agents are increasingly long-lived systems that remember users across interactions, making memorization an explicit deployment-time function rather than solely a property of model weights. Existing work addresses parametric memorization or audits fixed memory configurations, but doe...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10062v1</span>
-
-<span class="na">- [2026-06-08] FASE</span><span class="o">:</span><span class="w"> </span><span class="s">Fast Adaptive Semantic Entropy for Code Quality</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Shizhe Lin, Ladan Tahvildari</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.09800v1 | Categories: cs.SE, cs.AI, cs.MA</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Multi-agent code generation offers a promising paradigm for autonomous software development by simulating the human software engineering lifecycle. However, system reliability remains hindered by LLM hallucinations and error propagation across interacting agents. While semantic entropy provides a pr...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.09800v1</span>
-
-
-<span class="c1">## arXiv stat.ML — Latest Papers</span>
-<span class="na">- [2026-06-09] Itô maps for any-step SDEs</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zhengkai Pan, Peter Potaptchik, Wenxi Yao et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11156v1 | Categories: stat.ML, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Recent one-step generative models accelerate sampling by learning deterministic flow maps of the underlying dynamics. These methods rely on learning from ordinary differential equations, leaving open how to define an exact distillation procedure for stochastic dynamics. We introduce the Itô map, an ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11156v1</span>
-
-<span class="na">- [2026-06-09] Data assimilation for subsurface flow using latent diffusion model parameterization</span><span class="o">:</span><span class="w"> </span><span class="s">performance of ensemble-Kalman and Monte Carlo techniques</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Guido Di Federico, Wenchao Teng, Louis J. Durlofsky</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11140v1 | Categories: physics.geo-ph, cs.AI, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Data assimilation (DA) in subsurface flow entails calibrating model parameters to match observed data, typically at wells, while preserving geological realism. Latent diffusion models (LDMs) provide efficient mappings from high-dimensional geological model space to a low-dimensional latent variable,...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11140v1</span>
-
-<span class="na">- [2026-06-09] Conformal Prediction for Dyadic Regression Under Complex Missingness</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Robert Lunde, Minjie Yang, Elizaveta Levina et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11136v1 | Categories: math.ST, stat.ME, stat.ML</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">We develop a framework for conformal prediction in dyadic regression problems under complex missingness mechanisms. At the theoretical level, we establish super-uniformity of conformal prediction under distributional invariance conditions weaker than exchangeability. A key result handles the case wh...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11136v1</span>
-
-<span class="na">- [2026-06-09] Data-Driven Dynamic Assortment in Online Platforms</span><span class="o">:</span><span class="w"> </span><span class="s">Learning about Two Sides</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Rahul Roy, Nur Sunar, Jayashankar M. Swaminathan</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11118v1 | Categories: cs.LG, math.OC, math.PR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">We study a dynamic assortment problem on a two-sided service platform with incomplete information and heterogeneous customers in a discrete-time setting. In each period, a customer arrives seeking service, and the platform chooses an assortment of sellers to display. The customer then proposes a tra...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11118v1</span>
-
-<span class="na">- [2026-06-09] Limitations of Learning Tanh Neural Networks with Finite Precision</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Philipp Grohs, Matěj Trödler</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11104v1 | Categories: cs.LG, stat.ML</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">We investigate limitations of learning $\tanh$ neural networks from point evaluations under finite-precision computations and $L^p$ accuracy guarantees, building on Berner, Grohs, and Voigtländer (2023). Our approach is based on a novel construction of sharply localized bump functions via iterated $...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11104v1</span>
-
-<span class="na">- [2026-06-09] Flexible Kernels for Protein Property Prediction</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Martin Jankowiak, Yerdos Ordabayev, Rudraksh Tuwani et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11057v1 | Categories: cs.LG, q-bio.BM, stat.ML</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Despite its importance to applications in protein design, predicting protein properties like binding affinity and thermostability from sparse experimental data remains a significant challenge. Accordingly, we introduce a class of sequence kernels that exploit evolutionary substitution matrices as we...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11057v1</span>
-
-<span class="na">- [2026-06-09] Generalized Conformal Predictive Systems Under Distributional Shifts</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Jef Jonkers, Johanna Ziegel</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11044v1 | Categories: stat.ML, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Conformal predictive systems (CPS) output calibrated bands of CDFs under exchangeability. We extend generalized CPS to non-exchangeable settings by encoding distributional shifts through observation-specific permutation weights. This yields shift-aware predictive systems that remain valid whenever t...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11044v1</span>
-
-<span class="na">- [2026-06-09] Express Language Modeling</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Albert Gong, Annabelle Michael Carrell, Raaz Dwivedi et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10944v1 | Categories: cs.LG, cs.DS, math.ST</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">We introduce a new tool, Express, for converting a non-causal attention approximation into a causal approximation with matching approximation guarantees. When combined with the state-of-the-art Thinformer approximation, Express improves upon the best known causal attention guarantees, delivering $\l...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10944v1</span>
-
-
-<span class="c1">## arXiv cs.CR — Latest Papers</span>
-<span class="na">- [2026-06-09] Anchors that Don&#39;t Lift</span><span class="o">:</span><span class="w"> </span><span class="s">Understanding Supply Chain Driven Kernel Lock-In and Governance-Mediated Mitigation Strategies in SOHO Devices</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Ritwik Badola, Rajdeep Ghosh, Ashita Gupta et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11175v1 | Categories: cs.CR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Small Office/Home Office (SOHO) devices are widely popular, yet often attacked due to security vulnerabilities in their firmware, affecting thousands of devices. These security vulnerabilities often stem from outdated Linux kernel versions included in SOHO device firmware. Naturally, prior work audi...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11175v1</span>
-
-<span class="na">- [2026-06-09] OpenPCC</span><span class="o">:</span><span class="w"> </span><span class="s">Open and Confidential LLM Serving on Commodity TEEs</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Haoling Zhou, Shixuan Zhao, Chao Wang et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11145v1 | Categories: cs.CR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Generative AI applications such as personal AI agents, image generators, and chat assistants offer advanced capabilities to improve user experience. Behind the scenes, Large Language Models (LLMs) that power these services require a massive amount of computation and are usually deployed in the cloud...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11145v1</span>
-
-<span class="na">- [2026-06-09] A Longitudinal Study of Recently Observed Malicious Domains</span><span class="o">:</span><span class="w"> </span><span class="s">Characteristics, Infrastructure, and Abuse Patterns</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Fathima Mashood, Mohamed Nabeel</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11111v1 | Categories: cs.CR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">We present a longitudinal study of approximately 1.52 million malicious domains observed on VirusTotal (VT) between January and May 2026. Domains were selected on the basis of detection by at least five independent VT scanning engines and a first-seen date within the study window. We group the datas...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11111v1</span>
-
-<span class="na">- [2026-06-09] Do Transformers Actually Help Intrusion Detection? A Temporal Sequence Evaluation on CIC-IDS2017</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Zach Moczkodan, Hany Ragab</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11098v1 | Categories: cs.CR, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Recent deep learning approaches for network intrusion detection increasingly incorporate temporal architectures such as recurrent networks and Transformers, often reporting near-perfect performance on CIC-IDS2017. However, many existing studies neither supply their temporal modules with genuine sequ...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11098v1</span>
-
-<span class="na">- [2026-06-09] When Discovery Outpaces Remediation</span><span class="o">:</span><span class="w"> </span><span class="s">Modeling AI-Accelerated Vulnerability Discovery in Interconnected Systems</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Mohamamad Reza Faghani</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11022v1 | Categories: cs.CR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Advanced AI systems for code analysis, binary analysis, fuzzing orchestration, and penetration-test planningmay significantly increase the rate at which latent vulnerabilities are discovered. While improved discovery can benefit defenders, it can also overload remediation pipelines and accelerate ad...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11022v1</span>
-
-<span class="na">- [2026-06-09] Understanding and mitigating the risks of OpenClaw for non-technical users</span><span class="o">:</span><span class="w"> </span><span class="s">A practical guide with Skill</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Junchang Zheng, Junfeng Tan, Jialiang Lin</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11007v1 | Categories: cs.CR, cs.AI, cs.SE</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">OpenClaw has rapidly emerged as a transformative artificial intelligence (AI) agent framework, and its ability to autonomously execute complex, multi-step tasks has attracted an ever-growing and diverse user base. However, this capability comes with significant risks. While existing research has mad...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11007v1</span>
-
-<span class="na">- [2026-06-09] Context-Based Adversarial Attacks on AI Code Generators</span><span class="o">:</span><span class="w"> </span><span class="s">Vulnerability Analysis and Implications</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Walther A. Del Orbe, John D. Hastings, Varghese Vaidyan</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10945v1 | Categories: cs.CR, cs.SE</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">AI-powered code generation systems have transformed software development but introduce critical inference-time security vulnerabilities. This research presents a systematic investigation of context-based adversarial attacks, where strategically crafted contextual inputs, including comments, document...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10945v1</span>
-
-<span class="na">- [2026-06-09] What Do Deepfake Speech Detectors Actually Hear?</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Vojtěch Staněk, Veronika Jirmusová, Anton Firc et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10912v1 | Categories: cs.SD, cs.AI, cs.CR</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Deepfake speech detectors often output a single score without explaining why an audio sample is flagged, where in the signal the evidence lies, or what cues drive the decision. We propose an audio-native explainability pipeline using Integrated Gradients on time-aligned self-supervised representatio...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10912v1</span>
-
-
-<span class="c1">## arXiv cs.GT — Latest Papers</span>
-<span class="na">- [2026-06-09] Fractional Pareto-Optimality in Multiwinner Voting</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Patrick Becker, Niclas Boehmer, Fabian Frank et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11160v1 | Categories: cs.GT</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Efficiency in multiwinner voting is most naturally captured by Pareto-optimality (PO), yet this notion is computationally and structurally difficult to handle. We therefore study fractional Pareto-optimality (fPO), under which a committee may not be dominated even by a fractional committee, i.e., an...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11160v1</span>
-
-<span class="na">- [2026-06-09] LLM-Mediated Demand Response Coordination in Smart Microgrids</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">J. de Curtò, I. de Zarzà</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.11050v1 | Categories: cs.MA, cs.GT, eess.SY</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Effective demand response in smart microgrids requires prosumers to cooperate voluntarily under strategic self-interest, a coordination problem structurally equivalent to a repeated Prisoner&#39;s Dilemma on a social network. This paper presents a multi-agent simulation in which a Large Language Model (...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.11050v1</span>
-
-<span class="na">- [2026-06-09] A Pigouvian Matchmaker Mechanism for De-escalating the AGI Race</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Eduard Kapelko</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10720v1 | Categories: cs.GT</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">A formal mechanism is presented in which a willing regulator-matchmaker fosters cooperation on resources among participants in the AGI race, collects a Pigouvian tax based on the speed-up it induces, and invests the proceeds into alignment research. The construction is derived in the continuous-time...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10720v1</span>
-
-<span class="na">- [2026-06-09] Trading Utility for Dynamic Fairness in Multiple Resource Division with Sequential Demand</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Kaiqi Jiang, Karim El Husseini, Wenzhe Fan et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10472v1 | Categories: cs.GT, cs.LG</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Dynamic multi-resource allocation is a central problem in shared computing environments, where users&#39; demands arrive sequentially and resources must be distributed fairly without knowledge of future demands. Existing methods emphasize fairness guarantees such as Sharing Incentive, Envy Freeness, and...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10472v1</span>
-
-<span class="na">- [2026-06-09] Arbitrage-free Data Pricing</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Yihang Wu, Zhengyu Jin, Yicheng Fu et al.</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10451v1 | Categories: cs.GT</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Driven by the rising value of data in applications such as advertising, finance, and machine learning, markets for data products have become increasingly important. Data markets mainly sell two kinds of products: datasets and machine learning models. Since these products can be replicated at negligi...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10451v1</span>
-
-<span class="na">- [2026-06-09] Proportionality from Sampled Approvals</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Gregory Kehne</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10446v1 | Categories: cs.GT, cs.DS</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">How much voter input is necessary in order to ensure representation in multiwinner elections? If voters are randomly selected from an underlying population, how many draws are necessary to find a proportional committee of $k$ candidates, with high probability? Sample-based adaptations of standard mu...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10446v1</span>
-
-<span class="na">- [2026-06-09] The Power of Altruism in Sticker Economics</span><span class="o">:</span><span class="w"> </span><span class="s">Generosity Minimizes Collective Costs and Overprotective Norms Fuel Inefficiency</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Luana Ferraz Alvarenga, Caetano Alvarenga Costa, César Rennó-Costa</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10330v1 | Categories: cs.GT, cs.CY, stat.AP</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Collecting the FIFA World Cup sticker album presents a classic public-goods and collective-action dilemma, in which completing a collection on one&#39;s own is highly inefficient. To evaluate how localized community norms shape collective efficiency, we use agent-based modeling and Monte Carlo simulatio...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10330v1</span>
-
-<span class="na">- [2026-06-09] How Many Submissions May an Author Make? A Harmonic Quota for Submissions under Coauthorship</span>
-<span class="w">  </span><span class="na">Authors</span><span class="o">:</span><span class="w"> </span><span class="s">Nihar B. Shah</span>
-<span class="w">  </span><span class="na">arXiv</span><span class="o">:</span><span class="w"> </span><span class="s">2606.10293v1 | Categories: cs.DL, cs.GT</span>
-<span class="w">  </span><span class="na">Abstract</span><span class="o">:</span><span class="w"> </span><span class="s">Research evaluation systems -- including journals, conferences, and funders -- are increasingly using author-level submission limits to manage growing submission loads. Most existing policies charge each submission as a unit cost against every coauthor&#39;s quota. This treats a solo-authored submission...</span>
-<span class="w">  </span><span class="na">PDF</span><span class="o">:</span><span class="w"> </span><span class="s">https://arxiv.org/pdf/2606.10293v1</span>
-
-<span class="k">[Dedup: 25 previously reported HN items skipped]</span>
-
-<span class="c1">## Hacker News — AI Related (Recent)</span>
-<span class="na">- [2026-06-10] [36pts, 16c] Rich Sutton on AI creativity and discovery</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://twitter.com/RichardSSutton/status/2061216087744946656</span>
-
-<span class="na">- [2026-06-10] [3pts, 0c] Intel is reportedly providing three million chips to Google</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.pcgamer.com/hardware/google-reportedly-orders-at-least-three-million-chips-from-intel-to-arrive-in-2028-as-tsmc-struggles-to-keep-up-with-the-ai-boom/</span>
-
-<span class="na">- [2026-06-10] [2pts, 1c] Apple&#39;s Foundation Models can now use third-party LLMs (Claude, Gemini) [video]</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://developer.apple.com/videos/play/wwdc2026/241/</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] Show HN</span><span class="o">:</span><span class="w"> </span><span class="s">MLL – image compression that runs well enough on DOS</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://github.com/guilt/MLL</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] QDRV – Quantum Dynamic Range Video</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://github.com/qdrv/QDRV</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] SafeAgentDB – Isolated databases for every AI agent branch</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://github.com/Aidan945/SafeAgentDB</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] Claude and ChatGPT are getting worse. It&#39;s not your imagination</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.artificialstudio.ai/blog/chatgpt-claude-getting-worse-compute-crisis</span>
-
-<span class="na">- [2026-06-10] [2pts, 1c] Pydbdict – an embedded Python dictionary database backed by SQLite</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://github.com/arthwang/pydbdict</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] Agentic Engineering Handbook – 115 official OpenAI/Anthropic articles</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://github.com/keyuchen21/agentic-engineering-handbook</span>
-
-<span class="na">- [2026-06-10] [2pts, 1c] Grok Build</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://docs.x.ai/build/overview</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] Show HN</span><span class="o">:</span><span class="w"> </span><span class="s">Master – Rails-style full-stack productivity for Node.js</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://bookbag.ai/blog/i-built-master-because-i-missed-rails</span>
-
-<span class="na">- [2026-06-10] [2pts, 0c] Show HN</span><span class="o">:</span><span class="w"> </span><span class="s">Guildly, a Slack like interface to run a company of AI employees</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.tryguildly.com/</span>
-
-
-<span class="c1">## GitHub Trending — AI/ML Repositories</span>
-<span class="k">[BeautifulSoup not installed — skipping GitHub Trending]</span>
-<span class="na">[FIX] Run</span><span class="o">:</span><span class="w"> </span><span class="s">python3 -m pip install beautifulsoup4</span>
-
-<span class="c1">## YouTube — AI Channels</span>
-<span class="k">[YouTube channel UCbfYPyITQ-7l4upoX8nvctg: [ERROR fetching YouTube channel UCbfYPyITQ-7l4upoX8nvctg: HTTP Error 500: Internal Server Error]]</span>
-<span class="na">- [2026-03-06] I BUILT A FULLY AUTOMATIC MANSPLAINER</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=xHi8PUIVyoo</span>
-
-<span class="na">- [2025-12-29] Traditional X-Mas Stream</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=Dr6jw-WAd9E</span>
-
-<span class="na">- [2025-12-28] Traditional Holiday Live Stream</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=DNajvkqfobY</span>
-
-<span class="na">- [2025-12-27] TiDAR</span><span class="o">:</span><span class="w"> </span><span class="s">Think in Diffusion, Talk in Autoregression (Paper Analysis)</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=taCVT5vDAk0</span>
-
-<span class="na">- [2025-12-14] Titans</span><span class="o">:</span><span class="w"> </span><span class="s">Learning to Memorize at Test Time (Paper Analysis)</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=v67plFw1nMw</span>
-
-<span class="k">[YouTube channel UCYO_jab_esuFRV4b17AJtAw: [ERROR fetching YouTube channel UCYO_jab_esuFRV4b17AJtAw: HTTP Error 404: Not Found]]</span>
-<span class="k">[YouTube channel UC9-y-6csu5WGm29I7JiwpnA: [ERROR fetching YouTube channel UC9-y-6csu5WGm29I7JiwpnA: HTTP Error 404: Not Found]]</span>
-<span class="na">- [2026-05-29] Biggest Mysteries in Physics</span><span class="o">:</span><span class="w"> </span><span class="s">Antimatter, Dark Energy &amp; ToE - Don Lincoln | Lex Fridman Podcast</span><span class="w"> </span><span class="c1">#497</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=1M3Vdl6DRkU</span>
-
-<span class="na">- [2026-05-06] FFmpeg</span><span class="o">:</span><span class="w"> </span><span class="s">The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast</span><span class="w"> </span><span class="c1">#496</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=nepKKz-MzFM</span>
-
-<span class="na">- [2026-04-09] Vikings, Ragnar, Berserkers, Valhalla &amp; the Warriors of the Viking Age | Lex Fridman Podcast #495</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=iKx3gAODybU</span>
-
-<span class="na">- [2026-03-23] Jensen Huang</span><span class="o">:</span><span class="w"> </span><span class="s">NVIDIA - The $4 Trillion Company &amp; the AI Revolution | Lex Fridman Podcast</span><span class="w"> </span><span class="c1">#494</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=vif8NQcjVf0</span>
-
-<span class="na">- [2026-03-11] Jeff Kaplan</span><span class="o">:</span><span class="w"> </span><span class="s">World of Warcraft, Overwatch, Blizzard, and Future of Gaming | Lex Fridman Podcast</span><span class="w"> </span><span class="c1">#493</span>
-<span class="w">  </span><span class="na">Link</span><span class="o">:</span><span class="w"> </span><span class="s">https://www.youtube.com/watch?v=H9rF1CSSh-w</span>
-
-<span class="k">[YouTube channel UCfzlCWGWYyIQ0aLC5w48gBQ: [ERROR fetching YouTube channel UCfzlCWGWYyIQ0aLC5w48gBQ: HTTP Error 500: Internal Server Error]]</span>
-<span class="k">[YouTube channel UCtYLUTtgS3k1Fg4y5tAhLbw: [ERROR fetching YouTube channel UCtYLUTtgS3k1Fg4y5tAhLbw: HTTP Error 500: Internal Server Error]]</span>
-<span class="k">[YouTube channel UC4xKdmAXFh4ACyhpiQ_3qBw: [ERROR fetching YouTube channel UC4xKdmAXFh4ACyhpiQ_3qBw: HTTP Error 404: Not Found]]</span>
-<span class="k">[YouTube channel UCNJ1Ymd5yFuUPtn21xtRbbw: [ERROR fetching YouTube channel UCNJ1Ymd5yFuUPtn21xtRbbw: HTTP Error 404: Not Found]]</span>
-<span class="k">[YouTube channel UC7vVhkEfw4nOGp8TyDk7RcQ: [ERROR fetching YouTube channel UC7vVhkEfw4nOGp8TyDk7RcQ: HTTP Error 500: Internal Server Error]]</span>
-<span class="k">[YouTube channel UCL-g3eGJi1omSDSz48AML-g: [ERROR fetching YouTube channel UCL-g3eGJi1omSDSz48AML-g: HTTP Error 500: Internal Server Error]]</span>
-<span class="k">[YouTube channel UCYlq-KmwPjc1DtsGmthFqSQ: [ERROR fetching YouTube channel UCYlq-KmwPjc1DtsGmthFqSQ: HTTP Error 404: Not Found]]</span>
-<span class="k">[Dedup: 48 previously reported blog items skipped]</span>
-
-<span class="c1">## Anthropic — Direct from anthropic.com/news</span>
-<span class="k">[BeautifulSoup not installed — skipping]</span>
-<span class="k">[Dedup: 16 previously reported safety items skipped]</span>
-
-<span class="c1">## HuggingFace — Trending Models</span>
-<span class="k">[BeautifulSoup not installed — skipping HuggingFace]</span>
-</code></pre></div>
+## arXiv cs.CL — Latest Papers
+- [2026-06-09] A Unifying Lens on Supervised Fine-Tuning Through Target Distribution Design
+  Authors: Tong Xie, Yuanhao Ban, Yunqi Hong et al.
+  arXiv: 2606.11189v1 | Categories: cs.LG, cs.AI, cs.CL
+  Abstract: Supervised fine-tuning (SFT) typically maximizes the likelihood of every token in a demonstrated trajectory. However, an observed token can be non-unique, noisy, or misaligned with the model prior. Strictly fitting toward this one-hot target may be suboptimal, especially when the pretrained model en...
+  PDF: https://arxiv.org/pdf/2606.11189v1
+
+- [2026-06-09] Data Journalist Agent: Transforming Data into Verifiable Multimodal Stories
+  Authors: Kevin Qinghong Lin, Batu EI, Yuhong Shi et al.
+  arXiv: 2606.11176v1 | Categories: cs.CV, cs.CL, cs.CY
+  Abstract: Data tells stories that shape society; the data journalist's job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual ...
+  PDF: https://arxiv.org/pdf/2606.11176v1
+
+- [2026-06-09] Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models
+  Authors: Atsumoto Ohashi, Neil Zeghidour, Alexandre Défossez et al.
+  arXiv: 2606.11167v1 | Categories: cs.CL, eess.AS
+  Abstract: Full-duplex spoken dialogue models can listen and speak simultaneously, making them a promising architecture for natural conversation. However, current models are trained solely with supervised learning through token-level likelihood maximization, which does not directly optimize interaction-level b...
+  PDF: https://arxiv.org/pdf/2606.11167v1
+
+- [2026-06-09] Provenance-Grounded Gating and Adaptive Recovery in Synthetic Post-Training Data Curation
+  Authors: Soham Bhattacharjee, Karun Sharma, Vinay Kumar Sankarapu et al.
+  arXiv: 2606.11127v1 | Categories: cs.CL, cs.AI
+  Abstract: Synthetic post-training pipelines commonly filter generated samples with reward models or holistic LLM judges, yet two practices remain rarely examined together: whether the filtering signal is grounded in the source evidence that induced each generation, and whether rejected samples can be systemat...
+  PDF: https://arxiv.org/pdf/2606.11127v1
+
+- [2026-06-09] TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning
+  Authors: Heming Zou, Qi Wang, Yun Qu et al.
+  arXiv: 2606.11119v1 | Categories: cs.LG, cs.AI, cs.CL
+  Abstract: Reinforcement learning with verifiable rewards (RLVR) is a promising approach for enhancing reasoning and agentic behavior in large language models. However, rollout-intensive policy optimization is often limited by insufficient reward contrast, arising when overly simple or complex prompts generate...
+  PDF: https://arxiv.org/pdf/2606.11119v1
+
+- [2026-06-09] PhantomBench: Benchmarking the Non-existential Threat of Language Models
+  Authors: Haeji Jung, Hila Gonen
+  arXiv: 2606.11105v1 | Categories: cs.CL, cs.AI
+  Abstract: Hallucinations, where language models (LMs) generate factually ungrounded responses, pose serious risks, as users tend to blindly rely on them. This is particularly concerning in high-stakes domains, where consequences of such model behavior can lead to significant harms. Despite notable progress in...
+  PDF: https://arxiv.org/pdf/2606.11105v1
+
+- [2026-06-09] The Shibboleth Effect: Auditing the Cross-Lingual Distributional Skew of Large Language Models
+  Authors: Hakan Mehmetcik
+  arXiv: 2606.11082v1 | Categories: cs.CL, cs.CY
+  Abstract: This study investigates cross-lingual distributional skew (the Shibboleth Effect) in frontier large language models (LLMs) subjected to sustained adversarial conditions. We develop a multi-agent geopolitical wargame, the Cerulean Sea Crisis, a synthetic maritime territorial dispute designed to mirro...
+  PDF: https://arxiv.org/pdf/2606.11082v1
+
+- [2026-06-09] VISTA: A Versatile Interactive User Simulation Toolkit for Agent Evaluation
+  Authors: Yunan Lu, Ryan Shea, Yusen Zhang et al.
+  arXiv: 2606.11079v1 | Categories: cs.CL
+  Abstract: Evaluation remains a critical bottleneck for interactive agent development. Existing evaluation methods often rely on static benchmarks, which fail to capture the dynamic, multi-step nature of agentic behavior and struggle to expose meaningful failure modes. While user-simulation-based evaluation of...
+  PDF: https://arxiv.org/pdf/2606.11079v1
+
+
+## arXiv cs.CV — Latest Papers
+- [2026-06-09] ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations
+  Authors: Junke Wang, Xiao Wang, Jiacheng Pan et al.
+  arXiv: 2606.11188v1 | Categories: cs.CV
+  Abstract: This paper introduces ARM, a discrete representation-based AutoRegressive Model that unifies image understanding, generation, and editing within a next-token prediction framework. ARM is built on three efforts: first, we train a discrete semantic visual tokenizer that maps images into compact token ...
+  PDF: https://arxiv.org/pdf/2606.11188v1
+
+- [2026-06-09] Next Forcing: Causal World Modeling with Multi-Chunk Prediction
+  Authors: Gangwei Xu, Qihang Zhang, Jiaming Zhou et al.
+  arXiv: 2606.11187v1 | Categories: cs.CV
+  Abstract: Autoregressive video generation has emerged as a powerful paradigm for World Action Models (WAMs). However, existing approaches suffer from slow training convergence and limited converged accuracy, particularly at high frame rates, as the training supervision is confined to the current chunk without...
+  PDF: https://arxiv.org/pdf/2606.11187v1
+
+- [2026-06-09] AnyMod-LLVE: Low-Light Video Enhancement with Modality-Agnostic Inference
+  Authors: Hangfeng Liang, Yutao Hu, Yanhan Hu et al.
+  arXiv: 2606.11186v1 | Categories: cs.CV
+  Abstract: Low-light video enhancement (LLVE) remains a challenging task due to severe information degradation under low-illumination conditions. Recent multimodal approaches have significantly improved enhancement performance by incorporating auxiliary modalities, such as event streams and infrared images. Ho...
+  PDF: https://arxiv.org/pdf/2606.11186v1
+
+- [2026-06-09] Lip Forcing: Few-Step Autoregressive Diffusion for Real-time Lip Synchronization
+  Authors: Paul Hyunbin Cho, Jinhyuk Jang, SeokYoung Lee et al.
+  arXiv: 2606.11180v1 | Categories: cs.CV
+  Abstract: Diffusion-based lip synchronization models achieve strong visual quality and audio-visual alignment, but full-sequence bidirectional attention and many denoising steps make them impractical for real-time inference. We present Lip Forcing, to our knowledge the first autoregressive diffusion method fo...
+  PDF: https://arxiv.org/pdf/2606.11180v1
+
+- [2026-06-09] Data Journalist Agent: Transforming Data into Verifiable Multimodal Stories
+  Authors: Kevin Qinghong Lin, Batu EI, Yuhong Shi et al.
+  arXiv: 2606.11176v1 | Categories: cs.CV, cs.CL, cs.CY
+  Abstract: Data tells stories that shape society; the data journalist's job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual ...
+  PDF: https://arxiv.org/pdf/2606.11176v1
+
+- [2026-06-09] Mean Flow Distillation: Robust and Stable Distillation for Flow Matching Models
+  Authors: An Zhao, Shengyuan Zhang, Zhongjian Sun et al.
+  arXiv: 2606.11155v1 | Categories: cs.CV
+  Abstract: Flow Matching models have demonstrated strong performance across a wide range of generative tasks. However, their reliance on ODE-based iterative sampling incurs substantial computational overhead in inference, which limits their applicability in real-time scenes. While distillation is a promising s...
+  PDF: https://arxiv.org/pdf/2606.11155v1
+
+- [2026-06-09] P3D-Bench: Benchmarking MLLMs for Parametric 3D Generation and Structural Reasoning
+  Authors: Yikang Yang, Zhanpeng Hu, Youtian Lin et al.
+  arXiv: 2606.11152v1 | Categories: cs.CV
+  Abstract: Multimodal large language models can write code to produce complex programs as well as use programs to do 3D modeling, which opens up a new avenue for 3D generation powered by their priors, world knowledge and reasoning. Yet existing benchmarks rarely evaluate 3D modeling through code. Such modeling...
+  PDF: https://arxiv.org/pdf/2606.11152v1
+
+- [2026-06-09] MOFA-VTON: More Fashion Possibilities with Fine-Grained Adaptations in Virtual Try-On
+  Authors: Xiaoyu Han, Chenyang Wang, Jing Wang et al.
+  arXiv: 2606.11148v1 | Categories: cs.CV
+  Abstract: Virtual try-on aims to fit an in-shop clothing image onto a specific human body. An optimal virtual try-on method should provide diverse and flexible dressing options, accurately reflecting the varied wearing styles encountered in real-life scenarios, tailored to individual preferences and fashion a...
+  PDF: https://arxiv.org/pdf/2606.11148v1
+
+
+## arXiv cs.RO — Latest Papers
+- [2026-06-09] TacForeSight: Force-Guided Tactile World Model for Contact-Rich Manipulation
+  Authors: Yujie Zang, Yuhang Zheng, Xian Nie et al.
+  arXiv: 2606.11184v1 | Categories: cs.RO
+  Abstract: Contact-rich manipulation requires robots to continuously perceive and regulate evolving physical interactions under dynamic contact transitions or complex surface geometries. Recent imitation learning methods improve contact-aware control by incorporating tactile or force feedback, but they rarely ...
+  PDF: https://arxiv.org/pdf/2606.11184v1
+
+- [2026-06-09] JOIN: Anchor-Grasp-Conditioned Joining via Opposition, Inference, and Navigation for Bimanual Assistive Manipulation
+  Authors: Drake Moore, Matt Cheng, Xiang Zhi Tan et al.
+  arXiv: 2606.11151v1 | Categories: cs.RO
+  Abstract: Assistive mobility and manipulation platforms have received increasing attention as a means of restoring independence to individuals with disabilities. While effective for many basic activities of daily living (ADLs), a significant percentage of everyday tasks such as opening a jar, pouring a liquid...
+  PDF: https://arxiv.org/pdf/2606.11151v1
+
+- [2026-06-09] EM-Fall: Embodied mmWave Sensing for Day-and-Night Fall Detection on Humanoid Robots
+  Authors: Yanshuo Lu, Yuxuan Hu, Shenghai Yuan et al.
+  arXiv: 2606.11109v1 | Categories: cs.RO
+  Abstract: Falls are one of the leading causes of injury and hospitalization among elderly individuals, making reliable fall awareness an essential capability for safety monitoring in residential environments. However, existing fall detection systems often rely on wearable devices or fixed sensing installation...
+  PDF: https://arxiv.org/pdf/2606.11109v1
+
+- [2026-06-09] RoboNaldo: Accurate, Stable and Powerful Humanoid Soccer Shooting via Motion-Guided Curriculum Reinforcement Learning
+  Authors: Yichao Zhong, Yidan Lu, Yuhang Lu et al.
+  arXiv: 2606.11092v1 | Categories: cs.RO, cs.AI
+  Abstract: Elite humanoid soccer shooting requires whole-body stability, high-impulse whole-body interactions, and accuracy to targets. Motion tracking-driven reinforcement learning (RL) provides stability in whole-body movement coordination, but a fixed reference makes it hard to adapt to varied ball position...
+  PDF: https://arxiv.org/pdf/2606.11092v1
+
+- [2026-06-09] A Distributed Multi-UGV Exploration Framework With Loop-Aware Planning and Descriptor-Aided Localization in Resource-Limited Environments
+  Authors: Zhiwei Li, Haiou Liu, Xijun Zhao et al.
+  arXiv: 2606.11088v1 | Categories: cs.RO
+  Abstract: Robust and efficient cooperative exploration with multiple unmanned ground vehicles (UGVs) in unknown, GPSdenied, and bandwidth-limited environments without prior maps remains challenging, as localization drift degrades map consistency and induces redundant coverage. This paper presents a fully dist...
+  PDF: https://arxiv.org/pdf/2606.11088v1
+
+- [2026-06-09] Generation of Diverse and Functional Robot Designs using Superquadrics Parametrisation and Quality-Diversity
+  Authors: Leni Le Goff, Simon Smith, Emma Hart
+  arXiv: 2606.11037v1 | Categories: cs.RO
+  Abstract: Generative design of robots requires navigating a vast search-space, encompassing physical configurations and behavioural parameters. Evolutionary Algorithms (EAs) have shown promising results, but often converge prematurely to a small set of sub-optimal designs. Most EAs fail to maintain sufficient...
+  PDF: https://arxiv.org/pdf/2606.11037v1
+
+- [2026-06-09] A Spiking Neural Architecture for Coordinating Arm and Locomotor Control
+  Authors: Lea Steffen, Kathryn Simone, Graeme Damberger et al.
+  arXiv: 2606.11034v1 | Categories: cs.RO, cs.NE
+  Abstract: Spiking Neural Networks (SNNs) coupled with neuromorphic hardware offer energy-efficient solutions for humanoid robot control. However, existing SNN-based motor control systems address bipedal locomotion and arm control in isolation, leaving integrated control of both unaddressed. We present a spiki...
+  PDF: https://arxiv.org/pdf/2606.11034v1
+
+- [2026-06-09] Diffusion Forcing Planner: History-Annealed Planning with Time-Dependent Guidance for Autonomous Driving
+  Authors: Zehan Zhang, Neng Zhang, Yaoyi Li et al.
+  arXiv: 2606.11019v1 | Categories: cs.RO, cs.AI
+  Abstract: Learning-based motion planners, despite recent progress, often suffer from temporal inconsistency. Small perturbations across frames can accumulate into unstable trajectories, degrading comfort and safety in closed-loop driving. Several methods attempt to inject history as a static conditioning sign...
+  PDF: https://arxiv.org/pdf/2606.11019v1
+
+
+## arXiv cs.MA — Latest Papers
+- [2026-06-09] LLM-Mediated Demand Response Coordination in Smart Microgrids
+  Authors: J. de Curtò, I. de Zarzà
+  arXiv: 2606.11050v1 | Categories: cs.MA, cs.GT, eess.SY
+  Abstract: Effective demand response in smart microgrids requires prosumers to cooperate voluntarily under strategic self-interest, a coordination problem structurally equivalent to a repeated Prisoner's Dilemma on a social network. This paper presents a multi-agent simulation in which a Large Language Model (...
+  PDF: https://arxiv.org/pdf/2606.11050v1
+
+- [2026-06-09] Decentralized Multi-Agent Systems with Shared Context
+  Authors: Yuzhen Mao, Azalia Mirhoseini
+  arXiv: 2606.10662v1 | Categories: cs.MA, cs.AI
+  Abstract: Multi-agent systems (MAS) can scale large language model reasoning at test time by decomposing complex problems into parallel subtasks. However, most existing MAS rely on centralized orchestration, where a main agent assigns work, collects outputs, and merges results. As the number of subtasks grows...
+  PDF: https://arxiv.org/pdf/2606.10662v1
+
+- [2026-06-09] SkillAxe: Sharpening LLM-Authored Agent Skills Through Evaluation-Guided Self-Refinement
+  Authors: Srishti Gautam, Arjun Radhakrishna, Sumit Gulwani
+  arXiv: 2606.10546v1 | Categories: cs.MA
+  Abstract: Skill documents, structured natural-language instructions that guide Large Language Model (LLM) agents, are critical to modern agent frameworks, yet LLMs struggle to write skills that actually work. On SkillsBench, human-authored skills improve pass rates by 16.2 percentage points, while LLM-authore...
+  PDF: https://arxiv.org/pdf/2606.10546v1
+
+- [2026-06-09] Decoupling Thought from Speech: Knowledge-Grounded Counterfactual Reasoning for Resilient Multi-Agent Argumentation
+  Authors: Jakub Masłowski, Jarosław A. Chudziak
+  arXiv: 2606.10475v1 | Categories: cs.MA, cs.AI, cs.CL
+  Abstract: Multi-agent debate frameworks have been shown to improve large language model performance in convergent tasks, but they are currently optimized in a way that heavily favors final output accuracy rather than stability of the process. During long-horizon exchanges reactive systems under sustained pert...
+  PDF: https://arxiv.org/pdf/2606.10475v1
+
+- [2026-06-09] Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs
+  Authors: Saeid Jamshidi, Amin Nikanjam, Arghavan Moradi Dakhel et al.
+  arXiv: 2606.10322v1 | Categories: cs.CR, cs.MA
+  Abstract: Large Language Models (LLMs) in multi-turn interactions maintain evolving context rather than generating isolated responses, making them vulnerable to prompt-injection and context-poisoning attacks in which locally plausible adversarial fragments gradually distort reasoning trajectories. Existing de...
+  PDF: https://arxiv.org/pdf/2606.10322v1
+
+- [2026-06-09] What Spatial Memory Must Store: Occlusion as the Test for Language-Agent Memory
+  Authors: Doeon Kwon, Junho Bang
+  arXiv: 2606.10299v1 | Categories: cs.AI, cs.CV, cs.MA
+  Abstract: Language-agent &quot;memory palace&quot; systems anchor each memory to a world coordinate, on the intuition that geometry adds something text cannot. We make that intuition testable and report three results. First, the memory-palace default of folding spatial proximity into a linear blend beside recency and i...
+  PDF: https://arxiv.org/pdf/2606.10299v1
+
+- [2026-06-08] Deployment-Time Memorization in Foundation-Model Agents
+  Authors:  Lei,  Chen, Guilin Zhang et al.
+  arXiv: 2606.10062v1 | Categories: cs.AI, cs.MA
+  Abstract: Foundation-model agents are increasingly long-lived systems that remember users across interactions, making memorization an explicit deployment-time function rather than solely a property of model weights. Existing work addresses parametric memorization or audits fixed memory configurations, but doe...
+  PDF: https://arxiv.org/pdf/2606.10062v1
+
+- [2026-06-08] FASE: Fast Adaptive Semantic Entropy for Code Quality
+  Authors: Shizhe Lin, Ladan Tahvildari
+  arXiv: 2606.09800v1 | Categories: cs.SE, cs.AI, cs.MA
+  Abstract: Multi-agent code generation offers a promising paradigm for autonomous software development by simulating the human software engineering lifecycle. However, system reliability remains hindered by LLM hallucinations and error propagation across interacting agents. While semantic entropy provides a pr...
+  PDF: https://arxiv.org/pdf/2606.09800v1
+
+
+## arXiv stat.ML — Latest Papers
+- [2026-06-09] Itô maps for any-step SDEs
+  Authors: Zhengkai Pan, Peter Potaptchik, Wenxi Yao et al.
+  arXiv: 2606.11156v1 | Categories: stat.ML, cs.LG
+  Abstract: Recent one-step generative models accelerate sampling by learning deterministic flow maps of the underlying dynamics. These methods rely on learning from ordinary differential equations, leaving open how to define an exact distillation procedure for stochastic dynamics. We introduce the Itô map, an ...
+  PDF: https://arxiv.org/pdf/2606.11156v1
+
+- [2026-06-09] Data assimilation for subsurface flow using latent diffusion model parameterization: performance of ensemble-Kalman and Monte Carlo techniques
+  Authors: Guido Di Federico, Wenchao Teng, Louis J. Durlofsky
+  arXiv: 2606.11140v1 | Categories: physics.geo-ph, cs.AI, cs.LG
+  Abstract: Data assimilation (DA) in subsurface flow entails calibrating model parameters to match observed data, typically at wells, while preserving geological realism. Latent diffusion models (LDMs) provide efficient mappings from high-dimensional geological model space to a low-dimensional latent variable,...
+  PDF: https://arxiv.org/pdf/2606.11140v1
+
+- [2026-06-09] Conformal Prediction for Dyadic Regression Under Complex Missingness
+  Authors: Robert Lunde, Minjie Yang, Elizaveta Levina et al.
+  arXiv: 2606.11136v1 | Categories: math.ST, stat.ME, stat.ML
+  Abstract: We develop a framework for conformal prediction in dyadic regression problems under complex missingness mechanisms. At the theoretical level, we establish super-uniformity of conformal prediction under distributional invariance conditions weaker than exchangeability. A key result handles the case wh...
+  PDF: https://arxiv.org/pdf/2606.11136v1
+
+- [2026-06-09] Data-Driven Dynamic Assortment in Online Platforms: Learning about Two Sides
+  Authors: Rahul Roy, Nur Sunar, Jayashankar M. Swaminathan
+  arXiv: 2606.11118v1 | Categories: cs.LG, math.OC, math.PR
+  Abstract: We study a dynamic assortment problem on a two-sided service platform with incomplete information and heterogeneous customers in a discrete-time setting. In each period, a customer arrives seeking service, and the platform chooses an assortment of sellers to display. The customer then proposes a tra...
+  PDF: https://arxiv.org/pdf/2606.11118v1
+
+- [2026-06-09] Limitations of Learning Tanh Neural Networks with Finite Precision
+  Authors: Philipp Grohs, Matěj Trödler
+  arXiv: 2606.11104v1 | Categories: cs.LG, stat.ML
+  Abstract: We investigate limitations of learning $\tanh$ neural networks from point evaluations under finite-precision computations and $L^p$ accuracy guarantees, building on Berner, Grohs, and Voigtländer (2023). Our approach is based on a novel construction of sharply localized bump functions via iterated $...
+  PDF: https://arxiv.org/pdf/2606.11104v1
+
+- [2026-06-09] Flexible Kernels for Protein Property Prediction
+  Authors: Martin Jankowiak, Yerdos Ordabayev, Rudraksh Tuwani et al.
+  arXiv: 2606.11057v1 | Categories: cs.LG, q-bio.BM, stat.ML
+  Abstract: Despite its importance to applications in protein design, predicting protein properties like binding affinity and thermostability from sparse experimental data remains a significant challenge. Accordingly, we introduce a class of sequence kernels that exploit evolutionary substitution matrices as we...
+  PDF: https://arxiv.org/pdf/2606.11057v1
+
+- [2026-06-09] Generalized Conformal Predictive Systems Under Distributional Shifts
+  Authors: Jef Jonkers, Johanna Ziegel
+  arXiv: 2606.11044v1 | Categories: stat.ML, cs.LG
+  Abstract: Conformal predictive systems (CPS) output calibrated bands of CDFs under exchangeability. We extend generalized CPS to non-exchangeable settings by encoding distributional shifts through observation-specific permutation weights. This yields shift-aware predictive systems that remain valid whenever t...
+  PDF: https://arxiv.org/pdf/2606.11044v1
+
+- [2026-06-09] Express Language Modeling
+  Authors: Albert Gong, Annabelle Michael Carrell, Raaz Dwivedi et al.
+  arXiv: 2606.10944v1 | Categories: cs.LG, cs.DS, math.ST
+  Abstract: We introduce a new tool, Express, for converting a non-causal attention approximation into a causal approximation with matching approximation guarantees. When combined with the state-of-the-art Thinformer approximation, Express improves upon the best known causal attention guarantees, delivering $\l...
+  PDF: https://arxiv.org/pdf/2606.10944v1
+
+
+## arXiv cs.CR — Latest Papers
+- [2026-06-09] Anchors that Don't Lift: Understanding Supply Chain Driven Kernel Lock-In and Governance-Mediated Mitigation Strategies in SOHO Devices
+  Authors: Ritwik Badola, Rajdeep Ghosh, Ashita Gupta et al.
+  arXiv: 2606.11175v1 | Categories: cs.CR
+  Abstract: Small Office/Home Office (SOHO) devices are widely popular, yet often attacked due to security vulnerabilities in their firmware, affecting thousands of devices. These security vulnerabilities often stem from outdated Linux kernel versions included in SOHO device firmware. Naturally, prior work audi...
+  PDF: https://arxiv.org/pdf/2606.11175v1
+
+- [2026-06-09] OpenPCC: Open and Confidential LLM Serving on Commodity TEEs
+  Authors: Haoling Zhou, Shixuan Zhao, Chao Wang et al.
+  arXiv: 2606.11145v1 | Categories: cs.CR
+  Abstract: Generative AI applications such as personal AI agents, image generators, and chat assistants offer advanced capabilities to improve user experience. Behind the scenes, Large Language Models (LLMs) that power these services require a massive amount of computation and are usually deployed in the cloud...
+  PDF: https://arxiv.org/pdf/2606.11145v1
+
+- [2026-06-09] A Longitudinal Study of Recently Observed Malicious Domains: Characteristics, Infrastructure, and Abuse Patterns
+  Authors: Fathima Mashood, Mohamed Nabeel
+  arXiv: 2606.11111v1 | Categories: cs.CR
+  Abstract: We present a longitudinal study of approximately 1.52 million malicious domains observed on VirusTotal (VT) between January and May 2026. Domains were selected on the basis of detection by at least five independent VT scanning engines and a first-seen date within the study window. We group the datas...
+  PDF: https://arxiv.org/pdf/2606.11111v1
+
+- [2026-06-09] Do Transformers Actually Help Intrusion Detection? A Temporal Sequence Evaluation on CIC-IDS2017
+  Authors: Zach Moczkodan, Hany Ragab
+  arXiv: 2606.11098v1 | Categories: cs.CR, cs.LG
+  Abstract: Recent deep learning approaches for network intrusion detection increasingly incorporate temporal architectures such as recurrent networks and Transformers, often reporting near-perfect performance on CIC-IDS2017. However, many existing studies neither supply their temporal modules with genuine sequ...
+  PDF: https://arxiv.org/pdf/2606.11098v1
+
+- [2026-06-09] When Discovery Outpaces Remediation: Modeling AI-Accelerated Vulnerability Discovery in Interconnected Systems
+  Authors: Mohamamad Reza Faghani
+  arXiv: 2606.11022v1 | Categories: cs.CR
+  Abstract: Advanced AI systems for code analysis, binary analysis, fuzzing orchestration, and penetration-test planningmay significantly increase the rate at which latent vulnerabilities are discovered. While improved discovery can benefit defenders, it can also overload remediation pipelines and accelerate ad...
+  PDF: https://arxiv.org/pdf/2606.11022v1
+
+- [2026-06-09] Understanding and mitigating the risks of OpenClaw for non-technical users: A practical guide with Skill
+  Authors: Junchang Zheng, Junfeng Tan, Jialiang Lin
+  arXiv: 2606.11007v1 | Categories: cs.CR, cs.AI, cs.SE
+  Abstract: OpenClaw has rapidly emerged as a transformative artificial intelligence (AI) agent framework, and its ability to autonomously execute complex, multi-step tasks has attracted an ever-growing and diverse user base. However, this capability comes with significant risks. While existing research has mad...
+  PDF: https://arxiv.org/pdf/2606.11007v1
+
+- [2026-06-09] Context-Based Adversarial Attacks on AI Code Generators: Vulnerability Analysis and Implications
+  Authors: Walther A. Del Orbe, John D. Hastings, Varghese Vaidyan
+  arXiv: 2606.10945v1 | Categories: cs.CR, cs.SE
+  Abstract: AI-powered code generation systems have transformed software development but introduce critical inference-time security vulnerabilities. This research presents a systematic investigation of context-based adversarial attacks, where strategically crafted contextual inputs, including comments, document...
+  PDF: https://arxiv.org/pdf/2606.10945v1
+
+- [2026-06-09] What Do Deepfake Speech Detectors Actually Hear?
+  Authors: Vojtěch Staněk, Veronika Jirmusová, Anton Firc et al.
+  arXiv: 2606.10912v1 | Categories: cs.SD, cs.AI, cs.CR
+  Abstract: Deepfake speech detectors often output a single score without explaining why an audio sample is flagged, where in the signal the evidence lies, or what cues drive the decision. We propose an audio-native explainability pipeline using Integrated Gradients on time-aligned self-supervised representatio...
+  PDF: https://arxiv.org/pdf/2606.10912v1
+
+
+## arXiv cs.GT — Latest Papers
+- [2026-06-09] Fractional Pareto-Optimality in Multiwinner Voting
+  Authors: Patrick Becker, Niclas Boehmer, Fabian Frank et al.
+  arXiv: 2606.11160v1 | Categories: cs.GT
+  Abstract: Efficiency in multiwinner voting is most naturally captured by Pareto-optimality (PO), yet this notion is computationally and structurally difficult to handle. We therefore study fractional Pareto-optimality (fPO), under which a committee may not be dominated even by a fractional committee, i.e., an...
+  PDF: https://arxiv.org/pdf/2606.11160v1
+
+- [2026-06-09] LLM-Mediated Demand Response Coordination in Smart Microgrids
+  Authors: J. de Curtò, I. de Zarzà
+  arXiv: 2606.11050v1 | Categories: cs.MA, cs.GT, eess.SY
+  Abstract: Effective demand response in smart microgrids requires prosumers to cooperate voluntarily under strategic self-interest, a coordination problem structurally equivalent to a repeated Prisoner's Dilemma on a social network. This paper presents a multi-agent simulation in which a Large Language Model (...
+  PDF: https://arxiv.org/pdf/2606.11050v1
+
+- [2026-06-09] A Pigouvian Matchmaker Mechanism for De-escalating the AGI Race
+  Authors: Eduard Kapelko
+  arXiv: 2606.10720v1 | Categories: cs.GT
+  Abstract: A formal mechanism is presented in which a willing regulator-matchmaker fosters cooperation on resources among participants in the AGI race, collects a Pigouvian tax based on the speed-up it induces, and invests the proceeds into alignment research. The construction is derived in the continuous-time...
+  PDF: https://arxiv.org/pdf/2606.10720v1
+
+- [2026-06-09] Trading Utility for Dynamic Fairness in Multiple Resource Division with Sequential Demand
+  Authors: Kaiqi Jiang, Karim El Husseini, Wenzhe Fan et al.
+  arXiv: 2606.10472v1 | Categories: cs.GT, cs.LG
+  Abstract: Dynamic multi-resource allocation is a central problem in shared computing environments, where users' demands arrive sequentially and resources must be distributed fairly without knowledge of future demands. Existing methods emphasize fairness guarantees such as Sharing Incentive, Envy Freeness, and...
+  PDF: https://arxiv.org/pdf/2606.10472v1
+
+- [2026-06-09] Arbitrage-free Data Pricing
+  Authors: Yihang Wu, Zhengyu Jin, Yicheng Fu et al.
+  arXiv: 2606.10451v1 | Categories: cs.GT
+  Abstract: Driven by the rising value of data in applications such as advertising, finance, and machine learning, markets for data products have become increasingly important. Data markets mainly sell two kinds of products: datasets and machine learning models. Since these products can be replicated at negligi...
+  PDF: https://arxiv.org/pdf/2606.10451v1
+
+- [2026-06-09] Proportionality from Sampled Approvals
+  Authors: Gregory Kehne
+  arXiv: 2606.10446v1 | Categories: cs.GT, cs.DS
+  Abstract: How much voter input is necessary in order to ensure representation in multiwinner elections? If voters are randomly selected from an underlying population, how many draws are necessary to find a proportional committee of $k$ candidates, with high probability? Sample-based adaptations of standard mu...
+  PDF: https://arxiv.org/pdf/2606.10446v1
+
+- [2026-06-09] The Power of Altruism in Sticker Economics: Generosity Minimizes Collective Costs and Overprotective Norms Fuel Inefficiency
+  Authors: Luana Ferraz Alvarenga, Caetano Alvarenga Costa, César Rennó-Costa
+  arXiv: 2606.10330v1 | Categories: cs.GT, cs.CY, stat.AP
+  Abstract: Collecting the FIFA World Cup sticker album presents a classic public-goods and collective-action dilemma, in which completing a collection on one's own is highly inefficient. To evaluate how localized community norms shape collective efficiency, we use agent-based modeling and Monte Carlo simulatio...
+  PDF: https://arxiv.org/pdf/2606.10330v1
+
+- [2026-06-09] How Many Submissions May an Author Make? A Harmonic Quota for Submissions under Coauthorship
+  Authors: Nihar B. Shah
+  arXiv: 2606.10293v1 | Categories: cs.DL, cs.GT
+  Abstract: Research evaluation systems -- including journals, conferences, and funders -- are increasingly using author-level submission limits to manage growing submission loads. Most existing policies charge each submission as a unit cost against every coauthor's quota. This treats a solo-authored submission...
+  PDF: https://arxiv.org/pdf/2606.10293v1
+
+[Dedup: 25 previously reported HN items skipped]
+
+## Hacker News — AI Related (Recent)
+- [2026-06-10] [36pts, 16c] Rich Sutton on AI creativity and discovery
+  Link: https://twitter.com/RichardSSutton/status/2061216087744946656
+
+- [2026-06-10] [3pts, 0c] Intel is reportedly providing three million chips to Google
+  Link: https://www.pcgamer.com/hardware/google-reportedly-orders-at-least-three-million-chips-from-intel-to-arrive-in-2028-as-tsmc-struggles-to-keep-up-with-the-ai-boom/
+
+- [2026-06-10] [2pts, 1c] Apple's Foundation Models can now use third-party LLMs (Claude, Gemini) [video]
+  Link: https://developer.apple.com/videos/play/wwdc2026/241/
+
+- [2026-06-10] [2pts, 0c] Show HN: MLL – image compression that runs well enough on DOS
+  Link: https://github.com/guilt/MLL
+
+- [2026-06-10] [2pts, 0c] QDRV – Quantum Dynamic Range Video
+  Link: https://github.com/qdrv/QDRV
+
+- [2026-06-10] [2pts, 0c] SafeAgentDB – Isolated databases for every AI agent branch
+  Link: https://github.com/Aidan945/SafeAgentDB
+
+- [2026-06-10] [2pts, 0c] Claude and ChatGPT are getting worse. It's not your imagination
+  Link: https://www.artificialstudio.ai/blog/chatgpt-claude-getting-worse-compute-crisis
+
+- [2026-06-10] [2pts, 1c] Pydbdict – an embedded Python dictionary database backed by SQLite
+  Link: https://github.com/arthwang/pydbdict
+
+- [2026-06-10] [2pts, 0c] Agentic Engineering Handbook – 115 official OpenAI/Anthropic articles
+  Link: https://github.com/keyuchen21/agentic-engineering-handbook
+
+- [2026-06-10] [2pts, 1c] Grok Build
+  Link: https://docs.x.ai/build/overview
+
+- [2026-06-10] [2pts, 0c] Show HN: Master – Rails-style full-stack productivity for Node.js
+  Link: https://bookbag.ai/blog/i-built-master-because-i-missed-rails
+
+- [2026-06-10] [2pts, 0c] Show HN: Guildly, a Slack like interface to run a company of AI employees
+  Link: https://www.tryguildly.com/
+
+
+## GitHub Trending — AI/ML Repositories
+[BeautifulSoup not installed — skipping GitHub Trending]
+[FIX] Run: python3 -m pip install beautifulsoup4
+
+## YouTube — AI Channels
+[YouTube channel UCbfYPyITQ-7l4upoX8nvctg: [ERROR fetching YouTube channel UCbfYPyITQ-7l4upoX8nvctg: HTTP Error 500: Internal Server Error]]
+- [2026-03-06] I BUILT A FULLY AUTOMATIC MANSPLAINER
+  Link: https://www.youtube.com/watch?v=xHi8PUIVyoo
+
+- [2025-12-29] Traditional X-Mas Stream
+  Link: https://www.youtube.com/watch?v=Dr6jw-WAd9E
+
+- [2025-12-28] Traditional Holiday Live Stream
+  Link: https://www.youtube.com/watch?v=DNajvkqfobY
+
+- [2025-12-27] TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)
+  Link: https://www.youtube.com/watch?v=taCVT5vDAk0
+
+- [2025-12-14] Titans: Learning to Memorize at Test Time (Paper Analysis)
+  Link: https://www.youtube.com/watch?v=v67plFw1nMw
+
+[YouTube channel UCYO_jab_esuFRV4b17AJtAw: [ERROR fetching YouTube channel UCYO_jab_esuFRV4b17AJtAw: HTTP Error 404: Not Found]]
+[YouTube channel UC9-y-6csu5WGm29I7JiwpnA: [ERROR fetching YouTube channel UC9-y-6csu5WGm29I7JiwpnA: HTTP Error 404: Not Found]]
+- [2026-05-29] Biggest Mysteries in Physics: Antimatter, Dark Energy &amp; ToE - Don Lincoln | Lex Fridman Podcast #497
+  Link: https://www.youtube.com/watch?v=1M3Vdl6DRkU
+
+- [2026-05-06] FFmpeg: The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast #496
+  Link: https://www.youtube.com/watch?v=nepKKz-MzFM
+
+- [2026-04-09] Vikings, Ragnar, Berserkers, Valhalla &amp; the Warriors of the Viking Age | Lex Fridman Podcast #495
+  Link: https://www.youtube.com/watch?v=iKx3gAODybU
+
+- [2026-03-23] Jensen Huang: NVIDIA - The $4 Trillion Company &amp; the AI Revolution | Lex Fridman Podcast #494
+  Link: https://www.youtube.com/watch?v=vif8NQcjVf0
+
+- [2026-03-11] Jeff Kaplan: World of Warcraft, Overwatch, Blizzard, and Future of Gaming | Lex Fridman Podcast #493
+  Link: https://www.youtube.com/watch?v=H9rF1CSSh-w
+
+[YouTube channel UCfzlCWGWYyIQ0aLC5w48gBQ: [ERROR fetching YouTube channel UCfzlCWGWYyIQ0aLC5w48gBQ: HTTP Error 500: Internal Server Error]]
+[YouTube channel UCtYLUTtgS3k1Fg4y5tAhLbw: [ERROR fetching YouTube channel UCtYLUTtgS3k1Fg4y5tAhLbw: HTTP Error 500: Internal Server Error]]
+[YouTube channel UC4xKdmAXFh4ACyhpiQ_3qBw: [ERROR fetching YouTube channel UC4xKdmAXFh4ACyhpiQ_3qBw: HTTP Error 404: Not Found]]
+[YouTube channel UCNJ1Ymd5yFuUPtn21xtRbbw: [ERROR fetching YouTube channel UCNJ1Ymd5yFuUPtn21xtRbbw: HTTP Error 404: Not Found]]
+[YouTube channel UC7vVhkEfw4nOGp8TyDk7RcQ: [ERROR fetching YouTube channel UC7vVhkEfw4nOGp8TyDk7RcQ: HTTP Error 500: Internal Server Error]]
+[YouTube channel UCL-g3eGJi1omSDSz48AML-g: [ERROR fetching YouTube channel UCL-g3eGJi1omSDSz48AML-g: HTTP Error 500: Internal Server Error]]
+[YouTube channel UCYlq-KmwPjc1DtsGmthFqSQ: [ERROR fetching YouTube channel UCYlq-KmwPjc1DtsGmthFqSQ: HTTP Error 404: Not Found]]
+[Dedup: 48 previously reported blog items skipped]
+
+## Anthropic — Direct from anthropic.com/news
+[BeautifulSoup not installed — skipping]
+[Dedup: 16 previously reported safety items skipped]
+
+## HuggingFace — Trending Models
+[BeautifulSoup not installed — skipping HuggingFace]
+</code></pre>
 
 <p>你是一名世界级 AI 行业分析师，兼具 Karpathy 的信噪比思维、Ilya 的趋势判断力和 Jim Fan 的具身智能视角。</p>
 <h2 id="_1">用户画像</h2>
