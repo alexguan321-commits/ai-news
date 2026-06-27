@@ -93,42 +93,74 @@ def generate_html(posts):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 资讯日报 - 每日 AI 行业资讯</title>
+    <title>AI 资讯日报 — Neural Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
     <link rel="stylesheet" href="/ai-news/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">🤖 AI 资讯日报</a>
+        <a href="/ai-news/" class="logo">🧠 <span>AI 资讯日报</span></a>
+        <div class="nav-stats">
+            <div><span class="stat-value">{total}</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
     </nav>
     
     <main class="container">
         <section class="hero">
-            <h1>🤖 AI 资讯日报</h1>
-            <p>每日 AI 行业资讯，由 Hermes Agent 自动采集和生成</p>
+            <div class="badge"><span class="pulse"></span> LIVE — Powered by Hermes Agent</div>
+            <h1>AI 资讯日报</h1>
+            <p>每日 AI 行业深度情报，由 AI 自动采集、分析、生成</p>
         </section>
+        
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">{total}</div>
+                <div class="stat-label">Reports Published</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Data Sources</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Daily Editions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Auto Collection</div>
+            </div>
+        </div>
         
         <section class="search-section">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="🔍 搜索报告标题或日期..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="搜索报告..." autocomplete="off">
                 <span id="searchCount" class="search-count"></span>
             </div>
             <div class="filter-tags">
                 <button class="filter-tag active" data-filter="all">全部</button>
-                <button class="filter-tag" data-filter="morning">早报</button>
-                <button class="filter-tag" data-filter="noon">午报</button>
-                <button class="filter-tag" data-filter="evening">晚报</button>
+                <button class="filter-tag" data-filter="morning">🌅 早报</button>
+                <button class="filter-tag" data-filter="noon">☀️ 午报</button>
+                <button class="filter-tag" data-filter="evening">🌙 晚报</button>
             </div>
         </section>
         
         <section class="reports-list">
-            <h2>📰 最新报告</h2>
+            <div class="section-header">
+                <h2>📰 Latest</h2>
+                <span class="count">{min(6, total)} most recent</span>
+            </div>
             <div class="report-grid">
 {cards}
             </div>
         </section>
         
         <section class="all-reports">
-            <h2>📚 全部报告 ({total} 篇)</h2>
+            <div class="section-header">
+                <h2>📚 Archive</h2>
+                <span class="count">{total} reports</span>
+            </div>
             <div class="report-archive">
 {archive}
             </div>
@@ -136,7 +168,8 @@ def generate_html(posts):
     </main>
     
     <footer class="footer">
-        <p>由 Hermes Agent 自动生成 | 共 {total} 篇报告</p>
+        <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · {total} REPORTS</p>
     </footer>
     
     <script>
