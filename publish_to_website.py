@@ -57,13 +57,37 @@ def extract_metadata(report_content, report_path):
 
 def extract_report_content(content):
     """从 cron 输出文件中提取实际报告内容"""
-    # 查找报告的起始位置（以 "# AI 早报" 或 "# AI 午报" 或 "# AI 晚报" 开头）
+    # 查找报告的起始位置
+    # 尝试多种模式：
+    # 1. "# AI 早报/午报/晚报" (标准格式)
+    # 2. "☀️ AI 午报" / "🌅 AI 早报" / "🌙 AI 晚报" (带 emoji 格式)
+    # 3. "## Response" 后面的第一行 (cron 输出格式)
+    
     report_start = None
-    for pattern in [r'^# AI 早报', r'^# AI 午报', r'^# AI 晚报', r'^# AI 资讯']:
-        match = re.search(pattern, content, re.MULTILINE)
-        if match:
-            report_start = match.start()
-            break
+    
+    # 先尝试找 "## Response" 标记
+    response_match = re.search(r'^## Response\s*\n', content, re.MULTILINE)
+    if response_match:
+        # 从 Response 标记后开始查找报告标题
+        after_response = content[response_match.end():]
+        # 查找报告标题（可能在 Response 后几行）
+        for pattern in [r'^☀️ AI 午报', r'^🌅 AI 早报', r'^🌙 AI 晚报', 
+                        r'^# AI 早报', r'^# AI 午报', r'^# AI 晚报',
+                        r'^AI 早报', r'^AI 午报', r'^AI 晚报']:
+            match = re.search(pattern, after_response, re.MULTILINE)
+            if match:
+                report_start = response_match.end() + match.start()
+                break
+    
+    # 如果没找到 Response 标记，直接查找报告标题
+    if report_start is None:
+        for pattern in [r'^☀️ AI 午报', r'^🌅 AI 早报', r'^🌙 AI 晚报',
+                        r'^# AI 早报', r'^# AI 午报', r'^# AI 晚报',
+                        r'^AI 早报', r'^AI 午报', r'^AI 晚报']:
+            match = re.search(pattern, content, re.MULTILINE)
+            if match:
+                report_start = match.start()
+                break
     
     if report_start is not None:
         # 提取从报告开始到文件末尾的内容
