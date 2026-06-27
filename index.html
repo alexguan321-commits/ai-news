@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 资讯日报 — Neural Dashboard</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
-    <link rel="stylesheet" href="/ai-news/styles.css">
+    <title>AI 资讯日报</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">🧠 <span>AI 资讯日报</span></a>
+        <a href="/ai-news/" class="logo">AI 资讯日报</a>
         <div class="nav-stats">
             <div><span class="stat-value">58</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
@@ -19,7 +21,6 @@
     
     <main class="container">
         <section class="hero">
-            <div class="badge"><span class="pulse"></span> LIVE — Powered by Hermes Agent</div>
             <h1>AI 资讯日报</h1>
             <p>每日 AI 行业深度情报，由 AI 自动采集、分析、生成</p>
         </section>
@@ -50,15 +51,15 @@
             </div>
             <div class="filter-tags">
                 <button class="filter-tag active" data-filter="all">全部</button>
-                <button class="filter-tag" data-filter="morning">🌅 早报</button>
-                <button class="filter-tag" data-filter="noon">☀️ 午报</button>
-                <button class="filter-tag" data-filter="evening">🌙 晚报</button>
+                <button class="filter-tag" data-filter="morning">早报</button>
+                <button class="filter-tag" data-filter="noon">午报</button>
+                <button class="filter-tag" data-filter="evening">晚报</button>
             </div>
         </section>
         
         <section class="reports-list">
             <div class="section-header">
-                <h2>📰 Latest</h2>
+                <h2>Latest</h2>
                 <span class="count">6 most recent</span>
             </div>
             <div class="report-grid">
@@ -109,7 +110,7 @@
         
         <section class="all-reports">
             <div class="section-header">
-                <h2>📚 Archive</h2>
+                <h2>Archive</h2>
                 <span class="count">58 reports</span>
             </div>
             <div class="report-archive">
