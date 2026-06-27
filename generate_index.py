@@ -69,11 +69,16 @@ def generate_html(posts):
     
     def render_card(p):
         label = type_labels.get(p["report_type"], p["report_type"])
+        # Add emoji based on report type for visual interest
+        emoji = "🌅" if p["report_type"] == "morning" else "☀️" if p["report_type"] == "noon" else "🌙"
         return f"""        <article class="report-card">
             <a href="{p['url']}">
-                <h3>{p['title']}</h3>
-                <time>{p['date']}</time>
-                <span class="report-type type-{p['report_type']}">{label}</span>
+                <div class="card-image">{emoji}</div>
+                <div class="card-content">
+                    <h3>{p['title']}</h3>
+                    <time>{p['date']}</time>
+                    <span class="report-type type-{p['report_type']}">{label}</span>
+                </div>
             </a>
         </article>"""
     
@@ -94,14 +99,11 @@ def generate_html(posts):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 资讯日报</title>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">AI 资讯日报</a>
+        <a href="/" class="logo">AI 资讯日报</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total}</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
