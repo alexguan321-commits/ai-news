@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 午报 - 2026-06-26 - AI 资讯日报</title>
-    <link rel="stylesheet" href="/ai-news/styles.css">
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">🤖 AI 资讯日报</a>
-        <a href="/ai-news/" class="back-link">← 返回首页</a>
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">64</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
     </nav>
     
     <main class="container">
@@ -18,68 +22,119 @@
                 <h1>AI 午报 - 2026-06-26</h1>
                 <div class="meta">
                     <time>2026-06-26 08:00:00 +0800</time>
-                    <span class="report-type">noon</span>
+                    <span class="report-type type-noon">午报</span>
                 </div>
             </header>
             
             <div class="content">
-                <h1 id="ai-2026-06-26-1400">AI 午报 | 2026-06-26 14:00</h1>
-<hr />
-<h2 id="_1">🔥 今日头条</h2>
-<h3 id="1">1. 智能体系统发现"指令渗透"问题：修改一个模块会悄悄影响其他模块</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-24</p>
-<p>研究人员发现 prompt-composed 智能体系统存在"指令渗透"(Instruction Bleed)现象：编辑一个 prompt 模块会在没有共享变量或可执行依赖的情况下，悄悄改变其他模块的行为。这对当前大量基于多模块 prompt 构建的智能体系统是个重要警示，意味着模块间存在隐式干扰，需要更谨慎的设计和测试策略。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.26356v1">论文链接</a></p>
-<hr />
-<h3 id="2">2. 红皇后哥德尔机：智能体与评估器协同进化</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-24</p>
-<p>自我改进智能体在编码基准上已达 SOTA，但其搜索方法通常假设评估标准是静态的。本文提出"红皇后哥德尔机"，让智能体和评估器协同进化，解决评估标准滞后的问题。这对 AI 安全和能力评估有重要意义，暗示未来可能需要动态、自适应的评估框架。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.26294v1">论文链接</a></p>
-<hr />
-<h3 id="3-67">3. 组合语言模型何时有效？67 个前沿模型的实验揭示"共同失败上限"</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-25</p>
-<p>路由、投票、级联、融合和智能体混合等多模型 LLM 系统被用来超越单模型精度。本研究在 67 个前沿模型上实验，发现其增益被一个很少报告的指标——"共同失败上限"(Co-Failure Ceiling)所限制。这意味着当多个模型在同一问题上失败时，组合也无法挽救，对多模型架构设计有重要指导意义。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.27288v1">论文链接</a></p>
-<hr />
-<h3 id="4-llm">4. 无真实答案的强化学习也能提升 LLM</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-25</p>
-<p>可验证奖励强化学习(RLVR)通常依赖真实答案分配奖励，限制了其在没有标准答案任务上的应用。本文展示即使没有 ground-truth，RL 仍能改进 LLM 表现。这拓宽了 RLVR 的应用范围，对开放式任务、创意写作等场景的模型训练有重要价值。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.27369v1">论文链接</a></p>
-<hr />
-<h3 id="5">5. 世界模型中的幻觉是可预测且可预防的</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-25</p>
-<p>现代生成式世界模型能渲染逼真的动作可控未来，但经常出现幻觉：视频流畅但偏离真实动态。研究发现这种幻觉是可预测的，并且可以通过特定方法预防。这对视频生成、自动驾驶模拟等依赖世界模型的领域至关重要。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.27326v1">论文链接</a></p>
-<hr />
-<h3 id="6-llm">6. 迭代 LLM 智能体循环的语义早停机制</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-25</p>
-<p>多智能体 LLM 循环(如 Writer-Critic 模式)几乎总是通过固定迭代上限终止，这是语法而非语义的停止条件。本文提出基于语义的早停方法，让智能体在真正完成任务时停止，而非机械地跑满迭代次数。这对提升智能体效率和输出质量有直接帮助。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.27009v1">论文链接</a></p>
-<hr />
-<h3 id="7-solarai">7. SOLAR：AI 驱动的速度光性能分析</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-24</p>
-<p>深度学习模型在目标硬件上能跑多快？当前实现离理论极限有多远？SOLAR 提供 AI 驱动的速度光性能分析，帮助回答这些软件、硬件和算法优化的核心问题。对模型部署和推理优化有实用价值。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.26383v1">论文链接</a></p>
-<hr />
-<h3 id="8">8. 科学发现作为元优化：组合优化案例研究</h3>
-<p><strong>来源</strong>: arXiv | 2026-06-25</p>
-<p>科学发现本质上是一个优化问题，由庞大的理论和实验"状态空间"以及基于质量、新颖性和有效性的评估标准定义。本文将 LLM 应用于科学发现的元优化，展示了 AI 辅助科研的新范式。</p>
-<p>🔗 <a href="https://arxiv.org/pdf/2606.26728v1">论文链接</a></p>
-<hr />
-<h2 id="_2">📊 今日数据</h2>
+                <h1>AI 午报 | 2026-06-26 14:00</h1>
+<hr>
+<h2>🔥 今日头条</h2>
+<h3>1. 智能体系统发现"指令渗透"问题：修改一个模块会悄悄影响其他模块</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-24
+</p>
+<p>
+研究人员发现 prompt-composed 智能体系统存在"指令渗透"(Instruction Bleed)现象：编辑一个 prompt 模块会在没有共享变量或可执行依赖的情况下，悄悄改变其他模块的行为。这对当前大量基于多模块 prompt 构建的智能体系统是个重要警示，意味着模块间存在隐式干扰，需要更谨慎的设计和测试策略。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.26356v1">论文链接</a>
+</p>
+<hr>
+<h3>2. 红皇后哥德尔机：智能体与评估器协同进化</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-24
+</p>
+<p>
+自我改进智能体在编码基准上已达 SOTA，但其搜索方法通常假设评估标准是静态的。本文提出"红皇后哥德尔机"，让智能体和评估器协同进化，解决评估标准滞后的问题。这对 AI 安全和能力评估有重要意义，暗示未来可能需要动态、自适应的评估框架。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.26294v1">论文链接</a>
+</p>
+<hr>
+<h3>3. 组合语言模型何时有效？67 个前沿模型的实验揭示"共同失败上限"</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-25
+</p>
+<p>
+路由、投票、级联、融合和智能体混合等多模型 LLM 系统被用来超越单模型精度。本研究在 67 个前沿模型上实验，发现其增益被一个很少报告的指标——"共同失败上限"(Co-Failure Ceiling)所限制。这意味着当多个模型在同一问题上失败时，组合也无法挽救，对多模型架构设计有重要指导意义。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.27288v1">论文链接</a>
+</p>
+<hr>
+<h3>4. 无真实答案的强化学习也能提升 LLM</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-25
+</p>
+<p>
+可验证奖励强化学习(RLVR)通常依赖真实答案分配奖励，限制了其在没有标准答案任务上的应用。本文展示即使没有 ground-truth，RL 仍能改进 LLM 表现。这拓宽了 RLVR 的应用范围，对开放式任务、创意写作等场景的模型训练有重要价值。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.27369v1">论文链接</a>
+</p>
+<hr>
+<h3>5. 世界模型中的幻觉是可预测且可预防的</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-25
+</p>
+<p>
+现代生成式世界模型能渲染逼真的动作可控未来，但经常出现幻觉：视频流畅但偏离真实动态。研究发现这种幻觉是可预测的，并且可以通过特定方法预防。这对视频生成、自动驾驶模拟等依赖世界模型的领域至关重要。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.27326v1">论文链接</a>
+</p>
+<hr>
+<h3>6. 迭代 LLM 智能体循环的语义早停机制</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-25
+</p>
+<p>
+多智能体 LLM 循环(如 Writer-Critic 模式)几乎总是通过固定迭代上限终止，这是语法而非语义的停止条件。本文提出基于语义的早停方法，让智能体在真正完成任务时停止，而非机械地跑满迭代次数。这对提升智能体效率和输出质量有直接帮助。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.27009v1">论文链接</a>
+</p>
+<hr>
+<h3>7. SOLAR：AI 驱动的速度光性能分析</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-24
+</p>
+<p>
+深度学习模型在目标硬件上能跑多快？当前实现离理论极限有多远？SOLAR 提供 AI 驱动的速度光性能分析，帮助回答这些软件、硬件和算法优化的核心问题。对模型部署和推理优化有实用价值。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.26383v1">论文链接</a>
+</p>
+<hr>
+<h3>8. 科学发现作为元优化：组合优化案例研究</h3>
+<p>
+<strong>来源</strong>: arXiv | 2026-06-25
+</p>
+<p>
+科学发现本质上是一个优化问题，由庞大的理论和实验"状态空间"以及基于质量、新颖性和有效性的评估标准定义。本文将 LLM 应用于科学发现的元优化，展示了 AI 辅助科研的新范式。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2606.26728v1">论文链接</a>
+</p>
+<hr>
+<h2>📊 今日数据</h2>
 <ul>
 <li><strong>采集时间</strong>: 31.0 秒</li>
 <li><strong>新增资讯</strong>: 56 条</li>
 <li><strong>来源分布</strong>: arXiv 56 条 | GitHub 0 条 | YouTube 0 条 | Blogs 0 条 | RSS 0 条 | Hacker News 0 条</li>
 </ul>
-<hr />
-<p><em>报告生成时间: 2026-06-26 14:00 CST</em></p>
+<hr>
+<p>
+<em>报告生成时间: 2026-06-26 14:00 CST</em>
+</p>
             </div>
         </article>
+        
+        <footer class="footer">
+            <p><a href="../../">← 返回所有报告</a></p>
+            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
     </main>
-    
-    <footer class="footer">
-        <p>由 Hermes Agent 自动生成 | <a href="/ai-news/">返回首页</a></p>
-    </footer>
 </body>
 </html>

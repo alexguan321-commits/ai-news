@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 晚报 - 2026-06-19 - AI 资讯日报</title>
-    <link rel="stylesheet" href="/ai-news/styles.css">
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">🤖 AI 资讯日报</a>
-        <a href="/ai-news/" class="back-link">← 返回首页</a>
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">64</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
     </nav>
     
     <main class="container">
@@ -18,872 +22,1420 @@
                 <h1>AI 晚报 - 2026-06-19</h1>
                 <div class="meta">
                     <time>2026-06-19 21:04:36 +0800</time>
-                    <span class="report-type">evening</span>
+                    <span class="report-type type-evening">晚报</span>
                 </div>
             </header>
             
             <div class="content">
-                <h1 id="cron-job-ai-2000">Cron Job: AI 晚报 (20:00)</h1>
-<p><strong>Job ID:</strong> 26da9ef864ba
+                <h1>Cron Job: AI 晚报 (20:00)</h1>
+<p>
+<strong>Job ID:</strong> 26da9ef864ba
 <strong>Run Time:</strong> 2026-06-19 21:04:36
-<strong>Schedule:</strong> 0 21 * * *</p>
-<h2 id="prompt">Prompt</h2>
-<p>[IMPORTANT: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]</p>
-<h2 id="script-output">Script Output</h2>
-<p>The following data was collected by a pre-run script. Use it as context for your analysis.</p>
-<pre class="codehilite"><code>[Dedup: 45 previously reported items skipped]
-
-## TechCrunch AI
-- [Fri, 19 Jun 2026] The CEO of Allbirds’ new AI biz has a plan, but no employees
-  Link: https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/
-  Call it a startup with a sole founder and a very large seed round, but what's next is less clear.
-
-- [Fri, 19 Jun 2026] The US says ASML’s top chip tool may be in China. ASML says it isn’t
-  Link: https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/
-  There's a commercial logic that cuts against the idea that ASML would risk its export license to arm a Chinese customer.
-
-
-## MIT Tech Review AI
-- [Fri, 19 Jun 2026] The Download: AI bottleneck debates, and BCI trials take off
-  Link: https://www.technologyreview.com/2026/06/19/1139327/the-download-llms-bottleneck-breakthrough-bci-trials-take-off/
-  This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. A startup claims it broke through a bottleneck that’s holding 
-
-- [Fri, 19 Jun 2026] A startup claims it broke through a bottleneck that’s holding back LLMs
-  Link: https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms/
-  Miami-based AI startup Subquadratic came out of stealth mode last month with a huge claim. It announced that it had solved a mathematical bottleneck that had been holding back large language models fo
-
-- [Fri, 19 Jun 2026] The inevitable weakness of metrics
-  Link: https://www.technologyreview.com/2026/06/19/1138778/inevitable-weakness-metrics-quantified-life-book-review/
-  There are plenty of useful things a metric can reveal. There are even more it can obscure or corrupt. It took me well over a decade of tracking my own life in ever greater detail to fully appreciate t
-
-- [Fri, 19 Jun 2026] Brain-computer interface trials are taking off
-  Link: https://www.technologyreview.com/2026/06/19/1139270/brain-computer-interface-trials-are-taking-off/
-  This week, I covered the story of Casey Harrell—a man with ALS who is “the first power user” of a brain implant, according to the researchers who worked with him. Harrell is paralyzed and unable to sp
-
-
-## arXiv cs.AI — Latest Papers
-- [2026-06-18] How Transparent is DiffusionGemma?
-  Authors: Joshua Engels, Callum McDougall, Bilal Chughtai et al.
-  arXiv: 2606.20560v1 | Categories: cs.LG, cs.AI
-  Abstract: LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a larger fraction of its computation in a continuous latent space; does this make its reasoning less t...
-  PDF: https://arxiv.org/pdf/2606.20560v1
-
-- [2026-06-18] Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation
-  Authors: Ruizhong Qiu, Yinglong Xia, Dongqi Fu et al.
-  arXiv: 2606.20554v1 | Categories: cs.IR, cs.AI
-  Abstract: Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core of generative recommendation lies item tokenization, which bridges item semantics and recommendation ...
-  PDF: https://arxiv.org/pdf/2606.20554v1
-
-- [2026-06-18] Toward Calibrated Mixture-of-Experts Under Distribution Shift
-  Authors: Gina Wong, Drew Prinster, Suchi Saria et al.
-  arXiv: 2606.20544v1 | Categories: cs.AI, cs.LG
-  Abstract: Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforcing calibration at the level of individual predictors can improve ensemble accuracy and calibration,...
-  PDF: https://arxiv.org/pdf/2606.20544v1
-
-- [2026-06-18] How Do Instructions Shape Speech? Cross-Attention Attribution for Style-Captioned Text-to-Speech
-  Authors: Nityanand Mathur, Hamees Sayed, Wasim Madha et al.
-  arXiv: 2606.20532v1 | Categories: cs.AI
-  Abstract: Style-captioned text-to-speech systems use natural language to control voice characteristics, but how individual words influence acoustic output remains unclear. Understanding this is critical for diagnosing failure modes and improving controllability in expressive TTS. We propose cross-attention at...
-  PDF: https://arxiv.org/pdf/2606.20532v1
-
-- [2026-06-18] LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents
-  Authors: Md Nayem Uddin, Amir Saeidi, Eduardo Blanco et al.
-  arXiv: 2606.20529v1 | Categories: cs.AI, cs.CL
-  Abstract: Policy-adherent tool-calling agents in customer-service domains must maintain task states across turns while calling tools and obeying domain policies. Task states consist of relevant facts, identifiers, constraints, and conditions observed through user interaction and tool calls. In standard agents...
-  PDF: https://arxiv.org/pdf/2606.20529v1
-
-- [2026-06-18] DeepSWIP: Quotient-WMC Counterfactuals for Neural Probabilistic Logic Programs
-  Authors: Saimun Habib, Vaishak Belle, Fengxiang He
-  arXiv: 2606.20526v1 | Categories: cs.AI
-  Abstract: Neurosymbolic systems such as DeepProbLog combine neural perception with probabilistic logic, but standard inference is associational. Counterfactual reasoning additionally requires a causal semantics for interventions and evidence. We introduce DeepSWIP, a single-world counterfactual semantics for ...
-  PDF: https://arxiv.org/pdf/2606.20526v1
-
-- [2026-06-18] SARLO-80: Worldwide Slant SAR Language Optic Dataset 80cm
-  Authors: Solène Debuysère, Nicolas Trouvé, Nathan Letheule et al.
-  arXiv: 2606.20523v1 | Categories: cs.CV, cs.AI, cs.DB
-  Abstract: Multimodal foundation models have advanced rapidly thanks to large optical benchmarks, but comparable resources for synthetic aperture radar (SAR) remain limited. Existing SAR--optical datasets largely rely on low-resolution, intensity-only Ground Range Detected~(GRD) products and do not preserve co...
-  PDF: https://arxiv.org/pdf/2606.20523v1
-
-- [2026-06-18] Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes
-  Authors: Jun He, Deying Yu
-  arXiv: 2606.20520v1 | Categories: cs.CR, cs.AI, cs.DC
-  Abstract: Autonomous agents are increasingly connected to cloud, deployment, and data-control workflows, but production mutation authority should not reside inside non-deterministic reasoning processes. Existing access-control mechanisms authorize identities, while assurance layers certify proposed actions; n...
-  PDF: https://arxiv.org/pdf/2606.20520v1
-
-
-## arXiv cs.LG — Latest Papers
-- [2026-06-18] How Transparent is DiffusionGemma?
-  Authors: Joshua Engels, Callum McDougall, Bilal Chughtai et al.
-  arXiv: 2606.20560v1 | Categories: cs.LG, cs.AI
-  Abstract: LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a larger fraction of its computation in a continuous latent space; does this make its reasoning less t...
-  PDF: https://arxiv.org/pdf/2606.20560v1
-
-- [2026-06-18] UNIEGO: Proxies as Mediators for Unified Egocentric Video Representation Learning
-  Authors: Wenhao Chi, Arkaprava Sinha, Dominick Reilly et al.
-  arXiv: 2606.20559v1 | Categories: cs.CV, cs.LG
-  Abstract: Egocentric video understanding is inherently limited by the narrow perspective of wearable cameras: a single viewpoint, a single modality, a single model cannot capture the full richness of human action. We argue that a truly expressive egocentric representation must subsume complementary knowledge ...
-  PDF: https://arxiv.org/pdf/2606.20559v1
-
-- [2026-06-18] Optimal Deterministic Multicalibration and Omniprediction
-  Authors: Georgy Noarov, Aaron Roth
-  arXiv: 2606.20557v1 | Categories: cs.LG, math.ST, stat.ML
-  Abstract: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \in G$. It is a useful property for many downstream applications and is a basic desideratum of t...
-  PDF: https://arxiv.org/pdf/2606.20557v1
-
-- [2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups
-  Authors: Przemyslaw Musialski
-  arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
-  Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
-  PDF: https://arxiv.org/pdf/2606.20547v1
-
-- [2026-06-18] Predictability as a Fine-Grained Measure for Privacy
-  Authors: Linda Lu, Karthik Sridharan
-  arXiv: 2606.20546v1 | Categories: cs.LG
-  Abstract: Differential privacy (DP) ensures rigorous individual-level privacy guarantees against even the most knowledgeable attackers, but its worst-case nature can impose a costly privacy-accuracy tradeoff. We introduce privacy via predictability, a fine-grained framework that explicitly incorporates the at...
-  PDF: https://arxiv.org/pdf/2606.20546v1
-
-- [2026-06-18] Toward Calibrated Mixture-of-Experts Under Distribution Shift
-  Authors: Gina Wong, Drew Prinster, Suchi Saria et al.
-  arXiv: 2606.20544v1 | Categories: cs.AI, cs.LG
-  Abstract: Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforcing calibration at the level of individual predictors can improve ensemble accuracy and calibration,...
-  PDF: https://arxiv.org/pdf/2606.20544v1
-
-- [2026-06-18] Multi-Task Bayesian In-Context Learning
-  Authors: Qingyang Zhu, Eric Karl Oermann, Kyunghyun Cho
-  arXiv: 2606.20538v1 | Categories: cs.LG
-  Abstract: Bayesian predictive inference provides a principled framework for uncertainty quantification, data efficiency, and robust generalization. However, exact inference is often intractable, and scalable approximations may remain computationally expensive or require restrictive modeling assumptions that d...
-  PDF: https://arxiv.org/pdf/2606.20538v1
-
-- [2026-06-18] Execution-State Capsules: Graph-Bound Execution-State Checkpoint and Restore for Low-Latency, Small-Batch, On-Device Physical-AI Serving
-  Authors: Liang Su
-  arXiv: 2606.20537v1 | Categories: cs.LG, cs.DC
-  Abstract: Mainstream LLM serving systems reuse prefix work mainly through paged or radix key-value (KV) caches. This is highly effective for high-throughput, high-concurrency serving, but it manages only one positional fragment of execution state: the KV cache. We study the opposite regime: low-latency, small...
-  PDF: https://arxiv.org/pdf/2606.20537v1
-
-
-## arXiv cs.CL — Latest Papers
-- [2026-06-18] LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents
-  Authors: Md Nayem Uddin, Amir Saeidi, Eduardo Blanco et al.
-  arXiv: 2606.20529v1 | Categories: cs.AI, cs.CL
-  Abstract: Policy-adherent tool-calling agents in customer-service domains must maintain task states across turns while calling tools and obeying domain policies. Task states consist of relevant facts, identifiers, constraints, and conditions observed through user interaction and tool calls. In standard agents...
-  PDF: https://arxiv.org/pdf/2606.20529v1
-
-- [2026-06-18] StylisticBias: A Few Human Visual Cues Drive Most Social Biases in MLLMs
-  Authors: Shaghayegh Kolli, Timo Cavelius, Nafiseh Nikeghbal et al.
-  arXiv: 2606.20527v1 | Categories: cs.CL, cs.CV
-  Abstract: Multimodal large language models (MLLMs) are increasingly deployed in personally and societally consequential settings, yet the visual cues that shape how these models judge people remain poorly understood. Prior work often compares different (groups of) individuals, making it difficult to separate ...
-  PDF: https://arxiv.org/pdf/2606.20527v1
-
-- [2026-06-18] Beyond Global Replanning: Hierarchical Recovery for Cross-Device Agent Systems
-  Authors: Shu Yao, Yuhua Luo, Qian Long et al.
-  arXiv: 2606.20487v1 | Categories: cs.CL
-  Abstract: Real-world computer-use tasks often span multiple applications and devices, requiring agents to coordinate heterogeneous environments under dynamic runtime failures. Existing multi-device agent systems support task decomposition and cross-device assignment, but recovery remains largely coarse-graine...
-  PDF: https://arxiv.org/pdf/2606.20487v1
-
-- [2026-06-18] Your Mouse and Eyes Secretly Leak Your Preference: LLM Alignment using Implicit Feedback from Users
-  Authors: Haw-Shiuan Chang, Jeffrey Gomez, Mehul Patwari et al.
-  arXiv: 2606.20482v1 | Categories: cs.CL, cs.HC, cs.LG
-  Abstract: To align a Large Language Model (LLM), most existing methods collect explicit human feedback and train a reward model to predict the human preference based on the response text. These existing methods have two key limitations. First, the users rarely provide explicit feedback for LLM responses, whic...
-  PDF: https://arxiv.org/pdf/2606.20482v1
-
-- [2026-06-18] Scalable Training of Spatially Grounded 2D Vision-Language Models for Radiology
-  Authors: Yusuf Salcan, Simon Ging, Robin Schirrmeister et al.
-  arXiv: 2606.20477v1 | Categories: cs.CV, cs.CL, cs.LG
-  Abstract: We study how to train visually grounded vision-language models (VLMs) for radiology without manual spatial annotations. We introduce RefRad2D, a large-scale bilingual (German/English) dataset of 1.2M CT and MR image-text pairs derived from clinical practice, with task-specific VQA and spatial ground...
-  PDF: https://arxiv.org/pdf/2606.20477v1
-
-- [2026-06-18] CATCH-ME if you RAG: a dataset of Contextually Annotated multi-Turn Counterspeech against Hate and Misinformation Exchanges
-  Authors: Helena Bonaldi, Genoveffa Martone, Marco Guerini
-  arXiv: 2606.20369v1 | Categories: cs.CL
-  Abstract: Online hate speech and misinformation frequently overlap, yet NLP research has mainly treated them in isolation. While LLMs represent a scalable solution for assisting humans in the generation of counterspeech for both threats, zero-shot models frequently generate repetitive and vague responses, und...
-  PDF: https://arxiv.org/pdf/2606.20369v1
-
-- [2026-06-18] Token-Operations-Oriented Inference Optimization Techniques for Large Models
-  Authors: Shiguo Lian, Kai Wang, Zhaoxiang Liu et al.
-  arXiv: 2606.20295v1 | Categories: cs.SE, cs.CL
-  Abstract: Large model inference optimization serves as a key foundation for supporting the scalable, low-cost, and highly stable operation of large model services. Centered on token-oriented inference optimization technology, this paper proposes for the first time a four-layer technical architecture consistin...
-  PDF: https://arxiv.org/pdf/2606.20295v1
-
-- [2026-06-18] PsyScore: A Psychometrically-Aware Framework for Trait-Adaptive Essay Scoring and ZPD-Scaffolded Feedback
-  Authors: Wei Xia, Jin Wu, Haoran Shi et al.
-  arXiv: 2606.20287v1 | Categories: cs.CL
-  Abstract: Effective Automated Essay Scoring (AES) are expected to support both reliable assessment and actionable instructional feedback. However, existing approaches often treat scoring and feedback as separate components: neural scoring models provide limited interpretability, while Large Language Model (LL...
-  PDF: https://arxiv.org/pdf/2606.20287v1
-
-
-## arXiv cs.CV — Latest Papers
-- [2026-06-18] JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising
-  Authors: Siang-Ling Zhang, Huai-Hsun Cheng, Tsung-Ju Yang et al.
-  arXiv: 2606.20563v1 | Categories: cs.CV
-  Abstract: Creating 3D visual illusions, a single 3D mesh that reveals entirely different semantics from various viewing angles, is a fascinating but tough challenge. Existing optimization-based methods are slow and can produce oversaturated colors. In contrast, naive stitching approaches fail to produce geome...
-  PDF: https://arxiv.org/pdf/2606.20563v1
-
-- [2026-06-18] TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living
-  Authors: Arkaprava Sinha, Dominick Reilly, Siddharth Krishnan et al.
-  arXiv: 2606.20561v1 | Categories: cs.CV
-  Abstract: Long Video Question Answering (LVQA) requires identifying sparse, query-relevant evidence within hours-long untrimmed videos. Existing approaches either process videos densely with large vision-language models (VLMs), incurring prohibitive computational cost, or rely on sparse caption-based reasonin...
-  PDF: https://arxiv.org/pdf/2606.20561v1
-
-- [2026-06-18] UNIEGO: Proxies as Mediators for Unified Egocentric Video Representation Learning
-  Authors: Wenhao Chi, Arkaprava Sinha, Dominick Reilly et al.
-  arXiv: 2606.20559v1 | Categories: cs.CV, cs.LG
-  Abstract: Egocentric video understanding is inherently limited by the narrow perspective of wearable cameras: a single viewpoint, a single modality, a single model cannot capture the full richness of human action. We argue that a truly expressive egocentric representation must subsume complementary knowledge ...
-  PDF: https://arxiv.org/pdf/2606.20559v1
-
-- [2026-06-18] Thinking in Boxes: 3D Editing in Real Images Made Easy
-  Authors: Pradhaan S Bhat, Naveen Chandra R, Rishubh Parihar et al.
-  arXiv: 2606.20556v1 | Categories: cs.CV
-  Abstract: Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes. Prior work has used 3D primitives such as boxes, but only as loose conditioning signals indicating approximate object locat...
-  PDF: https://arxiv.org/pdf/2606.20556v1
-
-- [2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups
-  Authors: Przemyslaw Musialski
-  arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
-  Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
-  PDF: https://arxiv.org/pdf/2606.20547v1
-
-- [2026-06-18] Current World Models Lack a Persistent State Core
-  Authors: Jinpeng Lu, Dexu Zhu, Haoyuan Shi et al.
-  arXiv: 2606.20545v1 | Categories: cs.CV
-  Abstract: World models are increasingly regarded as a decisive step toward artificial general intelligence, yet modeling the physical world demands more than rendering convincing frames on demand: it requires an internal world state that keeps evolving over time, decoupled from observation, so that objects en...
-  PDF: https://arxiv.org/pdf/2606.20545v1
-
-- [2026-06-18] SSD: Spatially Speculative Decoding Accelerates Autoregressive Image Generation
-  Authors: Shilong Xiang, Zirui Zhang, Lijun Yu et al.
-  arXiv: 2606.20543v1 | Categories: cs.CV
-  Abstract: Autoregressive models excel in visual generation by treating images as 1D sequences of discrete tokens, mirroring language modeling. However, this flattening discards the intrinsic 2D spatial locality of visual signals, creating severe computational bottlenecks during inference. We introduce Spatial...
-  PDF: https://arxiv.org/pdf/2606.20543v1
-
-- [2026-06-18] CalTennis: Large Multi-View Tennis Video Dataset and Benchmark of Monocular-to-3D Pose Estimation
-  Authors: Ilona Demler, Xinran Xie, Blake Werner et al.
-  arXiv: 2606.20542v1 | Categories: cs.CV
-  Abstract: The Caltech Tennis Dataset (CalTennis) is a large-scale video benchmark for evaluating monocular-to-3D pose estimation in the wild. CalTennis comprises over 11 million frames (51 hours) of tennis practice and match play from 40 players, captured with 2-6 synchronized cameras at 60 Hz. It is 10 times...
-  PDF: https://arxiv.org/pdf/2606.20542v1
-
-
-## arXiv cs.RO — Latest Papers
-- [2026-06-18] MemoryWAM: Efficient World Action Modeling with Persistent Memory
-  Authors: Sizhe Yang, Juncheng Mu, Tianming Wei et al.
-  arXiv: 2606.20562v1 | Categories: cs.RO
-  Abstract: Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observ...
-  PDF: https://arxiv.org/pdf/2606.20562v1
-
-- [2026-06-18] Generating Robot Hands from Human Demonstrations
-  Authors: Sha Yi, Nicklas Hansen, Xueqian Bai et al.
-  arXiv: 2606.20549v1 | Categories: cs.RO
-  Abstract: Robot learning has advanced rapidly in learning control, but learning the physical body of a robot remains much more difficult because jointly searching over design and control creates a very large combinatorial problem. Here, we present a data-driven framework for generating robot hands from human ...
-  PDF: https://arxiv.org/pdf/2606.20549v1
-
-- [2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups
-  Authors: Przemyslaw Musialski
-  arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
-  Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
-  PDF: https://arxiv.org/pdf/2606.20547v1
-
-- [2026-06-18] Increasing Resilience of Continuum Robots via Motion Planning Algorithms
-  Authors: Oxana Shamilyan, Ievgen Kabin, Zoya Dyka et al.
-  arXiv: 2606.20495v1 | Categories: cs.RO
-  Abstract: This paper presents an experimental study of motion planning for resilient continuum robots. In this study we mainly focused on multi-criteria decision-making, its application for path-planning algorithms, impact on the generated path and execution time. To do this, we used two well-known algorithms...
-  PDF: https://arxiv.org/pdf/2606.20495v1
-
-- [2026-06-18] Fast Human Attention Prediction for Fixation-guided Active Perception in Autonomous Navigation
-  Authors: Fatma Youssef Mohammed, Grzegorz Malczyk, Kostas Alexis
-  arXiv: 2606.20491v1 | Categories: cs.RO, cs.CV
-  Abstract: Human visual attention relies on structured scanpaths to efficiently process scenes, yet instilling this behavior into robot autonomy is in its infancy and hindered by the high,computational costs of existing predictive models. To address this, we introduce GazeLNN, a computationally lightweight,sca...
-  PDF: https://arxiv.org/pdf/2606.20491v1
-
-- [2026-06-18] GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty Estimates
-  Authors: Nastaran Darabi, Divake Kumar, Sina Tayebati et al.
-  arXiv: 2606.20479v1 | Categories: cs.RO
-  Abstract: Vision-language navigation agents achieve competitive average success on benchmark tasks, yet failures often arise through predictable trajectory-level breakdowns such as oscillation, stagnation, or inefficient detours. Reliable deployment, therefore, requires uncertainty signals that anticipate eme...
-  PDF: https://arxiv.org/pdf/2606.20479v1
-
-- [2026-06-18] Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation
-  Authors: Zhenghao &quot;Mark'' Peng, Honglin He, Quanyi Li et al.
-  arXiv: 2606.20458v1 | Categories: cs.RO
-  Abstract: Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the...
-  PDF: https://arxiv.org/pdf/2606.20458v1
-
-- [2026-06-18] ARC: Adaptive Robust Joint State and Covariance Estimation
-  Authors: Alexandre Hadji-Thomas, Andrew Stirling, James R. Forbes
-  arXiv: 2606.20428v1 | Categories: cs.RO
-  Abstract: Sensor measurements are frequently corrupted by outliers and non-Gaussian noise. These imperfections in the sensor data can cause classical state estimators to generate biased and unreliable state and uncertainty estimates. Robust estimators reject or downweight outliers but do not perform measureme...
-  PDF: https://arxiv.org/pdf/2606.20428v1
-
-
-## arXiv cs.MA — Latest Papers
-- [2026-06-18] Contagion Networks: Evaluator Bias Propagation in Multi-Agent LLM Systems
-  Authors: Zewen Liu
-  arXiv: 2606.20493v1 | Categories: cs.LG, cs.AI, cs.MA
-  Abstract: When large language models serve as evaluators in multi-agent systems, their systematic evaluation biases propagate through the agent network. We introduce Contagion Networks, a formal framework for measuring how evaluator biases spread across interacting LLM agents. In a controlled 3-agent experime...
-  PDF: https://arxiv.org/pdf/2606.20493v1
-
-- [2026-06-18] An Infrastructure-less, Control-Independent Solution to Relative Localisation of a Team of Mobile Robots using Ranging Measurements
-  Authors: Paolo Golinelli, Tommaso Faraci, Daniele Fontanelli
-  arXiv: 2606.20365v1 | Categories: cs.RO, cs.MA
-  Abstract: The ability to localise teams of robots is essential for applications ranging from robotic fleets in unstructured environments to cooperative control and navigation tasks. In such contexts, fixed infrastructure is often unavailable, deployments must be fast and flexible, and system requirements must...
-  PDF: https://arxiv.org/pdf/2606.20365v1
-
-- [2026-06-18] Phoenix: Safe GitHub Issue Resolution via Multi-Agent LLMs
-  Authors: Kipngeno Koech, Muhammad Adam, Baimam Boukar Jean Jacques et al.
-  arXiv: 2606.20243v1 | Categories: cs.SE, cs.MA
-  Abstract: We present Phoenix, a multi-agent LLM system that resolves GitHub issues from triage through pull-request creation, combining seven layered safety controls with a baseline-aware test evaluation strategy. Phoenix decomposes the work across six specialized agents. Planner, reproducer, coder, tester, f...
-  PDF: https://arxiv.org/pdf/2606.20243v1
-
-- [2026-06-18] A Multi-Agent system for Multi-Objective constrained optimization
-  Authors: Federica Filippini
-  arXiv: 2606.20236v1 | Categories: cs.AI, cs.LG, cs.MA
-  Abstract: Many decision-making problems in computing and networking systems can be naturally formulated as cost-minimization problems under performance constraints. In dynamic environments, reinforcement learning (RL) is often used to solve such problems at runtime by embedding both costs and constraint viola...
-  PDF: https://arxiv.org/pdf/2606.20236v1
-
-- [2026-06-18] RACL: Reasoning-Agent Control Layers for Continuous Metaheuristic Learning
-  Authors: Antón Asla Manzárraga
-  arXiv: 2606.20142v1 | Categories: cs.AI, cs.MA
-  Abstract: This paper introduces RACL, a Reasoning-Agent Control Layer for metaheuristics. RACL places a reasoning agent above an existing optimizer. The agent does not replace the optimizer and does not modify business constraints. Instead, it controls the optimizer's internal search behavior by observing ope...
-  PDF: https://arxiv.org/pdf/2606.20142v1
-
-- [2026-06-18] ScaffoldAgent: Utility-Guided Dynamic Outline Optimization for Open-Ended Deep Research
-  Authors: Zhibang Yang, Xinke Jiang, Yuzhen Xiao et al.
-  arXiv: 2606.20122v1 | Categories: cs.AI, cs.MA
-  Abstract: Open-ended deep research (OEDR) requires systems to acquire knowledge through multi-round retrieval and generate coherent long-form reports. The outline plays a central role as a structural scaffold that coordinates retrieval, evidence organization, and generation. However, existing methods either f...
-  PDF: https://arxiv.org/pdf/2606.20122v1
-
-- [2026-06-18] Blame is easier than praise: Measuring off-ball defensive performance in football
-  Authors: Jonas Bischofberger, Runqing Ma, Pascal Bauer et al.
-  arXiv: 2606.19931v1 | Categories: cs.MA
-  Abstract: The defensive performance of football players is commonly measured through a limited number of actions like tackles and interceptions while their continuous impact through positional behaviour has hardly been studied before. We formulate this problem as an attribution over multi-agent spatiotemporal...
-  PDF: https://arxiv.org/pdf/2606.19931v1
-
-- [2026-06-18] Deep-Unfolded Coordination
-  Authors: Hunter Kuperman, Minchan Jung, Rahul V. Ghosh et al.
-  arXiv: 2606.19920v1 | Categories: cs.RO, cs.LG, cs.MA
-  Abstract: Distributed optimization is a highly scalable and structurally transparent technique to solve multi-agent robotics problems; however, such methods often suffer from the need for highly-specialized, problem-specific hyperparameter tunings. In this work, we propose Deep Coordinator, a deep-unfolding f...
-  PDF: https://arxiv.org/pdf/2606.19920v1
-
-
-## arXiv stat.ML — Latest Papers
-- [2026-06-18] Optimal Deterministic Multicalibration and Omniprediction
-  Authors: Georgy Noarov, Aaron Roth
-  arXiv: 2606.20557v1 | Categories: cs.LG, math.ST, stat.ML
-  Abstract: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \in G$. It is a useful property for many downstream applications and is a basic desideratum of t...
-  PDF: https://arxiv.org/pdf/2606.20557v1
-
-- [2026-06-18] Leveraging tails for adaptation
-  Authors: Sergios Agapiou, Ismaël Castillo, Paul Egels
-  arXiv: 2606.20480v1 | Categories: math.ST, stat.ML
-  Abstract: We consider contraction of Bayesian posterior distributions in nonparametric settings where coefficients of a function over a basis or dictionary are given priors with $p$--exponential tails, including Laplace tails $(p=1)$ and heavier tails $(p&lt;1)$. It is shown that contraction rates improve as $p$...
-  PDF: https://arxiv.org/pdf/2606.20480v1
-
-- [2026-06-18] SSH-Net: A Deep Neural Network for Predicting Failure Time Distribution Functions under Competing Risks with Application to GPU Data
-  Authors: Jie Min, Yueyao Wang, Mengkun Chen
-  arXiv: 2606.20451v1 | Categories: stat.ML, cs.LG, stat.AP
-  Abstract: Competing risks are commonly observed in engineering fields and can bring challenges to time-to-event data modeling when the application scenarios are complicated. Recently, deep neural networks have received great attention for prediction with competing risks, due to their flexibility and high lear...
-  PDF: https://arxiv.org/pdf/2606.20451v1
-
-- [2026-06-18] Robust $Q$-learning for mean-field control under Wasserstein uncertainty in common noise
-  Authors: Mathieu Laurière, Ariel Neufeld, Kyunghyun Park
-  arXiv: 2606.20356v1 | Categories: math.OC, cs.AI, cs.LG
-  Abstract: In this article, we present a robust $Q$-learning algorithm for discrete-time mean-field control problems under Wasserstein uncertainty in the common noise law. The algorithm combines a quantization-and-projection scheme with a Wasserstein dual reformulation on the common-noise space. We establish i...
-  PDF: https://arxiv.org/pdf/2606.20356v1
-
-- [2026-06-18] Statistical Properties of Training &amp; Generalization
-  Authors: Itay Lavie, Noam Levi, Yonatan Kahn
-  arXiv: 2606.20299v1 | Categories: stat.ML, cs.LG, hep-ph
-  Abstract: Deep learning has managed to evade numerous intuitions from classical statistics to achieve unprecedented performance on a number of real-world tasks. In this article, we investigate the key features and surprises of deep learning from a physics-informed perspective, taking care to point out and jus...
-  PDF: https://arxiv.org/pdf/2606.20299v1
-
-- [2026-06-18] Off-Policy Evaluation for Missingness-Aware Policies in MDPs with Rewards Missing Not at Random
-  Authors: Ziheng Wei, Annie Qu, Rui Miao
-  arXiv: 2606.20206v1 | Categories: stat.ML, cs.LG
-  Abstract: In offline Reinforcement Learning, immediate rewards in logged batch data are often unobserved due to sparse or irregular record-keeping, or censored beyond certain reward values. This issue arises in practical settings, including health care and marketing. We investigate off-policy evaluation (OPE)...
-  PDF: https://arxiv.org/pdf/2606.20206v1
-
-- [2026-06-18] AK-MCS-C2 : Active Kriging Monte Carlo Simulation method with conformal certification for failure probability estimation
-  Authors: Edgar Jaber, Vincent Chabridon, Mathilde Mougeot
-  arXiv: 2606.20191v1 | Categories: stat.ML, stat.ME
-  Abstract: We introduce a novel active-learning framework for failure probability estimation in structural reliability analysis that integrates Active Kriging Monte Carlo simulation with conformal prediction. The proposed approach employs an adaptive cross-conformal strategy specifically designed for small-sam...
-  PDF: https://arxiv.org/pdf/2606.20191v1
-
-- [2026-06-18] Stochastic Linear Contextual Bandits with Bounded Noise: A Set-Membership Approach
-  Authors: Haonan Xu, Yingying Li
-  arXiv: 2606.20022v1 | Categories: stat.ML, cs.LG, math.OC
-  Abstract: This paper considers stochastic linear contextual bandits (SLCB) with bounded reward noise. Existing works typically assume sub-Gaussian reward noise and bounded expected rewards, under which the optimal regret bound scales as $\tilde{O}(\sqrt{T})$ in terms of horizon $T$. However, in many applicati...
-  PDF: https://arxiv.org/pdf/2606.20022v1
-
-
-## arXiv cs.CR — Latest Papers
-- [2026-06-18] From Efficiency to Leakage -- Privacy Backdoor in Federated Language Model Fine-Tuning
-  Authors: Shanghao Shi, Chaoyu Zhang, Heng Jin et al.
-  arXiv: 2606.20553v1 | Categories: cs.CR
-  Abstract: Federated learning (FL) enables multiple parties to collaboratively fine-tune language models for domain-specific tasks without sharing raw data. Since full model fine-tuning is often prohibitively expensive for FL clients, parameter-efficient fine-tuning (PEFT) has become the de facto approach in p...
-  PDF: https://arxiv.org/pdf/2606.20553v1
-
-- [2026-06-18] Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes
-  Authors: Jun He, Deying Yu
-  arXiv: 2606.20520v1 | Categories: cs.CR, cs.AI, cs.DC
-  Abstract: Autonomous agents are increasingly connected to cloud, deployment, and data-control workflows, but production mutation authority should not reside inside non-deterministic reasoning processes. Existing access-control mechanisms authorize identities, while assurance layers certify proposed actions; n...
-  PDF: https://arxiv.org/pdf/2606.20520v1
-
-- [2026-06-18] Efficient and Sound Probabilistic Verification for AI Agents
-  Authors: Alaia Solko-Breslin, Pramod Kaushik Mudrakarta, Mihai Christodorescu et al.
-  arXiv: 2606.20510v1 | Categories: cs.CR, cs.AI
-  Abstract: Securing AI agents that operate in complex digital environments has become a critical need, and runtime monitoring approaches that formulate and enforce policies expressed in a formal language like Datalog offer a promising solution. However, existing approaches are restricted to deterministic polic...
-  PDF: https://arxiv.org/pdf/2606.20510v1
-
-- [2026-06-18] Calibration Without Comprehension: Diagnosing the Limits of Fine-Tuning LLMs for Vulnerability Detection in Systems Software
-  Authors: Arastoo Zibaeirad, Marco Vieira
-  arXiv: 2606.20502v1 | Categories: cs.CR, cs.AI, cs.SE
-  Abstract: Whether LLMs scoring well on vulnerability benchmarks genuinely reason about security or merely pattern-match on contaminated data remains unresolved. We present CWE-Trace, a framework for LLM vulnerability detection built from 834 manually curated Linux kernel samples spanning 74 CWEs. The framewor...
-  PDF: https://arxiv.org/pdf/2606.20502v1
-
-- [2026-06-18] A-COMPASS: Formal Foundations for Anonymity Analysis in Microdata
-  Authors: Tamara Tagliavia, Silvia Ghilezan
-  arXiv: 2606.20492v1 | Categories: cs.CR, cs.LO
-  Abstract: In the information age, one of the leading problems is how to ensure individual's privacy. Depending on the context in which privacy is considered, various data privacy models have emerged. However, the domain of formal verification of these models is still not sufficiently explored even when it com...
-  PDF: https://arxiv.org/pdf/2606.20492v1
-
-- [2026-06-18] Analyzing Defensive Misdirection Against Model-Guided Automated Attacks on Agentic AI Systems
-  Authors: Reza Soosahabi, Vivek Namsani
-  arXiv: 2606.20470v1 | Categories: cs.CR, cs.AI
-  Abstract: Agentic AI systems increasingly rely on language-model components to interpret instructions, process external data, invoke tools, and coordinate with other agents. These capabilities make prompt-injection and jailbreak attacks more consequential, especially as attackers adopt model-guided automation...
-  PDF: https://arxiv.org/pdf/2606.20470v1
-
-- [2026-06-18] Image Encryption Algorithm Based on Convolutional Neural Networks and Dynamic S-Box Generation
-  Authors: Ans Ibrahim, Fadhil Abbas Fadhil, Mahameed Reza Feizi Derakhshi et al.
-  arXiv: 2606.20444v1 | Categories: cs.CR, cs.SE
-  Abstract: The paper proposes a dynamic approach to image encryption, combining the use of Convolutional Neural Networks (CNNs) and classical cryptography to improve the security and flexibility of image encryption. The main concept is to create adaptive Substitution boxes (S-boxes) based on characteristics th...
-  PDF: https://arxiv.org/pdf/2606.20444v1
-
-- [2026-06-18] Multi-View Decompilation for LLM-Based Malware Classification
-  Authors: Bercan Turkmen, Vyas Raina
-  arXiv: 2606.20436v1 | Categories: cs.CR, cs.AI
-  Abstract: Malware analysts often inspect compiled binaries through decompiled pseudo-C, when source code is unavailable. Recent work suggests that large language models (LLMs) can assist this process by classifying decompiled code as benign or malicious, but existing pipelines typically rely on a single decom...
-  PDF: https://arxiv.org/pdf/2606.20436v1
-
-
-## arXiv cs.GT — Latest Papers
-- [2026-06-18] Mobile Target Search with Imperfect Perception: A Partially Observable Stochastic Game Theoretical Approach
-  Authors: Hanzheng Zhang, Shu Liang, Shuyu Liu
-  arXiv: 2606.20232v1 | Categories: cs.RO, cs.GT
-  Abstract: This paper investigates mobile target search under imperfect perceptions caused by sensor limitations, malicious jamming, or communication noise. Searchers and targets operate in a grid-shaped area with bounded mobility, leading to a dynamic interplay between search and evasion. To capture this adve...
-  PDF: https://arxiv.org/pdf/2606.20232v1
-
-- [2026-06-18] Beyond Lower Quota: Avoiding Overrepresentation in Multi-Winner Voting
-  Authors: Anton Baychkov, Martin Lackner, Jan Maly et al.
-  arXiv: 2606.19968v1 | Categories: cs.GT
-  Abstract: Recently, in the social choice literature, much attention has been given to the question of avoiding underrepresentation in approval-based multi-winner voting. In this paper, we explore the largely overlooked complementary question of avoiding overrepresentation. This has not been explored systemati...
-  PDF: https://arxiv.org/pdf/2606.19968v1
-
-- [2026-06-18] A Unified Framework for Joint Sensor Placement and Scheduling for Intrusion Detection
-  Authors: Jayanth Bhargav, Mahsa Ghasemi, Shreyas Sundaram
-  arXiv: 2606.19695v1 | Categories: eess.SY, cs.GT, math.OC
-  Abstract: We consider an intrusion detection task in which a defender must jointly optimize sensor placement locations and orientations to minimize the probability of missed detection of an intruder traversing a protected environment. We decompose this problem into a meta problem, termed SensorPlacement, and ...
-  PDF: https://arxiv.org/pdf/2606.19695v1
-
-- [2026-06-17] Joint-task truthfulness of the DMI mechanism
-  Authors: Rafael Frongillo
-  arXiv: 2606.19618v1 | Categories: cs.GT
-  Abstract: The Determinant Mutual Information (DMI) mechanism of Kong (2020, 2024) is dominantly truthful within the class of *consistent* reporting strategies, those that apply the same single-task strategy to every task. In settings where agents see multiple tasks before reporting, such as peer grading or pe...
-  PDF: https://arxiv.org/pdf/2606.19618v1
-
-- [2026-06-17] Mean-Payoff-Parity and Lifting Strategies from MDPs to 2-Player Stochastic Games
-  Authors: Mohan Dantam, Richard Mayr
-  arXiv: 2606.19324v1 | Categories: cs.GT
-  Abstract: We consider the strategy complexity (i.e., memory and randomization) of optimal strategies in turn-based 2-player zero-sum stochastic games. Results in [Gimbert,Kelmendi:2023] show how to lift optimal memoryless strategies for shift-invariant inverse-submixing objectives from MDPs to 2-player stocha...
-  PDF: https://arxiv.org/pdf/2606.19324v1
-
-- [2026-06-17] Convergence of Replicator Dynamics in the Repeated Prisoner's Dilemma with Restarts
-  Authors: Benedict Russell, Chin-wing Leung, Paolo Turrini
-  arXiv: 2606.18965v1 | Categories: cs.GT
-  Abstract: We investigate a population of self-interested agents playing a repeated Prisoner's Dilemma under the trigger-restart mechanism. Under such a mechanism, agents play a sequence of symmetric games with their partner, and restart the interaction if their actions disagree. Our work focuses on the conver...
-  PDF: https://arxiv.org/pdf/2606.18965v1
-
-- [2026-06-17] Epistemic Pairwise Maximin Share
-  Authors: Michal Feldman, Amos Fiat, Yael Nissan et al.
-  arXiv: 2606.18921v1 | Categories: cs.GT
-  Abstract: We introduce epistemic pairwise maximin share (EPMMS), a new fairness notion for fair division of indivisible goods. Two fundamental notions in this setting are envy-freeness up to any item (EFX) and pairwise maximin share (PMMS), with PMMS being stronger than EFX. While EFX has been extensively stu...
-  PDF: https://arxiv.org/pdf/2606.18921v1
-
-- [2026-06-17] Fair Online Resource Allocation
-  Authors: Christopher En, Yuri Faenza, Andrea Lodi et al.
-  arXiv: 2606.18679v2 | Categories: cs.DS, cs.GT, cs.LG
-  Abstract: We study the problem of fair online resource allocation, motivated by applications such as refugee resettlement and airline scheduling, where agents arrive sequentially and must be assigned to facilities with limited capacities. We introduce a model that maximizes the overall welfare subject to reso...
-  PDF: https://arxiv.org/pdf/2606.18679v2
-
+<strong>Schedule:</strong> 0 21 <em> </em> *
+</p>
+<h2>Prompt</h2>
+<p>
+[IMPORTANT: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+</p>
+<h2>Script Output</h2>
+<p>
+The following data was collected by a pre-run script. Use it as context for your analysis.
+</p>
+<p>
+```
+[Dedup: 45 previously reported items skipped]
+</p>
+<h2>TechCrunch AI</h2>
+<ul>
+<li>[Fri, 19 Jun 2026] The CEO of Allbirds’ new AI biz has a plan, but no employees</li>
+</ul>
+<p>
+Link: https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/
+Call it a startup with a sole founder and a very large seed round, but what's next is less clear.
+</p>
+<ul>
+<li>[Fri, 19 Jun 2026] The US says ASML’s top chip tool may be in China. ASML says it isn’t</li>
+</ul>
+<p>
+Link: https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/
+There's a commercial logic that cuts against the idea that ASML would risk its export license to arm a Chinese customer.
+</p>
+<h2>MIT Tech Review AI</h2>
+<ul>
+<li>[Fri, 19 Jun 2026] The Download: AI bottleneck debates, and BCI trials take off</li>
+</ul>
+<p>
+Link: https://www.technologyreview.com/2026/06/19/1139327/the-download-llms-bottleneck-breakthrough-bci-trials-take-off/
+This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. A startup claims it broke through a bottleneck that’s holding
+</p>
+<ul>
+<li>[Fri, 19 Jun 2026] A startup claims it broke through a bottleneck that’s holding back LLMs</li>
+</ul>
+<p>
+Link: https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms/
+Miami-based AI startup Subquadratic came out of stealth mode last month with a huge claim. It announced that it had solved a mathematical bottleneck that had been holding back large language models fo
+</p>
+<ul>
+<li>[Fri, 19 Jun 2026] The inevitable weakness of metrics</li>
+</ul>
+<p>
+Link: https://www.technologyreview.com/2026/06/19/1138778/inevitable-weakness-metrics-quantified-life-book-review/
+There are plenty of useful things a metric can reveal. There are even more it can obscure or corrupt. It took me well over a decade of tracking my own life in ever greater detail to fully appreciate t
+</p>
+<ul>
+<li>[Fri, 19 Jun 2026] Brain-computer interface trials are taking off</li>
+</ul>
+<p>
+Link: https://www.technologyreview.com/2026/06/19/1139270/brain-computer-interface-trials-are-taking-off/
+This week, I covered the story of Casey Harrell—a man with ALS who is “the first power user” of a brain implant, according to the researchers who worked with him. Harrell is paralyzed and unable to sp
+</p>
+<h2>arXiv cs.AI — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] How Transparent is DiffusionGemma?</li>
+</ul>
+<p>
+Authors: Joshua Engels, Callum McDougall, Bilal Chughtai et al.
+arXiv: 2606.20560v1 | Categories: cs.LG, cs.AI
+Abstract: LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a larger fraction of its computation in a continuous latent space; does this make its reasoning less t...
+PDF: https://arxiv.org/pdf/2606.20560v1
+</p>
+<ul>
+<li>[2026-06-18] Structuring and Tokenizing Distributed User Interest Context for Generative Recommendation</li>
+</ul>
+<p>
+Authors: Ruizhong Qiu, Yinglong Xia, Dongqi Fu et al.
+arXiv: 2606.20554v1 | Categories: cs.IR, cs.AI
+Abstract: Generative recommendation is an emerging paradigm that has shown promise in industrial recommendation systems, aiming to predict users' next interactions from their historical behaviors. At the core of generative recommendation lies item tokenization, which bridges item semantics and recommendation ...
+PDF: https://arxiv.org/pdf/2606.20554v1
+</p>
+<ul>
+<li>[2026-06-18] Toward Calibrated Mixture-of-Experts Under Distribution Shift</li>
+</ul>
+<p>
+Authors: Gina Wong, Drew Prinster, Suchi Saria et al.
+arXiv: 2606.20544v1 | Categories: cs.AI, cs.LG
+Abstract: Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforcing calibration at the level of individual predictors can improve ensemble accuracy and calibration,...
+PDF: https://arxiv.org/pdf/2606.20544v1
+</p>
+<ul>
+<li>[2026-06-18] How Do Instructions Shape Speech? Cross-Attention Attribution for Style-Captioned Text-to-Speech</li>
+</ul>
+<p>
+Authors: Nityanand Mathur, Hamees Sayed, Wasim Madha et al.
+arXiv: 2606.20532v1 | Categories: cs.AI
+Abstract: Style-captioned text-to-speech systems use natural language to control voice characteristics, but how individual words influence acoustic output remains unclear. Understanding this is critical for diagnosing failure modes and improving controllability in expressive TTS. We propose cross-attention at...
+PDF: https://arxiv.org/pdf/2606.20532v1
+</p>
+<ul>
+<li>[2026-06-18] LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents</li>
+</ul>
+<p>
+Authors: Md Nayem Uddin, Amir Saeidi, Eduardo Blanco et al.
+arXiv: 2606.20529v1 | Categories: cs.AI, cs.CL
+Abstract: Policy-adherent tool-calling agents in customer-service domains must maintain task states across turns while calling tools and obeying domain policies. Task states consist of relevant facts, identifiers, constraints, and conditions observed through user interaction and tool calls. In standard agents...
+PDF: https://arxiv.org/pdf/2606.20529v1
+</p>
+<ul>
+<li>[2026-06-18] DeepSWIP: Quotient-WMC Counterfactuals for Neural Probabilistic Logic Programs</li>
+</ul>
+<p>
+Authors: Saimun Habib, Vaishak Belle, Fengxiang He
+arXiv: 2606.20526v1 | Categories: cs.AI
+Abstract: Neurosymbolic systems such as DeepProbLog combine neural perception with probabilistic logic, but standard inference is associational. Counterfactual reasoning additionally requires a causal semantics for interventions and evidence. We introduce DeepSWIP, a single-world counterfactual semantics for ...
+PDF: https://arxiv.org/pdf/2606.20526v1
+</p>
+<ul>
+<li>[2026-06-18] SARLO-80: Worldwide Slant SAR Language Optic Dataset 80cm</li>
+</ul>
+<p>
+Authors: Solène Debuysère, Nicolas Trouvé, Nathan Letheule et al.
+arXiv: 2606.20523v1 | Categories: cs.CV, cs.AI, cs.DB
+Abstract: Multimodal foundation models have advanced rapidly thanks to large optical benchmarks, but comparable resources for synthetic aperture radar (SAR) remain limited. Existing SAR--optical datasets largely rely on low-resolution, intensity-only Ground Range Detected~(GRD) products and do not preserve co...
+PDF: https://arxiv.org/pdf/2606.20523v1
+</p>
+<ul>
+<li>[2026-06-18] Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes</li>
+</ul>
+<p>
+Authors: Jun He, Deying Yu
+arXiv: 2606.20520v1 | Categories: cs.CR, cs.AI, cs.DC
+Abstract: Autonomous agents are increasingly connected to cloud, deployment, and data-control workflows, but production mutation authority should not reside inside non-deterministic reasoning processes. Existing access-control mechanisms authorize identities, while assurance layers certify proposed actions; n...
+PDF: https://arxiv.org/pdf/2606.20520v1
+</p>
+<h2>arXiv cs.LG — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] How Transparent is DiffusionGemma?</li>
+</ul>
+<p>
+Authors: Joshua Engels, Callum McDougall, Bilal Chughtai et al.
+arXiv: 2606.20560v1 | Categories: cs.LG, cs.AI
+Abstract: LLM reasoning transparency is a critical affordance for understanding model decisions, mitigating misuse and misalignment, and debugging surprising model behaviors. However, DiffusionGemma performs a larger fraction of its computation in a continuous latent space; does this make its reasoning less t...
+PDF: https://arxiv.org/pdf/2606.20560v1
+</p>
+<ul>
+<li>[2026-06-18] UNIEGO: Proxies as Mediators for Unified Egocentric Video Representation Learning</li>
+</ul>
+<p>
+Authors: Wenhao Chi, Arkaprava Sinha, Dominick Reilly et al.
+arXiv: 2606.20559v1 | Categories: cs.CV, cs.LG
+Abstract: Egocentric video understanding is inherently limited by the narrow perspective of wearable cameras: a single viewpoint, a single modality, a single model cannot capture the full richness of human action. We argue that a truly expressive egocentric representation must subsume complementary knowledge ...
+PDF: https://arxiv.org/pdf/2606.20559v1
+</p>
+<ul>
+<li>[2026-06-18] Optimal Deterministic Multicalibration and Omniprediction</li>
+</ul>
+<p>
+Authors: Georgy Noarov, Aaron Roth
+arXiv: 2606.20557v1 | Categories: cs.LG, math.ST, stat.ML
+Abstract: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \in G$. It is a useful property for many downstream applications and is a basic desideratum of t...
+PDF: https://arxiv.org/pdf/2606.20557v1
+</p>
+<ul>
+<li>[2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups</li>
+</ul>
+<p>
+Authors: Przemyslaw Musialski
+arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
+Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
+PDF: https://arxiv.org/pdf/2606.20547v1
+</p>
+<ul>
+<li>[2026-06-18] Predictability as a Fine-Grained Measure for Privacy</li>
+</ul>
+<p>
+Authors: Linda Lu, Karthik Sridharan
+arXiv: 2606.20546v1 | Categories: cs.LG
+Abstract: Differential privacy (DP) ensures rigorous individual-level privacy guarantees against even the most knowledgeable attackers, but its worst-case nature can impose a costly privacy-accuracy tradeoff. We introduce privacy via predictability, a fine-grained framework that explicitly incorporates the at...
+PDF: https://arxiv.org/pdf/2606.20546v1
+</p>
+<ul>
+<li>[2026-06-18] Toward Calibrated Mixture-of-Experts Under Distribution Shift</li>
+</ul>
+<p>
+Authors: Gina Wong, Drew Prinster, Suchi Saria et al.
+arXiv: 2606.20544v1 | Categories: cs.AI, cs.LG
+Abstract: Calibration aligns a model's predictive uncertainty with the frequencies of its empirical outcomes and is important for understanding and trusting reported probabilities. Recent work shows that enforcing calibration at the level of individual predictors can improve ensemble accuracy and calibration,...
+PDF: https://arxiv.org/pdf/2606.20544v1
+</p>
+<ul>
+<li>[2026-06-18] Multi-Task Bayesian In-Context Learning</li>
+</ul>
+<p>
+Authors: Qingyang Zhu, Eric Karl Oermann, Kyunghyun Cho
+arXiv: 2606.20538v1 | Categories: cs.LG
+Abstract: Bayesian predictive inference provides a principled framework for uncertainty quantification, data efficiency, and robust generalization. However, exact inference is often intractable, and scalable approximations may remain computationally expensive or require restrictive modeling assumptions that d...
+PDF: https://arxiv.org/pdf/2606.20538v1
+</p>
+<ul>
+<li>[2026-06-18] Execution-State Capsules: Graph-Bound Execution-State Checkpoint and Restore for Low-Latency, Small-Batch, On-Device Physical-AI Serving</li>
+</ul>
+<p>
+Authors: Liang Su
+arXiv: 2606.20537v1 | Categories: cs.LG, cs.DC
+Abstract: Mainstream LLM serving systems reuse prefix work mainly through paged or radix key-value (KV) caches. This is highly effective for high-throughput, high-concurrency serving, but it manages only one positional fragment of execution state: the KV cache. We study the opposite regime: low-latency, small...
+PDF: https://arxiv.org/pdf/2606.20537v1
+</p>
+<h2>arXiv cs.CL — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents</li>
+</ul>
+<p>
+Authors: Md Nayem Uddin, Amir Saeidi, Eduardo Blanco et al.
+arXiv: 2606.20529v1 | Categories: cs.AI, cs.CL
+Abstract: Policy-adherent tool-calling agents in customer-service domains must maintain task states across turns while calling tools and obeying domain policies. Task states consist of relevant facts, identifiers, constraints, and conditions observed through user interaction and tool calls. In standard agents...
+PDF: https://arxiv.org/pdf/2606.20529v1
+</p>
+<ul>
+<li>[2026-06-18] StylisticBias: A Few Human Visual Cues Drive Most Social Biases in MLLMs</li>
+</ul>
+<p>
+Authors: Shaghayegh Kolli, Timo Cavelius, Nafiseh Nikeghbal et al.
+arXiv: 2606.20527v1 | Categories: cs.CL, cs.CV
+Abstract: Multimodal large language models (MLLMs) are increasingly deployed in personally and societally consequential settings, yet the visual cues that shape how these models judge people remain poorly understood. Prior work often compares different (groups of) individuals, making it difficult to separate ...
+PDF: https://arxiv.org/pdf/2606.20527v1
+</p>
+<ul>
+<li>[2026-06-18] Beyond Global Replanning: Hierarchical Recovery for Cross-Device Agent Systems</li>
+</ul>
+<p>
+Authors: Shu Yao, Yuhua Luo, Qian Long et al.
+arXiv: 2606.20487v1 | Categories: cs.CL
+Abstract: Real-world computer-use tasks often span multiple applications and devices, requiring agents to coordinate heterogeneous environments under dynamic runtime failures. Existing multi-device agent systems support task decomposition and cross-device assignment, but recovery remains largely coarse-graine...
+PDF: https://arxiv.org/pdf/2606.20487v1
+</p>
+<ul>
+<li>[2026-06-18] Your Mouse and Eyes Secretly Leak Your Preference: LLM Alignment using Implicit Feedback from Users</li>
+</ul>
+<p>
+Authors: Haw-Shiuan Chang, Jeffrey Gomez, Mehul Patwari et al.
+arXiv: 2606.20482v1 | Categories: cs.CL, cs.HC, cs.LG
+Abstract: To align a Large Language Model (LLM), most existing methods collect explicit human feedback and train a reward model to predict the human preference based on the response text. These existing methods have two key limitations. First, the users rarely provide explicit feedback for LLM responses, whic...
+PDF: https://arxiv.org/pdf/2606.20482v1
+</p>
+<ul>
+<li>[2026-06-18] Scalable Training of Spatially Grounded 2D Vision-Language Models for Radiology</li>
+</ul>
+<p>
+Authors: Yusuf Salcan, Simon Ging, Robin Schirrmeister et al.
+arXiv: 2606.20477v1 | Categories: cs.CV, cs.CL, cs.LG
+Abstract: We study how to train visually grounded vision-language models (VLMs) for radiology without manual spatial annotations. We introduce RefRad2D, a large-scale bilingual (German/English) dataset of 1.2M CT and MR image-text pairs derived from clinical practice, with task-specific VQA and spatial ground...
+PDF: https://arxiv.org/pdf/2606.20477v1
+</p>
+<ul>
+<li>[2026-06-18] CATCH-ME if you RAG: a dataset of Contextually Annotated multi-Turn Counterspeech against Hate and Misinformation Exchanges</li>
+</ul>
+<p>
+Authors: Helena Bonaldi, Genoveffa Martone, Marco Guerini
+arXiv: 2606.20369v1 | Categories: cs.CL
+Abstract: Online hate speech and misinformation frequently overlap, yet NLP research has mainly treated them in isolation. While LLMs represent a scalable solution for assisting humans in the generation of counterspeech for both threats, zero-shot models frequently generate repetitive and vague responses, und...
+PDF: https://arxiv.org/pdf/2606.20369v1
+</p>
+<ul>
+<li>[2026-06-18] Token-Operations-Oriented Inference Optimization Techniques for Large Models</li>
+</ul>
+<p>
+Authors: Shiguo Lian, Kai Wang, Zhaoxiang Liu et al.
+arXiv: 2606.20295v1 | Categories: cs.SE, cs.CL
+Abstract: Large model inference optimization serves as a key foundation for supporting the scalable, low-cost, and highly stable operation of large model services. Centered on token-oriented inference optimization technology, this paper proposes for the first time a four-layer technical architecture consistin...
+PDF: https://arxiv.org/pdf/2606.20295v1
+</p>
+<ul>
+<li>[2026-06-18] PsyScore: A Psychometrically-Aware Framework for Trait-Adaptive Essay Scoring and ZPD-Scaffolded Feedback</li>
+</ul>
+<p>
+Authors: Wei Xia, Jin Wu, Haoran Shi et al.
+arXiv: 2606.20287v1 | Categories: cs.CL
+Abstract: Effective Automated Essay Scoring (AES) are expected to support both reliable assessment and actionable instructional feedback. However, existing approaches often treat scoring and feedback as separate components: neural scoring models provide limited interpretability, while Large Language Model (LL...
+PDF: https://arxiv.org/pdf/2606.20287v1
+</p>
+<h2>arXiv cs.CV — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising</li>
+</ul>
+<p>
+Authors: Siang-Ling Zhang, Huai-Hsun Cheng, Tsung-Ju Yang et al.
+arXiv: 2606.20563v1 | Categories: cs.CV
+Abstract: Creating 3D visual illusions, a single 3D mesh that reveals entirely different semantics from various viewing angles, is a fascinating but tough challenge. Existing optimization-based methods are slow and can produce oversaturated colors. In contrast, naive stitching approaches fail to produce geome...
+PDF: https://arxiv.org/pdf/2606.20563v1
+</p>
+<ul>
+<li>[2026-06-18] TimeProVe: Propose, then Verify for Efficient Long Video Temporal Reasoning in Activities of Daily Living</li>
+</ul>
+<p>
+Authors: Arkaprava Sinha, Dominick Reilly, Siddharth Krishnan et al.
+arXiv: 2606.20561v1 | Categories: cs.CV
+Abstract: Long Video Question Answering (LVQA) requires identifying sparse, query-relevant evidence within hours-long untrimmed videos. Existing approaches either process videos densely with large vision-language models (VLMs), incurring prohibitive computational cost, or rely on sparse caption-based reasonin...
+PDF: https://arxiv.org/pdf/2606.20561v1
+</p>
+<ul>
+<li>[2026-06-18] UNIEGO: Proxies as Mediators for Unified Egocentric Video Representation Learning</li>
+</ul>
+<p>
+Authors: Wenhao Chi, Arkaprava Sinha, Dominick Reilly et al.
+arXiv: 2606.20559v1 | Categories: cs.CV, cs.LG
+Abstract: Egocentric video understanding is inherently limited by the narrow perspective of wearable cameras: a single viewpoint, a single modality, a single model cannot capture the full richness of human action. We argue that a truly expressive egocentric representation must subsume complementary knowledge ...
+PDF: https://arxiv.org/pdf/2606.20559v1
+</p>
+<ul>
+<li>[2026-06-18] Thinking in Boxes: 3D Editing in Real Images Made Easy</li>
+</ul>
+<p>
+Authors: Pradhaan S Bhat, Naveen Chandra R, Rishubh Parihar et al.
+arXiv: 2606.20556v1 | Categories: cs.CV
+Abstract: Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes. Prior work has used 3D primitives such as boxes, but only as loose conditioning signals indicating approximate object locat...
+PDF: https://arxiv.org/pdf/2606.20556v1
+</p>
+<ul>
+<li>[2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups</li>
+</ul>
+<p>
+Authors: Przemyslaw Musialski
+arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
+Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
+PDF: https://arxiv.org/pdf/2606.20547v1
+</p>
+<ul>
+<li>[2026-06-18] Current World Models Lack a Persistent State Core</li>
+</ul>
+<p>
+Authors: Jinpeng Lu, Dexu Zhu, Haoyuan Shi et al.
+arXiv: 2606.20545v1 | Categories: cs.CV
+Abstract: World models are increasingly regarded as a decisive step toward artificial general intelligence, yet modeling the physical world demands more than rendering convincing frames on demand: it requires an internal world state that keeps evolving over time, decoupled from observation, so that objects en...
+PDF: https://arxiv.org/pdf/2606.20545v1
+</p>
+<ul>
+<li>[2026-06-18] SSD: Spatially Speculative Decoding Accelerates Autoregressive Image Generation</li>
+</ul>
+<p>
+Authors: Shilong Xiang, Zirui Zhang, Lijun Yu et al.
+arXiv: 2606.20543v1 | Categories: cs.CV
+Abstract: Autoregressive models excel in visual generation by treating images as 1D sequences of discrete tokens, mirroring language modeling. However, this flattening discards the intrinsic 2D spatial locality of visual signals, creating severe computational bottlenecks during inference. We introduce Spatial...
+PDF: https://arxiv.org/pdf/2606.20543v1
+</p>
+<ul>
+<li>[2026-06-18] CalTennis: Large Multi-View Tennis Video Dataset and Benchmark of Monocular-to-3D Pose Estimation</li>
+</ul>
+<p>
+Authors: Ilona Demler, Xinran Xie, Blake Werner et al.
+arXiv: 2606.20542v1 | Categories: cs.CV
+Abstract: The Caltech Tennis Dataset (CalTennis) is a large-scale video benchmark for evaluating monocular-to-3D pose estimation in the wild. CalTennis comprises over 11 million frames (51 hours) of tennis practice and match play from 40 players, captured with 2-6 synchronized cameras at 60 Hz. It is 10 times...
+PDF: https://arxiv.org/pdf/2606.20542v1
+</p>
+<h2>arXiv cs.RO — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] MemoryWAM: Efficient World Action Modeling with Persistent Memory</li>
+</ul>
+<p>
+Authors: Sizhe Yang, Juncheng Mu, Tianming Wei et al.
+arXiv: 2606.20562v1 | Categories: cs.RO
+Abstract: Robust robotic manipulation in the real world requires not only an understanding of the current observation, but also memory and dynamics modeling. World action models (WAMs) possess these capabilities by jointly modeling visual foresight and actions conditioned on both current and historical observ...
+PDF: https://arxiv.org/pdf/2606.20562v1
+</p>
+<ul>
+<li>[2026-06-18] Generating Robot Hands from Human Demonstrations</li>
+</ul>
+<p>
+Authors: Sha Yi, Nicklas Hansen, Xueqian Bai et al.
+arXiv: 2606.20549v1 | Categories: cs.RO
+Abstract: Robot learning has advanced rapidly in learning control, but learning the physical body of a robot remains much more difficult because jointly searching over design and control creates a very large combinatorial problem. Here, we present a data-driven framework for generating robot hands from human ...
+PDF: https://arxiv.org/pdf/2606.20549v1
+</p>
+<ul>
+<li>[2026-06-18] The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups</li>
+</ul>
+<p>
+Authors: Przemyslaw Musialski
+arXiv: 2606.20547v1 | Categories: cs.LG, cs.CV, cs.GR
+Abstract: We place the attention token on the group: a token is an element $g_i$ of a matrix Lie group $G$ -- a bare transformation, with no feature payload and no external action $ρ(g)$ carrying it. To our knowledge this is the first attention construction whose tokens are bare matrix Lie group elements: the...
+PDF: https://arxiv.org/pdf/2606.20547v1
+</p>
+<ul>
+<li>[2026-06-18] Increasing Resilience of Continuum Robots via Motion Planning Algorithms</li>
+</ul>
+<p>
+Authors: Oxana Shamilyan, Ievgen Kabin, Zoya Dyka et al.
+arXiv: 2606.20495v1 | Categories: cs.RO
+Abstract: This paper presents an experimental study of motion planning for resilient continuum robots. In this study we mainly focused on multi-criteria decision-making, its application for path-planning algorithms, impact on the generated path and execution time. To do this, we used two well-known algorithms...
+PDF: https://arxiv.org/pdf/2606.20495v1
+</p>
+<ul>
+<li>[2026-06-18] Fast Human Attention Prediction for Fixation-guided Active Perception in Autonomous Navigation</li>
+</ul>
+<p>
+Authors: Fatma Youssef Mohammed, Grzegorz Malczyk, Kostas Alexis
+arXiv: 2606.20491v1 | Categories: cs.RO, cs.CV
+Abstract: Human visual attention relies on structured scanpaths to efficiently process scenes, yet instilling this behavior into robot autonomy is in its infancy and hindered by the high,computational costs of existing predictive models. To address this, we introduce GazeLNN, a computationally lightweight,sca...
+PDF: https://arxiv.org/pdf/2606.20491v1
+</p>
+<ul>
+<li>[2026-06-18] GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty Estimates</li>
+</ul>
+<p>
+Authors: Nastaran Darabi, Divake Kumar, Sina Tayebati et al.
+arXiv: 2606.20479v1 | Categories: cs.RO
+Abstract: Vision-language navigation agents achieve competitive average success on benchmark tasks, yet failures often arise through predictable trajectory-level breakdowns such as oscillation, stagnation, or inefficient detours. Reliable deployment, therefore, requires uncertainty signals that anticipate eme...
+PDF: https://arxiv.org/pdf/2606.20479v1
+</p>
+<ul>
+<li>[2026-06-18] Slow Brain, Fast Planner: Latency-Resilient VLM-Augmented Urban Navigation</li>
+</ul>
+<p>
+Authors: Zhenghao "Mark'' Peng, Honglin He, Quanyi Li et al.
+arXiv: 2606.20458v1 | Categories: cs.RO
+Abstract: Learning-based planners for sidewalk navigation can generate diverse candidate trajectories in real time, yet their scoring functions often fail to select the best trajectory in challenging situations, outputting trajectories that make the mobile robot drive onto grass, toward pedestrians, or in the...
+PDF: https://arxiv.org/pdf/2606.20458v1
+</p>
+<ul>
+<li>[2026-06-18] ARC: Adaptive Robust Joint State and Covariance Estimation</li>
+</ul>
+<p>
+Authors: Alexandre Hadji-Thomas, Andrew Stirling, James R. Forbes
+arXiv: 2606.20428v1 | Categories: cs.RO
+Abstract: Sensor measurements are frequently corrupted by outliers and non-Gaussian noise. These imperfections in the sensor data can cause classical state estimators to generate biased and unreliable state and uncertainty estimates. Robust estimators reject or downweight outliers but do not perform measureme...
+PDF: https://arxiv.org/pdf/2606.20428v1
+</p>
+<h2>arXiv cs.MA — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] Contagion Networks: Evaluator Bias Propagation in Multi-Agent LLM Systems</li>
+</ul>
+<p>
+Authors: Zewen Liu
+arXiv: 2606.20493v1 | Categories: cs.LG, cs.AI, cs.MA
+Abstract: When large language models serve as evaluators in multi-agent systems, their systematic evaluation biases propagate through the agent network. We introduce Contagion Networks, a formal framework for measuring how evaluator biases spread across interacting LLM agents. In a controlled 3-agent experime...
+PDF: https://arxiv.org/pdf/2606.20493v1
+</p>
+<ul>
+<li>[2026-06-18] An Infrastructure-less, Control-Independent Solution to Relative Localisation of a Team of Mobile Robots using Ranging Measurements</li>
+</ul>
+<p>
+Authors: Paolo Golinelli, Tommaso Faraci, Daniele Fontanelli
+arXiv: 2606.20365v1 | Categories: cs.RO, cs.MA
+Abstract: The ability to localise teams of robots is essential for applications ranging from robotic fleets in unstructured environments to cooperative control and navigation tasks. In such contexts, fixed infrastructure is often unavailable, deployments must be fast and flexible, and system requirements must...
+PDF: https://arxiv.org/pdf/2606.20365v1
+</p>
+<ul>
+<li>[2026-06-18] Phoenix: Safe GitHub Issue Resolution via Multi-Agent LLMs</li>
+</ul>
+<p>
+Authors: Kipngeno Koech, Muhammad Adam, Baimam Boukar Jean Jacques et al.
+arXiv: 2606.20243v1 | Categories: cs.SE, cs.MA
+Abstract: We present Phoenix, a multi-agent LLM system that resolves GitHub issues from triage through pull-request creation, combining seven layered safety controls with a baseline-aware test evaluation strategy. Phoenix decomposes the work across six specialized agents. Planner, reproducer, coder, tester, f...
+PDF: https://arxiv.org/pdf/2606.20243v1
+</p>
+<ul>
+<li>[2026-06-18] A Multi-Agent system for Multi-Objective constrained optimization</li>
+</ul>
+<p>
+Authors: Federica Filippini
+arXiv: 2606.20236v1 | Categories: cs.AI, cs.LG, cs.MA
+Abstract: Many decision-making problems in computing and networking systems can be naturally formulated as cost-minimization problems under performance constraints. In dynamic environments, reinforcement learning (RL) is often used to solve such problems at runtime by embedding both costs and constraint viola...
+PDF: https://arxiv.org/pdf/2606.20236v1
+</p>
+<ul>
+<li>[2026-06-18] RACL: Reasoning-Agent Control Layers for Continuous Metaheuristic Learning</li>
+</ul>
+<p>
+Authors: Antón Asla Manzárraga
+arXiv: 2606.20142v1 | Categories: cs.AI, cs.MA
+Abstract: This paper introduces RACL, a Reasoning-Agent Control Layer for metaheuristics. RACL places a reasoning agent above an existing optimizer. The agent does not replace the optimizer and does not modify business constraints. Instead, it controls the optimizer's internal search behavior by observing ope...
+PDF: https://arxiv.org/pdf/2606.20142v1
+</p>
+<ul>
+<li>[2026-06-18] ScaffoldAgent: Utility-Guided Dynamic Outline Optimization for Open-Ended Deep Research</li>
+</ul>
+<p>
+Authors: Zhibang Yang, Xinke Jiang, Yuzhen Xiao et al.
+arXiv: 2606.20122v1 | Categories: cs.AI, cs.MA
+Abstract: Open-ended deep research (OEDR) requires systems to acquire knowledge through multi-round retrieval and generate coherent long-form reports. The outline plays a central role as a structural scaffold that coordinates retrieval, evidence organization, and generation. However, existing methods either f...
+PDF: https://arxiv.org/pdf/2606.20122v1
+</p>
+<ul>
+<li>[2026-06-18] Blame is easier than praise: Measuring off-ball defensive performance in football</li>
+</ul>
+<p>
+Authors: Jonas Bischofberger, Runqing Ma, Pascal Bauer et al.
+arXiv: 2606.19931v1 | Categories: cs.MA
+Abstract: The defensive performance of football players is commonly measured through a limited number of actions like tackles and interceptions while their continuous impact through positional behaviour has hardly been studied before. We formulate this problem as an attribution over multi-agent spatiotemporal...
+PDF: https://arxiv.org/pdf/2606.19931v1
+</p>
+<ul>
+<li>[2026-06-18] Deep-Unfolded Coordination</li>
+</ul>
+<p>
+Authors: Hunter Kuperman, Minchan Jung, Rahul V. Ghosh et al.
+arXiv: 2606.19920v1 | Categories: cs.RO, cs.LG, cs.MA
+Abstract: Distributed optimization is a highly scalable and structurally transparent technique to solve multi-agent robotics problems; however, such methods often suffer from the need for highly-specialized, problem-specific hyperparameter tunings. In this work, we propose Deep Coordinator, a deep-unfolding f...
+PDF: https://arxiv.org/pdf/2606.19920v1
+</p>
+<h2>arXiv stat.ML — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] Optimal Deterministic Multicalibration and Omniprediction</li>
+</ul>
+<p>
+Authors: Georgy Noarov, Aaron Roth
+arXiv: 2606.20557v1 | Categories: cs.LG, math.ST, stat.ML
+Abstract: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \in G$. It is a useful property for many downstream applications and is a basic desideratum of t...
+PDF: https://arxiv.org/pdf/2606.20557v1
+</p>
+<ul>
+<li>[2026-06-18] Leveraging tails for adaptation</li>
+</ul>
+<p>
+Authors: Sergios Agapiou, Ismaël Castillo, Paul Egels
+arXiv: 2606.20480v1 | Categories: math.ST, stat.ML
+Abstract: We consider contraction of Bayesian posterior distributions in nonparametric settings where coefficients of a function over a basis or dictionary are given priors with $p$--exponential tails, including Laplace tails $(p=1)$ and heavier tails $(p<1)$. It is shown that contraction rates improve as $p$...
+PDF: https://arxiv.org/pdf/2606.20480v1
+</p>
+<ul>
+<li>[2026-06-18] SSH-Net: A Deep Neural Network for Predicting Failure Time Distribution Functions under Competing Risks with Application to GPU Data</li>
+</ul>
+<p>
+Authors: Jie Min, Yueyao Wang, Mengkun Chen
+arXiv: 2606.20451v1 | Categories: stat.ML, cs.LG, stat.AP
+Abstract: Competing risks are commonly observed in engineering fields and can bring challenges to time-to-event data modeling when the application scenarios are complicated. Recently, deep neural networks have received great attention for prediction with competing risks, due to their flexibility and high lear...
+PDF: https://arxiv.org/pdf/2606.20451v1
+</p>
+<ul>
+<li>[2026-06-18] Robust $Q$-learning for mean-field control under Wasserstein uncertainty in common noise</li>
+</ul>
+<p>
+Authors: Mathieu Laurière, Ariel Neufeld, Kyunghyun Park
+arXiv: 2606.20356v1 | Categories: math.OC, cs.AI, cs.LG
+Abstract: In this article, we present a robust $Q$-learning algorithm for discrete-time mean-field control problems under Wasserstein uncertainty in the common noise law. The algorithm combines a quantization-and-projection scheme with a Wasserstein dual reformulation on the common-noise space. We establish i...
+PDF: https://arxiv.org/pdf/2606.20356v1
+</p>
+<ul>
+<li>[2026-06-18] Statistical Properties of Training & Generalization</li>
+</ul>
+<p>
+Authors: Itay Lavie, Noam Levi, Yonatan Kahn
+arXiv: 2606.20299v1 | Categories: stat.ML, cs.LG, hep-ph
+Abstract: Deep learning has managed to evade numerous intuitions from classical statistics to achieve unprecedented performance on a number of real-world tasks. In this article, we investigate the key features and surprises of deep learning from a physics-informed perspective, taking care to point out and jus...
+PDF: https://arxiv.org/pdf/2606.20299v1
+</p>
+<ul>
+<li>[2026-06-18] Off-Policy Evaluation for Missingness-Aware Policies in MDPs with Rewards Missing Not at Random</li>
+</ul>
+<p>
+Authors: Ziheng Wei, Annie Qu, Rui Miao
+arXiv: 2606.20206v1 | Categories: stat.ML, cs.LG
+Abstract: In offline Reinforcement Learning, immediate rewards in logged batch data are often unobserved due to sparse or irregular record-keeping, or censored beyond certain reward values. This issue arises in practical settings, including health care and marketing. We investigate off-policy evaluation (OPE)...
+PDF: https://arxiv.org/pdf/2606.20206v1
+</p>
+<ul>
+<li>[2026-06-18] AK-MCS-C2 : Active Kriging Monte Carlo Simulation method with conformal certification for failure probability estimation</li>
+</ul>
+<p>
+Authors: Edgar Jaber, Vincent Chabridon, Mathilde Mougeot
+arXiv: 2606.20191v1 | Categories: stat.ML, stat.ME
+Abstract: We introduce a novel active-learning framework for failure probability estimation in structural reliability analysis that integrates Active Kriging Monte Carlo simulation with conformal prediction. The proposed approach employs an adaptive cross-conformal strategy specifically designed for small-sam...
+PDF: https://arxiv.org/pdf/2606.20191v1
+</p>
+<ul>
+<li>[2026-06-18] Stochastic Linear Contextual Bandits with Bounded Noise: A Set-Membership Approach</li>
+</ul>
+<p>
+Authors: Haonan Xu, Yingying Li
+arXiv: 2606.20022v1 | Categories: stat.ML, cs.LG, math.OC
+Abstract: This paper considers stochastic linear contextual bandits (SLCB) with bounded reward noise. Existing works typically assume sub-Gaussian reward noise and bounded expected rewards, under which the optimal regret bound scales as $\tilde{O}(\sqrt{T})$ in terms of horizon $T$. However, in many applicati...
+PDF: https://arxiv.org/pdf/2606.20022v1
+</p>
+<h2>arXiv cs.CR — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] From Efficiency to Leakage -- Privacy Backdoor in Federated Language Model Fine-Tuning</li>
+</ul>
+<p>
+Authors: Shanghao Shi, Chaoyu Zhang, Heng Jin et al.
+arXiv: 2606.20553v1 | Categories: cs.CR
+Abstract: Federated learning (FL) enables multiple parties to collaboratively fine-tune language models for domain-specific tasks without sharing raw data. Since full model fine-tuning is often prohibitively expensive for FL clients, parameter-efficient fine-tuning (PEFT) has become the de facto approach in p...
+PDF: https://arxiv.org/pdf/2606.20553v1
+</p>
+<ul>
+<li>[2026-06-18] Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes</li>
+</ul>
+<p>
+Authors: Jun He, Deying Yu
+arXiv: 2606.20520v1 | Categories: cs.CR, cs.AI, cs.DC
+Abstract: Autonomous agents are increasingly connected to cloud, deployment, and data-control workflows, but production mutation authority should not reside inside non-deterministic reasoning processes. Existing access-control mechanisms authorize identities, while assurance layers certify proposed actions; n...
+PDF: https://arxiv.org/pdf/2606.20520v1
+</p>
+<ul>
+<li>[2026-06-18] Efficient and Sound Probabilistic Verification for AI Agents</li>
+</ul>
+<p>
+Authors: Alaia Solko-Breslin, Pramod Kaushik Mudrakarta, Mihai Christodorescu et al.
+arXiv: 2606.20510v1 | Categories: cs.CR, cs.AI
+Abstract: Securing AI agents that operate in complex digital environments has become a critical need, and runtime monitoring approaches that formulate and enforce policies expressed in a formal language like Datalog offer a promising solution. However, existing approaches are restricted to deterministic polic...
+PDF: https://arxiv.org/pdf/2606.20510v1
+</p>
+<ul>
+<li>[2026-06-18] Calibration Without Comprehension: Diagnosing the Limits of Fine-Tuning LLMs for Vulnerability Detection in Systems Software</li>
+</ul>
+<p>
+Authors: Arastoo Zibaeirad, Marco Vieira
+arXiv: 2606.20502v1 | Categories: cs.CR, cs.AI, cs.SE
+Abstract: Whether LLMs scoring well on vulnerability benchmarks genuinely reason about security or merely pattern-match on contaminated data remains unresolved. We present CWE-Trace, a framework for LLM vulnerability detection built from 834 manually curated Linux kernel samples spanning 74 CWEs. The framewor...
+PDF: https://arxiv.org/pdf/2606.20502v1
+</p>
+<ul>
+<li>[2026-06-18] A-COMPASS: Formal Foundations for Anonymity Analysis in Microdata</li>
+</ul>
+<p>
+Authors: Tamara Tagliavia, Silvia Ghilezan
+arXiv: 2606.20492v1 | Categories: cs.CR, cs.LO
+Abstract: In the information age, one of the leading problems is how to ensure individual's privacy. Depending on the context in which privacy is considered, various data privacy models have emerged. However, the domain of formal verification of these models is still not sufficiently explored even when it com...
+PDF: https://arxiv.org/pdf/2606.20492v1
+</p>
+<ul>
+<li>[2026-06-18] Analyzing Defensive Misdirection Against Model-Guided Automated Attacks on Agentic AI Systems</li>
+</ul>
+<p>
+Authors: Reza Soosahabi, Vivek Namsani
+arXiv: 2606.20470v1 | Categories: cs.CR, cs.AI
+Abstract: Agentic AI systems increasingly rely on language-model components to interpret instructions, process external data, invoke tools, and coordinate with other agents. These capabilities make prompt-injection and jailbreak attacks more consequential, especially as attackers adopt model-guided automation...
+PDF: https://arxiv.org/pdf/2606.20470v1
+</p>
+<ul>
+<li>[2026-06-18] Image Encryption Algorithm Based on Convolutional Neural Networks and Dynamic S-Box Generation</li>
+</ul>
+<p>
+Authors: Ans Ibrahim, Fadhil Abbas Fadhil, Mahameed Reza Feizi Derakhshi et al.
+arXiv: 2606.20444v1 | Categories: cs.CR, cs.SE
+Abstract: The paper proposes a dynamic approach to image encryption, combining the use of Convolutional Neural Networks (CNNs) and classical cryptography to improve the security and flexibility of image encryption. The main concept is to create adaptive Substitution boxes (S-boxes) based on characteristics th...
+PDF: https://arxiv.org/pdf/2606.20444v1
+</p>
+<ul>
+<li>[2026-06-18] Multi-View Decompilation for LLM-Based Malware Classification</li>
+</ul>
+<p>
+Authors: Bercan Turkmen, Vyas Raina
+arXiv: 2606.20436v1 | Categories: cs.CR, cs.AI
+Abstract: Malware analysts often inspect compiled binaries through decompiled pseudo-C, when source code is unavailable. Recent work suggests that large language models (LLMs) can assist this process by classifying decompiled code as benign or malicious, but existing pipelines typically rely on a single decom...
+PDF: https://arxiv.org/pdf/2606.20436v1
+</p>
+<h2>arXiv cs.GT — Latest Papers</h2>
+<ul>
+<li>[2026-06-18] Mobile Target Search with Imperfect Perception: A Partially Observable Stochastic Game Theoretical Approach</li>
+</ul>
+<p>
+Authors: Hanzheng Zhang, Shu Liang, Shuyu Liu
+arXiv: 2606.20232v1 | Categories: cs.RO, cs.GT
+Abstract: This paper investigates mobile target search under imperfect perceptions caused by sensor limitations, malicious jamming, or communication noise. Searchers and targets operate in a grid-shaped area with bounded mobility, leading to a dynamic interplay between search and evasion. To capture this adve...
+PDF: https://arxiv.org/pdf/2606.20232v1
+</p>
+<ul>
+<li>[2026-06-18] Beyond Lower Quota: Avoiding Overrepresentation in Multi-Winner Voting</li>
+</ul>
+<p>
+Authors: Anton Baychkov, Martin Lackner, Jan Maly et al.
+arXiv: 2606.19968v1 | Categories: cs.GT
+Abstract: Recently, in the social choice literature, much attention has been given to the question of avoiding underrepresentation in approval-based multi-winner voting. In this paper, we explore the largely overlooked complementary question of avoiding overrepresentation. This has not been explored systemati...
+PDF: https://arxiv.org/pdf/2606.19968v1
+</p>
+<ul>
+<li>[2026-06-18] A Unified Framework for Joint Sensor Placement and Scheduling for Intrusion Detection</li>
+</ul>
+<p>
+Authors: Jayanth Bhargav, Mahsa Ghasemi, Shreyas Sundaram
+arXiv: 2606.19695v1 | Categories: eess.SY, cs.GT, math.OC
+Abstract: We consider an intrusion detection task in which a defender must jointly optimize sensor placement locations and orientations to minimize the probability of missed detection of an intruder traversing a protected environment. We decompose this problem into a meta problem, termed SensorPlacement, and ...
+PDF: https://arxiv.org/pdf/2606.19695v1
+</p>
+<ul>
+<li>[2026-06-17] Joint-task truthfulness of the DMI mechanism</li>
+</ul>
+<p>
+Authors: Rafael Frongillo
+arXiv: 2606.19618v1 | Categories: cs.GT
+Abstract: The Determinant Mutual Information (DMI) mechanism of Kong (2020, 2024) is dominantly truthful within the class of <em>consistent</em> reporting strategies, those that apply the same single-task strategy to every task. In settings where agents see multiple tasks before reporting, such as peer grading or pe...
+PDF: https://arxiv.org/pdf/2606.19618v1
+</p>
+<ul>
+<li>[2026-06-17] Mean-Payoff-Parity and Lifting Strategies from MDPs to 2-Player Stochastic Games</li>
+</ul>
+<p>
+Authors: Mohan Dantam, Richard Mayr
+arXiv: 2606.19324v1 | Categories: cs.GT
+Abstract: We consider the strategy complexity (i.e., memory and randomization) of optimal strategies in turn-based 2-player zero-sum stochastic games. Results in [Gimbert,Kelmendi:2023] show how to lift optimal memoryless strategies for shift-invariant inverse-submixing objectives from MDPs to 2-player stocha...
+PDF: https://arxiv.org/pdf/2606.19324v1
+</p>
+<ul>
+<li>[2026-06-17] Convergence of Replicator Dynamics in the Repeated Prisoner's Dilemma with Restarts</li>
+</ul>
+<p>
+Authors: Benedict Russell, Chin-wing Leung, Paolo Turrini
+arXiv: 2606.18965v1 | Categories: cs.GT
+Abstract: We investigate a population of self-interested agents playing a repeated Prisoner's Dilemma under the trigger-restart mechanism. Under such a mechanism, agents play a sequence of symmetric games with their partner, and restart the interaction if their actions disagree. Our work focuses on the conver...
+PDF: https://arxiv.org/pdf/2606.18965v1
+</p>
+<ul>
+<li>[2026-06-17] Epistemic Pairwise Maximin Share</li>
+</ul>
+<p>
+Authors: Michal Feldman, Amos Fiat, Yael Nissan et al.
+arXiv: 2606.18921v1 | Categories: cs.GT
+Abstract: We introduce epistemic pairwise maximin share (EPMMS), a new fairness notion for fair division of indivisible goods. Two fundamental notions in this setting are envy-freeness up to any item (EFX) and pairwise maximin share (PMMS), with PMMS being stronger than EFX. While EFX has been extensively stu...
+PDF: https://arxiv.org/pdf/2606.18921v1
+</p>
+<ul>
+<li>[2026-06-17] Fair Online Resource Allocation</li>
+</ul>
+<p>
+Authors: Christopher En, Yuri Faenza, Andrea Lodi et al.
+arXiv: 2606.18679v2 | Categories: cs.DS, cs.GT, cs.LG
+Abstract: We study the problem of fair online resource allocation, motivated by applications such as refugee resettlement and airline scheduling, where agents arrive sequentially and must be assigned to facilities with limited capacities. We introduce a model that maximizes the overall welfare subject to reso...
+PDF: https://arxiv.org/pdf/2606.18679v2
+</p>
+<p>
 [No new HN AI posts found]
-
-## GitHub Trending — AI/ML Repositories
-- [Python] ⭐+10159 (36762 total) chopratejas/headroom
-  Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.
-  Link: https://github.com/chopratejas/headroom
-
-- [Shell] ⭐+9285 (63179 total) addyosmani/agent-skills
-  Production-grade engineering skills for AI coding agents.
-  Link: https://github.com/addyosmani/agent-skills
-
-- [TypeScript] ⭐+7899 (125652 total) iptv-org/iptv
-  Collection of publicly available IPTV channels from all over the world
-  Link: https://github.com/iptv-org/iptv
-
-- [Python] ⭐+7856 (34814 total) Panniantong/Agent-Reach
-  Give your AI agent eyes to see the entire internet. Read &amp; search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.
-  Link: https://github.com/Panniantong/Agent-Reach
-
-- [Swift] ⭐+7671 (38737 total) apple/container
-  A tool for creating and running Linux containers using lightweight virtual machines on a Mac. It is written in Swift, and optimized for Apple silicon.
-  Link: https://github.com/apple/container
-
-- [Python] ⭐+5505 (8106 total) NVIDIA/SkillSpector
-  Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, and security risks.
-  Link: https://github.com/NVIDIA/SkillSpector
-
-- [Python] ⭐+4827 (44592 total) mvanhorn/last30days-skill
-  AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary
-  Link: https://github.com/mvanhorn/last30days-skill
-
-- [unknown] ⭐+3663 (19692 total) phuryn/pm-skills
-  PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.
-  Link: https://github.com/phuryn/pm-skills
-
-- [C] ⭐+3244 (7584 total) DeusData/codebase-memory-mcp
-  High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary
-  Link: https://github.com/DeusData/codebase-memory-mcp
-
-- [Ruby] ⭐+2422 (32627 total) chatwoot/chatwoot
-  Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬
-  Link: https://github.com/chatwoot/chatwoot
-
-- [Python] ⭐+2069 (23858 total) google-research/timesfm
-  TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.
-  Link: https://github.com/google-research/timesfm
-
-- [JavaScript] ⭐+1705 (43429 total) asgeirtj/system_prompts_leaks
-  Extracted system prompts from Anthropic - Claude Fable 5, Opus 4.8, Claude Code, Claude Design. OpenAI - ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity. 
-  Link: https://github.com/asgeirtj/system_prompts_leaks
-
-- [Go] ⭐+1382 (2913 total) kenn-io/agentsview
-  Local-first session search, analytics, insights, and token use statistics for coding agents, supporting Claude Code, Codex, and more than 20 other agents.
-  Link: https://github.com/kenn-io/agentsview
-
-- [Python] ⭐+1238 (5924 total) calesthio/OpenMontage
-  World's first open-source, agentic video production system. 12 pipelines, 52 tools, 500+ agent skills. Turn your AI coding assistant into a full video production studio.
-  Link: https://github.com/calesthio/OpenMontage
-
-- [Python] ⭐+1184 (83047 total) PaddlePaddle/PaddleOCR
-  Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.
-  Link: https://github.com/PaddlePaddle/PaddleOCR
-
-- [Python] ⭐+922 (3409 total) shuvonsec/claude-bug-bounty
-  AI-powered bug bounty hunting from your terminal - recon, 20 vuln classes, autonomous hunting, and report generation. All inside Claude Code.
-  Link: https://github.com/shuvonsec/claude-bug-bounty
-
-- [Python] ⭐+825 (9379 total) LMCache/LMCache
-  LMCache: Supercharge Your LLM with the Fastest KV Cache Layer
-  Link: https://github.com/LMCache/LMCache
-
-- [Python] ⭐+711 (83174 total) infiniflow/ragflow
-  RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs
-  Link: https://github.com/infiniflow/ragflow
-
-- [Python] ⭐+400 (5862 total) microsoft/fara
-  Fara-7B: An Efficient Agentic Model for Computer Use
-  Link: https://github.com/microsoft/fara
-
-- [Python] ⭐+198 (3009 total) google/agents-cli
-  The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud.
-  Link: https://github.com/google/agents-cli
-
-
-## YouTube — AI Channels
-- [2026-06-16] They Looked Inside Claude’s AI's Mind. It Got Weird
-  Link: https://www.youtube.com/watch?v=l72ufA-4SzE
-
-- [2026-06-14] NVIDIA's New Free AI - A Gift To Humanity
-  Link: https://www.youtube.com/watch?v=zJvN8PDX1is
-
-- [2026-06-06] AI Agents as &quot;Games Masters&quot;? 🎮🔥
-  Link: https://www.youtube.com/shorts/82m7YqosdgU
-
-- [2026-06-05] DeepMind’s New AI Found A Strange New Way To Think
-  Link: https://www.youtube.com/watch?v=Dkqzqw8rxXI
-
-- [2026-06-03] Meet the AI &quot;Co-Scientist&quot; Changing Everything 🤖🧪 #ai
-  Link: https://www.youtube.com/shorts/iz7elwbqZVI
-
-- [2026-03-06] I BUILT A FULLY AUTOMATIC MANSPLAINER
-  Link: https://www.youtube.com/watch?v=xHi8PUIVyoo
-
-- [2025-12-29] Traditional X-Mas Stream
-  Link: https://www.youtube.com/watch?v=Dr6jw-WAd9E
-
-- [2025-12-28] Traditional Holiday Live Stream
-  Link: https://www.youtube.com/watch?v=DNajvkqfobY
-
-- [2025-12-27] TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)
-  Link: https://www.youtube.com/watch?v=taCVT5vDAk0
-
-- [2025-12-14] Titans: Learning to Memorize at Test Time (Paper Analysis)
-  Link: https://www.youtube.com/watch?v=v67plFw1nMw
-
-- [2026-06-16] 100 random chords, how many intersections?
-  Link: https://www.youtube.com/shorts/wGffBCfrAsE
-
-- [2026-06-12] Measuring the entropy of English
-  Link: https://www.youtube.com/shorts/-7etvZSBxlk
-
-- [2026-06-10] What's the perfect encoding? How do you know?
-  Link: https://www.youtube.com/shorts/7L_eTem1SQ4
-
-- [2026-06-07] Reinventing Entropy | Compression is Intelligence Part 1
-  Link: https://www.youtube.com/watch?v=l6DKRf-fAAM
-
-- [2026-05-21] Tie random ends: How many loops?
-  Link: https://www.youtube.com/shorts/ZHXt0-_gSj4
-
-- [2026-06-16] Is it Possible to Block Childrens' Access to Social Media? - Computerphile
-  Link: https://www.youtube.com/watch?v=2jJeSgO_MGo
-
-- [2026-06-15] TCP b : Additive Increase Multiplicative Decrease &amp; 'Slow Start' - Computerphile
-  Link: https://www.youtube.com/watch?v=nKVML4YaBqs
-
-- [2026-06-13] TCP a : Ensuring Your Data Gets There &amp; in the Right Order! - Computerphile
-  Link: https://www.youtube.com/watch?v=IADOV8UZO34
-
-- [2026-06-04] Fuzzing Programs to Find Bugs - Computerphile
-  Link: https://www.youtube.com/watch?v=kaD54VXxGrI
-
-- [2026-05-29] Human Readable Code - Computerphile
-  Link: https://www.youtube.com/watch?v=SJocPm2E8eQ
-
-- [2026-05-29] Biggest Mysteries in Physics: Antimatter, Dark Energy &amp; ToE - Don Lincoln | Lex Fridman Podcast #497
-  Link: https://www.youtube.com/watch?v=1M3Vdl6DRkU
-
-- [2026-05-06] FFmpeg: The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast #496
-  Link: https://www.youtube.com/watch?v=nepKKz-MzFM
-
-- [2026-04-09] Vikings, Ragnar, Berserkers, Valhalla &amp; the Warriors of the Viking Age | Lex Fridman Podcast #495
-  Link: https://www.youtube.com/watch?v=iKx3gAODybU
-
-- [2026-03-23] Jensen Huang: NVIDIA - The $4 Trillion Company &amp; the AI Revolution | Lex Fridman Podcast #494
-  Link: https://www.youtube.com/watch?v=vif8NQcjVf0
-
-- [2026-03-11] Jeff Kaplan: World of Warcraft, Overwatch, Blizzard, and Future of Gaming | Lex Fridman Podcast #493
-  Link: https://www.youtube.com/watch?v=H9rF1CSSh-w
-
-- [2025-12-19] Training a Unitree G1 to Walk w/ Reinforcement Learning
-  Link: https://www.youtube.com/watch?v=FGnAeUXRZ4E
-
-- [2025-09-30] Unitree G1 Security Disaster
-  Link: https://www.youtube.com/watch?v=Ah0-l0HZwLA
-
-- [2025-08-30] Testing VLMs and LLMs for robotics w/ the Jetson Thor devkit
-  Link: https://www.youtube.com/watch?v=eRPSRSGiAA8
-
-- [2025-07-25] Reinforcement learning with Unitree G1 humanoid - Dev w/ G1 P.5
-  Link: https://www.youtube.com/watch?v=wiIUF9pIDYw
-
-- [2025-05-30] A bigger brain for the Unitree G1- Dev w/ G1 Humanoid P.4
-  Link: https://www.youtube.com/watch?v=cmnJhOWp2z4
-
-- [2026-06-08] StatQuest: Random Forests Part 2: Missing data and clustering
-  Link: https://www.youtube.com/watch?v=mIlw5j3WyVk
-
-- [2026-06-08] False Discovery Rates, FDR, clearly explained
-  Link: https://www.youtube.com/watch?v=L3nlGfSyHV0
-
-- [2026-05-18] The Essence of Linear Regression
-  Link: https://www.youtube.com/watch?v=aFDOzpTeg0s
-
-- [2026-01-12] How AI works in Super Simple Terms!!!
-  Link: https://www.youtube.com/watch?v=q-BiW5srMFQ
-
-- [2025-09-04] StatQuest: Career Advice from Tech Industry Leaders
-  Link: https://www.youtube.com/watch?v=WRYk7oZiogg
-
-- [2025-09-23] H-1B VISA ABUSE: The Dark Truth of Tech (as an ex-Google software engineer)
-  Link: https://www.youtube.com/watch?v=TwWWw6e9ko0
-
-- [2025-08-29] Why Programming Will Make You POOR (Coding in 2025)
-  Link: https://www.youtube.com/watch?v=tvj-Nh5W0lw
-
-- [2025-08-25] Why WORK won't make you RICH (Bitcoin, Ethereum, Market Update)
-  Link: https://www.youtube.com/watch?v=eOU5ALbUFEg
-
-- [2025-06-30] Get Out of Tech. IT'S OVER.
-  Link: https://www.youtube.com/watch?v=RweoklWbLsw
-
-- [2025-01-11] How much Bitcoin should you own? | STATE OF CRYPTO 2025.
-  Link: https://www.youtube.com/watch?v=QwRidEuefXI
-
-- [2026-06-14] Claude Fable Blocked - 11 Quiet Details on What’s Next
-  Link: https://www.youtube.com/watch?v=Qj71N0tBzRo
-
-- [2026-06-10] Claude Fable 5 - Full 319 page Breakdown
-  Link: https://www.youtube.com/watch?v=haK1KoQWm18
-
-- [2026-05-29] New Claude Opus 4.8: 15 Things You May’ve Missed
-  Link: https://www.youtube.com/watch?v=aJvP3nXWkwM
-
-- [2026-05-20] Two Rival Bets on AGI: Google I/O Highlights
-  Link: https://www.youtube.com/watch?v=o_av1b9rs2g
-
-- [2026-04-24] GPT 5.5 Arrives, DeepSeek V4 Drops, and the Compute War Intensifies
-  Link: https://www.youtube.com/watch?v=jz0rNhfAKo8
-
-- [2026-06-04] School of Football | Making Of | Boston Dynamics x Hyundai
-  Link: https://www.youtube.com/watch?v=qYy-BwBpxBI
-
-- [2026-06-02] Do robots need shoes? | Ask a Roboticist #atlas #robot #bostondynamics
-  Link: https://www.youtube.com/shorts/GvByvkp6k5s
-
-- [2026-05-29] School of Football | The Ghost Rabona | Boston Dynamics x Hyundai
-  Link: https://www.youtube.com/watch?v=V1Lxp-Q6Y9g
-
-- [2026-05-28] School of Football | The Rabona | Boston Dynamics x Hyundai
-  Link: https://www.youtube.com/watch?v=mCcv90sUNbY
-
-- [2026-05-27] Whirlybird | Atlas | Boston Dynamics
-  Link: https://www.youtube.com/shorts/RgXhCw7Qzac
-
-- [2026-06-16] GeForce Garage | Forza Horizon 6 PC by modifiedgg
-  Link: https://www.youtube.com/shorts/dymAF1U32IY
-
-- [2026-06-12] Cyclops: The Fearless Leader | Character Reveal Trailer | Marvel Rivals
-  Link: https://www.youtube.com/watch?v=K0L3USu_5e8
-
-- [2026-06-09] DOOM: The Dark Ages | Revelations - Official Trailer (4K) | Available July 7
-  Link: https://www.youtube.com/watch?v=haa9r1pe8Q8
-
-- [2026-06-09] CONTROL Resonant - Take CONTROL Trailer | PC Gaming Show June 2026
-  Link: https://www.youtube.com/watch?v=9uSZI5yz7jc
-
-- [2026-06-08] CONTROL Resonant – Paranatural Manhattan Trailer | Summer Game Fest 2026
-  Link: https://www.youtube.com/watch?v=YJmmY9l5GeQ
-
-- [2026-05-23] F.03 Livestream: Day 9 (Hour 192-200)
-  Link: https://www.youtube.com/watch?v=JeeJJ42TKQU
-
-- [2026-05-23] F.03 Livestream: Day 8 (Hour 180-192)
-  Link: https://www.youtube.com/watch?v=t3laRgQacFo
-
-- [2026-05-23] F.03 Livestream: Day 8 (Hour 168-180)
-  Link: https://www.youtube.com/watch?v=bxCUVfXUzrQ
-
-- [2026-05-22] F.03 Livestream: Day 3 (Hour 48-60)
-  Link: https://www.youtube.com/watch?v=LewqAffahfQ
-
-- [2026-05-22] F.03 Livestream: Day 7 (Hour 156-168)
-  Link: https://www.youtube.com/watch?v=Z3WMSZCf43o
-
+</p>
+<h2>GitHub Trending — AI/ML Repositories</h2>
+<ul>
+<li>[Python] ⭐+10159 (36762 total) chopratejas/headroom</li>
+</ul>
+<p>
+Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.
+Link: https://github.com/chopratejas/headroom
+</p>
+<ul>
+<li>[Shell] ⭐+9285 (63179 total) addyosmani/agent-skills</li>
+</ul>
+<p>
+Production-grade engineering skills for AI coding agents.
+Link: https://github.com/addyosmani/agent-skills
+</p>
+<ul>
+<li>[TypeScript] ⭐+7899 (125652 total) iptv-org/iptv</li>
+</ul>
+<p>
+Collection of publicly available IPTV channels from all over the world
+Link: https://github.com/iptv-org/iptv
+</p>
+<ul>
+<li>[Python] ⭐+7856 (34814 total) Panniantong/Agent-Reach</li>
+</ul>
+<p>
+Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.
+Link: https://github.com/Panniantong/Agent-Reach
+</p>
+<ul>
+<li>[Swift] ⭐+7671 (38737 total) apple/container</li>
+</ul>
+<p>
+A tool for creating and running Linux containers using lightweight virtual machines on a Mac. It is written in Swift, and optimized for Apple silicon.
+Link: https://github.com/apple/container
+</p>
+<ul>
+<li>[Python] ⭐+5505 (8106 total) NVIDIA/SkillSpector</li>
+</ul>
+<p>
+Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, and security risks.
+Link: https://github.com/NVIDIA/SkillSpector
+</p>
+<ul>
+<li>[Python] ⭐+4827 (44592 total) mvanhorn/last30days-skill</li>
+</ul>
+<p>
+AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary
+Link: https://github.com/mvanhorn/last30days-skill
+</p>
+<ul>
+<li>[unknown] ⭐+3663 (19692 total) phuryn/pm-skills</li>
+</ul>
+<p>
+PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.
+Link: https://github.com/phuryn/pm-skills
+</p>
+<ul>
+<li>[C] ⭐+3244 (7584 total) DeusData/codebase-memory-mcp</li>
+</ul>
+<p>
+High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary
+Link: https://github.com/DeusData/codebase-memory-mcp
+</p>
+<ul>
+<li>[Ruby] ⭐+2422 (32627 total) chatwoot/chatwoot</li>
+</ul>
+<p>
+Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬
+Link: https://github.com/chatwoot/chatwoot
+</p>
+<ul>
+<li>[Python] ⭐+2069 (23858 total) google-research/timesfm</li>
+</ul>
+<p>
+TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.
+Link: https://github.com/google-research/timesfm
+</p>
+<ul>
+<li>[JavaScript] ⭐+1705 (43429 total) asgeirtj/system_prompts_leaks</li>
+</ul>
+<p>
+Extracted system prompts from Anthropic - Claude Fable 5, Opus 4.8, Claude Code, Claude Design. OpenAI - ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity.
+Link: https://github.com/asgeirtj/system_prompts_leaks
+</p>
+<ul>
+<li>[Go] ⭐+1382 (2913 total) kenn-io/agentsview</li>
+</ul>
+<p>
+Local-first session search, analytics, insights, and token use statistics for coding agents, supporting Claude Code, Codex, and more than 20 other agents.
+Link: https://github.com/kenn-io/agentsview
+</p>
+<ul>
+<li>[Python] ⭐+1238 (5924 total) calesthio/OpenMontage</li>
+</ul>
+<p>
+World's first open-source, agentic video production system. 12 pipelines, 52 tools, 500+ agent skills. Turn your AI coding assistant into a full video production studio.
+Link: https://github.com/calesthio/OpenMontage
+</p>
+<ul>
+<li>[Python] ⭐+1184 (83047 total) PaddlePaddle/PaddleOCR</li>
+</ul>
+<p>
+Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.
+Link: https://github.com/PaddlePaddle/PaddleOCR
+</p>
+<ul>
+<li>[Python] ⭐+922 (3409 total) shuvonsec/claude-bug-bounty</li>
+</ul>
+<p>
+AI-powered bug bounty hunting from your terminal - recon, 20 vuln classes, autonomous hunting, and report generation. All inside Claude Code.
+Link: https://github.com/shuvonsec/claude-bug-bounty
+</p>
+<ul>
+<li>[Python] ⭐+825 (9379 total) LMCache/LMCache</li>
+</ul>
+<p>
+LMCache: Supercharge Your LLM with the Fastest KV Cache Layer
+Link: https://github.com/LMCache/LMCache
+</p>
+<ul>
+<li>[Python] ⭐+711 (83174 total) infiniflow/ragflow</li>
+</ul>
+<p>
+RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs
+Link: https://github.com/infiniflow/ragflow
+</p>
+<ul>
+<li>[Python] ⭐+400 (5862 total) microsoft/fara</li>
+</ul>
+<p>
+Fara-7B: An Efficient Agentic Model for Computer Use
+Link: https://github.com/microsoft/fara
+</p>
+<ul>
+<li>[Python] ⭐+198 (3009 total) google/agents-cli</li>
+</ul>
+<p>
+The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud.
+Link: https://github.com/google/agents-cli
+</p>
+<h2>YouTube — AI Channels</h2>
+<ul>
+<li>[2026-06-16] They Looked Inside Claude’s AI's Mind. It Got Weird</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=l72ufA-4SzE
+</p>
+<ul>
+<li>[2026-06-14] NVIDIA's New Free AI - A Gift To Humanity</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=zJvN8PDX1is
+</p>
+<ul>
+<li>[2026-06-06] AI Agents as "Games Masters"? 🎮🔥</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/82m7YqosdgU
+</p>
+<ul>
+<li>[2026-06-05] DeepMind’s New AI Found A Strange New Way To Think</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=Dkqzqw8rxXI
+</p>
+<ul>
+<li>[2026-06-03] Meet the AI "Co-Scientist" Changing Everything 🤖🧪 #ai</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/iz7elwbqZVI
+</p>
+<ul>
+<li>[2026-03-06] I BUILT A FULLY AUTOMATIC MANSPLAINER</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=xHi8PUIVyoo
+</p>
+<ul>
+<li>[2025-12-29] Traditional X-Mas Stream</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=Dr6jw-WAd9E
+</p>
+<ul>
+<li>[2025-12-28] Traditional Holiday Live Stream</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=DNajvkqfobY
+</p>
+<ul>
+<li>[2025-12-27] TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=taCVT5vDAk0
+</p>
+<ul>
+<li>[2025-12-14] Titans: Learning to Memorize at Test Time (Paper Analysis)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=v67plFw1nMw
+</p>
+<ul>
+<li>[2026-06-16] 100 random chords, how many intersections?</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/wGffBCfrAsE
+</p>
+<ul>
+<li>[2026-06-12] Measuring the entropy of English</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/-7etvZSBxlk
+</p>
+<ul>
+<li>[2026-06-10] What's the perfect encoding? How do you know?</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/7L_eTem1SQ4
+</p>
+<ul>
+<li>[2026-06-07] Reinventing Entropy | Compression is Intelligence Part 1</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=l6DKRf-fAAM
+</p>
+<ul>
+<li>[2026-05-21] Tie random ends: How many loops?</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/ZHXt0-_gSj4
+</p>
+<ul>
+<li>[2026-06-16] Is it Possible to Block Childrens' Access to Social Media? - Computerphile</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=2jJeSgO_MGo
+</p>
+<ul>
+<li>[2026-06-15] TCP b : Additive Increase Multiplicative Decrease & 'Slow Start' - Computerphile</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=nKVML4YaBqs
+</p>
+<ul>
+<li>[2026-06-13] TCP a : Ensuring Your Data Gets There & in the Right Order! - Computerphile</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=IADOV8UZO34
+</p>
+<ul>
+<li>[2026-06-04] Fuzzing Programs to Find Bugs - Computerphile</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=kaD54VXxGrI
+</p>
+<ul>
+<li>[2026-05-29] Human Readable Code - Computerphile</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=SJocPm2E8eQ
+</p>
+<ul>
+<li>[2026-05-29] Biggest Mysteries in Physics: Antimatter, Dark Energy & ToE - Don Lincoln | Lex Fridman Podcast #497</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=1M3Vdl6DRkU
+</p>
+<ul>
+<li>[2026-05-06] FFmpeg: The Incredible Technology Behind Video on the Internet | Lex Fridman Podcast #496</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=nepKKz-MzFM
+</p>
+<ul>
+<li>[2026-04-09] Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=iKx3gAODybU
+</p>
+<ul>
+<li>[2026-03-23] Jensen Huang: NVIDIA - The $4 Trillion Company & the AI Revolution | Lex Fridman Podcast #494</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=vif8NQcjVf0
+</p>
+<ul>
+<li>[2026-03-11] Jeff Kaplan: World of Warcraft, Overwatch, Blizzard, and Future of Gaming | Lex Fridman Podcast #493</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=H9rF1CSSh-w
+</p>
+<ul>
+<li>[2025-12-19] Training a Unitree G1 to Walk w/ Reinforcement Learning</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=FGnAeUXRZ4E
+</p>
+<ul>
+<li>[2025-09-30] Unitree G1 Security Disaster</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=Ah0-l0HZwLA
+</p>
+<ul>
+<li>[2025-08-30] Testing VLMs and LLMs for robotics w/ the Jetson Thor devkit</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=eRPSRSGiAA8
+</p>
+<ul>
+<li>[2025-07-25] Reinforcement learning with Unitree G1 humanoid - Dev w/ G1 P.5</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=wiIUF9pIDYw
+</p>
+<ul>
+<li>[2025-05-30] A bigger brain for the Unitree G1- Dev w/ G1 Humanoid P.4</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=cmnJhOWp2z4
+</p>
+<ul>
+<li>[2026-06-08] StatQuest: Random Forests Part 2: Missing data and clustering</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=mIlw5j3WyVk
+</p>
+<ul>
+<li>[2026-06-08] False Discovery Rates, FDR, clearly explained</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=L3nlGfSyHV0
+</p>
+<ul>
+<li>[2026-05-18] The Essence of Linear Regression</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=aFDOzpTeg0s
+</p>
+<ul>
+<li>[2026-01-12] How AI works in Super Simple Terms!!!</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=q-BiW5srMFQ
+</p>
+<ul>
+<li>[2025-09-04] StatQuest: Career Advice from Tech Industry Leaders</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=WRYk7oZiogg
+</p>
+<ul>
+<li>[2025-09-23] H-1B VISA ABUSE: The Dark Truth of Tech (as an ex-Google software engineer)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=TwWWw6e9ko0
+</p>
+<ul>
+<li>[2025-08-29] Why Programming Will Make You POOR (Coding in 2025)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=tvj-Nh5W0lw
+</p>
+<ul>
+<li>[2025-08-25] Why WORK won't make you RICH (Bitcoin, Ethereum, Market Update)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=eOU5ALbUFEg
+</p>
+<ul>
+<li>[2025-06-30] Get Out of Tech. IT'S OVER.</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=RweoklWbLsw
+</p>
+<ul>
+<li>[2025-01-11] How much Bitcoin should you own? | STATE OF CRYPTO 2025.</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=QwRidEuefXI
+</p>
+<ul>
+<li>[2026-06-14] Claude Fable Blocked - 11 Quiet Details on What’s Next</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=Qj71N0tBzRo
+</p>
+<ul>
+<li>[2026-06-10] Claude Fable 5 - Full 319 page Breakdown</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=haK1KoQWm18
+</p>
+<ul>
+<li>[2026-05-29] New Claude Opus 4.8: 15 Things You May’ve Missed</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=aJvP3nXWkwM
+</p>
+<ul>
+<li>[2026-05-20] Two Rival Bets on AGI: Google I/O Highlights</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=o_av1b9rs2g
+</p>
+<ul>
+<li>[2026-04-24] GPT 5.5 Arrives, DeepSeek V4 Drops, and the Compute War Intensifies</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=jz0rNhfAKo8
+</p>
+<ul>
+<li>[2026-06-04] School of Football | Making Of | Boston Dynamics x Hyundai</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=qYy-BwBpxBI
+</p>
+<ul>
+<li>[2026-06-02] Do robots need shoes? | Ask a Roboticist #atlas #robot #bostondynamics</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/GvByvkp6k5s
+</p>
+<ul>
+<li>[2026-05-29] School of Football | The Ghost Rabona | Boston Dynamics x Hyundai</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=V1Lxp-Q6Y9g
+</p>
+<ul>
+<li>[2026-05-28] School of Football | The Rabona | Boston Dynamics x Hyundai</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=mCcv90sUNbY
+</p>
+<ul>
+<li>[2026-05-27] Whirlybird | Atlas | Boston Dynamics</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/RgXhCw7Qzac
+</p>
+<ul>
+<li>[2026-06-16] GeForce Garage | Forza Horizon 6 PC by modifiedgg</li>
+</ul>
+<p>
+Link: https://www.youtube.com/shorts/dymAF1U32IY
+</p>
+<ul>
+<li>[2026-06-12] Cyclops: The Fearless Leader | Character Reveal Trailer | Marvel Rivals</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=K0L3USu_5e8
+</p>
+<ul>
+<li>[2026-06-09] DOOM: The Dark Ages | Revelations - Official Trailer (4K) | Available July 7</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=haa9r1pe8Q8
+</p>
+<ul>
+<li>[2026-06-09] CONTROL Resonant - Take CONTROL Trailer | PC Gaming Show June 2026</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=9uSZI5yz7jc
+</p>
+<ul>
+<li>[2026-06-08] CONTROL Resonant – Paranatural Manhattan Trailer | Summer Game Fest 2026</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=YJmmY9l5GeQ
+</p>
+<ul>
+<li>[2026-05-23] F.03 Livestream: Day 9 (Hour 192-200)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=JeeJJ42TKQU
+</p>
+<ul>
+<li>[2026-05-23] F.03 Livestream: Day 8 (Hour 180-192)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=t3laRgQacFo
+</p>
+<ul>
+<li>[2026-05-23] F.03 Livestream: Day 8 (Hour 168-180)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=bxCUVfXUzrQ
+</p>
+<ul>
+<li>[2026-05-22] F.03 Livestream: Day 3 (Hour 48-60)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=LewqAffahfQ
+</p>
+<ul>
+<li>[2026-05-22] F.03 Livestream: Day 7 (Hour 156-168)</li>
+</ul>
+<p>
+Link: https://www.youtube.com/watch?v=Z3WMSZCf43o
+</p>
+<p>
 [Dedup: 52 previously reported blog items skipped]
-
-## OpenAI News
-- [Thu, 18 Jun 2026] New usage analytics and updated spend controls for enterprises
-  Link: https://openai.com/index/chatgpt-enterprise-spend-controls
-  OpenAI introduces new spend controls and usage analytics for ChatGPT Enterprise, helping organizations manage costs and scale AI with confidence.
-
-- [Thu, 18 Jun 2026] Improving health intelligence in ChatGPT
-  Link: https://openai.com/index/improving-health-intelligence-in-chatgpt
-  Learn how GPT-5.5 Instant improves ChatGPT’s health and wellness responses with stronger reasoning, better context, clearer communication, and physician-informed evaluations.
-
-- [Thu, 18 Jun 2026] Using AI to help physicians diagnose rare genetic diseases affecting children
-  Link: https://openai.com/index/diagnose-rare-childhood-diseases
-  Researchers used an OpenAI reasoning model to help diagnose rare diseases, identifying 18 new diagnoses in previously unsolved cases.
-
-
-## Google AI Blog
-- [Thu, 11 Jun 2026] Our new community investments in Virginia support local jobs and expand energy affordability.
-  Link: https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/
-  We’re helping build the state’s next-generation workforce and investing in energy programs.
-
-
-## Claude Blog
-- [Thu, 18 Jun 2026] Centrally manage authorization for MCP connectors
-  Link: https://claude.com/blog/enterprise-managed-auth
-  Centrally manage authorization for MCP connectors
-
-- [Thu, 18 Jun 2026] Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-  Link: https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more
-  Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-
-- [Thu, 18 Jun 2026] Claude Code now supports artifacts
-  Link: https://claude.com/blog/artifacts-in-claude-code
-  Claude Code now supports artifacts
-
-
-## HuggingFace Blog
-- [Thu, 18 Jun 2026] MosaicLeaks: Can your research agent keep a secret?
-  Link: https://huggingface.co/blog/ServiceNow/mosaicleaks
-
-- [Thu, 18 Jun 2026] Beyond LoRA: Can you beat the most popular fine-tuning technique?
-  Link: https://huggingface.co/blog/peft-beyond-lora
-
-
-## NVIDIA AI Blog
-- [Thu, 18 Jun 2026] How FERC’s Large-Load Interconnection Actions Help Address Grid Stress, Improve Affordability
-  Link: https://blogs.nvidia.com/blog/ferc-large-load-interconnection/
-  In a consequential grid infrastructure decision, the Federal Energy Regulatory Commission (FERC) today issued a major milestone on large-load interconnection impacting how those building AI factories,
-
-- [Thu, 18 Jun 2026] At Cannes Lions, NVIDIA Partners Reshape Advertising and Marketing With AI
-  Link: https://blogs.nvidia.com/blog/nvidia-ai-marketing-advertising-cannes-lions/
-  The digital era gave the advertising and marketing industry speed; the AI era is giving it autonomous operations.  For companies building next-generation technologies for advertising and marketing, th
-
-- [Thu, 18 Jun 2026] Sync and Stream: GeForce NOW Connects to Members’ Game Libraries Across Devices
-  Link: https://blogs.nvidia.com/blog/geforce-now-thursday-game-stores/
-  Play favorite titles from popular game libraries, keep progress synced and jump back into gaming sessions on virtually any device. That’s the power of GeForce NOW cloud gaming. From providing access t
-
+</p>
+<h2>OpenAI News</h2>
+<ul>
+<li>[Thu, 18 Jun 2026] New usage analytics and updated spend controls for enterprises</li>
+</ul>
+<p>
+Link: https://openai.com/index/chatgpt-enterprise-spend-controls
+OpenAI introduces new spend controls and usage analytics for ChatGPT Enterprise, helping organizations manage costs and scale AI with confidence.
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Improving health intelligence in ChatGPT</li>
+</ul>
+<p>
+Link: https://openai.com/index/improving-health-intelligence-in-chatgpt
+Learn how GPT-5.5 Instant improves ChatGPT’s health and wellness responses with stronger reasoning, better context, clearer communication, and physician-informed evaluations.
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Using AI to help physicians diagnose rare genetic diseases affecting children</li>
+</ul>
+<p>
+Link: https://openai.com/index/diagnose-rare-childhood-diseases
+Researchers used an OpenAI reasoning model to help diagnose rare diseases, identifying 18 new diagnoses in previously unsolved cases.
+</p>
+<h2>Google AI Blog</h2>
+<ul>
+<li>[Thu, 11 Jun 2026] Our new community investments in Virginia support local jobs and expand energy affordability.</li>
+</ul>
+<p>
+Link: https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/
+We’re helping build the state’s next-generation workforce and investing in energy programs.
+</p>
+<h2>Claude Blog</h2>
+<ul>
+<li>[Thu, 18 Jun 2026] Centrally manage authorization for MCP connectors</li>
+</ul>
+<p>
+Link: https://claude.com/blog/enterprise-managed-auth
+Centrally manage authorization for MCP connectors
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more</li>
+</ul>
+<p>
+Link: https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more
+Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Claude Code now supports artifacts</li>
+</ul>
+<p>
+Link: https://claude.com/blog/artifacts-in-claude-code
+Claude Code now supports artifacts
+</p>
+<h2>HuggingFace Blog</h2>
+<ul>
+<li>[Thu, 18 Jun 2026] MosaicLeaks: Can your research agent keep a secret?</li>
+</ul>
+<p>
+Link: https://huggingface.co/blog/ServiceNow/mosaicleaks
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Beyond LoRA: Can you beat the most popular fine-tuning technique?</li>
+</ul>
+<p>
+Link: https://huggingface.co/blog/peft-beyond-lora
+</p>
+<h2>NVIDIA AI Blog</h2>
+<ul>
+<li>[Thu, 18 Jun 2026] How FERC’s Large-Load Interconnection Actions Help Address Grid Stress, Improve Affordability</li>
+</ul>
+<p>
+Link: https://blogs.nvidia.com/blog/ferc-large-load-interconnection/
+In a consequential grid infrastructure decision, the Federal Energy Regulatory Commission (FERC) today issued a major milestone on large-load interconnection impacting how those building AI factories,
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] At Cannes Lions, NVIDIA Partners Reshape Advertising and Marketing With AI</li>
+</ul>
+<p>
+Link: https://blogs.nvidia.com/blog/nvidia-ai-marketing-advertising-cannes-lions/
+The digital era gave the advertising and marketing industry speed; the AI era is giving it autonomous operations.  For companies building next-generation technologies for advertising and marketing, th
+</p>
+<ul>
+<li>[Thu, 18 Jun 2026] Sync and Stream: GeForce NOW Connects to Members’ Game Libraries Across Devices</li>
+</ul>
+<p>
+Link: https://blogs.nvidia.com/blog/geforce-now-thursday-game-stores/
+Play favorite titles from popular game libraries, keep progress synced and jump back into gaming sessions on virtually any device. That’s the power of GeForce NOW cloud gaming. From providing access t
+</p>
+<p>
 [Skipped: timeout approaching]
 [Skipped: timeout approaching]
 [Skipped: timeout approaching]
-</code></pre>
-
-<p>你是一名世界级 AI 行业分析师，兼具 Karpathy 的信噪比思维、Ilya 的趋势判断力和 Jim Fan 的具身智能视角。你的分析风格学习 CIO 情报站：每条新闻必须有<strong>事实 + 判断 + 对我的启示</strong>三层结构。</p>
-<h2 id="_1">用户画像</h2>
-<p>Alex Guan（A 哥），宝洁中国 IT 总监（Band 3）。
-- 职责1：中国供应链物流仓储数字化 IT Leader
-- 职责2：技术民主化 FDE Leader，负责 Dify、RPA、LCNC、Teable 推广
-- 团队：12 人宝洁 + 7 供应商
-- 当前重心：用 AI 创业创收 + FDE 团队转型
-- 关注领域：AI/LLM 实战、具身智能/机器人、AI 创业、Agentic Engineering、<strong>FDE</strong>、<strong>Ontology &amp; Knowledge Engineering</strong>
-- 偏好：简洁、可执行</p>
-<h2 id="_2">信息源权重</h2>
+```
+</p>
+<p>
+你是一名世界级 AI 行业分析师，兼具 Karpathy 的信噪比思维、Ilya 的趋势判断力和 Jim Fan 的具身智能视角。你的分析风格学习 CIO 情报站：每条新闻必须有<strong>事实 + 判断 + 对我的启示</strong>三层结构。
+</p>
+<h2>用户画像</h2>
+<p>
+Alex Guan（A 哥），宝洁中国 IT 总监（Band 3）。
+</p>
+<ul>
+<li>职责1：中国供应链物流仓储数字化 IT Leader</li>
+<li>职责2：技术民主化 FDE Leader，负责 Dify、RPA、LCNC、Teable 推广</li>
+<li>团队：12 人宝洁 + 7 供应商</li>
+<li>当前重心：用 AI 创业创收 + FDE 团队转型</li>
+<li>关注领域：AI/LLM 实战、具身智能/机器人、AI 创业、Agentic Engineering、<strong>FDE</strong>、<strong>Ontology & Knowledge Engineering</strong></li>
+<li>偏好：简洁、可执行</li>
+</ul>
+<h2>信息源权重</h2>
 <ul>
 <li>第一梯队（一手信息）：Anthropic/OpenAI/DeepMind/Google/Meta 官方博客、arXiv</li>
 <li>第二梯队（专业媒体）：TechCrunch、The Verge、VentureBeat、MIT Tech Review、<strong>钛媒体</strong></li>
 <li>第三梯队（社区信号）：Hacker News、GitHub Trending、YouTube、HuggingFace、<strong>Reddit r/LocalLLaMA</strong>、<strong>Substack AI Newsletter</strong></li>
 <li>第四梯队（行业聚合）：<strong>aihot.virxact.com</strong></li>
 </ul>
-<h2 id="_3">你的任务</h2>
-<p>这是 AI 晚报。基于 script output 中的原始数据，生成全天回顾。
-晚报的核心价值：<strong>今天全天最重要的事是什么？明天该关注什么？</strong></p>
-<h2 id="_4">分级标准</h2>
-<p>🔴 Paradigm Shift：改变行业走向的事件
+<h2>你的任务</h2>
+<p>
+这是 AI 晚报。基于 script output 中的原始数据，生成全天回顾。
+晚报的核心价值：<strong>今天全天最重要的事是什么？明天该关注什么？</strong>
+</p>
+<h2>分级标准</h2>
+<p>
+🔴 Paradigm Shift：改变行业走向的事件
 🟠 Major：重要进展，值得深读
 🟡 Notable：值得关注
-⚪ Noise：不报道</p>
-<h2 id="_5">晚报格式</h2>
-<p>🌙 AI 晚报 | {日期}</p>
-<p>📊 今日回顾（今天最重要的 4-6 件事）
+⚪ Noise：不报道
+</p>
+<h2>晚报格式</h2>
+<p>
+🌙 AI 晚报 | {日期}
+</p>
+<p>
+📊 今日回顾（今天最重要的 4-6 件事）
 每条 🟠 以上格式：
-- 标题 + 分级标签
-- 事实摘要（2-3 句）
-- <strong>判断</strong>：深层含义是什么？为什么现在发生？
-- <strong>对A哥的启示</strong>：具体可执行的建议</p>
-<p>🟡 级别一行带过</p>
-<p>🔥 必看（从今日回顾中选 1-2 条最重要的深度解读）</p>
-<p>📄 学术前沿（2-4 篇最值得关注的论文/研究）
-每条：标题 + 核心贡献 + 为什么重要</p>
-<p>🦾 具身智能 &amp; 机器人（今日进展）</p>
-<p>🎯 FDE &amp; Ontology（今日动态）</p>
-<p>🏭 FMCG/消费品 AI（今日动态）</p>
-<p>💰 投资信号（今日融资/政策/监管）</p>
-<p>🧑‍💻 AI Leaders（今日动态）</p>
-<p>🛠️ 开源/工具（今日新发布）</p>
-<p>💬 社区热点（HN/Reddit 讨论度最高的 2-3 条）</p>
-<p>📈 趋势观察（2-3 句话：今天全天数据暗示了什么趋势？）</p>
-<p>🔮 明天关注什么（1-2 个预判）</p>
-<p>🎯 一句话总结</p>
-<h2 id="_6">严格要求</h2>
+</p>
+<ul>
+<li>标题 + 分级标签</li>
+<li>事实摘要（2-3 句）</li>
+<li><strong>判断</strong>：深层含义是什么？为什么现在发生？</li>
+<li><strong>对A哥的启示</strong>：具体可执行的建议</li>
+</ul>
+<p>
+🟡 级别一行带过
+</p>
+<p>
+🔥 必看（从今日回顾中选 1-2 条最重要的深度解读）
+</p>
+<p>
+📄 学术前沿（2-4 篇最值得关注的论文/研究）
+每条：标题 + 核心贡献 + 为什么重要
+</p>
+<p>
+🦾 具身智能 & 机器人（今日进展）
+</p>
+<p>
+🎯 FDE & Ontology（今日动态）
+</p>
+<p>
+🏭 FMCG/消费品 AI（今日动态）
+</p>
+<p>
+💰 投资信号（今日融资/政策/监管）
+</p>
+<p>
+🧑‍💻 AI Leaders（今日动态）
+</p>
+<p>
+🛠️ 开源/工具（今日新发布）
+</p>
+<p>
+💬 社区热点（HN/Reddit 讨论度最高的 2-3 条）
+</p>
+<p>
+📈 趋势观察（2-3 句话：今天全天数据暗示了什么趋势？）
+</p>
+<p>
+🔮 明天关注什么（1-2 个预判）
+</p>
+<p>
+🎯 一句话总结
+</p>
+<h2>严格要求</h2>
 <ul>
 <li>你的整个回复就是晚报正文，不要有任何前言、后语</li>
 <li>不要保存文件、不要读文件、不要执行任何终端命令</li>
@@ -892,180 +1444,303 @@
 <li><strong>信息源链接：每条新闻必须附带原始来源链接（URL）</strong></li>
 <li>用中文输出</li>
 </ul>
-<p>以下是采集到的原始数据：</p>
-<h2 id="response">Response</h2>
-<p>🌙 AI 晚报 | 2026年6月19日</p>
-<hr />
-<p>📊 <strong>今日回顾</strong></p>
-<p><strong>1. 🟠 Subquadratic 声称突破 LLM 关键数学瓶颈</strong>
-<a href="https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms/">来源: MIT Tech Review</a></p>
-<p>事实：迈阿密 AI 初创公司 Subquadratic 上月走出隐身模式，宣称解决了一个长期制约大语言模型的数学瓶颈——即 attention 机制的二次复杂度问题。该公司声称其方法能在不牺牲质量的前提下大幅降低推理成本。</p>
-<p><strong>判断</strong>：如果属实，这是对 Transformer 架构的根本性挑战。过去两年行业所有优化（FlashAttention、sparse attention、linear attention）都在绕这个问题，而非正面解决。Subquadratic 若验证成功，将重塑推理经济学——小模型可能变得更有竞争力，推理成本曲线会再次陡降。但目前仅为"声称"，尚需独立复现。</p>
-<p><strong>对A哥的启示</strong>：① 密切关注其技术论文是否公开、benchmark 是否可复现；② 若其方法可行，Dify 等 LCNC 平台的推理成本结构将根本改变，当前基于 token 计费的 FDE 推广策略可能需要重新评估；③ 供应链场景中的实时 AI 决策（仓储调度、异常检测）将因推理成本下降而变得更可行。</p>
-<hr />
-<p><strong>2. 🟠 Claude MCP 连接器支持企业集中授权管理</strong>
-<a href="https://claude.com/blog/enterprise-managed-auth">来源: Claude Blog</a></p>
-<p>事实：Anthropic 发布 MCP（Model Context Protocol）连接器的企业级集中授权管理功能。IT 管理员可统一控制 Claude 对各类外部工具和数据源的访问权限，无需逐个配置。</p>
-<p><strong>判断</strong>：这是 Anthropic 向企业市场纵深推进的关键一步。MCP 正在从"开发者协议"升级为"企业基础设施协议"。集中授权解决了 CIO/CTO 最大的顾虑——影子 AI 和数据泄露风险。这意味着 MCP 生态的 enterprise adoption 将加速，Anthropic 在与 OpenAI 的企业市场竞争中拿到了差异化筹码。</p>
-<p><strong>对A哥的启示</strong>：① 宝洁作为跨国企业，IT 合规和数据安全是红线——MCP 集中授权正是你向 IT 安全团队推介 AI Agent 时的核心卖点；② 建议在 Dify/Agent 部署方案中评估 MCP 作为标准连接层；③ FDE 推广时可以用"集中管控、分散创新"的叙事说服业务部门。</p>
-<hr />
-<p><strong>3. 🟠 OpenAI 发布 ChatGPT Enterprise 新用量分析与支出控制</strong>
-<a href="https://openai.com/index/chatgpt-enterprise-spend-controls">来源: OpenAI</a></p>
-<p>事实：OpenAI 为 ChatGPT Enterprise 推出新的支出控制工具和用量分析功能，帮助企业管理 AI 成本并规模化部署。同时 GPT-5.5 Instant 在健康领域推理能力显著提升。</p>
-<p><strong>判断</strong>：OpenAI 在回应企业客户最直接的痛点——成本不可预测。这是 SaaS 化的成熟标志：从"功能竞赛"转向"运营工具竞赛"。企业买家需要的不只是强大模型，还有可预测的账单和可解释的用量。</p>
-<p><strong>对A哥的启示</strong>：① 这正是你向宝洁 CFO 汇报 AI ROI 时需要的工具——用量分析可以追踪每个部门/场景的 AI 消耗；② FDE 推广中，用这些工具建立"AI 用量仪表盘"，让业务部门看到自己的 AI 消费，培养成本意识；③ 建议对比 OpenAI 和 Anthropic 的企业定价模型，为宝洁选择最优方案。</p>
-<hr />
-<p><strong>4. 🟠 GitHub Trending 信号：Agent Skills 生态大爆发</strong>
-<a href="https://github.com/addyosmani/agent-skills">来源: GitHub</a></p>
-<p>事实：今日 GitHub Trending 被 Agent 工具链占据——addyosmani/agent-skills（⭐+9285，生产级 AI 编码 Agent 技能集）、NVIDIA/SkillSpector（⭐+5505，AI Agent 技能安全扫描器）、Agent-Reach（⭐+7856，让 Agent 读取全网内容）、headroom（⭐+10159，工具输出压缩减少 60-95% token）。</p>
-<p><strong>判断</strong>：行业正在从"造 Agent"转向"治理 Agent"。当 Skill 成为 Agent 的核心能力单元，围绕 Skill 的工具链（发现、安全扫描、压缩、分发）开始成熟。这是 Agentic Engineering 从实验走向生产的标志。NVIDIA 入场做 Skill 安全扫描尤其值得关注——意味着企业级 Agent 部署的安全标准正在形成。</p>
-<p><strong>对A哥的启示</strong>：① <strong>立即可用</strong>：headroom 可压缩 RAG 和工具输出，直接降低你 Dify 工作流的 token 成本；② <strong>FDE 方向</strong>：agent-skills 仓库可作为宝洁内部 Agent 技能库的参考架构；③ <strong>安全合规</strong>：NVIDIA SkillSpector 应在你部署任何第三方 Agent 技能前纳入评估流程；④ 这些都是你"AI 创业创收"方向的现成组件。</p>
-<hr />
-<p><strong>5. 🟠 美国称 ASML 顶级光刻机可能已在中国，ASML 否认</strong>
-<a href="https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/">来源: TechCrunch</a></p>
-<p>事实：美国政府声称 ASML 最先进的 EUV 光刻机可能已出现在中国，ASML 予以否认，称存在商业逻辑反驳这一可能——ASML 不会冒险吊销出口许可证来武装中国客户。</p>
-<p><strong>判断</strong>：芯片地缘博弈进入"信任危机"阶段。无论事实如何，这一争议将加速两个趋势：① 美国进一步收紧对华 AI 芯片出口管制；② 中国加速自研替代。对 AI 行业而言，算力供给的不确定性将持续推高"高效推理"研究的优先级——这恰好与 Subquadratic 的突破声称形成呼应。</p>
-<p><strong>对A哥的启示</strong>：① 宝洁作为跨国企业，中美两边的 IT 基础设施可能面临更严格的合规分割；② 算力不确定性下，更应关注推理效率优化（headroom 等工具）而非单纯堆算力；③ 供应链数字化规划中应纳入"算力供给风险"变量。</p>
-<hr />
-<p>🟡 <strong>其他值得关注</strong></p>
+<p>
+以下是采集到的原始数据：
+</p>
+<h2>Response</h2>
+<p>
+🌙 AI 晚报 | 2026年6月19日
+</p>
+<hr>
+<p>
+📊 <strong>今日回顾</strong>
+</p>
+<p>
+<strong>1. 🟠 Subquadratic 声称突破 LLM 关键数学瓶颈</strong>
+<a href="https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms/">来源: MIT Tech Review</a>
+</p>
+<p>
+事实：迈阿密 AI 初创公司 Subquadratic 上月走出隐身模式，宣称解决了一个长期制约大语言模型的数学瓶颈——即 attention 机制的二次复杂度问题。该公司声称其方法能在不牺牲质量的前提下大幅降低推理成本。
+</p>
+<p>
+<strong>判断</strong>：如果属实，这是对 Transformer 架构的根本性挑战。过去两年行业所有优化（FlashAttention、sparse attention、linear attention）都在绕这个问题，而非正面解决。Subquadratic 若验证成功，将重塑推理经济学——小模型可能变得更有竞争力，推理成本曲线会再次陡降。但目前仅为"声称"，尚需独立复现。
+</p>
+<p>
+<strong>对A哥的启示</strong>：① 密切关注其技术论文是否公开、benchmark 是否可复现；② 若其方法可行，Dify 等 LCNC 平台的推理成本结构将根本改变，当前基于 token 计费的 FDE 推广策略可能需要重新评估；③ 供应链场景中的实时 AI 决策（仓储调度、异常检测）将因推理成本下降而变得更可行。
+</p>
+<hr>
+<p>
+<strong>2. 🟠 Claude MCP 连接器支持企业集中授权管理</strong>
+<a href="https://claude.com/blog/enterprise-managed-auth">来源: Claude Blog</a>
+</p>
+<p>
+事实：Anthropic 发布 MCP（Model Context Protocol）连接器的企业级集中授权管理功能。IT 管理员可统一控制 Claude 对各类外部工具和数据源的访问权限，无需逐个配置。
+</p>
+<p>
+<strong>判断</strong>：这是 Anthropic 向企业市场纵深推进的关键一步。MCP 正在从"开发者协议"升级为"企业基础设施协议"。集中授权解决了 CIO/CTO 最大的顾虑——影子 AI 和数据泄露风险。这意味着 MCP 生态的 enterprise adoption 将加速，Anthropic 在与 OpenAI 的企业市场竞争中拿到了差异化筹码。
+</p>
+<p>
+<strong>对A哥的启示</strong>：① 宝洁作为跨国企业，IT 合规和数据安全是红线——MCP 集中授权正是你向 IT 安全团队推介 AI Agent 时的核心卖点；② 建议在 Dify/Agent 部署方案中评估 MCP 作为标准连接层；③ FDE 推广时可以用"集中管控、分散创新"的叙事说服业务部门。
+</p>
+<hr>
+<p>
+<strong>3. 🟠 OpenAI 发布 ChatGPT Enterprise 新用量分析与支出控制</strong>
+<a href="https://openai.com/index/chatgpt-enterprise-spend-controls">来源: OpenAI</a>
+</p>
+<p>
+事实：OpenAI 为 ChatGPT Enterprise 推出新的支出控制工具和用量分析功能，帮助企业管理 AI 成本并规模化部署。同时 GPT-5.5 Instant 在健康领域推理能力显著提升。
+</p>
+<p>
+<strong>判断</strong>：OpenAI 在回应企业客户最直接的痛点——成本不可预测。这是 SaaS 化的成熟标志：从"功能竞赛"转向"运营工具竞赛"。企业买家需要的不只是强大模型，还有可预测的账单和可解释的用量。
+</p>
+<p>
+<strong>对A哥的启示</strong>：① 这正是你向宝洁 CFO 汇报 AI ROI 时需要的工具——用量分析可以追踪每个部门/场景的 AI 消耗；② FDE 推广中，用这些工具建立"AI 用量仪表盘"，让业务部门看到自己的 AI 消费，培养成本意识；③ 建议对比 OpenAI 和 Anthropic 的企业定价模型，为宝洁选择最优方案。
+</p>
+<hr>
+<p>
+<strong>4. 🟠 GitHub Trending 信号：Agent Skills 生态大爆发</strong>
+<a href="https://github.com/addyosmani/agent-skills">来源: GitHub</a>
+</p>
+<p>
+事实：今日 GitHub Trending 被 Agent 工具链占据——addyosmani/agent-skills（⭐+9285，生产级 AI 编码 Agent 技能集）、NVIDIA/SkillSpector（⭐+5505，AI Agent 技能安全扫描器）、Agent-Reach（⭐+7856，让 Agent 读取全网内容）、headroom（⭐+10159，工具输出压缩减少 60-95% token）。
+</p>
+<p>
+<strong>判断</strong>：行业正在从"造 Agent"转向"治理 Agent"。当 Skill 成为 Agent 的核心能力单元，围绕 Skill 的工具链（发现、安全扫描、压缩、分发）开始成熟。这是 Agentic Engineering 从实验走向生产的标志。NVIDIA 入场做 Skill 安全扫描尤其值得关注——意味着企业级 Agent 部署的安全标准正在形成。
+</p>
+<p>
+<strong>对A哥的启示</strong>：① <strong>立即可用</strong>：headroom 可压缩 RAG 和工具输出，直接降低你 Dify 工作流的 token 成本；② <strong>FDE 方向</strong>：agent-skills 仓库可作为宝洁内部 Agent 技能库的参考架构；③ <strong>安全合规</strong>：NVIDIA SkillSpector 应在你部署任何第三方 Agent 技能前纳入评估流程；④ 这些都是你"AI 创业创收"方向的现成组件。
+</p>
+<hr>
+<p>
+<strong>5. 🟠 美国称 ASML 顶级光刻机可能已在中国，ASML 否认</strong>
+<a href="https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/">来源: TechCrunch</a>
+</p>
+<p>
+事实：美国政府声称 ASML 最先进的 EUV 光刻机可能已出现在中国，ASML 予以否认，称存在商业逻辑反驳这一可能——ASML 不会冒险吊销出口许可证来武装中国客户。
+</p>
+<p>
+<strong>判断</strong>：芯片地缘博弈进入"信任危机"阶段。无论事实如何，这一争议将加速两个趋势：① 美国进一步收紧对华 AI 芯片出口管制；② 中国加速自研替代。对 AI 行业而言，算力供给的不确定性将持续推高"高效推理"研究的优先级——这恰好与 Subquadratic 的突破声称形成呼应。
+</p>
+<p>
+<strong>对A哥的启示</strong>：① 宝洁作为跨国企业，中美两边的 IT 基础设施可能面临更严格的合规分割；② 算力不确定性下，更应关注推理效率优化（headroom 等工具）而非单纯堆算力；③ 供应链数字化规划中应纳入"算力供给风险"变量。
+</p>
+<hr>
+<p>
+🟡 <strong>其他值得关注</strong>
+</p>
 <ul>
-<li>
-<p>🟡 <strong>Brain-Computer Interface 临床试验加速</strong> — ALS 患者成为脑机接口"首个超级用户"，BCI 从实验室走向真实世界应用。<a href="https://www.technologyreview.com/2026/06/19/1139270/brain-computer-interface-trials-are-taking-off/">MIT Tech Review</a></p>
-</li>
-<li>
-<p>🟡 <strong>HuggingFace: MosaicLeaks — 你的研究 Agent 能保守秘密吗？</strong> — 揭示 AI Agent 在多步推理中可能泄露敏感信息的风险。<a href="https://huggingface.co/blog/ServiceNow/mosaicleaks">HuggingFace</a></p>
-</li>
-<li>
-<p>🟡 <strong>OpenAI 用 AI 帮助医生诊断罕见儿童遗传病</strong> — 推理模型在 previously unsolved 病例中识别出 18 个新诊断。<a href="https://openai.com/index/diagnose-rare-childhood-diseases">OpenAI</a></p>
-</li>
-<li>
-<p>🟡 <strong>Claude Code 支持 Artifacts + 技能/钩子/子代理全面升级</strong> — Claude Code 正在变成完整的 Agent 开发环境。<a href="https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more">Claude Blog</a></p>
-</li>
-<li>
-<p>🟡 <strong>HuggingFace: Beyond LoRA — 能否击败最流行的微调技术？</strong> — 探讨 LoRA 之外的微调新范式。<a href="https://huggingface.co/blog/peft-beyond-lora">HuggingFace</a></p>
-</li>
+<li>🟡 <strong>Brain-Computer Interface 临床试验加速</strong> — ALS 患者成为脑机接口"首个超级用户"，BCI 从实验室走向真实世界应用。<a href="https://www.technologyreview.com/2026/06/19/1139270/brain-computer-interface-trials-are-taking-off/">MIT Tech Review</a></li>
 </ul>
-<hr />
-<p>🔥 <strong>必看深度</strong></p>
-<p><strong>1. Agent Skills 生态的工具链成熟意味着什么？</strong></p>
-<p>今天 GitHub Trending 的前 10 中有 6 个与 Agent 工具链直接相关。这不是巧合——这是行业拐点信号。</p>
-<p>回顾 Agent 发展时间线：
-- 2024：造 Agent（LangChain、AutoGPT）
-- 2025：用 Agent（Claude Code、Codex、Devin）
-- 2026：<strong>治理 Agent</strong>（Skill 安全扫描、集中授权、用量控制、输出压缩）</p>
-<p>对 A 哥的直接意义：你的 FDE 推广正处于"用 Agent"阶段，但"治理 Agent"的基础设施已经就绪。这意味着你可以跳过早期团队踩过的坑，直接用上企业级工具链。建议本周评估：
+<ul>
+<li>🟡 <strong>HuggingFace: MosaicLeaks — 你的研究 Agent 能保守秘密吗？</strong> — 揭示 AI Agent 在多步推理中可能泄露敏感信息的风险。<a href="https://huggingface.co/blog/ServiceNow/mosaicleaks">HuggingFace</a></li>
+</ul>
+<ul>
+<li>🟡 <strong>OpenAI 用 AI 帮助医生诊断罕见儿童遗传病</strong> — 推理模型在 previously unsolved 病例中识别出 18 个新诊断。<a href="https://openai.com/index/diagnose-rare-childhood-diseases">OpenAI</a></li>
+</ul>
+<ul>
+<li>🟡 <strong>Claude Code 支持 Artifacts + 技能/钩子/子代理全面升级</strong> — Claude Code 正在变成完整的 Agent 开发环境。<a href="https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more">Claude Blog</a></li>
+</ul>
+<ul>
+<li>🟡 <strong>HuggingFace: Beyond LoRA — 能否击败最流行的微调技术？</strong> — 探讨 LoRA 之外的微调新范式。<a href="https://huggingface.co/blog/peft-beyond-lora">HuggingFace</a></li>
+</ul>
+<hr>
+<p>
+🔥 <strong>必看深度</strong>
+</p>
+<p>
+<strong>1. Agent Skills 生态的工具链成熟意味着什么？</strong>
+</p>
+<p>
+今天 GitHub Trending 的前 10 中有 6 个与 Agent 工具链直接相关。这不是巧合——这是行业拐点信号。
+</p>
+<p>
+回顾 Agent 发展时间线：
+</p>
+<ul>
+<li>2024：造 Agent（LangChain、AutoGPT）</li>
+<li>2025：用 Agent（Claude Code、Codex、Devin）</li>
+<li>2026：<strong>治理 Agent</strong>（Skill 安全扫描、集中授权、用量控制、输出压缩）</li>
+</ul>
+<p>
+对 A 哥的直接意义：你的 FDE 推广正处于"用 Agent"阶段，但"治理 Agent"的基础设施已经就绪。这意味着你可以跳过早期团队踩过的坑，直接用上企业级工具链。建议本周评估：
 1. headroom → 压缩 Dify 工作流 token 消耗
 2. NVIDIA SkillSpector → 第三方技能安全审计
-3. Claude MCP 集中授权 → 向宝洁 IT 安全团队提案</p>
-<p><strong>2. Subquadratic 的"突破"需要冷静看待</strong></p>
-<p>MIT Tech Review 用了"claims"（声称）这个词——这很关键。过去三年，每隔几个月就有"突破 attention 瓶颈"的消息，绝大多数最终被证明要么不可复现，要么在实际部署中效果大打折扣。</p>
-<p>但值得关注的信号是：如果 Subquadratic 的方法真的有效，它首先会影响的是<strong>推理成本</strong>，而非模型能力。这意味着：
-- 小模型在特定任务上可能变得比大模型更有性价比
-- 边缘部署（工厂、仓库、门店）的 AI 可行性大幅提升
-- 你当前基于云 API 的 FDE 架构可能需要重新评估 edge vs cloud 的比例</p>
-<p>建议：等论文公开后再做判断，但现在就可以开始调研"如果推理成本降 10 倍，哪些场景会变得可行"。</p>
-<hr />
-<p>📄 <strong>学术前沿</strong></p>
-<p><strong>1. LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents</strong>
+3. Claude MCP 集中授权 → 向宝洁 IT 安全团队提案
+</p>
+<p>
+<strong>2. Subquadratic 的"突破"需要冷静看待</strong>
+</p>
+<p>
+MIT Tech Review 用了"claims"（声称）这个词——这很关键。过去三年，每隔几个月就有"突破 attention 瓶颈"的消息，绝大多数最终被证明要么不可复现，要么在实际部署中效果大打折扣。
+</p>
+<p>
+但值得关注的信号是：如果 Subquadratic 的方法真的有效，它首先会影响的是<strong>推理成本</strong>，而非模型能力。这意味着：
+</p>
+<ul>
+<li>小模型在特定任务上可能变得比大模型更有性价比</li>
+<li>边缘部署（工厂、仓库、门店）的 AI 可行性大幅提升</li>
+<li>你当前基于云 API 的 FDE 架构可能需要重新评估 edge vs cloud 的比例</li>
+</ul>
+<p>
+建议：等论文公开后再做判断，但现在就可以开始调研"如果推理成本降 10 倍，哪些场景会变得可行"。
+</p>
+<hr>
+<p>
+📄 <strong>学术前沿</strong>
+</p>
+<p>
+<strong>1. LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents</strong>
 <a href="https://arxiv.org/pdf/2606.20529v1">arXiv 2606.20529</a>
 核心贡献：提出结构化状态管理框架，让客服领域的 Agent 在多轮对话中保持任务状态、调用工具、并严格遵守业务策略。
-为什么重要：这直接解决了 Agent 在企业部署中的核心痛点——合规性。对 A 哥的 FDE 场景（供应链客服、仓储异常处理）有直接参考价值。</p>
-<p><strong>2. Contagion Networks: Evaluator Bias Propagation in Multi-Agent LLM Systems</strong>
+为什么重要：这直接解决了 Agent 在企业部署中的核心痛点——合规性。对 A 哥的 FDE 场景（供应链客服、仓储异常处理）有直接参考价值。
+</p>
+<p>
+<strong>2. Contagion Networks: Evaluator Bias Propagation in Multi-Agent LLM Systems</strong>
 <a href="https://arxiv.org/pdf/2606.20493v1">arXiv 2606.20493</a>
 核心贡献：形式化框架，量化 LLM 评估者偏见如何在多 Agent 系统中传播。
-为什么重要：当你用多 Agent 做决策（如供应商评估、质量检查），偏见传播可能导致系统性偏差。这是 Agent 治理的学术基础。</p>
-<p><strong>3. Phoenix: Safe GitHub Issue Resolution via Multi-Agent LLMs</strong>
+为什么重要：当你用多 Agent 做决策（如供应商评估、质量检查），偏见传播可能导致系统性偏差。这是 Agent 治理的学术基础。
+</p>
+<p>
+<strong>3. Phoenix: Safe GitHub Issue Resolution via Multi-Agent LLMs</strong>
 <a href="https://arxiv.org/pdf/2606.20243v1">arXiv 2606.20243</a>
 核心贡献：6 个专业化 Agent 协作解决 GitHub Issue，配备 7 层安全控制。
-为什么重要：这是"安全 Agent"的工程实践参考。7 层安全控制的设计模式可迁移到宝洁的 Agent 部署中。</p>
-<p><strong>4. How Transparent is DiffusionGemma?</strong>
+为什么重要：这是"安全 Agent"的工程实践参考。7 层安全控制的设计模式可迁移到宝洁的 Agent 部署中。
+</p>
+<p>
+<strong>4. How Transparent is DiffusionGemma?</strong>
 <a href="https://arxiv.org/pdf/2606.20560v1">arXiv 2606.20560</a>
 核心贡献：研究 DiffusionGemma 在连续潜空间中的推理透明度——是否比传统 LLM 更难解释？
-为什么重要：可解释性是企业 AI 部署的硬约束。如果新型架构牺牲透明度换取性能，需要在部署前权衡。</p>
-<hr />
-<p>🦾 <strong>具身智能 &amp; 机器人</strong></p>
-<p>今日 arXiv 机器人领域重点：
-- <strong>MemoryWAM</strong>：带持久记忆的世界-动作模型，让机器人在操作中理解当前观察并回忆历史。<a href="https://arxiv.org/pdf/2606.20562v1">arXiv 2606.20562</a>
-- <strong>Generating Robot Hands from Human Demonstrations</strong>：数据驱动框架，从人类演示生成机器人手部设计。<a href="https://arxiv.org/pdf/2606.20549v1">arXiv 2606.20549</a>
-- <strong>GroundControl</strong>：预测视觉-语言导航 Agent 的失败，通过轨迹一致性不确定性估计。<a href="https://arxiv.org/pdf/2606.20479v1">arXiv 2606.20479</a>
-- <strong>Slow Brain, Fast Planner</strong>：VLM 增强的城市导航，用慢思考模型 scoring 实时规划器的候选轨迹。<a href="https://arxiv.org/pdf/2606.20458v1">arXiv 2606.20458</a></p>
-<p><strong>判断</strong>：具身智能正在从"单一能力突破"转向"系统工程"——记忆、规划、失败预测、慢思考，每个模块都在成熟。对 A 哥的仓储物流场景，MemoryWAM 的"持久记忆 + 动作预测"范式最值得跟踪。</p>
-<hr />
-<p>🎯 <strong>FDE &amp; Ontology</strong></p>
-<p>今日最相关动态：
+为什么重要：可解释性是企业 AI 部署的硬约束。如果新型架构牺牲透明度换取性能，需要在部署前权衡。
+</p>
+<hr>
+<p>
+🦾 <strong>具身智能 & 机器人</strong>
+</p>
+<p>
+今日 arXiv 机器人领域重点：
+</p>
+<ul>
+<li><strong>MemoryWAM</strong>：带持久记忆的世界-动作模型，让机器人在操作中理解当前观察并回忆历史。<a href="https://arxiv.org/pdf/2606.20562v1">arXiv 2606.20562</a></li>
+<li><strong>Generating Robot Hands from Human Demonstrations</strong>：数据驱动框架，从人类演示生成机器人手部设计。<a href="https://arxiv.org/pdf/2606.20549v1">arXiv 2606.20549</a></li>
+<li><strong>GroundControl</strong>：预测视觉-语言导航 Agent 的失败，通过轨迹一致性不确定性估计。<a href="https://arxiv.org/pdf/2606.20479v1">arXiv 2606.20479</a></li>
+<li><strong>Slow Brain, Fast Planner</strong>：VLM 增强的城市导航，用慢思考模型 scoring 实时规划器的候选轨迹。<a href="https://arxiv.org/pdf/2606.20458v1">arXiv 2606.20458</a></li>
+</ul>
+<p>
+<strong>判断</strong>：具身智能正在从"单一能力突破"转向"系统工程"——记忆、规划、失败预测、慢思考，每个模块都在成熟。对 A 哥的仓储物流场景，MemoryWAM 的"持久记忆 + 动作预测"范式最值得跟踪。
+</p>
+<hr>
+<p>
+🎯 <strong>FDE & Ontology</strong>
+</p>
+<p>
+今日最相关动态：
 1. <strong>Claude MCP 集中授权</strong> → FDE 企业部署的合规基础设施已就绪
 2. <strong>LedgerAgent 论文</strong> → Agent 策略合规的学术方案
 3. <strong>GitHub agent-skills 仓库</strong> → FDE 技能库的参考架构
-4. <strong>NVIDIA SkillSpector</strong> → Agent 技能安全审计工具</p>
-<p><strong>判断</strong>：FDE 正在从"让业务用户能用 AI"转向"让业务用户安全、合规、可控地用 AI"。A 哥的 FDE 推广策略应纳入"治理层"——不只是教用户怎么用，还要建立安全扫描、授权管理、用量监控的体系。</p>
-<hr />
-<p>🏭 <strong>FMCG/消费品 AI</strong></p>
-<p>今日无直接 FMCG 新闻。但间接相关：
-- OpenAI 健康智能提升 → 宝洁健康/个护产品线可探索 AI 健康顾问场景
-- OpenAI 罕见病诊断 → 宝洁制药部门可关注 AI 辅助研发
-- Subquadratic 推理成本突破（若属实）→ 边缘 AI 在工厂/仓库的可行性提升</p>
-<hr />
-<p>💰 <strong>投资信号</strong></p>
+4. <strong>NVIDIA SkillSpector</strong> → Agent 技能安全审计工具
+</p>
+<p>
+<strong>判断</strong>：FDE 正在从"让业务用户能用 AI"转向"让业务用户安全、合规、可控地用 AI"。A 哥的 FDE 推广策略应纳入"治理层"——不只是教用户怎么用，还要建立安全扫描、授权管理、用量监控的体系。
+</p>
+<hr>
+<p>
+🏭 <strong>FMCG/消费品 AI</strong>
+</p>
+<p>
+今日无直接 FMCG 新闻。但间接相关：
+</p>
+<ul>
+<li>OpenAI 健康智能提升 → 宝洁健康/个护产品线可探索 AI 健康顾问场景</li>
+<li>OpenAI 罕见病诊断 → 宝洁制药部门可关注 AI 辅助研发</li>
+<li>Subquadratic 推理成本突破（若属实）→ 边缘 AI 在工厂/仓库的可行性提升</li>
+</ul>
+<hr>
+<p>
+💰 <strong>投资信号</strong>
+</p>
 <ul>
 <li><strong>Subquadratic</strong> 走出隐身模式，声称突破 LLM 推理瓶颈。若验证成功，将重塑推理经济学。目前估值未公开，但"解决 attention 复杂度"的叙事足以吸引顶级 VC。</li>
 <li><strong>Allbirds 前 CEO 创立 AI 新公司</strong>，获得"非常大的种子轮"。<a href="https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/">TechCrunch</a> 消费品牌创始人转型 AI 创业，信号意义大于实际影响。</li>
 </ul>
-<hr />
-<p>🧑‍💻 <strong>AI Leaders</strong></p>
-<p>今日无重大人物动态。</p>
-<hr />
-<p>🛠️ <strong>开源/工具</strong></p>
-<p>今日 GitHub Trending 重点新工具：</p>
-<ol>
-<li>
-<p><strong>headroom</strong> ⭐+10159 → 压缩工具输出/日志/RAG，减少 60-95% token，保持答案质量。支持库、代理、MCP 服务器。<a href="https://github.com/chopratejas/headroom">GitHub</a></p>
-</li>
-<li>
-<p><strong>agent-skills</strong> ⭐+9285 → Addy Osmani 维护的生产级 AI 编码 Agent 技能集。<a href="https://github.com/addyosmani/agent-skills">GitHub</a></p>
-</li>
-<li>
-<p><strong>Agent-Reach</strong> ⭐+7856 → 让 AI Agent 读取全网：Twitter、Reddit、YouTube、GitHub、B站、小红书，单一 CLI，零 API 费用。<a href="https://github.com/Panniantong/Agent-Reach">GitHub</a></p>
-</li>
-<li>
-<p><strong>NVIDIA/SkillSpector</strong> ⭐+5505 → AI Agent 技能安全扫描器，检测漏洞、恶意模式、安全风险。<a href="https://github.com/NVIDIA/SkillSpector">GitHub</a></p>
-</li>
-<li>
-<p><strong>codebase-memory-mcp</strong> ⭐+3244 → 高性能代码智能 MCP 服务器，将代码库索引为持久知识图谱，平均仓库毫秒级完成，支持 158 种语言。<a href="https://github.com/DeusData/codebase-memory-mcp">GitHub</a></p>
-</li>
-<li>
-<p><strong>agentsview</strong> ⭐+1382 → 本地优先的编码 Agent 会话搜索、分析、洞察和 token 使用统计，支持 Claude Code、Codex 等 20+ Agent。<a href="https://github.com/kenn-io/agentsview">GitHub</a></p>
-</li>
-<li>
-<p><strong>microsoft/fara</strong> ⭐+400 → Fara-7B：微软的高效计算机使用 Agent 模型。<a href="https://github.com/microsoft/fara">GitHub</a></p>
-</li>
-</ol>
-<hr />
-<p>💬 <strong>社区热点</strong></p>
-<p>今日无 Hacker News AI 热帖（数据源显示 "[No new HN AI posts found]"）。</p>
-<p>GitHub 社区热度集中在 Agent 工具链（见上文开源/工具部分）。</p>
-<hr />
-<p>📈 <strong>趋势观察</strong></p>
-<p>今天的数据清晰地指向一个主题：<strong>Agent 生态从"造"转向"治"</strong>。GitHub Trending 被 Agent 安全扫描、技能管理、授权控制、用量分析工具占据；Anthropic 和 OpenAI 同时发布企业级治理功能；arXiv 论文聚焦 Agent 合规、偏见传播、安全控制。这不是偶然——这是 Agent 从实验走向生产的必然阶段。</p>
-<p>第二个信号：<strong>推理成本优化重新成为热点</strong>。Subquadratic 的"突破"声称、headroom 的 token 压缩工具登上 GitHub 榜首，都指向同一个需求——让 AI 更便宜。这与芯片地缘政治的不确定性形成共振：当算力供给不确定时，效率优化就成了最确定的投资。</p>
-<hr />
-<p>🔮 <strong>明天关注什么</strong></p>
-<ol>
-<li>
-<p><strong>Subquadratic 技术细节</strong>：关注是否有论文公开、benchmark 结果、独立复现尝试。如果只有营销没有数据，热度会快速消退。</p>
-</li>
-<li>
-<p><strong>Agent 工具链的实际采用</strong>：headroom、SkillSpector 等工具的下载量和企业采用情况。如果一周内看到大厂案例，说明这不是昙花一现。</p>
-</li>
-</ol>
-<hr />
-<p>🎯 <strong>一句话总结</strong></p>
-<p>今天的信号很明确：Agent 时代的核心竞争力不再是"谁能造出更强的 Agent"，而是"谁能更安全、更便宜、更可控地部署 Agent"——对 A 哥的 FDE 事业而言，治理基础设施已就绪，现在是规模化推广的最佳窗口。</p>
+<hr>
+<p>
+🧑‍💻 <strong>AI Leaders</strong>
+</p>
+<p>
+今日无重大人物动态。
+</p>
+<hr>
+<p>
+🛠️ <strong>开源/工具</strong>
+</p>
+<p>
+今日 GitHub Trending 重点新工具：
+</p>
+<p>
+1. <strong>headroom</strong> ⭐+10159 → 压缩工具输出/日志/RAG，减少 60-95% token，保持答案质量。支持库、代理、MCP 服务器。<a href="https://github.com/chopratejas/headroom">GitHub</a>
+</p>
+<p>
+2. <strong>agent-skills</strong> ⭐+9285 → Addy Osmani 维护的生产级 AI 编码 Agent 技能集。<a href="https://github.com/addyosmani/agent-skills">GitHub</a>
+</p>
+<p>
+3. <strong>Agent-Reach</strong> ⭐+7856 → 让 AI Agent 读取全网：Twitter、Reddit、YouTube、GitHub、B站、小红书，单一 CLI，零 API 费用。<a href="https://github.com/Panniantong/Agent-Reach">GitHub</a>
+</p>
+<p>
+4. <strong>NVIDIA/SkillSpector</strong> ⭐+5505 → AI Agent 技能安全扫描器，检测漏洞、恶意模式、安全风险。<a href="https://github.com/NVIDIA/SkillSpector">GitHub</a>
+</p>
+<p>
+5. <strong>codebase-memory-mcp</strong> ⭐+3244 → 高性能代码智能 MCP 服务器，将代码库索引为持久知识图谱，平均仓库毫秒级完成，支持 158 种语言。<a href="https://github.com/DeusData/codebase-memory-mcp">GitHub</a>
+</p>
+<p>
+6. <strong>agentsview</strong> ⭐+1382 → 本地优先的编码 Agent 会话搜索、分析、洞察和 token 使用统计，支持 Claude Code、Codex 等 20+ Agent。<a href="https://github.com/kenn-io/agentsview">GitHub</a>
+</p>
+<p>
+7. <strong>microsoft/fara</strong> ⭐+400 → Fara-7B：微软的高效计算机使用 Agent 模型。<a href="https://github.com/microsoft/fara">GitHub</a>
+</p>
+<hr>
+<p>
+💬 <strong>社区热点</strong>
+</p>
+<p>
+今日无 Hacker News AI 热帖（数据源显示 "[No new HN AI posts found]"）。
+</p>
+<p>
+GitHub 社区热度集中在 Agent 工具链（见上文开源/工具部分）。
+</p>
+<hr>
+<p>
+📈 <strong>趋势观察</strong>
+</p>
+<p>
+今天的数据清晰地指向一个主题：<strong>Agent 生态从"造"转向"治"</strong>。GitHub Trending 被 Agent 安全扫描、技能管理、授权控制、用量分析工具占据；Anthropic 和 OpenAI 同时发布企业级治理功能；arXiv 论文聚焦 Agent 合规、偏见传播、安全控制。这不是偶然——这是 Agent 从实验走向生产的必然阶段。
+</p>
+<p>
+第二个信号：<strong>推理成本优化重新成为热点</strong>。Subquadratic 的"突破"声称、headroom 的 token 压缩工具登上 GitHub 榜首，都指向同一个需求——让 AI 更便宜。这与芯片地缘政治的不确定性形成共振：当算力供给不确定时，效率优化就成了最确定的投资。
+</p>
+<hr>
+<p>
+🔮 <strong>明天关注什么</strong>
+</p>
+<p>
+1. <strong>Subquadratic 技术细节</strong>：关注是否有论文公开、benchmark 结果、独立复现尝试。如果只有营销没有数据，热度会快速消退。
+</p>
+<p>
+2. <strong>Agent 工具链的实际采用</strong>：headroom、SkillSpector 等工具的下载量和企业采用情况。如果一周内看到大厂案例，说明这不是昙花一现。
+</p>
+<hr>
+<p>
+🎯 <strong>一句话总结</strong>
+</p>
+<p>
+今天的信号很明确：Agent 时代的核心竞争力不再是"谁能造出更强的 Agent"，而是"谁能更安全、更便宜、更可控地部署 Agent"——对 A 哥的 FDE 事业而言，治理基础设施已就绪，现在是规模化推广的最佳窗口。
+</p>
             </div>
         </article>
+        
+        <footer class="footer">
+            <p><a href="../../">← 返回所有报告</a></p>
+            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
     </main>
-    
-    <footer class="footer">
-        <p>由 Hermes Agent 自动生成 | <a href="/ai-news/">返回首页</a></p>
-    </footer>
 </body>
 </html>

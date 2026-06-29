@@ -103,7 +103,7 @@ def generate_html(posts):
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="logo">AI 资讯日报</a>
+        <a href="/ai-news/" class="logo">AI 资讯日报</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total}</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
@@ -244,6 +244,172 @@ def generate_html(posts):
 </html>"""
 
 
+def simple_md_to_html(md_text):
+    """Convert markdown to HTML (basic support for headers, lists, links, bold, etc.)."""
+    lines = md_text.split('\n')
+    html_lines = []
+    in_list = False
+    in_paragraph = False
+    
+    for line in lines:
+        stripped = line.strip()
+        
+        # Skip empty lines
+        if not stripped:
+            if in_list:
+                html_lines.append('</ul>')
+                in_list = False
+            if in_paragraph:
+                html_lines.append('</p>')
+                in_paragraph = False
+            continue
+        
+        # Headers
+        if stripped.startswith('#### '):
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            text = stripped[5:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            html_lines.append(f'<h4>{text}</h4>')
+            continue
+        if stripped.startswith('### '):
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            text = stripped[4:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            html_lines.append(f'<h3>{text}</h3>')
+            continue
+        if stripped.startswith('## '):
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            text = stripped[3:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            html_lines.append(f'<h2>{text}</h2>')
+            continue
+        if stripped.startswith('# '):
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            text = stripped[2:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            html_lines.append(f'<h1>{text}</h1>')
+            continue
+        
+        # Horizontal rule
+        if stripped == '---' or stripped == '***':
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            html_lines.append('<hr>')
+            continue
+        
+        # Blockquote
+        if stripped.startswith('> '):
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            text = stripped[2:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            html_lines.append(f'<blockquote><p>{text}</p></blockquote>')
+            continue
+        
+        # Unordered list
+        if stripped.startswith('- '):
+            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            if not in_list:
+                html_lines.append('<ul>')
+                in_list = True
+            text = stripped[2:]
+            text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+            text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+            html_lines.append(f'<li>{text}</li>')
+            continue
+        
+        # Regular paragraph
+        if in_list:
+            html_lines.append('</ul>')
+            in_list = False
+        if not in_paragraph:
+            html_lines.append('<p>')
+            in_paragraph = True
+        
+        text = stripped
+        text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+        text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        html_lines.append(text)
+    
+    if in_list:
+        html_lines.append('</ul>')
+    if in_paragraph:
+        html_lines.append('</p>')
+    
+    return '\n'.join(html_lines)
+
+
+def generate_report_page(post, all_posts_count):
+    """Generate an individual report HTML page from a post."""
+    # Read the full markdown content
+    md_file = POSTS_DIR / f"{post['date_prefix']}-{post['report_type']}.md"
+    if not md_file.exists():
+        return None
+    
+    md_text = md_file.read_text(encoding="utf-8", errors="replace")
+    
+    # Remove front matter
+    md_text = re.sub(r"^---\s*\n.*?\n---\s*\n", "", md_text, count=1, flags=re.DOTALL)
+    
+    # Convert markdown to HTML
+    content_html = simple_md_to_html(md_text)
+    
+    type_labels = {"morning": "早报", "noon": "午报", "evening": "晚报", "weekly": "周报"}
+    label = type_labels.get(post["report_type"], post["report_type"])
+    
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{post['title']} - AI 资讯日报</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">{all_posts_count}</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>{post['title']}</h1>
+                <div class="meta">
+                    <time>{post['date']}</time>
+                    <span class="report-type type-{post['report_type']}">{label}</span>
+                </div>
+            </header>
+            
+            <div class="content">
+                {content_html}
+            </div>
+        </article>
+        
+        <footer class="footer">
+            <p><a href="../../">← 返回所有报告</a></p>
+            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>"""
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     
@@ -259,13 +425,39 @@ def main():
     
     print(f"Found {len(posts)} posts", file=sys.stderr)
     
-    html = generate_html(posts)
+    total = len(posts)
     
     if dry_run:
+        html = generate_html(posts)
         print(f"Would write {len(html)} bytes to {OUTPUT_FILE}")
+        # Count report pages that would be generated
+        missing = 0
+        for p in posts:
+            report_dir = WEBSITE_DIR / p["date_prefix"] / p["report_type"]
+            report_file = report_dir / "index.html"
+            if not report_file.exists():
+                missing += 1
+        print(f"Would generate {missing} missing report pages")
     else:
+        # Generate index.html
+        html = generate_html(posts)
         OUTPUT_FILE.write_text(html, encoding="utf-8")
-        print(f"✅ Generated {OUTPUT_FILE} ({len(posts)} reports)")
+        print(f"✅ Generated index.html ({total} reports)")
+        
+        # Generate individual report pages
+        generated = 0
+        for p in posts:
+            report_dir = WEBSITE_DIR / p["date_prefix"] / p["report_type"]
+            report_file = report_dir / "index.html"
+            
+            # Always regenerate to keep style consistent
+            report_html = generate_report_page(p, total)
+            if report_html:
+                report_dir.mkdir(parents=True, exist_ok=True)
+                report_file.write_text(report_html, encoding="utf-8")
+                generated += 1
+        
+        print(f"✅ Generated {generated} report pages")
 
 
 if __name__ == "__main__":
