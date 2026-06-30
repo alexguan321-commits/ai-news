@@ -44,7 +44,7 @@ cd "$WEBSITE_DIR"
 python3 generate_index.py
 
 # Git 操作（带重试）
-git add "_posts/$FILENAME" index.html 2026-*/
+git add "_posts/$FILENAME" index.html 2026-*/ cards/ styles.css
 git commit -m "Add AI ${REPORT_TYPE^} - $(date +%Y-%m-%d\ %H:%M)"
 
 # Push with retry (3 attempts, exponential backoff)

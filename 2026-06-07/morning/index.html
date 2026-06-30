@@ -10,12 +10,12 @@
     <nav class="navbar">
         <a href="../../" class="logo">AI 资讯日报</a>
         <div class="nav-stats">
-            <div><span class="stat-value">64</span> reports</div>
+            <div><span class="stat-value">66</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
     </nav>
-    
+
     <main class="container">
         <article class="report-content">
             <header class="report-header">
@@ -25,7 +25,7 @@
                     <span class="report-type type-morning">早报</span>
                 </div>
             </header>
-            
+
             <div class="content">
                 <h1>Cron Job: AI 早报 (8:00)</h1>
 <p>
@@ -41,22 +41,20 @@
 <p>
 The data-collection script failed. Report this to the user.
 </p>
-<p>
-```
+<pre><code class="language-">
 Script exited with code 1
 stderr:
 Traceback (most recent call last):
-File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 632, in <module>
-main()
-File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 585, in main
-output_dir = ensure_output_dir()
-^^^^^^^^^^^^^^^^^^^
-File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 83, in ensure_output_dir
-os.makedirs(folder, exist_ok=True)
-File "<frozen os>", line 225, in makedirs
+  File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 632, in &lt;module&gt;
+    main()
+  File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 585, in main
+    output_dir = ensure_output_dir()
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexguan/.hermes/scripts/ai_news_collector.py", line 83, in ensure_output_dir
+    os.makedirs(folder, exist_ok=True)
+  File "&lt;frozen os&gt;", line 225, in makedirs
 PermissionError: [Errno 1] Operation not permitted: '/Volumes/WD_Gold_4TB/AI_News/2026-06-07_2310'
-```
-</p>
+</code></pre>
 <p>
 你是一名资深 AI 行业分析师。采集脚本刚刚运行完毕，原始数据已保存到 /Volumes/WD_Gold_4TB/AI_News/ 下以日期时间命名的文件夹中。
 </p>
@@ -244,7 +242,7 @@ Microsoft 承认错过了 App 时代，直接跳到 Agent 时代。Solara 是一
 </p>
             </div>
         </article>
-        
+
         <footer class="footer">
             <p><a href="../../">← 返回所有报告</a></p>
             <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>

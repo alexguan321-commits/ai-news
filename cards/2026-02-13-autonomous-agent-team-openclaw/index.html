@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I built an Autonomous AI Agent team that runs 24/7 - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">14</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>How I built an Autonomous AI Agent team that runs 24/7</h1>
+                <div class="meta">
+                    <span class="author">Shubham Saboo (@Saboo_Shubham_)</span>
+                    <time>2026-02-13</time>
+                    <span class="tag">autonomous-agents</span> | <span class="tag">multi-agent</span> | <span class="tag">openclaw</span> | <span class="tag">production-system</span> | <span class="tag">agent-team</span>
+                </div>
+                <p><a href='https://x.com/Saboo_Shubham_/article/2022014147450614038' target='_blank'>原文链接 ↗</a></p>
+            </header>
+
+            <div class="content">
+                <h1>How I built an Autonomous AI Agent team that runs 24/7</h1>
+<p>
+<strong>Author:</strong> Shubham Saboo (@Saboo_Shubham_)
+<strong>Source:</strong> https://x.com/Saboo_Shubham_/article/2022014147450614038
+<strong>Date:</strong> 2026-02-13
+<strong>Extracted:</strong> 2026-06-29 via Chrome AppleScript
+<strong>Tags:</strong> autonomous-agents, multi-agent, openclaw, production-system, agent-team
+</p>
+<hr>
+<p>
+Six AI agents run my entire life while I sleep.
+</p>
+<p>
+Not a demo. Not a weekend project.
+</p>
+<p>
+A real team that works 24/7 making sure I'm never behind. Research done. Content drafted. Code reviewed. Newsletter ready. By the time I open Telegram in the morning, they've already put in a full shift.
+</p>
+<p>
+Yesterday I posted about my agent team. The number one question: "How do I actually set this thing up?"
+</p>
+<p>
+This is the answer. Not theory. Not architecture diagrams. The actual file structure I use, the actual costs I pay, the actual failures I hit. Everything.
+</p>
+<h2>Why a team and not a tool</h2>
+<p>
+Running Unwind AI and the Awesome LLM Apps repo means doing six things daily. Research what's trending in AI. Write tweets. Write LinkedIn posts. Draft the newsletter. Review GitHub contributions on the repo. Triage community issues.
+</p>
+<p>
+Each task: 30 to 60 minutes. Six tasks. That's my entire day gone before I do any real work.
+</p>
+<p>
+I tried solving this with a single agent. One massive prompt that researches and writes and reviews. It produced mediocre everything. The context filled up. The quality degraded. One agent couldn't hold six different jobs in its head.
+</p>
+<p>
+So I hired six AI Agents.
+</p>
+<h2>Meet the squad</h2>
+<p>
+Every agent is named after a TV character. This is not a gimmick. When I tell Claude "you have Dwight Schrute energy," it already knows what that means from training data. Thorough, intense, takes the job dead seriously. That is 30 seasons of character development I get for free.
+</p>
+<p>
+1. <strong>Monica (Chief of Staff)</strong>: Named after Monica Geller. She is the main agent, the one I talk to the most on Telegram. She coordinates the others, handles strategic decisions, and delegates tasks to the right specialist.
+</p>
+<p>
+2. <strong>Dwight (Research)</strong>: Named after Dwight Schrute. He runs research sweeps three times a day. Checks X, Hacker News, GitHub trending, Google AI blog, research papers. Writes structured intel reports that every other agent consumes.
+</p>
+<p>
+3. <strong>Kelly (X/Twitter)</strong>: Named after Kelly Kapoor. She reads Dwight's research and crafts tweet drafts in my voice. Single tweets, threads, quote tweets.
+</p>
+<p>
+4. <strong>Rachel (LinkedIn)</strong>: Named after Rachel Green. Same intel source as Kelly, different platform, different tone. Thought leadership angles instead of hot takes.
+</p>
+<p>
+5. <strong>Ross (Engineering)</strong>: Named after Ross Geller. Handles code reviews, bug fixes, technical implementations.
+</p>
+<p>
+6. <strong>Pam (Newsletter)</strong>: Named after Pam Beesly. Turns Dwight's daily intel into a newsletter digest.
+</p>
+<p>
+Six agents. One job each. No confusion about who does what.
+</p>
+<h2>The Setup</h2>
+<p>
+I run everything on a Mac Mini M4. But I need to be clear: you do not need a Mac Mini.
+</p>
+<p>
+OpenClaw runs on macOS, Linux, and Windows (via WSL). A laptop works. A gaming PC works. A $5/month VPS works. The Mac Mini is convenient because it is always on, silent, and sips power. Not a requirement.
+</p>
+<p>
+My setup: Mac Mini M4 base model. Always connected to power and internet. No monitor attached. I interact entirely through Telegram on my phone.
+</p>
+<h3>Installing OpenClaw</h3>
+<pre><code class="language-bash">
+# 1. Install OpenClaw
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# 2. Onboard with Quickstart (simplest way)
+openclaw onboard
+</code></pre>
+<h2>Workspace structure</h2>
+<p>
+One OpenClaw instance. Multiple agents. Not six separate installations.
+</p>
+<pre><code class="language-">
+workspace/
+├── SOUL.md              # Monica (main agent, lives at root)
+├── AGENTS.md            # Behavior rules for all sessions
+├── MEMORY.md            # Monica's long-term memory
+├── HEARTBEAT.md         # Self-healing cron monitor
+├── agents/
+│   ├── dwight/
+│   │   ├── SOUL.md
+│   │   ├── AGENTS.md
+│   │   └── memory/
+│   ├── kelly/
+│   │   ├── SOUL.md
+│   │   ├── AGENTS.md
+│   │   └── memory/
+│   ├── ross/
+│   │   ├── SOUL.md
+│   │   └── memory/
+│   ├── rachel/
+│   │   └── ...
+│   └── pam/
+│       └── ...
+└── intel/
+    ├── DAILY-INTEL.md       # Dwight's generated research
+    └── data/
+        └── 2026-02-11.json  # Structured data (source of truth)
+</code></pre>
+<p>
+Monica lives at the root. She is the main agent I talk to. The others are sub-agents she can delegate to, or they run independently on their own cron schedules.
+</p>
+<h2>What the heck is a SOUL.md</h2>
+<p>
+Every agent is defined by one file: SOUL.md. This is the agent's identity, role, and operating instructions. It is the most important file in the entire system.
+</p>
+<h3>Dwight's SOUL.md:</h3>
+<pre><code class="language-markdown">
+# SOUL.md (Dwight)
+
+## Core Identity
+
+**Dwight** — the research brain. Named after Dwight Schrute because
+you share his intensity: thorough to a fault, knows EVERYTHING in
+your domain, takes your job extremely seriously. No fluff. No
+speculation. Just facts and sources.
+
+## Your Role
+
+You are the intelligence backbone of the squad. You research, verify,
+organize, and deliver intel that other agents use to create content.
+
+**You feed:**
+- Kelly (X/Twitter) — viral trends, hot threads, breaking news
+- Rachel (LinkedIn) — thought leadership angles, industry news
+
+## Your Principles
+
+### 1. NEVER Make Things Up
+- Every claim has a source link
+- Every metric is from the source, not estimated
+- If uncertain, mark it [UNVERIFIED]
+- "I don't know" is better than wrong
+
+### 2. Signal Over Noise
+- Not everything trending matters
+- Prioritize: relevance to AI/agents, engagement velocity,
+  source credibility
+</code></pre>
+<h3>Monica's SOUL.md:</h3>
+<pre><code class="language-markdown">
+# SOUL.md (Monica)
+
+*You're the Chief of Staff. The operation runs through you.*
+
+## Core Identity
+
+**Monica** — organized, driven, slightly competitive. Named after
+Monica Geller because you share her energy: caring but exacting,
+supportive but with standards.
+
+## Your Role
+
+You're Shubham's Chief of Staff. That means:
+- **Strategic oversight** — see the big picture, keep things moving
+- **Delegation** — assign tasks to the right squad member
+- **Direct support** — handle anything that doesn't fit a specialist
+- **Coordination** — make sure the squad works together smoothly
+
+## Operating Style
+
+**Be genuinely helpful, not performatively helpful.** Skip the filler.
+
+**Delegate when appropriate.** If it's clearly X content → Kelly.
+If it's code → Ross. If it's ambiguous or strategic → you handle it.
+
+**Have opinions.** You're allowed to push back, suggest better
+approaches, flag concerns.
+</code></pre>
+<p>
+The pattern is consistent across all agents. Identity. Role. Principles. Relationships. Vibe. Each SOUL.md is about 40-60 lines. Short enough to fit in context every session. Detailed enough to produce consistent behavior.
+</p>
+<h2>Multi-agent coordination</h2>
+<p>
+No API calls between agents. No message queues. No orchestration framework.
+</p>
+<p>
+Just files.
+</p>
+<p>
+Dwight does research and writes findings to intel/DAILY-INTEL.md. Kelly wakes up, reads that file, drafts tweets from it. Rachel reads the same file, drafts LinkedIn posts. Pam reads it, writes the newsletter.
+</p>
+<p>
+The coordination is the filesystem.
+</p>
+<p>
+Dwight's SOUL.md tells him exactly where to write:
+</p>
+<pre><code class="language-markdown">
+## Output Files
+
+intel/
+├── data/YYYY-MM-DD.json    ← Your structured data (source of truth)
+└── DAILY-INTEL.md          ← Generated view (agents read this)
+</code></pre>
+<p>
+Kelly's AGENTS.md tells her exactly where to read:
+</p>
+<pre><code class="language-markdown">
+## Intel-Powered Workflow
+
+Dwight handles all research and writes to `intel/DAILY-INTEL.md`.
+
+Your job: Read the intel → Craft X content → Deliver drafts
+</code></pre>
+<p>
+No middleware. No integration layer. Dwight writes a file. Kelly reads a file. The handoff is a markdown document on disk.
+</p>
+<p>
+This sounds too simple. It is simple. That is why it works. Files do not crash. Files do not have authentication issues. Files do not need API rate limit handling. They are just there.
+</p>
+<p>
+The structured data lives in JSON. The human-readable summaries live in markdown. Agents read the markdown. The JSON is the source of truth for deduplication and tracking over time.
+</p>
+<h2>The memory system</h2>
+<p>
+Agents wake up with no memory of previous sessions. Every conversation starts fresh. This is a feature, not a bug. But it means memory must be explicit.
+</p>
+<p>
+Two layers.
+</p>
+<p>
+<strong>Daily logs (memory/YYYY-MM-DD.md)</strong>: Raw notes from each session. What happened, what was drafted, what feedback came in. The agent writes these throughout the day.
+</p>
+<p>
+<strong>Long-term memory (MEMORY.md)</strong>: Curated insights distilled from daily logs. Lessons learned, preferences discovered, patterns noticed.
+</p>
+<p>
+From the AGENTS.md that every agent follows at the start of every session:
+</p>
+<pre><code class="language-markdown">
+## Memory
+
+You wake up fresh each session. These files are your continuity:
+- **Daily notes:** `memory/YYYY-MM-DD.md` — raw logs of what happened
+- **Long-term:** `MEMORY.md` — curated memories
+
+### Write It Down - No "Mental Notes"!
+- Memory is limited. If you want to remember something,
+  WRITE IT TO A FILE.
+- "Mental notes" don't survive session restarts. Files do.
+- When someone says "remember this" → update the memory file
+- When you learn a lesson → update the relevant file
+- Text &gt; Brain
+</code></pre>
+<p>
+The agents actually get better over time. Not because the model improves. Because the context they load gets richer.
+</p>
+<p>
+Kelly learned that my writing voice has no emojis and no hashtags. That is in her memory now. Every future draft reflects it without me saying it again. Dwight learned which types of stories pass the "Alex filter" (our target audience profile) and which ones to skip. That is in his memory too.
+</p>
+<p>
+During heartbeats, agents periodically review their daily logs and distill the important stuff into MEMORY.md. Daily files are raw notes. MEMORY.md is curated wisdom.
+</p>
+<h2>Scheduling</h2>
+<p>
+Agents need to wake up on their own. OpenClaw handles this with built-in cron scheduling.
+</p>
+<p>
+My actual schedule:
+</p>
+<p>
+| Agent | Schedule | Time |
+|-------|----------|------|
+| Dwight Morning | Daily | 8:01 AM |
+| Kelly Viral | Daily | 9:01 AM, 1:01 PM |
+| Ross Engineering | Daily | 10:01 AM |
+| Dwight Afternoon | Daily | 4:01 PM |
+| Kelly X Drafts | Daily | 5:01 PM |
+| Rachel LinkedIn | Daily | 5:01 PM |
+</p>
+<p>
+Order matters. Dwight runs first because everyone else depends on his output. Kelly and Rachel run after him because they need his intel file to exist before they can draft content.
+</p>
+<h2>Heartbeat self-healing</h2>
+<p>
+Cron jobs fail sometimes. The machine restarts. A job hangs. The network drops during an API call. This is infrastructure, and infrastructure has failure modes.
+</p>
+<p>
+The HEARTBEAT.md file adds a safety net. On each heartbeat, the main agent verifies that cron jobs actually ran:
+</p>
+<pre><code class="language-markdown">
+## Cron Health Check (run on each heartbeat)
+
+Check if any daily cron jobs have stale lastRunAtMs (&gt;26 hours
+since last run). If stale, trigger them via CLI:
+`openclaw cron run &lt;jobId&gt; --force`
+
+Jobs to monitor:
+- Dwight Morning (8:01 AM): 01f2e5c5-3a83-4018-a725-dee59e54733e
+- Kelly Viral (9:01 AM, 1:01 PM): c9458766-78bb-4eeb-b8f4-d63dc1f0e601
+- Ross Engineering (10:01 AM): b12b2fc6-dd7d-4123-b904-2148a5cfb70b
+- Dwight Afternoon (4:01 PM): 19ff40e4-b1b0-4d32-9d24-753ac2cf8f46
+- Kelly X Drafts (5:01 PM): 05da0c81-39e1-4d06-bdcd-2dfab4562ba4
+- Rachel LinkedIn (5:01 PM): 9819bc6b-7e36-406f-b0c3-d80ca383d914
+</code></pre>
+<p>
+If a job fails or misses its window, the heartbeat catches it and forces a re-run. Self-healing, no human intervention needed.
+</p>
+<p>
+Use heartbeat for batching multiple checks together and when timing can drift slightly. Use cron for exact schedules and tasks that need isolation from the main session.
+</p>
+<h2>Telegram as the interface</h2>
+<p>
+No dashboard. No web UI. No admin panel. I talk to my agents on Telegram.
+</p>
+<p>
+This was a deliberate choice. I do not want to log into a dashboard. I do not want to check a web app. My phone is always with me. Telegram is always open. The agents meet me where I already am.
+</p>
+<p>
+OpenClaw supports Telegram as a channel. You connect it during setup, and your agent shows up as a Telegram bot. You text it. It texts back. It sends you drafts. You approve or reject them. Like having a coworker in your messaging app.
+</p>
+<p>
+Monica is my primary contact. She handles most conversations and delegates to the others. The others message me directly when their cron jobs produce something worth reviewing.
+</p>
+<p>
+My typical morning: I wake up, open Telegram, and Dwight has already sent me a research summary. Kelly has three tweet drafts waiting for approval. Rachel has a LinkedIn post ready. I review, give feedback, approve what is good. The whole thing takes 10 minutes while I drink coffee.
+</p>
+<h2>Personality engineering</h2>
+<p>
+You do not design the perfect personality upfront. You start with a rough sketch in SOUL.md, watch how the agent behaves, and course-correct over time. Exactly like managing real people.
+</p>
+<p>
+I call it "corrective prompt-engineering."
+</p>
+<p>
+Kelly's first drafts were full of emojis and exclamation points. That is not my voice. So I gave feedback: "No emojis. No hashtags. Short punchy sentences." She updated her memory. After a week, she nailed it consistently. Dwight initially captured too much noise. Every trending repo, every minor update. I told him: "Not everything trending matters. I need signal, not noise." He updated his principles. Now his intel reports are focused and actionable.
+</p>
+<p>
+The first version of any agent is mediocre. The tenth version is good. The thirtieth version is great. You have to invest the reps.
+</p>
+<p>
+The TV character naming gives the model an immediate personality baseline. "Dwight Schrute energy" means thorough, intense, no-nonsense. But the real personality emerges from weeks of corrections stored in memory files.
+</p>
+<p>
+One tip: give each agent a single boring job title and a stop condition. Constraints make agents better. The more specific the role, the better the output.
+</p>
+<h2>Security</h2>
+<p>
+Security is in your hands. My approach is simple: the agents get their own world. I do not give them access to mine.
+</p>
+<p>
+The Mac Mini is their computer. They have their own email accounts, their own API keys, their own scoped access. Nothing on that machine connects to my personal accounts.
+</p>
+<p>
+API keys for Gemini, Eleven Labs, and other services are scoped specifically for this OpenClaw instance. I can monitor usage and kill access in seconds if something looks wrong.
+</p>
+<p>
+I never give agents access to my personal accounts. If I want them to look at an email, I forward it to them. If I need them to review a document, I share it on Telegram. They see exactly what I want them to see, nothing more.
+</p>
+<p>
+This is the same principle you would use with a new employee. You do not hand them the keys to everything on day one. You give them their own workspace, their own credentials, and share information as needed.
+</p>
+<h2>What breaks and how to fix it</h2>
+<p>
+This is not magic. It is infrastructure. And infrastructure fails.
+</p>
+<p>
+1. <strong>The gateway crashes.</strong> Rarely, but it happens. Fix: <code>openclaw gateway restart</code>. The heartbeat system catches stale cron jobs and forces re-runs.
+</p>
+<p>
+2. <strong>Cron jobs miss their window.</strong> The machine sleeps, network drops, API rate limits hit. Fix: the HEARTBEAT.md self-healing pattern.
+</p>
+<p>
+3. <strong>Context window overflow.</strong> Agents reading too many files at session start, running out of room for actual work. Fix: keep SOUL.md short (40-60 lines). Keep AGENTS.md focused. Only load today's memory file plus yesterday's.
+</p>
+<p>
+4. <strong>Agent output quality degrades.</strong> This happens when the memory files get cluttered or contradictory. Fix: periodic memory maintenance. During heartbeats, agents review daily logs and distill them into clean MEMORY.md entries.
+</p>
+<p>
+5. <strong>Coordination conflicts.</strong> Two agents trying to update the same file. Fix: design the file flow to be one-writer, many-readers. Dwight writes DAILY-INTEL.md. Everyone else reads it. Nobody else writes to it.
+</p>
+<p>
+The biggest reliability lesson: start simple. One agent, one job, one schedule. Get that working reliably for a week. Then add the second agent.
+</p>
+<h2>Real costs</h2>
+<p>
+| Item | Cost |
+|------|------|
+| Hardware: Mac Mini M4 | $499 (one-time) |
+| Claude (Max plan) | $200/month (note: no longer works, use API) |
+| Gemini API | $50-70/month |
+| TinyFish (web agents) | ~$50/month |
+| Eleven Labs (voice) | ~$50/month |
+| Telegram | Free |
+| OpenClaw | Open source and free |
+| <strong>Total</strong> | <strong>under $400/month</strong> |
+</p>
+<h2>What actually changed</h2>
+<ul>
+<li>Dwight saves 2-3 hours of daily research</li>
+<li>Kelly, Pam, and Rachel save 1-2 hours of content drafting</li>
+<li>Ross handles engineering tasks</li>
+<li><strong>Total: roughly 4-5 hours saved per day</strong></li>
+</ul>
+<p>
+But the real value is not in any single day. It is in consistency over weeks and months. An agent that does research every day for 30 days builds a corpus of tracked signals, trend trajectories, and pattern recognition that no single session could produce.
+</p>
+<p>
+These agents cannot do original thinking, strategic pivots, or creative breakthroughs. They handle the repetitive, structured work that I was spending hours on. That frees me to do the work that actually requires a human brain.
+</p>
+<h2>How to start</h2>
+<p>
+<strong>Do not try to build six agents on day one.</strong>
+</p>
+<p>
+<strong>Week 1:</strong> One agent, one job. Install OpenClaw. Write one SOUL.md. Pick the most repetitive task you do daily. Set up Telegram. Create one cron job. Watch it run for a week. Fix what breaks.
+</p>
+<p>
+<strong>Week 2:</strong> Add memory and refine. Your agent's first outputs will be mediocre. That is normal. Give feedback. Watch the memory files grow. Course-correct the SOUL.md.
+</p>
+<p>
+<strong>Week 3:</strong> Add a second agent. Now you feel the need. Your research agent is producing intel, but you are still manually writing tweets from it. Time for a content agent. Set up the shared file pattern: agent one writes, agent two reads.
+</p>
+<p>
+<strong>Week 4 and beyond:</strong> Build sequentially. Add agents when you feel the pull, not when you think you should.
+</p>
+<p>
+Treat it like hiring. You do not hire six employees on your first day as a founder. You hire one, get them productive, then hire the next one when the workload demands it.
+</p>
+<h2>The mental shift</h2>
+<p>
+Something changes when your agents have been running for a month. You stop thinking of AI as a tool you open when you need something. You start thinking of it as a team that is always working.
+</p>
+<p>
+The models are table stakes. Everyone has access to Claude, GPT, Gemini. The alpha comes from the systems around the model. The SOUL.md files. The memory. The scheduling. The coordination patterns. The weeks of corrective feedback stored in files.
+</p>
+<p>
+That system is yours. Nobody else has your agents, your memory files, your refined personalities.
+</p>
+<p>
+And it compounds every day.
+</p>
+<p>
+Every research sweep makes Dwight's memory richer. Every round of feedback makes Kelly's drafts sharper. Every bug Ross fixes teaches him more about your codebase.
+</p>
+<p>
+That's the real moat. Not the model. The system that learns.
+</p>
+<p>
+Start today. One agent. One job. One schedule.
+</p>
+<hr>
+<p>
+<strong>Stats:</strong> 1.7M views | 2.3K likes | 344 reposts | 163 comments
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>

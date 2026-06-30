@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Engineering: How to make your AI agent run itself - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">14</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>Loop Engineering: How to make your AI agent run itself</h1>
+                <div class="meta">
+                    <span class="author">Andrew (@s4yonnara)</span>
+                    <time>2026-06-27</time>
+                    <span class="tag">loop-engineering</span> | <span class="tag">ai-agent</span> | <span class="tag">automation</span> | <span class="tag">claude-code</span>
+                </div>
+                <p><a href='https://x.com/s4yonnara/status/2070797048471756948' target='_blank'>原文链接 ↗</a></p>
+            </header>
+
+            <div class="content">
+                <h1>Loop Engineering: How to make your AI agent run itself</h1>
+<p>
+<strong>Author:</strong> Andrew (@s4yonnara)
+<strong>Source:</strong> https://x.com/s4yonnara/status/2070797048471756948
+<strong>Date:</strong> 2026-06-27
+<strong>Extracted:</strong> 2026-06-29
+<strong>Tags:</strong> loop-engineering, ai-agent, automation, claude-code
+</p>
+<hr>
+<p>
+You are the bottleneck. Not the model
+</p>
+<p>
+Most people use a coding agent the same way: type a request, watch it work, read the diff, type the next request. You are sitting in the chair the whole time. The agent is brilliant for thirty seconds and then waits for you.
+</p>
+<p>
+That is hand-operating a tool that should run itself. The people getting real leverage out of these tools stopped doing it.
+</p>
+<p>
+They built a loop: a small system that finds the work, hands it to the agent, checks the result against a goal, writes down what it learned, and decides the next move. They set it up once. After that, the loop sits in the chair, not them.
+</p>
+<p>
+The gap between you and them is not a smarter model or a secret prompt. It is twelve moves, in three tiers: decide if you even need a loop, build the core, then make it safe and compounding. Every part here uses pieces you already have.
+</p>
+<h2>TIER 1 - Decide before you build</h2>
+<h3>1. The shift: you stopped being the operator</h3>
+<p>
+For two years the job was operating the tool by hand. Better prompts, better context, better one-shot output. That phase is ending.
+</p>
+<p>
+The new job is one floor up: designing the system that decides what the agent works on, when, with what check, and what it remembers between runs. You are not writing the next message anymore. You are building the thing that writes it.
+</p>
+<p>
+If you remember one line: a loop is just a prompt the system sends instead of you.
+</p>
+<h3>2. The 4-condition test (run it before you build anything)</h3>
+<p>
+A loop is not always worth it. It earns its cost only when all four are true. Miss one and it costs more than it returns.
+</p>
+<p>
+1. <strong>The task repeats.</strong> A loop amortizes its setup over many runs. For a one-time job, a good prompt is faster and cheaper. If it doesn't recur, you don't have a loop, you have a script you ran once.
+</p>
+<p>
+2. <strong>Verification is automated.</strong> Something has to fail the work without you in the room: a test, a type check, a linter, a build. No automated gate and you're back in the chair reading every diff, which is the exact job the loop was supposed to remove.
+</p>
+<p>
+3. <strong>Your budget can absorb the waste.</strong> Loops re-read context, retry, and explore. That burns tokens whether or not a run ships anything. Free on an unmetered plan, painful on a $20 one.
+</p>
+<p>
+4. <strong>The agent has real tools.</strong> Logs, a way to run the code it writes, and see what breaks. Without that, the loop iterates blind.
+</p>
+<p>
+If you fail one of these, the honest answer is: don't build a loop yet. A single well-aimed prompt still wins for one-off and judgment-call work.
+</p>
+<h3>3. Know which jobs to hand it</h3>
+<p>
+<strong>Good first loops</strong> are boring and machine-checkable:
+</p>
+<ul>
+<li>CI failure triage: nightly, classify failures, draft fixes for the easy ones.</li>
+<li>Dependency bumps: weekly, test compatibility, open PRs.</li>
+<li>Lint-and-fix passes on every PR.</li>
+<li>Flaky-test reproduction: loop until a theory survives.</li>
+</ul>
+<p>
+<strong>Bad first loops</strong> need a human in the chair: architecture rewrites, auth or payments code, production deploys, anything where "done" is a judgment call. Keep the loop on small changes a test suite can reject.
+</p>
+<h2>TIER 2 - Build the core</h2>
+<h3>4. Get one manual run reliable first</h3>
+<p>
+A loop multiplies whatever is underneath it. Wrap one around a weak setup and you don't get autonomy, you get slop produced faster.
+</p>
+<p>
+So before you automate anything, make a single manual run solid. The standing facts in a CLAUDE.md, the right tools connected, a clear thing to verify against. The loop reuses all of it on every iteration, so every weakness gets multiplied by however many times it runs. Fix the run first. Then loop it.
+</p>
+<h3>5. Give it a goal and an independent grader</h3>
+<p>
+A loop needs a stop condition that is not "the agent feels done." A goal gives you one: an objective the loop iterates against until an independent check says it's met.
+</p>
+<pre><code class="language-">
+/goal All tests pass and lint is clean.
+  Triage failures, draft fixes, repeat until the goal holds.
+</code></pre>
+<p>
+The key word is independent. The thing that decides "done" must not be the thing that did the work. That one separation is what makes a loop trustworthy instead of a machine that congratulates itself.
+</p>
+<h3>6. Split the maker from the checker</h3>
+<p>
+Why a separate grader beats self-review is structural, not effort. A model judging its own output sees its own reasoning and prefers conclusions that match what it already wrote. A fresh agent, with its own clean context, sees only the artifact and the standard. It has no stake in the maker's choices.
+</p>
+<p>
+So define the verifier as a subagent:
+</p>
+<pre><code class="language-yaml">
+---
+name: verifier
+description: Independent check of the maker's output against the goal. Use every iteration.
+tools: Read, Grep, Bash
+---
+You did not produce this work. Check it against the goal and the
+project rules. Run the tests yourself. Report pass or fail with
+concrete reasons and file references. Do not be generous.
+</code></pre>
+<p>
+Now the loop has a maker and a checker, and the checker holds the gate.
+</p>
+<h3>7. Put it on a timer, then in the cloud</h3>
+<p>
+A goal-driven run still waits for you to start it. Add a cadence. A recurring loop reruns the prompt on an interval, so the agent chips away at a backlog instead of waiting for a human.
+</p>
+<pre><code class="language-">
+/loop 30m
+  Pull new failing tests, draft fixes in claude/ branches,
+  hand each to the verifier. /goal main is green.
+</code></pre>
+<p>
+Then take your laptop out of it. Cloud routines run a saved config on managed infrastructure on a schedule or an event, with your machine closed. A timer turns a run into a habit. The cloud turns the habit into infrastructure.
+</p>
+<h3>8. Give it a memory that resumes</h3>
+<p>
+This is the step that turns a configured loop into a system that improves. The agent forgets everything between runs. The loop does not have to. A state file records what was tried, what worked, what failed, and what became a rule.
+</p>
+<pre><code class="language-markdown">
+# State - payments-service
+
+## Verified facts
+- Webhook secret is in STRIPE_WEBHOOK_SECRET, not the dashboard.
+- prc column is integer cents. Confirmed via SELECT MIN/MAX.
+
+## Lessons learned
+- e2e checkout flakes on a webhook race. Add a settle delay in tests.
+
+## Last run
+2026-06-22 - 3 fixes merged, 2 escalated. Next: verify the rate-limit fix.
+</code></pre>
+<p>
+Two rules make it compound instead of just grow: write to it before the run ends, read it at the start of the next. Skip either and tomorrow restarts from zero.
+</p>
+<h2>TIER 3 - Make it safe and compounding</h2>
+<h3>9. Distill lessons into skills</h3>
+<p>
+A state file is project memory. It dies with the project. The lessons that are general, the ones that would help on the next project too, graduate into skills: procedures the agent runs, sharpened every time they fail in a new way.
+</p>
+<pre><code class="language-yaml">
+---
+name: ci-triage
+description: Classify CI failures, draft fixes for the easy ones, escalate the rest.
+---
+## Known failure modes
+- tls-handshake: Windows runners fail TLS 1.2 in PowerShell. Use bash.
+- db-migration: ALTER on tables over 1M rows times out. Batch in 10k chunks.
+
+## Anti-patterns
+- Never disable a failing test to make CI green. File it instead.
+</code></pre>
+<p>
+When a loop hits a wall, the lesson goes into the skill, and every future loop on every future project inherits it. That's the difference between an agent that re-derives your setup each time and one that stands on everything it learned before.
+</p>
+<h3>10. Make it fail safe with guardrails</h3>
+<p>
+An unattended loop is also an unattended attack surface. No one is watching each step, so the rails are not optional. A hook is a wall the model cannot talk its way past.
+</p>
+<pre><code class="language-json">
+{
+  "permissions": {
+    "allow": ["Read(*)", "Bash(npm run test *)"],
+    "deny": ["Bash(git push origin main)", "Bash(rm *)", "Edit(.env)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash",
+        "hooks": [ { "type": "command", "command": "./.claude/hooks/block-dangerous.sh" } ] }
+    ]
+  }
+}
+</code></pre>
+<p>
+A loop that runs unattended and cannot do anything irreversible is one you can actually leave alone. Keep a human on the merge button and anything that can't be undone.
+</p>
+<h3>11. Route the work by cost</h3>
+<p>
+An always-on loop on the top-tier model for every step bleeds money on work a cheaper model would do fine. Route it: the orchestrator on the heavyweight model, the high-volume passes on cheaper ones, a fallback for tasks the top tier declines. The verifier and simple classifiers can run cheap. Save the expensive model for the hard reasoning.
+</p>
+<h3>12. Track one number, and know how loops die</h3>
+<p>
+The only metric that matters is cost per accepted change. Not tokens spent, not tasks attempted, not loops scheduled. If you're accepting less than half of what the loop produces, you're doing the review work it was supposed to save, and it's losing.
+</p>
+<p>
+<strong>The three ways loops die quietly:</strong>
+</p>
+<p>
+1. <strong>The Ralph Wiggum loop.</strong> It calls a half-done job finished because "done" was the agent's opinion, not a test. Fix: a real gate that can fail the work.
+</p>
+<p>
+2. <strong>Goal drift.</strong> Over long runs the original constraints fade. The "don't touch billing" rule disappears around turn 47. Fix: a standing spec the agent rereads each run.
+</p>
+<p>
+3. <strong>Comprehension debt.</strong> The faster the loop ships code you didn't write, the larger the gap between what the repo contains and what you understand. Fix: read the diffs, keep the loop on small changes, and never let it touch architecture.
+</p>
+<h2>The mistakes that turn loops into money pits</h2>
+<ul>
+<li>Skipping the 4-condition test. Most people fail at least one and build anyway.</li>
+<li>No objective gate. A second agent asked to "review" with no test is just a second optimist.</li>
+<li>One agent doing both the work and the verification. It always gives itself an A.</li>
+<li>No state file, so every run restarts from zero.</li>
+<li>No hard stop, so the loop runs until you notice the bill.</li>
+<li>Broad permissions on an unattended loop. The denies and hooks are not optional.</li>
+<li>Top-tier model on every iteration. Route by task or it bleeds money.</li>
+</ul>
+<h2>The point</h2>
+<p>
+A prompter has a powerful tool and operates it by hand. A loop designer builds a system that operates itself and only calls them in for the parts that need a human: the goal, the standard, the merge button, anything irreversible.
+</p>
+<p>
+The move from one to the other is a sequence, not a secret: see the agent as a loop, make one run reliable, give it a goal and an honest grader, put it on a timer, then teach it to remember and to fail safe. The model at the center never changes. Everything that improves is the loop you wrapped around it.
+</p>
+<p>
+Pick the one step you're not doing yet, probably an independent grader, a state file, or a single safety hook, and add it today. Then the next. Stop operating it by hand. Build the loop.
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>

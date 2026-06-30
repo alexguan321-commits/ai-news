@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">14</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</h1>
+                <div class="meta">
+                    <span class="author">Atlas (@crptAtlas)</span>
+                    <time>2026-06-27</time>
+                    
+                </div>
+                <p><a href='https://x.com/crptAtlas/article/2070573863218368823' target='_blank'>原文链接 ↗</a></p>
+            </header>
+
+            <div class="content">
+                <h1>Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</h1>
+<p>
+<strong>Author:</strong> Atlas (@crptAtlas)
+<strong>Source:</strong> https://x.com/crptAtlas/article/2070573863218368823
+<strong>Date:</strong> 2026-06-27
+<strong>Type:</strong> X Article (Long-form)
+<strong>Extracted via:</strong> Chrome AppleScript
+</p>
+<hr>
+<p>
+I built a quant system that pulls market data, researches alpha, checks its own signals and places trades on its own. I have not typed a prompt into it in weeks. It still runs.
+</p>
+<p>
+It pulls data on a schedule. It runs alpha research. It verifies every signal through a separate agent. It only executes what passes. It writes every lesson it learns back to memory so the next run is a little sharper.
+</p>
+<p>
+This is everything I figured out about loop engineering and how to wire it into a complete autonomous trading system. No fluff, just the build.
+</p>
+<p>
+By the end you'll know 3 things:
+</p>
+<ul>
+<li>The real difference between prompting an agent and engineering a loop</li>
+<li>The 6 pieces that run every working loop in production</li>
+<li>How to wire those 6 pieces into a self-improving quant system from scratch</li>
+</ul>
+<h2>Part 1: Prompting vs Loop Engineering</h2>
+<p>
+For the last 2 years, working with AI looked like one thing. You typed a prompt, you read what came back, you typed the next prompt based on what you saw. You were the loop.
+</p>
+<p>
+The agent was a tool and you held it the whole time. Every move was you sitting at the keyboard deciding what happens next.
+</p>
+<p>
+Loop engineering ends that. You stop being the thing inside the loop and become the architect who designs it.
+</p>
+<p>
+A loop is a recursive goal. You define a purpose, the agent iterates against it, and the loop keeps running until a real stopping condition is met. The agent forgets between runs. The loop does not. That single fact is the whole architecture.
+</p>
+<p>
+Boris Cherny, who runs Claude Code at Anthropic, put it plainly: "I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops." He stopped typing instructions one at a time and built systems that send the instructions for him, read the results and decide what happens next.
+</p>
+<p>
+For coding, that changes how software ships. For trading, it changes everything.
+</p>
+<p>
+No quant ever got rich by typing one prompt and walking away. The edge comes from running the same cycle thousands of times, getting one percent better every iteration and never sleeping. That is exactly what a loop does.
+</p>
+<p>
+A lot of retail quants will read this and assume it doesn't apply to them because they're small. The opposite is true. The smaller your capital, the more this matters, because a self-running loop is the only way a solo builder ever closes the gap with a fund running 100 PhDs.
+</p>
+<p>
+Quant trading is already a loop. Pull data, generate signals, backtest, execute, monitor risk, repeat. Every fund on Wall Street runs that exact cycle. Renaissance has been running it since 1988. Citadel runs it with teams of engineers watching every stage. Two Sigma, Jane Street, all of them.
+</p>
+<p>
+The only real difference is they need hundreds of humans sitting inside the loop. You don't.
+</p>
+<p>
+If you're still typing prompts into Claude one trade at a time, the leverage point has already moved a floor up. You are not writing better prompts anymore. You are writing the system that writes the prompts.
+</p>
+<h2>Part 2: The 6 Pieces That Run Every Working Loop</h2>
+<p>
+A working loop is built from 6 parts. Miss one and the loop breaks quietly.
+</p>
+<h3>1. The automation</h3>
+<p>
+This is the heartbeat. A cron schedule, a webhook, a /loop command or a hook inside Claude Code that fires without you typing.
+</p>
+<p>
+Two flavors are worth knowing:
+</p>
+<ul>
+<li><strong>/loop</strong> — reruns on a cadence no matter the state</li>
+<li><strong>/goal</strong> — keeps going until a condition you wrote is actually true, with a separate small model grading whether the work is done</li>
+</ul>
+<p>
+In trading, /loop is your data pull every minute. /goal is "keep iterating on this signal until the backtest Sharpe is above 1.5."
+</p>
+<h3>2. The skill</h3>
+<p>
+A skill is a procedure manual the agent reads instead of being told everything from scratch each session. It lives in a SKILL.md file and holds your conventions, your rules and your "we don't do it like this because of that one incident."
+</p>
+<p>
+Without skills, every loop run starts from zero. With skills, intent compounds.
+</p>
+<h3>3. The state file</h3>
+<p>
+A markdown file, usually called STATE.md or PROGRESS.md. It survives between runs. The agent forgets, the file does not. The agent reads it at the start of every run and writes back what happened at the end.
+</p>
+<p>
+It sounds too dumb to matter. It is the spine of every working loop.
+</p>
+<h3>4. The verifier</h3>
+<p>
+The agent that wrote the code is the worst possible judge of whether the code is correct. The same goes for trading. The agent that generated the signal is the worst possible judge of whether that signal is real alpha or noise.
+</p>
+<p>
+You need a separate agent, with different instructions and ideally a different model, whose only job is to verify the work.
+</p>
+<p>
+This is the maker-checker pattern, and every prop shop on Wall Street is built this way. At Jane Street, the trader who proposes a trade does not approve it. At Citadel, the researcher who builds the model does not validate it.
+</p>
+<h3>5. The worktrees</h3>
+<p>
+The moment you run more than one agent against the same files, they start colliding. Git worktrees give each agent its own isolated working directory pointed at its own branch.
+</p>
+<p>
+In trading, this lets you run signal research, backtesting and risk monitoring in parallel without ever stepping on each other.
+</p>
+<h3>6. The connectors</h3>
+<p>
+A loop that can only read files is a tiny loop. Connectors built on the Model Context Protocol let it hit a broker API, query a database, post to Slack or send orders to the exchange.
+</p>
+<p>
+This is the difference between a loop that suggests trades and a loop that actually places them.
+</p>
+<p>
+These 6 pieces are universal. They show up in Claude Code, in Codex and in every working agentic system on the planet.
+</p>
+<h2>Part 3: Wiring It Into a Self-Improving Quant Loop</h2>
+<p>
+The quant trading loop has 5 stages. Each stage is its own sub-loop, with its own skill, its own state file and its own verifier.
+</p>
+<h3>Stage 1: Data ingestion</h3>
+<p>
+An automation fires every minute, every hour or every day depending on the asset class.
+</p>
+<pre><code class="language-python">
+@loop(interval="1h")
+def ingest_data():
+    data = fetch_market_data(symbols=universe, lookback="30d")
+    state.write("latest_data.parquet", data)
+</code></pre>
+<p>
+The data lands in a shared state file the next stage reads.
+</p>
+<h3>Stage 2: Signal generation</h3>
+<p>
+This is where the alpha research happens.
+</p>
+<pre><code class="language-python">
+@loop(trigger="data_updated")
+def generate_signal():
+    data = state.read("latest_data.parquet")
+    signal = claude.run_skill("alpha_research", data)
+    state.write("pending_signal.json", signal)
+</code></pre>
+<p>
+The signal agent reads from a SKILL.md file that holds your alpha research rules.
+</p>
+<p>
+<strong>alpha_research_skill.md:</strong>
+</p>
+<pre><code class="language-markdown">
+Goal
+Generate signals using linear regression on the last 30 days
+of price and volume data.
+
+Rules
+- Sharpe ratio must be above 1.5 in 3 of the last 5 backtests
+- Position size capped at 2 percent of capital per signal
+- Skip signals on FOMC announcement days
+- Skip signals 48 hours before earnings releases
+
+Lessons learned
+- 2026-02-14: lost 4.2 percent during earnings week.
+  New rule: skip any signal 48 hours before earnings.
+- 2026-03-08: sector exposure breach caused a 6 percent drawdown.
+  New rule: cap sector exposure at 30 percent.
+- 2026-04-22: momentum signal blew up on an FOMC day.
+  New rule: kill all momentum signals on FOMC days.
+</code></pre>
+<p>
+The skill grows over time. Every loss writes a new lesson back. Every lesson becomes a rule for the next run. That is what makes the system self-improving.
+</p>
+<h3>Stage 3: Verification</h3>
+<p>
+The signal goes to a completely separate agent. Different model, different instructions, no exposure to how the original signal was reasoned.
+</p>
+<pre><code class="language-python">
+@checker
+def verify_signal(signal):
+    result = claude.invoke(
+        skill="backtest_verification_skill.md",
+        signal=signal,
+        rules=[
+            "Sharpe ratio above 1.5",
+            "Max drawdown below 10 percent",
+            "Newey-West t-stat above 2.0",
+            "Out of sample period at least 2 years"
+        ]
+    )
+    return result.verdict
+</code></pre>
+<p>
+If verification fails, the signal is killed. If it passes, it moves to execution. The verifier never sees what the maker reasoned, and that separation is the whole edge.
+</p>
+<p>
+You can also use a stronger model for the checker than the maker. Opus for verification, Sonnet for generation. Different architectures catch different kinds of errors, which is the same logic ensemble methods use in machine learning.
+</p>
+<h3>Stage 4: Execution</h3>
+<p>
+Only verified signals reach this stage.
+</p>
+<pre><code class="language-python">
+@auto_mode
+def execute(signal):
+    if verify_signal(signal):
+        broker.send_orders(signal, max_position=0.02)
+        state.write("active_trades", signal)
+</code></pre>
+<p>
+The MCP connector handles the broker API. The loop never asks for permission. Auto mode lets it run hands-off.
+</p>
+<h3>Stage 5: Risk monitoring</h3>
+<p>
+Running in a parallel worktree the entire time.
+</p>
+<pre><code class="language-python">
+@loop(interval="1m")
+def monitor_risk():
+    positions = broker.get_positions()
+    if drawdown(positions) &gt; 0.05:
+        broker.close_all()
+        state.append("STATE.md", "Drawdown trigger hit. All positions closed.")
+</code></pre>
+<p>
+This is the kill switch. It enforces the rules with no negotiation.
+</p>
+<p>
+Together, these 5 sub-loops form one self-running system. Data flows in, signals get generated, signals get verified, verified signals get executed, risk gets monitored and lessons get written back to memory. Then it starts over.
+</p>
+<p>
+I designed this once. I have not prompted any of these steps since.
+</p>
+<p>
+<strong>One warning.</strong> A loop with no real stopping condition fails quietly. The agent emits a completion signal believing a half-done job is finished, the loop exits and the bad trade sits open. Your stop conditions need to be checkable by something other than the agent's own claim. "Sharpe above 1.5 over the last 30 trades." "Drawdown below 5 percent." "Test suite passes." Never "the agent says it's done."
+</p>
+<h2>The Takeaway</h2>
+<p>
+Quant trading is already a loop, and every fund on Wall Street runs it. They just need hundreds of humans sitting inside. Loop engineering removes the humans.
+</p>
+<p>
+6 pieces make every working loop:
+</p>
+<ul>
+<li><strong>Automations</strong> fire the heartbeat</li>
+<li><strong>Skills</strong> hold the project knowledge</li>
+<li><strong>State files</strong> hold the memory</li>
+<li><strong>Verifiers</strong> grade the output</li>
+<li><strong>Worktrees</strong> isolate parallel work</li>
+<li><strong>Connectors</strong> give the loop hands in the real world</li>
+</ul>
+<p>
+Wire them around the 5-stage trading cycle and you have a self-improving system that runs alpha research, verifies signals, executes trades and monitors risk on its own.
+</p>
+<p>
+It gets smarter every cycle. Every loss writes a lesson. Every lesson becomes a rule. After 100 trades the skill file is a living document. After 1,000 it is closer to institutional knowledge than anything a single person could hold in their head.
+</p>
+<p>
+The leverage moved up a floor. You are no longer the trader typing one idea at a time. You are the architect who designed the loop that trades for you while you sleep.
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefill & Decode in LLM Inference - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">14</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>Prefill & Decode in LLM Inference</h1>
+                <div class="meta">
+                    <span class="author">Avi Chawla (@_avichawla)</span>
+                    <time>2026-06-29</time>
+                    
+                </div>
+                <p><a href='https://x.com/_avichawla/status/2071522418594861215' target='_blank'>原文链接 ↗</a></p>
+            </header>
+
+            <div class="content">
+                <h1>Prefill & Decode in LLM Inference</h1>
+<p>
+<strong>Author:</strong> Avi Chawla (@_avichawla)
+<strong>Source:</strong> https://x.com/_avichawla/status/2071522418594861215
+<strong>Date:</strong> 2026-06-29
+<strong>Type:</strong> X Thread + Article
+<strong>Extracted via:</strong> Chrome AppleScript (auto-cleanup)
+</p>
+<hr>
+<p>
+Have you ever noticed that the first token from an LLM always takes a moment to appear? But the subsequent tokens stream out smoothly?
+</p>
+<p>
+That pause isn't a network lag, but rather it's a structural property of how LLMs fundamentally work.
+</p>
+<p>
+Inference happens in two phases that share the same model and the same code path, but the workload looks completely different in each, with different bottlenecks.
+</p>
+<h2>Prefill Stage</h2>
+<p>
+Prefill stage starts when you submit a prompt.
+</p>
+<p>
+The model processes every input token in one parallel pass, computing Q, K, and V for all of them at once.
+</p>
+<p>
+Attention runs as a matrix multiplication, and the GPU chips run at high utilization, doing fast math.
+</p>
+<p>
+<strong>Prefill is compute-bound</strong>, and the metric that captures it is <strong>time-to-first-token (TTFT)</strong>.
+</p>
+<h2>Decode Stage</h2>
+<p>
+Decode stage starts once the first token is out.
+</p>
+<p>
+To generate the next one, the model only computes Q, K, and V for that single new token, because everything before it is already cached.
+</p>
+<p>
+So the model loops one token per forward pass, multiplying a single query against the cached keys instead of a full matrix. This makes the inference fast due to the tiny computation.
+</p>
+<p>
+But the GPU still has to load every weight and every cached entry from memory to do that tiny computation, so the bottleneck flips and compute sits idle while memory bandwidth becomes the limiting factor.
+</p>
+<p>
+<strong>Decode is memory-bound</strong>, and the metric that captures it is <strong>inter-token latency (ITL)</strong>.
+</p>
+<h2>Key Insights</h2>
+<ul>
+<li>GPU utilization peaks during prefill and drops sharply during decode because memory, not compute, is the bottleneck in the second phase.</li>
+</ul>
+<ul>
+<li>Throwing more compute at a slow-streaming model often does nothing because the fix for memory-bound workloads is faster memory or a smaller cache, not more FLOPs.</li>
+</ul>
+<ul>
+<li>Long contexts feel disproportionately slow because the KV cache grows with every token, and every decode step has to read all of it.</li>
+</ul>
+<h2>KV Cache</h2>
+<p>
+Maintaining the cache is an important optimization since it makes decoding viable.
+</p>
+<ul>
+<li><strong>Without KV cache:</strong> every new token would force a recomputation of attention over the entire growing sequence.</li>
+<li><strong>With KV cache:</strong> the cache is built once during prefill, then grows by exactly one entry per decode step, with existing entries reused rather than recomputed.</li>
+</ul>
+<p>
+The cache lives in GPU memory and grows linearly with sequence length, so a <strong>13B model roughly requires 1 MB per token</strong>, which means a <strong>4K context consumes 4 GB of VRAM on the cache alone</strong>.
+</p>
+<h2>Current Optimizations</h2>
+<p>
+The entire field is now optimizing around this constraint with:
+</p>
+<ul>
+<li>Quantized caches</li>
+<li>Sliding windows</li>
+<li>Grouped-query attention</li>
+<li>PagedAttention</li>
+<li>DeepSeek's V4 series redesigns attention itself so the cache stays small from the start</li>
+</ul>
+<h2>Practical Takeaway</h2>
+<p>
+When someone says their model feels slow, the first question is whether it's <strong>slow to start</strong> or <strong>slow to stream</strong>.
+</p>
+<ul>
+<li><strong>Slow to start</strong> = prefill = compute bottleneck</li>
+<li><strong>Slow to stream</strong> = decode = memory bottleneck</li>
+</ul>
+<hr>
+<p>
+<strong>Stats:</strong> 19.4K views | 219 likes | 35 reposts
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>
