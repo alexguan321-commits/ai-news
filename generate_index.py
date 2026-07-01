@@ -567,48 +567,68 @@ def generate_html(posts, cards):
 
         <section class="search-section">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="搜索报告或知识卡片..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
                 <span id="searchCount" class="search-count"></span>
             </div>
-            <div class="filter-tags">
-                <button class="filter-tag active" data-filter="all">全部</button>
-                <button class="filter-tag" data-filter="morning">早报</button>
-                <button class="filter-tag" data-filter="noon">午报</button>
-                <button class="filter-tag" data-filter="evening">晚报</button>
-                <button class="filter-tag" data-filter="card">📚 知识卡片</button>
-            </div>
         </section>
 
-        <section class="knowledge-cards-section">
-            <div class="section-header">
-                <h2>📚 精选知识卡片</h2>
-                <span class="count">{min(8, total_cards)} of {total_cards} cards</span>
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="reports">📰 报告 ({total_posts})</button>
+                <button class="tab-btn" data-tab="cards">📚 知识卡片 ({total_cards})</button>
             </div>
-            <div class="knowledge-cards-grid">
-{knowledge_cards_html}
-            </div>
-        </section>
 
-        <section class="reports-list">
-            <div class="section-header">
-                <h2>Latest Reports</h2>
-                <span class="count">{min(6, total_posts)} most recent</span>
-            </div>
-            <div class="report-grid">
+            <div class="tab-content active" id="reports-tab">
+                <div class="filter-tags">
+                    <button class="filter-tag active" data-filter="all">全部</button>
+                    <button class="filter-tag" data-filter="morning">早报</button>
+                    <button class="filter-tag" data-filter="noon">午报</button>
+                    <button class="filter-tag" data-filter="evening">晚报</button>
+                </div>
+
+                <section class="reports-list">
+                    <div class="section-header">
+                        <h2>Latest Reports</h2>
+                        <span class="count">{min(6, total_posts)} most recent</span>
+                    </div>
+                    <div class="report-grid">
 {cards_html}
-            </div>
-        </section>
+                    </div>
+                </section>
 
-        <section class="all-reports">
-            <div class="section-header">
-                <h2>Archive</h2>
-                <span class="count">{total_posts + total_cards} items</span>
-            </div>
-            <div class="report-archive">
-{card_archive_items}
+                <section class="all-reports">
+                    <div class="section-header">
+                        <h2>Archive</h2>
+                        <span class="count">{total_posts} reports</span>
+                    </div>
+                    <div class="report-archive">
 {archive_items}
+                    </div>
+                </section>
             </div>
-        </section>
+
+            <div class="tab-content" id="cards-tab">
+                <section class="knowledge-cards-section">
+                    <div class="section-header">
+                        <h2>精选知识卡片</h2>
+                        <span class="count">{min(8, total_cards)} of {total_cards} cards</span>
+                    </div>
+                    <div class="knowledge-cards-grid">
+{knowledge_cards_html}
+                    </div>
+                </section>
+
+                <section class="all-cards">
+                    <div class="section-header">
+                        <h2>全部卡片</h2>
+                        <span class="count">{total_cards} cards</span>
+                    </div>
+                    <div class="report-archive">
+{card_archive_items}
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -620,44 +640,72 @@ def generate_html(posts, cards):
     (function() {{
         const searchInput = document.getElementById('searchInput');
         const searchCount = document.getElementById('searchCount');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
         const filterTags = document.querySelectorAll('.filter-tag');
-        const archiveItems = document.querySelectorAll('.archive-item');
-        const reportCards = document.querySelectorAll('.report-card');
-        const knowledgeCards = document.querySelectorAll('.knowledge-card');
+        let activeTab = 'reports';
         let activeFilter = 'all';
 
-        function filterReports() {{
+        // Tab switching
+        function switchTab(tabName) {{
+            activeTab = tabName;
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabName));
+            tabContents.forEach(content => {{
+                content.classList.toggle('active', content.id === tabName + '-tab');
+            }});
+            // Reset filter when switching tabs
+            activeFilter = 'all';
+            filterTags.forEach(t => t.classList.toggle('active', t.dataset.filter === 'all'));
+            filterContent();
+        }}
+
+        tabBtns.forEach(btn => {{
+            btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+        }});
+
+        // Filter within active tab
+        function filterContent() {{
             const query = searchInput.value.toLowerCase().trim();
             let visibleCount = 0;
 
-            archiveItems.forEach(item => {{
-                const text = item.textContent.toLowerCase();
-                const type = item.dataset.type || '';
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || type === activeFilter;
-                if (matchesSearch && matchesFilter) {{
-                    item.style.display = '';
-                    visibleCount++;
-                }} else {{
-                    item.style.display = 'none';
-                }}
-            }});
+            if (activeTab === 'reports') {{
+                const reportCards = document.querySelectorAll('#reports-tab .report-card');
+                const archiveItems = document.querySelectorAll('#reports-tab .archive-item');
 
-            reportCards.forEach(card => {{
-                const text = card.textContent.toLowerCase();
-                const type = card.querySelector('.report-type');
-                const typeClass = type ? type.className : '';
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || typeClass.includes('type-' + activeFilter);
-                card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-            }});
+                reportCards.forEach(card => {{
+                    const text = card.textContent.toLowerCase();
+                    const type = card.querySelector('.report-type');
+                    const typeClass = type ? type.className : '';
+                    const matchesSearch = !query || text.includes(query);
+                    const matchesFilter = activeFilter === 'all' || typeClass.includes('type-' + activeFilter);
+                    card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+                    if (card.style.display !== 'none') visibleCount++;
+                }});
 
-            knowledgeCards.forEach(card => {{
-                const text = card.textContent.toLowerCase();
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || activeFilter === 'card';
-                card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-            }});
+                archiveItems.forEach(item => {{
+                    const text = item.textContent.toLowerCase();
+                    const type = item.dataset.type || '';
+                    const matchesSearch = !query || text.includes(query);
+                    const matchesFilter = activeFilter === 'all' || type === activeFilter;
+                    item.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+                }});
+            }} else {{
+                const knowledgeCards = document.querySelectorAll('#cards-tab .knowledge-card');
+                const cardArchiveItems = document.querySelectorAll('#cards-tab .archive-item');
+
+                knowledgeCards.forEach(card => {{
+                    const text = card.textContent.toLowerCase();
+                    const matchesSearch = !query || text.includes(query);
+                    card.style.display = matchesSearch ? '' : 'none';
+                    if (card.style.display !== 'none') visibleCount++;
+                }});
+
+                cardArchiveItems.forEach(item => {{
+                    const text = item.textContent.toLowerCase();
+                    const matchesSearch = !query || text.includes(query);
+                    item.style.display = matchesSearch ? '' : 'none';
+                }});
+            }}
 
             if (query || activeFilter !== 'all') {{
                 searchCount.textContent = visibleCount + ' 条结果';
@@ -666,15 +714,17 @@ def generate_html(posts, cards):
             }}
         }}
 
-        searchInput.addEventListener('input', filterReports);
+        searchInput.addEventListener('input', filterContent);
         filterTags.forEach(tag => {{
             tag.addEventListener('click', function() {{
                 filterTags.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 activeFilter = this.dataset.filter;
-                filterReports();
+                filterContent();
             }});
         }});
+
+        // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {{
             if (e.key === '/' && document.activeElement !== searchInput) {{
                 e.preventDefault();
@@ -683,7 +733,7 @@ def generate_html(posts, cards):
             if (e.key === 'Escape') {{
                 searchInput.value = '';
                 searchInput.blur();
-                filterReports();
+                filterContent();
             }}
         }});
     }})();

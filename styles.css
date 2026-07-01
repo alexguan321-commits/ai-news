@@ -869,3 +869,60 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Tab Navigation
+   ═══════════════════════════════════════════════════════════════ */
+
+.tab-container {
+    margin-top: 2rem;
+}
+
+.tab-nav {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+}
+
+.tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Adjust filter tags for tab context */
+.tab-content .filter-tags {
+    margin-bottom: 1.5rem;
+}

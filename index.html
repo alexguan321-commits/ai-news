@@ -43,145 +43,31 @@
 
         <section class="search-section">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="搜索报告或知识卡片..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
                 <span id="searchCount" class="search-count"></span>
             </div>
-            <div class="filter-tags">
-                <button class="filter-tag active" data-filter="all">全部</button>
-                <button class="filter-tag" data-filter="morning">早报</button>
-                <button class="filter-tag" data-filter="noon">午报</button>
-                <button class="filter-tag" data-filter="evening">晚报</button>
-                <button class="filter-tag" data-filter="card">📚 知识卡片</button>
-            </div>
         </section>
 
-        <section class="knowledge-cards-section">
-            <div class="section-header">
-                <h2>📚 精选知识卡片</h2>
-                <span class="count">8 of 23 cards</span>
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="reports">📰 报告 (69)</button>
+                <button class="tab-btn" data-tab="cards">📚 知识卡片 (23)</button>
             </div>
-            <div class="knowledge-cards-grid">
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-29-ai-orchestration-agents-tools-data.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-29</time>
-                </div>
-                <h3>How AI Orchestration Connects Agents, Tools, and Data</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Vikas gupta (@vicky_grok)</span>
-                    <div class="kc-tags"></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-29-llm-inference-prefill-decode.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-29</time>
-                </div>
-                <h3>Prefill & Decode in LLM Inference</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Avi Chawla (@_avichawla)</span>
-                    <div class="kc-tags"></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-28-hermes-obsidian-claude-code-trinity.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-28</time>
-                </div>
-                <h3>The Hermes + Obsidian + Claude Code Trinity: The Full System for Running a One Person Company</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">CyrilXBT (@cyrilxbt)</span>
-                    <div class="kc-tags"><span class="tag">hermes-agent</span> <span class="tag">obsidian</span> <span class="tag">claude-code</span></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-28-loop-harness-engineering.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-28</time>
-                </div>
-                <h3>Loop and Harness engineering: 7 files, 5 steps. Every config inside</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Archive (@ArchiveExplorer)</span>
-                    <div class="kc-tags"></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-27-geo-content-engineering.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-27</time>
-                </div>
-                <h3>GEO 内容工程：开源提示词、Skill 与系统完整资料包</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">姚金刚 (@yaojingang)</span>
-                    <div class="kc-tags"></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-27-loop-engineering-12-moves.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-27</time>
-                </div>
-                <h3>Loop Engineering: How to make your AI agent run itself</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Andrew (@s4yonnara)</span>
-                    <div class="kc-tags"><span class="tag">loop-engineering</span> <span class="tag">ai-agent</span> <span class="tag">automation</span></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-27-loop-engineering-quants.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-27</time>
-                </div>
-                <h3>Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Atlas (@crptAtlas)</span>
-                    <div class="kc-tags"></div>
-                </div>
-            </a>
-        </article>
-        <article class="knowledge-card">
-            <a href="/ai-news/cards/2026-06-23-ai-engineer-no-degree.md/">
-                <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
-                    <time>2026-06-23</time>
-                </div>
-                <h3>How To Become An AI Engineer in 2026 (Without a CS Degree)</h3>
-                <p class="kc-summary"></p>
-                <div class="kc-footer">
-                    <span class="kc-author">Khairallah AL-Awady (@eng_khairallah1)</span>
-                    <div class="kc-tags"><span class="tag">ai-engineer</span> <span class="tag">career</span> <span class="tag">learning-path</span></div>
-                </div>
-            </a>
-        </article>
-            </div>
-        </section>
 
-        <section class="reports-list">
-            <div class="section-header">
-                <h2>Latest Reports</h2>
-                <span class="count">6 most recent</span>
-            </div>
-            <div class="report-grid">
+            <div class="tab-content active" id="reports-tab">
+                <div class="filter-tags">
+                    <button class="filter-tag active" data-filter="all">全部</button>
+                    <button class="filter-tag" data-filter="morning">早报</button>
+                    <button class="filter-tag" data-filter="noon">午报</button>
+                    <button class="filter-tag" data-filter="evening">晚报</button>
+                </div>
+
+                <section class="reports-list">
+                    <div class="section-header">
+                        <h2>Latest Reports</h2>
+                        <span class="count">6 most recent</span>
+                    </div>
+                    <div class="report-grid">
         <article class="report-card">
             <a href="/ai-news/2026-07-01/noon/">
                 <div class="card-image"><img src="/assets/covers/2026-07-01-noon.jpg" alt="AI 午报 - 2026-07-01" loading="lazy"></div>
@@ -242,130 +128,15 @@
                 </div>
             </a>
         </article>
-            </div>
-        </section>
+                    </div>
+                </section>
 
-        <section class="all-reports">
-            <div class="section-header">
-                <h2>Archive</h2>
-                <span class="count">92 items</span>
-            </div>
-            <div class="report-archive">
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-29-ai-orchestration-agents-tools-data.md/">How AI Orchestration Connects Agents, Tools, and Data</a>
-            <time>2026-06-29</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-29-llm-inference-prefill-decode.md/">Prefill & Decode in LLM Inference</a>
-            <time>2026-06-29</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-28-hermes-obsidian-claude-code-trinity.md/">The Hermes + Obsidian + Claude Code Trinity: The Full System for Running a One Person Company</a>
-            <time>2026-06-28</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-28-loop-harness-engineering.md/">Loop and Harness engineering: 7 files, 5 steps. Every config inside</a>
-            <time>2026-06-28</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-27-geo-content-engineering.md/">GEO 内容工程：开源提示词、Skill 与系统完整资料包</a>
-            <time>2026-06-27</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-27-loop-engineering-12-moves.md/">Loop Engineering: How to make your AI agent run itself</a>
-            <time>2026-06-27</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-27-loop-engineering-quants.md/">Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</a>
-            <time>2026-06-27</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-23-ai-engineer-no-degree.md/">How To Become An AI Engineer in 2026 (Without a CS Degree)</a>
-            <time>2026-06-23</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-23-stop-being-the-loop.md/">Stop Being the Loop. Here's How to Make Claude Work While You Sleep.</a>
-            <time>2026-06-23</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-22-loop-basics-chinese.md/">LOOP 基础使用方法</a>
-            <time>2026-06-22</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-21-loop-engineering-259-prs.md/">Loop Engineering: How One Loop Ships 259 PRs a Month</a>
-            <time>2026-06-21</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-20-game-theory-success-laws.md/">这个世界的法则（博弈论）</a>
-            <time>2026-06-20</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-15-loop-engineering-orange-book.md/">Loop Engineering 橙皮书：别再问我什么是循环工程</a>
-            <time>2026-06-15</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-13-fde-complete-guide.md/">FDE（Forward Deployed Engineer）完整解读：AI 时代最火岗位到底干什么</a>
-            <time>2026-06-13</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-06-05-how-to-become-ai-engineer-2026.md/">How To Become An AI Engineer in 2026 (Without a CS Degree)</a>
-            <time>2026-06-05</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-05-22-claude-can-do-all-of-this.md/">Claude Can Do All of This. Most People Have No Idea.</a>
-            <time>2026-05-22</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-05-15-bestblogs-weekly-95-agent-engineering.md/">BestBlogs 周刊第 95 期：Agent 工程化的全面落地</a>
-            <time>2026-05-15</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-05-15-fde-forward-deployed-engineer.md/">Forward Deployed Engineer：AI 时代的新宠岗位，到底干什么？</a>
-            <time>2026-05-15</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-04-29-openai-symphony-ai-agent-task-management.md/">OpenAI 开源 Symphony：给每一个任务配一个永不下班的 AI 员工</a>
-            <time>2026-04-29</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-04-26-agent-skill-design-patterns.md/">The Anatomy of a Perfect Skill: Reverse-Engineered from 100 Best Examples</a>
-            <time>2026-04-26</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-04-21-intent-ux-ai-era.md/">发现意图：AI 时代的用户体验设计</a>
-            <time>2026-04-21</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-04-13-ai-first-strategy-harness-engineering.md/">Why Your "AI-First" Strategy Is Probably Wrong</a>
-            <time>2026-04-13</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
-        <div class="archive-item" data-type="card">
-            <a href="/ai-news/cards/2026-02-13-autonomous-agent-team-openclaw.md/">How I built an Autonomous AI Agent team that runs 24/7</a>
-            <time>2026-02-13</time>
-            <span class="report-type type-card">📚 卡片</span>
-        </div>
+                <section class="all-reports">
+                    <div class="section-header">
+                        <h2>Archive</h2>
+                        <span class="count">69 reports</span>
+                    </div>
+                    <div class="report-archive">
         <div class="archive-item" data-type="noon">
             <a href="/ai-news/2026-07-01/noon/">AI 午报 - 2026-07-01</a>
             <time>2026-07-01 14:00:00 +0800</time>
@@ -711,8 +482,257 @@
             <time>2026-06-07 23:20:59 +0800</time>
             <span class="report-type type-morning">早报</span>
         </div>
+                    </div>
+                </section>
             </div>
-        </section>
+
+            <div class="tab-content" id="cards-tab">
+                <section class="knowledge-cards-section">
+                    <div class="section-header">
+                        <h2>精选知识卡片</h2>
+                        <span class="count">8 of 23 cards</span>
+                    </div>
+                    <div class="knowledge-cards-grid">
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-29-ai-orchestration-agents-tools-data.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-29</time>
+                </div>
+                <h3>How AI Orchestration Connects Agents, Tools, and Data</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Vikas gupta (@vicky_grok)</span>
+                    <div class="kc-tags"></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-29-llm-inference-prefill-decode.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-29</time>
+                </div>
+                <h3>Prefill & Decode in LLM Inference</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Avi Chawla (@_avichawla)</span>
+                    <div class="kc-tags"></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-28-hermes-obsidian-claude-code-trinity.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-28</time>
+                </div>
+                <h3>The Hermes + Obsidian + Claude Code Trinity: The Full System for Running a One Person Company</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">CyrilXBT (@cyrilxbt)</span>
+                    <div class="kc-tags"><span class="tag">hermes-agent</span> <span class="tag">obsidian</span> <span class="tag">claude-code</span></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-28-loop-harness-engineering.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-28</time>
+                </div>
+                <h3>Loop and Harness engineering: 7 files, 5 steps. Every config inside</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Archive (@ArchiveExplorer)</span>
+                    <div class="kc-tags"></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-27-geo-content-engineering.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-27</time>
+                </div>
+                <h3>GEO 内容工程：开源提示词、Skill 与系统完整资料包</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">姚金刚 (@yaojingang)</span>
+                    <div class="kc-tags"></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-27-loop-engineering-12-moves.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-27</time>
+                </div>
+                <h3>Loop Engineering: How to make your AI agent run itself</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Andrew (@s4yonnara)</span>
+                    <div class="kc-tags"><span class="tag">loop-engineering</span> <span class="tag">ai-agent</span> <span class="tag">automation</span></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-27-loop-engineering-quants.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-27</time>
+                </div>
+                <h3>Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Atlas (@crptAtlas)</span>
+                    <div class="kc-tags"></div>
+                </div>
+            </a>
+        </article>
+        <article class="knowledge-card">
+            <a href="/ai-news/cards/2026-06-23-ai-engineer-no-degree.md/">
+                <div class="kc-header">
+                    <span class="kc-badge">📚 知识卡片</span>
+                    <time>2026-06-23</time>
+                </div>
+                <h3>How To Become An AI Engineer in 2026 (Without a CS Degree)</h3>
+                <p class="kc-summary"></p>
+                <div class="kc-footer">
+                    <span class="kc-author">Khairallah AL-Awady (@eng_khairallah1)</span>
+                    <div class="kc-tags"><span class="tag">ai-engineer</span> <span class="tag">career</span> <span class="tag">learning-path</span></div>
+                </div>
+            </a>
+        </article>
+                    </div>
+                </section>
+
+                <section class="all-cards">
+                    <div class="section-header">
+                        <h2>全部卡片</h2>
+                        <span class="count">23 cards</span>
+                    </div>
+                    <div class="report-archive">
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-29-ai-orchestration-agents-tools-data.md/">How AI Orchestration Connects Agents, Tools, and Data</a>
+            <time>2026-06-29</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-29-llm-inference-prefill-decode.md/">Prefill & Decode in LLM Inference</a>
+            <time>2026-06-29</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-28-hermes-obsidian-claude-code-trinity.md/">The Hermes + Obsidian + Claude Code Trinity: The Full System for Running a One Person Company</a>
+            <time>2026-06-28</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-28-loop-harness-engineering.md/">Loop and Harness engineering: 7 files, 5 steps. Every config inside</a>
+            <time>2026-06-28</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-27-geo-content-engineering.md/">GEO 内容工程：开源提示词、Skill 与系统完整资料包</a>
+            <time>2026-06-27</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-27-loop-engineering-12-moves.md/">Loop Engineering: How to make your AI agent run itself</a>
+            <time>2026-06-27</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-27-loop-engineering-quants.md/">Loop Engineering for Quants: System That Researches, Verifies and Trades While You Sleep</a>
+            <time>2026-06-27</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-23-ai-engineer-no-degree.md/">How To Become An AI Engineer in 2026 (Without a CS Degree)</a>
+            <time>2026-06-23</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-23-stop-being-the-loop.md/">Stop Being the Loop. Here's How to Make Claude Work While You Sleep.</a>
+            <time>2026-06-23</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-22-loop-basics-chinese.md/">LOOP 基础使用方法</a>
+            <time>2026-06-22</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-21-loop-engineering-259-prs.md/">Loop Engineering: How One Loop Ships 259 PRs a Month</a>
+            <time>2026-06-21</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-20-game-theory-success-laws.md/">这个世界的法则（博弈论）</a>
+            <time>2026-06-20</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-15-loop-engineering-orange-book.md/">Loop Engineering 橙皮书：别再问我什么是循环工程</a>
+            <time>2026-06-15</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-13-fde-complete-guide.md/">FDE（Forward Deployed Engineer）完整解读：AI 时代最火岗位到底干什么</a>
+            <time>2026-06-13</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-06-05-how-to-become-ai-engineer-2026.md/">How To Become An AI Engineer in 2026 (Without a CS Degree)</a>
+            <time>2026-06-05</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-05-22-claude-can-do-all-of-this.md/">Claude Can Do All of This. Most People Have No Idea.</a>
+            <time>2026-05-22</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-05-15-bestblogs-weekly-95-agent-engineering.md/">BestBlogs 周刊第 95 期：Agent 工程化的全面落地</a>
+            <time>2026-05-15</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-05-15-fde-forward-deployed-engineer.md/">Forward Deployed Engineer：AI 时代的新宠岗位，到底干什么？</a>
+            <time>2026-05-15</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-04-29-openai-symphony-ai-agent-task-management.md/">OpenAI 开源 Symphony：给每一个任务配一个永不下班的 AI 员工</a>
+            <time>2026-04-29</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-04-26-agent-skill-design-patterns.md/">The Anatomy of a Perfect Skill: Reverse-Engineered from 100 Best Examples</a>
+            <time>2026-04-26</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-04-21-intent-ux-ai-era.md/">发现意图：AI 时代的用户体验设计</a>
+            <time>2026-04-21</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-04-13-ai-first-strategy-harness-engineering.md/">Why Your "AI-First" Strategy Is Probably Wrong</a>
+            <time>2026-04-13</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+        <div class="archive-item" data-type="card">
+            <a href="/ai-news/cards/2026-02-13-autonomous-agent-team-openclaw.md/">How I built an Autonomous AI Agent team that runs 24/7</a>
+            <time>2026-02-13</time>
+            <span class="report-type type-card">📚 卡片</span>
+        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -724,44 +744,72 @@
     (function() {
         const searchInput = document.getElementById('searchInput');
         const searchCount = document.getElementById('searchCount');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
         const filterTags = document.querySelectorAll('.filter-tag');
-        const archiveItems = document.querySelectorAll('.archive-item');
-        const reportCards = document.querySelectorAll('.report-card');
-        const knowledgeCards = document.querySelectorAll('.knowledge-card');
+        let activeTab = 'reports';
         let activeFilter = 'all';
 
-        function filterReports() {
+        // Tab switching
+        function switchTab(tabName) {
+            activeTab = tabName;
+            tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabName));
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === tabName + '-tab');
+            });
+            // Reset filter when switching tabs
+            activeFilter = 'all';
+            filterTags.forEach(t => t.classList.toggle('active', t.dataset.filter === 'all'));
+            filterContent();
+        }
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+        });
+
+        // Filter within active tab
+        function filterContent() {
             const query = searchInput.value.toLowerCase().trim();
             let visibleCount = 0;
 
-            archiveItems.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                const type = item.dataset.type || '';
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || type === activeFilter;
-                if (matchesSearch && matchesFilter) {
-                    item.style.display = '';
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            if (activeTab === 'reports') {
+                const reportCards = document.querySelectorAll('#reports-tab .report-card');
+                const archiveItems = document.querySelectorAll('#reports-tab .archive-item');
 
-            reportCards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                const type = card.querySelector('.report-type');
-                const typeClass = type ? type.className : '';
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || typeClass.includes('type-' + activeFilter);
-                card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-            });
+                reportCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const type = card.querySelector('.report-type');
+                    const typeClass = type ? type.className : '';
+                    const matchesSearch = !query || text.includes(query);
+                    const matchesFilter = activeFilter === 'all' || typeClass.includes('type-' + activeFilter);
+                    card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+                    if (card.style.display !== 'none') visibleCount++;
+                });
 
-            knowledgeCards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                const matchesSearch = !query || text.includes(query);
-                const matchesFilter = activeFilter === 'all' || activeFilter === 'card';
-                card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-            });
+                archiveItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    const type = item.dataset.type || '';
+                    const matchesSearch = !query || text.includes(query);
+                    const matchesFilter = activeFilter === 'all' || type === activeFilter;
+                    item.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+                });
+            } else {
+                const knowledgeCards = document.querySelectorAll('#cards-tab .knowledge-card');
+                const cardArchiveItems = document.querySelectorAll('#cards-tab .archive-item');
+
+                knowledgeCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const matchesSearch = !query || text.includes(query);
+                    card.style.display = matchesSearch ? '' : 'none';
+                    if (card.style.display !== 'none') visibleCount++;
+                });
+
+                cardArchiveItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    const matchesSearch = !query || text.includes(query);
+                    item.style.display = matchesSearch ? '' : 'none';
+                });
+            }
 
             if (query || activeFilter !== 'all') {
                 searchCount.textContent = visibleCount + ' 条结果';
@@ -770,15 +818,17 @@
             }
         }
 
-        searchInput.addEventListener('input', filterReports);
+        searchInput.addEventListener('input', filterContent);
         filterTags.forEach(tag => {
             tag.addEventListener('click', function() {
                 filterTags.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 activeFilter = this.dataset.filter;
-                filterReports();
+                filterContent();
             });
         });
+
+        // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
             if (e.key === '/' && document.activeElement !== searchInput) {
                 e.preventDefault();
@@ -787,7 +837,7 @@
             if (e.key === 'Escape') {
                 searchInput.value = '';
                 searchInput.blur();
-                filterReports();
+                filterContent();
             }
         });
     })();
