@@ -470,7 +470,11 @@ def generate_html(posts, cards):
         
         # Use cover image if available, otherwise fall back to emoji
         if p.get("cover_image"):
-            card_image = f'<img src="{p["cover_image"]}" alt="{p["title"]}" loading="lazy">'
+            # Fix path for GitHub Pages subdirectory
+            cover_src = p["cover_image"]
+            if cover_src.startswith("/"):
+                cover_src = "/ai-news" + cover_src
+            card_image = f'<img src="{cover_src}" alt="{p["title"]}" loading="lazy">'
         else:
             card_image = emoji
         
