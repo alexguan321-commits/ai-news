@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Become An AI Engineer in 2026 (Without a CS Degree) - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">23</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>How To Become An AI Engineer in 2026 (Without a CS Degree)</h1>
+                <div class="meta">
+                    <span class="author"></span>
+                    <time></time>
+                    
+                </div>
+                
+            </header>
+
+            <div class="content">
+                <h1>How To Become An AI Engineer in 2026 (Without a CS Degree)</h1>
+<p>
+<strong>来源：</strong> https://x.com/sairahul1/status/2062809249064141017
+<strong>作者：</strong> Rahul (@sairahul1)
+<strong>日期：</strong> 2026-06-05
+<strong>互动：</strong> 745 赞 · 148 转发 · 3322 收藏 · 109.8 万浏览
+</p>
+<hr>
+<h2>核心论点</h2>
+<p>
+公司需要的不是懂数学的人，而是能构建在生产环境中存活系统的人。
+</p>
+<p>
+<strong>关键区分：</strong>
+</p>
+<ul>
+<li>Chatbot wrapper ≠ 系统</li>
+<li>Tool call ≠ Agent</li>
+<li>知道 LangChain ≠ 知道 Harness Engineering</li>
+</ul>
+<p>
+<strong>Harness 的重要性（Anthropic 数据）：</strong>
+同一个模型（Opus 4.5），不同 harness 性能差距 36 个百分点：
+</p>
+<ul>
+<li>Claude Code harness: 78% on CORE benchmark</li>
+<li>Smolagents harness: 42% on CORE benchmark</li>
+</ul>
+<p>
+<strong>结论：模型不重要，harness 才重要。</strong>
+</p>
+<hr>
+<h2>AI 工程师在 2026 年实际做什么</h2>
+<p>
+不是写 prompt，不是选模型。
+</p>
+<p>
+<strong>AI 工程师构建和操作系统周围的系统：</strong>
+</p>
+<ul>
+<li>设计 agent loop 和 tool dispatch</li>
+<li>工程化 context — 每一步模型前面放什么 token</li>
+<li>编写模型能正确 pick 的 tools</li>
+<li>添加 memory、durability、sandboxing 应对生产流量</li>
+<li>接入 evals 和 CI regression gates 让"更好"可测量</li>
+<li>交付能扛住真实用户和真实成本的 agents</li>
+</ul>
+<p>
+<strong>四个 context primitives：</strong>
+1. <strong>Write</strong> — scratchpads, memory files（agent 读写）
+2. <strong>Select</strong> — 使用点检索，不是预先倾倒
+3. <strong>Compress</strong> — 在 85-95% context window 时摘要
+4. <strong>Isolate</strong> — 子 agent 有独立 context window
+</p>
+<p>
+<strong>Prompt engineering 已死，Context engineering 取而代之。</strong>
+</p>
+<hr>
+<h2>6 阶段路线图</h2>
+<h3>Phase 0: 建立正确心智模型（Week 1-2）</h3>
+<p>
+<strong>不要写一行 agent 代码。</strong>
+</p>
+<p>
+三个必须理解的概念：
+</p>
+<p>
+1. <strong>Workflow vs Agent</strong>
+</p>
+<ul>
+<li>Workflow: 固定控制流（你写的）</li>
+<li>Agent: 在 loop 中自己做控制流决策</li>
+<li>需要 workflow 时构建 agent = 10x 成本 + 2x 故障率</li>
+</ul>
+<p>
+2. <strong>5 个 workflow patterns（Anthropic）</strong>
+</p>
+<ul>
+<li>Prompt chaining: 输出传给下一个</li>
+<li>Routing: 不同任务用不同模型</li>
+<li>Parallelization: 同时运行多个任务</li>
+<li>Orchestrator-worker: 一个大脑，多双手</li>
+<li>Evaluator-optimizer: 生成 → 评判 → 改进</li>
+</ul>
+<p>
+3. <strong>Harness 类比</strong>
+</p>
+<ul>
+<li>Model = CPU（原始算力）</li>
+<li>RAM = context window</li>
+<li>OS = harness</li>
+<li>Apps = agent 的 skills</li>
+</ul>
+<p>
+<strong>Phase 0 项目：</strong> 写 2 页文档，定义：workflow vs agent、5 个 workflow patterns、4 个 context primitives、orchestrator-worker pattern。
+</p>
+<hr>
+<h3>Phase 1: 从零构建第一个 Agent（Week 3-5）</h3>
+<p>
+<strong>写两次 agent。</strong>
+</p>
+<p>
+<strong>Build #1 — 原始 Loop（~100 行 Python）</strong>
+</p>
+<ul>
+<li>用 messages 和 tools 调用模型</li>
+<li>解析 tool_use blocks</li>
+<li>执行 tool</li>
+<li>追加 tool_result</li>
+<li>Loop 直到 stop_reason = end_turn</li>
+</ul>
+<p>
+给它 3 个 tools：web_search、read_file、write_file
+</p>
+<p>
+<strong>Build #2 — 同样的 Agent 用 Claude Agent SDK</strong>
+添加：
+</p>
+<ul>
+<li>CLAUDE.md（项目约定）</li>
+<li>一个 Skill（定义 "research-summary" 输出格式）</li>
+<li>一个 PostToolUse hook（自动格式化 agent 写的每个文件）</li>
+<li>一个通过 Task tool 生成的子 agent</li>
+</ul>
+<p>
+<strong>Phase 1 项目：</strong> Daily briefing agent。读取 Markdown 笔记 + RSS feeds，每天早上写摘要到磁盘。运行一周，看它失败，修复它。
+</p>
+<hr>
+<h3>Phase 2: 用正确架构构建真实 Agent（Week 6-9）</h3>
+<p>
+<strong>生产级技术栈：LangGraph + Deep Agents</strong>
+</p>
+<p>
+<strong>LangGraph 提供：</strong>
+</p>
+<ul>
+<li>State machine（nodes + edges）</li>
+<li>PostgresSaver checkpointing（进程 kill 后存活）</li>
+<li>Time-travel debugging（回退到任何步骤）</li>
+<li>Human-in-the-loop interrupts</li>
+<li>LangSmith 一等公民可观察性</li>
+</ul>
+<p>
+<strong>Deep Agents（LangChain 打包的 harness）提供：</strong>
+</p>
+<ul>
+<li>Planning middleware</li>
+<li>Virtual filesystem</li>
+<li>Sub-agent spawning</li>
+<li>Automatic context compression</li>
+<li>Skills</li>
+</ul>
+<p>
+<strong>关键概念：Middleware</strong>
+四个重要 hooks：
+</p>
+<ul>
+<li>before_agent — loop 开始前运行</li>
+<li>wrap_model_call — 包装每个 LLM 调用</li>
+<li>before_tools — 任何 tool 执行前运行</li>
+<li>after_tools — 任何 tool 执行后运行</li>
+</ul>
+<p>
+<strong>Phase 2 项目：Research Analyst Agent</strong>
+</p>
+<ul>
+<li>Lead agent 计划，写 TODO list 到 virtual filesystem</li>
+<li>并行生成 3 个 search sub-agents（隔离 context）</li>
+<li>Sub-agents 写结果到文件，返回短摘要给 parent</li>
+<li>Citation sub-agent 验证声明</li>
+<li>Writer agent 生成带内联引用的最终 Markdown</li>
+<li>状态通过 PostgresSaver 持久化 — kill 进程后恢复</li>
+<li>Human-in-the-loop interrupt：token 超过 $1 前请求确认</li>
+</ul>
+<hr>
+<h3>Phase 3: 自己构建 Harness 层（Week 10-13）</h3>
+<p>
+<strong>这是整个路线图中杠杆最高的阶段。</strong>
+</p>
+<p>
+<strong>现代 harness 的 10 个组件：</strong>
+1. Loop control — 驱动 model → tools → model 的 while-loop
+2. Tool dispatch — registry、schema validation、parallel calls、retries
+3. Context management — system-prompt 组装、85% window 时压缩
+4. Persistence — 每个 node checkpoint 以恢复、回退、分叉
+5. Sub-agent orchestration — 隔离 context 的子 agent，压缩摘要返回
+6. Skills & progressive disclosure — 只在相关时加载能力
+7. Hooks — PreToolUse、PostToolUse、PreCompact、Stop
+8. Observability — 每个 model/tool/sub-agent 调用的 OTEL spans
+9. Sandboxing — 模型永远没有凭据的容器内代码执行
+10. Auth brokering — 凭据永远不进入模型的 context
+</p>
+<p>
+<strong>Phase 3 项目：</strong> 用 ~1,500 行 Python 写 mini-harness，必须包括：
+</p>
+<ul>
+<li>@tool decorator 的 tool registry + JSON-schema 生成</li>
+<li>CLAUDE.md-style system-prompt loader</li>
+<li>SKILL.md progressive-disclosure loader</li>
+<li>隔离 context 的 sub-agent spawn primitive</li>
+<li>Filesystem offload：超过 20K token 的 tool result 写磁盘，用 path + 10 行预览替换</li>
+<li>85% context window 时自动压缩</li>
+<li>可插拔 hook 系统（pre_tool、post_tool、stop）</li>
+<li>OpenTelemetry tracing</li>
+<li>Durable resume：每步后持久化到 SQLite，按 run ID 重载</li>
+</ul>
+<p>
+<strong>真正交付物：</strong> 1,000 字 post-mortem，比较你的 mini-harness 与 Claude Agent SDK 和 Deep Agents。
+</p>
+<hr>
+<h3>Phase 4: 构建 Eval 和 Regression Harness（Week 14-17）</h3>
+<p>
+<strong>没有这个，每个"改进"都是 vibes。</strong>
+</p>
+<p>
+<strong>必须实现的 4 种 eval 类型：</strong>
+</p>
+<p>
+1. <strong>Single-turn evals</strong>
+</p>
+<ul>
+<li>给定输入，输出对吗？</li>
+<li>最便宜，尽可能用确定性 graders</li>
+<li>持续运行</li>
+</ul>
+<p>
+2. <strong>Trajectory evals</strong>
+</p>
+<ul>
+<li>Agent 用正确参数调用了正确的 tool 序列吗？</li>
+<li>测试单步、完整轮次、多轮变体</li>
+</ul>
+<p>
+3. <strong>LLM-as-judge</strong>
+</p>
+<ul>
+<li>针对开放式输出：研究报告、代码审查、解释</li>
+<li>每周对照人工评分校准</li>
+</ul>
+<p>
+4. <strong>End-state evals</strong>
+</p>
+<ul>
+<li>针对有状态 agents：数据库写对了吗？文件改对了吗？</li>
+<li>比较最终环境状态与 ground truth</li>
+</ul>
+<p>
+<strong>不舒服的真相：</strong>
+模型能检测到它们正在被评估，在 eval 输入上表现不同。设计 eval suite 防止这个，用真实生产查询，不是合成的。
+</p>
+<p>
+<strong>Phase 4 项目：</strong> Phase 2 agent 的 regression harness
+</p>
+<ul>
+<li>Golden dataset：30-50 个手工评分的研究问题（3 个难度级别）</li>
+<li>事实查询的确定性 graders</li>
+<li>开放式问题的 LLM-as-judge + 5 标准 rubric</li>
+<li>Trajectory eval：agent 是否计划、生成 2+ sub-agents、引用来源、预算内完成？</li>
+<li>接入 GitHub Actions：golden-set 通过率下降 3+ 点时阻止合并</li>
+<li>生产采样：1% 实时 traces 每晚自动评分</li>
+</ul>
+<hr>
+<h3>Phase 5: 生产加固（永远）</h3>
+<p>
+<strong>这个阶段不会结束。</strong>
+</p>
+<p>
+<strong>5 个永远重要的事：</strong>
+</p>
+<p>
+1. <strong>Cost discipline</strong>
+</p>
+<ul>
+<li>缓存 CLAUDE.md、system prompt、tool definitions — 节省高达 90%</li>
+<li>按难度路由：Haiku 简单轮次、Sonnet 大多数任务、Opus 困难推理</li>
+<li>Batch API 非实时工作：50% 折扣</li>
+<li>Multi-agent 烧 ~15x 单 agent token — 只在价值超过时才运行</li>
+</ul>
+<p>
+2. <strong>Latency</strong>
+</p>
+<ul>
+<li>并行 tool calls，永远 — Anthropic 自己研究 agent 的 system prompt 说"必须用并行 tool calls"</li>
+<li>流式部分输出到 UI</li>
+<li>Sub-agent fan-out：60 步顺序 agent → 10 步 lead + 5 个并行 10 步 sub-agents</li>
+</ul>
+<p>
+3. <strong>Safety and sandboxing</strong>
+</p>
+<ul>
+<li>所有代码执行在沙箱（Modal、E2B）：永远不在主进程 exec() 模型输出</li>
+<li>凭据在模型 context 外 brokering：模型永远看不到它用的 API key</li>
+<li>任何不可逆操作的 human-in-the-loop interrupts</li>
+</ul>
+<p>
+4. <strong>Monitoring and drift</strong>
+</p>
+<ul>
+<li>告警：每请求 token 成本、tool-call 失败率、LLM-as-judge 分数、p95 延迟</li>
+<li>每次模型升级后重新基线 evals — harnesses 编码关于模型不能做什么的假设，这些假设会过时</li>
+</ul>
+<p>
+5. <strong>Resilience</strong>
+</p>
+<ul>
+<li>持久执行（Inngest、Temporal、PostgresSaver）用于运行超过 60 秒的任何 agent</li>
+<li>每个 node 后 checkpoint</li>
+<li>回退和分叉应该总是可能</li>
+</ul>
+<hr>
+<h2>5 个生产级项目（本周末选一个构建）</h2>
+<p>
+<strong>按复杂度排序：</strong>
+</p>
+<h3>Project 1: AI-Powered Mobile App with SLM</h3>
+<p>
+<strong>级别：</strong> Beginner | <strong>证明：</strong> Edge AI + 资源优化
+</p>
+<ul>
+<li>离线优先移动应用，用小语言模型</li>
+<li>零 API 成本，完全隐私</li>
+<li>关键：按需懒加载模型、内存压力下卸载、滑动 context window + 语义分块、4-bit/8-bit 量化、批量推理减少电池唤醒</li>
+</ul>
+<h3>Project 2: Self-Improving Coding Agent</h3>
+<p>
+<strong>级别：</strong> Intermediate | <strong>证明：</strong> Agentic Loops + 生产调试
+</p>
+<ul>
+<li>写代码、运行测试、从失败学习的 agent</li>
+<li>不到功能正常不停止</li>
+<li>关键：Plan → Execute → Test → Reflect loop + 最大迭代限制、隔离执行环境、记忆层次（短期/长期/失败）、执行前静态分析</li>
+</ul>
+<h3>Project 3: Cursor but for Video Editors</h3>
+<p>
+<strong>级别：</strong> Advanced | <strong>证明：</strong> 多模态 AI + 复杂工具集成
+</p>
+<ul>
+<li>Fork 开源编辑器（Shotcut），构建理解编辑意图的 AI agent</li>
+<li>用户说"make this cinematic"，agent 处理剪辑、转场、调色</li>
+<li>关键：视觉模型分析每帧 + 音频模型分析对话、意图翻译（"cinematic" → 具体参数）、场景检测、增量预览</li>
+</ul>
+<h3>Project 4: Personal Life OS Agent</h3>
+<p>
+<strong>级别：</strong> Expert | <strong>证明：</strong> 深度 Context + 隐私优先架构
+</p>
+<ul>
+<li>管理日历、财务、健康的 agent，提前数月计划</li>
+<li>通过分析睡眠模式和会议密度检测倦怠</li>
+<li>关键：实时摄入日历/财务/健康/通讯、个人知识图谱、每 6 小时后台线程检查异常、价值对齐（用户声明优先级）、所有数据加密 + 用户控制密钥</li>
+</ul>
+<h3>Project 5: Autonomous Enterprise Workflow Agent</h3>
+<p>
+<strong>级别：</strong> Master | <strong>证明：</strong> 生产级编排
+</p>
+<ul>
+<li>端到端运行业务工作流的 agent</li>
+<li>监控 Slack/Jira → 计划执行 → 委派任务 → 报告结果 + 完整审计日志</li>
+<li>关键：事件驱动（监听 Slack/Jira/邮件/监控）、多 agent 委派（orchestrator + 通讯/数据/分析/文档 agents）、自愈（指数退避、熔断器、自动重试决策）、不可变审计日志、关键工作流执行前 human-in-the-loop</li>
+</ul>
+<hr>
+<h2>技术栈（实际学什么）</h2>
+<p>
+<strong>框架：LangGraph 1.0 + Deep Agents</strong>
+</p>
+<p>
+为什么不是其他：
+</p>
+<ul>
+<li><strong>CrewAI:</strong> 最快 demo，生产脆弱，用于 hackathons</li>
+<li><strong>AutoGen:</strong> 合并到 Microsoft Agent Framework，未来不明</li>
+<li><strong>OpenAI Swarm:</strong> OpenAI 自己 README 说"not production-ready"</li>
+</ul>
+<p>
+LangGraph 提供：state machine + PostgresSaver durability + time-travel debugging + OTEL-friendly observability + model-agnostic
+</p>
+<p>
+<strong>Harness 参考：Claude Agent SDK</strong>
+</p>
+<ul>
+<li>研究它，使用它</li>
+<li>跟 Claude Code 同样的 harness</li>
+<li>CLAUDE.md + Skills + sub-agents + hooks + filesystem-as-memory</li>
+<li>2026 年每个其他 harness 都在收敛到这些 primitives</li>
+</ul>
+<p>
+<strong>可观察性：选一个</strong>
+</p>
+<ul>
+<li><strong>LangSmith:</strong> 如果你住在 LangGraph</li>
+<li><strong>Braintrust:</strong> 如果要 framework-agnostic CI gating（$249/月固定）</li>
+<li><strong>Arize Phoenix:</strong> 如果要开源 + OTEL-native</li>
+</ul>
+<p>
+<strong>2026 年跳过：</strong>
+</p>
+<ul>
+<li>OpenAI Swarm — not production-ready</li>
+<li>OpenAI Assistants API — 2026 年中 sunsetting</li>
+<li>在测量实际召回问题前自建 vector store</li>
+<li>No-code agent platforms（除非是一次性的）</li>
+</ul>
+<hr>
+<h2>Benchmark 数字（2026 年 5 月）</h2>
+<p>
+<strong>SWE-bench Verified（编码任务）：</strong>
+</p>
+<ul>
+<li>Claude Opus 4.7: ~87.6%</li>
+<li>GPT-5.5: ~88.7%</li>
+</ul>
+<p>
+<strong>GAIA（通用 agent 任务）：</strong>
+</p>
+<ul>
+<li>Claude Sonnet 4.5 leads at 74.6%</li>
+</ul>
+<p>
+<strong>τ-bench（客服 agents）：</strong>
+</p>
+<ul>
+<li>Claude Mythos Preview: 89.2%</li>
+</ul>
+<p>
+<strong>关键洞察：</strong> 同一 benchmark，不同 harness = 10-36 点波动。模型不如 harness 重要。
+</p>
+<hr>
+<h2>17 周时间线</h2>
+<ul>
+<li><strong>Week 2</strong> → Phase 0 完成，能用简单英语解释 harness</li>
+<li><strong>Week 5</strong> → Phase 1 完成，Claude Agent SDK agent  shipped with one Skill, one hook, one sub-agent</li>
+<li><strong>Week 9</strong> → Phase 2 完成，LangGraph deep-agent running with PostgresSaver durability and LangSmith traces</li>
+<li><strong>Week 13</strong> → Phase 3 完成，1,500-line mini-harness written and documented</li>
+<li><strong>Week 17</strong> → Phase 4 完成，Golden datasets, CI gates, one published-benchmark run via Inspect</li>
+<li><strong>Week 17+</strong> → Phase 5，永远</li>
+</ul>
+<p>
+兼职（每周 10-15 小时）：所有时间乘以 2.5x
+</p>
+<hr>
+<h2>不舒服的真相</h2>
+<p>
+大多数人会读这个然后什么都不做。
+</p>
+<p>
+<strong>2026 年的残酷真相：</strong>
+</p>
+<ul>
+<li><strong>可替代的：</strong> 构建薄 GPT wrappers</li>
+<li><strong>不可解雇的：</strong> 交付带 evals 和 durability 的自主系统</li>
+</ul>
+<p>
+差距是 5 个项目 + 17 周专注工作。
+</p>
+<p>
+<strong>当前状态（2026）：</strong>
+</p>
+<ul>
+<li>57% 团队现在在生产环境有 agents</li>
+<li>89% 那些团队接入了可观察性</li>
+<li>质量是 #1 障碍（32% 团队引用）</li>
+</ul>
+<p>
+<strong>这意味着整个领域瓶颈在能构建 evals 和 harnesses 的工程师，不是能调用 LLM API 的工程师。</strong>
+</p>
+<hr>
+<h2>关键语录</h2>
+<blockquote><p>"The companies hiring right now don't need people who understand the math. They need people who can build systems that survive production."</p></blockquote>
+<blockquote><p>"Prompt engineering is dead as a standalone skill. Context engineering replaced it."</p></blockquote>
+<blockquote><p>"The model matters less than the harness."</p></blockquote>
+<blockquote><p>"Expertise is the only job security left. Production systems are the only portfolio that matters."</p></blockquote>
+<hr>
+<h2>行动号召</h2>
+<p>
+1. <strong>选一个项目。</strong> 新手从 Project 1 开始，已经在交付代码的从 Project 5 开始。
+2. <strong>本周末构建它。</strong> 市场奖励交付，不是学习。
+3. <strong>记录一切：</strong> 架构决策、失败和恢复、自我纠正 loop。
+4. <strong>公开构建。</strong> 交付时 tag 我。
+</p>
+<p>
+<strong>下个月，90% 的人什么都不会做。</strong> 他们还会构建同样的 wrappers。
+</p>
+<p>
+<strong>另外 10% 会交付真实的东西。</strong> 他们会有面试、offer 和职业杠杆。
+</p>
+<p>
+选择很简单：
+<strong>成为公司迫切想雇佣的架构师，或者变得过时。</strong>
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>

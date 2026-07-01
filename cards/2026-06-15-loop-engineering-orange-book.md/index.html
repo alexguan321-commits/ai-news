@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Engineering 橙皮书：别再问我什么是循环工程 - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">23</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>Loop Engineering 橙皮书：别再问我什么是循环工程</h1>
+                <div class="meta">
+                    <span class="author"></span>
+                    <time></time>
+                    
+                </div>
+                
+            </header>
+
+            <div class="content">
+                <h1>Loop Engineering 橙皮书：别再问我什么是循环工程</h1>
+<p>
+<strong>来源：</strong> https://github.com/alchaincyf/loop-engineering-orange-book
+<strong>作者：</strong> 花叔 (HuaShu) @AlchainHust
+<strong>版本：</strong> v260615（2026年6月15日）
+<strong>页数：</strong> 32页
+<strong>许可：</strong> MIT License
+<strong>Stars:</strong> 898 | Forks: 82
+</p>
+<p>
+<strong>PDF下载：</strong>
+</p>
+<ul>
+<li><a href="https://github.com/alchaincyf/loop-engineering-orange-book/raw/main/Loop-Engineering橙皮书-v260615.pdf">中文版</a></li>
+<li><a href="https://github.com/alchaincyf/loop-engineering-orange-book/raw/main/Loop-Engineering-The-Complete-Guide-v260615.pdf">English</a></li>
+</ul>
+<hr>
+<h2>一句话定义</h2>
+<blockquote><p>Loop engineering is replacing yourself as the person who prompts the agent. You design the system that does it instead.</p></blockquote>
+<p>
+>
+</p>
+<blockquote><p>循环工程，就是把「那个负责 prompt agent 的人」从你自己换成一套系统。你不再亲自一句句喂，而是设计那套替你喂的系统。</p></blockquote>
+<hr>
+<h2>命名由来：一周之内三个人点着了它</h2>
+<ul>
+<li><strong>Peter Steinberger</strong>（OpenClaw作者）："You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."</li>
+<li><strong>Boris Cherny</strong>（Anthropic，Claude Code负责人）："I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops."</li>
+<li><strong>Addy Osmani</strong>（Google Chrome团队）：6月7日写成文章，正式命名 Loop Engineering</li>
+</ul>
+<hr>
+<h2>四层栈：从 Prompt 到 Loop</h2>
+<p>
+| 层 | 管什么 | 核心问题 |
+|----|--------|----------|
+| Prompt engineering | 写好一次的提示词 | 我该告诉模型什么 |
+| Context engineering | 这一刻窗口里放什么 | 检索什么、摘要什么、清掉什么 |
+| Harness engineering | 单次运行的武装 | 给哪些工具、允许哪些动作、什么算完成 |
+| <strong>Loop engineering</strong> | <strong>在 harness 之上调度</strong> | <strong>怎么让它自己一遍遍跑起来</strong> |
+</p>
+<blockquote><p>"Loop engineering sits one floor above the harness." — Addy Osmani</p></blockquote>
+<hr>
+<h2>一个循环的五个动作</h2>
+<p>
+| 动作 | 干什么 | 在 triage loop 里 |
+|------|--------|-------------------|
+| <strong>发现（discovery）</strong> | 自己找出这圈该做的事 | skill 读 CI 失败 / issue / commit |
+| <strong>交付（handoff）</strong> | 把任务隔离着交给 agent | 每个发现开一个 worktree |
+| <strong>验证（verification）</strong> | 换个 agent 说「不」 | 第二个子 agent 对照测试审查 |
+| <strong>持久化（persistence）</strong> | 把状态写到对话之外 | 开 PR + 收件箱 + 状态文件 |
+| <strong>调度（scheduling）</strong> | 让它一圈圈自动转 | 早上 automation 自动跑 |
+</p>
+<hr>
+<h2>六个零件：搭一个 Loop 需要什么</h2>
+<p>
+| 零件 | 是什么 | 对应动作 | 一句话原话 |
+|------|--------|----------|-----------|
+| <strong>Automations</strong> | 挂在时间表/触发器上自动跑 | 调度 | "make a loop an actual loop" |
+| <strong>Worktrees</strong> | 隔离并行 agent 的工作目录 | 交付 | "same headache as two engineers" |
+| <strong>Skills</strong> | 固化项目知识、还意图债 | 发现 | "fire $skill-name, not a wall of instructions" |
+| <strong>Connectors</strong> | MCP 接外部系统 | 持久化/发现 | "only see the filesystem is a tiny loop" |
+| <strong>Sub-agents</strong> | 生成者与评判者分离 | 验证 | "too nice grading its own homework" |
+| <strong>Memory</strong> | 磁盘上的持久状态 | 持久化 | "the agent forgets, the repo doesn't" |
+</p>
+<hr>
+<h2>生成器与评判器：为什么写代码的 AI 不能给自己打分</h2>
+<h3>核心问题</h3>
+<blockquote><p>"when asked to evaluate work they've produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre."</p></blockquote>
+<p>
+>
+</p>
+<blockquote><p>让 agent 评价自己产出的东西，它往往会自信地夸一通，哪怕在人看来质量明显很一般。</p></blockquote>
+<h3>解决方案：结构上分开</h3>
+<blockquote><p>"tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work."</p></blockquote>
+<p>
+>
+</p>
+<blockquote><p>调一个独立的评判器，让它变得怀疑，比让生成器自我批判要容易得多。</p></blockquote>
+<h3>GAN 式架构</h3>
+<ul>
+<li><strong>Generator</strong>：负责生成</li>
+<li><strong>Evaluator</strong>：负责挑刺，instructions 不同、有时模型也不同</li>
+</ul>
+<h3>/goal 命令（Claude Code）</h3>
+<blockquote><p>"After each turn, a small fast model checks whether the condition holds. If not, Claude starts another turn instead of returning control to you. completion is decided by a fresh model rather than the one doing the work."</p></blockquote>
+<p>
+每跑完一轮，一个又小又快的模型来检查条件成立没有。是否完成，由一个全新的模型判定，不是由干活的那个判定。
+</p>
+<hr>
+<h2>三个真实的 Loop</h2>
+<h3>1. Addy 的早晨：一个真在跑的 triage loop</h3>
+<ul>
+<li>早上 automation 自动跑</li>
+<li>triage skill 读 CI 失败、open issues、最近 commits</li>
+<li>每个发现开隔离 worktree</li>
+<li>子 agent 起草修复，第二个子 agent 审查</li>
+<li>connector 自动开 PR、更新 ticket</li>
+<li>处理不了的进收件箱等人</li>
+<li>状态文件留着，第二天接着跑</li>
+</ul>
+<h3>2. Stripe 的 Minions：每周 1300 个 PR</h3>
+<ul>
+<li>每周合并 1300+ PR，没有一行是人手写的</li>
+<li>触发方式：Slack @ 或 emoji 反应（fire-and-forget）</li>
+<li><strong>关键设计</strong>：LLM 醒来之前，确定性 orchestrator 先把上下文备齐</li>
+<li>底层是开源工具 Goose 的 fork</li>
+<li>架构：六层，确定性 gate 和 LLM 创造步骤交替咬合</li>
+<li>沙箱用 Devbox，跑在 EC2 上，"cattle not pets"，用完即弃</li>
+</ul>
+<p>
+| 环节 | 谁来做 |
+|------|--------|
+| 触发 | 人（Slack @ 或 emoji） |
+| 备上下文 | 确定性 orchestrator（非 LLM） |
+| 写代码 | LLM agent |
+| 跑 linter / commit | 硬编码 pipeline（agent 跳不过） |
+| review 这 1300 个 PR | 人 |
+</p>
+<h3>3. 调度现实：本地 vs 云端</h3>
+<p>
+| | Cloud Routines | Desktop 定时任务 | /loop |
+|--|----------------|------------------|-------|
+| 跑在哪 | Anthropic 云 | 你的机器 | 你的机器 |
+| 需要开机吗 | 否 | 是 | 是 |
+| 需要开着会话吗 | 否 | 否 | 是 |
+| 最小间隔 | 1 小时 | 1 分钟 | 1 分钟 |
+| 能看本地文件吗 | 否（fresh clone） | 能 | 能 |
+</p>
+<hr>
+<h2>四笔代价</h2>
+<h3>1. 验证债</h3>
+<blockquote><p>"A loop running unattended is also a loop making mistakes unattended."</p></blockquote>
+<p>
+省下来的时间变成一堆「还没人验证过」的产出，堆在那儿等你还。
+</p>
+<blockquote><p>"The hard part of a loop is not the loop. It is putting something inside it that can say no."</p></blockquote>
+<h3>2. 理解腐烂</h3>
+<blockquote><p>"The faster the loop ships code you did not write, the bigger the gap between what exists and what you actually get."</p></blockquote>
+<p>
+循环每天替你写一堆你没写过的代码。代码在长大，你脑子里的那张地图却停在三个月前。
+</p>
+<h3>3. 认知投降</h3>
+<blockquote><p>"When the loop runs itself its very tempting to stop having an opinion and just take whatever it gives back."</p></blockquote>
+<p>
+循环越可靠，你越容易把判断这件事整个外包出去。
+</p>
+<h3>4. Token 失控</h3>
+<blockquote><p>"You absolutely have to be careful about token costs."</p></blockquote>
+<p>
+一个自主跑的循环，消耗有多少，很难提前算准。一个 bug 让它空转一整晚，你睡醒看到的就是账单。
+</p>
+<h3>四笔账速查</h3>
+<p>
+| 代价 | 症状 | 一句话防它 |
+|------|------|-----------|
+| 验证债 | 产出堆着没人验，错误安静积累 | 装一个跟干活的不是同一个的评判者 |
+| 理解腐烂 | 代码在长，你脑里的地图停了 | 定期读产出，讲不出就是该更新 |
+| 认知投降 | 循环给啥收啥，懒得有意见 | 执行可外包，拿主意不行 |
+| token 失控 | 用量剧烈波动，账单不可预测 | 上线前钉死预算和重试上限 |
+</p>
+<hr>
+<h2>当工程师，不只是按下启动键</h2>
+<blockquote><p>"Two people can build the same loop and get opposite outcomes."</p></blockquote>
+<p>
+一个人用循环，是为了在自己已经吃透的事情上跑得更快。循环帮他扩大的，是他本来就有的判断。
+</p>
+<p>
+另一个人用同样的循环，是为了不必再去理解。他用循环把「理解」这件麻烦事整个绕过去了。
+</p>
+<blockquote><p>"循环本身不偏向任何一边，它只是个忠实的乘号，乘的是你。"</p></blockquote>
+<h3>什么稀缺？</h3>
+<p>
+循环让生成变得极其便宜。当一样东西可以被无限生成，它就不再值钱。
+</p>
+<p>
+<strong>什么还稀缺？判断力。</strong>
+</p>
+<p>
+循环能生成一百个选项，但它没法替你选。或者更准确地说，它可以替你选，但它选的依据是「看起来合理」，不是「真的对」。
+</p>
+<h3>Addy 的收尾</h3>
+<blockquote><p>"Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."</p></blockquote>
+<p>
+>
+</p>
+<blockquote><p>造那个循环。但要像一个打算继续当工程师的人去造它，而不是一个只负责按下启动键的人。</p></blockquote>
+<hr>
+<h2>今天就动手：搭你的第一个 Loop</h2>
+<h3>五步走</h3>
+<p>
+1. <strong>跑一个 /loop</strong> — 固定时间间隔重跑同一件事
+2. <strong>让它读 CI 和 issue，做 triage</strong> — 定时触发 + 自动发现
+3. <strong>加一个状态文件</strong> — 让 loop 有记忆（agent 会忘，仓库不会）
+4. <strong>加一个 evaluator</strong> — 让它能说不（用 /goal）
+5. <strong>加 worktree</strong> — 让它并行
+</p>
+<h3>第一个 Loop 检查清单</h3>
+<p>
+| 要素 | 问自己 |
+|------|--------|
+| 发现源 | 它定时去读什么？（CI / issue / commit / 收件箱） |
+| 状态文件 | 跨轮的记忆落在哪个磁盘文件上？ |
+| evaluator | 有没有一个独立的、会说「不」的检查？ |
+| 隔离 | 并行的 agent 是不是各自一个 worktree？ |
+| token 上限 | 设没设花费的天花板？跑飞了谁拦得住？ |
+| 人工复核点 | 哪一步停下来等你看一眼，而不是一路自动到底？ |
+</p>
+<hr>
+<h2>工具现状速查（2026年6月）</h2>
+<p>
+| 能力 | Claude Code | Codex |
+|------|-------------|-------|
+| 定时调度 | /loop（后台定时 worker） | Automations 标签页 |
+| 跑到条件满足 | /goal | — |
+| 并行隔离 | --worktree / -w | 专用 background worktree |
+| 子 agent | Subagents / Agent Teams | .codex/agents/ TOML 定义 |
+| 外部连接 | MCP + Plugins | MCP connector |
+| 显式调技能 | Skills（SKILL.md） | $skill-name |
+| 关机也跑 | Cloud Routines | 云端（规划中） |
+</p>
+<hr>
+<h2>核心语录</h2>
+<blockquote><p>"Loop engineering sits one floor above the harness."</p></blockquote>
+<blockquote><p>"Automations are what make a loop an actual loop and not just one run you did once."</p></blockquote>
+<blockquote><p>"The agent forgets, the repo doesn't. The memory has to be on disk and not in the context."</p></blockquote>
+<blockquote><p>"The hard part of a loop is not the loop. It is putting something inside it that can say no."</p></blockquote>
+<blockquote><p>"A loop running unattended is also a loop making mistakes unattended."</p></blockquote>
+<blockquote><p>"Two people can build the same loop and get opposite outcomes."</p></blockquote>
+<blockquote><p>"Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."</p></blockquote>
+<hr>
+<h2>关于作者</h2>
+<p>
+<strong>花叔 (HuaShu)</strong> · AI Native Coder · 独立开发者
+</p>
+<p>
+全平台 50 万+ 粉丝的 AI 内容创作者。所有产品——包括一款 AppStore 付费榜 Top 1 的 iOS app——全部用 AI 做出来，没手写过一行代码。开源了女娲.skill、huashu-design 等项目。
+</p>
+<ul>
+<li>X/Twitter：@AlchainHust</li>
+<li>YouTube：@Alchain</li>
+<li>B站：花叔v</li>
+<li>公众号：花叔</li>
+<li>官网：huasheng.ai</li>
+</ul>
+<hr>
+<h2>橙皮书系列</h2>
+<p>
+这是橙皮书系列的一本——免费、实用的 AI 工具指南。其他书包括 Claude Code、Harness Engineering、Agent Skills、OpenClaw 等。
+</p>
+<p>
+所有橙皮书免费下载：huasheng.ai/orange-books
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>

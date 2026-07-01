@@ -692,13 +692,19 @@ def main():
         if post:
             posts.append(post)
 
-    # Parse knowledge cards
+    # Parse knowledge cards (support both .md and .md.processed files)
     cards = []
     if X_ARTICLE_DIR.exists():
-        for f in sorted(X_ARTICLE_DIR.glob("*.md")):
-            card = parse_knowledge_card(f)
-            if card:
-                cards.append(card)
+        for f in sorted(X_ARTICLE_DIR.glob("*.md*")):
+            if f.name.endswith('.processed'):
+                # Strip .processed suffix for parsing
+                card = parse_knowledge_card(f)
+                if card:
+                    cards.append(card)
+            elif f.suffix == '.md':
+                card = parse_knowledge_card(f)
+                if card:
+                    cards.append(card)
 
     print(f"Found {len(posts)} posts, {len(cards)} knowledge cards", file=sys.stderr)
 
