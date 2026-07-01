@@ -288,6 +288,7 @@ def simple_md_to_html(md_text):
             text = stripped[2:]
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
             html_lines.append(f'<blockquote><p>{text}</p></blockquote>')
             continue
 
@@ -301,6 +302,7 @@ def simple_md_to_html(md_text):
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
             html_lines.append(f'<li>{text}</li>')
             continue
 
@@ -317,6 +319,8 @@ def simple_md_to_html(md_text):
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
         text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        # Auto-link bare URLs (not already in href="" or <tag>)
+        text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
         html_lines.append(text)
 
     if in_list:
