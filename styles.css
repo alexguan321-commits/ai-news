@@ -304,6 +304,18 @@ body {
     justify-content: center;
     font-size: 3rem;
     color: var(--accent);
+    overflow: hidden;
+}
+
+.report-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.report-card:hover .card-image img {
+    transform: scale(1.05);
 }
 
 .report-card .card-content {

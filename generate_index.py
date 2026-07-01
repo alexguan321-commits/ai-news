@@ -109,6 +109,7 @@ def parse_post(filepath):
     title_m = re.search(r'^title:\s*"?(.+?)"?\s*$', fm, re.MULTILINE)
     date_m = re.search(r'^date:\s*(.+)$', fm, re.MULTILINE)
     type_m = re.search(r'^report_type:\s*(\w+)', fm, re.MULTILINE)
+    cover_m = re.search(r'^cover_image:\s*"?(.+?)"?\s*$', fm, re.MULTILINE)
 
     if not title_m or not date_m:
         return None
@@ -116,6 +117,7 @@ def parse_post(filepath):
     title = title_m.group(1).strip()
     date_str = date_m.group(1).strip()
     report_type = type_m.group(1).strip() if type_m else "morning"
+    cover_image = cover_m.group(1).strip() if cover_m else None
 
     # Extract date from filename as fallback for URL
     fname = filepath.stem  # e.g. "2026-06-27-morning"
@@ -130,6 +132,7 @@ def parse_post(filepath):
         "report_type": report_type,
         "url": url,
         "date_prefix": date_prefix,
+        "cover_image": cover_image,
     }
 
 
@@ -464,9 +467,16 @@ def generate_html(posts, cards):
     def render_card(p):
         label = type_labels.get(p["report_type"], p["report_type"])
         emoji = "🌅" if p["report_type"] == "morning" else "☀️" if p["report_type"] == "noon" else "🌙"
+        
+        # Use cover image if available, otherwise fall back to emoji
+        if p.get("cover_image"):
+            card_image = f'<img src="{p["cover_image"]}" alt="{p["title"]}" loading="lazy">'
+        else:
+            card_image = emoji
+        
         return f"""        <article class="report-card">
             <a href="{p['url']}">
-                <div class="card-image">{emoji}</div>
+                <div class="card-image">{card_image}</div>
                 <div class="card-content">
                     <h3>{p['title']}</h3>
                     <time>{p['date']}</time>
