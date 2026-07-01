@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 晚报 - 2026-06-28 - AI 资讯日报</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">69</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>AI 晚报 - 2026-06-28</h1>
+                <div class="meta">
+                    <time>2026-06-28 21:00:00 +0800</time>
+                    <span class="report-type type-evening">晚报</span>
+                </div>
+            </header>
+
+            <div class="content">
+                <h2>📌 今日最重要的一件事</h2>
+<h3>lingbot-map：流式 3D 场景重建基础模型开源</h3>
+<p>
+<strong>事实</strong>：Robbyant 团队开源了 <a href="https://github.com/Robbyant/lingbot-map">lingbot-map</a>，一个 feed-forward 3D foundation model，能从流式数据（视频或图像序列）实时重建 3D 场景。支持长序列和大规模场景，提供三种 checkpoint（short/long/balanced），单条命令即可从视频生成点云飞越动画。依赖 PyTorch 2.8.0 + NVIDIA Kaolin + flashinfer。
+</p>
+<p>
+<strong>判断</strong>：这不是又一个 NeRF 变体。lingbot-map 的核心价值在于 <strong>feed-forward + streaming</strong>——不需要 per-scene optimization，看到即重建。这意味着：
+1. <strong>机器人导航</strong>：机器人可以边移动边建图，不再需要停下来"扫描"环境
+2. <strong>数字孪生</strong>：工厂、仓库的 3D 数字化成本从"专业团队扫描"降到"拿着手机走一圈"
+3. <strong>具身智能训练数据</strong>：大规模生成 3D 训练环境成为可能
+</p>
+<p>
+🔗 <a href="https://github.com/Robbyant/lingbot-map">GitHub</a>
+</p>
+<hr>
+<h2>🔥 必看</h2>
+<h3>🟠 browser-use/video-use：用 Coding Agent 剪视频</h3>
+<p>
+<strong>事实</strong>：browser-use 团队推出 <a href="https://github.com/browser-use/video-use">video-use</a>，让 Claude Code 等 coding agent 通过 ffmpeg 本地编辑视频。工作流：把原始素材放到文件夹 → agent 清点素材 → 提出剪辑策略 → 等你确认 → 生成 <code>edit/final.mp4</code>。核心理念和 browser-use 一样：给 LLM 结构化接口而不是截图。
+</p>
+<p>
+<strong>判断</strong>：这是 <strong>"Agent 即创作者"</strong> 的又一个落地场景。过去视频编辑需要：理解素材 → 决策剪辑逻辑 → 操作专业软件。现在 agent 可以：
+</p>
+<ul>
+<li>自动识别素材类型（采访、B-roll、空镜）</li>
+<li>根据脚本或口述生成剪辑方案</li>
+<li>用 ffmpeg 执行精确剪辑、转场、字幕</li>
+</ul>
+<p>
+🔗 <a href="https://github.com/browser-use/video-use">GitHub</a>
+</p>
+<hr>
+<h3>🟠 usestrix/strix：AI 安全测试工具转向 browser-use</h3>
+<p>
+<strong>事实</strong>：<a href="https://github.com/usestrix/strix">Strix</a> 是一个开源 AI 应用安全测试工具，正在从 Playwright 迁移到 browser-use 作为浏览器自动化层。原因：
+1. <strong>非视觉模型支持</strong>：browser-use 暴露高层 API，不需要 vision model 看截图
+2. <strong>反检测能力</strong>：内置 stealth browser、代理轮换、CAPTCHA 绕过
+3. <strong>会话持久化</strong>：支持 browser profiles，跨 agent 运行保持登录状态
+4. <strong>Headful 登录</strong>：支持可见浏览器完成 SSO/2FA，然后无头复用会话
+</p>
+<p>
+<strong>判断</strong>：这是 <strong>browser-use 生态扩张</strong>的信号。当安全测试工具都选择 browser-use 而不是 Playwright，说明：
+</p>
+<ul>
+<li>LLM-native 的浏览器接口正在取代传统自动化框架</li>
+<li>Agent 需要"像人一样浏览"，而不是"像脚本一样操作 DOM"</li>
+</ul>
+<p>
+🔗 <a href="https://github.com/usestrix/strix">GitHub</a> | <a href="https://github.com/usestrix/strix/issues/194">Issue #194</a>
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>🟡 cupy/cupy：GPU 上的 NumPy/SciPy</h3>
+<p>
+<strong>事实</strong>：<a href="https://github.com/cupy/cupy">CuPy</a> 是 NumPy/SciPy 的 GPU 兼容实现，支持 NVIDIA CUDA 和 AMD ROCm。接口高度兼容，大多数情况下可以直接替换 <code>import numpy as cp</code>。支持 CUDA 12.x/13.x、ROCm 7.0，可通过 pip 和 conda 安装。
+</p>
+<p>
+<strong>判断</strong>：CuPy 不是新闻，但它上 Trending 说明 <strong>GPU 计算正在从 AI 训练扩展到通用科学计算</strong>。当数据科学家发现"把 numpy 换成 cupy 就能加速 10x"，GPU 普及的临界点就到了。
+</p>
+<p>
+🔗 <a href="https://github.com/cupy/cupy">GitHub</a>
+</p>
+<hr>
+<h3>🟡 Android Auto Gemini 隐私争议</h3>
+<p>
+<strong>事实</strong>：ZDNet 报道，Google 的 Gemini 在 Android Auto 中提供便利的同时，会收集大量敏感信息（位置、行程、语音指令）。文章建议用户限制 Gemini 能获取的信息。
+</p>
+<p>
+<strong>判断</strong>：这是 <strong>AI 隐私焦虑</strong>的又一个案例。随着 AI 助手渗透到更多场景（车载、家居、办公），"便利性 vs 隐私"的权衡会越来越尖锐。对 To C 产品来说，隐私保护正在成为差异化竞争力。
+</p>
+<p>
+🔗 <a href="https://www.zdnet.com/article/stop-gemini-from-listening-in-android-auto/">ZDNet</a>
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>lingbot-map：从"看到"到"理解空间"</h3>
+<p>
+lingbot-map 的技术细节值得展开：
+</p>
+<p>
+1. <strong>Feed-forward 架构</strong>：不需要 per-scene optimization，输入视频/图像序列，直接输出 3D 重建。这意味着推理速度快，适合实时应用。
+</p>
+<p>
+2. <strong>Streaming 支持</strong>：可以处理流式数据，机器人可以边移动边建图，而不是"停下来扫描"。
+</p>
+<p>
+3. <strong>多尺度 checkpoint</strong>：提供 short/long/balanced 三种模型，适配不同场景（小房间 vs 大仓库）。
+</p>
+<p>
+4. <strong>点云输出</strong>：生成 headless point-cloud flythrough，可以直接用于下游任务（导航、碰撞检测、数字孪生）。
+</p>
+<p>
+<strong>技术深度</strong>：lingbot-map 基于 VGGT（Visual Geometry Grounded Transformer），这是 2025 年 Meta 提出的 3D 基础模型。lingbot-map 在其基础上增加了流式处理和长序列支持。
+</p>
+<p>
+<strong>对具身智能的意义</strong>：
+</p>
+<ul>
+<li><strong>SLAM 的替代方案</strong>：传统 SLAM 需要特征提取、回环检测、图优化，lingbot-map 用端到端学习取代这些手工模块</li>
+<li><strong>训练数据生成</strong>：可以快速生成大量 3D 场景用于训练导航策略</li>
+<li><strong>Sim-to-Real 桥梁</strong>：真实场景的 3D 重建可以用于构建更真实的仿真环境</li>
+</ul>
+<hr>
+<h2>🧠 Ontology 机会</h2>
+<p>
+lingbot-map 输出的 3D 点云可以构建 <strong>空间知识图谱</strong>：
+</p>
+<ul>
+<li>节点：物体、区域、路径</li>
+<li>关系：包含、相邻、可达</li>
+<li>属性：尺寸、材质、状态</li>
+</ul>
+<hr>
+<h2>💰 投资信号</h2>
+<ul>
+<li><strong>3D 视觉基础模型</strong>：lingbot-map 类项目说明"3D 理解"正在成为 AI 的下一个前沿。关注 3D 重建、场景理解、空间智能方向的创业公司。</li>
+<li><strong>Agent 工具链</strong>：browser-use 生态扩张，说明 agent 基础设施正在成熟。关注 agent 编排、工具集成、工作流自动化方向。</li>
+<li><strong>GPU 计算普及</strong>：CuPy 上 trending 说明 GPU 计算正在从 AI 扩展到通用场景。关注 GPU 云服务、边缘推理芯片。</li>
+</ul>
+<hr>
+<h2>🧑‍💻 AI Leaders 动态</h2>
+<p>
+今日无重大人物动态。
+</p>
+<hr>
+<h2>🔬 深度分析</h2>
+<h3>Agent 工具链的范式转移</h3>
+<p>
+今天有两条新闻指向同一个趋势：<strong>Agent 正在从"调用 API"转向"像人一样使用工具"</strong>。
+</p>
+<ul>
+<li>browser-use/video-use：给 agent 结构化的视频编辑接口，而不是让它"看屏幕点鼠标"</li>
+<li>usestrix/strix：从 Playwright（脚本式）迁移到 browser-use（agent 式）</li>
+</ul>
+<p>
+这背后的逻辑是：<strong>LLM 擅长理解意图和规划，但不擅长精确的像素级操作</strong>。所以正确的抽象层是：
+</p>
+<ul>
+<li>不是"点击坐标 (x, y)"，而是"点击登录按钮"</li>
+<li>不是"执行 ffmpeg 命令"，而是"剪辑掉前 10 秒"</li>
+</ul>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>信噪比偏低的一天</h3>
+<p>
+今天只有 5 条新动态，GitHub Trending 占了 4 条，Hacker News、arXiv、YouTube、Blogs 都是 0。这说明：
+</p>
+<ul>
+<li>周末效应：重大发布通常在工作日</li>
+<li>AI 行业进入"消化期"：没有新的大模型发布，社区在消化已有技术</li>
+</ul>
+<p>
+但 lingbot-map 和 video-use 都指向一个方向：<strong>AI 正在从"理解语言"扩展到"理解物理世界"</strong>。3D 重建、视频编辑、空间理解——这些都是具身智能的基础能力。
+</p>
+<hr>
+<h2>🎨 自由发挥</h2>
+<p>
+基于今天的新闻，我会建议：
+</p>
+<p>
+1. <strong>招一个 3D 视觉专家</strong>：lingbot-map 类技术是核心能力
+2. <strong>搭建视频 Agent 工作台</strong>：video-use 是现成的起点
+3. <strong>试点仓库数字孪生</strong>：用流式 3D 重建降低数字化成本
+4. <strong>建立 browser-use 能力</strong>：agent 驱动的 Web 自动化是未来
+</p>
+<hr>
+<p>
+<em>本晚报由 AI 自动生成，信噪比过滤后保留 5 条动态。如有遗漏或误判，欢迎反馈。</em>
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回所有报告</a></p>
+            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
