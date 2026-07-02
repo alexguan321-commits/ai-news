@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-07-01-loop-engineering-karpathy-method-bilevel - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">27</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>2026-07-01-loop-engineering-karpathy-method-bilevel</h1>
+                <div class="meta">
+                    <span class="author"></span>
+                    <time></time>
+                    
+                </div>
+                
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "Loop Engineering: The Karpathy Method - and the workflow that just made it 5x better"
+source: "https://x.com/0xcodila/status/2072329149520232639"
+author: "codila (@0xCodila)"
+date: "2026-07-01"
+tags: [Loop Engineering, Karpathy Loop, Bilevel Autoresearch, 自主系统, AI工程]
+type: x-article
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+大多数人使用 AI 的方式和 2005 年用 Google 一样：输入、阅读、再输入。AI 坐在那里什么都不做，直到你推它——你是引擎，AI 是你每隔一次转动就拿起放下的扳手。
+</p>
+<p>
+<strong>核心问题</strong>：这种模式已经不够用了。现在从 AI 获得 10x 产出的人不是写更好的提示词，不是用秘密模型——他们在构建循环（loops）。
+</p>
+<p>
+<strong>关键洞察</strong>：如果你有一个客观指标，你不应该亲自运行实验。你是瓶颈。把自己从循环中移除，让它自己运行。
+</p>
+<hr>
+<h2>What（核心定义）</h2>
+<h3>Loop 的本质</h3>
+<p>
+<strong>Loop</strong> 是一个 AI 持续工作直到达成目标的系统——不需要你坐在椅子上每一步都提示。
+</p>
+<p>
+AI 发现需要做什么、计划怎么做、执行工作、检查结果、如果还没到位就把结果反馈回去再次执行。你定义一次目的，循环处理剩下的。
+</p>
+<h3>三个关键组件</h3>
+<p>
+| 组件 | 作用 | 没有它会怎样 |
+|------|------|-------------|
+| <strong>Verifier（验证器）</strong> | 把重复变成进步的真实检查 | 没有真正的结果检查，你没有循环——你让 Agent 在循环中自我认同 |
+| <strong>State（状态）</strong> | 让循环学习 | 每次迭代 AI 必须知道它已经尝试过什么，否则会每个周期重复同样的错误 |
+| <strong>Stop condition（停止条件）</strong> | 保持理性 | 没有出口的循环运行直到成功、崩溃或耗尽你的账户 |
+</p>
+<h3>The Karpathy Loop</h3>
+<p>
+<strong>AutoResearch 项目</strong>（2026年3月，GitHub 66,000+ stars）
+</p>
+<p>
+三个文件，约 630 行代码：
+</p>
+<ul>
+<li>`train.py` — 训练脚本，Agent 唯一允许修改的文件</li>
+<li>`prepare.py` — 评估器，给模型打分，Agent 不能碰（否则它会让测试变简单而不是让模型变好）</li>
+<li>`program.md` — 告诉 Agent 探索什么、遵守什么约束的指令</li>
+</ul>
+<p>
+<strong>循环流程</strong>：
+</p>
+<pre><code class="language-">
+读取代码 → 提议修改 → 训练 5 分钟 → 检查结果是否改进 
+→ 改进了就提交，没改进就回滚 → 重复
+</code></pre>
+<p>
+<strong>结果</strong>：
+</p>
+<ul>
+<li>Karpathy 让它在一个他花了 20 年经验手动调优的模型上运行 2 天</li>
+<li>Agent 运行了 <strong>700 次实验</strong></li>
+<li>发现了 <strong>20 个他错过的改进</strong></li>
+<li>包括注意力机制中缺失的标量乘数（让注意力在头上太分散）——不是 fuzzer 能发现的 bug，而是细心人类可能找到但没有找到的微妙优化</li>
+</ul>
+<p>
+<strong>Shopify CEO Tobi Lutke 的测试</strong>：
+</p>
+<ul>
+<li>一夜之间质量提升 19%</li>
+<li>优化后的模型只有之前的一半大小</li>
+<li>更小的模型打败了更大的模型——因为 Agent 针对硬件优化，而不是默认"更大更好"</li>
+</ul>
+<h3>Bilevel Autoresearch（双层循环）</h3>
+<p>
+<strong>核心问题</strong>：如果 autoresearch 本身就是一种研究形式——你可以 autoresearch autoresearch 吗？
+</p>
+<p>
+<strong>架构</strong>：
+</p>
+<ul>
+<li><strong>Inner loop（内层循环）</strong>：做 Karpathy 原始循环做的事——提议修改、训练、评估、保留或丢弃</li>
+<li><strong>Outer loop（外层循环）</strong>：观察内层循环工作、读取其代码和追踪、识别搜索过程本身卡住的地方、生成新的 Python 代码改变内层循环的搜索方式，然后注入该代码让内层循环再次运行</li>
+</ul>
+<p>
+<strong>结果</strong>（在 Karpathy 的 GPT 预训练基准上）：
+</p>
+<ul>
+<li>比标准单层循环改进 <strong>5 倍</strong>（-0.045 vs -0.009 val_bpb）</li>
+<li>不是 5% 更好，是 <strong>5 倍</strong>更好</li>
+<li>两个循环使用相同的 LLM——元层不需要更聪明的模型</li>
+<li>改进来自架构，不是原始智能</li>
+</ul>
+<p>
+<strong>外层循环发现了什么</strong>：内层循环不断陷入相同的搜索模式。LLM 有关于尝试什么优化的先验，即使这些先验不再有效，它也不断回到那些先验。外层循环通过强制探索模型本能避免的方向来打破这些模式。
+</p>
+<hr>
+<h2>How（具体方法/参数）</h2>
+<h3>五个构建块</h3>
+<p>
+| 构建块 | 作用 | 实现方式 |
+|--------|------|----------|
+| <strong>Automation（自动化）</strong> | 心跳——在计划、事件或触发器上启动循环 | Claude Code: <code>/loop</code>（节奏）、<code>/goal</code>（运行直到条件成立）；Codex: Automations 标签 |
+| <strong>Skill（技能）</strong> | 存储项目知识，Agent 不再每次会话都猜测 | 写在 markdown 文件中，每次运行都读取。没有技能，循环每个周期从零重新推导整个项目上下文 |
+| <strong>Sub-agents（子 Agent）</strong> | 分离制作者和检查者 | 写代码的模型给自己打分太宽容。第二个有不同指令的 Agent 抓住第一个说服自己的东西。写者可以快且便宜，审查者慢且严格 |
+| <strong>Connectors（连接器）</strong> | 让循环在真实环境中行动 | 读取问题追踪器、开 PR、ping Slack、更新 Linear 工单。区别在于：Agent 说"这是修复" vs 循环发布修复并在早上告诉你 |
+| <strong>Verifier（验证器）</strong> | 门——自动拒绝坏工作的测试、类型检查或构建 | 其他都是管道。这是让循环真实的部分 |
+</p>
+<h3>你真的需要循环吗？先运行这个测试</h3>
+<p>
+循环只在以下四个条件都满足时才值得其成本：
+</p>
+<p>
+1. <strong>任务重复</strong> — 至少每周一次。少于这个频率，设置成本永远无法回本
+2. <strong>验证是自动化的</strong> — 测试套件、类型检查器、linter、构建。一些可以在你不在房间时让工作失败的东西
+3. <strong>你的 token 预算能吸收浪费</strong> — 循环重新读取上下文、重试、探索。无论运行是否发布任何东西，这都会燃烧 token
+4. <strong>Agent 有真实工具</strong> — 日志、复现环境、能够运行它写的代码并看到什么崩溃
+</p>
+<h3>立即尝试（无需工具）</h3>
+<p>
+粘贴到任何 LLM：
+</p>
+<pre><code class="language-">
+写一封关于 [主题] 的邮件。然后：
+1. 根据 [标准] 给自己打分（1-10）
+2. 找到最弱的部分
+3. 重写那个部分
+4. 重复直到得分 &gt;= 8
+</code></pre>
+<p>
+模型起草、根据标准给自己打分、找到弱点、重写、重复直到通过门槛。这就是循环。你用一段话构建了一个。
+</p>
+<h3>Bilevel 实现要点</h3>
+<pre><code class="language-python">
+# 内层循环
+while not goal_met:
+    change = propose_change()
+    result = train_and_evaluate(change)
+    if result.improved:
+        commit(change)
+    else:
+        rollback(change)
+
+# 外层循环
+while meta_improvement_possible:
+    traces = observe_inner_loop()
+    stuck_patterns = identify_search_bottlenecks(traces)
+    new_search_code = generate_search_strategy(stuck_patterns)
+    inject_into_inner_loop(new_search_code)
+    run_inner_loop_again()
+</code></pre>
+<hr>
+<h2>So What（启示和行动项）</h2>
+<h3>对 AI 工程师的核心启示</h3>
+<p>
+1. <strong>如果你有一个客观指标，你不应该亲自运行实验</strong>
+</p>
+<ul>
+<li>你是瓶颈</li>
+<li>把自己从循环中移除，让它自己运行</li>
+<li>人类在第 12 次实验后就累了，Agent 完全不会累</li>
+</ul>
+<p>
+2. <strong>Loop 不是删除你，而是改变工作</strong>
+</p>
+<ul>
+<li>Karpathy 停止写代码，但没有停止思考</li>
+<li>Cherny 停止提示，但没有停止思考</li>
+<li>循环不知道区别，你知道</li>
+</ul>
+<p>
+3. <strong>Bilevel 架构是 5x 改进的关键</strong>
+</p>
+<ul>
+<li>不是来自更聪明的模型，而是来自架构</li>
+<li>外层循环打破内层循环的先验模式</li>
+<li>如果 autoresearch 可以 meta-autoresearch 自己，它原则上可以 meta-autoresearch 任何有可测量目标的东西</li>
+</ul>
+<h3>两个随循环变好而变尖锐的问题</h3>
+<p>
+1. <strong>理解债务（Comprehension debt）</strong>
+</p>
+<ul>
+<li>循环发布你没写的代码越快，仓库中存在的东西和你真正理解的东西之间的差距就越大</li>
+<li>顺畅运行的循环在这个差距上收取复利</li>
+<li>你必须调试团队中没人读过的系统的那一天，成本将超过所有 token</li>
+</ul>
+<p>
+2. <strong>认知投降（Cognitive surrender）</strong>
+</p>
+<ul>
+<li>当循环自我运行时， tempting 停止形成意见，只接受回来的任何东西</li>
+<li>设计循环是有判断力时的解药——也是避免思考时的加速剂</li>
+<li>同样的行动，相反的结果</li>
+</ul>
+<h3>立即可执行</h3>
+<p>
+1. <strong>本周</strong>：识别一个重复任务（至少每周一次），构建一个简单的循环
+</p>
+<ul>
+<li>定义目标、验证器、停止条件</li>
+<li>用 `/goal` 或 bash 脚本实现</li>
+</ul>
+<p>
+2. <strong>本月</strong>：添加状态文件，让循环学习
+</p>
+<ul>
+<li>记录每次迭代尝试了什么、什么失败、下一步是什么</li>
+<li>明天的运行从那里恢复，而不是从零开始</li>
+</ul>
+<p>
+3. <strong>下季度</strong>：如果有客观指标，尝试 Bilevel 架构
+</p>
+<ul>
+<li>内层循环做工作</li>
+<li>外层循环观察并改进搜索过程</li>
+</ul>
+<h3>对 FDE 团队的启示</h3>
+<ul>
+<li><strong>Verifier 是核心</strong>：没有真正的检查，你只是让 Agent 在循环中自我认同</li>
+<li><strong>State 让意图复合</strong>：没有状态，循环每个周期从零重新推导整个项目上下文</li>
+<li><strong>Sub-agents 分离制作者和检查者</strong>：写代码的模型给自己打分太宽容</li>
+</ul>
+<hr>
+<h2>关键洞察</h2>
+<blockquote><p><strong>"If autoresearch can meta-autoresearch itself, it can in principle meta-autoresearch anything with a measurable objective."</strong></p></blockquote>
+<p>
+<strong>如果 autoresearch 可以 meta-autoresearch 自己，它原则上可以 meta-autoresearch 任何有可测量目标的东西。</strong>
+</p>
+<hr>
+<h2>元信息</h2>
+<ul>
+<li><strong>来源</strong>: X Article by codila (@0xCodila)</li>
+<li><strong>链接</strong>: <a href="https://x.com/0xcodila/status/2072329149520232639">https://x.com/0xcodila/status/2072329149520232639</a></li>
+<li><strong>日期</strong>: 2026-07-01</li>
+<li><strong>标签</strong>: #LoopEngineering #KarpathyLoop #BilevelAutoresearch #自主系统 #AI工程</li>
+<li><strong>关联</strong>: FDE 团队自动化、AI 创业、Multica Agent 团队设计</li>
+</ul>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>
