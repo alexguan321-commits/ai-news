@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-05-25-pydantic-agent-memory-ontology - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">25</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>2026-05-25-pydantic-agent-memory-ontology</h1>
+                <div class="meta">
+                    <span class="author"></span>
+                    <time></time>
+                    
+                </div>
+                
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "Pydantic Fixed My Agent's Memory — Schema-Driven Knowledge Graph"
+source: "https://x.com/akshay_pachaar/status/2058976178908885210"
+author: "Akshay Pachaar (@akshay_pachaar)"
+date: "2026-05-25"
+tags: [Agent记忆, 知识图谱, Pydantic, Ontology, Zep, 结构化提取]
+type: x-article
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+Agent 记忆从向量数据库开始：存储事实为 chunks，按相似度检索。但当查询需要<strong>跨 chunks 连接事实</strong>时，向量检索就崩溃了。问题不在相似度，而在<strong>结构</strong>。
+</p>
+<p>
+知识图谱是修复方案——实体为节点，关系为边。但大多数团队撞上另一堵墙：
+</p>
+<p>
+<strong>当 LLM 自行决定提取结构时，结果是垃圾。</strong>
+</p>
+<p>
+例如：构建客服 Agent，喂入 50 段对话。问"哪些企业客户有 sev-1 工单？"图谱有数据，但每个工单存为"Topic"节点，每个客户是"Object"，关系全是"RELATES_TO"。无法按类型、严重级别、套餐过滤。
+</p>
+<p>
+<strong>Agent 没有忘记任何东西。是没人告诉它该注意什么。</strong>
+</p>
+<hr>
+<h2>What（核心定义）</h2>
+<p>
+<strong>核心洞察：用 Pydantic Schema 定义 Agent 记忆的本体结构（Ontology），约束 LLM 提取行为。</strong>
+</p>
+<h3>三层结构</h3>
+<p>
+| 层级 | 作用 | Pydantic 实现 |
+|------|------|---------------|
+| <strong>EntityModel</strong> | 定义实体类型（User, Project, Technology） | <code>BaseModel</code> 子类 + 字段描述 |
+| <strong>EdgeModel</strong> | 定义关系类型（WORKS_ON, USES_TECHNOLOGY） | 带属性的边模型 |
+| <strong>EntityEdgeSourceTarget</strong> | 约束哪些实体可以通过哪些关系连接 | source/target 类型约束 |
+</p>
+<h3>关键原则</h3>
+<p>
+1. <strong>Schema 是 Agent 大脑的蓝图</strong> — 告诉提取模型：领域有哪些实体类型、哪些关系有效、每个实体带什么属性
+2. <strong>Docstring 和字段描述很重要</strong> — 好的描述 + 具体例子 = 准确的分类
+3. <strong>10/10/10 约束</strong> — Zep 强制限制：10 种实体类型、10 种边类型、每类型 10 个字段。目的是迫使开发者思考什么是真正重要的
+4. <strong>Schema 定义有效记忆的空间</strong> — 如果 schema 不包含 Project→Competitor 的边类型，即使对话提到两者，也不会创建该关系
+</p>
+<hr>
+<h2>How（具体方法/参数）</h2>
+<h3>实现工具：Zep（100% 开源）</h3>
+<p>
+<strong>GitHub</strong>: github.com/getzep/zep
+</p>
+<h3>提取管道 5 步骤</h3>
+<p>
+1. <strong>Entity extraction</strong> — 识别命名实体
+2. <strong>Entity resolution</strong> — 合并重复（"Nexus" 和 "the Nexus project" → 同一节点）
+3. <strong>Fact extraction</strong> — 识别关系，输出为类型化边
+4. <strong>Fact resolution</strong> — 检测矛盾，使过时事实失效（保留历史）
+5. <strong>Temporal extraction</strong> — 解析时间引用，映射到边的有效性窗口
+</p>
+<p>
+Pydantic schema 指导步骤 1 和 3。
+</p>
+<h3>代码模式</h3>
+<pre><code class="language-python">
+# 定义实体类型
+class User(EntityModel):
+    """A person working on projects"""
+    name: str = Field(description="Full name of the user")
+    role: str = Field(description="Job title or role")
+
+class Project(EntityModel):
+    """A software project"""
+    name: str = Field(description="Project codename")
+    status: str = Field(description="active, completed, or archived")
+
+# 定义关系约束
+class WorksOn(EdgeModel):
+    """Connects User to Project"""
+    role: str = Field(description="lead, contributor, or reviewer")
+
+# 约束：谁可以连接谁
+EntityEdgeSourceTarget(
+    source=User, target=Project, edge=WorksOn
+)
+</code></pre>
+<h3>查询示例</h3>
+<pre><code class="language-">
+# 有 schema 后，可以精确查询：
+"哪些活跃项目使用 PostgreSQL？"
+→ 返回结构化结果，不是噪音
+
+# 边带属性：
+WORKS_ON: role = "lead developer"
+USES_TECHNOLOGY: proficiency = "advanced" (Python, Docker)
+</code></pre>
+<h3>Context Templates</h3>
+<p>
+定义哪些边/实体类型包含在 prompt 中，Zep 格式化为带时间注解的上下文块：
+</p>
+<pre><code class="language-">
+Alex WORKS_ON Nexus (role: lead developer, since 2024-01)
+Nexus USES_TECHNOLOGY PostgreSQL (category: database)
+Alex USES_TECHNOLOGY Python (proficiency: advanced)
+</code></pre>
+<hr>
+<h2>So What（启示和行动项）</h2>
+<h3>对 AI 创业的核心启示</h3>
+<p>
+1. <strong>无 schema 的 Agent 记忆 = 行为像向量存储的图谱</strong>
+</p>
+<ul>
+<li>付出了图谱构建的成本，却没得到结构化检索的收益</li>
+<li>Schema 是拿回收益的方式</li>
+</ul>
+<p>
+2. <strong>Pydantic = AI Stack 的通用模式</strong>
+</p>
+<ul>
+<li>FastAPI endpoints → Pydantic response models</li>
+<li>Function calling tools → Pydantic schemas</li>
+<li>Agent memory → 同样的模式（Zep）</li>
+<li><strong>没有新东西要学</strong></li>
+</ul>
+<p>
+3. <strong>领域特定应用必须用 schema</strong>
+</p>
+<ul>
+<li>LLM 提取在通用知识上还行</li>
+<li>但领域术语、产品名碰撞、训练数据中没有的 jargon → 无引导提取产生垃圾</li>
+<li>Schema 携带领域词汇直接进入提取步骤</li>
+</ul>
+<p>
+4. <strong>从 3-4 种实体类型 + 3-4 种边类型开始</strong>
+</p>
+<ul>
+<li>捕获 80% 的领域逻辑</li>
+<li>增量增加复杂度</li>
+</ul>
+<h3>对 Ontology 实践的直接关联</h3>
+<p>
+这篇文章<strong>完美印证了 Ontology 的核心价值</strong>：
+</p>
+<p>
+| 文章概念 | Ontology 对应 |
+|---------|--------------|
+| EntityModel | 类/实体定义 |
+| EdgeModel | 关系/属性定义 |
+| Source/Target 约束 | 定义域和值域 |
+| Schema as reasoning boundary | 本体作为推理边界 |
+</p>
+<p>
+<strong>A 哥的 Ontology 实践 = 这篇文章的核心主张</strong>
+</p>
+<h3>对 Multica Agent 团队的启示</h3>
+<ul>
+<li>Agent 记忆必须有 schema 约束，不能放任 LLM 自由提取</li>
+<li>每个 Agent 的领域知识应该用 Pydantic 定义本体</li>
+<li>Context Templates 是 prompt 工程的关键组件</li>
+</ul>
+<h3>立即可执行</h3>
+<p>
+1. <strong>本周</strong>：在 Multica Agent 中引入 Zep，为 PM Agent 定义 3-4 种实体类型
+2. <strong>本月</strong>：为每个 Agent 设计 Ontology schema（实体 + 关系 + 约束）
+3. <strong>持续</strong>：用 10/10/10 约束保持 schema 精简
+</p>
+<hr>
+<h2>关键洞察</h2>
+<blockquote><p><strong>"Agent memory without schema discipline is a graph that behaves like a vector store. You pay the cost of graph construction without getting the benefit of structured retrieval."</strong></p></blockquote>
+<p>
+<strong>Schema 定义了 Agent 能记住什么、能查询什么、能推理什么。没有 schema，图谱就是昂贵的向量存储。</strong>
+</p>
+<hr>
+<h2>元信息</h2>
+<ul>
+<li><strong>来源</strong>: X Article by Akshay Pachaar (@akshay_pachaar)</li>
+<li><strong>链接</strong>: <a href="https://x.com/akshay_pachaar/status/2058976178908885210">https://x.com/akshay_pachaar/status/2058976178908885210</a></li>
+<li><strong>日期</strong>: 2026-05-25</li>
+<li><strong>标签</strong>: #Agent记忆 #知识图谱 #Pydantic #Ontology #Zep</li>
+<li><strong>关联</strong>: Ontology 实践、Multica Agent 团队设计、FDE 知识管理</li>
+</ul>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>
