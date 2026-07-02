@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-06-30-hermes-agent-10x-faster-index-md - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">29</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>2026-06-30-hermes-agent-10x-faster-index-md</h1>
+                <div class="meta">
+                    <span class="author"></span>
+                    <time></time>
+                    
+                </div>
+                
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "I Made My Hermes Agent 10x Faster Without Changing the Model"
+source: "https://x.com/wandermist/status/2071930382581195105"
+author: "wandermist (@wandermist)"
+date: "2026-06-30"
+tags: [Hermes Agent, 文件夹结构, INDEX.md, Agent优化, 工作流]
+type: x-article
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+作者使用 Hermes Agent 时发现一个荒谬的对比：AI 能设计对抗未知冠状病毒的疫苗（Cambridge 已进行人体试验），但当让 Agent 从文档列表中获取最新简报时，它要花近两分钟打开错误的文件，最后给出三个月前的简报。
+</p>
+<p>
+<strong>核心问题</strong>：Agent 的能力足够强，但文件夹结构成了瓶颈。Agent 在导航上浪费了大量能力，而不是做实际工作。
+</p>
+<p>
+<strong>关键洞察</strong>：围绕 Agent 的隐形脚手架（invisible scaffolding）比 Agent 自身的能力更重要。
+</p>
+<hr>
+<h2>What（核心定义）</h2>
+<h3>问题诊断</h3>
+<p>
+作者追踪了 5 个常见任务在重构前的表现：
+</p>
+<p>
+| 任务 | 打开文件数 | 耗时 |
+|------|-----------|------|
+| 找到当前文章简报 | 7 | 2:00 |
+| 找到品牌颜色定义 | 5 | 1:12 |
+| 查找文章队列用于规划 | 4 | 0:48 |
+| 找到同一主题的过往文章 | 6 | 1:36 |
+| 提取发布推广策略 | 3 | 0:34 |
+</p>
+<p>
+<strong>根本原因</strong>：文件夹按内容类型组织（Articles、Research、Assets、Strategy），这是人类思维的方式。但 Agent 不按类别思考——当要求规划产品发布时，任务需要从分散在不同文件夹的策略笔记、品牌指南和过往发布中提取。
+</p>
+<p>
+Agent 必须每次都搜索所有地方，不知道哪个草稿是当前的、哪个是归档的。
+</p>
+<h3>解决方案：INDEX.md 模式</h3>
+<p>
+<strong>三个规则协同工作</strong>：
+</p>
+<p>
+1. <strong>每个主要文件夹根目录的 INDEX.md 是地图</strong>
+</p>
+<ul>
+<li>列出每个子文件夹和规范文件</li>
+<li>告诉 Agent 应该从哪里开始</li>
+<li>相当于软性审批门控：Agent 在知道自己在处理什么之前不允许开始工作</li>
+</ul>
+<p>
+2. <strong>按关注点（concern）组织，而非内容类型</strong>
+</p>
+<ul>
+<li>每个关注点有自己的文件夹</li>
+<li>品牌工作留在品牌文件夹，策略留在策略文件夹</li>
+<li>Agent 不需要跨越边界寻找不属于那里的东西</li>
+</ul>
+<p>
+3. <strong>文件夹编号明确阅读顺序</strong>
+</p>
+<ul>
+<li>`01.Brand System` 在 `02.Editorial Strategy` 之前读取</li>
+<li>Agent 不猜测</li>
+<li>文件夹内的文件也编号，Agent 知道 `01.Articles` 是起点</li>
+</ul>
+<h3>重构后的性能</h3>
+<p>
+| 任务 | 打开文件数 | 耗时 | 改进 |
+|------|-----------|------|------|
+| 找到当前文章简报 | 1 | 0:10 | <strong>12x</strong> |
+| 找到品牌颜色定义 | 3 | 0:22 | 3.3x |
+| 查找文章队列用于规划 | 1 | 0:10 | <strong>4.8x</strong> |
+| 找到同一主题的过往文章 | 2 | 0:18 | <strong>5.3x</strong> |
+| 提取发布推广策略 | 1 | 0:12 | <strong>2.8x</strong> |
+</p>
+<p>
+<strong>最慢任务从 2 分钟降到 26 秒，最快任务约 10 秒。</strong>
+</p>
+<hr>
+<h2>How（具体方法/参数）</h2>
+<h3>INDEX.md 的三次迭代</h3>
+<p>
+1. <strong>第一版</strong>：列出品牌文件夹内的每个文件，40 行
+</p>
+<ul>
+<li>技术上完整，但 Agent 每次都要解析，长度本身就是开销</li>
+</ul>
+<p>
+2. <strong>第二版</strong>：太短，约 15 行
+</p>
+<ul>
+<li>Agent 仍然问没回答的问题</li>
+</ul>
+<p>
+3. <strong>第三版（最终版）</strong>：只列出子文件夹和规范文件
+</p>
+<ul>
+<li>包含简短的 "Where To Go" 部分，告诉 Agent 起点</li>
+</ul>
+<h3>文件夹结构示例</h3>
+<pre><code class="language-">
+05.Brand/
+├── INDEX.md                    # 地图
+├── 01.Brand System/
+│   ├── 01.Brand Guidelines.md
+│   └── 02.Color Palette.md
+├── 02.Editorial Strategy/
+├── 03.Promotion/
+│   └── 01.Promotion Strategy.md
+├── 04.Previous Articles/
+└── 06.Archived/                # 旧简报和退役计划
+</code></pre>
+<p>
+<strong>关键设计</strong>：
+</p>
+<ul>
+<li>归档内容放在 `06.Archived`，Agent 默认不去那里</li>
+<li>除非特别要求历史上下文</li>
+<li>这种分离保持活动文件夹干净、搜索快速</li>
+</ul>
+<h3>五个常见错误</h3>
+<p>
+1. <strong>在每个子文件夹添加 INDEX.md</strong>
+</p>
+<ul>
+<li>太多地图意味着 Agent 花时间读索引而不是工作</li>
+<li>只在主要文件夹根目录保留 INDEX.md</li>
+</ul>
+<p>
+2. <strong>编号必须完美</strong>
+</p>
+<ul>
+<li>编号不需要完美，只要方向性正确</li>
+<li>完美排序的文件夹不是目标</li>
+</ul>
+<p>
+3. <strong>在 Agent 显示困惑之前构建结构</strong>
+</p>
+<ul>
+<li>大多数人过度工程化 Agent 设置</li>
+<li>原则：使用最小的接口完成工作</li>
+<li>只在 Agent 迷路时添加结构，只添加足够修复该特定问题的结构</li>
+</ul>
+<p>
+4. <strong>在结构内嵌套结构</strong>
+</p>
+<ul>
+<li>把两级层次变成五级</li>
+<li>Agent 必须读取多个 INDEX 文件并解析多个编号序列</li>
+<li><strong>深度是快速文件查找的敌人</strong></li>
+</ul>
+<p>
+5. <strong>重命名文件夹但不更新 INDEX.md</strong>
+</p>
+<ul>
+<li>对旧名称的引用会中断</li>
+<li>一旦设定文件夹名称就保持不变</li>
+<li>稍微尴尬的名称比损坏的引用更便宜</li>
+</ul>
+<h3>诊断测试（5 分钟）</h3>
+<p>
+在重组任何文件夹之前，对 Agent 最常处理的 3 个真实任务运行此测试：
+</p>
+<p>
+1. <strong>计时每个任务</strong>
+2. <strong>记录它在找到正确文件之前打开多少文件</strong>
+3. <strong>追踪它多频繁选择错误文件或停下来问你应该用哪个</strong>
+</p>
+<p>
+<strong>判断标准</strong>：
+</p>
+<ul>
+<li>任何任务超过 30 秒或打开 3 个以上错误文件 → 该任务背后的文件夹坏了</li>
+<li>选择最常发生的失败</li>
+<li>打开该文件夹，写一个 INDEX.md</li>
+<li>重新运行同一任务</li>
+<li>如果 Agent 在 30 秒内找到正确文件 → 修复成功</li>
+</ul>
+<h3>局限性</h3>
+<p>
+1. <strong>归档内容有时仍被引用</strong>
+</p>
+<ul>
+<li>Agent 必须知道去 `06.Archived` 而不是活动文件夹</li>
+<li>在 INDEX.md 中提到这一点</li>
+</ul>
+<p>
+2. <strong>Obsidian Sync 跨设备偶尔不同步</strong>
+</p>
+<ul>
+<li>如果在笔记本上更新文件但旧版本仍在 VPS 上，Hermes 加载 VPS 副本</li>
+<li>这是同步问题而非文件夹结构问题</li>
+</ul>
+<p>
+3. <strong>编号在文件夹过多时失效</strong>
+</p>
+<ul>
+<li>超过 10-12 个编号项目，数字变得任意</li>
+<li>保持主要类别低于该阈值</li>
+</ul>
+<p>
+4. <strong>对纯代码或数据密集型设置可能不适用</strong>
+</p>
+<ul>
+<li>这种结构最适合内容密集和工作流密集的场景</li>
+</ul>
+<hr>
+<h2>So What（启示和行动项）</h2>
+<h3>对 AI 工程师的核心启示</h3>
+<p>
+1. <strong>围绕 Agent 的脚手架比 Agent 自身能力更重要</strong>
+</p>
+<ul>
+<li>能力在脚手架损坏时很便宜（浪费）</li>
+<li>构建脚手架，能力自己会处理</li>
+</ul>
+<p>
+2. <strong>按关注点组织，而非内容类型</strong>
+</p>
+<ul>
+<li>人类按类别思考，Agent 必须手动交叉引用</li>
+<li>按任务/项目/关注点组织文件夹</li>
+</ul>
+<p>
+3. <strong>INDEX.md 是最小但最有效的修复</strong>
+</p>
+<ul>
+<li>一个索引文件 + 文件夹名前的几个数字</li>
+<li>就是迷路的 Agent 和工作的 Agent 之间的区别</li>
+</ul>
+<p>
+4. <strong>深度是快速文件查找的敌人</strong>
+</p>
+<ul>
+<li>大多数重组增加深度以为那是精确</li>
+<li>保持层次扁平</li>
+</ul>
+<p>
+5. <strong>先测量，再重组</strong>
+</p>
+<ul>
+<li>不要过度工程化</li>
+<li>只在 Agent 迷路时添加结构</li>
+</ul>
+<h3>对 A 哥当前系统的映射</h3>
+<p>
+| 文章概念 | A 哥当前实现 | 差距/改进 |
+|---------|-------------|----------|
+| INDEX.md 模式 | 未使用 | <strong>可立即应用</strong> |
+| 按关注点组织 | 部分（AI_News 按类型，LLM Wiki 按主题） | 可优化 |
+| 文件夹编号 | 未使用 | 可为主要目录添加 |
+| 归档分离 | 未明确 | 应添加 <code>Archived/</code> 目录 |
+| 诊断测试 | 未系统测量 | 应运行 5 分钟测试 |
+</p>
+<h3>立即可执行</h3>
+<p>
+1. <strong>本周</strong>：运行 5 分钟诊断测试
+</p>
+<ul>
+<li>选择 Hermes 最常处理的 3 个任务</li>
+<li>计时并记录打开文件数</li>
+<li>识别最失败的文件夹</li>
+</ul>
+<p>
+2. <strong>本月</strong>：为主要目录添加 INDEX.md
+</p>
+<ul>
+<li>`~/AI_News/` — 资讯采集系统</li>
+<li>`~/LLM_WIKI/` — 知识库</li>
+<li>`~/projects/` — 项目目录</li>
+</ul>
+<p>
+3. <strong>持续</strong>：遵循"最小接口"原则
+</p>
+<ul>
+<li>只在 Agent 迷路时添加结构</li>
+<li>只添加足够修复该特定问题的结构</li>
+</ul>
+<h3>对 FDE 团队的启示</h3>
+<ul>
+<li><strong>Agent 的脚手架比 Agent 本身更重要</strong></li>
+<li>团队的知识管理结构决定了 AI 助手的效率</li>
+<li>混乱的文件夹 = 浪费的 AI 能力</li>
+</ul>
+<ul>
+<li><strong>INDEX.md 是团队知识地图的最小实现</strong></li>
+<li>每个项目/领域一个 INDEX.md</li>
+<li>告诉 Agent 从哪里开始</li>
+</ul>
+<ul>
+<li><strong>按关注点组织，而非内容类型</strong></li>
+<li>项目 A 的所有文档在一个文件夹</li>
+<li>而不是所有"策略"文档在一个文件夹</li>
+</ul>
+<hr>
+<h2>关键洞察</h2>
+<blockquote><p><strong>"Capability is cheap when the scaffolding around it is broken. Build the scaffolding, and the capability takes care of itself."</strong></p></blockquote>
+<p>
+<strong>当脚手架损坏时，能力很便宜（被浪费）。构建脚手架，能力自己会处理。一个索引文件和文件夹名前的几个数字，就是迷路的 Agent 和工作的 Agent 之间的区别。</strong>
+</p>
+<hr>
+<h2>元信息</h2>
+<ul>
+<li><strong>来源</strong>: X Article by wandermist (@wandermist)</li>
+<li><strong>链接</strong>: <a href="https://x.com/wandermist/status/2071930382581195105">https://x.com/wandermist/status/2071930382581195105</a></li>
+<li><strong>日期</strong>: 2026-06-30</li>
+<li><strong>标签</strong>: #HermesAgent #文件夹结构 #INDEXmd #Agent优化 #工作流</li>
+<li><strong>关联</strong>: FDE 团队知识管理、AI 创业、Multica Agent 团队设计</li>
+</ul>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>
