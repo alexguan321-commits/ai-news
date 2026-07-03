@@ -39,8 +39,11 @@ EOF
 # 追加报告内容（跳过可能的原始 front matter）
 cat "$REPORT_FILE" >> "$POSTS_DIR/$FILENAME"
 
-# 重新生成 index.html（自动扫描 _posts/ 目录）
+# 隐私过滤：过滤 _posts/*.md 中的敏感信息
 cd "$WEBSITE_DIR"
+python3 "$HOME/.hermes/scripts/posts_privacy_filter.py"
+
+# 重新生成 index.html（自动扫描 _posts/ 目录）
 python3 generate_index.py
 
 # Git 操作（带重试）
