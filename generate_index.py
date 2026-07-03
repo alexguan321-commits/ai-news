@@ -182,18 +182,41 @@ def parse_knowledge_card(filepath):
     date = ""
     tags = []
 
-    for line in text.split('\n')[:20]:
-        if line.startswith('# '):
-            title = line[2:].strip()
-        elif line.startswith('**Author:**'):
-            author = line.replace('**Author:**', '').strip()
-        elif line.startswith('**Source:**'):
-            source = line.replace('**Source:**', '').strip()
-        elif line.startswith('**Date:**'):
-            date = line.replace('**Date:**', '').strip()
-        elif line.startswith('**Tags:**'):
-            tags_str = line.replace('**Tags:**', '').strip()
-            tags = [t.strip() for t in tags_str.split(',')]
+    # First, try to parse YAML front matter
+    if text.startswith('---'):
+        fm_end = text.find('---', 3)
+        if fm_end != -1:
+            front_matter = text[3:fm_end]
+            for line in front_matter.split('\n'):
+                if line.startswith('title:'):
+                    title = line[6:].strip().strip('"\'')
+                elif line.startswith('author:'):
+                    author = line[7:].strip().strip('"\'')
+                elif line.startswith('source:'):
+                    source = line[7:].strip().strip('"\'')
+                elif line.startswith('date:'):
+                    date = line[5:].strip().strip('"\'')
+                elif line.startswith('tags:'):
+                    tags_str = line[5:].strip()
+                    # Parse YAML list format: [tag1, tag2] or [tag1,tag2]
+                    if tags_str.startswith('[') and tags_str.endswith(']'):
+                        tags_str = tags_str[1:-1]
+                        tags = [t.strip().strip('"\'') for t in tags_str.split(',') if t.strip()]
+
+    # Fallback: parse markdown header (old format)
+    if not title:
+        for line in text.split('\n')[:20]:
+            if line.startswith('# '):
+                title = line[2:].strip()
+            elif line.startswith('**Author:**'):
+                author = line.replace('**Author:**', '').strip()
+            elif line.startswith('**Source:**'):
+                source = line.replace('**Source:**', '').strip()
+            elif line.startswith('**Date:**'):
+                date = line.replace('**Date:**', '').strip()
+            elif line.startswith('**Tags:**'):
+                tags_str = line.replace('**Tags:**', '').strip()
+                tags = [t.strip() for t in tags_str.split(',')]
 
     if not title:
         title = filepath.stem
