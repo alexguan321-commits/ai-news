@@ -118,26 +118,39 @@ def parse_post(filepath):
     title = title_m.group(1).strip()
     date_str = date_m.group(1).strip()
     
-    # Get report_type from front matter, or infer from categories, or from filename
+    # Get report_type from front matter, or infer from categories/title/filename
     if type_m:
         report_type = type_m.group(1).strip()
-    elif categories_m:
-        # Try to infer from categories like [ai-news, evening]
-        cats = [c.strip().strip('"').strip("'") for c in categories_m.group(1).split(',')]
-        for cat in cats:
-            if cat in ['morning', 'noon', 'evening', 'weekly']:
-                report_type = cat
-                break
-        else:
-            report_type = "morning"
     else:
+        report_type = None
+        
+        # Try to infer from categories like [ai-news, evening]
+        if categories_m:
+            cats = [c.strip().strip('"').strip("'") for c in categories_m.group(1).split(',')]
+            for cat in cats:
+                if cat in ['morning', 'noon', 'evening', 'weekly']:
+                    report_type = cat
+                    break
+        
+        # Try to infer from title (Chinese names)
+        if not report_type:
+            if '早报' in title or 'Morning' in title:
+                report_type = 'morning'
+            elif '午报' in title or 'Noon' in title:
+                report_type = 'noon'
+            elif '晚报' in title or 'Evening' in title:
+                report_type = 'evening'
+            elif '周报' in title or 'Weekly' in title:
+                report_type = 'weekly'
+        
         # Infer from filename like 2026-06-27-evening.md
-        fname = filepath.stem
-        parts = fname.split('-')
-        if len(parts) >= 4:
-            report_type = parts[3]  # evening, morning, noon, weekly
-        else:
-            report_type = "morning"
+        if not report_type:
+            fname = filepath.stem
+            parts = fname.split('-')
+            if len(parts) >= 4:
+                report_type = parts[3]  # evening, morning, noon, weekly
+            else:
+                report_type = "morning"
     
     cover_image = cover_m.group(1).strip() if cover_m else None
 
