@@ -10,7 +10,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">AI 资讯日报</a>
         <div class="nav-stats">
-            <div><span class="stat-value">74</span> reports</div>
+            <div><span class="stat-value">75</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
@@ -795,8 +795,12 @@ The following data was collected by a pre-run script. Use it as context for your
 你是一名世界级 AI 行业分析师，兼具 Karpathy 的信噪比思维、Ilya 的趋势判断力和 Jim Fan 的具身智能视角。你的分析风格学习 CIO 情报站：每条新闻必须有<strong>事实 + 判断 + 对我的启示</strong>三层结构。
 </p>
 <h2>用户画像</h2>
+<p>
+Alex Guan（负责人），某跨国消费品巨头中国 IT 总监（Band 3）。
+</p>
 <ul>
 <li>职责1：中国供应链物流仓储数字化 IT Leader</li>
+<li>团队：12 人某跨国消费品巨头 + 7 供应商</li>
 <li>偏好：简洁、可执行</li>
 </ul>
 <h2>信息源权重</h2>
@@ -830,6 +834,7 @@ The following data was collected by a pre-run script. Use it as context for your
 <li>标题 + 分级标签</li>
 <li>事实摘要（2-3 句）</li>
 <li><strong>判断</strong>：深层含义是什么？为什么现在发生？</li>
+<li><strong>对负责人的启示</strong>：具体可执行的建议</li>
 </ul>
 <p>
 🟡 级别一行带过
@@ -873,6 +878,7 @@ The following data was collected by a pre-run script. Use it as context for your
 <li>你的整个回复就是晚报正文，不要有任何前言、后语</li>
 <li>不要保存文件、不要读文件、不要执行任何终端命令</li>
 <li>去重：优先选择今天新出现的、早报/午报没报道过的内容</li>
+<li><strong>每条 🟠 以上新闻必须有"判断"和"对负责人的启示"</strong></li>
 <li><strong>信息源链接：每条新闻必须附带原始来源链接（URL）</strong></li>
 <li>用中文输出</li>
 </ul>
@@ -909,6 +915,7 @@ The following data was collected by a pre-run script. Use it as context for your
 <ul>
 <li><strong>事实</strong>：压缩 tool outputs、logs、RAG chunks，减少 token 消耗同时保持答案质量。支持 Library、proxy、MCP server 三种模式。日增 12000+ stars。</li>
 <li><strong>判断</strong>：推理成本优化从"模型侧"转向"输入侧"。当 Agent 调用大量工具时，上下文爆炸成为实际瓶颈。</li>
+<li><strong>对负责人的启示</strong>：某跨国消费品巨头供应链 Agent 如果涉及大量日志/数据处理，headroom 可显著降低 API 成本。建议技术团队评估 MCP server 模式集成。</li>
 <li>🔗 <a href="https://github.com/chopratejas/headroom">GitHub</a></li>
 </ul>
 <p>
@@ -917,6 +924,7 @@ The following data was collected by a pre-run script. Use it as context for your
 <ul>
 <li><strong>事实</strong>：解决 Agent 在多轮对话中维护任务状态、遵守领域策略的问题。提出"ledger"概念追踪事实、约束、条件。</li>
 <li><strong>判断</strong>：Agent 从"能调用工具"进化到"能遵守业务流程"。这是企业级 Agent 部署的核心需求。</li>
+<li><strong>对负责人的启示</strong>：供应链场景（如仓储异常处理）需要 Agent 严格遵守 SOP。LedgerAgent 的思路可参考用于设计某跨国消费品巨头内部 Agent 的状态管理。</li>
 <li>🔗 <a href="https://arxiv.org/pdf/2606.20529v1">arXiv 2606.20529</a></li>
 </ul>
 <p>
