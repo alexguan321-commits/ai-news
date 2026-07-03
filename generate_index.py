@@ -444,6 +444,8 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
                 </div>
             </header>
 
+            {f'<div class="cover-image"><img src="{post["cover_image"]}" alt="Cover"></div>' if post.get('cover_image') else ''}
+
             <div class="content">
                 {content_html}
             </div>
