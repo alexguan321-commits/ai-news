@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Actually Prompt Fable 5, Straight From the Team That Built It - 知识卡片</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">30</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">知识卡片</span>
+                <h1>How to Actually Prompt Fable 5, Straight From the Team That Built It</h1>
+                <div class="meta">
+                    <span class="author">@cyrilXBT (CyrilXBT)</span>
+                    <time>2026-07-02</time>
+                    <span class="tag">anthropic</span> | <span class="tag">fable5</span> | <span class="tag">prompting</span> | <span class="tag">agent</span> | <span class="tag">autonomous-workflow</span>
+                </div>
+                <p><a href='https://x.com/cyrilxbt/status/2072706408710058492' target='_blank'>原文链接 ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "How to Actually Prompt Fable 5, Straight From the Team That Built It"
+author: "@cyrilXBT (CyrilXBT)"
+source: "https://x.com/cyrilxbt/status/2072706408710058492"
+date: 2026-07-02
+type: "x-article"
+tags: [anthropic, fable5, prompting, agent, autonomous-workflow]
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+Fable 5 于 2026 年 7 月 1 日全球重新上线。Anthropic 发布了官方 Fable 5 提示指南，但大多数团队在用 Opus 4.8 的旧方法测试新模型，导致严重低估其能力。
+</p>
+<p>
+<strong>核心问题：</strong> 团队在简单任务上测试 Fable 5，看到边际改进就认为不值得升级。实际上 Fable 5 不是"更聪明的同一工具"，而是"不同类别的工具"，需要不同类别的提示。
+</p>
+<p>
+<strong>关键洞察：</strong> 看到最佳结果的团队不是问出更好问题的人，而是给它更难问题、不同结构化管理长期运行、理解行为变化需要更新提示的人。
+</p>
+<hr>
+<h2>What（核心定义）</h2>
+<p>
+<strong>Fable 5 的真正定位：</strong>
+</p>
+<ul>
+<li>处理之前太复杂、太长、太模糊的问题</li>
+<li>擅长需要人类数小时、数天、数周完成的端到端工作</li>
+<li>在持续、自主、多阶段工作中表现突出（之前模型会碎片化、幻觉、中途停止）</li>
+</ul>
+<p>
+<strong>与 Opus 4.8 的本质区别：</strong>
+</p>
+<ul>
+<li>Opus 4.8：快速单次回答，适合常规工作</li>
+<li>Fable 5：长时间自主运行，适合之前无法可靠完成的复杂任务</li>
+</ul>
+<p>
+<strong>关键行为变化：</strong>
+1. <strong>响应时间更长</strong>（分钟级，甚至小时级）— 这是特性不是 bug
+2. <strong>更主动</strong>（会做你没要求的事，如自动备份 git、草拟邮件）
+3. <strong>需要明确的进度验证</strong>（长任务中可能报告"完成了"但实际未验证）
+</p>
+<hr>
+<h2>How（具体方法/参数）</h2>
+<h3>1. Effort 参数控制</h3>
+<p>
+| 级别 | 用途 | 触发方式 |
+|------|------|----------|
+| <code>low</code> | 常规子任务，成本敏感 | API 参数 |
+| <code>medium</code> | 不需要完整能力的任务 | API 参数 |
+| <code>high</code> | 大多数复杂工作（默认） | API 参数 |
+| <code>xhigh</code> | 首次正确性比速度重要 | <code>ultrathink</code>（单次）或 <code>ultracode</code>（会话级） |
+</p>
+<p>
+<strong>注意：</strong> <code>ultracode</code> 需要支持 xhigh 的模型（Fable 5、Opus 4.8、Opus 4.7），Sonnet 4.6 及更早不支持。
+</p>
+<h3>2. 进度验证提示（最重要技巧）</h3>
+<p>
+<strong>问题：</strong> 长任务中 Fable 5 可能报告"完成了"但未验证实际执行结果。
+</p>
+<p>
+<strong>解决方案（加入 system prompt）：</strong>
+</p>
+<pre><code class="language-">
+"Before reporting progress, audit each claim against a tool result from this session. 
+Only report work you can point to evidence for. If something is not yet verified, 
+say so explicitly. Report outcomes faithfully: if tests fail, say so with the output. 
+If a step was skipped, state that. When something is done and verified, state it 
+plainly without hedging."
+</code></pre>
+<p>
+<strong>关键词：</strong> <code>audit</code> — Anthropic 测试发现这个词比 softer equivalents 更可靠。
+</p>
+<h3>3. 主动性约束（自动化场景必需）</h3>
+<p>
+<strong>问题：</strong> Fable 5 会主动做你没要求的事（草拟邮件、备份 git 分支）。
+</p>
+<p>
+<strong>约束提示（加入 system prompt）：</strong>
+</p>
+<pre><code class="language-">
+"When the user is describing a problem, asking a question, or thinking out loud 
+rather than requesting a change, the deliverable is your assessment. Report your 
+findings and stop. Do not apply a fix until asked. Before running a command that 
+changes system state, including restarts, deletes, or config edits, confirm that 
+the evidence actually supports that specific action."
+</code></pre>
+<p>
+<strong>关键：</strong> 明确区分"观察"和"行动"的边界。
+</p>
+<h3>4. 记忆系统（跨会话持久化）</h3>
+<p>
+<strong>结构：</strong>
+</p>
+<ul>
+<li>每个 lesson 一个 Markdown 文件</li>
+<li>顶部一行总结</li>
+<li>记录：学到了什么、被纠正了什么、确认的方法、为什么重要</li>
+<li><strong>不重复</strong>已有信息（repo/chat history 已记录的）</li>
+<li>错误的笔记删除，不是 abandoned</li>
+</ul>
+<p>
+<strong>启动提示：</strong>
+</p>
+<pre><code class="language-">
+"Maintain a memory system in [folder]. Store one lesson per file with a one-line 
+summary at the top. Record corrections and confirmed approaches alike, including 
+why they mattered. Do not save information already in the repo or chat history. 
+Update existing notes rather than creating duplicates. Delete notes that have 
+proven incorrect."
+</code></pre>
+<p>
+<strong>会话结束提示：</strong>
+</p>
+<pre><code class="language-">
+"Reflect on the sessions we have had. Use subagents to identify core themes and 
+lessons, and store them in [folder]. Reference [folder] at the start of future 
+sessions."
+</code></pre>
+<h3>5. 最终响应格式（长任务必需）</h3>
+<p>
+<strong>问题：</strong> 长自主运行后，模型用内部缩写、箭头链、速记总结，只有全程跟踪的人能看懂。
+</p>
+<p>
+<strong>解决方案：</strong>
+</p>
+<pre><code class="language-">
+"For your final response after this task: state the outcome first, then the key 
+supporting details. Do not include working abbreviations, internal labels, or 
+arrow chains in the user-facing output. Users need the outcome, the evidence, 
+the risks if any, and the next step."
+</code></pre>
+<h3>6. 子代理委派模式</h3>
+<p>
+<strong>三要素：</strong>
+1. 明确允许委派 vs 自己处理
+2. 每个子代理 bounded scope + 明确成功标准
+3. 指定协调代理在子代理运行时的行为（继续独立工作，不等待）
+</p>
+<p>
+<strong>提示：</strong>
+</p>
+<pre><code class="language-">
+"Delegate independent subtasks to sub-agents and continue working while they run. 
+Each sub-agent should receive a specific, bounded scope and explicit success 
+criteria. Synthesize sub-agent results only after all have reported. If any 
+sub-agent fails or cannot complete its scope, report that clearly in the 
+synthesis rather than inferring what would have been found."
+</code></pre>
+<p>
+<strong>关键：</strong> 子代理失败是信息，不要用推断填充。
+</p>
+<h3>7. 视觉提示</h3>
+<p>
+<strong>新能力：</strong>
+</p>
+<ul>
+<li>解释密集技术图像、Web 应用、详细截图（比 Opus 4.8 更准确，token 更少）</li>
+<li>主动使用 bash/crop 工具处理翻转、模糊、噪音图像</li>
+<li>可以用视觉验证自己的编码工作（对比设计稿和截图）</li>
+</ul>
+<p>
+<strong>UI/前端工作提示：</strong>
+</p>
+<pre><code class="language-">
+"Here is the design target and a screenshot of the current implementation. Use 
+vision to identify differences and generate the changes needed to close the gap. 
+Crop and zoom into any areas where the comparison is unclear before reporting 
+findings."
+</code></pre>
+<p>
+<strong>关键：</strong> 明确指示"crop and zoom"解锁 bash 工具行为。
+</p>
+<h3>8. 安全分类器和回退</h3>
+<p>
+<strong>Fable 5 安全分类器：</strong>
+</p>
+<ul>
+<li>攻击性网络安全技术</li>
+<li>生物/生命科学内容</li>
+<li>提取模型总结思维</li>
+</ul>
+<p>
+<strong>拒绝处理：</strong>
+</p>
+<ul>
+<li>`stop_reason: "refusal"` 作为 HTTP 200，不是错误</li>
+<li>API 集成需要单独检查 `stop_reason`</li>
+<li>Anthropic 提供 SDK 中间件自动回退到 Opus 4.8</li>
+<li>拒绝时 prompt-cache 成本由 Anthropic 承担</li>
+</ul>
+<p>
+<strong>影响：</strong> 典型开发者查询 <5% 触发拒绝，但可能在良性生物/代码审查任务中出现。
+</p>
+<p>
+<strong>Mythos 5：</strong> 移除网络安全分类器，保留生物/化学，仅限 Project Glasswing 合作伙伴。
+</p>
+<h3>9. 迁移清单（Opus 4.8 → Fable 5）</h3>
+<p>
+| 检查项 | 行动 |
+|--------|------|
+| <strong>超时</strong> | 审计所有超时设置，延长（Opus 4.8 的超时对 Fable 5 太短） |
+| <strong>拒绝处理</strong> | 添加 <code>stop_reason: "refusal"</code> 处理，设置 Opus 4.8 回退 |
+| <strong>主动性约束</strong> | 在自动化/无人值守场景的 system prompt 中添加明确约束 |
+| <strong>进度验证</strong> | 在第一个生产运行前添加 audit 指令 |
+| <strong>记忆结构</strong> | 如果跨多会话，设置 lesson 文件结构和会话结束反思提示 |
+| <strong>最终响应格式</strong> | 在面向终端用户的工作流中添加 outcome-first 约束 |
+| <strong>测试范围</strong> | 在至少一个 Opus 4.8 难以完成的任务上测试 |
+</p>
+<p>
+<strong>迁移完成标准：</strong> 最复杂的工作流在第一次尝试时自主完成，无需人工干预。
+</p>
+<hr>
+<h2>So What（启示和行动项）</h2>
+<h3>对 FDE 团队转型</h3>
+<p>
+1. <strong>重新定义测试范围：</strong>
+</p>
+<ul>
+<li>不要在已经能完成的任务上测试 Fable 5</li>
+<li>选择之前"放弃了自动化"的工作流（需要多会话、人工干预的任务）</li>
+<li>这才是 Fable 5 真正价值的体现</li>
+</ul>
+<p>
+2. <strong>更新 Hermes Agent 系统提示：</strong>
+</p>
+<ul>
+<li>添加进度验证指令（audit 语言）</li>
+<li>添加主动性约束（自动化场景）</li>
+<li>添加最终响应格式（outcome-first）</li>
+<li>设置记忆系统（跨会话 lesson 文件）</li>
+</ul>
+<p>
+3. <strong>调整超时策略：</strong>
+</p>
+<ul>
+<li>当前 Hermes 的超时设置可能基于 Opus 4.8</li>
+<li>Fable 5 在 high effort 下需要分钟级，xhigh 需要更长</li>
+<li>审计所有 Cron Job 和 Agent 的超时设置</li>
+</ul>
+<p>
+4. <strong>子代理委派模式：</strong>
+</p>
+<ul>
+<li>Multica Agent Team 可以利用 Fable 5 的委派能力</li>
+<li>明确 bounded scope + 成功标准</li>
+<li>失败是信息，不要推断填充</li>
+</ul>
+<p>
+5. <strong>视觉验证闭环：</strong>
+</p>
+<ul>
+<li>Keeper 可以用 Fable 5 的视觉能力自我验证</li>
+<li>对比设计稿和截图，自动发现差异</li>
+<li>减少人工视觉检查</li>
+</ul>
+<h3>对 AI 创业</h3>
+<p>
+1. <strong>产品定位：</strong>
+</p>
+<ul>
+<li>Fable 5 不是"更好的 ChatGPT"，而是"自主工作流引擎"</li>
+<li>目标客户：有复杂、长周期、多步骤工作流的企业</li>
+<li>价值主张：之前需要人工干预的任务，现在可以自主完成</li>
+</ul>
+<p>
+2. <strong>技术差异化：</strong>
+</p>
+<ul>
+<li>进度验证提示是关键技术（防止模型"说谎"）</li>
+<li>记忆系统实现跨会话连贯性</li>
+<li>视觉自我验证闭环</li>
+</ul>
+<p>
+3. <strong>定价策略：</strong>
+</p>
+<ul>
+<li>Fable 5 比 Opus 4.8 贵，但在复杂任务上 ROI 更高</li>
+<li>教育客户：不要在简单任务上测试，要在最难的任务上测试</li>
+<li>如果最复杂任务能一次完成，模型就值得这个价格</li>
+</ul>
+<h3>立即行动项</h3>
+<p>
+1. <strong>更新 Hermes Agent 系统提示：</strong>
+</p>
+<ul>
+<li>添加进度验证指令</li>
+<li>添加主动性约束</li>
+<li>添加最终响应格式</li>
+<li>设置记忆系统</li>
+</ul>
+<p>
+2. <strong>审计超时设置：</strong>
+</p>
+<ul>
+<li>检查所有 Cron Job 超时</li>
+<li>检查 Agent 超时</li>
+<li>延长到分钟级（Fable 5 high effort）</li>
+</ul>
+<p>
+3. <strong>测试 Fable 5：</strong>
+</p>
+<ul>
+<li>选择一个之前放弃自动化的任务</li>
+<li>用 Fable 5 xhigh effort 运行</li>
+<li>对比 Opus 4.8 的表现</li>
+</ul>
+<p>
+4. <strong>更新 Keeper：</strong>
+</p>
+<ul>
+<li>利用视觉能力自我验证</li>
+<li>对比设计稿和截图</li>
+<li>自动发现视觉差异</li>
+</ul>
+<hr>
+<h2>关键洞察</h2>
+<p>
+<strong>Fable 5 不是"更聪明的 Opus 4.8"，而是"不同类别的工具"。</strong> 大多数团队在简单任务上测试它，看到边际改进就放弃。真正看到价值的是那些把它用在之前放弃自动化的复杂任务上的团队。
+</p>
+<p>
+<strong>核心技术突破：</strong> 进度验证提示（audit 语言）几乎完全消除了长任务中模型"说谎"的问题。这是从"玩具"到"生产"的关键。
+</p>
+<p>
+<strong>商业启示：</strong> 不要在已经能完成的任务上和竞争对手比，要在之前无法完成的任务上创造新价值。
+</p>
+<hr>
+<h2>延伸思考</h2>
+<h3>FDE 团队的新机会</h3>
+<p>
+宝洁的 FDE 团队一直在寻找"之前无法自动化"的工作流。Fable 5 的长自主运行能力 + 进度验证 + 记忆系统，可能让之前"需要人工干预"的任务变成"自主完成"。
+</p>
+<p>
+<strong>具体场景：</strong>
+</p>
+<ul>
+<li>市场分析报告生成（之前需要多轮人工审核）</li>
+<li>竞品监控和预警（之前需要人工判断）</li>
+<li>供应链优化建议（之前需要人工验证）</li>
+</ul>
+<h3>Hermes Agent 的升级路径</h3>
+<p>
+当前 Hermes Agent 的系统提示可以借鉴 Fable 5 官方指南：
+1. 添加进度验证（audit 语言）
+2. 添加主动性约束（自动化场景）
+3. 添加最终响应格式（outcome-first）
+4. 设置记忆系统（跨会话 lesson 文件）
+</p>
+<p>
+这将让 Hermes 从"响应式助手"升级为"自主工作流引擎"。
+</p>
+<h3>创业机会</h3>
+<p>
+构建"Fable 5 迁移服务"：
+</p>
+<ul>
+<li>帮助企业从 Opus 4.8 迁移到 Fable 5</li>
+<li>提供迁移清单、提示模板、超时配置</li>
+<li>专注于特定行业（如 FMCG、金融、医疗）</li>
+<li>价值：减少迁移风险，加速价值实现</li>
+</ul>
+<hr>
+<p>
+<strong>来源：</strong> <a href="https://x.com/cyrilxbt/status/2072706408710058492">https://x.com/cyrilxbt/status/2072706408710058492</a>
+<strong>作者：</strong> @cyrilXBT (187K followers, AI/Tech/Crypto)
+<strong>提取时间：</strong> 2026-07-03
+</p>
+            </div>
+        </article>
+
+        <footer class="footer">
+            <p><a href="../../">← 返回首页</a></p>
+            <p>AI 资讯日报 — 知识卡片精选</p>
+        </footer>
+    </main>
+</body>
+</html>
