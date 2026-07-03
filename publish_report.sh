@@ -43,6 +43,9 @@ cat "$REPORT_FILE" >> "$POSTS_DIR/$FILENAME"
 cd "$WEBSITE_DIR"
 python3 "$HOME/.hermes/scripts/posts_privacy_filter.py"
 
+# 提取封面图片（从报告中的源链接提取 OG image）
+python3 "$HOME/.hermes/scripts/extract_cover_image.py" "$POSTS_DIR/$FILENAME" 2>&1 || echo "⚠️ 封面图片提取失败，继续发布..."
+
 # 重新生成 index.html（自动扫描 _posts/ 目录）
 python3 generate_index.py
 
