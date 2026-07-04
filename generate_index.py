@@ -30,6 +30,7 @@ SUPABASE_HEAD = """
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 """
 
 def supabase_nav_auth():
@@ -96,6 +97,12 @@ def interaction_bar(content_type, content_id):
         document.addEventListener('DOMContentLoaded', function() {{
             interactions.init('{content_type}', '{content_id}');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {{
+                pageViews.trackView('{content_type}', '{content_id}');
+                pageViews.displayViewCount('view-count', '{content_type}', '{content_id}');
+            }}
         }});
     </script>
 """
@@ -524,6 +531,7 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
                 <div class="meta">
                     <time>{post['date']}</time>
                     <span class="report-type type-{post['report_type']}">{label}</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -580,6 +588,7 @@ def generate_card_page(card, total_cards):
                     <span class="author">{card['author']}</span>
                     <time>{card['date']}</time>
                     {" | ".join(f'<span class="tag">{t}</span>' for t in card['tags'])}
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 {"<p><a href='" + card['source'] + "' target='_blank'>Original ↗</a></p>" if card['source'] else ""}
             </header>

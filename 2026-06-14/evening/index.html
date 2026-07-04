@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-14 20:04:08 +0800</time>
                     <span class="report-type type-evening">晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -343,6 +345,12 @@ Agent 正在从"Demo 驱动"进入"Benchmark 驱动"——当行业开始定义�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-14-evening');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-14-evening');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-14-evening');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">YanXbt (@IBuzovskyi)</span>
                     <time>2026-06-21</time>
                     <span class="tag">Hermes Agent</span> | <span class="tag">自主系统</span> | <span class="tag">技能</span> | <span class="tag">Cron</span> | <span class="tag">多Profile</span> | <span class="tag">Kanban</span> | <span class="tag">知识管理</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/ibuzovskyi/status/2068629714776756339' target='_blank'>Original ↗</a></p>
             </header>
@@ -346,6 +348,12 @@ hermes profile install github.com/user/their-agent
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-21-hermes-agent-15-levels');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-21-hermes-agent-15-levels');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-21-hermes-agent-15-levels');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">nash_su (@nash_su)</span>
                     <time>2026-04-21</time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/nash_su/status/2046460848928157821' target='_blank'>Original ↗</a></p>
             </header>
@@ -264,6 +266,12 @@ AI 执行高风险行动前的 negotiation 层。包含：
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-04-21-intent-ux-ai-era');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-04-21-intent-ux-ai-era');
+                pageViews.displayViewCount('view-count', 'card', '2026-04-21-intent-ux-ai-era');
+            }
         });
     </script>
 

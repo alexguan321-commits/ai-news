@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Atlas (@crptAtlas)</span>
                     <time>2026-06-27</time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/crptAtlas/article/2070573863218368823' target='_blank'>Original ↗</a></p>
             </header>
@@ -361,6 +363,12 @@ The leverage moved up a floor. You are no longer the trader typing one idea at a
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-27-loop-engineering-quants');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-27-loop-engineering-quants');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-27-loop-engineering-quants');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-07-03 14:00:00 +0800</time>
                     <span class="report-type type-noon">午报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -588,6 +590,12 @@ Claude Fable 5 中断 → 企业意识到单一供应商风险 → 部署多模�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-07-03-noon');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-07-03-noon');
+                pageViews.displayViewCount('view-count', 'report', '2026-07-03-noon');
+            }
         });
     </script>
 

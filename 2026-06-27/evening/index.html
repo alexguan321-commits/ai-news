@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-27 21:00:00 +0800</time>
                     <span class="report-type type-evening">晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -198,6 +200,12 @@ ppt-master 的"模板跟随"能力暗示了一个知识图谱机会：<strong>�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-27-evening');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-27-evening');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-27-evening');
+            }
         });
     </script>
 

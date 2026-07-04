@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">@cyrilXBT (CyrilXBT)</span>
                     <time>2026-07-02</time>
                     <span class="tag">anthropic</span> | <span class="tag">fable5</span> | <span class="tag">prompting</span> | <span class="tag">agent</span> | <span class="tag">autonomous-workflow</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/cyrilxbt/status/2072706408710058492' target='_blank'>Original ↗</a></p>
             </header>
@@ -467,6 +469,12 @@ findings."
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-07-03-cyrilxbt-fable5-prompting-guide');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-07-03-cyrilxbt-fable5-prompting-guide');
+                pageViews.displayViewCount('view-count', 'card', '2026-07-03-cyrilxbt-fable5-prompting-guide');
+            }
         });
     </script>
 

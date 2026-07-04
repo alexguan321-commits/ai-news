@@ -1740,3 +1740,25 @@ body {
 .tab-content .filter-tags {
     margin-bottom: 1.5rem;
 }
+
+/* ── View Count Display ──────────────────────────────────────── */
+.view-count-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(100, 181, 246, 0.15);
+    border: 1px solid rgba(100, 181, 246, 0.3);
+    border-radius: 12px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.view-count-wrapper.loading {
+    opacity: 0.5;
+}
+
+#view-count {
+    font-weight: 600;
+    color: #64b5f6;
+}

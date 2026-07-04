@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-12 20:03:08 +0800</time>
                     <span class="report-type type-evening">晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -271,6 +273,12 @@ Agent 正在从"能跑通"进入"不能跑崩"的阶段——成本护栏、编�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-12-evening');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-12-evening');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-12-evening');
+            }
         });
     </script>
 

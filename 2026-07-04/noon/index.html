@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-07-04 14:30:00 +0800</time>
                     <span class="report-type type-noon">午报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -396,6 +398,12 @@ Claude Code 用 Unicode 字符编码用户身份（<code>\u2019</code> = 命中�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-07-04-noon');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-07-04-noon');
+                pageViews.displayViewCount('view-count', 'report', '2026-07-04-noon');
+            }
         });
     </script>
 

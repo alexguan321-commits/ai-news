@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-24 08:06:29 +0800</time>
                     <span class="report-type type-morning">早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -466,6 +468,12 @@ AI 的价值正在从"帮助个人完成任务"转向"帮助组织积累能力"�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-24-morning');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-24-morning');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-24-morning');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">codila (@0xCodila)</span>
                     <time>2026-07-01</time>
                     <span class="tag">Loop Engineering</span> | <span class="tag">Karpathy Loop</span> | <span class="tag">Bilevel Autoresearch</span> | <span class="tag">自主系统</span> | <span class="tag">AI工程</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/0xcodila/status/2072329149520232639' target='_blank'>Original ↗</a></p>
             </header>
@@ -337,6 +339,12 @@ while meta_improvement_possible:
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
+                pageViews.displayViewCount('view-count', 'card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
+            }
         });
     </script>
 

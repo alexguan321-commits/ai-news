@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-16 08:02:39 +0800</time>
                     <span class="report-type type-morning">早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -260,6 +262,12 @@ Skydio 是美国领先的自主无人机制造商。CEO 在播客中主张军事
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-16-morning');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-16-morning');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-16-morning');
+            }
         });
     </script>
 

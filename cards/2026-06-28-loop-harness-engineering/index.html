@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Archive (@ArchiveExplorer)</span>
                     <time>2026-06-28</time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/ArchiveExplorer/article/2071192832455430283' target='_blank'>Original ↗</a></p>
             </header>
@@ -517,6 +519,12 @@ Open your .claude/ folder. Count the files.
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-28-loop-harness-engineering');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-28-loop-harness-engineering');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-28-loop-harness-engineering');
+            }
         });
     </script>
 

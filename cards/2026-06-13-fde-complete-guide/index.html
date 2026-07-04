@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author"></span>
                     <time></time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 
             </header>
@@ -469,6 +471,12 @@ AI 时代真正难的，不是让模型回答问题，而是让模型在一个�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-13-fde-complete-guide');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-13-fde-complete-guide');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-13-fde-complete-guide');
+            }
         });
     </script>
 

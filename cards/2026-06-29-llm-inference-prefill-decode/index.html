@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Avi Chawla (@_avichawla)</span>
                     <time>2026-06-29</time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/_avichawla/status/2071522418594861215' target='_blank'>Original ↗</a></p>
             </header>
@@ -190,6 +192,12 @@ When someone says their model feels slow, the first question is whether it's <st
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-29-llm-inference-prefill-decode');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-29-llm-inference-prefill-decode');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-29-llm-inference-prefill-decode');
+            }
         });
     </script>
 

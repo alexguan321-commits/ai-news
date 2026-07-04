@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Peter Pang (@intuitiveml)</span>
                     <time>2026-04-13</time>
                     <span class="tag">#ai-first #harness-engineering #engineering #startup #cto</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/intuitiveml/article/2043545596699750791' target='_blank'>Original ↗</a></p>
             </header>
@@ -463,6 +465,12 @@ We build an agent platform. We built it with agents.
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-04-13-ai-first-strategy-harness-engineering');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-04-13-ai-first-strategy-harness-engineering');
+                pageViews.displayViewCount('view-count', 'card', '2026-04-13-ai-first-strategy-harness-engineering');
+            }
         });
     </script>
 

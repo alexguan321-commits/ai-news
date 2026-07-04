@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Wei Zhou, Xuanhe Zhou, Shaokun Han, Hongming Xu, Guoliang Li, Zhiyu Li, Feiyu Xiong, Fan Wu</span>
                     <time>2026-06-23</time>
                     <span class="tag">Agent记忆</span> | <span class="tag">知识图谱</span> | <span class="tag">数据管理</span> | <span class="tag">评估基准</span> | <span class="tag">Mem0</span> | <span class="tag">Zep</span> | <span class="tag">MemGPT</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://arxiv.org/pdf/2606.24775' target='_blank'>Original ↗</a></p>
             </header>
@@ -338,6 +340,12 @@ LLM Agent 的记忆系统已从简单的检索增强机制快速演变为支持�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-23-agent-native-memory-system');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-23-agent-native-memory-system');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-23-agent-native-memory-system');
+            }
         });
     </script>
 

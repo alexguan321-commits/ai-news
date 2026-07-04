@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Khairallah AL-Awady (@eng_khairallah1)</span>
                     <time>2026-06-23</time>
                     <span class="tag">ai-engineer</span> | <span class="tag">career</span> | <span class="tag">learning-path</span> | <span class="tag">no-degree</span> | <span class="tag">portfolio</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/eng_khairallah1/article/2069341916798369801' target='_blank'>Original ↗</a></p>
             </header>
@@ -276,6 +278,12 @@ The only thing standing between you and Phase 1 is opening a blank file today.
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-23-ai-engineer-no-degree');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-23-ai-engineer-no-degree');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-23-ai-engineer-no-degree');
+            }
         });
     </script>
 

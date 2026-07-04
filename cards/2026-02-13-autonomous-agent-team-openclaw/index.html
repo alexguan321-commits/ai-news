@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Shubham Saboo (@Saboo_Shubham_)</span>
                     <time>2026-02-13</time>
                     <span class="tag">autonomous-agents</span> | <span class="tag">multi-agent</span> | <span class="tag">openclaw</span> | <span class="tag">production-system</span> | <span class="tag">agent-team</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/Saboo_Shubham_/article/2022014147450614038' target='_blank'>Original ↗</a></p>
             </header>
@@ -557,6 +559,12 @@ Start today. One agent. One job. One schedule.
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-02-13-autonomous-agent-team-openclaw');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-02-13-autonomous-agent-team-openclaw');
+                pageViews.displayViewCount('view-count', 'card', '2026-02-13-autonomous-agent-team-openclaw');
+            }
         });
     </script>
 

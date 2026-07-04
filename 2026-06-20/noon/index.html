@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-20 14:03:05 +0800</time>
                     <span class="report-type type-noon">午报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -225,6 +227,12 @@ codebase-memory-mcp 是 Ontology 思路的工程化——把非结构化代码�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-20-noon');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-20-noon');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-20-noon');
+            }
         });
     </script>
 

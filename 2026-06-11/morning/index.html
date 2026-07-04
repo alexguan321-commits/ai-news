@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-11 08:04:08 +0800</time>
                     <span class="report-type type-morning">早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -208,6 +210,12 @@ Claude Fable 5 带着争议登场（护栏过严 + 微软限制 + Agent 被 GPT-
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-11-morning');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-11-morning');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-11-morning');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-07-04 08:05:00 +0800</time>
                     <span class="report-type type-morning">早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -451,6 +453,12 @@ Fable 5 被禁用 19 天这件事，在今天的新闻周期中被低估了。�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-07-04-morning');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-07-04-morning');
+                pageViews.displayViewCount('view-count', 'report', '2026-07-04-morning');
+            }
         });
     </script>
 

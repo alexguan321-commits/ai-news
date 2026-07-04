@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-10 12:02:15 +0800</time>
                     <span class="report-type type-noon">午报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -192,6 +194,12 @@ WWDC 2026 后续 session（尤其是 Foundation Models + CoreML 的 API 细节�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-10-noon');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-10-noon');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-10-noon');
+            }
         });
     </script>
 

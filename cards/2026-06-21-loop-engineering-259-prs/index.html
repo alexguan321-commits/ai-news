@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">shmidt (@shmidtqq)</span>
                     <time>2026-06-21</time>
                     <span class="tag">loop-engineering</span> | <span class="tag">ai-agents</span> | <span class="tag">claude-code</span> | <span class="tag">codex</span> | <span class="tag">automation</span> | <span class="tag">productivity</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/shmidtqq/article/2068704187492221405' target='_blank'>Original ↗</a></p>
             </header>
@@ -348,6 +350,12 @@ Nobody who ships two hundred changes a month started with a hundred agents. They
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-21-loop-engineering-259-prs');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-21-loop-engineering-259-prs');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-21-loop-engineering-259-prs');
+            }
         });
     </script>
 

@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Anatoli Kopadze (@AnatoliKopadze)</span>
                     <time>2026-05-22</time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/AnatoliKopadze/article/2057813254617858078' target='_blank'>Original ↗</a></p>
             </header>
@@ -479,6 +481,12 @@ Come back to this article when you're ready for the next one.
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-05-22-claude-can-do-all-of-this');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-05-22-claude-can-do-all-of-this');
+                pageViews.displayViewCount('view-count', 'card', '2026-05-22-claude-can-do-all-of-this');
+            }
         });
     </script>
 

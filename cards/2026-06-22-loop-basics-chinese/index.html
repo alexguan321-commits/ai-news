@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Easycompany (@Easycompany333)</span>
                     <time>2026-06-22</time>
                     <span class="tag">loop-engineering</span> | <span class="tag">chinese</span> | <span class="tag">tutorial</span> | <span class="tag">basics</span> | <span class="tag">cost-analysis</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/Easycompany333/article/2069019238283849954' target='_blank'>Original ↗</a></p>
             </header>
@@ -484,6 +486,12 @@ RULES:
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-22-loop-basics-chinese');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-22-loop-basics-chinese');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-22-loop-basics-chinese');
+            }
         });
     </script>
 

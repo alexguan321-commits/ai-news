@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author"></span>
                     <time></time>
                     
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 
             </header>
@@ -270,6 +272,12 @@ Palantir 把"客户部署"视为研发（R&D），不是销货成本（COGS）�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-05-15-fde-forward-deployed-engineer');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-05-15-fde-forward-deployed-engineer');
+                pageViews.displayViewCount('view-count', 'card', '2026-05-15-fde-forward-deployed-engineer');
+            }
         });
     </script>
 

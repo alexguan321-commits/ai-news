@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">wandermist (@wandermist)</span>
                     <time>2026-06-30</time>
                     <span class="tag">Hermes Agent</span> | <span class="tag">文件夹结构</span> | <span class="tag">INDEX.md</span> | <span class="tag">Agent优化</span> | <span class="tag">工作流</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/wandermist/status/2071930382581195105' target='_blank'>Original ↗</a></p>
             </header>
@@ -412,6 +414,12 @@ Agent 必须每次都搜索所有地方，不知道哪个草稿是当前的、�
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-06-30-hermes-agent-10x-faster-index-md');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-06-30-hermes-agent-10x-faster-index-md');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-30-hermes-agent-10x-faster-index-md');
+            }
         });
     </script>
 

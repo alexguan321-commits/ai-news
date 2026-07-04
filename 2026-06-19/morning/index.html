@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -32,6 +33,7 @@
                 <div class="meta">
                     <time>2026-06-19 08:03:12 +0800</time>
                     <span class="report-type type-morning">早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
@@ -327,6 +329,12 @@ AI agent skills 的安全扫描器 — <strong>判断</strong>：agent skills �
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-06-19-morning');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('report', '2026-06-19-morning');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-19-morning');
+            }
         });
     </script>
 

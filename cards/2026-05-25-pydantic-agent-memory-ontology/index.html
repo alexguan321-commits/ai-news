@@ -12,6 +12,7 @@
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
 
 </head>
 <body>
@@ -33,6 +34,7 @@
                     <span class="author">Akshay Pachaar (@akshay_pachaar)</span>
                     <time>2026-05-25</time>
                     <span class="tag">Agent记忆</span> | <span class="tag">知识图谱</span> | <span class="tag">Pydantic</span> | <span class="tag">Ontology</span> | <span class="tag">Zep</span> | <span class="tag">结构化提取</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
                 <p><a href='https://x.com/akshay_pachaar/status/2058976178908885210' target='_blank'>Original ↗</a></p>
             </header>
@@ -280,6 +282,12 @@ Alex USES_TECHNOLOGY Python (proficiency: advanced)
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-05-25-pydantic-agent-memory-ontology');
             interactions.loadComments();
+            
+            // 浏览统计
+            if (typeof pageViews !== 'undefined') {
+                pageViews.trackView('card', '2026-05-25-pydantic-agent-memory-ontology');
+                pageViews.displayViewCount('view-count', 'card', '2026-05-25-pydantic-agent-memory-ontology');
+            }
         });
     </script>
 
