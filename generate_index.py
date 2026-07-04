@@ -499,13 +499,13 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{post['title']} - AI 资讯日报</title>
+    <title>{post['title']} - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
-        <a href="../../" class="logo">AI 资讯日报</a>
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{all_posts_count}</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
@@ -534,8 +534,8 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
         </article>
 
         <footer class="footer">
-            <p><a href="../../">← 返回所有报告</a></p>
-            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
         </footer>
     </main>
 </body>
@@ -554,13 +554,13 @@ def generate_card_page(card, total_cards):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{card['title']} - 知识卡片</title>
+    <title>{card['title']} - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
-        <a href="../../" class="logo">AI 资讯日报</a>
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total_cards}</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
@@ -571,14 +571,14 @@ def generate_card_page(card, total_cards):
     <main class="container">
         <article class="card-content">
             <header class="card-header">
-                <span class="card-badge">知识卡片</span>
+                <span class="card-badge">Knowledge Card</span>
                 <h1>{card['title']}</h1>
                 <div class="meta">
                     <span class="author">{card['author']}</span>
                     <time>{card['date']}</time>
                     {" | ".join(f'<span class="tag">{t}</span>' for t in card['tags'])}
                 </div>
-                {"<p><a href='" + card['source'] + "' target='_blank'>原文链接 ↗</a></p>" if card['source'] else ""}
+                {"<p><a href='" + card['source'] + "' target='_blank'>Original ↗</a></p>" if card['source'] else ""}
             </header>
 
             <div class="content">
@@ -589,8 +589,8 @@ def generate_card_page(card, total_cards):
         </article>
 
         <footer class="footer">
-            <p><a href="../../">← 返回首页</a></p>
-            <p>AI 资讯日报 — 知识卡片精选</p>
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
         </footer>
     </main>
 </body>
@@ -608,7 +608,7 @@ def generate_html(posts, cards):
     latest = posts[:6]
     latest_cards = cards[:8]
 
-    type_labels = {"morning": "早报", "noon": "午报", "evening": "晚报"}
+    type_labels = {"morning": "Morning", "noon": "Noon", "evening": "Evening"}
 
     def render_card(p):
         label = type_labels.get(p["report_type"], p["report_type"])
@@ -640,7 +640,7 @@ def generate_html(posts, cards):
         return f"""        <article class="knowledge-card">
             <a href="{c['url']}">
                 <div class="kc-header">
-                    <span class="kc-badge">📚 知识卡片</span>
+                    <span class="kc-badge">📚 Knowledge Card</span>
                     <time>{c['date_prefix']}</time>
                 </div>
                 <h3>{c['title']}</h3>
@@ -664,7 +664,7 @@ def generate_html(posts, cards):
         return f"""        <div class="archive-item" data-type="card">
             <a href="{c['url']}">{c['title']}</a>
             <time>{c['date_prefix']}</time>
-            <span class="report-type type-card">📚 卡片</span>
+            <span class="report-type type-card">📚 Card</span>
         </div>"""
 
     cards_html = "\n".join(render_card(p) for p in latest)
@@ -697,13 +697,13 @@ def generate_html(posts, cards):
     <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>AI 资讯日报</title>
+    <title>Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="styles.css">
     {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
-        <a href="/ai-news/" class="logo">AI 资讯日报</a>
+        <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total_posts}</span> reports</div>
             <div><span class="stat-value">{total_cards}</span> cards</div>
@@ -714,8 +714,8 @@ def generate_html(posts, cards):
 
     <main class="container">
         <section class="hero">
-            <h1>AI 资讯日报</h1>
-            <p>每日 AI 行业深度情报 + 精选知识卡片，由 AI 自动采集、分析、生成</p>
+            <h1>Alex Guan's AI Knowledge Base</h1>
+            <p>Daily AI industry insights · Curated knowledge cards · Auto-collected and analyzed by AI</p>
         </section>
 
         <div class="stats-bar">
@@ -739,23 +739,23 @@ def generate_html(posts, cards):
 
         <section class="search-section">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
                 <span id="searchCount" class="search-count"></span>
             </div>
         </section>
 
         <div class="tab-container">
             <div class="tab-nav">
-                <button class="tab-btn active" data-tab="reports">📰 报告 ({total_posts})</button>
-                <button class="tab-btn" data-tab="cards">📚 知识卡片 ({total_cards})</button>
+                <button class="tab-btn active" data-tab="reports">📰 Reports ({total_posts})</button>
+                <button class="tab-btn" data-tab="cards">📚 Knowledge Cards ({total_cards})</button>
             </div>
 
             <div class="tab-content active" id="reports-tab">
                 <div class="filter-tags">
-                    <button class="filter-tag active" data-filter="all">全部</button>
-                    <button class="filter-tag" data-filter="morning">早报</button>
-                    <button class="filter-tag" data-filter="noon">午报</button>
-                    <button class="filter-tag" data-filter="evening">晚报</button>
+                    <button class="filter-tag active" data-filter="all">All</button>
+                    <button class="filter-tag" data-filter="morning">Morning</button>
+                    <button class="filter-tag" data-filter="noon">Noon</button>
+                    <button class="filter-tag" data-filter="evening">Evening</button>
                 </div>
 
                 <section class="reports-list">
@@ -782,7 +782,7 @@ def generate_html(posts, cards):
             <div class="tab-content" id="cards-tab">
                 <section class="knowledge-cards-section">
                     <div class="section-header">
-                        <h2>精选知识卡片</h2>
+                        <h2>Featured Knowledge Cards</h2>
                         <span class="count">{min(8, total_cards)} of {total_cards} cards</span>
                     </div>
                     <div class="knowledge-cards-grid">
@@ -804,7 +804,7 @@ def generate_html(posts, cards):
     </main>
 
     <footer class="footer">
-        <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+        <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
         <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · {total_posts} REPORTS · {total_cards} CARDS</p>
     </footer>
 
