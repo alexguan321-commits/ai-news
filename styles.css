@@ -916,7 +916,7 @@ body {
 /* ── Report Content Page ─────────────────────────────────────── */
 
 .report-content {
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -953,6 +953,11 @@ body {
 }
 
 /* Article content styles */
+.content {
+    color: #ffffff;
+    line-height: 1.7;
+}
+
 .content h1, .content h2, .content h3, .content h4 {
     color: var(--text-primary);
     margin-top: 2.5rem;
@@ -1046,12 +1051,11 @@ body {
 
 .content img {
     max-width: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     border-radius: var(--radius);
     margin: 2rem 0;
     display: block;
-    object-fit: contain;
 }
 
 .content hr {
