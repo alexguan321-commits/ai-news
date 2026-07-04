@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
-    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704c">
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
@@ -134,31 +134,60 @@ Anthropic 在 2025 年 12 月发布规范，半年里 33+ 个 Agent 产品接入
             </div>
 
             
-    <div class="interaction-bar">
-        <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <span id="like-count">0</span>
-        </button>
-        <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-            收藏
-        </button>
-        <span class="interaction-btn" style="cursor:default;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span id="comment-count">0</span> 评论
-        </span>
-    </div>
-
-    <section class="comments-section">
-        <h3>💬 Comments</h3>
-        <div class="comment-form">
-            <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
-            <button onclick="interactions.submitComment()">Post Comment</button>
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
         </div>
-        <div id="comments-list"></div>
-    </section>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
 
     <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('card', '2026-05-15-bestblogs-weekly-95-agent-engineering.md');
             interactions.loadComments();
