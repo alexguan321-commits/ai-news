@@ -138,6 +138,9 @@ class SupabaseAuth {
     if (!authContainer) return;
 
     if (this.isLoggedIn()) {
+      // 登录成功 - 隐藏登录门控，显示内容
+      hideLoginGate();
+      
       authContainer.innerHTML = `
         <div class="user-menu">
           <button class="user-avatar-btn" onclick="auth.toggleUserDropdown()">
@@ -271,9 +274,66 @@ class SupabaseAuth {
 function createAuthInstance() {
   if (typeof window.supabaseClient !== 'undefined' && !window.auth) {
     window.auth = new SupabaseAuth();
+    
+    // 检查认证状态 - 未登录则显示登录页
+    setTimeout(() => {
+      if (!window.auth.isLoggedIn()) {
+        showLoginGate();
+      }
+    }, 500);
+    
     return true;
   }
   return false;
+}
+
+// 显示登录门控 - 隐藏内容，显示登录页
+function showLoginGate() {
+  // 隐藏主内容
+  const mainContent = document.querySelector('main.container');
+  if (mainContent) {
+    mainContent.style.display = 'none';
+  }
+  
+  // 隐藏导航栏统计
+  const navStats = document.querySelector('.nav-stats');
+  if (navStats) {
+    navStats.style.display = 'none';
+  }
+  
+  // 显示全屏登录页
+  let loginGate = document.getElementById('login-gate');
+  if (!loginGate) {
+    loginGate = document.createElement('div');
+    loginGate.id = 'login-gate';
+    loginGate.innerHTML = `
+      <div class="login-gate-content">
+        <h1>🔐 AI 资讯日报</h1>
+        <p>请先登录后访问</p>
+        <button class="login-btn" onclick="auth.showLoginModal()">登录</button>
+      </div>
+    `;
+    document.body.insertBefore(loginGate, document.body.firstChild);
+  }
+  loginGate.style.display = 'flex';
+}
+
+// 隐藏登录门控 - 显示内容
+function hideLoginGate() {
+  const loginGate = document.getElementById('login-gate');
+  if (loginGate) {
+    loginGate.style.display = 'none';
+  }
+  
+  const mainContent = document.querySelector('main.container');
+  if (mainContent) {
+    mainContent.style.display = '';
+  }
+  
+  const navStats = document.querySelector('.nav-stats');
+  if (navStats) {
+    navStats.style.display = '';
+  }
 }
 
 // 立即尝试创建
