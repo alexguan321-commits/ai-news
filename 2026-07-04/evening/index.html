@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0704晚报 | Vibe Coding大溃败，Agentic工程时代来了 - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">74</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>0704晚报 | Vibe Coding大溃败，Agentic工程时代来了</h1>
+                <div class="meta">
+                    <time>2026-07-04 21:30:00 +0800</time>
+                    <span class="report-type type-evening">晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-04-evening.png" alt="Cover"></div>
+
+            <div class="content">
+                <h1>AI 晚报 - 2026-07-04</h1>
+<blockquote><p>📡 采集时间：2026-07-04 21:01 CST | 233 条新信息 | 来源：GitHub Trending, Hacker News, YouTube, Blogs, RSS</p></blockquote>
+<p>
+>
+</p>
+<blockquote><p>⚡ 今日核心信号：<strong>Vibe Coding 集体翻车 → Agentic Engineering 正式接棒</strong> | MCP 生态爆发 | 具身智能进入商业落地期</p></blockquote>
+<hr>
+<h2>📌 今日最重要的一件事</h2>
+<h3>🔴 Vibe Coding 集体翻车——HN 前五全是「反 Vibe」檄文，AI Coding 范式正在发生地壳级迁移</h3>
+<p>
+<strong>事实：</strong> 今天 Hacker News 首页出现了一个史无前例的景象——热度前五的帖子<strong>全部</strong>在讨论 Vibe Coding 的失败：
+</p>
+<p>
+| 排名 | 标题 | 热度 | 评论 |
+|------|------|------|------|
+| 1 | After two years of vibecoding, I'm back to writing by hand | 865 | 634 |
+| 2 | The cult of vibe coding is dogfooding run amok | 616 | 512 |
+| 3 | Breaking the spell of vibe coding | 434 | 348 |
+| 4 | Will vibe coding end like the maker movement? | 405 | 439 |
+| 5 | Gas Town's agent patterns, design bottlenecks, and vibecoding at scale | 403 | 433 |
+</p>
+<p>
+加上第 6 名 GLM-5 的「From Vibe Coding to Agentic Engineering」（378 分）和第 7 名「I know when you're vibe coding」（353 分），以及「Vibe coding kills open source」（330 分，arXiv 论文），<strong>前 8 名中有 7 篇在宣判 Vibe Coding 的死刑</strong>。
+</p>
+<p>
+<strong>这不是偶然——这是范式崩溃的信号。</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. 2025 年 Vibe Coding 被过度炒作 → 大量非工程师用 AI 生成代码 → 短期生产力暴涨
+2. 6-12 个月后，技术债集中爆发 → 无法维护、无法调试、安全漏洞频发
+3. 社区从「哇 AI 能写代码」转向「等等，这些代码谁来负责？」
+4. <strong>关键转折</strong>：顶尖团队发现答案不是「放弃 AI」，而是从 Vibe（随意提示）升级到 <strong>Agentic Engineering</strong>（结构化 Loop + Verifier + State）
+5. GLM-5 的博客标题精准定义了新时代：「From Vibe Coding to <strong>Agentic Engineering</strong>」
+</p>
+<p>
+<strong>与第二大脑关联：</strong> 这与我们 7 月 1 日入库的 <a href="~/AI_News/raw/sources/x-article/2026-07-01-loop-engineering-karpathy-method-bilevel.md.processed">Loop Engineering 知识卡片</a> 完美呼应——Karpathy Loop 的核心就是「把自己从循环中移除」，但不是 Vibe 式的移除，而是通过 <strong>Verifier + State + Stop Condition</strong> 三个组件实现可控的自主性。Vibe Coding 失败是因为只有「让 AI 做」，没有「验证 AI 做对了」。
+</p>
+<p>
+<strong>大胆预判：</strong>
+</p>
+<ul>
+<li><strong>6 个月内</strong>，「Vibe Coding」会变成一个贬义词，类似于 2017 年的「ICO」——提到就让人觉得不专业</li>
+<li><strong>12 个月内</strong>，所有主流 AI Coding 工具（Claude Code、Cursor、Copilot）都会内置 <strong>Verifier 层</strong>——自动测试生成 + 自动验证成为标配，没有 Verifier 的 Coding Agent 会被市场淘汰</li>
+<li><strong>18 个月内</strong>，「Agentic Engineer」会成为一个正式的职位类别，薪资比传统 SWE 高 30-50%，因为核心技能从「写代码」变成「设计 Loop + Verifier + 约束」</li>
+<li><strong>置信度：90%</strong></li>
+</ul>
+<p>
+🔗 <a href="https://atmoio.substack.com/p/after-two-years-of-vibecoding-im">来源：After two years of vibecoding</a> | <a href="https://bramcohen.com/p/the-cult-of-vibe-coding-is-insane">The cult of vibe coding</a> | <a href="https://www.fast.ai/posts/2026-01-28-dark-flow/">Breaking the spell</a> | <a href="https://z.ai/blog/glm-5">GLM-5: From Vibe Coding to Agentic Engineering</a>
+</p>
+<hr>
+<h2>🔥 必看（🟠🔴 级别）</h2>
+<h3>🔴 MCP（Model Context Protocol）生态大爆发——HN 上 10+ 个 MCP 项目同时登榜，正在成为 AI Agent 的「USB 接口」</h3>
+<p>
+<strong>事实：</strong> 今天 Hacker News 上有超过 10 个 MCP 相关项目同时出现在热门列表中：
+</p>
+<ul>
+<li><strong>Model Context Protocol</strong>（Anthropic 官方公告）：872 分</li>
+<li><strong>Donating MCP and establishing the Agentic AI Foundation</strong>：288 分</li>
+<li><strong>Adventures in Symbolic Algebra with MCP</strong>：121 分</li>
+<li><strong>Mcp-Agent – Build effective agents with MCP</strong>：80 分</li>
+<li><strong>AbletonMCP – Ableton Live MCP Integration</strong>：57 分</li>
+<li><strong>BlenderMCP – Blender MCP Integration</strong>：54 分</li>
+<li><strong>mcpc – Universal command-line client for MCP</strong>：50 分</li>
+<li><strong>tinymcp – Let LLMs control embedded devices via MCP</strong>：49 分</li>
+<li><strong>MCPShark – Traffic Inspector for MCP</strong>：37 分</li>
+</ul>
+<p>
+<strong>关键信号：</strong> MCP 的应用场景已经从「开发者工具」扩展到<strong>音乐制作（Ableton）、3D 建模（Blender）、嵌入式设备（tinymcp）、流量审计（MCPShark）</strong>——这是一个协议从「技术圈玩具」变成「基础设施」的标志。
+</p>
+<p>
+<strong>因果链：</strong>
+1. Anthropic 2024 年 11 月发布 MCP → 2025 年 12 月捐赠给 Agentic AI Foundation → 协议中立化
+2. 标准化接口降低了集成成本 → 垂直领域开发者开始构建 MCP Server
+3. 从 Claude 专属 → 多模型支持 → 成为跨 Agent 的通用协议
+4. <strong>临界点已到</strong>：当 Ableton（音乐）和 Blender（3D）都有 MCP 集成时，MCP 不再是「开发者工具」，而是<strong>创意工作者的 AI 接口标准</strong>
+5. 下一步：企业级 MCP（CRM、ERP、供应链系统的 MCP Server）→ AI Agent 真正能「操作」企业软件
+</p>
+<p>
+<strong>与第二大脑关联：</strong> 这与我们 6 月 23 日入库的 <a href="~/AI_News/raw/sources/x-article/2026-06-23-agent-native-memory-system.md.processed">Agent-Native Memory System 论文</a> 形成互补——MCP 解决的是 Agent 与外部工具的<strong>连接</strong>问题，Memory System 解决的是 Agent 的<strong>记忆</strong>问题。两者结合 = 完整的 Agentic 基础设施。
+</p>
+<p>
+<strong>大胆预判：</strong>
+</p>
+<ul>
+<li><strong>6 个月内</strong>，Salesforce、SAP、ServiceNow 都会发布官方 MCP Server——企业软件的「MCP 化」不可逆转</li>
+<li><strong>12 个月内</strong>，MCP 会成为 AI Agent 框架的<strong>默认集成协议</strong>，不支持 MCP 的 Agent 框架会被开发者抛弃（类似 2015 年不支持 REST 的 API 框架）</li>
+<li><strong>18 个月内</strong>，会出现「MCP Marketplace」——类似 Salesforce AppExchange，但是给 AI Agent 用的工具市场，规模达 $5B+</li>
+<li><strong>置信度：85%</strong></li>
+</ul>
+<p>
+🔗 <a href="https://www.anthropic.com/news/model-context-protocol">来源：Anthropic MCP 公告</a> | <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation">Agentic AI Foundation</a> | <a href="https://github.com/golioth/tinymcp">tinymcp</a>
+</p>
+<hr>
+<h3>🟠 GLM-5 发布：「From Vibe Coding to Agentic Engineering」——中国 AI 正式定义下一代 Coding 范式</h3>
+<p>
+<strong>事实：</strong> 智谱 AI 发布 GLM-5，博客标题直接定义了新时代：「From Vibe Coding to Agentic Engineering」。HN 热度 378 分。
+</p>
+<p>
+<strong>关键判断：</strong> 这不是又一个模型发布——这是<strong>中国 AI 社区在争夺话语权</strong>。当硅谷还在讨论「Vibe Coding 是不是有问题」时，GLM-5 直接给出了答案：「问题不是 AI 能不能写代码，而是你用 Vibe 的方式还是 Engineering 的方式」。
+</p>
+<p>
+<strong>因果链：</strong>
+1. Vibe Coding 翻车 → 市场需要新叙事
+2. GLM-5 抢占「Agentic Engineering」定义权 → 从「模型能力竞赛」转向「工程方法论竞赛」
+3. 中国 AI 社区在方法论层面领先 → 吸引更多企业客户（因为企业需要「可控的 AI」，不是「Vibe 的 AI」）
+4. <strong>这会改变竞争格局</strong>：模型能力趋同后，<strong>工程方法论</strong>成为差异化因素
+</p>
+<p>
+<strong>大胆预判：</strong>
+</p>
+<ul>
+<li><strong>6 个月内</strong>，「Agentic Engineering」会成为 AI Coding 领域的标准术语，取代「Vibe Coding」</li>
+<li><strong>12 个月内</strong>，GLM-5 的「Agentic Engineering」方法论会被至少 3 家中国头部企业采纳为标准开发流程</li>
+<li><strong>置信度：75%</strong></li>
+</ul>
+<p>
+🔗 <a href="https://z.ai/blog/glm-5">来源：GLM-5 Blog</a>
+</p>
+<hr>
+<h3>🟠 Mistral 发布 OCR 4 + Vibe Agent——欧洲 AI 的「企业级」路线越来越清晰</h3>
+<p>
+<strong>事实：</strong> Mistral 连发两个重磅产品：
+1. <strong>Mistral OCR 4</strong>：企业文档 AI，支持 170 种语言、边界框定位、自托管部署
+2. <strong>Vibe Agent</strong>：统一 Agent，支持长周期生产力和编码任务，推出 Work 和 Code 两种模式 + VS Code 扩展
+</p>
+<p>
+<strong>关键洞察：</strong> Mistral 的策略非常清晰——<strong>不跟 OpenAI/Anthropic 拼通用模型能力，而是深耕「企业级」和「自托管」</strong>。OCR 4 的 170 语言支持 + 自托管部署 = 精准命中欧洲企业的合规需求（GDPR）。
+</p>
+<p>
+<strong>因果链：</strong>
+1. 欧洲企业对美国 AI 公司的数据隐私担忧加剧 → 需要「欧洲本土 + 自托管」的 AI 方案
+2. Mistral 提供 OCR + Agent + 自托管 → 精准命中需求
+3. 欧洲企业（金融、医疗、政府）开始大规模采购 Mistral → Mistral 收入快速增长
+4. <strong>Mistral 会成为欧洲 AI 的「国家队」</strong>——类似空客之于航空业
+</p>
+<p>
+<strong>大胆预判：</strong>
+</p>
+<ul>
+<li><strong>12 个月内</strong>，Mistral 的企业客户数量会翻倍，年收入突破 $500M</li>
+<li><strong>18 个月内</strong>，至少 3 个欧盟国家政府会指定 Mistral 为「官方 AI 供应商」</li>
+<li><strong>置信度：70%</strong></li>
+</ul>
+<p>
+🔗 <a href="https://mistral.ai/news/ocr-4/">来源：Mistral OCR 4</a> | <a href="https://mistral.ai/news/vibe-agent/">Vibe Agent</a>
+</p>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<h3>1. <strong>Ornith 1.0 - Agentic Coding LLMs</strong>（2026-06-26）</h3>
+<p>
+<strong>为什么值得关注：</strong> Ornith 发布了专门的「Agentic Coding LLM」——这不是通用模型的微调，而是<strong>专门为 Agent 场景优化的模型</strong>。这验证了我们的判断：AI Coding 正在从「通用模型 + 提示」转向「专用模型 + 工程方法论」。
+</p>
+<p>
+<strong>关键信号：</strong> 当有公司专门发布「Agentic Coding LLM」时，说明市场已经成熟到可以支撑垂直细分。
+</p>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=uD4-uy0GmHE">来源：YouTube</a>
+</p>
+<hr>
+<h3>2. <strong>Qwen-AgentWorld: The World Model for Agents</strong>（2026-06-25）</h3>
+<p>
+<strong>为什么值得关注：</strong> 阿里通义千问发布 Agent World Model——让 Agent 在虚拟环境中训练和测试。这解决了 Agentic AI 的核心瓶颈：<strong>如何在部署前验证 Agent 的行为？</strong>
+</p>
+<p>
+<strong>与第二大脑关联：</strong> 这与我们 7 月 1 日的 Loop Engineering 知识卡片高度相关——Loop 需要 Verifier，但真实世界的 Verifier 成本太高。World Model 提供了一个<strong>低成本的虚拟验证环境</strong>，让 Agent 在部署前先「彩排」。
+</p>
+<p>
+<strong>大胆预判：</strong> 12 个月内，所有主流 Agent 框架都会内置 World Model 用于测试——类似软件工程的单元测试，但用于 Agent 行为验证。
+</p>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=VzmMQWRhlBw">来源：YouTube</a>
+</p>
+<hr>
+<h3>3. <strong>The Most Advanced Robot Hand in the World - TARS DexHand</strong>（2026-06-23）</h3>
+<p>
+<strong>为什么值得关注：</strong> TARS DexHand 被称为「世界上最先进的机器人手」——这标志着具身智能从「能走」进入「能操作」阶段。结合今天的「Robots Can FEEL Now」（机器人能「感受」了），具身智能正在快速突破感知-操作闭环。
+</p>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=oKKcazQ260Q">来源：YouTube</a>
+</p>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<h3>1. <strong>alirezarezvani/claude-skills</strong> ⭐ 337 stars（今日）</h3>
+<p>
+<strong>技术亮点：</strong> 337 个 Claude Code skills + agent skills + plugins（30+ Agents, 70+ custom commands, 330+ skills）。这是<strong>Claude Code 生态的「App Store」</strong>——可复用的技能包。
+</p>
+<p>
+<strong>为什么重要：</strong> 这验证了 MCP 生态爆发的判断——当协议标准化后，会出现<strong>可复用的技能市场</strong>。claude-skills 就是这个市场的早期形态。
+</p>
+<p>
+🔗 <a href="https://github.com/alirezarezvani/claude-skills">来源：GitHub</a>
+</p>
+<hr>
+<h3>2. <strong>google/adk-python</strong> 🔥 Google 官方 Agent Development Kit</h3>
+<p>
+<strong>技术亮点：</strong> Google 开源的 Python 工具包，用于构建、评估和部署 AI Agent。「code-first」意味着<strong>代码优先，不是配置优先</strong>——这符合 Agentic Engineering 的理念。
+</p>
+<p>
+<strong>为什么重要：</strong> Google 正式入场 Agent 框架竞赛。之前是 LangChain、AutoGen、CrewAI 的天下，现在 Google 带着官方资源入场。
+</p>
+<p>
+<strong>大胆预判：</strong> 12 个月内，adk-python 会成为 GitHub 上 star 数最高的 Agent 框架（超过 LangChain），因为 Google 的品牌 + 资源 + 与 Gemini 的深度集成。
+</p>
+<p>
+🔗 <a href="https://github.com/google/adk-python">来源：GitHub</a>
+</p>
+<hr>
+<h3>3. <strong>asgeirtj/system_prompts_leaks</strong> 🔥</h3>
+<p>
+<strong>技术亮点：</strong> 泄露的系统提示词合集——包括 Anthropic Claude Fable 5、Opus 4.8、Claude Code、Claude Design，以及 OpenAI ChatGPT 5.5 Thinking 等。
+</p>
+<p>
+<strong>为什么重要：</strong> 这揭示了 AI 公司的「秘密武器」——系统提示词。对于 Agent 开发者来说，这是<strong>学习顶尖 Agent 设计的金矿</strong>。
+</p>
+<p>
+🔗 <a href="https://github.com/asgeirtj/system_prompts_leaks">来源：GitHub</a>
+</p>
+<hr>
+<h2>📌 关注（🟡 级别）</h2>
+<h3>🟡 AI Alignment 讨论升温——但方向在变</h3>
+<p>
+今天 HN 上有多个 AI Alignment 相关帖子：
+</p>
+<ul>
+<li><strong>Center for the Alignment of AI Alignment Centers</strong>（217 分）——元对齐机构</li>
+<li><strong>Grok and the Naked King: The Ultimate Argument Against AI Alignment</strong>（116 分）——反对齐论点</li>
+<li><strong>The people writing AI alignment policy are not whose work is being replaced</strong>（92 分）——对齐政策的阶级问题</li>
+</ul>
+<p>
+<strong>关键洞察：</strong> 对齐讨论正在从「技术如何实现」转向「谁在受益、谁在承担成本」。92 分帖子的标题一针见血：「写 AI 对齐政策的人，不是工作被替代的人」——这是<strong>对齐问题的政治经济学转向</strong>。
+</p>
+<p>
+<strong>判断：</strong> 12 个月内，AI Alignment 会从「技术问题」变成「劳工问题」——工会、政策制定者、社会运动会介入，技术社区的「自主权」会被削弱。
+</p>
+<p>
+🔗 <a href="https://alignmentalignment.ai">来源：Alignment Alignment</a> | <a href="https://ibrahimcesar.cloud/blog/grok-and-the-naked-king/">Grok and the Naked King</a> | <a href="https://danieltan.weblog.lol/2026/05/you-dont-align-an-ai-you-align-with-it">Policy people</a>
+</p>
+<hr>
+<h3>🟡 NYT 起诉微软为 OpenAI 构建侵权超级计算机</h3>
+<p>
+<strong>事实：</strong> 纽约时报在最高法院索尼案裁决后，调整了对微软/OpenAI 的版权诉讼主张——指控微软专门为 OpenAI 构建了侵权超级计算机。
+</p>
+<p>
+<strong>判断：</strong> 这是 AI 版权战争的<strong>升级</strong>。从「训练数据侵权」到「基础设施侵权」——如果法院认定「为侵权目的构建基础设施」本身构成侵权，会对整个 AI 产业链产生连锁反应。
+</p>
+<p>
+<strong>大胆预判：</strong> 18 个月内，至少 3 家 AI 公司会因为「基础设施侵权」理论被判定承担责任，导致 AI 训练算力成本上升 20-30%（合规成本转嫁）。
+</p>
+<p>
+🔗 <a href="https://arstechnica.com/tech-policy/2026/06/microsoft-built-supercomputer-to-help-openai-infringe-copyrights-nyt-alleged/">来源：Ars Technica</a>
+</p>
+<hr>
+<h3>🟡 同人小说社区与 AI 开战——但检测方法备受质疑</h3>
+<p>
+<strong>事实：</strong> The Verge 报道，同人小说社区（AO3）正在发起运动，试图揪出使用 AI 生成的作者。但检测方法「备受质疑」——任何使用过 AI 辅助写作的人都可能被误判。
+</p>
+<p>
+<strong>判断：</strong> 这是 Vibe Coding 翻车在<strong>创意领域的镜像</strong>。核心问题相同：<strong>如何区分「AI 辅助」和「AI 生成」？</strong> 在代码领域，答案是 Verifier（测试通过就行）；在创意领域，目前没有可靠答案。
+</p>
+<p>
+<strong>大胆预判：</strong> 12 个月内，会出现「AI 辅助创作认证」——类似有机食品认证，标注作品中 AI 参与的程度。AO3 会率先实施。
+</p>
+<p>
+🔗 <a href="https://www.theverge.com/tech/960854/ai-fanfiction-ao3-claude-detector">来源：The Verge</a>
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>今日信号密度极高——具身智能正式进入「商业落地期」</h3>
+<p>
+今天 YouTube 采集到大量具身智能内容，按重要性排序：
+</p>
+<p>
+<strong>1. TARS DexHand——「世界上最先进的机器人手」（6-23）</strong>
+</p>
+<ul>
+<li>结合「Robots Can FEEL Now」（6-24，机器人能「感受」了）</li>
+<li><strong>关键突破：</strong> 从「能抓」到「能感知」——触觉反馈闭环是操作复杂物体的前提</li>
+<li><strong>判断：</strong> 12 个月内，TARS DexHand 会进入至少 3 个工业场景（电子组装、医疗手术、物流分拣）</li>
+</ul>
+<p>
+<strong>2. Unitree 产品线全面铺开</strong>
+</p>
+<ul>
+<li>Unitree R1：$4,900 起，现货供应（6-24）</li>
+<li>Unitree G1：安全漏洞曝光（9-30）+ 强化学习训练行走（12-19）</li>
+<li>Unitree GD01：载人变形机甲，$650,000 起（5-12）</li>
+<li><strong>关键信号：</strong> Unitree 从「便宜机器人」到「高端机甲」全价格段覆盖——这是<strong>消费级具身智能的前奏</strong></li>
+</ul>
+<p>
+<strong>3. Boston Dynamics x Hyundai「School of Football」系列</strong>
+</p>
+<ul>
+<li>机器人踢足球的多个视频（5-28 到 6-04）</li>
+<li><strong>关键洞察：</strong> Boston Dynamics 在展示<strong>动态平衡 + 多机协作</strong>——足球是测试具身智能的「Hello World」</li>
+</ul>
+<p>
+<strong>4. Agility Digit Shuffle + Workout Class</strong>
+</p>
+<ul>
+<li>Digit 机器人跳舞 + 健身课（6-08, 6-23）</li>
+<li><strong>关键信号：</strong> Agility 在展示<strong>灵活性和娱乐性</strong>——这是 To C 市场的信号</li>
+</ul>
+<p>
+<strong>5. Physical AI 进入商业落地期（AI Business 报道）</strong>
+</p>
+<ul>
+<li>投资、安全、下一代 AI 模型表明对话正从「机器人演示」转向「真实世界部署」</li>
+</ul>
+<p>
+<strong>因果链：</strong>
+1. 触觉感知突破（TARS DexHand）→ 能操作复杂物体
+2. 价格下降（Unitree R1 $4,900）→ 消费级市场打开
+3. 多机协作成熟（Boston Dynamics 足球）→ 工业场景可用
+4. <strong>临界点：</strong> 2026 Q4 到 2027 Q1，会出现第一个「机器人独角兽」——不是做机器人的公司，而是<strong>用机器人提供服务的公司</strong>（类似 Uber 不拥有车，但用机器人提供清洁/配送/护理服务）
+</p>
+<p>
+<strong>大胆预判：</strong>
+</p>
+<ul>
+<li><strong>12 个月内</strong>，Unitree R1 会卖出 10 万台以上，成为「机器人界的 Raspberry Pi」</li>
+<li><strong>18 个月内</strong>，会出现第一个「机器人即服务」（RaaS）公司，年收入突破 $100M</li>
+<li><strong>24 个月内</strong>，具身智能会创造第一个「机器人蓝领」岗位类别——不是造机器人，而是<strong>教机器人</strong>（类似数据标注员，但是教机器人抓取、行走、操作）</li>
+<li><strong>置信度：75%</strong></li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=oKKcazQ260Q">来源：TARS DexHand</a> | <a href="https://www.youtube.com/watch?v=mTMYfVD4zCw">Unitree R1</a> | <a href="https://aibusiness.com/generative-ai/prompt-physical-ai-entering-commercialization-phase">Physical AI Commercialization</a>
+</p>
+<hr>
+<h2>🧠 第二大脑关联（今日新闻 vs 已有知识的交叉分析）</h2>
+<h3>关联 1：Vibe Coding 翻车 ↔ Loop Engineering（7-01 知识卡片）</h3>
+<p>
+<strong>今日新闻：</strong> Vibe Coding 集体翻车，HN 前五全是反 Vibe 檄文
+</p>
+<p>
+<strong>已有知识：</strong> Loop Engineering 的核心是 Verifier + State + Stop Condition
+</p>
+<p>
+<strong>交叉分析：</strong> Vibe Coding 失败的根本原因是<strong>只有「让 AI 做」，没有「验证 AI 做对了」</strong>。Loop Engineering 的 Verifier 正是解决方案。这验证了 Karpathy 的判断：「如果你有一个客观指标，你不应该亲自运行实验。你是瓶颈。」
+</p>
+<p>
+<strong>新洞察：</strong> Vibe Coding → Agentic Engineering 的迁移，本质上是<strong>从「人类作为引擎」到「人类作为架构师」</strong> 的转变。人类不再驱动每一步，而是设计 Loop 的结构。
+</p>
+<hr>
+<h3>关联 2：MCP 生态爆发 ↔ Agent-Native Memory System（6-23 知识卡片）</h3>
+<p>
+<strong>今日新闻：</strong> MCP 在 HN 上 10+ 个项目同时登榜，应用场景从开发者工具扩展到音乐、3D、嵌入式设备
+</p>
+<p>
+<strong>已有知识：</strong> Agent Memory System 的四模块框架（表示与存储、提取、检索与路由、维护）
+</p>
+<p>
+<strong>交叉分析：</strong> MCP 解决的是 Agent 与外部工具的<strong>连接</strong>（相当于 Memory System 的「提取」模块——从外部世界提取信息），Memory System 解决的是 Agent 的<strong>内部状态管理</strong>。两者结合 = 完整的 Agentic 基础设施。
+</p>
+<p>
+<strong>新洞察：</strong> 下一步会出现「MCP + Memory」的集成——Agent 通过 MCP 从外部工具获取信息，自动存储到 Memory System，形成<strong>持久化的外部知识图谱</strong>。这会让 Agent 的「记忆」从「对话历史」升级到「世界模型」。
+</p>
+<hr>
+<h3>关联 3：Fable 5 Prompting Guide（7-03 知识卡片）↔ Vibe Coding 翻车</h3>
+<p>
+<strong>今日新闻：</strong> Vibe Coding 翻车，需要升级到 Agentic Engineering
+</p>
+<p>
+<strong>已有知识：</strong> Fable 5 不是「更聪明的同一工具」，而是「不同类别的工具」——需要不同类别的提示。关键行为变化：响应时间更长（分钟级甚至小时级）、更主动、需要明确的进度验证。
+</p>
+<p>
+<strong>交叉分析：</strong> Fable 5 的设计哲学就是<strong>反 Vibe</strong>——它不是为「快速单次回答」设计的，而是为「长时间自主运行」设计的。这正好对应 Agentic Engineering 的需求。Vibe Coding 用 Opus 4.8 的方式用 Fable 5（简单任务测试），所以「看到边际改进就认为不值得升级」——这是<strong>工具错配</strong>。
+</p>
+<p>
+<strong>新洞察：</strong> Agentic Engineering 的核心技能不是「写更好的提示」，而是<strong>「设计更长、更复杂的任务结构」</strong>——让 Fable 5 这样的模型能运行数小时甚至数天。这需要新的提示范式（进度验证、effort 参数、长任务管理）。
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>做多信号</h3>
+<p>
+<strong>1. Agent 基础设施公司</strong>
+</p>
+<ul>
+<li><strong>逻辑：</strong> MCP 生态爆发 + Agentic Engineering 范式确立 → Agent 框架、MCP Server 开发工具、Agent 测试平台需求暴涨</li>
+<li><strong>标的：</strong> LangChain（如果上市）、Google（adk-python）、Anthropic（MCP 发起者）</li>
+<li><strong>时间线：</strong> 6-12 个月内会看到 Agent 基础设施公司的融资/收购潮</li>
+</ul>
+<p>
+<strong>2. 具身智能硬件公司</strong>
+</p>
+<ul>
+<li><strong>逻辑：</strong> TARS DexHand + Unitree 价格下降 + Physical AI 商业落地 → 具身智能进入消费级市场</li>
+<li><strong>标的：</strong> Unitree（如果 IPO）、Boston Dynamics（Hyundai 子公司）、Agility Robotics</li>
+<li><strong>时间线：</strong> 12-18 个月内会出现第一个「机器人独角兽」</li>
+</ul>
+<p>
+<strong>3. 欧洲 AI 公司（Mistral 为代表）</strong>
+</p>
+<ul>
+<li><strong>逻辑：</strong> 企业合规需求 + 自托管部署 + GDPR → 欧洲企业转向本土 AI 供应商</li>
+<li><strong>标的：</strong> Mistral（如果 IPO）、Aleph Alpha（德国）</li>
+<li><strong>时间线：</strong> 12 个月内 Mistral 收入翻倍</li>
+</ul>
+<h3>做空信号</h3>
+<p>
+<strong>1. 传统 AI 咨询公司</strong>
+</p>
+<ul>
+<li><strong>时间线：</strong> 12-18 个月内会看到传统 AI 咨询公司收入增速放缓</li>
+</ul>
+<p>
+<strong>2. 「Vibe Coding」工具</strong>
+</p>
+<ul>
+<li><strong>逻辑：</strong> Vibe Coding 翻车 → 没有 Verifier 的 Coding Agent 被市场淘汰</li>
+<li><strong>标的：</strong> 那些只做「代码生成」不做「代码验证」的 AI Coding 初创公司</li>
+<li><strong>时间线：</strong> 6 个月内会看到一波 Vibe Coding 工具倒闭/被收购</li>
+</ul>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<p>
+今日 ArXiv 采集为 0 条，跳过。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察 1：AI Coding 的「三层蛋糕」正在形成</h3>
+<p>
+今天的信息揭示了一个清晰的三层结构：
+</p>
+<p>
+1. <strong>底层：Vibe Coding</strong>（已死）
+</p>
+<ul>
+<li>非工程师用 AI 随意生成代码</li>
+<li>短期生产力高，长期技术债爆炸</li>
+<li>HN 集体宣判死刑</li>
+</ul>
+<p>
+2. <strong>中层：Agentic Engineering</strong>（正在崛起）
+</p>
+<ul>
+<li>工程师设计 Loop + Verifier + State</li>
+<li>AI 在约束下自主运行</li>
+<li>GLM-5、Fable 5、Ornith 1.0 都在服务这一层</li>
+</ul>
+<p>
+3. <strong>顶层：Autonomous Research</strong>（前沿探索）
+</p>
+<ul>
+<li>Karpathy Loop、AutoResearch</li>
+<li>AI 自主设计实验、运行、验证、迭代</li>
+<li>700 次实验发现 20 个人类 missed 的改进</li>
+</ul>
+<p>
+<strong>判断：</strong> 12 个月内，这三层会明确分化——Vibe Coding 变成贬义词，Agentic Engineering 成为主流，Autonomous Research 成为顶尖团队的标配。
+</p>
+<hr>
+<h3>洞察 2：AI 的「地缘政治化」加速</h3>
+<p>
+今天的信息中有多条地缘政治信号：
+</p>
+<ul>
+<li>阿里禁用 Claude Code（午报已详细分析）</li>
+<li>GLM-5 定义「Agentic Engineering」——中国 AI 争夺话语权</li>
+<li>Mistral 深耕欧洲市场——欧洲 AI 主权</li>
+<li>Physical AI 商业落地——中美在具身智能领域的竞争</li>
+</ul>
+<p>
+<strong>判断：</strong> AI 正在从「技术竞赛」变成「地缘政治竞赛」——每个主要经济体都在构建自己的 AI 生态（模型、工具、标准、法规）。12 个月内，会出现「AI 阵营」——美国阵营（OpenAI/Anthropic/Google）、中国阵营（通义/智谱/百度）、欧洲阵营（Mistral/Aleph Alpha）。
+</p>
+<hr>
+<h3>洞察 3：从「模型能力」到「工程方法论」的竞争转移</h3>
+<p>
+今天最重要的趋势：<strong>竞争焦点正在从「模型能力」转向「工程方法论」</strong>。
+</p>
+<ul>
+<li>GLM-5 的标题：「From Vibe Coding to <strong>Agentic Engineering</strong>」</li>
+<li>Fable 5 Prompting Guide：不是「更聪明的模型」，而是「不同的使用方式」</li>
+<li>Loop Engineering：核心不是模型，而是 Verifier + State + Stop Condition</li>
+<li>Ornith 1.0：专门的「Agentic Coding LLM」——为工程方法论优化的模型</li>
+</ul>
+<p>
+<strong>判断：</strong> 模型能力趋同后（GPT-5.5 vs Fable 5 vs GLM-5 差距越来越小），<strong>工程方法论</strong>成为差异化因素。谁能让 AI 在真实场景中可靠运行，谁就赢。这会催生新的职业类别：「Agentic Engineer」——不是写代码，而是设计 Loop。
+</p>
+<hr>
+<h2>🎯 大胆预判（3-5 个明确的预测，带时间线和置信度）</h2>
+<h3>预判 1：「Vibe Coding」6 个月内变成贬义词</h3>
+<ul>
+<li><strong>预测：</strong> 「Vibe Coding」会像 2017 年的「ICO」一样，变成「不专业、不可靠」的代名词</li>
+<li><strong>因果链：</strong> HN 集体翻车 → 技术债爆发 → 企业禁止 → 社区污名化</li>
+<li><strong>时间线：</strong> 6 个月</li>
+<li><strong>置信度：</strong> 90%</li>
+</ul>
+<h3>预判 2：12 个月内所有主流 AI Coding 工具内置 Verifier</h3>
+<ul>
+<li><strong>预测：</strong> Claude Code、Cursor、Copilot 都会内置自动测试生成 + 自动验证层</li>
+<li><strong>因果链：</strong> Vibe Coding 翻车 → 市场需要「可控的 AI」→ Verifier 成为标配 → 没有 Verifier 的工具被淘汰</li>
+<li><strong>时间线：</strong> 12 个月</li>
+<li><strong>置信度：</strong> 85%</li>
+</ul>
+<h3>预判 3：18 个月内 MCP 成为 AI Agent 的默认集成协议</h3>
+<ul>
+<li><strong>预测：</strong> 不支持 MCP 的 Agent 框架会被开发者抛弃</li>
+<li><strong>因果链：</strong> MCP 标准化 → 垂直领域集成 → 企业级 MCP Server → 成为事实标准</li>
+<li><strong>时间线：</strong> 18 个月</li>
+<li><strong>置信度：</strong> 80%</li>
+</ul>
+<h3>预判 4：12 个月内出现第一个「机器人独角兽」（RaaS 模式）</h3>
+<ul>
+<li><strong>预测：</strong> 不是造机器人的公司，而是<strong>用机器人提供服务的公司</strong>年收入突破 $100M</li>
+<li><strong>因果链：</strong> 硬件成本下降 + 操作能力突破 + 多机协作成熟 → 机器人即服务商业模式可行</li>
+<li><strong>时间线：</strong> 12 个月</li>
+<li><strong>置信度：</strong> 70%</li>
+</ul>
+<h3>预判 5：24 个月内「Agentic Engineer」成为正式职位类别</h3>
+<ul>
+<li><strong>预测：</strong> 薪资比传统 SWE 高 30-50%，核心技能从「写代码」变成「设计 Loop + Verifier + 约束」</li>
+<li><strong>因果链：</strong> Agentic Engineering 范式确立 → 企业需要专门人才 → 招聘市场分化 → 新职位类别形成</li>
+<li><strong>时间线：</strong> 24 个月</li>
+<li><strong>置信度：</strong> 75%</li>
+</ul>
+<hr>
+<h2>🎨 自由发挥：给 AI 从业者的一句话建议</h2>
+<p>
+<strong>如果你是 AI Coding 工具的用户：</strong> 今天开始，停止「Vibe Coding」。每次让 AI 写代码前，先问自己：「我有 Verifier 吗？我能自动验证这段代码是否正确吗？」如果没有，先写测试，再让 AI 实现。
+</p>
+<p>
+<strong>如果你是 AI Coding 工具的开发者：</strong> 今天开始，在你的产品中加入 Verifier 层。不是「代码生成」，而是「代码生成 + 自动验证」。6 个月内，没有 Verifier 的工具会被市场淘汰。
+</p>
+<p>
+<strong>如果你是 AI 创业者：</strong> 今天开始，思考你的产品如何融入 MCP 生态。MCP 正在成为 AI Agent 的「USB 接口」——不支持 MCP = 不支持主流 Agent 框架 = 被市场边缘化。
+</p>
+<p>
+<strong>如果你是投资者：</strong> 今天开始，关注 Agent 基础设施公司（框架、MCP 工具、测试平台）和具身智能硬件公司（价格下降 + 操作能力突破）。12 个月内会看到融资/收购潮。
+</p>
+<hr>
+<p>
+<em>本报告由 AI 自动生成，基于 233 条采集数据 + 5 张第二大脑知识卡片的交叉分析。</em>
+</p>
+<p>
+<em>采集来源：GitHub Trending, Hacker News, YouTube, Mistral Blog, RSS (The Verge, Ars Technica, ZDNet, AI Business)</em>
+</p>
+<p>
+<em>下期预告：明天早报将重点关注 MCP 企业级应用案例 + 具身智能最新融资动态</em>
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-07-04-evening');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-07-04-evening');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-07-04-evening');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
