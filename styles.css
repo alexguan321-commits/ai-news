@@ -1752,13 +1752,29 @@ body {
     border-radius: 12px;
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.view-count-wrapper:hover {
+    background: rgba(100, 181, 246, 0.25);
+    border-color: rgba(100, 181, 246, 0.5);
+    transform: scale(1.05);
 }
 
 .view-count-wrapper.loading {
     opacity: 0.5;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
 }
 
 #view-count {
     font-weight: 600;
     color: #64b5f6;
+    font-variant-numeric: tabular-nums;
+    min-width: 1ch;
+    text-align: center;
 }

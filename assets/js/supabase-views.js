@@ -79,14 +79,38 @@ class PageViewTracker {
     }
   }
 
-  // 显示浏览次数
+  // 显示浏览次数（带数字滚动动画）
   async displayViewCount(elementId, contentType, contentId) {
     const count = await this.getViewCount(contentType, contentId);
     const element = document.getElementById(elementId);
     if (element) {
-      element.textContent = count;
+      // 数字滚动动画
+      this.animateNumber(element, 0, count, 600);
       element.closest('.view-count-wrapper')?.classList.remove('loading');
     }
+  }
+
+  // 数字滚动动画
+  animateNumber(element, from, to, duration) {
+    const startTime = performance.now();
+    const diff = to - from;
+    
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // easeOutCubic 缓动
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(from + diff * eased);
+      
+      element.textContent = current;
+      
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    };
+    
+    requestAnimationFrame(update);
   }
 
   // 获取热门内容
