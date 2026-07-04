@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claude Can Do All of This. Most People Have No Idea. - 知识卡片</title>
     <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-auth.js" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js" defer></script>
+
 </head>
 <body>
     <nav class="navbar">
@@ -13,6 +21,7 @@
             <div><span class="stat-value">31</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
+        <div id="auth-container"></div>
     </nav>
 
     <main class="container">
@@ -410,6 +419,39 @@ Pick one feature from this list. Just one. Set it up today. You don't need to im
 Come back to this article when you're ready for the next one.
 </p>
             </div>
+
+            
+    <div class="interaction-bar">
+        <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="like-count">0</span>
+        </button>
+        <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            收藏
+        </button>
+        <span class="interaction-btn" style="cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span id="comment-count">0</span> 评论
+        </span>
+    </div>
+
+    <section class="comments-section">
+        <h3>💬 评论</h3>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="说点什么..." maxlength="2000"></textarea>
+            <button onclick="interactions.submitComment()">发表评论</button>
+        </div>
+        <div id="comments-list"></div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-05-22-claude-can-do-all-of-this.md');
+            interactions.loadComments();
+        });
+    </script>
+
         </article>
 
         <footer class="footer">

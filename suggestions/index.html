@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💡 改进建议 - AI 资讯日报</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/css/supabase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/supabase-config.js"></script>
+    <script src="../assets/js/supabase-auth.js" defer></script>
+    <script src="../assets/js/supabase-interactions.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/ai-news/" class="logo">AI 资讯日报</a>
+        <div class="nav-stats">
+            <div><a href="/ai-news/suggestions/" style="color:inherit;text-decoration:none;">💡 建议</a></div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>💡 改进建议</h1>
+            <p>告诉我们如何让 AI 资讯日报变得更好。你的每一条建议都会被认真跟进。</p>
+        </section>
+
+        <div class="suggestion-form">
+            <h3>提交新建议</h3>
+            <input type="text" id="suggestion-title" placeholder="建议标题（简明扼要）" maxlength="200">
+            <select id="suggestion-category">
+                <option value="feature">✨ 新功能</option>
+                <option value="bug">🐛 Bug 报告</option>
+                <option value="content">📝 内容建议</option>
+                <option value="other">💬 其他</option>
+            </select>
+            <textarea id="suggestion-desc" placeholder="详细描述你的建议，包括：问题是什么、你期望的解决方案、其他补充信息..." maxlength="5000"></textarea>
+            <button onclick="interactions.submitSuggestion()">提交建议</button>
+        </div>
+
+        <section>
+            <h2>📋 我的建议</h2>
+            <div id="my-suggestions-list">
+                <p>加载中...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><a href="/ai-news/">← 返回首页</a></p>
+        <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            auth.onChange(function(user) {
+                if (user) {
+                    interactions.loadMySuggestions();
+                } else {
+                    document.getElementById('my-suggestions-list').innerHTML = 
+                        '<p>请先登录查看你的建议</p>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

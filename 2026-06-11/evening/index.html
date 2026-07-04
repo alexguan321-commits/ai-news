@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0611晚报 | AI资讯 - AI 资讯日报</title>
     <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-auth.js" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js" defer></script>
+
 </head>
 <body>
     <nav class="navbar">
@@ -14,6 +22,7 @@
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
+        <div id="auth-container"></div>
     </nav>
 
     <main class="container">
@@ -148,6 +157,39 @@ LLM Agent 代替用户操作时，每一步都可能泄漏 PII。提出跨步骤
 🎯 <strong>一句话总结：行业正在从"如何让一个 Agent 更强"转向"如何让一百万个 Agent 不失控"——DeepMind 用 $10M 下了注。</strong>
 </p>
             </div>
+
+            
+    <div class="interaction-bar">
+        <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="like-count">0</span>
+        </button>
+        <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            收藏
+        </button>
+        <span class="interaction-btn" style="cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span id="comment-count">0</span> 评论
+        </span>
+    </div>
+
+    <section class="comments-section">
+        <h3>💬 评论</h3>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="说点什么..." maxlength="2000"></textarea>
+            <button onclick="interactions.submitComment()">发表评论</button>
+        </div>
+        <div id="comments-list"></div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-06-11-evening');
+            interactions.loadComments();
+        });
+    </script>
+
         </article>
 
         <footer class="footer">

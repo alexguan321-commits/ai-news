@@ -22,6 +22,55 @@ X_ARTICLE_DIR = Path.home() / "AI_News" / "raw" / "sources" / "x-article"
 OUTPUT_FILE = WEBSITE_DIR / "index.html"
 CARDS_DIR = WEBSITE_DIR / "cards"
 
+# Supabase CDN scripts (injected into all pages)
+SUPABASE_HEAD = """
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-auth.js" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js" defer></script>
+"""
+
+def supabase_nav_auth():
+    """Generate auth container HTML for navbar."""
+    return '<div id="auth-container"></div>'
+
+def interaction_bar(content_type, content_id):
+    """Generate like/bookmark/comment bar for report/card pages."""
+    return f"""
+    <div class="interaction-bar">
+        <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="like-count">0</span>
+        </button>
+        <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            收藏
+        </button>
+        <span class="interaction-btn" style="cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span id="comment-count">0</span> 评论
+        </span>
+    </div>
+
+    <section class="comments-section">
+        <h3>💬 评论</h3>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="说点什么..." maxlength="2000"></textarea>
+            <button onclick="interactions.submitComment()">发表评论</button>
+        </div>
+        <div id="comments-list"></div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {{
+            interactions.init('{content_type}', '{content_id}');
+            interactions.loadComments();
+        }});
+    </script>
+"""
+
 # Content filter patterns — strip personal/P&G sections for public sharing
 FILTER_PATTERNS = [
     r"对\s*A\s*哥.*",           # "对 A 哥意味着什么"
@@ -423,6 +472,7 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{post['title']} - AI 资讯日报</title>
     <link rel="stylesheet" href="../../styles.css">
+    {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
@@ -432,6 +482,7 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
+        {supabase_nav_auth()}
     </nav>
 
     <main class="container">
@@ -449,6 +500,8 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
             <div class="content">
                 {content_html}
             </div>
+
+            {interaction_bar('report', post['date_prefix'] + '-' + post['report_type'])}
         </article>
 
         <footer class="footer">
@@ -474,6 +527,7 @@ def generate_card_page(card, total_cards):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{card['title']} - 知识卡片</title>
     <link rel="stylesheet" href="../../styles.css">
+    {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
@@ -482,6 +536,7 @@ def generate_card_page(card, total_cards):
             <div><span class="stat-value">{total_cards}</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
+        {supabase_nav_auth()}
     </nav>
 
     <main class="container">
@@ -500,6 +555,8 @@ def generate_card_page(card, total_cards):
             <div class="content">
                 {content_html}
             </div>
+
+            {interaction_bar('card', card['slug'])}
         </article>
 
         <footer class="footer">
@@ -596,6 +653,7 @@ def generate_html(posts, cards):
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>AI 资讯日报</title>
     <link rel="stylesheet" href="styles.css">
+    {SUPABASE_HEAD}
 </head>
 <body>
     <nav class="navbar">
@@ -605,6 +663,7 @@ def generate_html(posts, cards):
             <div><span class="stat-value">{total_cards}</span> cards</div>
             <div><span class="stat-value">35</span> sources</div>
         </div>
+        {supabase_nav_auth()}
     </nav>
 
     <main class="container">
