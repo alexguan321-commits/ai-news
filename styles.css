@@ -13,11 +13,11 @@
 :root {
     /* Color Strategy: Dark theme for glassmorphism */
     --bg-base: transparent;
-    --bg-surface: rgba(255, 255, 255, 0.1);
-    --bg-elevated: rgba(255, 255, 255, 0.1);
+    --bg-surface: rgba(15, 23, 42, 0.5);
+    --bg-elevated: rgba(15, 23, 42, 0.75);
     
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-secondary: rgba(255, 255, 255, 0.85);
     --text-muted: rgba(255, 255, 255, 0.6);
     --text-light: rgba(255, 255, 255, 0.4);
     
@@ -37,9 +37,9 @@
     /* Borders & Shadows */
     --border: rgba(255, 255, 255, 0.15);
     --border-light: rgba(255, 255, 255, 0.1);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
     
     /* Sizing */
     --radius: 8px;
@@ -78,9 +78,9 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0 2rem;
     height: 64px;
@@ -121,9 +121,14 @@ body {
 /* ── Hero Section (Magazine style, left-aligned) ─────────────── */
 
 .hero {
-    padding: 3rem 0 2rem;
+    padding: 3rem 2rem 2rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 3rem;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .hero h1 {
@@ -155,6 +160,12 @@ body {
 
 .stat-card {
     text-align: left;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
 }
 
 .stat-card .stat-number {
@@ -193,10 +204,12 @@ body {
 .search-bar input {
     flex: 1;
     padding: 0.875rem 1.25rem;
-    background: var(--bg-surface);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    color: var(--text-primary);
+    color: #ffffff;
     font-size: 1rem;
     font-family: var(--font-sans);
     outline: none;
@@ -229,8 +242,10 @@ body {
     padding: 0.625rem 1.25rem;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    background: var(--bg-base);
-    color: var(--text-secondary);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 0.875rem;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -239,14 +254,15 @@ body {
 }
 
 .filter-tag:hover {
-    border-color: var(--text-primary);
-    color: var(--text-primary);
+    border-color: #ffffff;
+    color: #ffffff;
+    background: rgba(30, 41, 59, 0.9);
 }
 
 .filter-tag.active {
-    background: var(--text-primary);
-    color: var(--bg-base);
-    border-color: var(--text-primary);
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
 }
 
 /* ── Section Headers (Editorial style) ───────────────────────── */
@@ -285,7 +301,9 @@ body {
 }
 
 .report-card {
-    background: var(--bg-elevated);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
@@ -293,6 +311,7 @@ body {
 }
 
 .report-card:hover {
+    background: rgba(30, 41, 59, 0.9);
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
@@ -383,7 +402,7 @@ body {
 .report-archive {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -402,7 +421,7 @@ body {
 }
 
 .archive-item:hover {
-    background: var(--bg-surface);
+    background: rgba(30, 41, 59, 0.9);
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: -1rem;
@@ -473,7 +492,7 @@ body {
 
 ::selection {
     background: var(--accent);
-    color: var(--bg-base);
+    color: #ffffff;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */
@@ -897,14 +916,17 @@ body {
 /* ── Report Content Page ─────────────────────────────────────── */
 
 .report-content {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius);
     padding: 3rem;
     margin-bottom: 2rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 
 .report-header {
@@ -1024,9 +1046,12 @@ body {
 
 .content img {
     max-width: 100%;
+    width: auto;
     height: auto;
     border-radius: var(--radius);
     margin: 2rem 0;
+    display: block;
+    object-fit: contain;
 }
 
 .content hr {
@@ -1060,7 +1085,9 @@ body {
 }
 
 .knowledge-card {
-    background: var(--bg-surface);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
@@ -1068,9 +1095,10 @@ body {
 }
 
 .knowledge-card:hover {
+    background: rgba(30, 41, 59, 0.9);
     border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .knowledge-card a {
