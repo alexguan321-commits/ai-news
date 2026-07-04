@@ -25,11 +25,11 @@ CARDS_DIR = WEBSITE_DIR / "cards"
 # Supabase CDN scripts (injected into all pages)
 SUPABASE_HEAD = """
     <!-- Supabase User System -->
-    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css">
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
 """
 
 def supabase_nav_auth():
