@@ -137,10 +137,10 @@ class SupabaseAuth {
     const authContainer = document.getElementById('auth-container');
     if (!authContainer) return;
 
+    // 始终显示内容（公开访问）
+    window.hideLoginGate();
+
     if (this.isLoggedIn()) {
-      // 登录成功 - 隐藏登录门控，显示内容
-      window.hideLoginGate();
-      
       authContainer.innerHTML = `
         <div class="user-menu">
           <button class="user-avatar-btn" onclick="auth.toggleUserDropdown()">
@@ -160,10 +160,6 @@ class SupabaseAuth {
         </div>
       `;
     } else {
-      // 未登录 - 显示登录门控，隐藏内容
-      document.body.classList.remove('auth-ready');
-      window.showLoginGate();
-      
       authContainer.innerHTML = `
         <button class="login-btn" onclick="auth.showLoginModal()">登录</button>
       `;
@@ -279,8 +275,8 @@ function createAuthInstance() {
   if (typeof window.supabaseClient !== 'undefined' && !window.auth) {
     window.auth = new SupabaseAuth();
     
-    // 立即显示登录门控（主内容默认被CSS隐藏）
-    window.showLoginGate();
+    // 内容默认公开可见
+    window.hideLoginGate();
     
     return true;
   }

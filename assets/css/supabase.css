@@ -8,23 +8,14 @@ body {
 }
 
 /* ============================================
-   登录前隐藏主内容 - 防止闪烁
+   主内容始终可见（公开访问）
    ============================================ */
-body:not(.auth-ready) main.container,
-body:not(.auth-ready) .nav-stats,
-body:not(.auth-ready) .hero {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-body.auth-ready main.container,
-body.auth-ready .nav-stats,
-body.auth-ready .hero {
+body main.container,
+body .nav-stats,
+body .hero {
   visibility: visible !important;
   opacity: 1 !important;
   pointer-events: auto !important;
-  transition: opacity 0.3s ease;
 }
 
 /* ============================================
@@ -39,7 +30,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 /* ============================================
-   登录门控 - 未登录时显示
+   登录门控 - 默认隐藏（内容公开访问）
    ============================================ */
 #login-gate {
   position: fixed;
@@ -48,7 +39,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   right: 0;
   bottom: 0;
   background: url('/ai-news/assets/login-bg.jpg') center/cover no-repeat;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9998;
