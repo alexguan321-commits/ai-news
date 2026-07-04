@@ -934,6 +934,22 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Cover image - constrain within content box */
+.cover-image {
+    margin: 1.5rem 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.cover-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
 .report-header h1 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -955,6 +971,25 @@ body {
 .content {
     color: #ffffff;
     line-height: 1.7;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+}
+
+.content table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
 }
 
 .content h1, .content h2, .content h3, .content h4 {
@@ -1030,12 +1065,6 @@ body {
     color: var(--accent-hover);
 }
 
-.content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
-}
-
 .content th, .content td {
     border: 1px solid var(--border);
     padding: 0.875rem 1rem;
@@ -1046,14 +1075,6 @@ body {
     background: var(--bg-surface);
     color: var(--text-primary);
     font-weight: 600;
-}
-
-.content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    margin: 2rem 0;
-    display: block;
 }
 
 .content hr {
