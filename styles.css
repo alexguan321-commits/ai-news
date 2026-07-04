@@ -919,6 +919,48 @@ body {
     }
 }
 
+/* ── Interaction Sidebar: Mobile Responsive ──────────────────── */
+@media (max-width: 768px) {
+    .interaction-sidebar {
+        right: 12px;
+        top: auto;
+        bottom: 24px;
+        transform: none;
+        z-index: 1100;
+    }
+
+    .sidebar-toggle {
+        padding: 14px;
+        border-radius: 50%;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar-toggle svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .interaction-panel {
+        width: 100vw;
+        right: -100vw;
+    }
+
+    .interaction-panel.active {
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .interaction-sidebar {
+        right: 10px;
+        bottom: 16px;
+    }
+
+    .sidebar-toggle {
+        padding: 16px;
+    }
+}
+
 /* ── Safe Area (notch devices) ───────────────────────────────── */
 @supports (padding: env(safe-area-inset-bottom)) {
     .navbar {
