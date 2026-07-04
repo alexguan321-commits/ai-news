@@ -308,8 +308,8 @@ window.showLoginGate = function() {
     loginGate.id = 'login-gate';
     loginGate.innerHTML = `
       <div class="login-gate-content">
-        <h1>🔐 AI 资讯日报</h1>
-        <p>请先登录后访问</p>
+        <h1>欢迎来到 Alex Guan 的 AI 知识库</h1>
+        <p>每日 AI 行业深度情报 · 精选知识卡片 · 由 AI 自动采集分析</p>
         <button class="login-btn" onclick="auth.showLoginModal()">登录</button>
       </div>
     `;

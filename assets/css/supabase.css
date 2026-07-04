@@ -9,27 +9,46 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: url('/ai-news/assets/login-bg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9998;
 }
 
+/* 深色遮罩层 */
+#login-gate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .login-gate-content {
+  position: relative;
   text-align: center;
   color: white;
-  padding: 40px;
+  padding: 60px 80px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .login-gate-content h1 {
   font-size: 2.5rem;
   margin-bottom: 16px;
   font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .login-gate-content p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 32px;
   opacity: 0.9;
 }
@@ -37,19 +56,125 @@
 .login-gate-content .login-btn {
   padding: 16px 48px;
   font-size: 1.1rem;
-  background: white;
-  color: #667eea;
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .login-gate-content .login-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   玻璃磨砂质感 - 全局按钮和图层
+   ============================================ */
+
+/* 导航栏 */
+.navbar {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 报告卡片 */
+.report-card,
+.knowledge-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.report-card:hover,
+.knowledge-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 统计卡片 */
+.stat-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+
+/* 标签按钮 */
+.filter-tag,
+.tab-btn {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.filter-tag:hover,
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.filter-tag.active,
+.tab-btn.active {
+  background: rgba(26, 115, 232, 0.2);
+  border-color: rgba(26, 115, 232, 0.4);
+}
+
+/* 搜索框 */
+.search-bar input {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+
+/* 互动按钮 */
+.interaction-btn {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.interaction-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.interaction-btn.active {
+  background: rgba(26, 115, 232, 0.15);
+  border-color: rgba(26, 115, 232, 0.3);
+}
+
+/* 评论区 */
+.comment {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 建议卡片 */
+.suggestion-item {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================
