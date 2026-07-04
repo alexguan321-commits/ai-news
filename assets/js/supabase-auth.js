@@ -139,7 +139,7 @@ class SupabaseAuth {
 
     if (this.isLoggedIn()) {
       // 登录成功 - 隐藏登录门控，显示内容
-      hideLoginGate();
+      window.hideLoginGate();
       
       authContainer.innerHTML = `
         <div class="user-menu">
@@ -278,7 +278,7 @@ function createAuthInstance() {
     // 检查认证状态 - 未登录则显示登录页
     setTimeout(() => {
       if (!window.auth.isLoggedIn()) {
-        showLoginGate();
+        window.showLoginGate();
       }
     }, 500);
     
@@ -288,7 +288,7 @@ function createAuthInstance() {
 }
 
 // 显示登录门控 - 隐藏内容，显示登录页
-function showLoginGate() {
+window.showLoginGate = function() {
   // 隐藏主内容
   const mainContent = document.querySelector('main.container');
   if (mainContent) {
@@ -316,10 +316,10 @@ function showLoginGate() {
     document.body.insertBefore(loginGate, document.body.firstChild);
   }
   loginGate.style.display = 'flex';
-}
+};
 
 // 隐藏登录门控 - 显示内容
-function hideLoginGate() {
+window.hideLoginGate = function() {
   const loginGate = document.getElementById('login-gate');
   if (loginGate) {
     loginGate.style.display = 'none';
@@ -334,7 +334,7 @@ function hideLoginGate() {
   if (navStats) {
     navStats.style.display = '';
   }
-}
+};
 
 // 立即尝试创建
 if (!createAuthInstance()) {
