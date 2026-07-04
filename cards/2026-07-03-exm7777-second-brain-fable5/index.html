@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="How to build a second brain with Fable 5">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>How to build a second brain with Fable 5 - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">35</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>How to build a second brain with Fable 5</h1>
+                <div class="meta">
+                    <span class="author">exm7777</span>
+                    <time>2026-07-03</time>
+                    <span class="tag">fable5</span> | <span class="tag">obsidian</span> | <span class="tag">second-brain</span> | <span class="tag">knowledge-management</span> | <span class="tag">llm-wiki</span> | <span class="tag">agentic-workflow</span> | <span class="tag">context-engineering</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+                <p><a href='X (Twitter) Article' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "How to build a second brain with Fable 5"
+author: "exm7777"
+source: "X (Twitter) Article"
+url: "https://x.com/exm7777/status/2073045719020343705"
+date: 2026-07-03
+tags: [fable5, obsidian, second-brain, knowledge-management, llm-wiki, agentic-workflow, context-engineering]
+</p>
+<hr>
+<h1>How to build a second brain with Fable 5</h1>
+<p>
+I'm going to show you, step by step, how to turn Fable 5 into a machine that knows your business inside out... and ships outputs that look nothing like what everyone else is getting.
+</p>
+<p>
+The tool is a second brain built in Obsidian, and a small group of people is already running one... exactly the same model, a world of difference in every output.
+</p>
+<p>
+The smartest model on the market ships average work all day for one reason: it knows nothing about you.
+</p>
+<p>
+No context on your business, your audience, your past decisions... so it guesses, and guesses read generic.
+</p>
+<p>
+Plug it into your own knowledge base and the same model becomes a different machine.
+</p>
+<p>
+The code follows your architecture, the content sounds like you, the writing stands on research you own... and you see it from day one.
+</p>
+<p>
+And this holds for ANY workflow you run: coding, marketing, content, sales, research.
+</p>
+<p>
+Running an AI agent without a second brain is wasting your time... and the gap only widens, because every file the brain gains makes every future run smarter, forever.
+</p>
+<h2>Same model, different league</h2>
+<p>
+Here are the numbers behind that claim:
+</p>
+<p>
+In accounting, a model working without the client's history lands around 70% accuracy. Give it the client's transaction history and it starts at 85% and climbs past 90%.
+</p>
+<p>
+Nothing about the model changed, the knowledge did.
+</p>
+<p>
+Writing works the same way. A mid-tier model with a well-built voice profile produces more recognizable output than Fable 5 with no profile at all.
+</p>
+<p>
+The files carry more of the result than the model tier does.
+</p>
+<p>
+And the model itself rewards this harder than anything before it. Anthropic's own testing had Fable play a full deck-building game with file-based memory, and it improved three times more than the previous flagship.
+</p>
+<h2>What Obsidian is, in one minute</h2>
+<p>
+Obsidian is a free app that sits on top of a folder of markdown files on your computer. No database, no cloud lock-in... your notes are plain text files you own, and the app is just a beautiful window into them.
+</p>
+<p>
+You only need two of its features:
+</p>
+<ul>
+<li>`[[wikilinks]]`: type double brackets around any note's name and the two notes are now connected</li>
+<li>The graph view: Obsidian draws every note as a dot and every link as a line, so you see your knowledge as a web</li>
+</ul>
+<p>
+And it fits agents perfectly: because the vault is just a folder, Fable works on it directly through Claude Code, the terminal app the model runs in on your machine. No plugin, no connector, no special setup... the agent reads and writes markdown files, Obsidian shows you what changed.
+</p>
+<p>
+You use the app, the agent uses the folder, both are looking at the same brain.
+</p>
+<h2>The structure: four pieces, nothing else</h2>
+<p>
+The thinking comes from Karpathy's LLM-Wiki idea: treat your knowledge base like a codebase.
+</p>
+<p>
+Obsidian is the editor, the model is the programmer, the wiki is the code.
+</p>
+<p>
+Four pieces:
+</p>
+<ul>
+<li><strong>raw/</strong> - everything you capture goes here untouched: articles, transcripts, call notes, competitor pages... read-only history, the agent never rewrites it</li>
+<li><strong>entities/</strong> - one page per concrete thing: a client, a competitor, a tool, a person</li>
+<li><strong>concepts/</strong> - one page per idea: a strategy, a pattern, a lesson</li>
+<li><strong>INDEX.md</strong> - the front door: every page listed with a one-line description, so the agent knows what exists without opening everything</li>
+</ul>
+<p>
+The agent's job is compiling: it reads new material in raw/ and updates the entity and concept pages, linking them as it goes.
+</p>
+<p>
+The writing rules:
+</p>
+<ul>
+<li>One lesson per file, with a one-line summary at the top</li>
+<li>Update the existing page instead of creating a duplicate</li>
+<li>Delete notes that turn out to be wrong</li>
+<li>Keep raw sources and compiled pages separate, always</li>
+</ul>
+<p>
+Why raw/ stays untouched: when the same agent reads and rewrites the same notes over and over, details blur and errors compound. The raw folder is your ground truth, and the wiki keeps getting smarter on top of it.
+</p>
+<h2>Knowledge graphs: why this gets better as it grows</h2>
+<p>
+Every <code>[[link]]</code> the agent writes between two pages is an edge in a graph.
+</p>
+<p>
+A search-based knowledge base gets noisier as it grows, because more files means more junk in every search. A linked wiki gets stronger as it grows, because every new page connects into the web and makes the surrounding pages more useful.
+</p>
+<p>
+When the agent needs to answer something, it doesn't scan everything... it walks the links. From the client's page to the campaign concept to the competitor page, following connections the way you'd follow your own memory.
+</p>
+<p>
+Karpathy's own vault sits around 100 articles and 400,000 words, all compiled by the model, all connected.
+</p>
+<h2>Populate it with goals</h2>
+<p>
+The first move is a backfill, and Fable's goal system was built for exactly this job.
+</p>
+<p>
+<code>/goal</code> in Claude Code lets you write one finish line, and the model keeps working on its own while a second, smaller model reads along as the judge and confirms when the line is crossed.
+</p>
+<p>
+The trick is the judge only sees what's in the conversation, so the goal must demand proof it can read:
+</p>
+<p>
+Feed raw/ with what you already own before you run it: old chat transcripts, bookmarked threads, your notes app export, client folders, past research.
+</p>
+<p>
+Then walk away, and come back to a compiled brain.
+</p>
+<p>
+Two rules keep the backfill honest:
+</p>
+<ul>
+<li>Every change ships as a diff, the exact before-and-after lines, never as a claim... if the agent says it updated a page, the diff proves it</li>
+<li>A page without a source link back to raw/ gets flagged, not trusted</li>
+</ul>
+<h2>Keep it alive with loops</h2>
+<p>
+A second brain that only grows when you remember to feed it is a dead brain in three weeks.
+</p>
+<p>
+Maintenance runs on schedules, not on memory:
+</p>
+<ul>
+<li><strong>After every session</strong>: a hook, a small script that fires on its own when a session ends, mines what just happened... decisions made, mistakes caught, patterns confirmed, written into the vault as dated notes... work you already did becomes memory without you filing anything</li>
+<li><strong>Every night</strong>: a compile pass on a cheap model reads the day's new raw material and updates the wiki pages... routine work, routine tier</li>
+<li><strong>Every week</strong>: a lint pass hunts contradictions, duplicate pages, and dead links... this is the loop that keeps the graph clean, and it exists because unmaintained wikis rot</li>
+<li><strong>Every week</strong>: one synthesis pass on the big model reads across the whole vault and writes what changed this week, what's drifting, what deserves attention</li>
+</ul>
+<p>
+That last one is the only pass where the premium model earns its seat. Everything else runs on the cheap tier, because updating notes is routine work and routing routine work to Fable is how people burn money for nothing.
+</p>
+<h2>The research workflow that feeds it</h2>
+<p>
+The default AI research is one prompt to a chatbot, and the answer dies in the scrollback.
+</p>
+<p>
+Worse, it's built on stale knowledge... in AI, advice from six months ago is often actively wrong, and the real practitioner layer, what people are running right now, what breaks, what works, lives on socials, not in official docs.
+</p>
+<p>
+So the research machine works like this:
+</p>
+<ul>
+<li>One question goes in, and it gets split into 3-5 sub-questions</li>
+<li>Parallel agents fan out, each searching a different surface: socials for the practitioner layer, the web for documentation and pricing, scrapers pulling the full text of everything worth reading</li>
+<li>Every finding becomes a receipt: the claim, the source link, the date</li>
+<li>Then the gate that makes it real: a skeptic agent attacks every claim and tries to kill it... single-source hype gets labeled, contradictions get surfaced, only survivors pass</li>
+<li>Verified findings land in the vault as pages, each one dated and linked, each one carrying an expiry date so stale knowledge announces itself</li>
+</ul>
+<p>
+The stack:
+</p>
+<ul>
+<li><strong>last30days powered by ScrapeCreators</strong>: one skill that sweeps reddit, X, youtube, instagram and tiktok for the last 30 days of practitioner talk on any topic</li>
+<li><strong>The official X MCP</strong> (api.x.com/mcp): live posts, threads and bookmarks straight from the source</li>
+<li><strong>YouTube transcripts with yt-dlp</strong>: any walkthrough or tutorial becomes text the agent can mine</li>
+<li><strong>Instagram and TikTok content through ScrapeCreators</strong>: short-form is where new workflows surface first</li>
+<li><strong>Perplexity deep research</strong>: the cited long-read pass across the web</li>
+<li><strong>Firecrawl</strong>: pulls the full text of every page worth keeping, as clean markdown</li>
+</ul>
+<p>
+The skeptic is what separates research from rumor collection: fresh-context checkers outperform a model reviewing its own work, so the attack always comes from an agent that didn't do the research.
+</p>
+<h2>Read it without burning money</h2>
+<p>
+The context window is an expensive room, and everything that enters it gets paid for in tokens.
+</p>
+<ul>
+<li>Your CLAUDE.md, the instruction file the agent reads at the start of every session, loads automatically every single time... that's the always-paid tax... keep it under 200 lines pointing at the vault, never containing it</li>
+<li>Everything else is pay-per-read: the agent checks INDEX.md, follows links, greps for keywords, and opens only the pages the trail points at... a full-folder sweep is the one move that never happens</li>
+<li>For big questions, send a worker: a subagent reads fifty pages in its own separate context and returns one paragraph of conclusions to your session... the expensive room holds decisions, not the library</li>
+</ul>
+<h2>Wire it into everything you build</h2>
+<p>
+Point any project at it with three lines in that project's CLAUDE.md.
+</p>
+<p>
+The outputs change immediately:
+</p>
+<ul>
+<li><strong>Marketing</strong>: campaign briefs grounded in your actual audience pages and competitor history, not generic personas</li>
+<li><strong>Content</strong>: drafts that cite your own past research and match your voice profile</li>
+<li><strong>Coding</strong>: the agent keeps living architecture notes per project in the vault, so no session ever starts blind</li>
+<li><strong>Client work</strong>: every deliverable opens with the full relationship history behind it</li>
+</ul>
+<p>
+Then the second half: the vault itself becomes product. The research pages become articles and guides, the concept pages become courses, the client pages become case studies... you're not creating from a blank page anymore, you're packaging what the machine already verified.
+</p>
+<p>
+The warning that saves your vault: sync is where vaults die. Run a single sync system... if the agent writes files while iCloud syncs them, you get conflicted copies and scrambled folders. Git works as the checkpoint layer... it locks in a version only when you tell it to.
+</p>
+<h2>The card (build in order)</h2>
+<p>
+1. Create the vault: raw/, entities/, concepts/, and an INDEX.md
+2. Write the four rules into your CLAUDE.md: one lesson per file, update don't duplicate, delete what's wrong, never touch raw/
+3. Dump everything you own into raw/: transcripts, bookmarks, notes, client folders
+4. Run the /goal backfill with pasted proof and a stop clause
+5. Schedule the loops: session hook, nightly compile on the cheap tier, weekly lint, one premium synthesis pass
+6. Run the weekly research sweep: fan out, let the skeptic attack, land survivors as dated pages
+7. Add the three knowledge lines to every project's CLAUDE.md
+</p>
+<p>
+The model in the driver's seat will change again... the vault survives every swap, and the feedback written into it makes it smarter every week no matter who's driving.
+</p>
+<p>
+The smallest version takes an hour: one folder, ten files about your business, and an agent told to read them first.
+</p>
+<p>
+Your outputs will tell you the rest.
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-07-03-exm7777-second-brain-fable5');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-07-03-exm7777-second-brain-fable5');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-07-03-exm7777-second-brain-fable5');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>
