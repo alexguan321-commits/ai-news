@@ -9,11 +9,13 @@ class PageViewTracker {
     this.visitorId = this.getOrCreateVisitorId();
   }
 
-  // 获取或创建匿名访客 ID
+  // 获取或创建匿名访客 ID（使用加密安全的随机数）
   getOrCreateVisitorId() {
     let visitorId = localStorage.getItem('visitor_id');
     if (!visitorId) {
-      visitorId = 'v_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+      const array = new Uint8Array(16);
+      crypto.getRandomValues(array);
+      visitorId = 'v_' + Array.from(array, b => b.toString(36).padStart(2, '0')).join('').substring(0, 18) + '_' + Date.now();
       localStorage.setItem('visitor_id', visitorId);
     }
     return visitorId;

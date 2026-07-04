@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0622晚报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0622晚报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -48,7 +54,7 @@
 🔴 Paradigm Shift
 </p>
 <p>
-<strong>事实：</strong> NVIDIA 在 GitHub 开源了 <a href="https://github.com/NVIDIA/skills">NVIDIA/skills</a> 仓库，这是一个经过 NVIDIA 官方验证和密码学签名的 AI Agent 技能目录。首批技能涵盖 cuOpt（物流优化）、NeMo Retriever（RAG）、CUDA-Q（量子计算）、Dynamo（推理引擎）、Medical AI 等领域。每个 Skill 都经过深度审查流程，支持 Claude 等主流 Agent 框架直接调用。同步发布的还有 <a href="https://github.com/NVIDIA/SkillSpector">SkillSpector</a>（7.2k stars），一个专门扫描 Agent Skill 安全漏洞的工具，覆盖 prompt injection、数据泄露、权限提升、供应链攻击等 11 大类 50+ 种攻击模式。
+<strong>事实：</strong> NVIDIA 在 GitHub 开源了 <a href="https://github.com/NVIDIA/skills" target="_blank" rel="noopener noreferrer">NVIDIA/skills</a> 仓库，这是一个经过 NVIDIA 官方验证和密码学签名的 AI Agent 技能目录。首批技能涵盖 cuOpt（物流优化）、NeMo Retriever（RAG）、CUDA-Q（量子计算）、Dynamo（推理引擎）、Medical AI 等领域。每个 Skill 都经过深度审查流程，支持 Claude 等主流 Agent 框架直接调用。同步发布的还有 <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener noreferrer">SkillSpector</a>（7.2k stars），一个专门扫描 Agent Skill 安全漏洞的工具，覆盖 prompt injection、数据泄露、权限提升、供应链攻击等 11 大类 50+ 种攻击模式。
 </p>
 <p>
 <strong>判断：</strong> 这不是一个普通的开源项目——这是 NVIDIA 在为 Agent 经济铺设"应用商店 + 信任链"。当"Skill"变成一种可签名、可验证、可分发的软件制品时，Agent 就不再是玩具，而是一个正式的软件开发品类。NVIDIA 的深层意图是：<strong>谁控制了 Skill 的信任链，谁就控制了 Agent 生态的入口。</strong> 就像 Apple 用 App Store 定义了移动互联网的分发逻辑，NVIDIA 正在用 Skills + SkillSpector 定义 Agentic AI 的分发和安全标准。
@@ -65,7 +71,7 @@
 <strong>So What — 对 负责人意味着什么：</strong>
 </p>
 <p>
-来源：<a href="https://github.com/NVIDIA/skills">NVIDIA/skills</a> | <a href="https://github.com/NVIDIA/SkillSpector">NVIDIA/SkillSpector</a> | <a href="https://trendshift.io/repositories/35658">Trendshift 分析</a>
+来源：<a href="https://github.com/NVIDIA/skills" target="_blank" rel="noopener noreferrer">NVIDIA/skills</a> | <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener noreferrer">NVIDIA/SkillSpector</a> | <a href="https://trendshift.io/repositories/35658" target="_blank" rel="noopener noreferrer">Trendshift 分析</a>
 </p>
 <hr>
 <p>
@@ -73,17 +79,17 @@
 </p>
 <h3>1. Hindsight：Agent 记忆系统进入"基准竞赛"时代 🟠 Major</h3>
 <p>
-<strong>事实：</strong> <a href="https://github.com/vectorize-io/hindsight">vectorize-io/hindsight</a> 登上 GitHub Trending。这是一个开源 Agent 长期记忆系统，提供 <code>retain()</code>、<code>recall()</code>、<code>reflect()</code> 三个核心操作，将知识组织为 Facts → Observations → Mental Models 的层级结构。声称是"截至 2026 年 1 月测试过的最准确的 Agent 记忆系统"。MIT 协议，可自托管，已支持 Claude Code 集成。
+<strong>事实：</strong> <a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer">vectorize-io/hindsight</a> 登上 GitHub Trending。这是一个开源 Agent 长期记忆系统，提供 <code>retain()</code>、<code>recall()</code>、<code>reflect()</code> 三个核心操作，将知识组织为 Facts → Observations → Mental Models 的层级结构。声称是"截至 2026 年 1 月测试过的最准确的 Agent 记忆系统"。MIT 协议，可自托管，已支持 Claude Code 集成。
 </p>
 <p>
 <strong>判断：</strong> Agent 记忆从"RAG 的附属品"变成了一个独立的技术品类。Hindsight 的三层知识结构（原始事实 → 观察 → 心智模型）本质上就是在 Agent 内部构建了一个活的 Ontology。这不是巧合——Knowledge Engineering 正在以"Agent Memory"的名字复活。
 </p>
 <p>
-来源：<a href="https://github.com/vectorize-io/hindsight">vectorize-io/hindsight</a> | <a href="https://hindsight.vectorize.io">Hindsight 官网</a>
+来源：<a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer">vectorize-io/hindsight</a> | <a href="https://hindsight.vectorize.io" target="_blank" rel="noopener noreferrer">Hindsight 官网</a>
 </p>
 <h3>2. AI Hedge Fund：多 Agent 协作的金融实战演练 🟠 Major</h3>
 <p>
-<strong>事实：</strong> <a href="https://github.com/virattt/ai-hedge-fund">virattt/ai-hedge-fund</a> 再次登上 GitHub Trending。这个项目用多个 AI Agent 模拟对冲基金团队：市场数据 Agent、量化 Agent、基本面 Agent、情绪 Agent、风控 Agent、投资组合经理 Agent。每个 Agent 模拟不同投资大师的风格（Buffett、Graham、Cathie Wood、Michael Burry）。基于 LangChain 构建，支持本地 LLM（Ollama）。
+<strong>事实：</strong> <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer">virattt/ai-hedge-fund</a> 再次登上 GitHub Trending。这个项目用多个 AI Agent 模拟对冲基金团队：市场数据 Agent、量化 Agent、基本面 Agent、情绪 Agent、风控 Agent、投资组合经理 Agent。每个 Agent 模拟不同投资大师的风格（Buffett、Graham、Cathie Wood、Michael Burry）。基于 LangChain 构建，支持本地 LLM（Ollama）。
 </p>
 <p>
 <strong>判断：</strong> 这个项目的价值不在交易本身，而在于它展示了一个成熟的 Multi-Agent 架构模式：专业化分工 + 角色化人格 + 层级决策。这是 CrewAI/AutoGen 范式在金融领域的完整实现。它再次登上 trending 说明"AI Agent 做决策"正在从概念走向大众认知。
@@ -92,14 +98,14 @@
 <strong>对 负责人的启示：</strong> 你的 AI 创业方向如果用多 Agent 架构，这个项目的角色设计模式值得借鉴。特别是"风控 Agent 有一票否决权"的设计——在供应链场景中，你可以设计一个"合规 Agent"对物流决策做风控检查。
 </p>
 <p>
-来源：<a href="https://github.com/virattt/ai-hedge-fund">virattt/ai-hedge-fund</a>
+来源：<a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer">virattt/ai-hedge-fund</a>
 </p>
 <hr>
 <p>
 📌 <strong>关注</strong>
 </p>
 <ul>
-<li><strong>WinPodX</strong> 🟡 | <a href="https://github.com/kernalix7/winpodx">kernalix7/winpodx</a> | 在 Linux 上通过容器化 Windows VM + FreeRDP 将 Windows 应用以原生方式暴露。不是 AI 项目，但代表了"应用虚拟化"的技术趋势——对某跨国消费品巨头内部跨平台工具部署有参考价值。一行带过。</li>
+<li><strong>WinPodX</strong> 🟡 | <a href="https://github.com/kernalix7/winpodx" target="_blank" rel="noopener noreferrer">kernalix7/winpodx</a> | 在 Linux 上通过容器化 Windows VM + FreeRDP 将 Windows 应用以原生方式暴露。不是 AI 项目，但代表了"应用虚拟化"的技术趋势——对某跨国消费品巨头内部跨平台工具部署有参考价值。一行带过。</li>
 </ul>
 <hr>
 <p>
@@ -161,11 +167,11 @@ Facts（原始事实）→ Observations（去重、证据驱动的信念）→ M
 <p>
 | 项目 | 一句话 | 链接 |
 |------|--------|------|
-| NVIDIA/skills | NVIDIA 官方 Agent 技能目录，密码学签名验证 | <a href="https://github.com/NVIDIA/skills">GitHub</a> |
-| NVIDIA/SkillSpector | Agent Skill 安全扫描器，50+ 攻击模式检测 | <a href="https://github.com/NVIDIA/SkillSpector">GitHub</a> |
-| vectorize-io/hindsight | Agent 长期记忆系统，三层知识结构 | <a href="https://github.com/vectorize-io/hindsight">GitHub</a> |
-| virattt/ai-hedge-fund | 多 Agent 对冲基金模拟，角色化投资大师 | <a href="https://github.com/virattt/ai-hedge-fund">GitHub</a> |
-| kernalix7/winpodx | Linux 上运行 Windows 应用的容器方案 | <a href="https://github.com/kernalix7/winpodx">GitHub</a> |
+| NVIDIA/skills | NVIDIA 官方 Agent 技能目录，密码学签名验证 | <a href="https://github.com/NVIDIA/skills" target="_blank" rel="noopener noreferrer">GitHub</a> |
+| NVIDIA/SkillSpector | Agent Skill 安全扫描器，50+ 攻击模式检测 | <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener noreferrer">GitHub</a> |
+| vectorize-io/hindsight | Agent 长期记忆系统，三层知识结构 | <a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer">GitHub</a> |
+| virattt/ai-hedge-fund | 多 Agent 对冲基金模拟，角色化投资大师 | <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer">GitHub</a> |
+| kernalix7/winpodx | Linux 上运行 Windows 应用的容器方案 | <a href="https://github.com/kernalix7/winpodx" target="_blank" rel="noopener noreferrer">GitHub</a> |
 </p>
 <hr>
 <p>

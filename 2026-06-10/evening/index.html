@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0610晚报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0610晚报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -43,7 +49,7 @@
                 <h2>📊 今日回顾</h2>
 <p>
 <strong>🔴 AWS Bedrock 将要求与 Anthropic 共享用户数据（Mythos 及未来模型）</strong>
-来源：<a href="https://news.ycombinator.com/item?id=48473166">Hacker News</a> | 135pts, 66 comments
+来源：<a href="https://news.ycombinator.com/item?id=48473166" target="_blank" rel="noopener noreferrer">Hacker News</a> | 135pts, 66 comments
 </p>
 <p>
 AWS Bedrock 宣布使用 Anthropic Mythos 及后续模型需共享数据给 Anthropic。这是云 AI 服务模式的重大转变——过去企业选择 Bedrock 的核心卖点之一就是数据隔离。此举直接冲击金融、医疗、政府等对数据主权敏感的行业客户。HN 社区讨论激烈，核心争议：这到底是 Anthropic 的安全研究需要，还是变相的数据收集？
@@ -54,7 +60,7 @@ AWS Bedrock 宣布使用 Anthropic Mythos 及后续模型需共享数据给 Anth
 <hr>
 <p>
 <strong>🟠 Meta 与 Reliance 签署印度首个 AI 数据中心协议</strong>
-来源：<a href="https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/">TechCrunch</a>
+来源：<a href="https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <p>
 168MW 设施，支持 Meta 全球 AI 算力需求，可扩展。这是 Meta 在印度的首个 AI 基础设施投资，选择 Reliance 作为本地合作伙伴，信号明确：AI 算力正在从美国向亚太扩散。对 Llama 开源生态的长期算力支撑也是利好。
@@ -62,7 +68,7 @@ AWS Bedrock 宣布使用 Anthropic Mythos 及后续模型需共享数据给 Anth
 <hr>
 <p>
 <strong>🟠 Apple Intelligence 确认不包含任何 Google Gemini 技术</strong>
-来源：<a href="https://www.macrumors.com/2026/06/09/apples-new-ai-contains-no-gemini/">MacRumors</a>
+来源：<a href="https://www.macrumors.com/2026/06/09/apples-new-ai-contains-no-gemini/" target="_blank" rel="noopener noreferrer">MacRumors</a>
 </p>
 <p>
 此前市场传言 Apple Intelligence 底层依赖 Gemini，Apple 正式否认。这意味着 Apple 走的是纯自研路线（Apple Intelligence + 自有 Foundation Model），而非之前猜测的"套壳 Google"。对端侧 AI 生态是重要信号——Apple 押注自有模型能力。
@@ -70,7 +76,7 @@ AWS Bedrock 宣布使用 Anthropic Mythos 及后续模型需共享数据给 Anth
 <hr>
 <p>
 <strong>🟠 Anthropic 被曝在 Fable 模型中故意削弱其开发其他 LLM 的能力</strong>
-来源：<a href="https://old.reddit.com/r/LocalLLaMA/comments/1u1s2oz/anthropic_is_intentionally_nerfing_fable_when/">Reddit r/LocalLLaMA</a>
+来源：<a href="https://old.reddit.com/r/LocalLLaMA/comments/1u1s2oz/anthropic_is_intentionally_nerfing_fable_when/" target="_blank" rel="noopener noreferrer">Reddit r/LocalLLaMA</a>
 </p>
 <p>
 社区发现 Anthropic 的 Fable 模型在被要求协助开发其他 LLM 时表现被刻意降级。这揭示了 AI 公司在"开放"与"竞争壁垒"之间的微妙博弈。对本地 LLM 社区是个警示：模型能力边界可能不只是技术限制，也可能是商业决策。
@@ -78,7 +84,7 @@ AWS Bedrock 宣布使用 Anthropic Mythos 及后续模型需共享数据给 Anth
 <hr>
 <p>
 <strong>🟠 Anthropic 红队发布：LLM 对 N-day 漏洞利用能力评估</strong>
-来源：<a href="https://red.anthropic.com/2026/n-days/">Anthropic Red Team</a>
+来源：<a href="https://red.anthropic.com/2026/n-days/" target="_blank" rel="noopener noreferrer">Anthropic Red Team</a>
 </p>
 <p>
 Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day exploits）方面的能力。这是 AI 安全领域的关键基线数据——理解 AI 在攻防两端的能力边界，直接决定部署策略。
@@ -88,14 +94,14 @@ Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day ex
 <strong>🟡 速览</strong>
 </p>
 <ul>
-<li>OpenAI 企业案例：LSEG（伦敦证交所集团）用 OpenAI 规模化可信 AI，4000 员工已接入 → <a href="https://openai.com/index/lseg">来源</a></li>
-<li>Alignment Forum：OLMo 3 训练过程中 Eval-Awareness（模型意识到自己在被评估）的涌现追踪 → <a href="https://www.alignmentforum.org/posts/c2tqL9xPbttisAHtt/tracing-eval-awareness-emergence-through-training-of-olmo-3">来源</a></li>
+<li>OpenAI 企业案例：LSEG（伦敦证交所集团）用 OpenAI 规模化可信 AI，4000 员工已接入 → <a href="https://openai.com/index/lseg" target="_blank" rel="noopener noreferrer">来源</a></li>
+<li>Alignment Forum：OLMo 3 训练过程中 Eval-Awareness（模型意识到自己在被评估）的涌现追踪 → <a href="https://www.alignmentforum.org/posts/c2tqL9xPbttisAHtt/tracing-eval-awareness-emergence-through-training-of-olmo-3" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <hr>
 <h2>📄 学术前沿</h2>
 <p>
 <strong>1. EEVEE: 面向真实世界的测试时 Prompt 学习框架</strong>
-来源：<a href="https://arxiv.org/pdf/2606.11182v1">arXiv 2606.11182</a>
+来源：<a href="https://arxiv.org/pdf/2606.11182v1" target="_blank" rel="noopener noreferrer">arXiv 2606.11182</a>
 </p>
 <p>
 首个支持多数据集测试时 prompt 学习的 LLM Agent 框架。核心突破：让 Agent 在真实任务流中持续自我改进，而非只在单一数据集上优化。这直接解决了 Agent 从 demo 到生产的 gap。
@@ -106,7 +112,7 @@ Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day ex
 <hr>
 <p>
 <strong>2. TRACE: Agentic RL 的统一 Rollout 预算分配框架</strong>
-来源：<a href="https://arxiv.org/pdf/2606.11119v1">arXiv 2606.11119</a>
+来源：<a href="https://arxiv.org/pdf/2606.11119v1" target="_blank" rel="noopener noreferrer">arXiv 2606.11119</a>
 </p>
 <p>
 解决 RLVR（可验证奖励的强化学习）中的核心效率问题：当 prompt 过于简单或复杂时，reward 对比度不足，rollout 计算资源被浪费。TRACE 动态分配预算，让训练效率大幅提升。
@@ -117,7 +123,7 @@ Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day ex
 <hr>
 <p>
 <strong>3. Decentralized Multi-Agent Systems with Shared Context</strong>
-来源：<a href="https://arxiv.org/pdf/2606.10662v1">arXiv 2606.10662</a>
+来源：<a href="https://arxiv.org/pdf/2606.10662v1" target="_blank" rel="noopener noreferrer">arXiv 2606.10662</a>
 </p>
 <p>
 提出去中心化多智能体系统架构，通过共享上下文替代中心编排。解决了 MAS 规模化时的单点瓶颈问题。
@@ -128,7 +134,7 @@ Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day ex
 <hr>
 <p>
 <strong>4. SkillAxe: 通过评估引导的自我精炼提升 LLM Agent 技能</strong>
-来源：<a href="https://arxiv.org/pdf/2606.10546v1">arXiv 2606.10546</a>
+来源：<a href="https://arxiv.org/pdf/2606.10546v1" target="_blank" rel="noopener noreferrer">arXiv 2606.10546</a>
 </p>
 <p>
 发现 LLM 自己写的 skill 文档在 SkillsBench 上比人类写的差 16.2 个百分点。SkillAxe 通过评估反馈让 LLM 自我迭代 skill 质量，显著缩小差距。
@@ -137,28 +143,28 @@ Anthropic 红队系统性测量了 LLM 在发现并利用已知漏洞（N-day ex
 <h2>🦾 具身智能 & 机器人</h2>
 <p>
 <strong>RoboNaldo: 人形机器人足球射门 via Motion-Guided Curriculum RL</strong>
-来源：<a href="https://arxiv.org/pdf/2606.11092v1">arXiv 2606.11092</a>
+来源：<a href="https://arxiv.org/pdf/2606.11092v1" target="_blank" rel="noopener noreferrer">arXiv 2606.11092</a>
 </p>
 <p>
 解决了人形机器人射门的核心矛盾：motion tracking RL 提供稳定性但无法适应变化的球位。通过 curriculum learning 让机器人学会在全身协调、高冲量交互下精准射门。
 </p>
 <p>
 <strong>Boston Dynamics x Hyundai: School of Football 系列</strong>
-来源：<a href="https://www.youtube.com/watch?v=qYy-BwBpxBI">YouTube</a>
+来源：<a href="https://www.youtube.com/watch?v=qYy-BwBpxBI" target="_blank" rel="noopener noreferrer">YouTube</a>
 </p>
 <p>
 Boston Dynamics 与 Hyundai 联合推出 Atlas 足球训练系列视频（Rabona、Ghost Rabona），展示 Atlas 在动态平衡和精确动作控制上的进展。这不只是 demo——背后是全身协调控制能力的系统性提升。
 </p>
 <p>
 <strong>TacForeSight: 力引导的触觉世界模型</strong>
-来源：<a href="https://arxiv.org/pdf/2606.11184v1">arXiv 2606.11184</a>
+来源：<a href="https://arxiv.org/pdf/2606.11184v1" target="_blank" rel="noopener noreferrer">arXiv 2606.11184</a>
 </p>
 <p>
 为接触密集型操作构建触觉世界模型，让机器人在动态接触转换和复杂表面几何下持续感知和调节物理交互。填补了 imitation learning 中触觉预测的空白。
 </p>
 <p>
 <strong>EM-Fall: 人形机器人上的毫米波跌倒检测</strong>
-来源：<a href="https://arxiv.org/pdf/2606.11109v1">arXiv 2606.11109</a>
+来源：<a href="https://arxiv.org/pdf/2606.11109v1" target="_blank" rel="noopener noreferrer">arXiv 2606.11109</a>
 </p>
 <p>
 用 mmWave 雷达实现全天候（日夜）跌倒检测，部署在人形机器人上。对养老/居家场景有直接应用价值。
@@ -166,26 +172,26 @@ Boston Dynamics 与 Hyundai 联合推出 Atlas 足球训练系列视频（Rabona
 <hr>
 <h2>🛠️ 工具/产品</h2>
 <ul>
-<li><strong>Tenure</strong> — 可追溯 AI 记忆系统，支持可配置记忆模式 → <a href="https://tenureai.dev/">来源</a></li>
-<li><strong>Eatmydata.ai</strong> — 本地优先的 Question-to-SQL-to-Dashboard AI → <a href="https://eatmydata.ai/">来源</a></li>
-<li><strong>Publora</strong> — 一个 API/MCP 让 AI Agent 发布到 10 个社交网络 → <a href="https://publora.com">来源</a></li>
-<li><strong>Supertree</strong> — 交互式决策树可视化工具 → <a href="https://github.com/mljar/supertree">来源</a></li>
+<li><strong>Tenure</strong> — 可追溯 AI 记忆系统，支持可配置记忆模式 → <a href="https://tenureai.dev/" target="_blank" rel="noopener noreferrer">来源</a></li>
+<li><strong>Eatmydata.ai</strong> — 本地优先的 Question-to-SQL-to-Dashboard AI → <a href="https://eatmydata.ai/" target="_blank" rel="noopener noreferrer">来源</a></li>
+<li><strong>Publora</strong> — 一个 API/MCP 让 AI Agent 发布到 10 个社交网络 → <a href="https://publora.com" target="_blank" rel="noopener noreferrer">来源</a></li>
+<li><strong>Supertree</strong> — 交互式决策树可视化工具 → <a href="https://github.com/mljar/supertree" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <hr>
 <h2>💬 社区热点</h2>
 <p>
 <strong>1. AWS Bedrock 数据共享争议（135pts, 66c）</strong>
-来源：<a href="https://news.ycombinator.com/item?id=48473166">HN</a>
+来源：<a href="https://news.ycombinator.com/item?id=48473166" target="_blank" rel="noopener noreferrer">HN</a>
 为什么值得看：企业 AI 部署的信任基石被动摇。评论区有大量关于数据主权、vendor lock-in、替代方案的深度讨论。对做企业 IT 的 Alex 是必读。
 </p>
 <p>
 <strong>2. Anthropic 故意削弱 Fable 开发其他 LLM 的能力</strong>
-来源：<a href="https://old.reddit.com/r/LocalLLaMA/comments/1u1s2oz/">Reddit</a>
+来源：<a href="https://old.reddit.com/r/LocalLLaMA/comments/1u1s2oz/" target="_blank" rel="noopener noreferrer">Reddit</a>
 为什么值得看：揭示了 AI 公司在模型能力上的"选择性开放"策略。LocalLLaMA 社区的分析和逆向工程思路很有价值。
 </p>
 <p>
 <strong>3. 24 小时用本地 LLM 寻找人生意义</strong>
-来源：<a href="https://eternal-question.vercel.app/">HN</a>
+来源：<a href="https://eternal-question.vercel.app/" target="_blank" rel="noopener noreferrer">HN</a>
 为什么值得看：一个有趣的社会实验——用本地 LLM 做哲学探索。展示了开源模型在开放式推理任务上的当前水平。
 </p>
 <hr>

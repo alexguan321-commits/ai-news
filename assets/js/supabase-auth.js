@@ -141,14 +141,17 @@ class SupabaseAuth {
     window.hideLoginGate();
 
     if (this.isLoggedIn()) {
+      const safeAvatar = safeAvatarUrl(this.profile?.avatar_url);
+      const safeName = escapeHtml(this.profile?.display_name || this.user.email?.split('@')[0] || 'User');
+      const initialLetter = escapeHtml((this.profile?.display_name || this.user.email || '?')[0].toUpperCase());
       authContainer.innerHTML = `
         <div class="user-menu">
           <button class="user-avatar-btn" onclick="auth.toggleUserDropdown()">
-            ${this.profile?.avatar_url 
-              ? `<img src="${this.profile.avatar_url}" alt="avatar">`
-              : `<span class="avatar-placeholder">${(this.profile?.display_name || this.user.email || '?')[0].toUpperCase()}</span>`
+            ${safeAvatar 
+              ? `<img src="${safeAvatar}" alt="avatar">`
+              : `<span class="avatar-placeholder">${initialLetter}</span>`
             }
-            <span class="user-name">${this.profile?.display_name || this.user.email?.split('@')[0] || 'User'}</span>
+            <span class="user-name">${safeName}</span>
           </button>
           <div class="user-dropdown" id="user-dropdown" style="display:none;">
             <a href="/ai-news/bookmarks/" class="dropdown-item">⭐ My Bookmarks</a>

@@ -83,44 +83,53 @@ class SupabaseInteractions {
       auth.showLoginModal();
       return;
     }
+    if (this._togglingLike) return; // 防重复点击
+    this._togglingLike = true;
 
     const likeBtn = document.getElementById('like-btn');
     const likeCountEl = document.getElementById('like-count');
-    if (!likeBtn) return;
+    if (!likeBtn) { this._togglingLike = false; return; }
 
     const isLiked = likeBtn.classList.contains('active');
+    const currentCount = parseInt(likeCountEl?.textContent || '0');
 
+    // 乐观更新 + 禁用按钮
+    likeBtn.classList.add('loading');
     if (isLiked) {
-      // 取消点赞
-      const { error } = await supabaseClient
-        .from('likes')
-        .delete()
-        .eq('user_id', auth.user.id)
-        .eq('content_type', this.contentType)
-        .eq('content_id', this.contentId);
-      
-      if (!error) {
-        likeBtn.classList.remove('active');
-        if (likeCountEl) {
-          likeCountEl.textContent = Math.max(0, parseInt(likeCountEl.textContent) - 1);
-        }
-      }
+      likeBtn.classList.remove('active');
+      if (likeCountEl) likeCountEl.textContent = Math.max(0, currentCount - 1);
     } else {
-      // 点赞
-      const { error } = await supabaseClient
-        .from('likes')
-        .insert({
-          user_id: auth.user.id,
-          content_type: this.contentType,
-          content_id: this.contentId
-        });
-      
-      if (!error) {
-        likeBtn.classList.add('active');
-        if (likeCountEl) {
-          likeCountEl.textContent = parseInt(likeCountEl.textContent) + 1;
-        }
+      likeBtn.classList.add('active');
+      if (likeCountEl) likeCountEl.textContent = currentCount + 1;
+    }
+
+    try {
+      if (isLiked) {
+        const { error } = await supabaseClient
+          .from('likes')
+          .delete()
+          .eq('user_id', auth.user.id)
+          .eq('content_type', this.contentType)
+          .eq('content_id', this.contentId);
+        if (error) throw error;
+      } else {
+        const { error } = await supabaseClient
+          .from('likes')
+          .insert({
+            user_id: auth.user.id,
+            content_type: this.contentType,
+            content_id: this.contentId
+          });
+        if (error) throw error;
       }
+    } catch (e) {
+      // 失败时回滚 UI
+      console.error('Toggle like failed:', e);
+      likeBtn.classList.toggle('active');
+      if (likeCountEl) likeCountEl.textContent = currentCount;
+    } finally {
+      likeBtn.classList.remove('loading');
+      this._togglingLike = false;
     }
   }
 
@@ -130,35 +139,48 @@ class SupabaseInteractions {
       auth.showLoginModal();
       return;
     }
+    if (this._togglingBookmark) return; // 防重复点击
+    this._togglingBookmark = true;
 
     const bookmarkBtn = document.getElementById('bookmark-btn');
-    if (!bookmarkBtn) return;
+    if (!bookmarkBtn) { this._togglingBookmark = false; return; }
 
     const isBookmarked = bookmarkBtn.classList.contains('active');
 
+    // 乐观更新 + 禁用按钮
+    bookmarkBtn.classList.add('loading');
     if (isBookmarked) {
-      const { error } = await supabaseClient
-        .from('bookmarks')
-        .delete()
-        .eq('user_id', auth.user.id)
-        .eq('content_type', this.contentType)
-        .eq('content_id', this.contentId);
-      
-      if (!error) {
-        bookmarkBtn.classList.remove('active');
-      }
+      bookmarkBtn.classList.remove('active');
     } else {
-      const { error } = await supabaseClient
-        .from('bookmarks')
-        .insert({
-          user_id: auth.user.id,
-          content_type: this.contentType,
-          content_id: this.contentId
-        });
-      
-      if (!error) {
-        bookmarkBtn.classList.add('active');
+      bookmarkBtn.classList.add('active');
+    }
+
+    try {
+      if (isBookmarked) {
+        const { error } = await supabaseClient
+          .from('bookmarks')
+          .delete()
+          .eq('user_id', auth.user.id)
+          .eq('content_type', this.contentType)
+          .eq('content_id', this.contentId);
+        if (error) throw error;
+      } else {
+        const { error } = await supabaseClient
+          .from('bookmarks')
+          .insert({
+            user_id: auth.user.id,
+            content_type: this.contentType,
+            content_id: this.contentId
+          });
+        if (error) throw error;
       }
+    } catch (e) {
+      // 失败时回滚 UI
+      console.error('Toggle bookmark failed:', e);
+      bookmarkBtn.classList.toggle('active');
+    } finally {
+      bookmarkBtn.classList.remove('loading');
+      this._togglingBookmark = false;
     }
   }
 
@@ -190,25 +212,28 @@ class SupabaseInteractions {
 
   renderComment(comment) {
     const timeAgo = this.getTimeAgo(new Date(comment.created_at));
-    const avatar = comment.profile?.avatar_url 
-      ? `<img src="${comment.profile.avatar_url}" alt="" class="comment-avatar">`
-      : `<span class="avatar-placeholder">${(comment.profile?.display_name || '?')[0].toUpperCase()}</span>`;
+    const safeAvatar = safeAvatarUrl(comment.profile?.avatar_url);
+    const safeAuthor = escapeHtml(comment.profile?.display_name || 'Anonymous');
+    const safeInitial = escapeHtml((comment.profile?.display_name || '?')[0].toUpperCase());
+    const avatar = safeAvatar 
+      ? `<img src="${safeAvatar}" alt="" class="comment-avatar">`
+      : `<span class="avatar-placeholder">${safeInitial}</span>`;
     
     return `
-      <div class="comment" data-id="${comment.id}">
+      <div class="comment" data-id="${escapeHtml(comment.id)}">
         <div class="comment-header">
           ${avatar}
-          <span class="comment-author">${comment.profile?.display_name || 'Anonymous'}</span>
-          <span class="comment-time">${timeAgo}</span>
+          <span class="comment-author">${safeAuthor}</span>
+          <span class="comment-time">${escapeHtml(timeAgo)}</span>
           ${auth.isLoggedIn() && auth.user.id === comment.user_id ? `
-            <button class="comment-delete" onclick="interactions.deleteComment('${comment.id}')">×</button>
+            <button class="comment-delete" onclick="interactions.deleteComment('${escapeHtml(comment.id)}')">×</button>
           ` : ''}
         </div>
         <div class="comment-body">${this.escapeHtml(comment.body)}</div>
-        <button class="comment-reply-btn" onclick="interactions.showReplyForm('${comment.id}')">回复</button>
-        <div class="reply-form" id="reply-form-${comment.id}" style="display:none;">
+        <button class="comment-reply-btn" onclick="interactions.showReplyForm('${escapeHtml(comment.id)}')">回复</button>
+        <div class="reply-form" id="reply-form-${escapeHtml(comment.id)}" style="display:none;">
           <textarea placeholder="回复..." maxlength="2000"></textarea>
-          <button onclick="interactions.submitReply('${comment.id}')">发送</button>
+          <button onclick="interactions.submitReply('${escapeHtml(comment.id)}')">发送</button>
         </div>
       </div>
     `;

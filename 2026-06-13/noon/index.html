@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0613午报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0613午报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -45,22 +51,22 @@
 </p>
 <p>
 🔴 <strong>美国政府勒令 Anthropic 暂停 Fable 5 和 Mythos 5 访问</strong>
-来源：<a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic</a>
+来源：<a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener noreferrer">Anthropic</a>
 Anthropic 发布官方声明，确认收到美国政府指令，要求暂停其最强模型 Fable 5 和 Mythos 5 的商业访问。这是美国首次对前沿 AI 模型实施强制性商业部署召回。
 </p>
 <p>
 🟠 <strong>Anthropic 安全警告反噬：政府以其自身警告为依据实施召回</strong>
-来源：<a href="https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/">TechCrunch</a>
+来源：<a href="https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 Anthropic 公开表达不满："我们不同意发现一个狭窄的潜在越狱路径就应成为召回已部署给数亿用户的商业模型的理由。" 这揭示了 AI 安全报告的双刃剑效应——透明披露风险可能成为监管武器。
 </p>
 <p>
 🟡 <strong>Recursive Agent Harnesses：递归 Agent 架构的形式化研究</strong>
-来源：<a href="https://arxiv.org/pdf/2606.13643v1">arXiv 2606.13643</a>
+来源：<a href="https://arxiv.org/pdf/2606.13643v1" target="_blank" rel="noopener noreferrer">arXiv 2606.13643</a>
 研究团队正式命名并研究了"递归 Agent 框架"模式——介于递归语言模型（RLMs）和 Anthropic 动态工作流之间的架构模式。生产环境中的 coding agent 已开始大规模生成子 agent。
 </p>
 <p>
 🟡 <strong>HyperTool：超越逐步工具调用的 Agent 执行粒度优化</strong>
-来源：<a href="https://arxiv.org/pdf/2606.13663v1">arXiv 2606.13663</a>
+来源：<a href="https://arxiv.org/pdf/2606.13663v1" target="_blank" rel="noopener noreferrer">arXiv 2606.13663</a>
 指出现有 tool-augmented agent 的"执行粒度失配"问题：局部确定性的工具工作流被展开成重复的模型可见步骤，造成推理链冗余。提出 HyperTool 将确定性工具链封装为单一调用。
 </p>
 <hr>
@@ -69,7 +75,7 @@ Anthropic 公开表达不满："我们不同意发现一个狭窄的潜在越狱
 </p>
 <p>
 <strong>Claude Fable 5 / Mythos 5 事件持续升级</strong>
-从 Anthropic 发布安全报告到政府强制召回，事态在 24 小时内急剧升级。YouTube 上已出现 319 页完整分析报告解读（来源：<a href="https://www.youtube.com/watch?v=haK1KoQWm18">YouTube</a>）。这表明社区对该事件的高度重视。
+从 Anthropic 发布安全报告到政府强制召回，事态在 24 小时内急剧升级。YouTube 上已出现 319 页完整分析报告解读（来源：<a href="https://www.youtube.com/watch?v=haK1KoQWm18" target="_blank" rel="noopener noreferrer">YouTube</a>）。这表明社区对该事件的高度重视。
 </p>
 <hr>
 <p>
@@ -77,7 +83,7 @@ Anthropic 公开表达不满："我们不同意发现一个狭窄的潜在越狱
 </p>
 <p>
 🟡 <strong>Agents-K1：面向 Agent 原生的科学知识编排</strong>
-来源：<a href="https://arxiv.org/pdf/2606.13669v1">arXiv 2606.13669</a>
+来源：<a href="https://arxiv.org/pdf/2606.13669v1" target="_blank" rel="noopener noreferrer">arXiv 2606.13669</a>
 指出现有 LLM 研究 Agent 将论文简化为摘要和引用边，忽略了关键实体、声明、证据、机制和方法线。提出 Agent-native 的知识编排框架，将论文结构化为包含实体、声明、证据的丰富知识图谱。这与某跨国消费品巨头在 enterprise ontology 上的探索高度相关——如何让 AI Agent 真正理解业务知识而非只做文本检索。
 </p>
 <hr>

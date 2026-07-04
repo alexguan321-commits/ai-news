@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0624早报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0624早报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -47,7 +53,7 @@
 <p>
 <strong>发生了什么：</strong>
 Anthropic 正式发布 Claude Tag，替代原有 Slack 应用，成为一个<strong>持久驻留、自主学习、自主工作</strong>的 AI 队友。它不是问答机器人，而是一个持续监听 Slack 消息流、学习组织上下文、积累机构知识的"数字同事"。
-🔗 <a href="https://www.anthropic.com/news/introducing-claude-tag">Anthropic 官方</a> | <a href="https://venturebeat.com/technology/anthropic-launches-claude-tag-replacing-its-slack-app-with-a-persistent-ai-teammate-that-learns-monitors-and-works-autonomously">VentureBeat 报道</a> | <a href="https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/">TechCrunch 分析</a>
+🔗 <a href="https://www.anthropic.com/news/introducing-claude-tag" target="_blank" rel="noopener noreferrer">Anthropic 官方</a> | <a href="https://venturebeat.com/technology/anthropic-launches-claude-tag-replacing-its-slack-app-with-a-persistent-ai-teammate-that-learns-monitors-and-works-autonomously" target="_blank" rel="noopener noreferrer">VentureBeat 报道</a> | <a href="https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/" target="_blank" rel="noopener noreferrer">TechCrunch 分析</a>
 </p>
 <p>
 <strong>判断：</strong>
@@ -75,7 +81,7 @@ Anthropic 正在复制 Palantir 的路径——不是卖模型，而是卖<stron
 </p>
 <h3>1. GPT-5 Pro 帮助免疫学家解决 3 年未解之谜 🟠</h3>
 <p>
-🔗 <a href="https://openai.com/index/gpt-5-immunology-mystery">OpenAI 官方</a>
+🔗 <a href="https://openai.com/index/gpt-5-immunology-mystery" target="_blank" rel="noopener noreferrer">OpenAI 官方</a>
 </p>
 <p>
 <strong>事实：</strong> GPT-5 Pro 帮助免疫学家 Derya Unutmaz 解决了一个持续 3 年的 T 细胞行为谜团，该突破可能推动癌症和自身免疫研究。
@@ -89,7 +95,7 @@ Anthropic 正在复制 Palantir 的路径——不是卖模型，而是卖<stron
 <hr>
 <h3>2. OpenAI 参与构建 AI 共享标准（Appia Foundation） 🟠</h3>
 <p>
-🔗 <a href="https://openai.com/index/helping-build-shared-standards-for-advanced-ai">OpenAI 官方</a>
+🔗 <a href="https://openai.com/index/helping-build-shared-standards-for-advanced-ai" target="_blank" rel="noopener noreferrer">OpenAI 官方</a>
 </p>
 <p>
 <strong>事实：</strong> OpenAI 宣布支持 Appia Foundation，参与构建高级 AI 的评估框架、安全实践和全球合作标准。
@@ -103,7 +109,7 @@ Anthropic 正在复制 Palantir 的路径——不是卖模型，而是卖<stron
 <hr>
 <h3>3. 超声成像让机器人手成为"灵巧模仿者" 🟠</h3>
 <p>
-🔗 <a href="https://www.technologyreview.com/2026/06/23/1138279/ultrasound-imaging-turns-a-robot-hand-into-a-skillful-mimic/">MIT Technology Review</a>
+🔗 <a href="https://www.technologyreview.com/2026/06/23/1138279/ultrasound-imaging-turns-a-robot-hand-into-a-skillful-mimic/" target="_blank" rel="noopener noreferrer">MIT Technology Review</a>
 </p>
 <p>
 <strong>事实：</strong> 研究人员将超声成像集成到机器人手中，使其能够感知内部形变，从而模仿人类的精细操作。人手有 34 块肌肉、27 个关节、100+ 肌腱——机器人此前远不能及。
@@ -120,27 +126,27 @@ Anthropic 正在复制 Palantir 的路径——不是卖模型，而是卖<stron
 </p>
 <p>
 <strong>Krea 2 Raw/Turbo 开源：企业级 AI 图像生成进入 2 秒时代</strong> 🟡
-🔗 <a href="https://venturebeat.com/technology/enterprise-grade-ai-image-generation-in-2-seconds-is-here-krea-2-raw-and-turbo-available-as-open-weights-under-custom-license">VentureBeat</a>
+🔗 <a href="https://venturebeat.com/technology/enterprise-grade-ai-image-generation-in-2-seconds-is-here-krea-2-raw-and-turbo-available-as-open-weights-under-custom-license" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 开源权重 + 自定义许可证。对 FMCG 营销素材生成有直接价值——但注意"custom license"意味着商用限制需细读。
 </p>
 <p>
 <strong>企业 AI 从 PoC 到生产的真正瓶颈：数据路径</strong> 🟡
-🔗 <a href="https://venturebeat.com/orchestration/a-proof-of-concept-forgives-a-fragile-data-path-operational-ai-does-not">VentureBeat</a>
+🔗 <a href="https://venturebeat.com/orchestration/a-proof-of-concept-forgives-a-fragile-data-path-operational-ai-does-not" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 F5 赞助文章，但观点正确：PoC 可以容忍脆弱的数据管道，生产级 AI 不行。对 负责人的 PD One Platform 建设有警示意义。
 </p>
 <p>
 <strong>Fitbit Air：Google 的 AI 健康教练尝试</strong> 🟡
-🔗 <a href="https://www.theverge.com/tech/954768/google-fitbit-air-review-fitness-tracker-wearable-ai-health-coach">The Verge</a>
+🔗 <a href="https://www.theverge.com/tech/954768/google-fitbit-air-review-fitness-tracker-wearable-ai-health-coach" target="_blank" rel="noopener noreferrer">The Verge</a>
 AI 健康教练的"垃圾进垃圾出"问题——如果底层数据不准，AI 建议就是恐吓用户。对任何 AI Agent 的启示：数据质量 > 模型能力。
 </p>
 <p>
 <strong>HuggingFace 实验 Cross-Origin Storage API</strong> 🟡
-🔗 <a href="https://huggingface.co/blog/cross-origin-storage">HuggingFace Blog</a>
+🔗 <a href="https://huggingface.co/blog/cross-origin-storage" target="_blank" rel="noopener noreferrer">HuggingFace Blog</a>
 Transformers.js 的浏览器端模型存储方案。边缘推理的基础设施在完善。
 </p>
 <p>
 <strong>好莱坞向 OpenAI 低头</strong> 🟡
-🔗 <a href="https://www.theverge.com/entertainment/954899/luca-guadagnino-artificial-sam-altman-amazon-a24-neon-mubi-chatgpt">The Verge</a>
+🔗 <a href="https://www.theverge.com/entertainment/954899/luca-guadagnino-artificial-sam-altman-amazon-a24-neon-mubi-chatgpt" target="_blank" rel="noopener noreferrer">The Verge</a>
 Netflix、A24 等拒绝发行关于 Sam Altman 的传记片。AI 公司与好莱坞的关系正在进入微妙阶段。
 </p>
 <hr>
@@ -186,7 +192,7 @@ Claude Tag 从 Slack 消息流中学习的内容，本质上就是组织 Ontolog
 </p>
 <p>
 <strong>AI 超级 PAC 在地方选举中花费 2700 万美元</strong> 🟡
-🔗 <a href="https://www.theverge.com/policy/954970/ai-super-pacs-alex-bores-new-york-12th-district">The Verge</a>
+🔗 <a href="https://www.theverge.com/policy/954970/ai-super-pacs-alex-bores-new-york-12th-district" target="_blank" rel="noopener noreferrer">The Verge</a>
 </p>
 <p>
 <strong>判断：</strong> AI 公司正在从"技术竞争"走向"政治竞争"。当 OpenAI、Anthropic 开始用政治献金影响监管环境时，行业已进入"大而不能倒"的阶段。

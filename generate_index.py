@@ -28,9 +28,10 @@ SUPABASE_HEAD = """
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 """
 
 def supabase_nav_auth():
@@ -364,6 +365,14 @@ def simple_md_to_html(md_text):
     in_code_block = False
     code_lang = ""
 
+    def safe_link(match):
+        """Replace markdown link only if URL uses safe protocol (http/https/relative)."""
+        text = match.group(1)
+        url = match.group(2)
+        if url.startswith(('http://', 'https://', '/')):
+            return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{text}</a>'
+        return match.group(0)  # Return original text for unsafe protocols
+
     for line in lines:
         stripped = line.strip()
 
@@ -448,7 +457,7 @@ def simple_md_to_html(md_text):
             text = stripped[2:]
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
+            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1" target="_blank" rel="noopener noreferrer">\1</a>', text)
             html_lines.append(f'<blockquote><p>{text}</p></blockquote>')
             continue
 
@@ -461,8 +470,8 @@ def simple_md_to_html(md_text):
             text = stripped[2:]
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-            text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
-            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
+            text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
+            text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1" target="_blank" rel="noopener noreferrer">\1</a>', text)
             html_lines.append(f'<li>{text}</li>')
             continue
 
@@ -477,10 +486,10 @@ def simple_md_to_html(md_text):
         text = stripped
         text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
         text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
         # Auto-link bare URLs (not already in href="" or <tag>)
-        text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1">\1</a>', text)
+        text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1" target="_blank" rel="noopener noreferrer">\1</a>', text)
         html_lines.append(text)
 
     if in_list:
@@ -520,6 +529,11 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="{post['title']}">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>{post['title']} - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     {SUPABASE_HEAD}
@@ -576,6 +590,11 @@ def generate_card_page(card, total_cards):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="{card['title']}">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>{card['title']} - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     {SUPABASE_HEAD}
@@ -717,9 +736,14 @@ def generate_html(posts, cards):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta property="og:title" content="Alex Guan's AI Knowledge Base">
+    <meta property="og:description" content="Daily AI industry insights · Curated knowledge cards · Auto-collected and analyzed by AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexguan321-commits.github.io/ai-news/">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="styles.css">
     {SUPABASE_HEAD}

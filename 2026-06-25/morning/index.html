@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0625早报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0625早报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -78,7 +84,7 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 3. <strong>创业视角：</strong> 推理成本下降 = 更多 AI-native 应用变得可行。关注那些「以前因为推理成本太高而不成立」的用例，它们即将变成创业机会。
 </p>
 <p>
-🔗 来源：<a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip">OpenAI 官方博客</a> | <a href="https://www.theverge.com/ai-artificial-intelligence/955939/openai-reveals-its-first-ai-processor-jalapeno">The Verge</a> | <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/">TechCrunch</a>
+🔗 来源：<a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip" target="_blank" rel="noopener noreferrer">OpenAI 官方博客</a> | <a href="https://www.theverge.com/ai-artificial-intelligence/955939/openai-reveals-its-first-ai-processor-jalapeno" target="_blank" rel="noopener noreferrer">The Verge</a> | <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <p>
@@ -92,7 +98,7 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 <strong>判断：</strong> 这是 Google 对 Anthropic Computer Use 的正面对标。关键差异在于——Flash 是轻量级模型，意味着 computer use 从「昂贵的高端能力」变成了「可大规模部署的标配能力」。当 computer use 足够便宜，RPA 的底层逻辑将被彻底重写。
 </p>
 <p>
-🔗 来源：<a href="https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/">DeepMind 官方博客</a>
+🔗 来源：<a href="https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/" target="_blank" rel="noopener noreferrer">DeepMind 官方博客</a>
 </p>
 <hr>
 <h3>2. 阿里巴巴 Qwen-AgentWorld：从未训练为 Agent，却在 7 个基准上提升了 Agent 性能 🟠</h3>
@@ -106,7 +112,7 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 <strong>对负责人的启示：</strong> 这对你做 Dify/Agent 工作流有直接指导意义——与其花大量精力优化 Agent 的 action selection prompt，不如先确保 Agent 对所操作系统的「世界模型」足够准确。具体行动：在你的 Agent 系统中，加入一个「环境预测层」，让 Agent 在执行前先预测操作结果，再决定是否执行。
 </p>
 <p>
-🔗 来源：<a href="https://venturebeat.com/technology/alibabas-model-never-trained-as-an-agent-and-improved-agent-performance-across-seven-benchmarks">VentureBeat</a>
+🔗 来源：<a href="https://venturebeat.com/technology/alibabas-model-never-trained-as-an-agent-and-improved-agent-performance-across-seven-benchmarks" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 </p>
 <hr>
 <h3>3. Shopify 构建「不关心哪个模型存活」的 AI 技术栈 🟠</h3>
@@ -120,7 +126,7 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 <strong>对负责人的启示：</strong> 这正是你在 PD One Platform 应该采用的架构。建议：在某跨国消费品巨头的 AI 基础设施层建立一个 Model Router/Proxy，统一管理 Dify 中调用的所有 LLM（GPT-4o、Claude、Qwen、本地模型），实现自动 failover 和成本路由。这不仅是技术决策，更是你向 CIO 汇报时的「平台思维」体现。
 </p>
 <p>
-🔗 来源：<a href="https://venturebeat.com/orchestration/how-shopify-built-an-ai-stack-that-doesnt-care-which-models-survive">VentureBeat</a>
+🔗 来源：<a href="https://venturebeat.com/orchestration/how-shopify-built-an-ai-stack-that-doesnt-care-which-models-survive" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 </p>
 <hr>
 <p>
@@ -128,20 +134,20 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 </p>
 <h3>4. AI 研究员持续从 Google 流向 Anthropic 🟡</h3>
 <p>
-顶级 AI 研究员 Jonas Adler 和 Alexander Pritzel 离开 Google 加入 Anthropic，继 Noam Shazeer 和 John Jumper 之后。判断：Anthropic 正在构建一个「前 Google Brain 全明星阵容」，其研究实力可能在 12 个月内超过 Google DeepMind 的有效产出。🔗 <a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/">TechCrunch</a>
+顶级 AI 研究员 Jonas Adler 和 Alexander Pritzel 离开 Google 加入 Anthropic，继 Noam Shazeer 和 John Jumper 之后。判断：Anthropic 正在构建一个「前 Google Brain 全明星阵容」，其研究实力可能在 12 个月内超过 Google DeepMind 的有效产出。🔗 <a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <h3>5. Mistral 发布 OCR 4，文档提取升级为企业 AI 平台 🟠</h3>
 <p>
-Mistral OCR 4 不再只做文字提取，而是返回结构化数据，直接切入企业文档处理市场。<strong>对负责人的启示：</strong> 仓储物流场景有大量单据（提单、装箱单、发票），Mistral OCR 4 值得评估，可能比现有 OCR 方案更适合构建端到端的文档理解 pipeline。🔗 <a href="https://venturebeat.com/data/mistral-launches-ocr-4-turning-document-extraction-into-a-full-enterprise-ai-play">VentureBeat</a>
+Mistral OCR 4 不再只做文字提取，而是返回结构化数据，直接切入企业文档处理市场。<strong>对负责人的启示：</strong> 仓储物流场景有大量单据（提单、装箱单、发票），Mistral OCR 4 值得评估，可能比现有 OCR 方案更适合构建端到端的文档理解 pipeline。🔗 <a href="https://venturebeat.com/data/mistral-launches-ocr-4-turning-document-extraction-into-a-full-enterprise-ai-play" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 </p>
 <h3>6. 企业开始「Token 配给」——员工用 AI 做小事耗尽预算 🟡</h3>
 <h3>7. Figma 发布代码层、动画支持和更多 AI 功能 🟡</h3>
 <p>
-Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支持、AI 自定义插件。<strong>判断：</strong> 设计-开发工作流正在被 AI 深度整合，Figma 从设计工具进化为「产品原型平台」。🔗 <a href="https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/">TechCrunch</a> | <a href="https://www.theverge.com/tech/955831/figma-code-design-tools-config-2026-announcements">The Verge</a>
+Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支持、AI 自定义插件。<strong>判断：</strong> 设计-开发工作流正在被 AI 深度整合，Figma 从设计工具进化为「产品原型平台」。🔗 <a href="https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/" target="_blank" rel="noopener noreferrer">TechCrunch</a> | <a href="https://www.theverge.com/tech/955831/figma-code-design-tools-config-2026-announcements" target="_blank" rel="noopener noreferrer">The Verge</a>
 </p>
 <h3>8. 小米 HarnessX：AI 脚手架在任务执行中自我重写，小模型受益最大 🟠</h3>
 <p>
-小米发布 HarnessX，能在 Agent 执行任务过程中动态重写连接 LLM 与环境的 scaffolding。<strong>对负责人的启示：</strong> 这直接挑战你当前在 Dify 中固定 workflow 的做法。关注「自适应 Agent 脚手架」技术，可能是下一代 Agent 框架的核心能力。🔗 <a href="https://venturebeat.com/orchestration/xiaomis-harnessx-rewrites-its-own-ai-scaffolding-mid-task-and-smaller-models-gain-the-most">VentureBeat</a>
+小米发布 HarnessX，能在 Agent 执行任务过程中动态重写连接 LLM 与环境的 scaffolding。<strong>对负责人的启示：</strong> 这直接挑战你当前在 Dify 中固定 workflow 的做法。关注「自适应 Agent 脚手架」技术，可能是下一代 Agent 框架的核心能力。🔗 <a href="https://venturebeat.com/orchestration/xiaomis-harnessx-rewrites-its-own-ai-scaffolding-mid-task-and-smaller-models-gain-the-most" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 </p>
 <hr>
 <p>
@@ -158,7 +164,7 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 <strong>对负责人的启示：</strong> 你负责某跨国消费品巨头中国供应链物流仓储数字化，人形机器人进入仓储是你 3-5 年规划中必须考虑的变量。建议：现在开始跟踪 Agility Robotics 和 Figure AI 的仓储部署进展，评估某跨国消费品巨头仓库未来引入人形机器人的可行性窗口。同时，你的仓储数字化系统（PD One Platform）应该预留与机器人系统对接的 API 接口。
 </p>
 <p>
-🔗 来源：<a href="https://techcrunch.com/2026/06/24/agility-robotics-plans-to-go-public-via-spac-in-a-2-5b-deal/">TechCrunch</a>
+🔗 来源：<a href="https://techcrunch.com/2026/06/24/agility-robotics-plans-to-go-public-via-spac-in-a-2-5b-deal/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <ul>
@@ -167,7 +173,7 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 <li>月度 AI 使用效率 Review</li>
 </ul>
 <p>
-🔗 来源：<a href="https://venturebeat.com/orchestration/how-shopify-built-an-ai-stack-that-doesnt-care-which-models-survive">VentureBeat</a> | <a href="https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/">TechCrunch</a>
+🔗 来源：<a href="https://venturebeat.com/orchestration/how-shopify-built-an-ai-stack-that-doesnt-care-which-models-survive" target="_blank" rel="noopener noreferrer">VentureBeat</a> | <a href="https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <p>
@@ -187,7 +193,7 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 今日暂无 FMCG 直接相关动态。
 </p>
 <p>
-<strong>但值得关注：</strong> Facebook 正在测试面向创作者的 AI Companion App，内置 AI 创作助手。🔗 <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/">TechCrunch</a> 这对某跨国消费品巨头的品牌营销团队有参考意义——社交平台正在为 KOL/KOC 提供 AI 创作工具，品牌方的内容营销策略需要适应这个变化。
+<strong>但值得关注：</strong> Facebook 正在测试面向创作者的 AI Companion App，内置 AI 创作助手。🔗 <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/" target="_blank" rel="noopener noreferrer">TechCrunch</a> 这对某跨国消费品巨头的品牌营销团队有参考意义——社交平台正在为 KOL/KOC 提供 AI 创作工具，品牌方的内容营销策略需要适应这个变化。
 </p>
 <hr>
 <p>
@@ -200,7 +206,7 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 </ul>
 <h3>AI 工程师就业数据：工程岗位反而更坚韧</h3>
 <ul>
-<li><strong>事实：</strong> SignalFire 数据显示，尽管 AI 主导了裁员叙事，工程师在新招聘中的占比实际上在增加。🔗 <a href="https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/">TechCrunch</a></li>
+<li><strong>事实：</strong> SignalFire 数据显示，尽管 AI 主导了裁员叙事，工程师在新招聘中的占比实际上在增加。🔗 <a href="https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/" target="_blank" rel="noopener noreferrer">TechCrunch</a></li>
 </ul>
 <hr>
 <p>
@@ -210,16 +216,16 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 今日暂无 Karpathy/Altman/Amodei/Hassabis/LeCun/Ilya/Jim Fan/Harrison Chase/Swyx 的公开动态。
 </p>
 <p>
-<strong>但值得关注的人才流动信号：</strong> Google DeepMind 的 Jonas Adler 和 Alexander Pritzel 加入 Anthropic。Anthropic 正在系统性地吸收 Google 的研究力量，这可能改变未来 12 个月的模型竞赛格局。🔗 <a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/">TechCrunch</a>
+<strong>但值得关注的人才流动信号：</strong> Google DeepMind 的 Jonas Adler 和 Alexander Pritzel 加入 Anthropic。Anthropic 正在系统性地吸收 Google 的研究力量，这可能改变未来 12 个月的模型竞赛格局。🔗 <a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <p>
 🛠️ <strong>开源/工具</strong>
 </p>
 <ul>
-<li><strong>NVIDIA NeMo AutoModel</strong> — 加速 Transformer 微调。🔗 <a href="https://huggingface.co/blog/nvidia/accelerating-fine-tuning-nvidia-nemo-automodel">HuggingFace Blog</a></li>
-<li><strong>FFASR Leaderboard</strong> — 真实世界 ASR 基准测试。🔗 <a href="https://huggingface.co/blog/ffasr-leaderboard">HuggingFace Blog</a></li>
-<li><strong>Mindstone Rebel</strong> — 企业 AI Agent 编排平台，自动记忆哪个模型适合哪个任务。🔗 <a href="https://venturebeat.com/orchestration/your-enterprise-ai-agents-should-automatically-remember-which-model-is-right-for-which-task-mindstone-built-the-capability-with-rebel">VentureBeat</a></li>
+<li><strong>NVIDIA NeMo AutoModel</strong> — 加速 Transformer 微调。🔗 <a href="https://huggingface.co/blog/nvidia/accelerating-fine-tuning-nvidia-nemo-automodel" target="_blank" rel="noopener noreferrer">HuggingFace Blog</a></li>
+<li><strong>FFASR Leaderboard</strong> — 真实世界 ASR 基准测试。🔗 <a href="https://huggingface.co/blog/ffasr-leaderboard" target="_blank" rel="noopener noreferrer">HuggingFace Blog</a></li>
+<li><strong>Mindstone Rebel</strong> — 企业 AI Agent 编排平台，自动记忆哪个模型适合哪个任务。🔗 <a href="https://venturebeat.com/orchestration/your-enterprise-ai-agents-should-automatically-remember-which-model-is-right-for-which-task-mindstone-built-the-capability-with-rebel" target="_blank" rel="noopener noreferrer">VentureBeat</a></li>
 </ul>
 <hr>
 <p>

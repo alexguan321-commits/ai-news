@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0614早报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0614早报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -72,7 +78,7 @@
 <li><strong>创业视角：</strong> 这创造了一个窗口——被封锁市场的用户会寻找替代方案，如果你在做 AI 应用创业，考虑"Anthropic 替代"这个定位。</li>
 </ul>
 <p>
-🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/949553/anthropic-fable-5-mythos-5-government-national-security">The Verge</a> | <a href="https://venturebeat.com/technology/anthropic-blocks-all-public-access-to-claude-fable-5-mythos-5-following-us-government-order-what-enterprises-should-do">VentureBeat</a> | <a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/">TechCrunch</a>
+🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/949553/anthropic-fable-5-mythos-5-government-national-security" target="_blank" rel="noopener noreferrer">The Verge</a> | <a href="https://venturebeat.com/technology/anthropic-blocks-all-public-access-to-claude-fable-5-mythos-5-following-us-government-order-what-enterprises-should-do" target="_blank" rel="noopener noreferrer">VentureBeat</a> | <a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <p>
@@ -83,40 +89,40 @@
 事实：Amazon 的网络安全研究是政府出口管制指令的关键触发因素，Jassy 亲自向政府高层表达了担忧。
 判断：大厂正在将"安全研究"作为地缘政治博弈的筹码。Amazon 投资 Anthropic 的同时，用安全叙事撬动政府监管，这是"监管套利"的高级形态。
 对负责人的启示：在某跨国消费品巨头内部推 AI 方案时，"安全合规"叙事比"效率提升"叙事更容易获得高层支持——学会用安全语言包装技术提案。
-🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/949601/amazon-anthropic-fablemythos-government-ban">The Verge</a>
+🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/949601/amazon-anthropic-fablemythos-government-ban" target="_blank" rel="noopener noreferrer">The Verge</a>
 </p>
 <p>
 <strong>2. OpenAI 面临多州总检察长调查</strong> 🟠
 事实：多个州的总检察长对 OpenAI 发起调查，涉及广告政策、健康数据处理等问题。
 判断：AI 公司正在进入"Big Tech 式"的监管周期——从技术质疑转向法律合规战。这会显著拖慢 OpenAI 的产品迭代速度。
 对负责人的启示：在某跨国消费品巨头选 AI 供应商时，OpenAI 的合规风险正在上升。确保你的 Dify/Agent 架构是模型无关的，降低单一供应商锁定风险。
-🔗 <a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/">TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <p>
 <strong>3. DeepMind 可解释性团队：SFT 驱动 Gemini 的安全属性</strong> 🟠
 事实：Google DeepMind 可解释性团队发布研究，揭示 SFT（监督微调）是 Gemini 安全属性的主要驱动力，而非 RLHF。
 判断：这对安全对齐研究是重要修正——行业普遍假设 RLHF 是安全的主要来源，但 DeepMind 的数据表明 SFT 阶段的安全训练数据才是关键。这意味着"安全数据质量"比"对齐算法选择"更重要。
 对负责人的启示：在你训练/微调行业模型时（如供应链场景），安全数据的质量和覆盖面比算法选择更值得投入。
-🔗 <a href="https://www.alignmentforum.org/posts/nLrrYweeFxgXACSmS/sft-drives-gemini-s-safety-properties-1">Alignment Forum</a>
+🔗 <a href="https://www.alignmentforum.org/posts/nLrrYweeFxgXACSmS/sft-drives-gemini-s-safety-properties-1" target="_blank" rel="noopener noreferrer">Alignment Forum</a>
 </p>
 <hr>
 <p>
 📌 <strong>关注</strong>
 </p>
 <p>
-<strong>KPMG 因 AI 幻觉撤报告</strong> 🟡 | AI 关于 AI 的报告也会幻觉，这再次证明 LLM 输出必须有人类验证环节——对你推广 Dify Agent 时的风控设计有直接参考价值。<a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/">TechCrunch</a>
+<strong>KPMG 因 AI 幻觉撤报告</strong> 🟡 | AI 关于 AI 的报告也会幻觉，这再次证明 LLM 输出必须有人类验证环节——对你推广 Dify Agent 时的风控设计有直接参考价值。<a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <p>
-<strong>Apple iOS 27 AI 照片编辑功能</strong> 🟡 | Apple 的 AI 图片编辑（重构、扩展、手部修复）落地 iOS 27。消费级 AI 应用的标杆，但企业级应用参考价值有限。<a href="https://www.theverge.com/tech/949360/apple-ai-photo-edit-reframe-extend-clean-up-hands-ons">The Verge</a>
+<strong>Apple iOS 27 AI 照片编辑功能</strong> 🟡 | Apple 的 AI 图片编辑（重构、扩展、手部修复）落地 iOS 27。消费级 AI 应用的标杆，但企业级应用参考价值有限。<a href="https://www.theverge.com/tech/949360/apple-ai-photo-edit-reframe-extend-clean-up-hands-ons" target="_blank" rel="noopener noreferrer">The Verge</a>
 </p>
 <p>
-<strong>arXiv: Agents-K1 — Agent-native Knowledge Orchestration</strong> 🟠 | 提出将论文从扁平引用关系升级为包含实体、声明、证据、机制的结构化知识编排框架。这对知识工程是重要进展。<a href="https://arxiv.org/pdf/2606.13669v1">arXiv</a>
+<strong>arXiv: Agents-K1 — Agent-native Knowledge Orchestration</strong> 🟠 | 提出将论文从扁平引用关系升级为包含实体、声明、证据、机制的结构化知识编排框架。这对知识工程是重要进展。<a href="https://arxiv.org/pdf/2606.13669v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <p>
-<strong>arXiv: HyperTool — 超越逐步工具调用</strong> 🟠 | 提出将确定性工具工作流折叠为单次 HyperTool 调用，减少 Agent 推理链中的执行粒度失配。直接相关你的 Dify Agent 工作流优化。<a href="https://arxiv.org/pdf/2606.13663v1">arXiv</a>
+<strong>arXiv: HyperTool — 超越逐步工具调用</strong> 🟠 | 提出将确定性工具工作流折叠为单次 HyperTool 调用，减少 Agent 推理链中的执行粒度失配。直接相关你的 Dify Agent 工作流优化。<a href="https://arxiv.org/pdf/2606.13663v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <p>
-<strong>arXiv: Recursive Agent Harnesses</strong> 🟠 | 命名并研究了"递归 Agent 框架"模式——Agent 生成代码来生成子 Agent。Anthropic 动态工作流的学术化表述。<a href="https://arxiv.org/pdf/2606.13643v1">arXiv</a>
+<strong>arXiv: Recursive Agent Harnesses</strong> 🟠 | 命名并研究了"递归 Agent 框架"模式——Agent 生成代码来生成子 Agent。Anthropic 动态工作流的学术化表述。<a href="https://arxiv.org/pdf/2606.13643v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <hr>
 <p>
@@ -124,19 +130,19 @@
 </p>
 <p>
 <strong>Mana: 灵巧操作铰接工具</strong> 🟠 | 来自 Pieter Abbeel 团队。解决了铰接工具（如剪刀、钳子）操作的难题——需要协调内部自由度和接触丰富的交互。此前具身智能主要聚焦刚体操作，铰接工具是重要的能力跃升。
-🔗 <a href="https://arxiv.org/pdf/2606.13677v1">arXiv</a>
+🔗 <a href="https://arxiv.org/pdf/2606.13677v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <p>
 <strong>LabVLA: 将 VLA 模型落地科学实验室</strong> 🟡 | 让 Vision-Language-Action 模型在实验室环境中执行物理实验操作。科学实验室自动化的重要一步。
-🔗 <a href="https://arxiv.org/pdf/2606.13578v1">arXiv</a>
+🔗 <a href="https://arxiv.org/pdf/2606.13578v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <p>
 <strong>WEAVER: 机器人操作的世界模型</strong> 🟡 | 提出同时满足策略评估、策略改进和测试时规划三大需求的世界模型，号称"Better, Faster, Longer"。
-🔗 <a href="https://arxiv.org/pdf/2606.13672v1">arXiv</a>
+🔗 <a href="https://arxiv.org/pdf/2606.13672v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <p>
 <strong>Boston Dynamics x Hyundai: School of Football</strong> 🟡 | Atlas 机器人踢足球的新视频发布。展示方向：娱乐化具身智能演示，技术含量有限但品牌传播价值高。
-🔗 <a href="https://www.youtube.com/watch?v=qYy-BwBpxBI">YouTube</a>
+🔗 <a href="https://www.youtube.com/watch?v=qYy-BwBpxBI" target="_blank" rel="noopener noreferrer">YouTube</a>
 </p>
 <hr>
 <hr>
@@ -149,7 +155,7 @@
 </p>
 <p>
 <strong>So What：</strong> 建议你在某跨国消费品巨头供应链场景中试点一个轻量 Ontology——先从仓储异常处理的实体-关系-决策链开始，验证结构化知识是否比纯 RAG 带来更好的 Agent 表现。
-🔗 <a href="https://arxiv.org/pdf/2606.13669v1">arXiv</a>
+🔗 <a href="https://arxiv.org/pdf/2606.13669v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 </p>
 <hr>
 <p>

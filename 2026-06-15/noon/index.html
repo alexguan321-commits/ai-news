@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0615午报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0615午报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -49,7 +55,7 @@
 <ul>
 <li><strong>事实</strong>：OpenAI 宣布推出合作伙伴网络，投入 1.5 亿美元帮助全球合作伙伴加速企业 AI 采用、部署和转型。</li>
 <li><strong>判断</strong>：这是 OpenAI 从"API 提供商"向"企业生态运营商"转型的关键一步。$150M 不是小数目，说明 OpenAI 意识到企业市场需要本地化支持、集成服务和行业解决方案，单靠 API 不够。这对微软的 Copilot 生态是间接竞争。</li>
-<li>🔗 <a href="https://openai.com/index/introducing-openai-partner-network">https://openai.com/index/introducing-openai-partner-network</a></li>
+<li>🔗 <a href="https://openai.com/index/introducing-openai-partner-network" target="_blank" rel="noopener noreferrer">https://openai.com/index/introducing-openai-partner-network</a></li>
 </ul>
 <p>
 <strong>2. Claude Fable 被封锁，Anthropic 安全策略引发争议</strong> 🟡 Notable
@@ -58,7 +64,7 @@
 <li><strong>事实</strong>：YouTube 频道报道 Claude Fable 模型被封锁（6月14日），此前 6月10日刚发布 319 页完整技术拆解。</li>
 <li><strong>判断</strong>：Anthropic 在"安全"和"开放"之间的摇摆越来越明显。Fable 系列主打长上下文和推理能力，封锁可能涉及能力边界控制或合规问题。这反映出前沿模型厂商在能力释放节奏上的焦虑。</li>
 <li><strong>对负责人的启示</strong>：对企业用户来说，模型厂商的策略不确定性是风险。你的 Dify 多模型架构设计是对的——不要绑定单一供应商。关注 Claude 后续是否有企业版 SLA 承诺。</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=Qj71N0tBzRo">https://www.youtube.com/watch?v=Qj71N0tBzRo</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=Qj71N0tBzRo" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=Qj71N0tBzRo</a></li>
 </ul>
 <hr>
 <p>
@@ -69,28 +75,28 @@
 </p>
 <ul>
 <li>NVIDIA 推出新的免费 AI 工具（具体细节待确认），继续巩固开发者生态。</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=zJvN8PDX1is">https://www.youtube.com/watch?v=zJvN8PDX1is</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=zJvN8PDX1is" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=zJvN8PDX1is</a></li>
 </ul>
 <p>
 <strong>4. arXiv: Gaze Heads — VLM 如何"看"它们描述的内容</strong> 🟡 Notable
 </p>
 <ul>
 <li>发现 VLM 内部有专门的 attention heads（gaze heads）追踪图像区域，揭示了多模态模型的可解释性新视角。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14703v1">https://arxiv.org/pdf/2606.14703v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14703v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14703v1</a></li>
 </ul>
 <p>
 <strong>5. arXiv: Direct Latent-Space Synthesis for LLM-Agent Workflows</strong> 🟡 Notable
 </p>
 <ul>
 <li>提出在潜空间直接合成并行分支，解决 LLM Agent 工作流中 sequential text interface 的效率瓶颈。这对 Agentic Engineering 有直接价值。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14672v1">https://arxiv.org/pdf/2606.14672v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14672v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14672v1</a></li>
 </ul>
 <p>
 <strong>6. arXiv: AgentSpec — 通过受控组合理解 Embodied Agent Scaffolds</strong> 🟡 Notable
 </p>
 <ul>
 <li>用模块化方法拆解 LLM Agent 的推理、记忆、反思、执行等组件，便于隔离分析各组件贡献。对你的 Ontology 建模有参考价值。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1">https://arxiv.org/pdf/2606.14674v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14674v1</a></li>
 </ul>
 <hr>
 <p>
@@ -101,14 +107,14 @@
 </p>
 <ul>
 <li>Atlas 机器人踢足球的系列视频持续更新（5月底-6月初），展示运动控制进步。</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=qYy-BwBpxBI">https://www.youtube.com/watch?v=qYy-BwBpxBI</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=qYy-BwBpxBI" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=qYy-BwBpxBI</a></li>
 </ul>
 <hr>
 <p>
 <strong>arXiv: AgentSpec 的模块化 Agent 分析方法</strong> 🟡 Notable
 </p>
 <ul>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1">https://arxiv.org/pdf/2606.14674v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14674v1</a></li>
 </ul>
 <hr>
 <p>

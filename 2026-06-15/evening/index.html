@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0615晚报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0615晚报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -49,7 +55,7 @@
 <ul>
 <li><strong>事实</strong>：TechCrunch 深度报道，数以万计的科技工作者正被 AI 替代，与此同时极少数 AI 内部人士正以难以想象的速度积累财富。文章警告这种极端分化正在形成"可燃环境"。</li>
 <li><strong>判断</strong>：这不是普通的周期性裁员——这是 AI 驱动的结构性劳动力重组。当"用 AI 替代人力"从实验变成默认选项，社会契约正在被撕裂。2026 年中这个时间点很关键：企业 AI 部署已从 PoC 进入规模化，裁员数据开始集中兑现。</li>
-<li>🔗 <a href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/">https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/</a></li>
+<li>🔗 <a href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/</a></li>
 </ul>
 <p>
 <strong>2. 🟠 Claude Fable 被封禁——Anthropic 的"安全牌"打到反噬？</strong>
@@ -58,7 +64,7 @@
 <li><strong>事实</strong>：多个 YouTube 频道报道 Anthropic 的 Claude Fable 功能遭到封禁/限制，引发社区大量讨论。此前 Claude Fable 5 的 319 页文档刚被深度拆解。</li>
 <li><strong>判断</strong>：Anthropic 一直打"安全牌"作为差异化定位，但 Fable 被封禁暗示其产品可能在能力边界上触碰了监管或内部安全红线。这对整个行业是一个信号：当 AI 产品足够强大时，"安全"和"能力"的张力会具象化为产品层面的冲突。</li>
 <li><strong>对负责人的启示</strong>：在某跨国消费品巨头这样的大型跨国企业部署 AI，合规和安全审查是硬约束。<strong>建议</strong>：①在 Dify/Agent 工作流设计中提前嵌入审计日志和 content filtering，不要等出事后补；②关注 Anthropic 后续对 Fable 的处置方式，这将定义"负责任 AI"的行业标准。</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=Qj71N0tBzRo">https://www.youtube.com/watch?v=Qj71N0tBzRo</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=Qj71N0tBzRo" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=Qj71N0tBzRo</a></li>
 </ul>
 <p>
 <strong>3. 🟠 NVIDIA 发布新免费 AI 工具——"送给人类的礼物"</strong>
@@ -66,7 +72,7 @@
 <ul>
 <li><strong>事实</strong>：NVIDIA 发布新的免费 AI 资源/工具，被 YouTube 频道形容为"a gift to humanity"。具体细节待确认，但 NVIDIA 持续在 democratize AI 算力层面发力。</li>
 <li><strong>判断</strong>：NVIDIA 的免费策略本质是"降低使用门槛→扩大生态→锁定 CUDA 护城河"。对于应用层玩家，这是实打实的利好。</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=zJvN8PDX1is">https://www.youtube.com/watch?v=zJvN8PDX1is</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=zJvN8PDX1is" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=zJvN8PDX1is</a></li>
 </ul>
 <p>
 <strong>4. 🟠 Agent 安全新攻击面：Guardrail 本身成为 DoS 目标</strong>
@@ -74,7 +80,7 @@
 <ul>
 <li><strong>事实</strong>：arXiv 论文揭示 LLM Agent 的 guardrail（防护栏）存在新型 DoS 漏洞——攻击者可以通过注入精心构造的数据，让 guardrail 的推理和任务跟随能力反噬自身，造成拒绝服务。</li>
 <li><strong>判断</strong>：这是 Agent 安全从"越狱"到"基础设施攻击"的演进。当 guardrail 本身变成攻击向量，意味着 Agent 安全不能只靠"加一层 filter"，需要架构级的防御思维。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14517v1">https://arxiv.org/pdf/2606.14517v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14517v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14517v1</a></li>
 </ul>
 <p>
 <strong>5. 🟠 Agent 工作流新范式：直接潜空间合成并行分支</strong>
@@ -83,17 +89,17 @@
 <li><strong>事实</strong>：论文提出跳过文本接口，直接在 latent space 合成 LLM Agent 工作流中的并行分支输出。解决了当前 Agent 系统"所有分支必须序列化为文本再合并"的效率瓶颈。</li>
 <li><strong>判断</strong>：这指向 Agent 架构的下一个演进方向——从"文本管道"到"潜空间编排"。当 Agent 工作流足够复杂（10+ 并行分支），文本序列化的 overhead 会成为真实瓶颈。</li>
 <li><strong>对负责人的启示</strong>：短期不直接影响你的 Dify 工作流，但中期（12-18个月）值得跟踪。如果你的 Agent 场景开始出现"分支爆炸"（一个任务触发 20+ 并行子任务），这就是你需要的架构升级方向。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14672v1">https://arxiv.org/pdf/2606.14672v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14672v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14672v1</a></li>
 </ul>
 <p>
 🟡 <strong>一行速览</strong>
 </p>
 <ul>
-<li>AdaSR：流式推理新范式，支持音频/视频等连续输入的实时推理 → <a href="https://arxiv.org/pdf/2606.14694v1">arXiv</a></li>
-<li>Persona-Pruner：通过剪枝压缩 LM 实现轻量级角色扮演，NPC 场景适用 → <a href="https://arxiv.org/pdf/2606.14695v1">arXiv</a></li>
-<li>GUI Agent 失败模式研究：朴素视觉记忆不够，需要更结构化的经验检索 → <a href="https://arxiv.org/pdf/2606.14106v1">arXiv</a></li>
-<li>ClinHallu：首个分阶段诊断医疗 MLLM 幻觉的 benchmark → <a href="https://arxiv.org/pdf/2606.14697v1">arXiv</a></li>
-<li>The Risk Shadow of PCA：保留 99.9999% 方差仍可能丢失所有灾难性事件信号 → <a href="https://arxiv.org/pdf/2606.14533v1">arXiv</a></li>
+<li>AdaSR：流式推理新范式，支持音频/视频等连续输入的实时推理 → <a href="https://arxiv.org/pdf/2606.14694v1" target="_blank" rel="noopener noreferrer">arXiv</a></li>
+<li>Persona-Pruner：通过剪枝压缩 LM 实现轻量级角色扮演，NPC 场景适用 → <a href="https://arxiv.org/pdf/2606.14695v1" target="_blank" rel="noopener noreferrer">arXiv</a></li>
+<li>GUI Agent 失败模式研究：朴素视觉记忆不够，需要更结构化的经验检索 → <a href="https://arxiv.org/pdf/2606.14106v1" target="_blank" rel="noopener noreferrer">arXiv</a></li>
+<li>ClinHallu：首个分阶段诊断医疗 MLLM 幻觉的 benchmark → <a href="https://arxiv.org/pdf/2606.14697v1" target="_blank" rel="noopener noreferrer">arXiv</a></li>
+<li>The Risk Shadow of PCA：保留 99.9999% 方差仍可能丢失所有灾难性事件信号 → <a href="https://arxiv.org/pdf/2606.14533v1" target="_blank" rel="noopener noreferrer">arXiv</a></li>
 </ul>
 <hr>
 <p>
@@ -126,7 +132,7 @@
 <ul>
 <li><strong>核心贡献</strong>：发现 VLM 内部存在一组特殊的 attention heads（"gaze heads"），它们的注意力模式精确追踪模型正在描述的图片区域。</li>
 <li><strong>为什么重要</strong>：这是 mechanistic interpretability 在多模态模型上的突破。不再是"模型看到了什么"，而是"模型内部如何决定看哪里"。对理解 VLM 幻觉的根源有直接价值。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14703v1">https://arxiv.org/pdf/2606.14703v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14703v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14703v1</a></li>
 </ul>
 <p>
 <strong>2. Compressed Computation ≠ Superposition：压缩计算的真面目</strong>
@@ -134,7 +140,7 @@
 <ul>
 <li><strong>核心贡献</strong>：证明 Braun et al. (2025) 的 Compressed Computation 模型（用 50 个神经元计算 100 个 ReLU）并非"superposition 中的计算"，而是通过更微妙的机制实现的。</li>
 <li><strong>为什么重要</strong>：对 mechanistic interpretability 社区的重要纠偏。superposition 是当前理解 LLM 的热门框架，但这篇论文提醒我们：不是所有"超能力"都是 superposition。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14673v1">https://arxiv.org/pdf/2606.14673v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14673v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14673v1</a></li>
 </ul>
 <p>
 <strong>3. When Good Verifiers Go Bad：自改进 VLM 会在新任务上退化</strong>
@@ -142,7 +148,7 @@
 <ul>
 <li><strong>核心贡献</strong>：发现 verifier-driven self-DPO 的一个反直觉问题——在旧任务上提升的同时，模型可能在新任务上出现性能退化。</li>
 <li><strong>为什么重要</strong>：对所有做 self-improving / self-play 的团队是重要警告。"自我改进"不是单调递增的，需要多任务回归测试。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14629v1">https://arxiv.org/pdf/2606.14629v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14629v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14629v1</a></li>
 </ul>
 <hr>
 <p>
@@ -159,7 +165,7 @@
 <hr>
 <ul>
 <li><strong>Ontology 动态</strong>：今日无直接相关论文。但 "AgentSpec" 论文（通过 controlled composition 理解 Agent 脚手架）对知识工程有间接价值——Agent 的 memory/reflection/action 模块需要结构化的 ontology 支撑。</li>
-<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1">https://arxiv.org/pdf/2606.14674v1</a></li>
+<li>🔗 <a href="https://arxiv.org/pdf/2606.14674v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.14674v1</a></li>
 </ul>
 <hr>
 <p>
@@ -189,7 +195,7 @@
 <li>Anthropic：Claude Fable 被封禁事件持续发酵，公司面临"安全 vs 能力"的产品张力</li>
 <li>NVIDIA：继续通过免费工具扩大生态护城河</li>
 <li>DeepMind："找到了一种新的思考方式"（YouTube 标题暗示新架构突破，待确认细节）</li>
-<li>🔗 <a href="https://www.youtube.com/watch?v=Dkqzqw8rxXI">https://www.youtube.com/watch?v=Dkqzqw8rxXI</a></li>
+<li>🔗 <a href="https://www.youtube.com/watch?v=Dkqzqw8rxXI" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=Dkqzqw8rxXI</a></li>
 </ul>
 <hr>
 <p>

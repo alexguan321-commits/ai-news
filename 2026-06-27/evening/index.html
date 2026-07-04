@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0627晚报 | AI PPT 生成终于"能用"了">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0627晚报 | AI PPT 生成终于"能用"了 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -46,7 +52,7 @@
 <strong>事实：</strong>
 </p>
 <ul>
-<li>Hugo He 的开源项目 <a href="https://github.com/hugohe3/ppt-master">ppt-master</a> 今日登顶 GitHub Trending，<strong>32,688 stars / 2,797 forks</strong></li>
+<li>Hugo He 的开源项目 <a href="https://github.com/hugohe3/ppt-master" target="_blank" rel="noopener noreferrer">ppt-master</a> 今日登顶 GitHub Trending，<strong>32,688 stars / 2,797 forks</strong></li>
 <li>核心能力：从任意文档生成<strong>真正可编辑的 PowerPoint</strong>——原生形状（非图片）、动画、Speaker Notes 自动配语音旁白、支持自定义 .pptx 模板</li>
 <li>创建于 2025-12-10，半年内从零到 3.2 万星，增长曲线陡峭</li>
 </ul>
@@ -70,7 +76,7 @@
 <h2>🔥 必看</h2>
 <h3>1. 🟠 claude-howto：Claude Code 最佳实践指南冲到 3.8 万星</h3>
 <p>
-<strong>事实：</strong> <a href="https://github.com/luongnv89/claude-howto">claude-howto</a> 是一个可视化、案例驱动的 Claude Code 指南，从基础到高级 Agent 模式，提供<strong>可直接复制粘贴的模板</strong>。38,443 stars / 4,636 forks。
+<strong>事实：</strong> <a href="https://github.com/luongnv89/claude-howto" target="_blank" rel="noopener noreferrer">claude-howto</a> 是一个可视化、案例驱动的 Claude Code 指南，从基础到高级 Agent 模式，提供<strong>可直接复制粘贴的模板</strong>。38,443 stars / 4,636 forks。
 </p>
 <p>
 <strong>判断：</strong> Claude Code 正在从"开发者玩具"变成"工程团队标配"。3.8 万星说明市场对这个工具的需求已经从"听说过"进入"想学会"阶段。这个 repo 的价值不在于它写了什么，而在于它证明了：<strong>AI 编程助手的"使用方法"本身正在成为一种知识产品。</strong> 谁先把 Claude Code / Cursor / Copilot 的最佳实践沉淀成团队 SOP，谁就能在 AI 工程效率上拉开差距。
@@ -78,7 +84,7 @@
 <hr>
 <h3>2. 🟠 Vibe-Trading：港大团队开源多 Agent 交易系统</h3>
 <p>
-<strong>事实：</strong> <a href="https://github.com/HKUDS/Vibe-Trading">Vibe-Trading</a> 是香港大学数据科学团队开源的个人交易 Agent，支持多 Agent 协作、MCP 协议、LLM 驱动的策略生成与回测。13,491 stars / 2,573 forks。
+<strong>事实：</strong> <a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noopener noreferrer">Vibe-Trading</a> 是香港大学数据科学团队开源的个人交易 Agent，支持多 Agent 协作、MCP 协议、LLM 驱动的策略生成与回测。13,491 stars / 2,573 forks。
 </p>
 <p>
 <strong>判断：</strong> "Vibe Coding"之后是"Vibe Trading"——这个命名不是巧合。它反映的是一个趋势：<strong>AI Agent 正在从"辅助决策"走向"自主执行"</strong>。交易场景是 Agent 自主执行的理想试验场——数据实时、反馈即时、结果可量化。Vibe-Trading 的技术架构（多 Agent + MCP）值得关注，因为它展示了一种可复用的 Agent 协作模式：<strong>一个 Agent 负责数据分析，一个负责策略生成，一个负责风控，一个负责执行</strong>——这种模式完全可以迁移到供应链决策、库存管理、需求预测等某跨国消费品巨头核心场景。

@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0624午报 | AI资讯">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0624午报 | AI资讯 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -43,7 +49,7 @@
                 <h2>📌 午间最重要的一件事</h2>
 <h3>Agon：基于"Prompt Economy"的全学科自主研究系统 🟠</h3>
 <p>
-<strong>来源：</strong> <a href="https://arxiv.org/pdf/2606.24177v1">arXiv 2606.24177</a> | 2026-06-23
+<strong>来源：</strong> <a href="https://arxiv.org/pdf/2606.24177v1" target="_blank" rel="noopener noreferrer">arXiv 2606.24177</a> | 2026-06-23
 </p>
 <p>
 <strong>发生了什么：</strong>
@@ -62,7 +68,7 @@
 <h2>🔥 午间必看</h2>
 <h3>1. OpenThoughts-Agent：Agentic Model 的数据配方 🟠</h3>
 <p>
-<strong>来源：</strong> <a href="https://arxiv.org/pdf/2606.24855v1">arXiv 2606.24855</a> | 2026-06-23
+<strong>来源：</strong> <a href="https://arxiv.org/pdf/2606.24855v1" target="_blank" rel="noopener noreferrer">arXiv 2606.24855</a> | 2026-06-23
 </p>
 <p>
 <strong>事实：</strong> 系统性地公开了如何为 agentic language model 策展训练数据。指出现有开源努力（SWE-Smith 等）的不足，提出了数据配方方法论。
@@ -71,12 +77,12 @@
 <strong>判断：</strong> 这是"agent 怎么训"从黑箱走向工程化的标志。之前大家只知道"给 agent 喂 trajectory 数据"，但数据质量、多样性、课程学习的具体配方一直是商业机密。这篇论文试图打开这个黑箱。
 </p>
 <p>
-<strong>对 负责人的启示：</strong> 你在用 Dify 搭 agent 工作流的时候，prompt 就是你的"训练数据"。把每个 agent 的 prompt 迭代当作数据策展来管理——建一个 prompt 版本库，记录每次修改的 A/B 测试结果。<a href="https://arxiv.org/pdf/2606.24855v1">来源</a>
+<strong>对 负责人的启示：</strong> 你在用 Dify 搭 agent 工作流的时候，prompt 就是你的"训练数据"。把每个 agent 的 prompt 迭代当作数据策展来管理——建一个 prompt 版本库，记录每次修改的 A/B 测试结果。<a href="https://arxiv.org/pdf/2606.24855v1" target="_blank" rel="noopener noreferrer">来源</a>
 </p>
 <hr>
 <h3>2. NVIDIA × AWS：AI 生产级部署的规模化合作 🟠</h3>
 <p>
-<strong>来源：</strong> <a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">NVIDIA Blog</a> | 2026-06-24
+<strong>来源：</strong> <a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/" target="_blank" rel="noopener noreferrer">NVIDIA Blog</a> | 2026-06-24
 </p>
 <p>
 <strong>事实：</strong> NVIDIA 和 AWS 联合宣布合作，聚焦低延迟推理、快速向量搜索、GPU 性价比优化，以及可扩展且不倍增运维复杂度的基础设施。
@@ -85,12 +91,12 @@
 <strong>判断：</strong> 这不是技术公告，是市场信号。NVIDIA 在从"卖铲子"向"卖矿场运营方案"转型。对 AWS 来说，这是在 Bedrock 之上叠加 GPU 原生能力。两家合流的潜台词是：<strong>AI 推理的成本和延迟问题，已经到了必须由芯片厂商和云厂商联合解决的程度</strong>。
 </p>
 <p>
-<strong>对 负责人的启示：</strong> 某跨国消费品巨头的 PD One Platform 如果要用 AI 做仓储物流优化，推理成本是绕不过去的。关注这个合作带来的 AWS 上 NVIDIA 推理实例的定价变化，可能是你下一轮预算谈判的筹码。<a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/">来源</a>
+<strong>对 负责人的启示：</strong> 某跨国消费品巨头的 PD One Platform 如果要用 AI 做仓储物流优化，推理成本是绕不过去的。关注这个合作带来的 AWS 上 NVIDIA 推理实例的定价变化，可能是你下一轮预算谈判的筹码。<a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/" target="_blank" rel="noopener noreferrer">来源</a>
 </p>
 <hr>
 <h3>3. MoEngage 收购 AI Agent 技术：营销的未来是百万 AI Agent 🟠</h3>
 <p>
-<strong>来源：</strong> <a href="https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/">TechCrunch</a> | 2026-06-23
+<strong>来源：</strong> <a href="https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/" target="_blank" rel="noopener noreferrer">TechCrunch</a> | 2026-06-23
 </p>
 <p>
 <strong>事实：</strong> 印度营销技术公司 MoEngage 以全现金交易收购了一家 AI agent 技术公司，该技术能为每个消费者分配独立的 AI agent。
@@ -99,21 +105,21 @@
 <strong>判断：</strong> "每个消费者一个 AI agent"——这是 CDP（客户数据平台）的终极形态。MoEngage 的判断是：未来的营销不是"对人群推送"，而是"agent 对 agent 的谈判"。品牌的 agent 和消费者的 agent 之间自动完成个性化推荐、价格协商、售后服务。这和某跨国消费品巨头的 D2C 战略直接相关。
 </p>
 <p>
-<strong>对 负责人的启示：</strong> 某跨国消费品巨头作为全球最大消费品公司，消费者触达的 agent 化是必然趋势。建议你在 PD One Platform 的路线图中，预留"品牌 Agent ↔ 消费者 Agent"交互的架构接口。这不是 2026 年的事，但 2027 年会成为议题。<a href="https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/">来源</a>
+<strong>对 负责人的启示：</strong> 某跨国消费品巨头作为全球最大消费品公司，消费者触达的 agent 化是必然趋势。建议你在 PD One Platform 的路线图中，预留"品牌 Agent ↔ 消费者 Agent"交互的架构接口。这不是 2026 年的事，但 2027 年会成为议题。<a href="https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/" target="_blank" rel="noopener noreferrer">来源</a>
 </p>
 <hr>
 <h2>📌 关注</h2>
 <ul>
-<li><strong>Are We Ready For An Agent-Native Memory System?</strong> 🟠 — 综述 LLM agent 记忆系统从 RAG 到持久化存储、检索、更新的演进。<strong>启示：</strong> 你的 Dify agent 如果要做供应链决策，必须有跨 session 的记忆。这篇论文的 taxonomy 可以直接用来设计你的 agent 记忆架构。<a href="https://arxiv.org/pdf/2606.24775v1">来源</a></li>
+<li><strong>Are We Ready For An Agent-Native Memory System?</strong> 🟠 — 综述 LLM agent 记忆系统从 RAG 到持久化存储、检索、更新的演进。<strong>启示：</strong> 你的 Dify agent 如果要做供应链决策，必须有跨 session 的记忆。这篇论文的 taxonomy 可以直接用来设计你的 agent 记忆架构。<a href="https://arxiv.org/pdf/2606.24775v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
-<li><strong>Grading the Grader: 评估 Agentic 数据分析系统</strong> 🟡 — 提出评估 agentic 数据分析系统的方法论（代码 + 数值结果 + 诊断报告）。<strong>启示：</strong> 你推 Teable 做数据分析时，如果叠加 AI agent，需要一套评估框架来证明它比人工分析靠谱。<a href="https://arxiv.org/pdf/2606.24839v1">来源</a></li>
+<li><strong>Grading the Grader: 评估 Agentic 数据分析系统</strong> 🟡 — 提出评估 agentic 数据分析系统的方法论（代码 + 数值结果 + 诊断报告）。<strong>启示：</strong> 你推 Teable 做数据分析时，如果叠加 AI agent，需要一套评估框架来证明它比人工分析靠谱。<a href="https://arxiv.org/pdf/2606.24839v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
-<li><strong>Paying to Know: Agentic 电商中的微交易信息市场</strong> 🟡 — 提出在 agent 电商中，消费者 agent 可以付费获取经过验证的产品信息。<strong>启示：</strong> 对某跨国消费品巨头 D2C 有颠覆性意义——未来品牌可能不是向消费者营销，而是向消费者的 AI agent "证明"产品价值。<a href="https://arxiv.org/pdf/2606.24783v1">来源</a></li>
+<li><strong>Paying to Know: Agentic 电商中的微交易信息市场</strong> 🟡 — 提出在 agent 电商中，消费者 agent 可以付费获取经过验证的产品信息。<strong>启示：</strong> 对某跨国消费品巨头 D2C 有颠覆性意义——未来品牌可能不是向消费者营销，而是向消费者的 AI agent "证明"产品价值。<a href="https://arxiv.org/pdf/2606.24783v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
-<li><strong>HelpBench: LLM 隐私安全建议能力评估</strong> 🟡 — 450 道题测试 LLM 在数字隐私、安全方面的建议质量。<strong>启示：</strong> 某跨国消费品巨头作为数据密集型企业，如果用 LLM 做内部 IT 安全建议，需要先过一遍这类 benchmark。<a href="https://arxiv.org/pdf/2606.24819v1">来源</a></li>
+<li><strong>HelpBench: LLM 隐私安全建议能力评估</strong> 🟡 — 450 道题测试 LLM 在数字隐私、安全方面的建议质量。<strong>启示：</strong> 某跨国消费品巨头作为数据密集型企业，如果用 LLM 做内部 IT 安全建议，需要先过一遍这类 benchmark。<a href="https://arxiv.org/pdf/2606.24819v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <hr>
 <h2>🦾 具身智能 & 机器人</h2>
@@ -121,13 +127,13 @@
 今天 arXiv 具身智能方向论文密集，值得关注的有 4 篇：
 </p>
 <ul>
-<li><strong>InSight: 通过可操控 VLA 实现自引导技能获取</strong> 🟠 — VLA 模型的能力被训练数据中的技能边界所限制。InSight 让 VLA 能自主探索并学习新技能，突破训练数据的天花板。<strong>启示：</strong> 这是具身智能从"模仿学习"到"自主探索"的关键一步。如果你在关注仓储机器人，VLA 的自主技能获取能力直接决定了机器人能否适应某跨国消费品巨头仓库里的长尾场景。<a href="https://arxiv.org/pdf/2606.24884v1">来源</a></li>
+<li><strong>InSight: 通过可操控 VLA 实现自引导技能获取</strong> 🟠 — VLA 模型的能力被训练数据中的技能边界所限制。InSight 让 VLA 能自主探索并学习新技能，突破训练数据的天花板。<strong>启示：</strong> 这是具身智能从"模仿学习"到"自主探索"的关键一步。如果你在关注仓储机器人，VLA 的自主技能获取能力直接决定了机器人能否适应某跨国消费品巨头仓库里的长尾场景。<a href="https://arxiv.org/pdf/2606.24884v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
-<li><strong>World Value Models for Robotic Manipulation</strong> 🟡 — 通用价值模型在大规模混合质量数据中扩展机器人策略学习。核心挑战是需要深层时序理解。<a href="https://arxiv.org/pdf/2606.24742v1">来源</a></li>
+<li><strong>World Value Models for Robotic Manipulation</strong> 🟡 — 通用价值模型在大规模混合质量数据中扩展机器人策略学习。核心挑战是需要深层时序理解。<a href="https://arxiv.org/pdf/2606.24742v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
-<li><strong>TACTFUL: 受限环境中的触觉驱动探索</strong> 🟡 — 机器人仅靠触觉定位和识别物体，不依赖视觉。<strong>启示：</strong> 仓储场景中，货架深处、遮挡区域的物品识别，触觉可能是比视觉更可靠的方案。<a href="https://arxiv.org/pdf/2606.24712v1">来源</a></li>
+<li><strong>TACTFUL: 受限环境中的触觉驱动探索</strong> 🟡 — 机器人仅靠触觉定位和识别物体，不依赖视觉。<strong>启示：</strong> 仓储场景中，货架深处、遮挡区域的物品识别，触觉可能是比视觉更可靠的方案。<a href="https://arxiv.org/pdf/2606.24712v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <hr>
 <hr>
@@ -162,7 +168,7 @@
 <hr>
 <h2>🛠️ 开源/工具</h2>
 <ul>
-<li><strong>Maestro Order: Model-Agnostic Orchestration Harness</strong> 🟡 — 一个模型无关的编排框架，解决"单次 forward pass 快但不可靠"的问题。<strong>启示：</strong> 如果你在用 Dify 编排多 agent 工作流，这个框架的设计思路可以参考——核心是让多个 model 互相校验，而不是依赖单一模型的自信。<a href="https://arxiv.org/pdf/2606.23983v1">来源</a></li>
+<li><strong>Maestro Order: Model-Agnostic Orchestration Harness</strong> 🟡 — 一个模型无关的编排框架，解决"单次 forward pass 快但不可靠"的问题。<strong>启示：</strong> 如果你在用 Dify 编排多 agent 工作流，这个框架的设计思路可以参考——核心是让多个 model 互相校验，而不是依赖单一模型的自信。<a href="https://arxiv.org/pdf/2606.23983v1" target="_blank" rel="noopener noreferrer">来源</a></li>
 </ul>
 <ul>
 <li><strong>NoLimits.jl: Julia 非线性混合效应建模</strong> ⚪ — 统计建模工具，非 AI 核心，跳过。</li>

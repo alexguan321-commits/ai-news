@@ -156,8 +156,8 @@ def git_push(commit_msg):
     
     os.chdir(WEBSITE_DIR)
     
-    # Git add
-    subprocess.run(["git", "add", "."], check=True)
+    # Git add — 明确指定目录，避免误提交敏感文件
+    subprocess.run(["git", "add", "_posts/", "reports/", "cards/", "knowledge-cards/", "index.html", "assets/"], check=True)
     
     # Git commit
     result = subprocess.run(
@@ -176,20 +176,28 @@ def git_push(commit_msg):
     
     print(f"✅ 已提交: {commit_msg}")
     
-    # Git push
-    result = subprocess.run(
-        ["git", "push"],
-        capture_output=True,
-        text=True
-    )
+    # Git push with retry
+    for attempt in range(3):
+        result = subprocess.run(
+            ["git", "push"],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            print("✅ 已推送到 GitHub")
+            print("🚀 GitHub Pages 将自动部署...")
+            return True
+        
+        if attempt < 2:
+            print(f"⚠️ 推送失败 (尝试 {attempt + 1}/3)，5秒后重试...")
+            import time
+            time.sleep(5)
+        else:
+            print(f"❌ 推送失败 (3次尝试均失败): {result.stderr}")
+            return False
     
-    if result.returncode != 0:
-        print(f"❌ 推送失败: {result.stderr}")
-        return False
-    
-    print("✅ 已推送到 GitHub")
-    print("🚀 GitHub Pages 将自动部署...")
-    return True
+    return False
 
 def main():
     if len(sys.argv) < 2:

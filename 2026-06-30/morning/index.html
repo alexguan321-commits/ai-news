@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0630早报 | Claude Code 被劫持：攻击面是 Sent">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0630早报 | Claude Code 被劫持：攻击面是 Sent - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -49,7 +55,7 @@
 <strong>判断：</strong> 推理成本是 AI 部署的最大瓶颈，不是训练。当推理速度提升 85%，意味着同样的 GPU 集群可以服务 5.7 倍的请求量。DeepSeek 选择开源而非商业化，策略意图清晰：用推理效率换取生态话语权。这与 v3 时代的策略一脉相承——不卖模型，卖标准。
 </p>
 <p>
-🔗 <a href="https://venturebeat.com/orchestration/deepseek-open-sources-dspark-a-new-framework-to-speed-up-llm-inference-by-up-to-85">来源：VentureBeat</a>
+🔗 <a href="https://venturebeat.com/orchestration/deepseek-open-sources-dspark-a-new-framework-to-speed-up-llm-inference-by-up-to-85" target="_blank" rel="noopener noreferrer">来源：VentureBeat</a>
 </p>
 <hr>
 <h2>🔥 必看（🟠🔴 级别）</h2>
@@ -61,7 +67,7 @@
 <strong>判断：</strong> 这不是一个 bug，是 AI agent 架构的根本性安全缺陷。当 agent 拥有"开发者完整权限"时，它本质上是一个没有零信任边界的超级用户。攻击者不需要突破防火墙——只需要在 agent 信任的工具链里插入一条精心构造的输入。Sentry 只是第一个被发现的入口，整个 dev tool 生态都是攻击面。
 </p>
 <p>
-🔗 <a href="https://venturebeat.com/security/the-attack-that-hijacked-claude-code-came-through-sentry-datadog-pagerduty-and-jira-have-the-same-exposure">来源：VentureBeat</a>
+🔗 <a href="https://venturebeat.com/security/the-attack-that-hijacked-claude-code-came-through-sentry-datadog-pagerduty-and-jira-have-the-same-exposure" target="_blank" rel="noopener noreferrer">来源：VentureBeat</a>
 </p>
 <hr>
 <h3>🔴 韩国公布 $576B AI 芯片计划，Samsung + SK Hynix 联合押注</h3>
@@ -72,7 +78,7 @@
 <strong>判断：</strong> 5760 亿美元不是投资，是国家级 AI 基础设施军备竞赛的入场券。韩国押注的不是"做芯片"，而是"做 AI 时代的基础设施层"。SK Hynix 的 HBM（高带宽内存）已经是 NVIDIA GPU 的核心组件，Samsung 在先进制程上追赶 TSMC。这个计划的潜台词是：AI 算力的供应链正在成为比石油更重要的战略资源。
 </p>
 <p>
-🔗 <a href="https://aibusiness.com/generative-ai/south-korea-unveils-576b-ai-chip-push-samsung-sk-hynix">来源：AI Business</a>
+🔗 <a href="https://aibusiness.com/generative-ai/south-korea-unveils-576b-ai-chip-push-samsung-sk-hynix" target="_blank" rel="noopener noreferrer">来源：AI Business</a>
 </p>
 <hr>
 <h3>🟠 Anthropic 与加州政府达成协议：Claude 半价供州政府使用</h3>
@@ -86,7 +92,7 @@
 <strong>对某跨国消费品巨头的启示：</strong> 政府客户对 AI 供应商的"信任门槛"正在被重新定义。某跨国消费品巨头作为全球最大消费品公司之一，其 AI 供应商选择本身就是一种信号。<strong>关注 Anthropic 的政府定价策略是否会延伸到大型企业客户</strong>——如果政府能拿到 50% 折扣，大企业应该有谈判空间。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>🟠 Arena 从免费排行榜变成 $100M 业务：AI 评估基础设施的商业化</h3>
@@ -97,7 +103,7 @@
 <strong>判断：</strong> Arena 的商业模式验证了一个关键洞察：<strong>AI 评估本身就是产品</strong>。当所有公司都在比拼模型能力时，"谁说了算"变成了最值钱的生意。Arena 从学术项目到 $100M 估值只用了不到一年，说明市场对"中立 AI 评估"的需求远超预期。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/arena-the-ai-leaderboard-everyone-uses-is-now-a-100m-business/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/arena-the-ai-leaderboard-everyone-uses-is-now-a-100m-business/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>🟠 OpenAI 预告 Codex 硬件：AI 编码工具正在长出物理形态</h3>
@@ -108,7 +114,7 @@
 <strong>判断：</strong> AI 工具从纯软件走向硬件，意味着 OpenAI 认为"编码体验"需要物理反馈。这不是噱头——当 AI agent 成为主要编码者时，人类开发者的角色从"打字员"变成"审查者"，审查需要快速切换上下文，物理按钮比鼠标点击快 10 倍。
 </p>
 <p>
-🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder">来源：The Verge</a>
+🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder" target="_blank" rel="noopener noreferrer">来源：The Verge</a>
 </p>
 <hr>
 <h3>🟠 Claude 登陆 NVIDIA GB300 Blackwell Ultra：Azure 上的 Anthropic 推理进入新纪元</h3>
@@ -119,7 +125,7 @@
 <strong>判断：</strong> GB300 是 NVIDIA 最新的 AI 推理芯片，Claude 率先在其上部署意味着 Anthropic 正在优化推理效率。对某跨国消费品巨头来说，如果已经在 Azure 上运行工作负载，<strong>Claude on GB300 可能比当前方案快 2-3 倍且成本更低</strong>。
 </p>
 <p>
-🔗 <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/">来源：NVIDIA Blog</a>
+🔗 <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/" target="_blank" rel="noopener noreferrer">来源：NVIDIA Blog</a>
 </p>
 <hr>
 <h3>🟠 Cursor 推出移动端 App：编码 Agent 的远程监督成为可能</h3>
@@ -127,7 +133,7 @@
 <strong>事实：</strong> Cursor 发布移动端应用，允许开发者在手机上远程监督编码 agent。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>🟠 美国议员提案禁止 AI 公司出售健康数据</h3>
@@ -138,7 +144,7 @@
 <strong>判断：</strong> 这是 AI 隐私监管的必然方向。当用户向 AI 透露健康焦虑、财务状况、家庭矛盾时，这些数据如果流入数据经纪商，后果比社交媒体泄露更严重。<strong>这个法案如果通过，将直接影响 AI 公司的数据变现模式</strong>。
 </p>
 <p>
-🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/959033/health-location-data-protection-act-ai-warren-scanlon">来源：The Verge</a>
+🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/959033/health-location-data-protection-act-ai-warren-scanlon" target="_blank" rel="noopener noreferrer">来源：The Verge</a>
 </p>
 <hr>
 <h2>📌 关注（🟡 级别）</h2>
@@ -150,7 +156,7 @@
 <strong>判断：</strong> Google 的护城河不是模型，是数据。当 Gemini 可以访问你的 Gmail、Calendar、Photos 时，它生成的图像天然比 ChatGPT 更"懂你"。这是 AI 个性化的终极形态——不是基于你告诉 AI 的，而是基于你实际生活的。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>🟡 TIDAL 对 AI 音乐下手：停止支付版税，但不完全禁止</h3>
@@ -161,7 +167,7 @@
 <strong>判断：</strong> 音乐行业是 AI 内容版权战的第一个战场。TIDAL 的选择——不禁止但去货币化——可能成为其他内容平台的模板。核心逻辑：<strong>AI 内容可以存在，但不能与人类创作者争夺收入</strong>。
 </p>
 <p>
-🔗 <a href="https://www.theverge.com/tech/959211/tidal-ai-music-policy-demonetizingdetect-label">来源：The Verge</a> | <a href="https://techcrunch.com/2026/06/29/tidal-cracks-down-on-ai-music-by-cutting-off-monetization/">TechCrunch</a>
+🔗 <a href="https://www.theverge.com/tech/959211/tidal-ai-music-policy-demonetizingdetect-label" target="_blank" rel="noopener noreferrer">来源：The Verge</a> | <a href="https://techcrunch.com/2026/06/29/tidal-cracks-down-on-ai-music-by-cutting-off-monetization/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
 <h3>🟡 Omen AI 融资 $31M：用 AI 优化数据中心液冷</h3>
@@ -172,7 +178,7 @@
 <strong>判断：</strong> 数据中心冷却是一个被严重低估的 AI 应用场景。当 GPU 功耗从 300W 飙升到 1000W+ 时，冷却效率直接决定数据中心能否扩容。Omen AI 的"湿"方案（液冷监控）比"干"方案（风冷优化）更有技术壁垒。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/omen-ais-plan-to-optimize-data-centers-is-all-wet/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/omen-ais-plan-to-optimize-data-centers-is-all-wet/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>🟡 MIT Tech Review：AI Agent 不是你的"同事"</h3>
@@ -183,7 +189,7 @@
 <strong>判断：</strong> 这篇文章戳破了一个行业泡沫。当所有人都在说"AI coworker"时，真正的问题是：<strong>谁为 agent 的错误负责？</strong> 如果 agent 是"同事"，那它犯错时你能解雇它吗？不能。你只能自己承担后果。拟人化是营销话术，不是工程现实。
 </p>
 <p>
-🔗 <a href="https://www.technologyreview.com/2026/06/29/1139849/ai-agents-are-not-your-coworkers/">来源：MIT Technology Review</a>
+🔗 <a href="https://www.technologyreview.com/2026/06/29/1139849/ai-agents-are-not-your-coworkers/" target="_blank" rel="noopener noreferrer">来源：MIT Technology Review</a>
 </p>
 <hr>
 <h3>🟡 Prompt Engineering 会悄悄失败——Prompt Regression 是原因</h3>
@@ -194,7 +200,7 @@
 <strong>判断：</strong> 这是 LLM 应用的"技术债"问题。传统软件有单元测试，但 prompt 的"测试"往往是主观的——"看起来还行"。当 prompt 有 200 个 token 时，改一个词可能影响 10% 的输出质量，但这种回归在人工审查中几乎不可见。
 </p>
 <p>
-🔗 <a href="https://towardsdatascience.com/prompt-engineering-fails-quietly-prompt-regression-is-why/">来源：Towards Data Science</a>
+🔗 <a href="https://towardsdatascience.com/prompt-engineering-fails-quietly-prompt-regression-is-why/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
 </p>
 <hr>
 <h2>🦾 具身智能专区</h2>
@@ -206,7 +212,7 @@
 <strong>判断：</strong> 足球是具身智能的"终极测试"——需要实时感知、动态平衡、多 agent 协作、不确定性决策。Boston Dynamics 选择足球作为展示场景，说明其机器人已经从"受控环境"走向"开放环境"。关键指标不是"能不能踢"，而是"在不确定地面上能不能踢"。
 </p>
 <p>
-🔗 <a href="https://www.youtube.com/watch?v=SoK05VMIATA">来源：YouTube</a>
+🔗 <a href="https://www.youtube.com/watch?v=SoK05VMIATA" target="_blank" rel="noopener noreferrer">来源：YouTube</a>
 </p>
 <hr>
 <h3>Proception 机器人手公司和解 Tesla 商业秘密诉讼，融资 $11M</h3>
@@ -217,7 +223,7 @@
 <strong>判断：</strong> 机器人手是具身智能的"最后一公里"。人形机器人可以走、可以跑，但如果不能灵巧操作，就无法在真实世界工作。Proception 的独特之处在于数据收集方法——<strong>当所有人都在仿真中训练时，真实世界数据才是护城河</strong>。与 Tesla 的和解也说明，大公司在具身智能领域的专利战已经开始。
 </p>
 <p>
-🔗 <a href="https://techcrunch.com/2026/06/29/robot-hand-company-settles-tesla-trade-secret-suit-and-announces-11m-raise/">来源：TechCrunch</a>
+🔗 <a href="https://techcrunch.com/2026/06/29/robot-hand-company-settles-tesla-trade-secret-suit-and-announces-11m-raise/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
 </p>
 <hr>
 <h3>Firefly Aerospace 首次在月球轨道运行 NVIDIA Jetson</h3>
@@ -228,7 +234,7 @@
 <strong>判断：</strong> 这是边缘 AI 的终极场景——月球上没有云计算，没有 5G，只有 Jetson 和辐射。如果 AI 能在月球轨道实时运行，那在工厂车间、零售门店、物流仓库运行就是小儿科。<strong>NVIDIA Jetson 的太空验证是其边缘 AI 战略的最强背书</strong>。
 </p>
 <p>
-🔗 <a href="https://blogs.nvidia.com/blog/firefly-aerospace-nvidia-jetson-lunar-orbit/">来源：NVIDIA Blog</a>
+🔗 <a href="https://blogs.nvidia.com/blog/firefly-aerospace-nvidia-jetson-lunar-orbit/" target="_blank" rel="noopener noreferrer">来源：NVIDIA Blog</a>
 </p>
 <hr>
 <h2>🧠 Ontology 机会</h2>
@@ -240,7 +246,7 @@
 <strong>判断：</strong> 传统方法需要两个模型——一个估计密度，一个计算评分。DiScoFormer 的统一架构意味着<strong>更少的模型、更低的部署成本、更好的一致性</strong>。这对某跨国消费品巨头的 Ontology 系统有直接启发：是否可以用统一模型处理多种知识图谱任务，而不是为每个任务训练专用模型？
 </p>
 <p>
-🔗 <a href="https://huggingface.co/blog/allenai/discoformer">来源：HuggingFace Blog</a>
+🔗 <a href="https://huggingface.co/blog/allenai/discoformer" target="_blank" rel="noopener noreferrer">来源：HuggingFace Blog</a>
 </p>
 <hr>
 <h3>Token 计数掩盖了 AI 投资的真实 ROI</h3>
@@ -251,7 +257,7 @@
 <strong>判断：</strong> 这对某跨国消费品巨头的 AI 投资评估有直接意义。<strong>如果 KPI 是"用了多少 token"，那团队会优化 token 使用量而不是业务价值</strong>。正确的成本模型应该基于"完成了多少业务任务"——处理了多少客户咨询、生成了多少产品洞察、优化了多少供应链决策。
 </p>
 <p>
-🔗 <a href="https://aibusiness.com/agentic-ai/opinion-token-counting-obscures-roi-ai-investments">来源：AI Business</a>
+🔗 <a href="https://aibusiness.com/agentic-ai/opinion-token-counting-obscures-roi-ai-investments" target="_blank" rel="noopener noreferrer">来源：AI Business</a>
 </p>
 <hr>
 <h3>经典 NLP 的极限：从 Bag-of-Words 到 Stacking</h3>
@@ -262,7 +268,7 @@
 <strong>判断：</strong> 这篇文章的价值不在于方法，而在于问题：<strong>在 LLM 时代，经典 NLP 还有价值吗？</strong> 答案是：在小数据、低延迟、高可解释性场景下，经典方法仍然优于 LLM。某跨国消费品巨头的 Ontology 系统如果需要处理小规模标注数据，stacking ensemble 可能比 fine-tuned LLM 更高效。
 </p>
 <p>
-🔗 <a href="https://towardsdatascience.com/how-far-can-classical-nlp-go-from-bag-of-words-to-stacking-on-spooky-author-identification/">来源：Towards Data Science</a>
+🔗 <a href="https://towardsdatascience.com/how-far-can-classical-nlp-go-from-bag-of-words-to-stacking-on-spooky-author-identification/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
 </p>
 <hr>
 <h2>💰 投资信号</h2>

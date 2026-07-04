@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0628晚报 | browser">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
     <title>0628晚报 | browser - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
@@ -10,9 +15,10 @@
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
-    <script src="/ai-news/assets/js/supabase-views.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 
 </head>
 <body>
@@ -43,7 +49,7 @@
                 <h2>📌 今日最重要的一件事</h2>
 <h3>lingbot-map：流式 3D 场景重建基础模型开源</h3>
 <p>
-<strong>事实</strong>：Robbyant 团队开源了 <a href="https://github.com/Robbyant/lingbot-map">lingbot-map</a>，一个 feed-forward 3D foundation model，能从流式数据（视频或图像序列）实时重建 3D 场景。支持长序列和大规模场景，提供三种 checkpoint（short/long/balanced），单条命令即可从视频生成点云飞越动画。依赖 PyTorch 2.8.0 + NVIDIA Kaolin + flashinfer。
+<strong>事实</strong>：Robbyant 团队开源了 <a href="https://github.com/Robbyant/lingbot-map" target="_blank" rel="noopener noreferrer">lingbot-map</a>，一个 feed-forward 3D foundation model，能从流式数据（视频或图像序列）实时重建 3D 场景。支持长序列和大规模场景，提供三种 checkpoint（short/long/balanced），单条命令即可从视频生成点云飞越动画。依赖 PyTorch 2.8.0 + NVIDIA Kaolin + flashinfer。
 </p>
 <p>
 <strong>判断</strong>：这不是又一个 NeRF 变体。lingbot-map 的核心价值在于 <strong>feed-forward + streaming</strong>——不需要 per-scene optimization，看到即重建。这意味着：
@@ -52,13 +58,13 @@
 3. <strong>具身智能训练数据</strong>：大规模生成 3D 训练环境成为可能
 </p>
 <p>
-🔗 <a href="https://github.com/Robbyant/lingbot-map">GitHub</a>
+🔗 <a href="https://github.com/Robbyant/lingbot-map" target="_blank" rel="noopener noreferrer">GitHub</a>
 </p>
 <hr>
 <h2>🔥 必看</h2>
 <h3>🟠 browser-use/video-use：用 Coding Agent 剪视频</h3>
 <p>
-<strong>事实</strong>：browser-use 团队推出 <a href="https://github.com/browser-use/video-use">video-use</a>，让 Claude Code 等 coding agent 通过 ffmpeg 本地编辑视频。工作流：把原始素材放到文件夹 → agent 清点素材 → 提出剪辑策略 → 等你确认 → 生成 <code>edit/final.mp4</code>。核心理念和 browser-use 一样：给 LLM 结构化接口而不是截图。
+<strong>事实</strong>：browser-use 团队推出 <a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener noreferrer">video-use</a>，让 Claude Code 等 coding agent 通过 ffmpeg 本地编辑视频。工作流：把原始素材放到文件夹 → agent 清点素材 → 提出剪辑策略 → 等你确认 → 生成 <code>edit/final.mp4</code>。核心理念和 browser-use 一样：给 LLM 结构化接口而不是截图。
 </p>
 <p>
 <strong>判断</strong>：这是 <strong>"Agent 即创作者"</strong> 的又一个落地场景。过去视频编辑需要：理解素材 → 决策剪辑逻辑 → 操作专业软件。现在 agent 可以：
@@ -69,12 +75,12 @@
 <li>用 ffmpeg 执行精确剪辑、转场、字幕</li>
 </ul>
 <p>
-🔗 <a href="https://github.com/browser-use/video-use">GitHub</a>
+🔗 <a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener noreferrer">GitHub</a>
 </p>
 <hr>
 <h3>🟠 usestrix/strix：AI 安全测试工具转向 browser-use</h3>
 <p>
-<strong>事实</strong>：<a href="https://github.com/usestrix/strix">Strix</a> 是一个开源 AI 应用安全测试工具，正在从 Playwright 迁移到 browser-use 作为浏览器自动化层。原因：
+<strong>事实</strong>：<a href="https://github.com/usestrix/strix" target="_blank" rel="noopener noreferrer">Strix</a> 是一个开源 AI 应用安全测试工具，正在从 Playwright 迁移到 browser-use 作为浏览器自动化层。原因：
 1. <strong>非视觉模型支持</strong>：browser-use 暴露高层 API，不需要 vision model 看截图
 2. <strong>反检测能力</strong>：内置 stealth browser、代理轮换、CAPTCHA 绕过
 3. <strong>会话持久化</strong>：支持 browser profiles，跨 agent 运行保持登录状态
@@ -88,19 +94,19 @@
 <li>Agent 需要"像人一样浏览"，而不是"像脚本一样操作 DOM"</li>
 </ul>
 <p>
-🔗 <a href="https://github.com/usestrix/strix">GitHub</a> | <a href="https://github.com/usestrix/strix/issues/194">Issue #194</a>
+🔗 <a href="https://github.com/usestrix/strix" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://github.com/usestrix/strix/issues/194" target="_blank" rel="noopener noreferrer">Issue #194</a>
 </p>
 <hr>
 <h2>📌 关注</h2>
 <h3>🟡 cupy/cupy：GPU 上的 NumPy/SciPy</h3>
 <p>
-<strong>事实</strong>：<a href="https://github.com/cupy/cupy">CuPy</a> 是 NumPy/SciPy 的 GPU 兼容实现，支持 NVIDIA CUDA 和 AMD ROCm。接口高度兼容，大多数情况下可以直接替换 <code>import numpy as cp</code>。支持 CUDA 12.x/13.x、ROCm 7.0，可通过 pip 和 conda 安装。
+<strong>事实</strong>：<a href="https://github.com/cupy/cupy" target="_blank" rel="noopener noreferrer">CuPy</a> 是 NumPy/SciPy 的 GPU 兼容实现，支持 NVIDIA CUDA 和 AMD ROCm。接口高度兼容，大多数情况下可以直接替换 <code>import numpy as cp</code>。支持 CUDA 12.x/13.x、ROCm 7.0，可通过 pip 和 conda 安装。
 </p>
 <p>
 <strong>判断</strong>：CuPy 不是新闻，但它上 Trending 说明 <strong>GPU 计算正在从 AI 训练扩展到通用科学计算</strong>。当数据科学家发现"把 numpy 换成 cupy 就能加速 10x"，GPU 普及的临界点就到了。
 </p>
 <p>
-🔗 <a href="https://github.com/cupy/cupy">GitHub</a>
+🔗 <a href="https://github.com/cupy/cupy" target="_blank" rel="noopener noreferrer">GitHub</a>
 </p>
 <hr>
 <h3>🟡 Android Auto Gemini 隐私争议</h3>
@@ -111,7 +117,7 @@
 <strong>判断</strong>：这是 <strong>AI 隐私焦虑</strong>的又一个案例。随着 AI 助手渗透到更多场景（车载、家居、办公），"便利性 vs 隐私"的权衡会越来越尖锐。对 To C 产品来说，隐私保护正在成为差异化竞争力。
 </p>
 <p>
-🔗 <a href="https://www.zdnet.com/article/stop-gemini-from-listening-in-android-auto/">ZDNet</a>
+🔗 <a href="https://www.zdnet.com/article/stop-gemini-from-listening-in-android-auto/" target="_blank" rel="noopener noreferrer">ZDNet</a>
 </p>
 <hr>
 <h2>🦾 具身智能专区</h2>
