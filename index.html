@@ -249,6 +249,8 @@
             <time>2026-06-28 08:00:00 +0800</time>
             <span class="report-type type-morning">早报</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="evening">
             <a href="/ai-news/2026-06-27/evening/">0627晚报 | AI PPT 生成终于"能用"了</a>
             <time>2026-06-27 21:00:00 +0800</time>
@@ -515,6 +517,13 @@
             <span class="report-type type-morning">早报</span>
         </div>
                     </div>
+                    <button class="show-all-btn" id="show-all-btn" onclick="toggleArchive()">
+                        <span class="show-text">Show All (73)</span>
+                        <span class="hide-text" style="display:none;">Show Less</span>
+                    </button>
+                    <div class="report-archive" style="display:none;">
+
+                    </div>
                 </section>
             </div>
 
@@ -642,7 +651,7 @@
 
                 <section class="all-cards">
                     <div class="section-header">
-                        <h2>全部卡片</h2>
+                        <h2>All Cards</h2>
                         <span class="count">31 cards</span>
                     </div>
                     <div class="report-archive">
@@ -813,6 +822,24 @@
     </footer>
 
     <script>
+    // Toggle archive visibility
+    function toggleArchive() {
+        const hidden = document.getElementById('archive-hidden');
+        const btn = document.getElementById('show-all-btn');
+        const showText = btn.querySelector('.show-text');
+        const hideText = btn.querySelector('.hide-text');
+        
+        if (hidden.style.display === 'none') {
+            hidden.style.display = 'block';
+            showText.style.display = 'none';
+            hideText.style.display = 'inline';
+        } else {
+            hidden.style.display = 'none';
+            showText.style.display = 'inline';
+            hideText.style.display = 'none';
+        }
+    }
+    
     (function() {
         const searchInput = document.getElementById('searchInput');
         const searchCount = document.getElementById('searchCount');

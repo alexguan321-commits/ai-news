@@ -669,7 +669,24 @@ def generate_html(posts, cards):
 
     cards_html = "\n".join(render_card(p) for p in latest)
     knowledge_cards_html = "\n".join(render_knowledge_card(c) for c in latest_cards)
-    archive_items = "\n".join(render_archive(p) for p in posts)
+    
+    # Archive: show first 20, collapse the rest
+    archive_visible = "\n".join(render_archive(p) for p in posts[:20])
+    archive_hidden = "\n".join(render_archive(p) for p in posts[20:])
+    archive_items = archive_visible
+    if archive_hidden:
+        archive_items += f"""
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
+{archive_hidden}
+                    </div>
+                    <button class="show-all-btn" id="show-all-btn" onclick="toggleArchive()">
+                        <span class="show-text">Show All ({total_posts})</span>
+                        <span class="hide-text" style="display:none;">Show Less</span>
+                    </button>
+                    <div class="report-archive" style="display:none;">
+"""
+    
     card_archive_items = "\n".join(render_card_archive(c) for c in cards)
 
     return f"""<!DOCTYPE html>
@@ -775,7 +792,7 @@ def generate_html(posts, cards):
 
                 <section class="all-cards">
                     <div class="section-header">
-                        <h2>全部卡片</h2>
+                        <h2>All Cards</h2>
                         <span class="count">{total_cards} cards</span>
                     </div>
                     <div class="report-archive">
@@ -792,6 +809,24 @@ def generate_html(posts, cards):
     </footer>
 
     <script>
+    // Toggle archive visibility
+    function toggleArchive() {{
+        const hidden = document.getElementById('archive-hidden');
+        const btn = document.getElementById('show-all-btn');
+        const showText = btn.querySelector('.show-text');
+        const hideText = btn.querySelector('.hide-text');
+        
+        if (hidden.style.display === 'none') {{
+            hidden.style.display = 'block';
+            showText.style.display = 'none';
+            hideText.style.display = 'inline';
+        }} else {{
+            hidden.style.display = 'none';
+            showText.style.display = 'inline';
+            hideText.style.display = 'none';
+        }}
+    }}
+    
     (function() {{
         const searchInput = document.getElementById('searchInput');
         const searchCount = document.getElementById('searchCount');
