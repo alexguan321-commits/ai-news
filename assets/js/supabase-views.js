@@ -1,6 +1,7 @@
 /**
  * 浏览统计模块
  * 记录页面访问次数，防刷机制（每人每天每内容只计一次）
+ * 登录用户会记录 user_id，匿名用户用 visitor_id
  */
 
 class PageViewTracker {
@@ -29,14 +30,22 @@ class PageViewTracker {
       return; // 今天已记录，跳过
     }
 
+    // 准备记录数据
+    const viewData = {
+      content_type: contentType,
+      content_id: contentId,
+      visitor_id: this.visitorId
+    };
+
+    // 如果用户已登录，记录 user_id
+    if (typeof auth !== 'undefined' && auth.isLoggedIn()) {
+      viewData.user_id = auth.user.id;
+    }
+
     try {
       const { error } = await supabaseClient
         .from('page_views')
-        .insert({
-          content_type: contentType,
-          content_id: contentId,
-          visitor_id: this.visitorId
-        });
+        .insert(viewData);
 
       if (!error) {
         // 标记今天已记录
