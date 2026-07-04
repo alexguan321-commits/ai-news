@@ -46,19 +46,19 @@ def interaction_bar(content_type, content_id):
         </button>
         <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-            收藏
+            Bookmark
         </button>
         <span class="interaction-btn" style="cursor:default;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span id="comment-count">0</span> 评论
+            <span id="comment-count">0</span> Comments
         </span>
     </div>
 
     <section class="comments-section">
-        <h3>💬 评论</h3>
+        <h3>💬 Comments</h3>
         <div class="comment-form">
-            <textarea id="comment-input" placeholder="说点什么..." maxlength="2000"></textarea>
-            <button onclick="interactions.submitComment()">发表评论</button>
+            <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+            <button onclick="interactions.submitComment()">Post Comment</button>
         </div>
         <div id="comments-list"></div>
     </section>
