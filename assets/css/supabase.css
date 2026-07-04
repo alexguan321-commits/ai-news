@@ -1,11 +1,36 @@
 /* Supabase 用户系统样式 */
 
 /* ============================================
-   页面背景 - 为磨砂效果提供视觉基础
+   页面背景 - 物理公式底图（全站统一）
    ============================================ */
 body {
-  background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 30%, #fce7f3 60%, #dbeafe 100%) !important;
-  background-attachment: fixed !important;
+  background: url('/ai-news/assets/login-bg.jpg') center/cover no-repeat fixed !important;
+}
+
+/* ============================================
+   字体 - ASTRA NOVA (英文) + 昆仑细圆 (中文)
+   ============================================ */
+@font-face {
+  font-family: 'Astra Nova';
+  src: local('Astra Nova'), local('AstraNova');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kunlun';
+  src: local('Kunlun Fine Round'), local('KunlunFineRound'), local('昆仑细圆');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 全站字体应用 */
+body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
+.filter-tag, .tab-btn, .search-bar input, .interaction-btn,
+.comment, .suggestion-item, .modal-content, .login-gate-content {
+  font-family: 'Astra Nova', 'Kunlun', 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
 }
 
 /* ============================================
@@ -24,7 +49,7 @@ body {
   z-index: 9998;
 }
 
-/* 深色遮罩层 - 降低透明度让背景图透出 */
+/* 深色遮罩层 - 10% 透明度 */
 #login-gate::before {
   content: '';
   position: absolute;
@@ -32,7 +57,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .login-gate-content {
@@ -41,8 +66,8 @@ body {
   color: white;
   padding: 60px 80px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -78,11 +103,11 @@ body {
 .login-gate-content .login-btn {
   padding: 16px 48px;
   font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
@@ -91,7 +116,7 @@ body {
 }
 
 .login-gate-content .login-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -100,65 +125,65 @@ body {
    玻璃磨砂质感 - 全局按钮和图层
    ============================================ */
 
-/* Hero 标题区域 - 磨砂玻璃 50% 透明度 */
+/* Hero 标题区域 - 10% 透明度 + 4px 模糊 */
 .hero {
-  background: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* 导航栏 */
+/* 导航栏 - 10% 透明度 + 4px 模糊 */
 .navbar {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-/* 报告卡片 */
+/* 报告卡片 - 10% 透明度 + 4px 模糊 */
 .report-card,
 .knowledge-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .report-card:hover,
 .knowledge-card:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* 统计卡片 */
+/* 统计卡片 - 10% 透明度 + 4px 模糊 */
 .stat-card {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
 }
 
-/* 标签按钮 */
+/* 标签按钮 - 10% 透明度 + 4px 模糊 */
 .filter-tag,
 .tab-btn {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   transition: all 0.2s;
 }
 
 .filter-tag:hover,
 .tab-btn:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .filter-tag.active,
@@ -167,25 +192,25 @@ body {
   border-color: rgba(26, 115, 232, 0.4);
 }
 
-/* 搜索框 */
+/* 搜索框 - 10% 透明度 + 4px 模糊 */
 .search-bar input {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
 }
 
-/* 互动按钮 */
+/* 互动按钮 - 10% 透明度 + 4px 模糊 */
 .interaction-btn {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .interaction-btn:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .interaction-btn.active {
@@ -193,20 +218,20 @@ body {
   border-color: rgba(26, 115, 232, 0.3);
 }
 
-/* 评论区 */
+/* 评论区 - 10% 透明度 + 4px 模糊 */
 .comment {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* 建议卡片 */
+/* 建议卡片 - 10% 透明度 + 4px 模糊 */
 .suggestion-item {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ============================================
@@ -328,7 +353,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -337,10 +362,10 @@ body {
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 32px;
   max-width: 400px;
@@ -353,11 +378,13 @@ body {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 24px;
   cursor: pointer;
-  color: #666;
+  color: #fff;
   width: 32px;
   height: 32px;
   display: flex;
@@ -368,13 +395,13 @@ body {
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .modal-content h2 {
   margin: 0 0 24px;
   font-size: 22px;
-  color: #1a1a1a;
+  color: #fff;
 }
 
 .oauth-buttons {
@@ -390,20 +417,21 @@ body {
   justify-content: center;
   gap: 12px;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   cursor: pointer;
   font-size: 15px;
   font-weight: 500;
   transition: all 0.2s;
+  color: #fff;
 }
 
 .oauth-btn:hover {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .oauth-btn.github:hover {
@@ -416,7 +444,7 @@ body {
   display: flex;
   align-items: center;
   margin: 20px 0;
-  color: #999;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
 }
 
@@ -424,7 +452,7 @@ body {
 .divider::after {
   content: '';
   flex: 1;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .divider span {
@@ -441,25 +469,34 @@ body {
 #email-login-form input,
 #signup-form input {
   padding: 12px 16px;
-  border: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 15px;
+  color: #fff;
   transition: border-color 0.2s;
+}
+
+#email-login-form input::placeholder,
+#signup-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 #email-login-form input:focus,
 #signup-form input:focus {
   outline: none;
-  border-color: var(--accent-color, #1a73e8);
+  border-color: rgba(26, 115, 232, 0.6);
 }
 
 .submit-btn {
   padding: 12px;
-  background: rgba(26, 115, 232, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(26, 115, 232, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: white;
-  border: 1px solid rgba(26, 115, 232, 0.4);
+  border: 1px solid rgba(26, 115, 232, 0.3);
   border-radius: 12px;
   font-size: 15px;
   font-weight: 500;
@@ -468,19 +505,19 @@ body {
 }
 
 .submit-btn:hover {
-  background: rgba(26, 115, 232, 0.5);
-  border-color: rgba(26, 115, 232, 0.6);
+  background: rgba(26, 115, 232, 0.3);
+  border-color: rgba(26, 115, 232, 0.4);
 }
 
 .switch-form {
   margin: 16px 0 0;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .switch-form a {
-  color: var(--accent-color, #1a73e8);
+  color: #64b5f6;
   text-decoration: none;
   font-weight: 500;
 }
@@ -494,7 +531,7 @@ body {
   gap: 16px;
   padding: 12px 0;
   margin-top: 16px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .interaction-btn {
@@ -502,22 +539,25 @@ body {
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: #f5f5f5;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  color: #666;
+  color: #fff;
   transition: all 0.2s;
 }
 
 .interaction-btn:hover {
-  background: #e8e8e8;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .interaction-btn.active {
-  background: #e3f2fd;
-  color: var(--accent-color, #1a73e8);
+  background: rgba(26, 115, 232, 0.2);
+  color: #64b5f6;
+  border-color: rgba(26, 115, 232, 0.3);
 }
 
 .interaction-btn svg {
@@ -535,13 +575,13 @@ body {
 .comments-section {
   margin-top: 32px;
   padding-top: 24px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .comments-section h3 {
   margin: 0 0 16px;
   font-size: 18px;
-  color: #1a1a1a;
+  color: #fff;
 }
 
 .comment-form {
@@ -552,31 +592,41 @@ body {
   width: 100%;
   min-height: 80px;
   padding: 12px;
-  border: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 14px;
   resize: vertical;
   font-family: inherit;
+  color: #fff;
+}
+
+.comment-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .comment-form textarea:focus {
   outline: none;
-  border-color: var(--accent-color, #1a73e8);
+  border-color: rgba(26, 115, 232, 0.6);
 }
 
 .comment-form button {
   margin-top: 8px;
   padding: 8px 20px;
-  background: var(--accent-color, #1a73e8);
+  background: rgba(26, 115, 232, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: white;
-  border: none;
+  border: 1px solid rgba(26, 115, 232, 0.3);
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
 }
 
 .comment-form button:hover {
-  background: var(--accent-hover, #1557b0);
+  background: rgba(26, 115, 232, 0.3);
 }
 
 #comments-list {

@@ -5,35 +5,35 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    /* Color Strategy: Clean editorial with single accent */
-    --bg-base: #ffffff;
-    --bg-surface: #f8f9fa;
-    --bg-elevated: #ffffff;
+    /* Color Strategy: Dark theme for glassmorphism */
+    --bg-base: transparent;
+    --bg-surface: rgba(255, 255, 255, 0.1);
+    --bg-elevated: rgba(255, 255, 255, 0.1);
     
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a4a4a;
-    --text-muted: #8a8a8a;
-    --text-light: #b0b0b0;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-light: rgba(255, 255, 255, 0.4);
     
-    /* Single accent: Deep blue (authoritative, not AI-purple) */
-    --accent: #0066ff;
-    --accent-hover: #0052cc;
-    --accent-light: #e6f0ff;
+    /* Single accent: Deep blue */
+    --accent: #64b5f6;
+    --accent-hover: #42a5f5;
+    --accent-light: rgba(100, 181, 246, 0.2);
     
-    /* Report type colors (muted, professional) */
-    --morning: #d97706;
-    --morning-bg: #fef3c7;
-    --noon: #059669;
-    --noon-bg: #d1fae5;
-    --evening: #7c3aed;
-    --evening-bg: #ede9fe;
+    /* Report type colors */
+    --morning: #fbbf24;
+    --morning-bg: rgba(251, 191, 36, 0.15);
+    --noon: #34d399;
+    --noon-bg: rgba(52, 211, 153, 0.15);
+    --evening: #a78bfa;
+    --evening-bg: rgba(167, 139, 250, 0.15);
     
     /* Borders & Shadows */
-    --border: #e5e7eb;
-    --border-light: #f3f4f6;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --border: rgba(255, 255, 255, 0.15);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
     
     /* Sizing */
     --radius: 8px;
@@ -41,7 +41,7 @@
     --max-width: 1280px;
     
     /* Typography */
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-sans: 'Astra Nova', 'Kunlun', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     --font-serif: 'Georgia', 'Times New Roman', serif;
     --font-mono: 'SF Mono', 'Fira Code', monospace;
 }
@@ -60,7 +60,7 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--bg-base);
+    background: transparent;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -72,8 +72,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--bg-base);
-    border-bottom: 2px solid var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0 2rem;
     height: 64px;
     display: flex;
@@ -85,7 +87,7 @@ body {
     font-size: 1.5rem;
     font-weight: 800;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #ffffff;
     letter-spacing: -0.03em;
 }
 
