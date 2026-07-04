@@ -41,10 +41,24 @@
 }
 
 .login-gate-content h1 {
-  font-size: 2.5rem;
   margin-bottom: 16px;
   font-weight: 700;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-gate-content .gate-welcome {
+  font-size: 1.4rem;
+  font-weight: 400;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.login-gate-content .gate-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  display: block;
+  white-space: nowrap;
 }
 
 .login-gate-content p {
@@ -77,6 +91,16 @@
 /* ============================================
    玻璃磨砂质感 - 全局按钮和图层
    ============================================ */
+
+/* Hero 标题区域 - 磨砂玻璃 50% 透明度 */
+.hero {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
 
 /* 导航栏 */
 .navbar {
