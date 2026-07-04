@@ -532,9 +532,9 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
             <div class="content">
                 {content_html}
             </div>
-
-            {interaction_bar('report', post['date_prefix'] + '-' + post['report_type'])}
         </article>
+
+        {interaction_bar('report', post['date_prefix'] + '-' + post['report_type'])}
 
         <footer class="footer">
             <p><a href="../../">← Back to All Reports</a></p>
@@ -587,9 +587,9 @@ def generate_card_page(card, total_cards):
             <div class="content">
                 {content_html}
             </div>
-
-            {interaction_bar('card', card['slug'])}
         </article>
+
+        {interaction_bar('card', card['slug'])}
 
         <footer class="footer">
             <p><a href="../../">← Back to Home</a></p>
