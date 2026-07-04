@@ -340,10 +340,21 @@ while meta_improvement_possible:
             interactions.init('card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
             interactions.loadComments();
             
-            // 浏览统计
+            // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
-                pageViews.trackView('card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
+                // 先显示浏览次数
                 pageViews.displayViewCount('view-count', 'card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-07-01-loop-engineering-karpathy-method-bilevel');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
             }
         });
     </script>

@@ -98,10 +98,21 @@ def interaction_bar(content_type, content_id):
             interactions.init('{content_type}', '{content_id}');
             interactions.loadComments();
             
-            // 浏览统计
+            // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {{
-                pageViews.trackView('{content_type}', '{content_id}');
+                // 先显示浏览次数
                 pageViews.displayViewCount('view-count', '{content_type}', '{content_id}');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {{
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {{
+                        pageViews.trackView('{content_type}', '{content_id}');
+                    }} else {{
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }}
+                }};
+                setTimeout(trackWithAuth, 200);
             }}
         }});
     </script>

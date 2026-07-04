@@ -228,10 +228,21 @@ codebase-memory-mcp 是 Ontology 思路的工程化——把非结构化代码�
             interactions.init('report', '2026-06-20-noon');
             interactions.loadComments();
             
-            // 浏览统计
+            // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
-                pageViews.trackView('report', '2026-06-20-noon');
+                // 先显示浏览次数
                 pageViews.displayViewCount('view-count', 'report', '2026-06-20-noon');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-06-20-noon');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
             }
         });
     </script>

@@ -354,10 +354,21 @@
             interactions.init('card', '2026-06-15-loop-engineering-orange-book');
             interactions.loadComments();
             
-            // 浏览统计
+            // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
-                pageViews.trackView('card', '2026-06-15-loop-engineering-orange-book');
+                // 先显示浏览次数
                 pageViews.displayViewCount('view-count', 'card', '2026-06-15-loop-engineering-orange-book');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-06-15-loop-engineering-orange-book');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
             }
         });
     </script>
