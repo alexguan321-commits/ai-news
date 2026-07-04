@@ -8,7 +8,19 @@ class SupabaseAuth {
     this.user = null;
     this.profile = null;
     this.listeners = [];
-    this.init();
+    
+    // 等待 supabaseClient 就绪
+    if (typeof window.supabaseClient !== 'undefined') {
+      this.init();
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof window.supabaseClient !== 'undefined') {
+          this.init();
+        } else {
+          console.error('supabaseClient not available');
+        }
+      });
+    }
   }
 
   async init() {
