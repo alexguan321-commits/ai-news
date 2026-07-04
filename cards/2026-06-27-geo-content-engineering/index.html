@@ -3,36 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEO 内容工程：开源提示词、Skill 与系统完整资料包 - 知识卡片</title>
+    <title>GEO 内容工程：开源提示词、Skill 与系统完整资料包 - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704" defer></script>
+
 </head>
 <body>
     <nav class="navbar">
-        <a href="../../" class="logo">AI 资讯日报</a>
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">20</span> cards</div>
+            <div><span class="stat-value">31</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
+        <div id="auth-container"></div>
     </nav>
 
     <main class="container">
         <article class="card-content">
             <header class="card-header">
-                <span class="card-badge">知识卡片</span>
+                <span class="card-badge">Knowledge Card</span>
                 <h1>GEO 内容工程：开源提示词、Skill 与系统完整资料包</h1>
                 <div class="meta">
                     <span class="author">姚金刚 (@yaojingang)</span>
                     <time>2026-06-27</time>
                     
                 </div>
-                <p><a href='https://x.com/yaojingang/status/2070878893582766223' target='_blank'>原文链接 ↗</a></p>
+                <p><a href='https://x.com/yaojingang/status/2070878893582766223' target='_blank'>Original ↗</a></p>
             </header>
 
             <div class="content">
                 <h1>GEO 内容工程：开源提示词、Skill 与系统完整资料包</h1>
 <p>
 <strong>Author:</strong> 姚金刚 (@yaojingang)
-<strong>Source:</strong> https://x.com/yaojingang/status/2070878893582766223
+<strong>Source:</strong> <a href="https://x.com/yaojingang/status/2070878893582766223">https://x.com/yaojingang/status/2070878893582766223</a>
 <strong>Date:</strong> 2026-06-27
 <strong>Type:</strong> X Post (资源分享)
 <strong>Extracted via:</strong> Chrome AppleScript
@@ -44,25 +53,25 @@
 </p>
 <h2>相关资料</h2>
 <p>
-1. 《GEO内容工程操作手册与评估标准》 https://doc.laoyao.cn/9fl0bc
-2. 《GEO内容工程系统研究报告》 https://doc.laoyao.cn/t754wa
-3. 《GEO 内容工程方法体系与单篇内容实操教程》 https://doc.laoyao.cn/54yx5b
+1. 《GEO内容工程操作手册与评估标准》 <a href="https://doc.laoyao.cn/9fl0bc">https://doc.laoyao.cn/9fl0bc</a>
+2. 《GEO内容工程系统研究报告》 <a href="https://doc.laoyao.cn/t754wa">https://doc.laoyao.cn/t754wa</a>
+3. 《GEO 内容工程方法体系与单篇内容实操教程》 <a href="https://doc.laoyao.cn/54yx5b">https://doc.laoyao.cn/54yx5b</a>
 4. 《系统之美》《人人都该懂的工程学》
-5. 《GEO: Generative Engine Optimization》 https://doc.laoyao.cn/0elhy1
-6. 《Generative Engine Optimization in digital repositories: optimizing visibility for generative AI》 https://doc.laoyao.cn/fnf30e
-7. 《A Measurement Framework for Generative Engine Optimization Across AI Search Platforms》 https://doc.laoyao.cn/ykiktr
+5. 《GEO: Generative Engine Optimization》 <a href="https://doc.laoyao.cn/0elhy1">https://doc.laoyao.cn/0elhy1</a>
+6. 《Generative Engine Optimization in digital repositories: optimizing visibility for generative AI》 <a href="https://doc.laoyao.cn/fnf30e">https://doc.laoyao.cn/fnf30e</a>
+7. 《A Measurement Framework for Generative Engine Optimization Across AI Search Platforms》 <a href="https://doc.laoyao.cn/ykiktr">https://doc.laoyao.cn/ykiktr</a>
 </p>
 <h2>相关资源</h2>
 <p>
-1. GEO改写提示词：https://ai.laoyao.cn/ylOfC
-2. GEO改写Skill：https://ai.laoyao.cn/cqWRs
-3. GEO单篇内容GEO特征标注演示：https://doc.laoyao.cn/00j3ps
+1. GEO改写提示词：<a href="https://ai.laoyao.cn/ylOfC">https://ai.laoyao.cn/ylOfC</a>
+2. GEO改写Skill：<a href="https://ai.laoyao.cn/cqWRs">https://ai.laoyao.cn/cqWRs</a>
+3. GEO单篇内容GEO特征标注演示：<a href="https://doc.laoyao.cn/00j3ps">https://doc.laoyao.cn/00j3ps</a>
 </p>
 <h2>GEO系统与Skill（开源）</h2>
 <p>
-1. GEO Skills：https://github.com/yaojingang/yao-geo-skills
-2. GEOFlow：https://github.com/yaojingang/GEOFlow
-3. Meta skill：https://github.com/yaojingang/yao-meta-skill
+1. GEO Skills：<a href="https://github.com/yaojingang/yao-geo-skills">https://github.com/yaojingang/yao-geo-skills</a>
+2. GEOFlow：<a href="https://github.com/yaojingang/GEOFlow">https://github.com/yaojingang/GEOFlow</a>
+3. Meta skill：<a href="https://github.com/yaojingang/yao-meta-skill">https://github.com/yaojingang/yao-meta-skill</a>
 </p>
 <h2>核心逻辑（引用推文）</h2>
 <p>
@@ -99,11 +108,73 @@
 <li>@davidsouza676: "这不是资料包，这是GEO军火库啊。"</li>
 </ul>
             </div>
+
+            
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-06-27-geo-content-engineering');
+            interactions.loadComments();
+        });
+    </script>
+
         </article>
 
         <footer class="footer">
-            <p><a href="../../">← 返回首页</a></p>
-            <p>AI 资讯日报 — 知识卡片精选</p>
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
         </footer>
     </main>
 </body>

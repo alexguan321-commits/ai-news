@@ -303,8 +303,11 @@ def parse_knowledge_card(filepath):
     fname = filepath.stem  # e.g. "2026-06-28-loop-harness-engineering"
     date_prefix = fname[:10] if len(fname) >= 10 else ""
 
-    # Build URL
-    slug = filepath.stem
+    # Build URL — strip all extensions (.md.processed -> slug without .md)
+    slug = filepath.name
+    for ext in ['.processed', '.md']:
+        if slug.endswith(ext):
+            slug = slug[:-len(ext)]
     url = f"/ai-news/cards/{slug}/"
 
     # Extract summary (first paragraph after metadata)
