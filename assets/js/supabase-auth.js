@@ -160,6 +160,10 @@ class SupabaseAuth {
         </div>
       `;
     } else {
+      // 未登录 - 显示登录门控，隐藏内容
+      document.body.classList.remove('auth-ready');
+      window.showLoginGate();
+      
       authContainer.innerHTML = `
         <button class="login-btn" onclick="auth.showLoginModal()">登录</button>
       `;
@@ -275,32 +279,16 @@ function createAuthInstance() {
   if (typeof window.supabaseClient !== 'undefined' && !window.auth) {
     window.auth = new SupabaseAuth();
     
-    // 检查认证状态 - 未登录则显示登录页
-    setTimeout(() => {
-      if (!window.auth.isLoggedIn()) {
-        window.showLoginGate();
-      }
-    }, 500);
+    // 立即显示登录门控（主内容默认被CSS隐藏）
+    window.showLoginGate();
     
     return true;
   }
   return false;
 }
 
-// 显示登录门控 - 隐藏内容，显示登录页
+// 显示登录门控
 window.showLoginGate = function() {
-  // 隐藏主内容
-  const mainContent = document.querySelector('main.container');
-  if (mainContent) {
-    mainContent.style.display = 'none';
-  }
-  
-  // 隐藏导航栏统计
-  const navStats = document.querySelector('.nav-stats');
-  if (navStats) {
-    navStats.style.display = 'none';
-  }
-  
   // 显示全屏登录页
   let loginGate = document.getElementById('login-gate');
   if (!loginGate) {
@@ -328,15 +316,8 @@ window.hideLoginGate = function() {
     loginGate.style.display = 'none';
   }
   
-  const mainContent = document.querySelector('main.container');
-  if (mainContent) {
-    mainContent.style.display = '';
-  }
-  
-  const navStats = document.querySelector('.nav-stats');
-  if (navStats) {
-    navStats.style.display = '';
-  }
+  // 添加 class 让 CSS 显示主内容
+  document.body.classList.add('auth-ready');
 };
 
 // 立即尝试创建

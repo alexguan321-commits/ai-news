@@ -8,6 +8,26 @@ body {
 }
 
 /* ============================================
+   登录前隐藏主内容 - 防止闪烁
+   ============================================ */
+body:not(.auth-ready) main.container,
+body:not(.auth-ready) .nav-stats,
+body:not(.auth-ready) .hero {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.auth-ready main.container,
+body.auth-ready .nav-stats,
+body.auth-ready .hero {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
    字体 - Space Grotesk (英文) + 得意黑 (中文)
    ============================================ */
 
@@ -42,7 +62,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .login-gate-content {
@@ -51,8 +71,8 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   color: white;
   padding: 60px 80px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -88,9 +108,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 .login-gate-content .login-btn {
   padding: 16px 48px;
   font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
@@ -101,7 +121,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .login-gate-content .login-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -112,9 +132,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 /* Hero 标题区域 - 10% 透明度 + 4px 模糊 */
 .hero {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
@@ -122,18 +142,18 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 /* 导航栏 - 10% 透明度 + 4px 模糊 */
 .navbar {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 /* 报告卡片 - 10% 透明度 + 4px 模糊 */
 .report-card,
 .knowledge-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   transition: all 0.3s ease;
@@ -141,16 +161,16 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .report-card:hover,
 .knowledge-card:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* 统计卡片 - 10% 透明度 + 4px 模糊 */
 .stat-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
 }
@@ -158,9 +178,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 /* 标签按钮 - 10% 透明度 + 4px 模糊 */
 .filter-tag,
 .tab-btn {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   transition: all 0.2s;
@@ -168,7 +188,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .filter-tag:hover,
 .tab-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .filter-tag.active,
@@ -179,23 +199,23 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 /* 搜索框 - 10% 透明度 + 4px 模糊 */
 .search-bar input {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
 }
 
 /* 互动按钮 - 10% 透明度 + 4px 模糊 */
 .interaction-btn {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .interaction-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .interaction-btn.active {
@@ -205,17 +225,17 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 /* 评论区 - 10% 透明度 + 4px 模糊 */
 .comment {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* 建议卡片 - 10% 透明度 + 4px 模糊 */
 .suggestion-item {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -338,7 +358,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -347,9 +367,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 32px;
@@ -363,9 +383,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 24px;
   cursor: pointer;
@@ -380,7 +400,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .modal-content h2 {
@@ -404,9 +424,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
   font-size: 15px;
   font-weight: 500;
@@ -415,7 +435,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .oauth-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -454,9 +474,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 #email-login-form input,
 #signup-form input {
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 15px;
@@ -478,8 +498,8 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 .submit-btn {
   padding: 12px;
   background: rgba(26, 115, 232, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: white;
   border: 1px solid rgba(26, 115, 232, 0.3);
   border-radius: 12px;
@@ -524,9 +544,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   cursor: pointer;
@@ -536,7 +556,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .interaction-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .interaction-btn.active {
@@ -577,9 +597,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   width: 100%;
   min-height: 80px;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 14px;
@@ -601,8 +621,8 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   margin-top: 8px;
   padding: 8px 20px;
   background: rgba(26, 115, 232, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: white;
   border: 1px solid rgba(26, 115, 232, 0.3);
   border-radius: 6px;
