@@ -267,8 +267,24 @@ class SupabaseAuth {
   }
 }
 
-// 全局实例
-const auth = new SupabaseAuth();
+// 全局实例 - 等待 supabaseClient 就绪后创建
+function createAuthInstance() {
+  if (typeof window.supabaseClient !== 'undefined' && !window.auth) {
+    window.auth = new SupabaseAuth();
+    return true;
+  }
+  return false;
+}
+
+// 立即尝试创建
+if (!createAuthInstance()) {
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!createAuthInstance()) {
+      // 再等一下，等 supabaseClient 初始化
+      setTimeout(createAuthInstance, 100);
+    }
+  });
+}
 
 // 点击外部关闭下拉菜单
 document.addEventListener('click', (e) => {
