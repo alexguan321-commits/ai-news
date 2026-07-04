@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="A Field Guide to Fable: Finding Your Unknowns">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>A Field Guide to Fable: Finding Your Unknowns - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">34</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>A Field Guide to Fable: Finding Your Unknowns</h1>
+                <div class="meta">
+                    <span class="author">trq212</span>
+                    <time>2026-07-03</time>
+                    <span class="tag">fable5</span> | <span class="tag">claude</span> | <span class="tag">agentic-coding</span> | <span class="tag">prompting</span> | <span class="tag">unknowns</span> | <span class="tag">implementation</span> | <span class="tag">workflow</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+                <p><a href='X (Twitter) Article' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "A Field Guide to Fable: Finding Your Unknowns"
+author: "trq212"
+source: "X (Twitter) Article"
+url: "https://x.com/trq212/status/2073100352921215386"
+date: 2026-07-03
+tags: [fable5, claude, agentic-coding, prompting, unknowns, implementation, workflow]
+</p>
+<hr>
+<h1>A Field Guide to Fable: Finding Your Unknowns</h1>
+<p>
+Working with Claude Fable 5 keeps re-teaching me an old lesson: the map is not the territory.
+</p>
+<p>
+The map, a representation of the work to be done, is my prompts and skills and context, it's what I give Claude. The territory is where the work needs to happen, the codebase, the real world, its actual constraints.
+</p>
+<p>
+The difference between the map and the territory is what I call unknowns. When Claude runs into an unknown, it needs to make a decision based on its best guess of what I want. The more work being done, the more unknowns Claude might run into.
+</p>
+<p>
+Fable is the first model where I find the quality of the work is bottlenecked by my ability to clarify its unknowns.
+</p>
+<p>
+Importantly, just planning ahead isn't always enough. You can find unknowns deep in implementation, or your unknowns may point you to the fact that you should actually be solving the problem in a different way altogether.
+</p>
+<p>
+I've found that working with Fable is an iterative process of discovering my unknowns before, during, and after implementation.
+</p>
+<h2>Knowing your unknowns</h2>
+<p>
+What are your unknowns? When I come to Claude with a problem I tend to break it down in 4 ways:
+</p>
+<p>
+<strong>Known Knowns:</strong> This is essentially what is in my prompt. What do I tell the agent that I want?
+</p>
+<p>
+<strong>Known Unknowns:</strong> What haven't I figured out yet, but I'm aware that I haven't?
+</p>
+<p>
+<strong>Unknown Knowns:</strong> What's so obvious I'd never write it down, but would recognize it if I saw it?
+</p>
+<p>
+<strong>Unknown Unknowns:</strong> What haven't I considered at all? What knowledge am I not aware of? Do I know how good something can be?
+</p>
+<p>
+The best agentic coders have relatively few unknowns. Watching someone like Boris or Jarred prompt, it is obvious to me that they know what they want in-detail. They are deeply in-sync with both the codebase and the model behaviors.
+</p>
+<p>
+But they also assume unknowns. In many ways, reducing and planning for your unknowns is the skill of agentic coding. But luckily, this is a skill you can improve at, by working with Claude.
+</p>
+<h2>Help Claude help you</h2>
+<p>
+Instructing Claude is a delicate balance. If you are too specific, Claude will follow your instructions even when a pivot may be more appropriate. If you are too vague, Claude will often make choices and assumptions based on industry best practices that may not be a fit for your task.
+</p>
+<p>
+When you don't account for your unknowns you fail both ways. You don't know when the path will be filled with obstacles and you don't know when the path will be clear, but you still want Claude to veer.
+</p>
+<p>
+Claude can help you discover your unknowns faster. It can search through your codebase and the internet extremely quickly and it knows much more about the average topic than you. It can also iterate from failure faster.
+</p>
+<p>
+The most important part of this process is to give Claude context about your starting point. For example, tell it where you are in your thought process; disclose your experience with the problem and codebase; and let it work with you like a thought partner.
+</p>
+<h1>Pre-implementation</h1>
+<h2>Blind Spot Pass</h2>
+<p>
+When starting work, one of the most useful things you can do is understand your blindspots. For example, if you're writing a feature in a new part of the codebase or using Claude to help you with unfamiliar work like iterating on a design, you're likely to have a lot of unknown unknowns.
+</p>
+<p>
+You may not know what questions to ask, what good looks like, what historical work has been done or what potholes to avoid.
+</p>
+<p>
+To do this, you can ask Claude to help you find your unknown unknowns and explain them to you. I like to use the literal words "blindspot pass" and "unknown unknowns". Giving it context on who you are and what you know is usually important.
+</p>
+<p>
+Example Prompts:
+</p>
+<p>
+"I'm working on adding a new auth provider but I know nothing about the auth modules in this codebase. Can you do a blindspot pass to help me figure out my relevant unknown unknowns and help me prompt you better."
+</p>
+<p>
+"I don't know what color grading is but I need to grade this video. Can you teach me to understand my unknown unknowns about color grading, so that I can prompt better?"
+</p>
+<h2>Brainstorms and prototypes</h2>
+<p>
+When I'm working in an area with a lot of unknown knowns, involving criteria I only know to define when I see it, I like to ask Claude to brainstorm and prototype with me.
+</p>
+<p>
+It's extremely valuable to identify and verbalize unknown knowns early during prototyping, because finding them out during implementation can be (relatively) expensive. Small changes in a feature or spec can cause drastically different implementations in code and it can be more difficult for your agent to revert previous changes.
+</p>
+<p>
+For example, you may just want to see how a button added to a frame looks without having to wire up a backend route or maintaining additional state in the frontend.
+</p>
+<p>
+Visual design is something that for me is difficult to articulate, but I know what I want when I see it. In these cases, I'll ask for several design approaches to an artifact.
+</p>
+<p>
+I also start almost every coding session with an exploration or brainstorming phase. This helps me start with intent to define the project's scope. Claude often finds high-value approaches I would have missed and sometimes misses the forest through the trees. Brainstorming prevents me from setting too narrow or too wide a scope.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+"I want a dashboard for this data but I have no visual taste and don't know what's possible. Make me an HTML page with 4 wildly different design directions so I can react to them."
+</p>
+<p>
+"Before wiring anything up, make a single HTML file mocking the new editor toolbar with fake data. I want to react to the layout before you touch the real app."
+</p>
+<p>
+"Here's my rough problem: users churn after onboarding. Search the codebase and brainstorm 10 places we could intervene, from cheapest to most ambitious. I'll tell you which ones resonate."
+</p>
+<h2>Interviews</h2>
+<p>
+Once I've done sufficient brainstorming, I likely still have unknowns.
+</p>
+<p>
+In this case, I ask Claude to interview me about any unknowns or ambiguities. When asking Claude to interview you, try and give it context about your problem to guide its questions.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+"Interview me one question at a time about anything ambiguous, prioritize questions where my answer would change the architecture."
+</p>
+<h2>References</h2>
+<p>
+Sometimes you can't describe what you want in detail. For example, you might not have the language or it might be so complicated that it would take you quite a while.
+</p>
+<p>
+In this case, the best answer is a reference. While you can include diagrams, documentation or pictures, the absolute best reference is source code.
+</p>
+<p>
+If you have a library that implements something in a certain way or a design component you really like, just point Fable at the folder and tell it what to look for, even if it's in a different language.
+</p>
+<p>
+This is also the way Claude Design works. You don't have to hand it a file (although you can do that too). You can point it at a module on a website you like, and it reads the underlying code, not just the screenshot. This provides much richer detail around the markup, structure, and how the component is actually built.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+This Rust crate in vendor/rate-limiter implements the exact backoff behavior I want. Read it and reimplement the same semantics in our TypeScript API client.
+</p>
+<h2>Implementation Plans</h2>
+<p>
+When I think I'm ready to implement, I tend to ask Claude to put together an implementation plan for me to review that focuses on the parts that might be most likely to change, for example to review data models, type interfaces or UX flows. This allows Claude to surface things I might actually need to alter.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+"Write an implementation plan in HTML, but lead with the decisions I'm most likely to tweak with: data model changes, new type interfaces, and anything user-facing. Bury the mechanical refactoring at the bottom, I trust you on that part."
+</p>
+<h1>During implementation</h1>
+<h2>Implementation notes</h2>
+<p>
+Once I am satisfied with my plan, I make a new session and pass any artifacts to the prompt. For example, I might pass in a spec file and a prototype and ask an agent to implement it.
+</p>
+<p>
+But the truth is that no matter how much planning you do, there are always unknown unknowns lurking. The agent may find during its work that it needs to take a different tack due to an edge case it found in the code.
+</p>
+<p>
+I ask Claude Code to keep a temporary 'implementation-notes.md' (or .html) file where it keeps track of decisions it makes so we can learn from our next attempt.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+"Keep an implementation-notes.md file. If you hit an edge case that forces you to deviate from the plan, pick the conservative option, log it under 'Deviations', and keep going."
+</p>
+<h1>Post implementation</h1>
+<h2>Pitches and explainers</h2>
+<p>
+One of the most important parts of shipping something is getting buy-in and approvals. Building pitch and explainer artifacts in the final document helps:
+</p>
+<ul>
+<li>Accelerate understanding when reviewers start with the same unknowns you did</li>
+<li>Accelerate approvals when experts want to see you accounted for the unknowns and common failure points they would have anticipated</li>
+</ul>
+<p>
+Example prompts:
+</p>
+<p>
+"Package the prototype, the spec, and the implementation notes into a single doc I can drop in Slack to get buy-in. Lead with the demo GIF."
+</p>
+<h2>Quizzes</h2>
+<p>
+After a long working session, Claude might have accomplished a lot more than I realized. Reading the code diffs can only give me a light understanding of what happened, since much of the behavior will depend on existing code paths.
+</p>
+<p>
+Asking Claude to quiz me about the change after giving me a bunch of context helps me understand what happens. I only merge after I pass the quiz perfectly.
+</p>
+<p>
+Example prompts:
+</p>
+<p>
+"I want to make sure I understand everything that's happened in this change. Give me a HTML report on the changes for me to read and understand with context, intuition, what was done, etc. and a quiz at the bottom on the changes that I must pass."
+</p>
+<h2>How this comes together: launching Fable</h2>
+<p>
+The launch video for Fable was edited entirely by Claude Code. This was a new domain for me and I'm by no means an expert.
+</p>
+<p>
+So I started with what I did know. I knew that Claude could use code to edit videos and transcribe them, but I wasn't sure if it was accurate enough. I then asked Claude to explain to me how transcription like Whisper worked, and whether I would be able to accurately cut out things like ums or large pauses using ffmpeg.
+</p>
+<p>
+I wanted Claude to create a UI that was timed with the words I was saying, but wasn't sure if it would be able to so I asked Claude to create a prototype video using Remotion and a transcription to see if it would work.
+</p>
+<p>
+Finally, the video itself looked a bit muted, which I knew was the result of color grading but I didn't really know what color grading was. My first pass attempt was to try and get Claude to do a few variations to pick, but I realized that I didn't know what "good" looked like when it came to color grading. So instead, I asked Claude to teach me about color grading to discover my unknowns.
+</p>
+<h2>Matching the Map and Territory</h2>
+<p>
+The better models get, the more you can achieve with the right approach. When a long-horizon task comes back wrong, it's likely you need to spend more time defining your unknowns or creating an implementation plan that allows for Claude to improvise through them.
+</p>
+<p>
+Every explainer, brainstorm, interview, prototype, and reference is a cheap way to find out what you didn't know before it gets expensive to fix.
+</p>
+<p>
+So start your next project by asking Claude to help you find your unknowns.
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-07-03-trq212-fable-field-guide-unknowns');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-07-03-trq212-fable-field-guide-unknowns');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-07-03-trq212-fable-field-guide-unknowns');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>
