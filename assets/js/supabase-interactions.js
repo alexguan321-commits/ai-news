@@ -396,17 +396,29 @@ class SupabaseInteractions {
     }
 
     const statusLabels = {
-      open: '🟡 待处理',
+      submitted: '🟡 已提交',
       in_progress: '🔵 处理中',
-      replied: '🟢 已回复',
+      optimized: '🟢 已优化',
       closed: '⚫ 已关闭'
     };
 
-    container.innerHTML = suggestions.map(s => `
+    container.innerHTML = suggestions.map(s => {
+      const submittedAt = new Date(s.created_at).toLocaleString('zh-CN', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      });
+      const processedAt = s.processed_at 
+        ? new Date(s.processed_at).toLocaleString('zh-CN', {
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit'
+          })
+        : '—';
+
+      return `
       <div class="suggestion-item status-${s.status}">
         <div class="suggestion-header">
           <h3>${this.escapeHtml(s.title)}</h3>
-          <span class="status-badge">${statusLabels[s.status] || s.status}</span>
+          <span class="status-badge status-${s.status}">${statusLabels[s.status] || s.status}</span>
         </div>
         <p>${this.escapeHtml(s.description)}</p>
         ${s.admin_reply ? `
@@ -415,9 +427,13 @@ class SupabaseInteractions {
             <p>${this.escapeHtml(s.admin_reply)}</p>
           </div>
         ` : ''}
-        <time>${new Date(s.created_at).toLocaleDateString('zh-CN')}</time>
+        <div class="suggestion-meta">
+          <span>📤 提交：${submittedAt}</span>
+          <span>✅ 完成：${processedAt}</span>
+        </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
   }
 
   // 工具函数

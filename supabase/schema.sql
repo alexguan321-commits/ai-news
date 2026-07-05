@@ -89,10 +89,11 @@ CREATE TABLE public.suggestions (
   title TEXT NOT NULL CHECK (char_length(title) > 0 AND char_length(title) <= 200),
   description TEXT NOT NULL CHECK (char_length(description) > 0 AND char_length(description) <= 5000),
   category TEXT DEFAULT 'feature' CHECK (category IN ('bug', 'feature', 'content', 'other')),
-  status TEXT DEFAULT 'open' CHECK (status IN ('open', 'in_progress', 'replied', 'closed')),
+  status TEXT DEFAULT 'submitted' CHECK (status IN ('submitted', 'in_progress', 'optimized', 'closed')),
   admin_reply TEXT,
   replied_at TIMESTAMPTZ,
   replied_by UUID REFERENCES public.profiles(id),
+  processed_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );

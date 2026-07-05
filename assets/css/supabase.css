@@ -728,14 +728,16 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
    建议/工单
    ============================================ */
 .suggestion-form {
-  background: #f9f9f9;
+  background: #000000;
   padding: 24px;
   border-radius: 12px;
   margin-bottom: 32px;
+  border: 1px solid #ffffff;
 }
 
 .suggestion-form h3 {
   margin: 0 0 16px;
+  color: #ffffff;
 }
 
 .suggestion-form input,
@@ -743,11 +745,23 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 .suggestion-form select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-size: 14px;
   margin-bottom: 12px;
   font-family: inherit;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.suggestion-form input::placeholder,
+.suggestion-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.suggestion-form select option {
+  background: #1e293b;
+  color: #ffffff;
 }
 
 .suggestion-form textarea {
@@ -757,12 +771,18 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .suggestion-form button {
   padding: 12px 24px;
-  background: var(--accent-color, #1a73e8);
-  color: white;
-  border: none;
+  background: rgba(100, 181, 246, 0.2);
+  color: #64b5f6;
+  border: 1px solid rgba(100, 181, 246, 0.3);
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.suggestion-form button:hover {
+  background: rgba(100, 181, 246, 0.3);
 }
 
 #my-suggestions-list {
@@ -773,12 +793,15 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .suggestion-item {
   padding: 20px;
-  background: #f9f9f9;
+  background: #000000;
   border-radius: 12px;
   border-left: 4px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 4px solid #ccc;
+  color: #ffffff;
 }
 
-.suggestion-item.status-open {
+.suggestion-item.status-submitted {
   border-left-color: #ffc107;
 }
 
@@ -786,7 +809,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   border-left-color: #2196f3;
 }
 
-.suggestion-item.status-replied {
+.suggestion-item.status-optimized {
   border-left-color: #4caf50;
 }
 
@@ -804,36 +827,65 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 .suggestion-header h3 {
   margin: 0;
   font-size: 16px;
+  color: #ffffff;
 }
 
 .status-badge {
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 12px;
-  background: #e0e0e0;
+  font-weight: 600;
+}
+
+.status-badge.status-submitted {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.status-badge.status-in_progress {
+  background: rgba(33, 150, 243, 0.2);
+  color: #2196f3;
+}
+
+.status-badge.status-optimized {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.status-badge.status-closed {
+  background: rgba(158, 158, 158, 0.2);
+  color: #9e9e9e;
 }
 
 .suggestion-item p {
   margin: 8px 0;
-  color: #555;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
 
 .suggestion-item time {
-  color: #999;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
+}
+
+.suggestion-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .admin-reply {
   margin-top: 12px;
   padding: 12px;
-  background: #e8f5e9;
+  background: rgba(76, 175, 80, 0.1);
   border-radius: 8px;
   border-left: 3px solid #4caf50;
 }
 
 .admin-reply strong {
-  color: #2e7d32;
+  color: #4caf50;
 }
 
 /* ============================================
