@@ -193,6 +193,39 @@ def filter_report_content(text):
     return '\n'.join(filtered_lines)
 
 
+def format_title(title):
+    """Normalize report title to consistent format: MMDD-早报/午报/晚报 | ..."""
+    # Match patterns like "0705午报", "0705 午报", "0705-午报", "AI 午报 - 0705", etc.
+    # and normalize to "0705-午报 | ..."
+    
+    # Pattern 1: "0705午报" or "0705 午报" or "0705-午报" (with optional suffix)
+    m = re.match(r'^(\d{4})\s*[-]?\s*(早报|午报|晚报|周报)\s*\|?\s*(.*)$', title)
+    if m:
+        date_part = m.group(1)
+        type_part = m.group(2)
+        suffix = m.group(3).strip()
+        if suffix:
+            return f"{date_part}-{type_part} | {suffix}"
+        else:
+            return f"{date_part}-{type_part}"
+    
+    # Pattern 2: "AI 早报 - 2026-07-05" or similar
+    m = re.match(r'^AI\s+(早报|午报|晚报|周报)\s*[-–—]\s*(\d{4}-\d{2}-\d{2})\s*\|?\s*(.*)$', title)
+    if m:
+        type_part = m.group(1)
+        full_date = m.group(2)
+        suffix = m.group(3).strip()
+        # Extract MMDD from YYYY-MM-DD
+        date_part = full_date[5:7] + full_date[8:10]
+        if suffix:
+            return f"{date_part}-{type_part} | {suffix}"
+        else:
+            return f"{date_part}-{type_part}"
+    
+    # No match, return original
+    return title
+
+
 def parse_post(filepath):
     """Extract metadata from a post file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
@@ -212,7 +245,7 @@ def parse_post(filepath):
     if not title_m or not date_m:
         return None
 
-    title = title_m.group(1).strip()
+    title = format_title(title_m.group(1).strip())
     date_str = date_m.group(1).strip()
     
     # Get report_type from front matter, or infer from categories/title/filename
