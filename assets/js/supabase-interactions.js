@@ -15,6 +15,18 @@ class SupabaseInteractions {
     this.contentId = contentId;
     this.loadStats();
     this.loadUserState();
+    this.initLockState();
+  }
+
+  // 初始化锁定状态（未登录用户）
+  initLockState() {
+    if (!auth.isLoggedIn()) {
+      // 给点赞/收藏按钮添加锁定状态
+      document.querySelectorAll('.interaction-btn').forEach(btn => {
+        btn.classList.add('locked');
+        btn.setAttribute('data-tooltip', '登录后即可使用');
+      });
+    }
   }
 
   // 加载统计数据（点赞数、评论数）

@@ -24,6 +24,20 @@ class SupabaseAuth {
   }
 
   async init() {
+    // 检查 3 天登录过期
+    const SESSION_DURATION = 3 * 24 * 60 * 60; // 3 天 = 259200 秒
+    const loginTime = localStorage.getItem('login_timestamp');
+    if (loginTime) {
+      const elapsed = Math.floor(Date.now() / 1000) - parseInt(loginTime);
+      if (elapsed > SESSION_DURATION) {
+        // 过期，自动登出
+        localStorage.removeItem('login_timestamp');
+        await supabaseClient.auth.signOut();
+        this.updateUI();
+        return;
+      }
+    }
+
     // 获取当前 session
     const { data: { session } } = await supabaseClient.auth.getSession();
     if (session) {
@@ -35,10 +49,15 @@ class SupabaseAuth {
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_IN' && session) {
         this.user = session.user;
+        // OAuth 登录也需要记录时间戳
+        if (!localStorage.getItem('login_timestamp')) {
+          localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
+        }
         await this.loadProfile();
       } else if (event === 'SIGNED_OUT') {
         this.user = null;
         this.profile = null;
+        localStorage.removeItem('login_timestamp');
       }
       this.notifyListeners();
       this.updateUI();
@@ -82,6 +101,8 @@ class SupabaseAuth {
       alert('登录失败: ' + error.message);
       return false;
     }
+    // 记录登录时间戳（用于 3 天过期检查）
+    localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
     return true;
   }
 

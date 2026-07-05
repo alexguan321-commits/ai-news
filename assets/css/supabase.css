@@ -565,6 +565,39 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   fill: currentColor;
 }
 
+/* 未登录用户的互动按钮 - 锁定状态 */
+.interaction-btn.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.interaction-btn.locked:hover {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* Tooltip */
+.interaction-btn.locked::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.interaction-btn.locked:hover::after {
+  opacity: 1;
+}
+
 /* ============================================
    评论区
    ============================================ */
