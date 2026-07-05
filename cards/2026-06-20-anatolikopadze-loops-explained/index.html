@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Loops explained: Claude, GPT, Mira and what actually works">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>Loops explained: Claude, GPT, Mira and what actually works - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">37</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>Loops explained: Claude, GPT, Mira and what actually works</h1>
+                <div class="meta">
+                    <span class="author">Anatoli Kopadze (@anatolikopadze)</span>
+                    <time>2026-06-20</time>
+                    <span class="tag">loop-engineering</span> | <span class="tag">agentic-ai</span> | <span class="tag">claude-code</span> | <span class="tag">automation</span> | <span class="tag">mira</span> | <span class="tag">telegram</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+                <p><a href='X (Twitter) Article' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "Loops explained: Claude, GPT, Mira and what actually works"
+author: "Anatoli Kopadze (@anatolikopadze)"
+source: "X (Twitter) Article"
+url: "https://x.com/anatolikopadze/status/2068328135611822149"
+date: 2026-06-20
+tags: [loop-engineering, agentic-ai, claude-code, automation, mira, telegram]
+</p>
+<hr>
+<h1>Loops explained: Claude, GPT, Mira and what actually works</h1>
+<p>
+AI has been in everyone's hands for years. Most people who use it every day still use it the slowest way there is: type a request, wait, fix it, ask again, all by hand.
+</p>
+<p>
+Not because the faster way is complicated, because nobody showed them what it looks like.
+</p>
+<p>
+The faster way is a loop, and right now it is the one thing the best AI engineers in the world care about. This article fixes the part nobody explained.
+</p>
+<p>
+By the end you will understand loops better than almost anyone on your timeline: what they are, how they actually work under the hood, when they are worth it and when they are a trap, how to build a basic one yourself in Claude or ChatGPT, the simple ones worth running in your own life.
+</p>
+<h2>How most people use AI?</h2>
+<p>
+Look closely at the one-request-at-a-time habit, because it is the whole problem. Every step runs through you. You decide what to ask, you judge the answer, you decide what comes next. The AI never moves unless you push it, and the moment you stop, it stops.
+</p>
+<p>
+This is fine, but it has a ceiling. You are the engine. The AI is only the tool in your hand, and a tool does nothing on its own.
+</p>
+<p>
+There is another way to work, and it is the reason the best engineers in the world are changing how they build. Instead of walking the AI through every step, you give it the goal once and let it run the steps itself. It plans, does the work, checks its own result, fixes what is weak, and repeats until the goal is met. You step out. The work keeps going.
+</p>
+<h2>What a loop is?</h2>
+<p>
+A prompt is a single instruction. A loop is a goal the AI keeps working toward until it gets there. Think of it as a recursive goal: you define a purpose, and the AI iterates until it is complete.
+</p>
+<p>
+A prompt gives you one answer and then waits for you to decide what is next. A loop runs the full cycle on its own:
+</p>
+<p>
+<strong>Three of these five do all the real work, and they are where people get loops wrong.</strong>
+</p>
+<p>
+<strong>Verify</strong> is the heart of the loop. Without a real check on the result, you do not have a loop, you have the agent agreeing with itself on repeat. The check is what turns repetition into progress. It can be a hard test ("does the code pass"), a measurable condition ("is the number above X"), or a rubric the model scores against. No gate means the agent grades its own homework, and the model that did the work is far too generous a grader.
+</p>
+<p>
+<strong>State</strong> is what makes the loop learn. Each pass, the AI has to remember what it already tried, or it repeats the same mistake forever. A real loop keeps a small record on the side: what is done, what failed, what is next. Tomorrow's run resumes instead of starting from zero. This is also exactly where it starts getting expensive, which we will get to.
+</p>
+<p>
+<strong>A stop condition</strong> is what keeps it sane. A loop with no exit runs until it succeeds, breaks, or drains your account. Every serious loop has two ways to stop: success, and a hard limit ("after 8 tries, stop and report"). Skip this and you have built a machine that can run all night for nothing.
+</p>
+<p>
+A prompt hands the AI an instruction. A loop hands the AI a job, a way to know when the job is done, and a rule for when to give up.
+</p>
+<h2>Do you even need one?</h2>
+<p>
+Most articles sell you the loop before they tell you when it is a mistake. Here is the test the serious people actually use. A loop is worth building only when all four of these are true:
+</p>
+<p>
+1. <strong>The task repeats, at least weekly.</strong> Less than that and the setup cost never pays itself back. A one-off is still better served by one good prompt.
+</p>
+<p>
+2. <strong>Something can automatically reject bad output.</strong> A test, a type check, a build, a linter, a hard rule. If nothing can fail the work for you, the loop just spins.
+</p>
+<p>
+3. <strong>The agent can actually do the work itself, end to end, not hand half of it back to you.</strong>
+</p>
+<p>
+4. <strong>"Done" is objective, not a judgment call.</strong> If quality is a matter of taste, a human still wins.
+</p>
+<p>
+Miss one box, keep it as a manual prompt. The honest version of this whole topic: loop engineering is real, and most people do not need the heavy version yet. What everyone can use is the light version, which we will get to. But you should know where the line is.
+</p>
+<h2>The version built for code</h2>
+<p>
+Loops took off in software first, because code is the easiest thing in the world to verify. A test passes or it fails. There is no arguing with it, so the AI always knows whether it is finished.
+</p>
+<p>
+A coding loop is given a goal and a strict way to check it.
+</p>
+<p>
+Under the hood, a real loop is assembled from five building blocks. Claude Code and Codex now ship all five.
+</p>
+<h3>1. The automation (the heartbeat)</h3>
+<p>
+This is the trigger that makes it a loop and not a one-off you ran once. You define a prompt, a cadence, and a goal, and it runs on schedule without you starting it. In Claude Code, /loop re-runs a prompt on an interval, /goal keeps a session going until a condition you wrote is actually true, hooks fire commands at points in the agent's lifecycle, and pushing it to a cron job or GitHub Actions keeps it running after you close the laptop. Findings come to you. You are not the one going around checking.
+</p>
+<h3>2. The skill (reusable instructions)</h3>
+<p>
+Instead of pasting a wall of instructions into every run, you save them once as a file the loop reads every time: the rules, the patterns to follow, and a hard list of what it must never touch. Now the automation just calls the skill by name, and the recurring job stays maintainable instead of rotting inside a schedule nobody updates.
+</p>
+<h3>3. Sub-agents (keep the maker away from the checker)</h3>
+<p>
+The single most useful structural trick in a loop is splitting the agent that does the work from the agent that checks it. The model that wrote the code is too nice grading its own homework. A second agent, with different instructions and sometimes a stronger model on higher effort, catches the things the first one talked itself into. Your writer can be fast and cheap, your reviewer slow and strict. That separation is most of the quality.
+</p>
+<h3>4. Connectors (so it acts, not suggests)</h3>
+<p>
+This is the difference between an agent that says "here is the fix" and a loop that opens the pull request, links the ticket, and pings the channel once the build is green, by itself. Connectors are what let the loop act inside your real environment instead of just describing what it would do if it could.
+</p>
+<h3>5. The verifier (the gate)</h3>
+<p>
+The test, type check, or build that automatically rejects bad work. This is the one block that decides whether the loop helps you or just spends your money. Everything else is plumbing. This is the part that makes it real.
+</p>
+<p>
+Stack those together and you get what big teams now run at scale: fleets of agents looping on the same job, dozens or thousands at once. One engineer used a loop like this to rewrite an entire codebase from one programming language to another in about six days, work that would have taken close to a year by hand. It is a genuine change in how serious software gets built. And it comes with a catch the demos never show.
+</p>
+<h2>The cost nobody mentions</h2>
+<p>
+Loops run on tokens, and tokens are money. The problem is not that each step costs something. The problem is how the cost compounds.
+</p>
+<p>
+Every time the loop goes around, the agent re-reads its context: the goal, the code, the last result, what failed. That whole pile is sent through the model again on every iteration, and it grows each pass. A loop that runs ten times does not cost ten prompts. It costs ten prompts that each keep getting bigger. The maker-and-checker trick that lifts quality also doubles the bill, because now two models read the work instead of one.
+</p>
+<p>
+<strong>The metric that actually matters, and almost nobody tracks, is cost per accepted change.</strong> Not tokens spent or loops run. If the loop gives you ten results and you toss six, you are doing the review work it was meant to save. Below a 50% accept rate, it costs more than it gives back.
+</p>
+<p>
+Loops also fail quietly. Engineer Geoffrey Huntley calls it the "Ralph Wiggum loop": the agent decides it is done too early, exits on a half-finished job, and the loop keeps running and spending while producing nothing. Without a hard gate that can fail the work, loops do not crash, they bill you in silence.
+</p>
+<p>
+That is why the heavy version belongs to teams with the budget and guardrails to run it: iteration caps, token budgets, cheap models on the boring steps, monitoring. If that is not you, you are not missing out, the core idea works at a fraction of the cost and none of the setup.
+</p>
+<h2>The order that actually works</h2>
+<p>
+If you do build one, the order matters more than the tools. The people who ship loops that survive in production all do it the same way:
+</p>
+<p>
+1. Make it work by hand once
+2. Harden the prompt until it is reliable
+3. Add the verifier
+4. Then schedule it
+</p>
+<p>
+Skipping ahead, scheduling something you have not made reliable by hand, is exactly how loops blow up while you sleep. Prove it once, harden it, then automate it.
+</p>
+<h2>Build a basic loop yourself (any LLM)</h2>
+<p>
+You do not need a coding agent to feel how this works. You can run a simple loop by hand inside any LLM right now, with nothing but a prompt. The trick is to give the model all three loop parts at once: a goal, strict success criteria, and a protocol that forces it to check itself before it is allowed to stop.
+</p>
+<p>
+Watch what happens. The model drafts, grades its own work against your criteria, finds the weak spot, and rewrites, over and over, until it actually clears the bar instead of handing you the first thing that looked close. That is a loop. You just built one with a paragraph.
+</p>
+<p>
+But notice what is still missing, because it is the whole point of what comes next. You are the trigger. You opened the chat, you pasted the prompt, you are sitting there watching it iterate. Close the tab and it is gone. There is no schedule. There is no "do this every morning," no "wake up when an email arrives." It cannot reach out to you, because it only exists while you are looking at it.
+</p>
+<p>
+To get a loop that runs on its own, on a schedule, triggered by real events, without you babysitting it, you normally have to step into the heavy world from earlier: tools, hosting, code, gates, and a bill.
+</p>
+<p>
+That makes sense when you are tackling genuinely heavy tasks. But for 99% of everyday ones, there is already a ready, dead-simple solution.
+</p>
+<h2>The same idea, for your actual life</h2>
+<p>
+Strip away the code and the cost, and what is left is one simple, genuinely useful concept: a task that runs itself, on a schedule or the moment something happens, with no need for you to remember it or be there. You do not need to be an engineer for that. You just need loops built for life instead of for codebases.
+</p>
+<p>
+There is a free option where you create one by describing it in plain words. No code, no hosting, no keys, no tab to keep open, no build order to get wrong.
+</p>
+<p>
+It is called Mira, and it lives inside Telegram, the app you probably already have open. You message it like a friend, and the loops it runs are called Skills. Every Skill quietly has the same parts a real loop needs, a trigger, an action, a way to run by itself, except you never wire any of them together. You just say what you want.
+</p>
+<p>
+That is a real loop. A time trigger, a multi-step action across two connected apps, running on its own and coming to you. You wrote it as one message.
+</p>
+<h2>What Mira can actually do</h2>
+<p>
+Here is the part that makes it click. Mira is not a smarter chatbot. The difference from ChatGPT is simple: ChatGPT answers, Mira acts. You do not ask it to write the email, you tell it to send the email. You do not get a draft ticket, you get a real one in Linear with the owner assigned. It does the thing, in the background, and it remembers you between every conversation.
+</p>
+<p>
+It connects to 500+ apps through Composio (Notion, Gmail, Google Calendar, GitHub, Figma, Stripe and hundreds more), it has long-term memory that holds across sessions and group chats, and it is model-agnostic, running GPT, Claude, Gemini depending on the task. Here is what that turns into.
+</p>
+<h3>For work</h3>
+<p>
+This is where the loops idea pays off without a single line of code.
+</p>
+<p>
+It catches you up on a 200-message thread in seconds, files the ticket while you keep talking, and walks into meetings already briefed. In group chats it remembers the team's decisions and tasks, not just yours.
+</p>
+<h3>For creators</h3>
+<p>
+This is the part most people underrate. Mira makes content end to end, inside the chat.
+</p>
+<p>
+Voice note in, finished post out in about thirty seconds. One brief becomes six platform-native versions. It generates images and video right in the chat, edits photos, swaps backgrounds, builds mascots and avatars, even lip-syncs and animates them. The whole content pipeline lives in one window.
+</p>
+<h3>For voice</h3>
+<p>
+Mira treats voice as a first-class input, which matters more than it sounds.
+</p>
+<p>
+It transcribes your voice messages, reads text back to you, understands voice notes inside group chats and summarizes the discussion, and works as a hands-free voice assistant when you cannot type.
+</p>
+<h3>For your life</h3>
+<p>
+The same engine, pointed at everything else.
+</p>
+<p>
+A coach that holds you to a streak. A journal that actually remembers you and becomes a check-in companion over time. Calorie tracking from a photo, no separate app. Language practice built from your own mistakes. A flight watcher that buys when the price is right. A daily digest with the clickbait stripped out.
+</p>
+<h2>How to start in two minutes</h2>
+<p>
+Open Telegram. Go to Mira. Send it a message. Free access works immediately. Try one of these first:
+</p>
+<p>
+Any example in this article becomes a running loop the moment you type it.
+</p>
+<h2>What this actually means for you</h2>
+<p>
+Loops are not a trend. They are a shift in who does the work. The AI stops waiting for you to push it through every step and starts running the whole job on its own.
+</p>
+<p>
+That said, this isn't something to chase or force into places it doesn't belong. More often than not, you will just burn money for nothing.
+</p>
+<p>
+My take: start by using what's already there for free, and only once you actually feel that it isn't enough should you start thinking about what you truly need.
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-06-20-anatolikopadze-loops-explained');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-06-20-anatolikopadze-loops-explained');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-06-20-anatolikopadze-loops-explained');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>
