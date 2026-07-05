@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -92,14 +92,34 @@ Fable 5 于 2026 年 7 月 1 日全球重新上线。Anthropic 发布了官方 F
 <hr>
 <h2>How（具体方法/参数）</h2>
 <h3>1. Effort 参数控制</h3>
-<p>
-| 级别 | 用途 | 触发方式 |
-|------|------|----------|
-| <code>low</code> | 常规子任务，成本敏感 | API 参数 |
-| <code>medium</code> | 不需要完整能力的任务 | API 参数 |
-| <code>high</code> | 大多数复杂工作（默认） | API 参数 |
-| <code>xhigh</code> | 首次正确性比速度重要 | <code>ultrathink</code>（单次）或 <code>ultracode</code>（会话级） |
-</p>
+<table>
+<thead><tr>
+<th>级别</th>
+<th>用途</th>
+<th>触发方式</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>low</code></td>
+<td>常规子任务，成本敏感</td>
+<td>API 参数</td>
+</tr>
+<tr>
+<td><code>medium</code></td>
+<td>不需要完整能力的任务</td>
+<td>API 参数</td>
+</tr>
+<tr>
+<td><code>high</code></td>
+<td>大多数复杂工作（默认）</td>
+<td>API 参数</td>
+</tr>
+<tr>
+<td><code>xhigh</code></td>
+<td>首次正确性比速度重要</td>
+<td><code>ultrathink</code>（单次）或 <code>ultracode</code>（会话级）</td>
+</tr>
+</tbody></table>
 <p>
 <strong>注意：</strong> <code>ultracode</code> 需要支持 xhigh 的模型（Fable 5、Opus 4.8、Opus 4.7），Sonnet 4.6 及更早不支持。
 </p>
@@ -245,17 +265,41 @@ findings."
 <strong>Mythos 5：</strong> 移除网络安全分类器，保留生物/化学，仅限 Project Glasswing 合作伙伴。
 </p>
 <h3>9. 迁移清单（Opus 4.8 → Fable 5）</h3>
-<p>
-| 检查项 | 行动 |
-|--------|------|
-| <strong>超时</strong> | 审计所有超时设置，延长（Opus 4.8 的超时对 Fable 5 太短） |
-| <strong>拒绝处理</strong> | 添加 <code>stop_reason: "refusal"</code> 处理，设置 Opus 4.8 回退 |
-| <strong>主动性约束</strong> | 在自动化/无人值守场景的 system prompt 中添加明确约束 |
-| <strong>进度验证</strong> | 在第一个生产运行前添加 audit 指令 |
-| <strong>记忆结构</strong> | 如果跨多会话，设置 lesson 文件结构和会话结束反思提示 |
-| <strong>最终响应格式</strong> | 在面向终端用户的工作流中添加 outcome-first 约束 |
-| <strong>测试范围</strong> | 在至少一个 Opus 4.8 难以完成的任务上测试 |
-</p>
+<table>
+<thead><tr>
+<th>检查项</th>
+<th>行动</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>超时</strong></td>
+<td>审计所有超时设置，延长（Opus 4.8 的超时对 Fable 5 太短）</td>
+</tr>
+<tr>
+<td><strong>拒绝处理</strong></td>
+<td>添加 <code>stop_reason: "refusal"</code> 处理，设置 Opus 4.8 回退</td>
+</tr>
+<tr>
+<td><strong>主动性约束</strong></td>
+<td>在自动化/无人值守场景的 system prompt 中添加明确约束</td>
+</tr>
+<tr>
+<td><strong>进度验证</strong></td>
+<td>在第一个生产运行前添加 audit 指令</td>
+</tr>
+<tr>
+<td><strong>记忆结构</strong></td>
+<td>如果跨多会话，设置 lesson 文件结构和会话结束反思提示</td>
+</tr>
+<tr>
+<td><strong>最终响应格式</strong></td>
+<td>在面向终端用户的工作流中添加 outcome-first 约束</td>
+</tr>
+<tr>
+<td><strong>测试范围</strong></td>
+<td>在至少一个 Opus 4.8 难以完成的任务上测试</td>
+</tr>
+</tbody></table>
 <p>
 <strong>迁移完成标准：</strong> 最复杂的工作流在第一次尝试时自主完成，无需人工干预。
 </p>

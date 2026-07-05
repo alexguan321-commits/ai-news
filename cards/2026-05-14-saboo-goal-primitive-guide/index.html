@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="The ultimate guide to /goal">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>The ultimate guide to /goal - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">39</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>The ultimate guide to /goal</h1>
+                <div class="meta">
+                    <span class="author">Shubham Saboo (@saboo_shubham_)</span>
+                    <time>2026-05-14</time>
+                    <span class="tag">goal-primitive</span> | <span class="tag">hermes-agent</span> | <span class="tag">codex</span> | <span class="tag">claude-code</span> | <span class="tag">orchestrator</span> | <span class="tag">kanban</span> | <span class="tag">multi-agent</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+                <p><a href='X (Twitter) Article' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "The ultimate guide to /goal"
+author: "Shubham Saboo (@saboo_shubham_)"
+source: "X (Twitter) Article"
+url: "https://x.com/saboo_shubham_/status/2054988166541770782"
+date: 2026-05-14
+tags: [goal-primitive, hermes-agent, codex, claude-code, orchestrator, kanban, multi-agent]
+</p>
+<hr>
+<h1>The ultimate guide to /goal</h1>
+<p>
+/goal is not a feature. It is a primitive.
+</p>
+<p>
+HTTP is a primitive. JSON is a primitive. /goal is becoming one for coding agents.
+</p>
+<p>
+A few weeks ago, OpenAI's Codex CLI added /goal as a way to give the coding worker a job with a defined done state. Claude Code added it this week.
+</p>
+<p>
+Hermes Agent, the orchestrator I run on a Mac Mini to coordinate work between coding workers, has had /goal built in for a while.
+</p>
+<p>
+So I now have a builder, a reviewer, and an orchestrator that all accept the same instruction format, even though they share nothing else.
+</p>
+<p>
+If you've only seen /goal used as a fancier prompt, you've missed what it changes.
+</p>
+<h2>What /goal actually is</h2>
+<p>
+A regular prompt asks an agent for the next response. You read what comes back, decide if it's right, and push the agent forward to the next step. You're steering every turn.
+</p>
+<p>
+/goal flips that. You write down what "done" looks like, submit it once, and the agent works toward it until it gets there. Here's a real one:
+</p>
+<p>
+The goal stays active until it's achieved, paused, blocked, cleared, or it runs out of budget.
+</p>
+<p>
+This is different from putting the word "goal" inside a normal one-shot command. If you write codex exec 'goal: build the app', that's still a prompt with a label. The real primitive lives inside an interactive worker session. You launch the CLI, you submit /goal, and you walk away.
+</p>
+<p>
+The shift is from prompting (you driving) to assigning (the agent driving toward a target you defined).
+</p>
+<h2>The three tools that currently speak /goal</h2>
+<p>
+The three tools accepting /goal aren't all the same kind of thing, so it's worth being specific.
+</p>
+<p>
+<strong>Codex</strong> is OpenAI's coding CLI. Strong at implementation, especially when given a clear spec. /goal is how you give it that spec.
+</p>
+<p>
+<strong>Claude Code</strong> is Anthropic's coding CLI. Strong at the inverse: finding what's wrong with code that looks right. Spec compliance, safety issues, error states, security holes. /goal is how you point it at code and ask for a review.
+</p>
+<p>
+<strong>Hermes Agent</strong> is a different kind of tool entirely. Not a coding worker, but an orchestrator that coordinates work between coding workers like the two above. /goal is how Hermes hands off tasks to whichever tool is right for the job, and also how I tell Hermes what I want in the first place.
+</p>
+<p>
+What matters isn't that any one of them shipped /goal. It's that three different teams converged on the same primitive, and that convergence is what makes it possible to compose them.
+</p>
+<h2>Setting things up</h2>
+<p>
+The first time I needed Codex and Claude Code on the Mac Mini that runs Hermes, I didn't install them by hand. I sent Hermes a message asking it to install both and log me in. It handled the rest.
+</p>
+<p>
+That's the workflow now. You don't type install commands. Setup is just another goal.
+</p>
+<p>
+If you don't have an orchestrator running yet, the install pages for Codex and Claude Code are easy enough to follow. But once you do, you shouldn't set up another tool by hand. The point of having an orchestrator is that mechanical work stops being yours.
+</p>
+<h2>What Hermes adds on top of /goal</h2>
+<p>
+A raw /goal is useful on its own. But it leaves you with a coordination problem.
+</p>
+<p>
+If Codex is running in one terminal and Claude Code is running in another, you have to remember which process is doing what. You have to check logs. You have to manually pass review findings from one tool to the other.
+</p>
+<p>
+Hermes turns those loose runs into a workflow:
+</p>
+<p>
+1. You message Hermes (in my case, over Telegram from my phone)
+2. Hermes creates goal cards on a Kanban board
+3. Hermes picks the right worker for each card
+4. The worker runs the goal in the background
+5. The card stores the process id, PID, repo, and done criteria
+6. When the build is ready, Hermes hands the repo to the reviewer
+7. If the review blocks, Hermes sends the findings back as a fix goal
+8. Hermes verifies the final output by inspecting the filesystem, tests, build, and git state
+</p>
+<p>
+The board is what /goal becomes when there's an orchestrator on top of it. Every goal has a card, every card has a status, every handoff leaves a trail. Instead of hunting through terminals, you watch the work move across columns on your phone.
+</p>
+<h2>The three roles</h2>
+<p>
+The tools change. The roles don't.
+</p>
+<p>
+<strong>Orchestrator.</strong> Owns the control loop. Task decomposition, worker selection, Kanban cards, background processes, dependencies, final verification, the user-facing summary. In my setup, Hermes.
+</p>
+<p>
+<strong>Builder.</strong> Takes a spec and produces working code. Implementation is the bottleneck this role solves. Codex tends to be strong here.
+</p>
+<p>
+<strong>Reviewer.</strong> Reads what the builder produced and finds what's wrong with it. Correctness is the bottleneck. Claude Code tends to be strong here.
+</p>
+<h2>A real run, end to end</h2>
+<p>
+I gave Hermes agent a goal to do this:
+</p>
+<p>
+Hermes broke the request into six cards.
+</p>
+<p>
+<strong>Card 1: Spec.</strong> Hermes wrote SPEC.md itself, capturing the stack, repo path, read-only constraints, mock mode requirements, tests, and verification commands. Owned by the PM role.
+</p>
+<p>
+<strong>Card 2: Codex builds.</strong> Codex ran /goal against SPEC.md. It created the project files, implemented the UI and backend, added tests, and got the app to a passing state. About 15 minutes. When it finished, npm test passed, npm run build passed, and git status showed only relevant new files.
+</p>
+<p>
+<strong>Card 3: Claude Code reviews.</strong> Claude Code ran /goal to review what Codex built. Checked spec compliance, read-only safety, API key handling, error states, tests, UI usefulness, bugs, and security issues. Result: PASS, no blocking issues.
+</p>
+<p>
+<strong>Card 4: Codex fix loop.</strong> Skipped, because the review passed. The card still matters when skipped. It shows Hermes can model conditional work. If Claude Code had blocked, Hermes would have handed the findings back to Codex as a new /goal.
+</p>
+<p>
+<strong>Card 5: Claude Code final verification.</strong> Skipped for the same reason.
+</p>
+<p>
+<strong>Card 6: Hermes final summary.</strong> Working app at the local path, UI and API both verified in mock mode. Codex built it with /goal. Claude Code reviewed it with /goal and returned PASS.
+</p>
+<p>
+All of that came from one message. Three different tools did the actual work, but I only ever talked to Hermes.
+</p>
+<h2>The verification rule</h2>
+<p>
+Hermes never trusted Codex's self-report. After Codex marked the build done, Hermes ran the commands itself:
+</p>
+<p>
+The verifier is what makes a /goal a contract instead of a promise. Don't trust the worker's self-report as final. Trust the verifier.
+</p>
+<p>
+Coding agents are confident. They'll tell you the build passes when the build was never run. They'll tell you tests pass when they wrote tests that never executed. The verifier closes that gap.
+</p>
+<p>
+Without verification, /goal is just a fancier prompt. With verification, it becomes a contract.
+</p>
+<h2>Running multiple goals</h2>
+<p>
+You can run multiple /goals in parallel, but you can't point multiple coding workers at the same files without thinking about it first.
+</p>
+<p>
+My default is one main builder per repo. If I want parallelism, I add it across clear boundaries. Different repos, different branches, git worktrees, separate packages, docs vs code, tests vs implementation. Anywhere two workers can't step on each other.
+</p>
+<p>
+The bad pattern is three workers all editing the same file in the same repo. You get conflicts, partial overwrites, and one worker silently undoing another's work.
+</p>
+<p>
+The better pattern is one writer at a time on any given file. Builder writes, reviewer only reads, fix goals stay scoped to the fix. Or run three builders in three worktrees on three competing approaches and let the orchestrator pick the best one.
+</p>
+<p>
+The board is what makes this practical. Without it, parallel background workers become terminal chaos.
+</p>
+<h2>What changes for me</h2>
+<p>
+The useful framing here is not "I can run agents in the background."
+</p>
+<p>
+It's that one message turns into a pipeline across three different coding tools, and I watch the whole thing move across one board.
+</p>
+<p>
+You stop sitting in a terminal waiting for one agent to finish, and start managing a queue of work with visible state.
+</p>
+<p>
+If Codex and Claude Code had each invented their own job-handoff format, no orchestrator could route between them. The board is impressive, but the primitive makes the board even more useful.
+</p>
+<p>
+The workers can change, but the primitive stays the same. The next coding tool that adopts /goal will join this pipeline without me changing anything. I'll just route work to it.
+</p>
+<p>
+That's what good primitives do.
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-05-14-saboo-goal-primitive-guide');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-05-14-saboo-goal-primitive-guide');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-05-14-saboo-goal-primitive-guide');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>

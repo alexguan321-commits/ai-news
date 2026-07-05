@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -243,13 +243,25 @@ heartbeat: STATUS.md     # silence instead of a mark = alarm
 <p>
 The core rule: scope the loop by what it can break, not by what you want it to do. Blast radius first, task second. And price it honestly:
 </p>
-<p>
-| Loop type | Typical cost per run |
-|-----------|---------------------|
-| Nightly test triage | $0.50–$2 |
-| Weekly dependency bump | $1–$5 |
-| Overnight refactor (100 files) | $10–$50 |
-</p>
+<table>
+<thead><tr>
+<th>Loop type</th>
+<th>Typical cost per run</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Nightly test triage</td>
+<td>$0.50–$2</td>
+</tr>
+<tr>
+<td>Weekly dependency bump</td>
+<td>$1–$5</td>
+</tr>
+<tr>
+<td>Overnight refactor (100 files)</td>
+<td>$10–$50</td>
+</tr>
+</tbody></table>
 <h2>The four deaths of a loop</h2>
 <p>
 1. <strong>Runaway recursion.</strong> Two agents feed each other work forever. Cure: a step cap and a money ceiling.

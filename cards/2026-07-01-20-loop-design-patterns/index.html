@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -72,62 +72,187 @@ type: x-article
 <p>
 让输出在离开系统前变得更好
 </p>
-<p>
-| # | 模式 | 核心机制 | 应用场景 |
-|---|------|----------|----------|
-| 1 | <strong>Generate → Critique → Rewrite</strong> | 生成→批评→重写，直到质量达标 | 写作、代码审查、报告 |
-| 2 | <strong>Score-and-Retry Loop</strong> | 生成→评分→低于阈值则重试 | 可量化质量：提取准确率、格式合规 |
-| 3 | <strong>Multi-Critic Loop</strong> | 4个独立评审：正确性/风格/安全/领域 | 医疗AI、法律文档、金融分析 |
-| 4 | <strong>Adversarial Critique Loop</strong> | 批评者的唯一目标是"打破"答案 | 研究综合、投资论点、风险分析 |
-| 5 | <strong>Judge Ensemble Loop</strong> | 多个评审者打分取共识 | 单模型评估不可靠、高风险场景 |
-</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>模式</th>
+<th>核心机制</th>
+<th>应用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Generate → Critique → Rewrite</strong></td>
+<td>生成→批评→重写，直到质量达标</td>
+<td>写作、代码审查、报告</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Score-and-Retry Loop</strong></td>
+<td>生成→评分→低于阈值则重试</td>
+<td>可量化质量：提取准确率、格式合规</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Multi-Critic Loop</strong></td>
+<td>4个独立评审：正确性/风格/安全/领域</td>
+<td>医疗AI、法律文档、金融分析</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Adversarial Critique Loop</strong></td>
+<td>批评者的唯一目标是"打破"答案</td>
+<td>研究综合、投资论点、风险分析</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Judge Ensemble Loop</strong></td>
+<td>多个评审者打分取共识</td>
+<td>单模型评估不可靠、高风险场景</td>
+</tr>
+</tbody></table>
 <h3>Category 2 — 记忆循环（Memory Loops）</h3>
 <p>
 从过去学习，让下次更聪明
 </p>
-<p>
-| # | 模式 | 核心机制 | 应用场景 |
-|---|------|----------|----------|
-| 6 | <strong>Reflexion Loop</strong> | 失败→分析原因→存储教训→带教训重试 | 最重要的自我改进模式 |
-| 7 | <strong>Memory Update Loop</strong> | 每次任务后存储：决策/结果/改进方案 | 长期运行的系统 |
-| 8 | <strong>Error Library Loop</strong> | 存储所有失败，新任务前先查错误库 | 避免重复犯同样错误 |
-| 9 | <strong>Success Pattern Loop</strong> | 也存储成功案例，复现成功方法 | 从胜利中学习，不只是错误 |
-| 10 | <strong>Memory Compression Loop</strong> | 记忆增长后压缩为更高层抽象 | 保持上下文可管理、系统快速 |
-</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>模式</th>
+<th>核心机制</th>
+<th>应用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>6</td>
+<td><strong>Reflexion Loop</strong></td>
+<td>失败→分析原因→存储教训→带教训重试</td>
+<td>最重要的自我改进模式</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Memory Update Loop</strong></td>
+<td>每次任务后存储：决策/结果/改进方案</td>
+<td>长期运行的系统</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Error Library Loop</strong></td>
+<td>存储所有失败，新任务前先查错误库</td>
+<td>避免重复犯同样错误</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Success Pattern Loop</strong></td>
+<td>也存储成功案例，复现成功方法</td>
+<td>从胜利中学习，不只是错误</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Memory Compression Loop</strong></td>
+<td>记忆增长后压缩为更高层抽象</td>
+<td>保持上下文可管理、系统快速</td>
+</tr>
+</tbody></table>
 <h3>Category 3 — 规划循环（Planning Loops）</h3>
 <p>
 当现实变化时调整计划
 </p>
-<p>
-| # | 模式 | 核心机制 | 应用场景 |
-|---|------|----------|----------|
-| 11 | <strong>Plan → Execute → Replan</strong> | 计划不是固定的，是螺旋式收紧 | 环境变化、长周期目标 |
-| 12 | <strong>Dynamic Workflow Loop</strong> | 管道根据结果决定自己的形状 | 多文档研究、自适应内容管道 |
-| 13 | <strong>Goal Decomposition Loop</strong> | 大目标→子目标→任务→步骤，直到可执行 | 复杂任务分解 |
-| 14 | <strong>Progress Evaluation Loop</strong> | 每N步停下来问：我们真的在接近目标吗？ | 长期运行的研究Agent |
-| 15 | <strong>Constraint Satisfaction Loop</strong> | 持续运行直到所有约束满足 | 生产系统的业务规则 |
-</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>模式</th>
+<th>核心机制</th>
+<th>应用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>11</td>
+<td><strong>Plan → Execute → Replan</strong></td>
+<td>计划不是固定的，是螺旋式收紧</td>
+<td>环境变化、长周期目标</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Dynamic Workflow Loop</strong></td>
+<td>管道根据结果决定自己的形状</td>
+<td>多文档研究、自适应内容管道</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Goal Decomposition Loop</strong></td>
+<td>大目标→子目标→任务→步骤，直到可执行</td>
+<td>复杂任务分解</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>Progress Evaluation Loop</strong></td>
+<td>每N步停下来问：我们真的在接近目标吗？</td>
+<td>长期运行的研究Agent</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Constraint Satisfaction Loop</strong></td>
+<td>持续运行直到所有约束满足</td>
+<td>生产系统的业务规则</td>
+</tr>
+</tbody></table>
 <h3>Category 4 — 探索循环（Exploration Loops）</h3>
 <p>
 通过尝试多条路径找到最佳答案
 </p>
-<p>
-| # | 模式 | 核心机制 | 应用场景 |
-|---|------|----------|----------|
-| 16 | <strong>Branch-and-Explore Loop</strong> | 同时探索多条路径，选最佳 | 内容变体、架构决策、A/B生成 |
-| 17 | <strong>Tree Search Loop</strong> | 深度优先的分支探索，剪枝弱节点 | 复杂推理链、多步规划 |
-| 18 | <strong>Debate Loop</strong> | 两个Agent、一个话题、对立立场 | 投资决策、战略规划、风险评审 |
-</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>模式</th>
+<th>核心机制</th>
+<th>应用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>16</td>
+<td><strong>Branch-and-Explore Loop</strong></td>
+<td>同时探索多条路径，选最佳</td>
+<td>内容变体、架构决策、A/B生成</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Tree Search Loop</strong></td>
+<td>深度优先的分支探索，剪枝弱节点</td>
+<td>复杂推理链、多步规划</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>Debate Loop</strong></td>
+<td>两个Agent、一个话题、对立立场</td>
+<td>投资决策、战略规划、风险评审</td>
+</tr>
+</tbody></table>
 <h3>Category 5 — 系统优化循环（System Optimization Loops）</h3>
 <p>
 循环改进循环本身
 </p>
-<p>
-| # | 模式 | 核心机制 | 应用场景 |
-|---|------|----------|----------|
-| 19 | <strong>Prompt Optimization Loop</strong> | 系统自动优化prompt：测试→评分→重写→重测 | 生产管道、自动内容系统 |
-| 20 | <strong>Workflow Optimization Loop</strong> | 系统测量自身性能并修改自己的工作流 | 真正自我改进的系统 |
-</p>
+<table>
+<thead><tr>
+<th>#</th>
+<th>模式</th>
+<th>核心机制</th>
+<th>应用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>19</td>
+<td><strong>Prompt Optimization Loop</strong></td>
+<td>系统自动优化prompt：测试→评分→重写→重测</td>
+<td>生产管道、自动内容系统</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Workflow Optimization Loop</strong></td>
+<td>系统测量自身性能并修改自己的工作流</td>
+<td>真正自我改进的系统</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>How（具体方法/参数）</h2>
 <h3>核心结构</h3>

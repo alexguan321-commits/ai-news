@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -78,38 +78,117 @@
 </ul>
 <hr>
 <h2>四层栈：从 Prompt 到 Loop</h2>
-<p>
-| 层 | 管什么 | 核心问题 |
-|----|--------|----------|
-| Prompt engineering | 写好一次的提示词 | 我该告诉模型什么 |
-| Context engineering | 这一刻窗口里放什么 | 检索什么、摘要什么、清掉什么 |
-| Harness engineering | 单次运行的武装 | 给哪些工具、允许哪些动作、什么算完成 |
-| <strong>Loop engineering</strong> | <strong>在 harness 之上调度</strong> | <strong>怎么让它自己一遍遍跑起来</strong> |
-</p>
+<table>
+<thead><tr>
+<th>层</th>
+<th>管什么</th>
+<th>核心问题</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Prompt engineering</td>
+<td>写好一次的提示词</td>
+<td>我该告诉模型什么</td>
+</tr>
+<tr>
+<td>Context engineering</td>
+<td>这一刻窗口里放什么</td>
+<td>检索什么、摘要什么、清掉什么</td>
+</tr>
+<tr>
+<td>Harness engineering</td>
+<td>单次运行的武装</td>
+<td>给哪些工具、允许哪些动作、什么算完成</td>
+</tr>
+<tr>
+<td><strong>Loop engineering</strong></td>
+<td><strong>在 harness 之上调度</strong></td>
+<td><strong>怎么让它自己一遍遍跑起来</strong></td>
+</tr>
+</tbody></table>
 <blockquote><p>"Loop engineering sits one floor above the harness." — Addy Osmani</p></blockquote>
 <hr>
 <h2>一个循环的五个动作</h2>
-<p>
-| 动作 | 干什么 | 在 triage loop 里 |
-|------|--------|-------------------|
-| <strong>发现（discovery）</strong> | 自己找出这圈该做的事 | skill 读 CI 失败 / issue / commit |
-| <strong>交付（handoff）</strong> | 把任务隔离着交给 agent | 每个发现开一个 worktree |
-| <strong>验证（verification）</strong> | 换个 agent 说「不」 | 第二个子 agent 对照测试审查 |
-| <strong>持久化（persistence）</strong> | 把状态写到对话之外 | 开 PR + 收件箱 + 状态文件 |
-| <strong>调度（scheduling）</strong> | 让它一圈圈自动转 | 早上 automation 自动跑 |
-</p>
+<table>
+<thead><tr>
+<th>动作</th>
+<th>干什么</th>
+<th>在 triage loop 里</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>发现（discovery）</strong></td>
+<td>自己找出这圈该做的事</td>
+<td>skill 读 CI 失败 / issue / commit</td>
+</tr>
+<tr>
+<td><strong>交付（handoff）</strong></td>
+<td>把任务隔离着交给 agent</td>
+<td>每个发现开一个 worktree</td>
+</tr>
+<tr>
+<td><strong>验证（verification）</strong></td>
+<td>换个 agent 说「不」</td>
+<td>第二个子 agent 对照测试审查</td>
+</tr>
+<tr>
+<td><strong>持久化（persistence）</strong></td>
+<td>把状态写到对话之外</td>
+<td>开 PR + 收件箱 + 状态文件</td>
+</tr>
+<tr>
+<td><strong>调度（scheduling）</strong></td>
+<td>让它一圈圈自动转</td>
+<td>早上 automation 自动跑</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>六个零件：搭一个 Loop 需要什么</h2>
-<p>
-| 零件 | 是什么 | 对应动作 | 一句话原话 |
-|------|--------|----------|-----------|
-| <strong>Automations</strong> | 挂在时间表/触发器上自动跑 | 调度 | "make a loop an actual loop" |
-| <strong>Worktrees</strong> | 隔离并行 agent 的工作目录 | 交付 | "same headache as two engineers" |
-| <strong>Skills</strong> | 固化项目知识、还意图债 | 发现 | "fire $skill-name, not a wall of instructions" |
-| <strong>Connectors</strong> | MCP 接外部系统 | 持久化/发现 | "only see the filesystem is a tiny loop" |
-| <strong>Sub-agents</strong> | 生成者与评判者分离 | 验证 | "too nice grading its own homework" |
-| <strong>Memory</strong> | 磁盘上的持久状态 | 持久化 | "the agent forgets, the repo doesn't" |
-</p>
+<table>
+<thead><tr>
+<th>零件</th>
+<th>是什么</th>
+<th>对应动作</th>
+<th>一句话原话</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Automations</strong></td>
+<td>挂在时间表/触发器上自动跑</td>
+<td>调度</td>
+<td>"make a loop an actual loop"</td>
+</tr>
+<tr>
+<td><strong>Worktrees</strong></td>
+<td>隔离并行 agent 的工作目录</td>
+<td>交付</td>
+<td>"same headache as two engineers"</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>固化项目知识、还意图债</td>
+<td>发现</td>
+<td>"fire $skill-name, not a wall of instructions"</td>
+</tr>
+<tr>
+<td><strong>Connectors</strong></td>
+<td>MCP 接外部系统</td>
+<td>持久化/发现</td>
+<td>"only see the filesystem is a tiny loop"</td>
+</tr>
+<tr>
+<td><strong>Sub-agents</strong></td>
+<td>生成者与评判者分离</td>
+<td>验证</td>
+<td>"too nice grading its own homework"</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>磁盘上的持久状态</td>
+<td>持久化</td>
+<td>"the agent forgets, the repo doesn't"</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>生成器与评判器：为什么写代码的 AI 不能给自己打分</h2>
 <h3>核心问题</h3>
@@ -155,25 +234,73 @@
 <li>架构：六层，确定性 gate 和 LLM 创造步骤交替咬合</li>
 <li>沙箱用 Devbox，跑在 EC2 上，"cattle not pets"，用完即弃</li>
 </ul>
-<p>
-| 环节 | 谁来做 |
-|------|--------|
-| 触发 | 人（Slack @ 或 emoji） |
-| 备上下文 | 确定性 orchestrator（非 LLM） |
-| 写代码 | LLM agent |
-| 跑 linter / commit | 硬编码 pipeline（agent 跳不过） |
-| review 这 1300 个 PR | 人 |
-</p>
+<table>
+<thead><tr>
+<th>环节</th>
+<th>谁来做</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>触发</td>
+<td>人（Slack @ 或 emoji）</td>
+</tr>
+<tr>
+<td>备上下文</td>
+<td>确定性 orchestrator（非 LLM）</td>
+</tr>
+<tr>
+<td>写代码</td>
+<td>LLM agent</td>
+</tr>
+<tr>
+<td>跑 linter / commit</td>
+<td>硬编码 pipeline（agent 跳不过）</td>
+</tr>
+<tr>
+<td>review 这 1300 个 PR</td>
+<td>人</td>
+</tr>
+</tbody></table>
 <h3>3. 调度现实：本地 vs 云端</h3>
-<p>
-| | Cloud Routines | Desktop 定时任务 | /loop |
-|--|----------------|------------------|-------|
-| 跑在哪 | Anthropic 云 | 你的机器 | 你的机器 |
-| 需要开机吗 | 否 | 是 | 是 |
-| 需要开着会话吗 | 否 | 否 | 是 |
-| 最小间隔 | 1 小时 | 1 分钟 | 1 分钟 |
-| 能看本地文件吗 | 否（fresh clone） | 能 | 能 |
-</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Cloud Routines</th>
+<th>Desktop 定时任务</th>
+<th>/loop</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>跑在哪</td>
+<td>Anthropic 云</td>
+<td>你的机器</td>
+<td>你的机器</td>
+</tr>
+<tr>
+<td>需要开机吗</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>需要开着会话吗</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>最小间隔</td>
+<td>1 小时</td>
+<td>1 分钟</td>
+<td>1 分钟</td>
+</tr>
+<tr>
+<td>能看本地文件吗</td>
+<td>否（fresh clone）</td>
+<td>能</td>
+<td>能</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>四笔代价</h2>
 <h3>1. 验证债</h3>
@@ -198,14 +325,34 @@
 一个自主跑的循环，消耗有多少，很难提前算准。一个 bug 让它空转一整晚，你睡醒看到的就是账单。
 </p>
 <h3>四笔账速查</h3>
-<p>
-| 代价 | 症状 | 一句话防它 |
-|------|------|-----------|
-| 验证债 | 产出堆着没人验，错误安静积累 | 装一个跟干活的不是同一个的评判者 |
-| 理解腐烂 | 代码在长，你脑里的地图停了 | 定期读产出，讲不出就是该更新 |
-| 认知投降 | 循环给啥收啥，懒得有意见 | 执行可外包，拿主意不行 |
-| token 失控 | 用量剧烈波动，账单不可预测 | 上线前钉死预算和重试上限 |
-</p>
+<table>
+<thead><tr>
+<th>代价</th>
+<th>症状</th>
+<th>一句话防它</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>验证债</td>
+<td>产出堆着没人验，错误安静积累</td>
+<td>装一个跟干活的不是同一个的评判者</td>
+</tr>
+<tr>
+<td>理解腐烂</td>
+<td>代码在长，你脑里的地图停了</td>
+<td>定期读产出，讲不出就是该更新</td>
+</tr>
+<tr>
+<td>认知投降</td>
+<td>循环给啥收啥，懒得有意见</td>
+<td>执行可外包，拿主意不行</td>
+</tr>
+<tr>
+<td>token 失控</td>
+<td>用量剧烈波动，账单不可预测</td>
+<td>上线前钉死预算和重试上限</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>当工程师，不只是按下启动键</h2>
 <blockquote><p>"Two people can build the same loop and get opposite outcomes."</p></blockquote>
@@ -243,29 +390,82 @@
 5. <strong>加 worktree</strong> — 让它并行
 </p>
 <h3>第一个 Loop 检查清单</h3>
-<p>
-| 要素 | 问自己 |
-|------|--------|
-| 发现源 | 它定时去读什么？（CI / issue / commit / 收件箱） |
-| 状态文件 | 跨轮的记忆落在哪个磁盘文件上？ |
-| evaluator | 有没有一个独立的、会说「不」的检查？ |
-| 隔离 | 并行的 agent 是不是各自一个 worktree？ |
-| token 上限 | 设没设花费的天花板？跑飞了谁拦得住？ |
-| 人工复核点 | 哪一步停下来等你看一眼，而不是一路自动到底？ |
-</p>
+<table>
+<thead><tr>
+<th>要素</th>
+<th>问自己</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>发现源</td>
+<td>它定时去读什么？（CI / issue / commit / 收件箱）</td>
+</tr>
+<tr>
+<td>状态文件</td>
+<td>跨轮的记忆落在哪个磁盘文件上？</td>
+</tr>
+<tr>
+<td>evaluator</td>
+<td>有没有一个独立的、会说「不」的检查？</td>
+</tr>
+<tr>
+<td>隔离</td>
+<td>并行的 agent 是不是各自一个 worktree？</td>
+</tr>
+<tr>
+<td>token 上限</td>
+<td>设没设花费的天花板？跑飞了谁拦得住？</td>
+</tr>
+<tr>
+<td>人工复核点</td>
+<td>哪一步停下来等你看一眼，而不是一路自动到底？</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>工具现状速查（2026年6月）</h2>
-<p>
-| 能力 | Claude Code | Codex |
-|------|-------------|-------|
-| 定时调度 | /loop（后台定时 worker） | Automations 标签页 |
-| 跑到条件满足 | /goal | — |
-| 并行隔离 | --worktree / -w | 专用 background worktree |
-| 子 agent | Subagents / Agent Teams | .codex/agents/ TOML 定义 |
-| 外部连接 | MCP + Plugins | MCP connector |
-| 显式调技能 | Skills（SKILL.md） | $skill-name |
-| 关机也跑 | Cloud Routines | 云端（规划中） |
-</p>
+<table>
+<thead><tr>
+<th>能力</th>
+<th>Claude Code</th>
+<th>Codex</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>定时调度</td>
+<td>/loop（后台定时 worker）</td>
+<td>Automations 标签页</td>
+</tr>
+<tr>
+<td>跑到条件满足</td>
+<td>/goal</td>
+<td>—</td>
+</tr>
+<tr>
+<td>并行隔离</td>
+<td>--worktree / -w</td>
+<td>专用 background worktree</td>
+</tr>
+<tr>
+<td>子 agent</td>
+<td>Subagents / Agent Teams</td>
+<td>.codex/agents/ TOML 定义</td>
+</tr>
+<tr>
+<td>外部连接</td>
+<td>MCP + Plugins</td>
+<td>MCP connector</td>
+</tr>
+<tr>
+<td>显式调技能</td>
+<td>Skills（SKILL.md）</td>
+<td>$skill-name</td>
+</tr>
+<tr>
+<td>关机也跑</td>
+<td>Cloud Routines</td>
+<td>云端（规划中）</td>
+</tr>
+</tbody></table>
 <hr>
 <h2>核心语录</h2>
 <blockquote><p>"Loop engineering sits one floor above the harness."</p></blockquote>

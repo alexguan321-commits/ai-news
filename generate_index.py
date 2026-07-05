@@ -363,6 +363,7 @@ def simple_md_to_html(md_text):
     in_list = False
     in_paragraph = False
     in_code_block = False
+    in_table = False
     code_lang = ""
 
     def safe_link(match):
@@ -372,6 +373,25 @@ def simple_md_to_html(md_text):
         if url.startswith(('http://', 'https://', '/')):
             return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{text}</a>'
         return match.group(0)  # Return original text for unsafe protocols
+
+    def process_inline_md(text):
+        """Process inline markdown: bold, italic, links, code, auto-links."""
+        text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+        text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
+        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1" target="_blank" rel="noopener noreferrer">\1</a>', text)
+        return text
+
+    def parse_table_row(line):
+        """Parse a markdown table row into cells."""
+        # Remove leading/trailing pipes and split
+        line = line.strip()
+        if line.startswith('|'):
+            line = line[1:]
+        if line.endswith('|'):
+            line = line[:-1]
+        return [cell.strip() for cell in line.split('|')]
 
     for line in lines:
         stripped = line.strip()
@@ -398,6 +418,45 @@ def simple_md_to_html(md_text):
             escaped = line.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
             html_lines.append(escaped)
             continue
+
+        # Table detection - line starts with | and contains |
+        if stripped.startswith('|') and '|' in stripped[1:]:
+            if in_list:
+                html_lines.append('</ul>')
+                in_list = False
+            if in_paragraph:
+                html_lines.append('</p>')
+                in_paragraph = False
+
+            cells = parse_table_row(stripped)
+
+            # Check if this is a separator row (|---|---|)
+            is_separator = all(re.match(r'^[-:]+$', cell.strip()) for cell in cells if cell.strip())
+
+            if is_separator:
+                # Skip separator rows, they're handled in table structure
+                continue
+
+            if not in_table:
+                # Start of table - this is the header row
+                html_lines.append('<table>')
+                html_lines.append('<thead><tr>')
+                for cell in cells:
+                    html_lines.append(f'<th>{process_inline_md(cell)}</th>')
+                html_lines.append('</tr></thead>')
+                html_lines.append('<tbody>')
+                in_table = True
+            else:
+                # Regular data row
+                html_lines.append('<tr>')
+                for cell in cells:
+                    html_lines.append(f'<td>{process_inline_md(cell)}</td>')
+                html_lines.append('</tr>')
+            continue
+        elif in_table:
+            # End of table
+            html_lines.append('</tbody></table>')
+            in_table = False
 
         # Skip empty lines
         if not stripped:

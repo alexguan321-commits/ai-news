@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -189,15 +189,57 @@ FDE 写的不是普通产品代码：
 <p>
 <strong>三个都答是，才接近 FDE。少一个，就可能只是相邻岗位。</strong>
 </p>
-<p>
-| 维度 | FDE | SWE | SA（解决方案架构师） | 咨询顾问 | SE（销售工程师） |
-|------|-----|-----|---------------------|----------|-----------------|
-| 代码 | 生产代码 | 通用产品代码 | PoC 代码 | 不写代码 | 不写代码 |
-| 环境 | 客户真实环境 | 公司内部 | 售前为主 | 客户现场 | 售前为主 |
-| 责任 | 对业务结果负责 | 对系统稳定性负责 | 对 PoC 负责 | 对方案负责 | 对成交负责 |
-| 阶段 | 售后/深度合作 | 全程 | 售前 | 全程 | 售前 |
-| 指标 | 无销售 quota | 无 | 无 | 无 | 有 OTE |
-</p>
+<table>
+<thead><tr>
+<th>维度</th>
+<th>FDE</th>
+<th>SWE</th>
+<th>SA（解决方案架构师）</th>
+<th>咨询顾问</th>
+<th>SE（销售工程师）</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>代码</td>
+<td>生产代码</td>
+<td>通用产品代码</td>
+<td>PoC 代码</td>
+<td>不写代码</td>
+<td>不写代码</td>
+</tr>
+<tr>
+<td>环境</td>
+<td>客户真实环境</td>
+<td>公司内部</td>
+<td>售前为主</td>
+<td>客户现场</td>
+<td>售前为主</td>
+</tr>
+<tr>
+<td>责任</td>
+<td>对业务结果负责</td>
+<td>对系统稳定性负责</td>
+<td>对 PoC 负责</td>
+<td>对方案负责</td>
+<td>对成交负责</td>
+</tr>
+<tr>
+<td>阶段</td>
+<td>售后/深度合作</td>
+<td>全程</td>
+<td>售前</td>
+<td>全程</td>
+<td>售前</td>
+</tr>
+<tr>
+<td>指标</td>
+<td>无销售 quota</td>
+<td>无</td>
+<td>无</td>
+<td>无</td>
+<td>有 OTE</td>
+</tr>
+</tbody></table>
 <p>
 <strong>头衔通胀警告：</strong> FDE 火了之后，很多公司会把实施顾问/售前/外包/客户成功改名叫 FDE。看责任，不看标题。
 </p>
@@ -253,16 +295,37 @@ FDE 写的不是普通产品代码：
 <li><strong>LinkedIn 口径</strong>：2023-2025，FDE 增长 42 倍，同期 AI engineer 13 倍</li>
 </ul>
 <h3>薪资（Exponent 2026 指南）</h3>
-<p>
-| 类别 | 薪资范围 |
-|------|----------|
-| 所有 FDE base 中位数 | ~$17.4 万 |
-| Glassdoor 平均 | ~$15.5 万，90 分位 >$24.3 万 |
-| 入门/Associate FDE | $14-25 万 base + equity |
-| Palantir FDSE 中位总包 | ~$21.5 万 |
-| AI lab 中高级 FDE 总包 | $35-55 万 |
-| Staff 级 FDE | 可能 >$63 万 |
-</p>
+<table>
+<thead><tr>
+<th>类别</th>
+<th>薪资范围</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>所有 FDE base 中位数</td>
+<td>~$17.4 万</td>
+</tr>
+<tr>
+<td>Glassdoor 平均</td>
+<td>~$15.5 万，90 分位 >$24.3 万</td>
+</tr>
+<tr>
+<td>入门/Associate FDE</td>
+<td>$14-25 万 base + equity</td>
+</tr>
+<tr>
+<td>Palantir FDSE 中位总包</td>
+<td>~$21.5 万</td>
+</tr>
+<tr>
+<td>AI lab 中高级 FDE 总包</td>
+<td>$35-55 万</td>
+</tr>
+<tr>
+<td>Staff 级 FDE</td>
+<td>可能 >$63 万</td>
+</tr>
+</tbody></table>
 <p>
 <strong>FDE 贵的原因：</strong> 组合稀缺——
 </p>
@@ -342,14 +405,29 @@ FDE 面试最容易淘汰人的是<strong>部署场景拆解</strong>。
 <li>IT 不给凭证 → 搭安全审查流程，明确最小权限/审计/回滚</li>
 </ul>
 <h3>4 周冲刺计划</h3>
-<p>
-| 周 | 重点 |
-|----|------|
-| 1 | 企业集成：停刷算法，选 3 个真实 API，打通认证/分页/限流/Webhook/重试 |
-| 2 | AI 应用栈：用真实文档做 RAG + evals，做工具调用 Agent |
-| 3 | 场景拆解：每天练一个行业问题（病历编码/客服质检/物流调度/合同审查） |
-| 4 | 准备故事：5 个故事（线上事故/跨部门推进/失败复盘/拒绝不合理需求/信息不足决策） |
-</p>
+<table>
+<thead><tr>
+<th>周</th>
+<th>重点</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>企业集成：停刷算法，选 3 个真实 API，打通认证/分页/限流/Webhook/重试</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI 应用栈：用真实文档做 RAG + evals，做工具调用 Agent</td>
+</tr>
+<tr>
+<td>3</td>
+<td>场景拆解：每天练一个行业问题（病历编码/客服质检/物流调度/合同审查）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>准备故事：5 个故事（线上事故/跨部门推进/失败复盘/拒绝不合理需求/信息不足决策）</td>
+</tr>
+</tbody></table>
 <h3>长期路线</h3>
 <p>
 在企业软件或 AI 应用公司主动靠近客户部署。参加 PoC/实施/上线/故障排查/售后复盘。简历能写出几次真实企业部署 + 业务影响。

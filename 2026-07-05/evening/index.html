@@ -51,16 +51,44 @@
 <p>
 <strong>事实：</strong> 今日 GitHub Trending（Python + TypeScript + All）的 8 个热门项目中，<strong>至少 6 个直接服务于 AI Coding Agent 的工程化基础设施</strong>：
 </p>
-<p>
-| 项目 | 定位 | 核心能力 |
-|------|------|----------|
-| <strong>planning-with-files</strong> | Agent 持久化规划 | 基于文件的 crash-proof markdown 计划 |
-| <strong>plannotator</strong> | Agent 计划可视化审查 | 团队协同标注 agent 计划和代码 diff |
-| <strong>oh-my-pi</strong> | 终端 AI Coding Agent | hash-anchored edits + LSP + subagents |
-| <strong>herdr</strong> | Agent 多路复用器 | 终端内管理多个 agent 并行执行 |
-| <strong>taste-skill</strong> | Agent 输出质量守卫 | 给 AI 注入「品味」，消灭 generic slop |
-| <strong>postiz-app</strong> | Agentic 社交媒体调度 | Agent 驱动的自动化内容发布 |
-</p>
+<table>
+<thead><tr>
+<th>项目</th>
+<th>定位</th>
+<th>核心能力</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>planning-with-files</strong></td>
+<td>Agent 持久化规划</td>
+<td>基于文件的 crash-proof markdown 计划</td>
+</tr>
+<tr>
+<td><strong>plannotator</strong></td>
+<td>Agent 计划可视化审查</td>
+<td>团队协同标注 agent 计划和代码 diff</td>
+</tr>
+<tr>
+<td><strong>oh-my-pi</strong></td>
+<td>终端 AI Coding Agent</td>
+<td>hash-anchored edits + LSP + subagents</td>
+</tr>
+<tr>
+<td><strong>herdr</strong></td>
+<td>Agent 多路复用器</td>
+<td>终端内管理多个 agent 并行执行</td>
+</tr>
+<tr>
+<td><strong>taste-skill</strong></td>
+<td>Agent 输出质量守卫</td>
+<td>给 AI 注入「品味」，消灭 generic slop</td>
+</tr>
+<tr>
+<td><strong>postiz-app</strong></td>
+<td>Agentic 社交媒体调度</td>
+<td>Agent 驱动的自动化内容发布</td>
+</tr>
+</tbody></table>
 <p>
 <strong>这不是巧合——这是昨天「Vibe Coding 已死」叙事的直接延续。</strong>
 </p>
@@ -243,15 +271,39 @@
 <p>
 今日 GitHub Trending 的 6 个 agent 基建项目，完美对应了 Anatoli Kopadze [Loop Engineering 文章](~/LLM_WIKI/raw/sources/manual/2026-06-20-anatolikopadze-loops-explained.md) 中的 Loop 五大组件：
 </p>
-<p>
-| Loop 组件 | 今日对应项目 | 状态 |
-|-----------|-------------|------|
-| <strong>Automation</strong>（心跳） | herdr（多 agent 调度） | ✅ 已解决 |
-| <strong>Skill</strong>（可复用指令） | taste-skill（品味注入） | ✅ 已解决 |
-| <strong>State</strong>（状态记忆） | planning-with-files（持久化计划） | ✅ 刚解决 |
-| <strong>Verify</strong>（验证） | plannotator（计划审查） | ✅ 刚解决 |
-| <strong>Connectors</strong>（连接器） | oh-my-pi（LSP + browser） | ✅ 已解决 |
-</p>
+<table>
+<thead><tr>
+<th>Loop 组件</th>
+<th>今日对应项目</th>
+<th>状态</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Automation</strong>（心跳）</td>
+<td>herdr（多 agent 调度）</td>
+<td>✅ 已解决</td>
+</tr>
+<tr>
+<td><strong>Skill</strong>（可复用指令）</td>
+<td>taste-skill（品味注入）</td>
+<td>✅ 已解决</td>
+</tr>
+<tr>
+<td><strong>State</strong>（状态记忆）</td>
+<td>planning-with-files（持久化计划）</td>
+<td>✅ 刚解决</td>
+</tr>
+<tr>
+<td><strong>Verify</strong>（验证）</td>
+<td>plannotator（计划审查）</td>
+<td>✅ 刚解决</td>
+</tr>
+<tr>
+<td><strong>Connectors</strong>（连接器）</td>
+<td>oh-my-pi（LSP + browser）</td>
+<td>✅ 已解决</td>
+</tr>
+</tbody></table>
 <p>
 <strong>关键洞察：</strong> Loop Engineering 的五大组件在今天全部有了对应的开源实现——<strong>这意味着 Agentic Engineering 的「基础设施层」已经成熟，下一步是「应用层」爆发</strong>。
 </p>

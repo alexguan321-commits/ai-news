@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">38</span> cards</div>
+            <div><span class="stat-value">39</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
         </div>
         <div id="auth-container"></div>
@@ -319,16 +319,44 @@ Agents need to wake up on their own. OpenClaw handles this with built-in cron sc
 <p>
 My actual schedule:
 </p>
-<p>
-| Agent | Schedule | Time |
-|-------|----------|------|
-| Dwight Morning | Daily | 8:01 AM |
-| Kelly Viral | Daily | 9:01 AM, 1:01 PM |
-| Ross Engineering | Daily | 10:01 AM |
-| Dwight Afternoon | Daily | 4:01 PM |
-| Kelly X Drafts | Daily | 5:01 PM |
-| Rachel LinkedIn | Daily | 5:01 PM |
-</p>
+<table>
+<thead><tr>
+<th>Agent</th>
+<th>Schedule</th>
+<th>Time</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Dwight Morning</td>
+<td>Daily</td>
+<td>8:01 AM</td>
+</tr>
+<tr>
+<td>Kelly Viral</td>
+<td>Daily</td>
+<td>9:01 AM, 1:01 PM</td>
+</tr>
+<tr>
+<td>Ross Engineering</td>
+<td>Daily</td>
+<td>10:01 AM</td>
+</tr>
+<tr>
+<td>Dwight Afternoon</td>
+<td>Daily</td>
+<td>4:01 PM</td>
+</tr>
+<tr>
+<td>Kelly X Drafts</td>
+<td>Daily</td>
+<td>5:01 PM</td>
+</tr>
+<tr>
+<td>Rachel LinkedIn</td>
+<td>Daily</td>
+<td>5:01 PM</td>
+</tr>
+</tbody></table>
 <p>
 Order matters. Dwight runs first because everyone else depends on his output. Kelly and Rachel run after him because they need his intel file to exist before they can draft content.
 </p>
@@ -434,18 +462,45 @@ This is not magic. It is infrastructure. And infrastructure fails.
 The biggest reliability lesson: start simple. One agent, one job, one schedule. Get that working reliably for a week. Then add the second agent.
 </p>
 <h2>Real costs</h2>
-<p>
-| Item | Cost |
-|------|------|
-| Hardware: Mac Mini M4 | $499 (one-time) |
-| Claude (Max plan) | $200/month (note: no longer works, use API) |
-| Gemini API | $50-70/month |
-| TinyFish (web agents) | ~$50/month |
-| Eleven Labs (voice) | ~$50/month |
-| Telegram | Free |
-| OpenClaw | Open source and free |
-| <strong>Total</strong> | <strong>under $400/month</strong> |
-</p>
+<table>
+<thead><tr>
+<th>Item</th>
+<th>Cost</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Hardware: Mac Mini M4</td>
+<td>$499 (one-time)</td>
+</tr>
+<tr>
+<td>Claude (Max plan)</td>
+<td>$200/month (note: no longer works, use API)</td>
+</tr>
+<tr>
+<td>Gemini API</td>
+<td>$50-70/month</td>
+</tr>
+<tr>
+<td>TinyFish (web agents)</td>
+<td>~$50/month</td>
+</tr>
+<tr>
+<td>Eleven Labs (voice)</td>
+<td>~$50/month</td>
+</tr>
+<tr>
+<td>Telegram</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>OpenClaw</td>
+<td>Open source and free</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>under $400/month</strong></td>
+</tr>
+</tbody></table>
 <h2>What actually changed</h2>
 <ul>
 <li>Dwight saves 2-3 hours of daily research</li>
