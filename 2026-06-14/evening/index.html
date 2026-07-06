@@ -59,6 +59,7 @@
 判断：这是 AI 地缘政治的又一个信号弹。继芯片出口管制之后，模型访问本身正在成为地缘博弈工具。Anthropic 此举可能与合规、安全政策或商业策略有关，但客观效果是加速各国"模型主权"意识。印度作为全球最大开发者市场之一，如果被排除在前沿模型之外，将催生本土替代需求。
 </p>
 <p>
+对负责人的启示：作为某跨国消费品巨头中国 IT 总监，你需要关注两个维度——(1) 供应链层面，模型访问的不可预测性意味着 multi-provider 策略不是可选项而是必选项；(2) FDE 推广层面，如果团队依赖单一模型 API，风险敞口在扩大。建议在 Dify 工作流中强化模型切换能力的建设。
 🔗 <a href="https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/</a>
 </p>
 <hr>
@@ -72,6 +73,7 @@
 判断：Agentic AI 正在从"能不能用"进入"怎么比谁快"的阶段。当 benchmark 出现时，意味着这个领域正在标准化、产品化。AgentPerf 的发布意味着企业采购 Agentic 基础设施终于有了可量化的比较维度——就像当年 MLPerf 对训练基础设施的意义。
 </p>
 <p>
+对负责人的启示：你正在推动 FDE 团队的 Agentic 转型（Dify + RPA + LCNC），AgentPerf 未来可以作为你评估不同推理基础设施的参考框架。现在就可以关注这个 benchmark 的指标体系，提前理解 agentic workload 对算力、延迟、并发的真实需求。
 🔗 <a href="https://blogs.nvidia.com/blog/nvidia-blackwell-agentperf-artificial-analysis/" target="_blank" rel="noopener noreferrer">https://blogs.nvidia.com/blog/nvidia-blackwell-agentperf-artificial-analysis/</a>
 </p>
 <hr>
@@ -85,6 +87,7 @@
 判断：Diffusion 范式从图像扩散到文本生成，这是一个架构层面的重要信号。DiffusionGemma 的"快"意味着它在 edge 场景、实时交互场景有巨大潜力。NVIDIA 同步优化说明硬件厂商已经在为"非 autoregressive 文本生成"铺路。
 </p>
 <p>
+对负责人的启示：如果你的 FDE 场景中有需要极低延迟的文本生成需求（比如仓储现场的实时问答、RPA 流程中的快速分类），DiffusionGemma 值得跟进测试。开放模型 + RTX 本地部署 = 零 API 成本 + 数据不出厂。
 🔗 <a href="https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/" target="_blank" rel="noopener noreferrer">https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/</a>
 </p>
 <hr>
@@ -165,6 +168,7 @@
 <p>
 <strong>2. Recursive Agent Harnesses</strong>
 核心贡献：命名并系统化研究"递归 Agent 框架"模式——Agent 编写代码来生成子 Agent，形成递归调用链。与 Anthropic 的 dynamic workflows 实践呼应。
+为什么重要：这是 Agent 自我扩展的关键模式。理解这个模式对你设计 FDE 团队的 Agent 架构有直接帮助。
 🔗 <a href="https://arxiv.org/pdf/2606.13643v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.13643v1</a>
 </p>
 <p>
@@ -205,6 +209,9 @@
 <li><strong>NVIDIA + Boston Dynamics 生态持续扩展</strong>：YouTube 上 Boston Dynamics 与 Hyundai 合作的"足球学校"系列持续更新，Atlas 机器人展示新技能。</li>
 </ul>
 <hr>
+<p>
+🎯 <strong>FDE & Ontology</strong>
+</p>
 <ul>
 <li><strong>HuggingFace Agent 自主搭建 3D 画廊</strong>：Agent 通过链式调用两个 HF Spaces，自主构建了一个 3D 巴黎画廊。这是"Agent as Builder"的又一个案例。</li>
 </ul>
@@ -217,6 +224,9 @@
 <p>
 🔗 <a href="https://arxiv.org/pdf/2606.13669v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.13669v1</a>
 </p>
+<ul>
+<li><strong>Neuro-Symbolic Agents for Regulated Process Automation</strong>：在受监管行业中，符号结构（法规、类型化流程模型、合规约束）应被视为 Agent 的内在组成部分而非外部约束。对 FDE 在合规场景的落地有直接参考价值。</li>
+</ul>
 <p>
 🔗 <a href="https://arxiv.org/pdf/2606.13405v1" target="_blank" rel="noopener noreferrer">https://arxiv.org/pdf/2606.13405v1</a>
 </p>

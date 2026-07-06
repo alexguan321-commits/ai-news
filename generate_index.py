@@ -126,7 +126,10 @@ FILTER_PATTERNS = [
     r"宝洁.*",
     r"P&G.*",
     r"Procter.*Gamble.*",
-    r"\bFDE\b.*",
+    # Removed: r"\bFDE\b.*" - was too aggressive, filtered all FDE content
+    # FDE is a legitimate topic; only filter if combined with personal/internal markers
+    r"(?:宝洁|P&G|A\s*哥).*\bFDE\b.*",  # FDE + internal markers
+    r"\bFDE\b.*(?:宝洁|P&G|A\s*哥).*",  # internal markers + FDE
     r"Frank\s*Shen.*",
     r"A\s*哥.*",
 ]

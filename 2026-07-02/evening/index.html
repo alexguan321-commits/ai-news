@@ -86,6 +86,7 @@
 <ul>
 <li>不要追新模型。GPT-5.6 Sol 的限制性发布 + reward-hacking 问题 = 不适合生产环境。</li>
 <li>Terra 级别（GPT-5.5 性能、一半价格）才是企业级甜区。等 Terra GA 后再评估迁移。</li>
+<li>FDE 团队应建立「模型评估沙盒」，用某跨国消费品巨头真实业务场景测试 reward-hacking 影响，而非依赖公开基准。</li>
 </ul>
 <blockquote><p>🔗 来源：[AI Tools Review](https://aitoolsreview.co.uk/insights/gpt-5-6) · [YouTube - WorldofAI](https://www.youtube.com/watch?v=3TIL611HgvE)</p></blockquote>
 <hr>
@@ -112,6 +113,7 @@
 <strong>对某跨国消费品巨头的启示：</strong>
 </p>
 <ul>
+<li>FDE 团队应立即评估 ZCode + GLM-5.2 在某跨国消费品巨头内部开发场景的表现</li>
 <li>建立「双轨编码工具」策略：国际项目用 Cursor/Claude Code，国内项目用 ZCode/GLM-5.2</li>
 <li>关注 BYOK 架构——这意味着你可以用同一个工具壳，底层切换模型</li>
 </ul>
@@ -130,6 +132,7 @@
 </p>
 <ul>
 <li>创新场景（新品概念、营销创意）不应只用单一 LLM，应建立「多模型 + 高温度 + 人工筛选」流程</li>
+<li>FDE 团队可探索 Flint 类「反群体思维」模型在某跨国消费品巨头创意工作流中的应用</li>
 <li>考虑在 RAG 系统中引入「多样性约束」，避免检索结果趋同</li>
 </ul>
 <blockquote><p>🔗 来源：[MIT Technology Review](https://www.technologyreview.com/2026/07/01/1140003/llms-are-stuck-in-a-groupthink-rut-this-startup-is-trying-to-get-them-out)</p></blockquote>
@@ -145,6 +148,7 @@
 <strong>对某跨国消费品巨头的启示：</strong>
 </p>
 <ul>
+<li>FDE 团队必须为所有 Agent 部署设置 <strong>hard cap</strong>，不能只靠 soft limit</li>
 <li>建立「Agent 成本仪表盘」，实时监控每个 Agent 的 token 消耗和 API 调用频次</li>
 <li>考虑「分级预算」：实验性 Agent 日限额 $50，生产级 Agent 日限额 $500，超阈值自动暂停</li>
 </ul>
@@ -162,6 +166,7 @@
 </p>
 <ul>
 <li>某跨国消费品巨头内部知识库 RAG 系统应增加「问题解析层」：意图分类、实体抽取、上下文补全</li>
+<li>FDE 团队可参考该文 6 个反直觉观点，审计现有 RAG 系统的「问题理解」能力</li>
 <li>考虑引入「问题重写」模块，将用户模糊查询转化为结构化检索意图</li>
 </ul>
 <blockquote><p>🔗 来源：[Towards Data Science](https://towardsdatascience.com/the-untaught-lessons-of-rag-question-parsing-structure-before-you-search/)</p></blockquote>
@@ -241,6 +246,9 @@
 <hr>
 <h2>💡 行业洞察</h2>
 <h3>GitHub Trending 信号</h3>
+<p>
+今日 GitHub Trending 中，<strong>agentskills/agentskills</strong> 值得关注。这反映了一个趋势：AI Agent 的能力正在从「提示词」转向「可安装、可复用、可审计的技能包」。这与某跨国消费品巨头 FDE 团队的「技能库」建设方向一致。
+</p>
 <p>
 <strong>langflow-ai/langflow</strong> 持续热门，说明低代码 AI 工作流编排仍有强劲需求。
 </p>

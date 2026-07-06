@@ -98,6 +98,9 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 <strong>判断：</strong> 这是 Google 对 Anthropic Computer Use 的正面对标。关键差异在于——Flash 是轻量级模型，意味着 computer use 从「昂贵的高端能力」变成了「可大规模部署的标配能力」。当 computer use 足够便宜，RPA 的底层逻辑将被彻底重写。
 </p>
 <p>
+<strong>对负责人的启示：</strong> 立即测试 Gemini 3.5 Flash 的 computer use API。你在某跨国消费品巨头推的 RPA 场景（仓储系统操作、运输单据处理），如果可以用 AI Agent 替代传统 RPA 的硬编码流程，维护成本将下降一个数量级。建议 FDE 团队本周做一个 PoC：用 Gemini computer use 操作一个你们现有的仓储系统界面。
+</p>
+<p>
 🔗 来源：<a href="https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/" target="_blank" rel="noopener noreferrer">DeepMind 官方博客</a>
 </p>
 <hr>
@@ -141,6 +144,9 @@ OpenAI 正式发布名为「Jalapeño」的首款自研 AI 推理芯片（Intell
 Mistral OCR 4 不再只做文字提取，而是返回结构化数据，直接切入企业文档处理市场。<strong>对负责人的启示：</strong> 仓储物流场景有大量单据（提单、装箱单、发票），Mistral OCR 4 值得评估，可能比现有 OCR 方案更适合构建端到端的文档理解 pipeline。🔗 <a href="https://venturebeat.com/data/mistral-launches-ocr-4-turning-document-extraction-into-a-full-enterprise-ai-play" target="_blank" rel="noopener noreferrer">VentureBeat</a>
 </p>
 <h3>6. 企业开始「Token 配给」——员工用 AI 做小事耗尽预算 🟡</h3>
+<p>
+企业正进入「token rationing」时代，员工用 AI 预算处理琐碎任务导致额度耗尽。<strong>判断：</strong> 这暴露了企业 AI 部署的核心矛盾——没有 ROI 度量的 AI 推广等于烧钱。你的 FDE 团队推广 AI 工具时，必须建立「token 使用 ROI 看板」。🔗 <a href="https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
+</p>
 <h3>7. Figma 发布代码层、动画支持和更多 AI 功能 🟡</h3>
 <p>
 Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支持、AI 自定义插件。<strong>判断：</strong> 设计-开发工作流正在被 AI 深度整合，Figma 从设计工具进化为「产品原型平台」。🔗 <a href="https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/" target="_blank" rel="noopener noreferrer">TechCrunch</a> | <a href="https://www.theverge.com/tech/955831/figma-code-design-tools-config-2026-announcements" target="_blank" rel="noopener noreferrer">The Verge</a>
@@ -167,6 +173,19 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 🔗 来源：<a href="https://techcrunch.com/2026/06/24/agility-robotics-plans-to-go-public-via-spac-in-a-2-5b-deal/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 </p>
 <hr>
+<p>
+🎯 <strong>FDE & Forward Deployed Engineering</strong>
+</p>
+<h3>Shopify 的模型无关 AI 架构 + Token 配给 = FDE 的两大实战课题 🟠</h3>
+<p>
+今日没有直接的 FDE 招聘/方法论新闻，但两条新闻对 负责人的 FDE 团队管理有直接价值：
+</p>
+<p>
+1. <strong>Shopify 的 LLM Proxy 架构</strong> 本质上就是 FDE 思维——不绑定单一技术，为企业构建灵活的应用层。你的 FDE 团队在帮业务方搭建 AI 应用时，应该默认采用这种「模型可替换」架构，而不是每次都 hardcode 一个模型。
+</p>
+<p>
+2. <strong>Token 配给问题</strong> 是 FDE 推广 AI 工具时的典型陷阱。当 AI 工具被「民主化」推广后，如果没有使用规范和 ROI 追踪，就会出现「用 GPT-4 做拼写检查」这种荒谬场景。<strong>建议你的 FDE 团队立即建立：</strong>
+</p>
 <ul>
 <li>按场景分级的模型路由规则（简单任务 → 小模型，复杂任务 → 大模型）</li>
 <li>Token 使用 Dashboard（按团队、按场景、按 ROI 维度）</li>
@@ -207,6 +226,7 @@ Figma Config 2026 大会发布重大更新：新增代码层、motion/shader 支
 <h3>AI 工程师就业数据：工程岗位反而更坚韧</h3>
 <ul>
 <li><strong>事实：</strong> SignalFire 数据显示，尽管 AI 主导了裁员叙事，工程师在新招聘中的占比实际上在增加。🔗 <a href="https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/" target="_blank" rel="noopener noreferrer">TechCrunch</a></li>
+<li><strong>判断：</strong> AI 替代的是「执行层」，增加的是「架构层」和「AI 工程层」。FDE 这个角色的出现本身就是这个趋势的证明。</li>
 </ul>
 <hr>
 <p>
@@ -265,6 +285,7 @@ OpenAI 自研芯片标志着 AI 巨头从「模型竞赛」进入「全栈垂直
 [硬件层]  OpenAI/Google/Amazon 自研芯片 → 降低对 NVIDIA 依赖
 [模型层]  OpenAI/Anthropic/Google/Alibaba → 模型同质化加剧
 [编排层]  Shopify/Mindstone/Dify → 抽象模型差异，保护应用层
+[应用层]  某跨国消费品巨头/FDE/创业者 → 关注业务价值，不绑定任何一层
 </code></pre>
 <p>
 <strong>对 负责人的判断：</strong> 你作为企业 AI 领导者，战略位置在「编排层」和「应用层」之间。你的核心壁垒不是用哪个模型，而是你对某跨国消费品巨头业务场景的理解深度 + 把这些场景转化为 AI 工作流的能力。Shopify 的做法（模型无关 + 自动 failover）是你在编排层应该立即采纳的架构原则。
@@ -321,6 +342,12 @@ OpenAI 自研芯片标志着 AI 巨头从「模型竞赛」进入「全栈垂直
 <li>平台层：LLM Proxy 实现智能路由和 failover</li>
 <li>使用层：企业开始追踪和限制 token 消耗</li>
 </ul>
+<p>
+<strong>判断：</strong> 这意味着 AI 正在从「实验性项目」变成「常规运营支出」。当 CFO 开始关注 AI 的 ROI，AI 项目必须证明自己的经济性。这对 FDE 团队反而是利好——因为 FDE 的核心价值就是「把 AI 技术翻译成业务价值」。
+</p>
+<p>
+<strong>行动建议：</strong> 立即为你的 FDE 团队建立「AI 使用效率仪表盘」：
+</p>
 <ul>
 <li>每个 AI 应用的 token 消耗 / 业务产出比</li>
 <li>按场景推荐最优模型（避免用 GPT-4 做 GPT-4o-mini 能做的事）</li>
@@ -342,6 +369,7 @@ OpenAI 自研芯片标志着 AI 巨头从「模型竞赛」进入「全栈垂直
 </p>
 <p>
 <strong>行动建议：</strong>
+1. 本周安排 FDE 团队测试 Gemini 3.5 Flash computer use API
 2. 梳理某跨国消费品巨头仓储/运输系统中，目前用传统 RPA 实现的流程，评估 computer use 替代方案
 3. 在你的 AI 创业方向中，「computer use + 垂直行业知识」是一个值得探索的赛道——帮企业把传统 RPA 迁移到 AI-native 的 computer use 方案
 </p>
@@ -360,6 +388,7 @@ OpenAI 自研芯片标志着 AI 巨头从「模型竞赛」进入「全栈垂直
 <strong>行动建议：</strong> 不要把精力花在「追最新最强的模型」上。把 70% 的精力放在：
 1. 领域 ontology 建设（仓储/物流/供应链的语义模型）
 2. Agent 脚手架优化（workflow 设计、错误处理、自我评估机制）
+3. FDE 团队的行业理解深度
 </p>
 <p>
 这三件事才是你在某跨国消费品巨头构建 AI 竞争壁垒的关键。

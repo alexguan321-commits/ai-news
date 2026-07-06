@@ -98,6 +98,7 @@
 <strong>对某跨国消费品巨头的启示</strong>：
 </p>
 <ul>
+<li>FDE 团队如果在做内部 Agent（供应链决策、客服自动化、质量检测），需要关注 credit assignment 技术的进展——这是 Agent 从玩具到生产的关键瓶颈</li>
 <li>中期：当 Agent 训练成本下降一个数量级，某跨国消费品巨头可以考虑用自有业务数据 fine-tune 专用 Agent，而不是依赖通用模型</li>
 </ul>
 <p>
@@ -123,6 +124,7 @@
 <ul>
 <li>立即评估 Claude Tag 在内部场景的适用性：供应链异常诊断、消费者洞察生成的可追溯性、合规审计</li>
 <li>如果 Claude Tag 能提供决策链路可视化，这对某跨国消费品巨头的 AI governance 框架是重大利好</li>
+<li>FDE 团队应该做一个 demo：用 Claude Tag 解释一个真实的供应链决策场景</li>
 </ul>
 <p>
 🔗 <a href="https://www.anthropic.com/news/introducing-claude-tag" target="_blank" rel="noopener noreferrer">Anthropic Blog</a>
@@ -141,12 +143,14 @@
 </p>
 <ul>
 <li>Agent 不再是一个巨大的黑箱 policy，而是可组合、可调试、可复用的 skill 集合</li>
+<li>这与某跨国消费品巨头 FDE 团队的工作方式高度契合——FDE 本质上就是在积累和组合业务 skill</li>
 <li>浏览器行为克隆的规模化意味着：任何有 GUI 的企业软件（SAP、Oracle、Salesforce）都可以被 Agent 学习操作</li>
 </ul>
 <p>
 <strong>对某跨国消费品巨头的启示</strong>：
 </p>
 <ul>
+<li>FDE 团队应该开始将内部 Agent 的能力模块化：每个业务场景封装为一个 skill，可组合调用</li>
 <li>浏览器行为克隆技术 → 某跨国消费品巨头员工日常操作 SAP/Oracle 的行为可以被录制、蒸馏、自动化</li>
 <li>这是 RPA 的下一代形态：不是硬编码脚本，而是从人类行为中学习的 skill</li>
 </ul>
@@ -187,12 +191,18 @@
 <strong>判断</strong>：这是 LLM 可靠性的核心问题。一个知道自己什么时候不确定的模型，比一个总是自信但偶尔错的模型更有用。对企业场景尤其重要——错误的自信会导致错误的决策。
 </p>
 <p>
+<strong>对某跨国消费品巨头的启示</strong>：FDE 团队在部署 LLM 时，应该优先选择能表达不确定性的模型/API。Anthropic 的 Claude 在 calibration 上一直领先，Claude Tag 的发布可能进一步强化这个优势。
+</p>
+<p>
 🔗 <a href="https://arxiv.org/pdf/2606.32032v1" target="_blank" rel="noopener noreferrer">论文</a>
 </p>
 <hr>
 <h3>🟡 DigitalCoach：Agent 不仅能做，还能教人做</h3>
 <p>
 <strong>事实</strong>：DigitalCoach 是一个多模态数据集，包含 72 个人类专家-新手计算机软件教学场景。核心问题：Agent 能不能教人类使用软件？
+</p>
+<p>
+<strong>判断</strong>：这开辟了 Agent 的新角色——从"替代人类"到"赋能人类"。对某跨国消费品巨头 FDE 团队的启示：Agent 不仅可以自动化任务，还可以作为培训工具，帮助新员工学习复杂的内部系统。
 </p>
 <p>
 🔗 <a href="https://arxiv.org/pdf/2606.31980v1" target="_blank" rel="noopener noreferrer">论文</a>
@@ -235,6 +245,9 @@
 <h3>🟡 前安克 CMO 创业：AI 时代的 Memory 产品</h3>
 <p>
 <strong>事实</strong>：王时远（前安克 CMO、中国区总裁）离职创业，方向是 AI 时代的 Memory 产品。他在安克亲历了硬件出海的黄金十年，2015-2024 年从海外营销到中国区总裁。
+</p>
+<p>
+<strong>判断</strong>：资深出海人才创业选择 AI Memory 方向，说明这个赛道被看好。Memory 产品（个人知识管理、AI 辅助记忆）是 AI-native 的基础设施。对某跨国消费品巨头的启示：内部知识管理和经验传承可以用 AI Memory 产品重新设计——尤其是 FDE 团队的经验积累。
 </p>
 <p>
 🔗 <a href="https://36kr.com/p/3867992509125636" target="_blank" rel="noopener noreferrer">36氪</a>
@@ -294,6 +307,9 @@
 <strong>事实</strong>：Palantir 4 月 28 日发布博客 "Connecting Agents to Decisions"，讨论如何将 Agent 与决策流程连接。
 </p>
 <p>
+<strong>判断</strong>：Palantir 的 Ontology 核心思想——将现实世界的实体、关系、约束建模为可计算的结构——在 Agent 时代更加重要。Agent 需要理解业务 ontology 才能做出正确的决策。某跨国消费品巨头的 FDE 团队应该建立自己的业务 ontology：产品、供应链、客户、渠道的实体和关系。
+</p>
+<p>
 🔗 <a href="https://blog.palantir.com/connecting-agents-to-decisions-277dee8ddb40" target="_blank" rel="noopener noreferrer">Palantir Blog</a>
 </p>
 <hr>
@@ -339,6 +355,7 @@ GPT-5.3-Codex（1530 points）、Codex for almost everything（1001 points）、
 <ul>
 <li>在所有涉及表格数据的 LLM 应用中，必须建立 verification layer</li>
 <li>不要让 LLM 直接引用表格中的具体数字做决策，而是让 LLM 生成查询代码（Python/SQL），然后执行代码获取准确数据</li>
+<li>FDE 团队应该测试当前使用的 LLM 在某跨国消费品巨头真实表格数据上的 DRE 率</li>
 </ul>
 <p>
 🔗 <a href="https://arxiv.org/pdf/2606.32029v1" target="_blank" rel="noopener noreferrer">论文</a>
