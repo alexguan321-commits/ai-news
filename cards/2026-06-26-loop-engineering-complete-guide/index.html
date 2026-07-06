@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Loop Engineering 到底是什么？看这一篇就够了">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>Loop Engineering 到底是什么？看这一篇就够了 - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">44</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>Loop Engineering 到底是什么？看这一篇就够了</h1>
+                <div class="meta">
+                    <span class="author">Henry Li（DeerFlow 团队）</span>
+                    <time>2026-06-26</time>
+                    
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                </div>
+                <p><a href='https://mp.weixin.qq.com/s/CdSaX5eiAvhcYkNj4qZ6Nw' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <h1>Loop Engineering 到底是什么？看这一篇就够了</h1>
+<p>
+<strong>Author:</strong> Henry Li（DeerFlow 团队）
+<strong>Source:</strong> <a href="https://mp.weixin.qq.com/s/CdSaX5eiAvhcYkNj4qZ6Nw" target="_blank" rel="noopener noreferrer">https://mp.weixin.qq.com/s/CdSaX5eiAvhcYkNj4qZ6Nw</a>
+<strong>Publisher:</strong> TRAE.ai
+<strong>Date:</strong> 2026-06-26
+<strong>Type:</strong> WeChat MP Article (Long-form)
+<strong>Extracted via:</strong> Browser extraction
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+过去几个月，很多人都在反复做同一件事：写 Prompt → 交给 Coding Agent → 等结果 → 判断哪里不对 → 再写 Prompt。时间一长会发现：<strong>这本身就是一个循环，只不过循环体的执行者是人自己</strong>。
+</p>
+<p>
+Agent 干完一轮就停下，安静等着。真正负责"判断、决定、再来一轮"的角色由人扮演。<strong>人，被绑在了循环里最频繁的那个位置上</strong>。
+</p>
+<p>
+代价：
+</p>
+<ul>
+<li>Agent 每跑完一轮都得回到屏幕前查看，否则循环就停在那儿不动</li>
+<li>注意力被反复切走又切回，一天下来注意力被切得很碎</li>
+<li>社区里甚至出现过用软件通知、ESP32 硬件来提醒"Agent 已经跑完了"的小工具</li>
+</ul>
+<p>
+<strong>核心问题</strong>：既然其余环节 Agent 都能跑，那个"再来一轮"的位置，是不是也能交给 Agent？这正是 Loop Engineering 要回答的问题。
+</p>
+<hr>
+<h2>What（核心定义）</h2>
+<h3>Loop Engineering 的本质</h3>
+<p>
+<strong>一句话：把 Loop 的执行者从"你"换成"Agent"。</strong>
+</p>
+<p>
+原本由你亲自跑的"发现问题—想办法—动手—检查"循环，现在交给 Agent 去跑。你要做的，只剩开头<strong>把目标（验收标准）说清楚</strong>。
+</p>
+<h3>Closed Loop 的完整结构</h3>
+<p>
+1. <strong>目标</strong>：由 human 通过 /goal 设定一次。方向得人来定，这是唯一不该交出去的事
+2. <strong>Discovery</strong>：Agent 自己去发现这一轮要做什么
+3. <strong>Plan</strong>：把发现的事拆成清晰、可执行的步骤
+4. <strong>Execute</strong>：动手做。可采取 fan-out 模式，多个 Agent 并行
+5. <strong>Verify</strong>：检查目标有没有达成。<strong>这是 Loop Engineering 里最重要的一环</strong>
+6. <strong>Memory</strong>：进度记录在对话之外，独立于任何一次对话而存在
+7. <strong>Ship 或 Iterate</strong>：达标就 Ship，不达标就带着问题回到 Discovery
+</p>
+<h3>关键概念</h3>
+<p>
+<strong>Self-prompting</strong>：上一轮跑完后，让 Agent 根据已有进展自己写下一轮要执行的 Prompt。人不再负责接力，循环自己续上了。
+</p>
+<p>
+<strong>Memory 在对话之外</strong>：把进度写进文件、写进结构化的状态记录。下一轮无论由哪个 Agent 来跑，都能读到"现在到哪儿了"。<strong>Memory 不在对话里，循环才稳得住。</strong>
+</p>
+<p>
+<strong>Orchestrator（编排）</strong>：掌管目标、负责派活，等各路 Agent 干完后汇总结果，再决定是 ship 还是 iterate。
+</p>
+<p>
+<strong>Fan-out / Fan-in</strong>：
+</p>
+<ul>
+<li>Fan-out：一个 Orchestrator 把任务拆开，同时派给多个 Agent 并行去做</li>
+<li>Fan-in：这些 Agent 各自跑完后，结果再汇聚回来，由一处统一收口</li>
+</ul>
+<h3>Open Loop vs Closed Loop</h3>
+<table>
+<thead><tr>
+<th>维度</th>
+<th>Open Loop</th>
+<th>Closed Loop</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>入口</td>
+<td>一句话"去看看该做什么"</td>
+<td>有界目标 + 明确验收</td>
+</tr>
+<tr>
+<td>探索面</td>
+<td>广，常发现意想不到的方向</td>
+<td>窄，基本不会给意外惊喜</td>
+</tr>
+<tr>
+<td>开销</td>
+<td>难预估，靠外部预算上限兜住</td>
+<td>可控，能估出"大概几轮收敛"</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>预算充裕、以探索为目的</td>
+<td>交付场景，在可预期开销内做完</td>
+</tr>
+<tr>
+<td>建议</td>
+<td>不要一上来就 Open Loop</td>
+<td><strong>多数情况先从 Closed Loop 开始</strong></td>
+</tr>
+</tbody></table>
+<h3>Crewlet 案例：Open Loop 管理创业公司</h3>
+<p>
+Crewlet 的 Agent 正在管理一个名为 SuperDesign 的创业公司，把以下数据源全部交给 OpenClaw Agent：
+</p>
+<ul>
+<li>GitHub 代码仓库、Sentry 日志</li>
+<li>Google Analytics 埋点与行为数据</li>
+<li>Supabase 业务主库、AB 实验数据</li>
+<li>Stripe 支付、X / Discord 社交数据、SEO、GEO</li>
+</ul>
+<p>
+Agent 每隔一段时间"醒来"，自主查看核心经营数据与近期错误日志，能做的事包括：
+</p>
+<ul>
+<li>发现经营指标问题并归因</li>
+<li>从错误日志中定位 Bug，直接改 GitHub 代码并提交 PR 上线</li>
+<li>发现大量用户卡在付费这一步，给即将到期的用户发送挽回邮件</li>
+<li>改 Agent 代码、增强 Prompt Caching，提性能、省开支</li>
+<li>发起 AB 实验并分析报告，进而迭代自身功能</li>
+</ul>
+<hr>
+<h2>How（具体方法/参数）</h2>
+<h3>Closed Loop 实践：为工具库补测试</h3>
+<p>
+<strong>验收标准（客观可判定）</strong>：
+1. tests/acceptance/ 下的所有用例通过
+2. <code>npm run typecheck</code> 无报错
+3. 现有测试不出现新的失败
+</p>
+<p>
+<strong>循环 Prompt 骨架</strong>：
+</p>
+<pre><code class="language-">
+/goal 目标：为 &lt;工具库&gt; 补齐测试并修复其中的 bug。
+
+验收标准（全部满足才算完成）：
+- tests/acceptance/ 下的所有用例通过
+- `npm run typecheck` 无报错
+- 现有测试不出现新的失败
+
+循环规则：
+- 跑 `npm test`。
+- 若未全绿：读取失败用例与报错，定位并修复，然后重跑。
+- 只要不全绿，就重复上一步，直到全绿再停。
+- 中途若验收标准本身有歧义，先提问，不要自行猜测。
+</code></pre>
+<p>
+<strong>Closed Loop 为什么能成立</strong>：
+</p>
+<ul>
+<li>验收是客观的（测试、typecheck、benchmark 给出 0/1 信号）</li>
+<li>Agent 不需要去猜"我做完了没"，判断被外包给了一套确定性检查</li>
+<li>循环有了必须收敛的客观靶子，轮数和开销也就有了大致上界</li>
+<li><strong>把模糊的"做好"换成可判定的"全绿"，Closed Loop 就立住了</strong></li>
+</ul>
+<h3>Closed Loop 实践：网店做增长</h3>
+<p>
+<strong>Orchestrator 派出三个 Sub-Agent</strong>：
+1. <strong>Builder</strong>：构建 lead magnet（引流磁铁）
+2. <strong>Scout</strong>：选题排序
+3. <strong>Growth</strong>：落地动作
+</p>
+<p>
+<strong>汇总与记忆</strong>：
+</p>
+<ul>
+<li>把三个 Sub-Agent 的产出合并成统一的行动计划</li>
+<li>写回 next_steps——这份文件就是这套循环的跨周期记忆</li>
+<li>下一轮开工，Orchestrator 第一件事就是再读它</li>
+</ul>
+<p>
+<strong>循环条件（人为设定的边界）</strong>：
+</p>
+<ul>
+<li>站点这周是否还在增长？</li>
+<li>Scout 手里是否还压着 ≥3 条未消化的新选题？</li>
+<li>下一个 lead magnet 是否已经定下来？</li>
+<li>条件没满足就接着转；都满足了就暂停</li>
+</ul>
+<h3>通用 Loop 骨架</h3>
+<p>
+抽干净后，剩下的就是这条线：
+</p>
+<p>
+<strong>定时触发 → 去读点什么 → 打分/过滤 → 产出草稿 → 比对历史去重 → 必要时让人过目 → 记录下来 → 下一周期再从头转</strong>
+</p>
+<h3>四个速写场景</h3>
+<p>
+1. <strong>自由职业者</strong>：每周五扫项目文件夹，为客户起草个性化进度更新，草稿进 review 文件夹等过目
+2. <strong>学生/追新的人</strong>：每周日搜领域进展，按相关度打分过滤，写成通俗简报
+3. <strong>网店老板</strong>：每月 1 号读销售数据，重写低转化商品描述，记录改了什么为什么改
+4. <strong>创作者</strong>：每周一读选题清单 + 90 天表现数据，给选题打分排序 top 5
+</p>
+<hr>
+<h2>So What（启示与行动项）</h2>
+<h3>对行业的启示</h3>
+<p>
+1. <strong>Loop Engineering = 数字员工的开始</strong>
+</p>
+<ul>
+<li>从"人当循环体"到"Agent 当循环体"是质的飞跃</li>
+<li>不是"让 Agent 自动跑起来"，而是"搭一个能替你转动的机制"</li>
+<li>最容易被忽略的一点：<strong>它得懂得在恰当的时候停手，把决定权重新交回到人手上</strong></li>
+</ul>
+<p>
+2. <strong>Closed Loop 是生产级 Agent 的起点</strong>
+</p>
+<ul>
+<li>把模糊的"做好"换成可判定的"全绿"</li>
+<li>验收标准客观 → 循环可收敛 → 开销可预估</li>
+<li>多数情况先从 Closed Loop 开始，跑顺了再考虑 Open Loop</li>
+</ul>
+<p>
+3. <strong>Memory 在对话之外是核心创新</strong>
+</p>
+<ul>
+<li>不是把所有进展堆回 Context Window</li>
+<li>而是写进文件、写进结构化的状态记录</li>
+<li>让循环独立于任何一次对话而存在</li>
+</ul>
+<h3>对 A 哥的启示</h3>
+<p>
+1. <strong>Multica 团队应该按 Loop Engineering 模式设计</strong>
+</p>
+<ul>
+<li>每个角色 = 一个 Closed Loop（目标 + 验证器 + Memory）</li>
+<li>Orchestrator 掌管目标，Fan-out 给 Sub-Agent 并行</li>
+<li><strong>验证器是 Loop 的核心</strong>（因果链 #15 的实战验证）</li>
+</ul>
+<p>
+2. <strong>FDE 的核心能力是设计 Loop</strong>
+</p>
+<ul>
+<li>帮客户把"手工循环"升级为"Agent 循环"</li>
+<li>关键不是"用哪个模型"，而是"验收标准怎么定"</li>
+<li><strong>把模糊的"做好"换成可判定的"全绿"</strong></li>
+</ul>
+<p>
+3. <strong>创业机会：Loop Engineering as a Service</strong>
+</p>
+<ul>
+<li>帮企业设计 Closed Loop（研发、运营、增长）</li>
+<li>参考 Crewlet 案例：用 Open Loop 管理整个创业公司</li>
+<li>目标客户：还在"人当循环体"的传统团队</li>
+</ul>
+<h3>关键洞察</h3>
+<p>
+<strong>Loop Engineering 的本质不是"让 Agent 自动跑起来"，而是"把循环体的执行者从人换成 Agent"。你从循环体里退出来，退回到设目标、定边界的位置。变的不是循环本身，是谁来当那个一刻不能离开的执行者。</strong>
+</p>
+<h3>创业机会</h3>
+<p>
+1. <strong>Loop Engineering 咨询</strong>：帮企业从"手工循环"升级到"Agent 循环"
+2. <strong>Closed Loop 模板库</strong>：为不同场景（研发/运营/增长）提供预构建的 Loop 模板
+3. <strong>Memory 基础设施</strong>：为 Agent 循环提供跨周期记忆服务
+</p>
+<hr>
+<h2>知识库关联</h2>
+<h3>验证的因果链</h3>
+<ul>
+<li>✅ <strong>因果链 #6</strong> (代码生成成本断崖 → 审查瓶颈): Loop Engineering 验证了"代码生成加速后，审查/验证成为核心瓶颈"——Verify 是 Loop 中最重要的一环</li>
+<li>✅ <strong>因果链 #15</strong> (验证器收敛 → Agent 可信度基础设施): Loop Engineering 的 Verify 步骤验证了"没有验证器，你没有 loop，你只有 agent 在循环中自我认同"</li>
+<li>✅ <strong>因果链 #1</strong> (Agent 自主性 → 成本失控): Open Loop vs Closed Loop 的对比验证了"结构化 harness 工程可以将成本失控风险降低 50%+"——Closed Loop 开销可控，Open Loop 开销难估</li>
+</ul>
+<h3>强化的已有知识</h3>
+<ul>
+<li>✅ [[Loop Engineering]]: 本文是 Loop Engineering 的最完整实战指南</li>
+<li>✅ [[Loop Engineering 14-Step Roadmap]]: 本文的 Closed Loop 结构与之高度一致</li>
+<li>✅ [[goal-primitive-agent-orchestration]]: /goal primitive 是 Loop 的起点</li>
+<li>✅ [[claude-code-harness-7-files-5-steps]]: Harness 是 Loop 的基础设施</li>
+<li>✅ [[agent-autonomy-cost-paradox]]: Open Loop vs Closed Loop 是成本悖论的实战解答</li>
+</ul>
+<h3>新增行动项</h3>
+<ul>
+<li><strong>[A-011]</strong> 为 Multica 团队设计 Closed Loop 系统（优先级: high）</li>
+<li>每个角色一个 Closed Loop（目标 + 验证器 + Memory）</li>
+<li>Orchestrator 掌管目标，Fan-out 给 Sub-Agent 并行</li>
+<li>参考本文的循环 Prompt 骨架</li>
+</ul>
+<hr>
+<p>
+<strong>入库时间</strong>: 2026-07-06
+<strong>入库路径</strong>: ~/AI_News/raw/sources/x-article/2026-06-26-loop-engineering-complete-guide.md
+<strong>索引状态</strong>: 待知识编译（下次运行：09:30 / 15:30 / 22:30 / 03:00）
+<strong>网站同步</strong>: 是（x-article/ 路径自动同步到网站）
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-06-26-loop-engineering-complete-guide');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-06-26-loop-engineering-complete-guide');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-06-26-loop-engineering-complete-guide');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>
