@@ -39,24 +39,26 @@
                 <div class="meta">
                     <span class="author">Archive (@ArchiveExplorer)</span>
                     <time>2026-06-28</time>
-                    
+                    <span class="tag">loop-engineering</span> | <span class="tag">harness-engineering</span> | <span class="tag">claude-code</span> | <span class="tag">agent-setup</span> | <span class="tag">context-engineering</span> | <span class="tag">subagents</span> | <span class="tag">skills</span> | <span class="tag">mcp</span> | <span class="tag">memory</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
-                <p><a href='https://x.com/ArchiveExplorer/article/2071192832455430283' target='_blank'>Original ↗</a></p>
+                <p><a href='X (Twitter) Article' target='_blank'>Original ↗</a></p>
             </header>
 
             <div class="content">
-                <h1>Loop and Harness engineering: 7 files, 5 steps. Every config inside</h1>
+                <hr>
 <p>
-<strong>Author:</strong> Archive (@ArchiveExplorer)
-<strong>Source:</strong> <a href="https://x.com/ArchiveExplorer/article/2071192832455430283" target="_blank" rel="noopener noreferrer">https://x.com/ArchiveExplorer/article/2071192832455430283</a>
-<strong>Date:</strong> 2026-06-28
-<strong>Type:</strong> X Article (Long-form)
-<strong>Extracted via:</strong> Chrome AppleScript
+title: "Loop and Harness engineering: 7 files, 5 steps. Every config inside"
+author: "Archive (@ArchiveExplorer)"
+source: "X (Twitter) Article"
+url: "https://x.com/ArchiveExplorer/status/2071192832455430283"
+date: 2026-06-28
+tags: [loop-engineering, harness-engineering, claude-code, agent-setup, context-engineering, subagents, skills, mcp, memory]
 </p>
 <hr>
+<h1>Loop and Harness engineering: 7 files, 5 steps. Every config inside</h1>
 <p>
-Most builders fight the loop. The loop is fine. The folder underneath isn't set up.
+<strong>Most builders fight the loop. The loop is fine. The folder underneath isn't set up.</strong>
 </p>
 <p>
 Open .claude/ in any working Claude Code project and you find roughly seven things doing the actual work: CLAUDE.md, settings.json, hooks/, agents/, skills/, .mcp.json, and a state file like MEMORY.md.
@@ -71,11 +73,13 @@ By the end of this article you will know what each file does, the five loop step
 No framework. No subscription. One walkthrough with exact paths and exact contents.
 </p>
 <p>
-The harness is the floor. Pour it first.
+<strong>The harness is the floor. Pour it first.</strong>
 </p>
 <h2>Two layers, one setup</h2>
 <p>
 The harness is the .claude/ folder. It does not change between runs.
+</p>
+<p>
 The loop is what runs inside it: a goal, an action, a verification step, a memory write, and a decision to keep going or stop.
 </p>
 <p>
@@ -117,7 +121,7 @@ The first file Claude Code reads on every launch. Its contents become standing c
 Put the project shape there: directory layout, language and framework, commands that actually work, conventions the agent must respect, and an explicit list of things it must not do.
 </p>
 <p>
-Lives at repo root, not buried in docs. Minimal working shape:
+<strong>Lives at repo root, not buried in docs.</strong> Minimal working shape:
 </p>
 <pre><code class="language-">
 # Project: my-app
@@ -135,7 +139,7 @@ Layout: `app/` (routes), `lib/` (helpers), `db/migrations/`.
 - Bypass `lib/auth/` to access user data.
 </code></pre>
 <p>
-The trap is bloat. The paper Less Context, Better Agents (arXiv 2606.10209) measured task completion dropping from 91.6% to 71% purely from oversized standing context.
+The trap is bloat. The paper <strong>Less Context, Better Agents</strong> (arXiv 2606.10209) measured task completion dropping from 91.6% to 71% purely from oversized standing context.
 </p>
 <p>
 Keep it under 300 lines. Prune it weekly. Every added paragraph is a tax on every future turn.
@@ -154,7 +158,7 @@ Two locations matter for daily work: .claude/settings.json at repo root for repo
 Scope hierarchy resolves managed > project > local > user, so project always overrides personal.
 </p>
 <p>
-The first move that pays off in one afternoon is an allow array for read-only Bash and MCP calls:
+<strong>The first move that pays off in one afternoon is an allow array for read-only Bash and MCP calls:</strong>
 </p>
 <pre><code class="language-json">
 {
@@ -175,6 +179,9 @@ The first move that pays off in one afternoon is an allow array for read-only Ba
 </code></pre>
 <p>
 The agent stops blocking on permission prompts for every ls, git status, cat. Destructive ops still gate.
+</p>
+<p>
+Full key reference: Claude Code docs - Settings. Keep secrets in .claude/settings.local.json and gitignore it.
 </p>
 <h3>hooks</h3>
 <p>
@@ -201,14 +208,14 @@ Registered inside settings.json with a matcher pattern and a shell command. Cano
 Every edit now exits in a known state. This is your policy floor.
 </p>
 <p>
-Without hooks, every run is a vibe. Keep hooks silent on success, loud only on failure.
+Without hooks, every run is a vibe. Keep hooks silent on success, loud only on failure. Reference: Claude Code docs - Hooks.
 </p>
 <h3>subagents</h3>
 <p>
 Live under .claude/agents/ as markdown files with YAML frontmatter. Main agent invokes them through the Task tool. They run in a fresh context window.
 </p>
 <p>
-Minimal verifier subagent:
+<strong>Minimal verifier subagent:</strong>
 </p>
 <pre><code class="language-yaml">
 ---
@@ -226,7 +233,7 @@ Do not propose fixes. Do not run code. Do not be polite.
 The reviewer that lives inside the maker's context always agrees with itself. Pulling review into a fresh context closes the loudest failure mode.
 </p>
 <p>
-Reference: wshobson/agents (37K stars) for 194 ready-made shapes. For an adversarial verifier with 11 named shortcut-checks: moonrunnerkc/swarm-orchestrator.
+Reference: wshobson/agents (37K stars) for 194 ready-made shapes. For an adversarial verifier with 11 named shortcut-checks (relaxed tests, swallowed errors, fake renames), pull moonrunnerkc/swarm-orchestrator.
 </p>
 <h3>skills</h3>
 <p>
@@ -238,8 +245,10 @@ Load progressively: at session start, only name and description enter context. F
 <pre><code class="language-yaml">
 ---
 name: db-migration-writer
-description: Writes Postgres migration files for this repo.
-when_to_use: schema change requested, new feature requires a new column
+description: Writes Postgres migration files for this repo. Use when the user
+  asks to add/alter a table, column, index, or constraint.
+when_to_use: schema change requested, new feature requires a new column,
+  index missing on a hot query path
 ---
 
 # Steps
@@ -280,6 +289,14 @@ Three rules: only servers your current work uses, prefer official ones for crede
 }
 </code></pre>
 <p>
+Anthropic-maintained set: modelcontextprotocol/servers (87K stars).
+Code-host integration: github/github-mcp-server (31K stars).
+</p>
+<p>
+Live library docs (kills stale-API problems): upstash/context7 (58K stars).
+Discovery index: punkpeye/awesome-mcp-servers (89K stars).
+</p>
+<p>
 The first mistake is enabling a server with write scope before you have a hook that logs every call.
 </p>
 <h3>state and memory</h3>
@@ -305,12 +322,21 @@ Shape: a MEMORY.md index file at a known path, plus a vault directory for projec
 Memory holds what changes across sessions. Vault holds what does not.
 </p>
 <p>
+For production-grade session compression (200K-token transcript -> 4K-token recap without losing load-bearing facts): thedotmack/claude-mem (84K stars).
+</p>
+<p>
+Theory behind why this matters: Anthropic engineering on context engineering names the failure mode: context rot.
+</p>
+<p>
 The first mistake is treating memory as append-only. Prune it every session, or it becomes the rot.
 </p>
 <h2>The loop, on top of the harness</h2>
 <h3>1. Goal spec</h3>
 <p>
 The external contract that says what "done" looks like. Lives on disk, not in the agent's head. The loop re-reads it every iteration.
+</p>
+<p>
+<strong>Name: PROMPT.md, AGENTS.md, or AGENT_SPEC.md. The re-read is what matters.</strong>
 </p>
 <pre><code class="language-markdown">
 # Goal
@@ -324,13 +350,14 @@ Migrate `users.password` from bcrypt to argon2id across the codebase.
 # Never touch
 - `db/migrations/*` already merged.
 - Anything under `legacy/`.
+- The session cookie format.
 
 # Stop if
 - More than 3 files outside `lib/auth/` need edits.
 - A test that already passes starts failing.
 </code></pre>
 <p>
-Without this file the agent drifts after about three iterations.
+Without this file the agent drifts after about three iterations. Smallest possible reference: ghuntley/how-to-ralph-wiggum (1.7K stars) - PROMPT.md plus an IMPLEMENTATION_PLAN.md state file the loop updates in place.
 </p>
 <p>
 When the spec is missing, failure looks like progress. Code is written, tests pass, the goal it solved is not yours.
@@ -338,6 +365,9 @@ When the spec is missing, failure looks like progress. Code is written, tests pa
 <h3>2. Plan to Act to Verify</h3>
 <p>
 The minimum viable loop is three steps. The agent plans against the goal spec, executes, then a separate verification pass checks the result before the next iteration is allowed to start.
+</p>
+<p>
+Fresh context each iteration is the Ralph pattern. State lives on disk in the spec file plus a running log.
 </p>
 <pre><code class="language-bash">
 #!/usr/bin/env bash
@@ -361,17 +391,42 @@ while true; do
 done
 </code></pre>
 <p>
+Canonical patterns and CLI starters: cobusgreyling/loop-engineering (3K stars).
+</p>
+<p>
+Production TypeScript reference with verifyCompletion: vercel-labs/ralph-loop-agent (805 stars).
+</p>
+<p>
+Full installable Plan-to-Work-to-Review-to-Release cycle: Chachamaru127/claude-code-harness (2.9K stars).
+</p>
+<p>
 Drop the verify step and confident garbage compounds. Every wrong output becomes the next iteration's input.
 </p>
 <h3>3. Sub-agent fan-out</h3>
 <p>
-When one goal branches into many independent sub-jobs, the loop spawns parallel subagents. Orchestrator synthesizes.
+When one goal branches into many independent sub-jobs (analyze 10 articles, fix 5 files, search 8 sources), the loop spawns parallel subagents. Orchestrator synthesizes.
 </p>
 <p>
-One bloated context cannot do this. Ten small ones can.
+<strong>One bloated context cannot do this. Ten small ones can.</strong>
 </p>
+<pre><code class="language-python">
+# claude-agent-sdk-python style fan-out
+from claude_agent_sdk import Agent, run_parallel
+
+orchestrator = Agent.load(".claude/agents/orchestrator.md")
+workers = [Agent.load(".claude/agents/researcher.md") for _ in range(8)]
+
+results = run_parallel([
+    w.run(source=src) for w, src in zip(workers, sources)
+])
+
+synthesis = orchestrator.run(inputs=results)
+</code></pre>
 <p>
 Anthropic engineering on multi-agent research measured +90.2% on their internal eval against a single-agent baseline.
+</p>
+<p>
+Official SDK: anthropics/claude-agent-sdk-python (7.4K stars). Heaviest public fan-out kit (60+ agent types, 314 MCP tools): ruvnet/ruflo (61K stars).
 </p>
 <p>
 Skip the fan-out and the orchestrator drowns. One context loaded with ten jobs' worth of source material is the exact shape that triggers context rot.
@@ -381,10 +436,29 @@ Skip the fan-out and the orchestrator drowns. One context loaded with ten jobs' 
 What triggers the loop when you are not in the chair. cron, launchctl, systemd, a queue runner.
 </p>
 <p>
-The scheduler is deliberately dumber than the agent. If the scheduler tries to think, it fails silently for days.
+The scheduler is deliberately dumber than the agent. If the scheduler tries to think (branch on state, decide whether to skip), it fails silently for days.
 </p>
+<pre><code class="language-">
+# crontab: run the loop every 30 min, log to disk
+*/30 * * * * cd ~/my-loop &amp;&amp; ./run.sh &gt;&gt; logs/$(date +%Y-%m-%d).log 2&gt;&amp;1
+</code></pre>
+<p>
+Or as a launchd plist on macOS:
+</p>
+<pre><code class="language-xml">
+&lt;key&gt;StartCalendarInterval&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;Minute&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;key&gt;WorkingDirectory&lt;/key&gt;&lt;string&gt;/Users/me/my-loop&lt;/string&gt;
+&lt;key&gt;ProgramArguments&lt;/key&gt;
+&lt;array&gt;&lt;string&gt;/bin/bash&lt;/string&gt;&lt;string&gt;run.sh&lt;/string&gt;&lt;/array&gt;
+</code></pre>
 <p>
 Persistence is the other half. Every iteration must serialize what it did, what it tried, what is next. Otherwise the scheduler wakes up to an agent that forgot the goal.
+</p>
+<p>
+Pattern for promoting ad-hoc sessions into scheduled runs: Kanevry/session-orchestrator.
 </p>
 <h3>5. Failure modes</h3>
 <p>
@@ -394,22 +468,27 @@ Three failure modes kill almost every first attempt:
 <strong>(a) Confident garbage.</strong> Verify step missing or weak. Wrong outputs pass and compound across iterations.
 </p>
 <p>
-<strong>(b) Context rot.</strong> Single long context where the model degrades past a threshold. Accuracy collapses around 200K tokens of accumulated history.
+<strong>(b) Context rot.</strong> Single long context where the model degrades past a threshold (Anthropic's term). Accuracy collapses around 200K tokens of accumulated history.
 </p>
 <p>
 <strong>(c) Ralph Wiggum loops.</strong> Same iteration repeats because state on disk did not capture progress. The agent re-plans the step it already finished.
 </p>
 <p>
-The Less Context, Better Agents paper (arXiv 2606.10209) measured full-history at 71% task completion versus prune-and-summarize at 91.6%, on a fraction of the tokens.
+The <strong>Less Context, Better Agents</strong> paper (arXiv 2606.10209) measured full-history at 71% task completion versus prune-and-summarize at 91.6%, on a fraction of the tokens.
 </p>
-<p>
-Before: single-context loop, 1.48M tokens, 71% completion, three hidden hallucinations per run
-After: prune-and-summarize loop with verifier subagent, 553K tokens, 91.6% completion, every figure traced
-</p>
+<pre><code class="language-">
+before: single-context loop, 1.48M tokens, 71% completion, three hidden hallucinations per run
+after:  prune-and-summarize loop with verifier subagent, 553K tokens, 91.6% completion, every figure traced
+</code></pre>
 <p>
 moonrunnerkc/swarm-orchestrator catalogs the 11 shortcuts agents take to fake done: relaxed tests, swallowed errors, fake renames, stub returns, comment-deletion-as-fix.
 </p>
-<h2>A complete minimal setup</h2>
+<p>
+<strong>Memorize the names. You will recognize them in your own logs.</strong>
+</p>
+<p>
+A complete minimal setup wires all seven harness files into a working loop. The shape of a project directory looks like this:
+</p>
 <pre><code class="language-">
 my-loop/
 ├── .claude/
@@ -431,39 +510,124 @@ my-loop/
 The wiring is one-directional. The harness defines the rules, the loop runs inside them, the state file connects iteration N to iteration N+1.
 </p>
 <p>
-Build the seven harness files once. The loop runs forever.
+A single iteration walks the seven harness files and the five loop pieces in this order: cron fires run.sh, which calls claude -p. Claude Code reads CLAUDE.md and settings.json (harness 1, 2), applies the PostToolUse hook on every edit (harness 3), reads PROMPT.md and IMPLEMENTATION_PLAN.md (loop step 1), plans and acts (loop step 2), dispatches the verifier subagent in a fresh context (harness 4 + loop step 2 verify), writes the result back to IMPLEMENTATION_PLAN.md (loop step 3), updates MEMORY.md if a new preference was learned (harness 7), exits. Cron waits for the next tick (loop step 4).
+</p>
+<p>
+If any of the seven harness files is missing, a specific loop step degrades. No CLAUDE.md and the planner re-derives the project shape every iteration. No verifier subagent and the verify step happens in the main context and always passes. No MEMORY.md and the same correction gets re-applied every Tuesday.
+</p>
+<p>
+<strong>Build the seven harness files once. The loop runs forever.</strong>
 </p>
 <h2>What to do tonight</h2>
 <p>
-Open your .claude/ folder. Count the files.
+<strong>Open your .claude/ folder. Run:</strong>
 </p>
-<ul>
-<li>If nothing or only settings.json → start with CLAUDE.md (under 300 lines)</li>
-<li>If CLAUDE.md + settings.json but no agents/ → add verifier subagent</li>
-<li>If agents/ but no skills/ → promote one frequent task to a skill</li>
-<li>If all seven harness files but no loop → pick one repeating job, write goal spec, Plan-Act-Verify on top</li>
-</ul>
-<h2>Referenced repos</h2>
-<ul>
-<li>centminmod/my-claude-code-setup — CLAUDE.md shapes</li>
-<li>wshobson/agents (37K stars) — 194 subagent shapes</li>
-<li>anthropics/skills (155K stars) — skill pattern</li>
-<li>affaan-m/ECC (222K stars) — maximal skill kit</li>
-<li>modelcontextprotocol/servers (87K stars) — MCP servers</li>
-<li>github/github-mcp-server (31K stars) — GitHub MCP</li>
-<li>upstash/context7 (58K stars) — live library docs MCP</li>
-<li>punkpeye/awesome-mcp-servers (89K stars) — MCP discovery</li>
-<li>cobusgreyling/loop-engineering (3K stars) — loop patterns</li>
-<li>vercel-labs/ralph-loop-agent (805 stars) — TypeScript loop reference</li>
-<li>Chachamaru127/claude-code-harness (2.9K stars) — installable harness</li>
-<li>anthropics/claude-agent-sdk-python (7.4K stars) — official SDK</li>
-<li>ruvnet/ruflo (61K stars) — 60+ agent types, 314 MCP tools</li>
-<li>moonrunnerkc/swarm-orchestrator — adversarial verifier, 11 shortcut checks</li>
-<li>thedotmack/claude-mem (84K stars) — session compression</li>
-<li>ghuntley/how-to-ralph-wiggum (1.7K stars) — minimal PROMPT.md reference</li>
-<li>Kanevry/session-orchestrator — ad-hoc to scheduled runs</li>
-<li>Paper: Less Context, Better Agents (arXiv 2606.10209)</li>
-</ul>
+<pre><code class="language-">
+ls -la .claude/
+</code></pre>
+<p>
+<strong>Count the files.</strong>
+</p>
+<blockquote><p>If you see nothing or only settings.json, start with CLAUDE.md. Keep it under 300 lines. Copy a shape from centminmod/my-claude-code-setup.</p></blockquote>
+<blockquote><p>If you have CLAUDE.md and settings.json but no agents/, add a verifier subagent next. Pull review out of the main context. Shape: wshobson/agents.</p></blockquote>
+<blockquote><p>If you have agents/ but no skills/, promote one frequent task to a skill. The prompt you have copy-pasted three times this week. Read three SKILL.md files from anthropics/skills before you write your first one.</p></blockquote>
+<blockquote><p>If you have all seven harness files but no loop running, pick one repeating job, write its goal spec, and put a Plan-Act-Verify loop on top. Closest installable starting point: Chachamaru127/claude-code-harness.</p></blockquote>
+<p>
+After choosing, do one thing: open the matching repo in a new tab and clone it.
+</p>
+<p>
+<strong>The harness is the floor. Without it, every loop runs over a hole.</strong>
+</p>
+<hr>
+<h2>关键资源汇总</h2>
+<table>
+<thead><tr>
+<th>资源</th>
+<th>Stars</th>
+<th>用途</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>anthropics/skills</td>
+<td>155K</td>
+<td>Skills 标准模式</td>
+</tr>
+<tr>
+<td>affaan-m/ECC</td>
+<td>222K</td>
+<td>最大预建 Skill 套件</td>
+</tr>
+<tr>
+<td>wshobson/agents</td>
+<td>37K</td>
+<td>194 个现成 subagent 模板</td>
+</tr>
+<tr>
+<td>modelcontextprotocol/servers</td>
+<td>87K</td>
+<td>Anthropic 官方 MCP 服务器</td>
+</tr>
+<tr>
+<td>punkpeye/awesome-mcp-servers</td>
+<td>89K</td>
+<td>MCP 发现索引</td>
+</tr>
+<tr>
+<td>ruvnet/ruflo</td>
+<td>61K</td>
+<td>最重 fan-out 套件 (60+ agent, 314 MCP)</td>
+</tr>
+<tr>
+<td>upstash/context7</td>
+<td>58K</td>
+<td>实时库文档 (解决 stale-API)</td>
+</tr>
+<tr>
+<td>thedotmack/claude-mem</td>
+<td>84K</td>
+<td>生产级 session 压缩</td>
+</tr>
+<tr>
+<td>anthropics/claude-agent-sdk-python</td>
+<td>7.4K</td>
+<td>官方 multi-agent SDK</td>
+</tr>
+<tr>
+<td>cobusgreyling/loop-engineering</td>
+<td>3K</td>
+<td>Loop 模式 + CLI starter</td>
+</tr>
+<tr>
+<td>Chachamaru127/claude-code-harness</td>
+<td>2.9K</td>
+<td>完整 Plan-Work-Review-Release</td>
+</tr>
+<tr>
+<td>centminmod/my-claude-code-setup</td>
+<td>-</td>
+<td>三种 CLAUDE.md 模板</td>
+</tr>
+<tr>
+<td>moonrunnerkc/swarm-orchestrator</td>
+<td>-</td>
+<td>11 种 agent 作弊检测</td>
+</tr>
+<tr>
+<td>ghuntley/how-to-ralph-wiggum</td>
+<td>1.7K</td>
+<td>Ralph 模式最小参考</td>
+</tr>
+<tr>
+<td>vercel-labs/ralph-loop-agent</td>
+<td>805</td>
+<td>TypeScript 生产参考</td>
+</tr>
+<tr>
+<td>Kanevry/session-orchestrator</td>
+<td>-</td>
+<td>ad-hoc → scheduled 提升</td>
+</tr>
+</tbody></table>
             </div>
         </article>
 
@@ -523,18 +687,18 @@ Open your .claude/ folder. Count the files.
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            interactions.init('card', '2026-06-28-loop-harness-engineering');
+            interactions.init('card', '2026-06-28-archiveexplorer-loop-harness-7-files-5-steps');
             interactions.loadComments();
             
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
                 // 先显示浏览次数
-                pageViews.displayViewCount('view-count', 'card', '2026-06-28-loop-harness-engineering');
+                pageViews.displayViewCount('view-count', 'card', '2026-06-28-archiveexplorer-loop-harness-7-files-5-steps');
                 
                 // 等待 auth 初始化完成后再记录浏览
                 const trackWithAuth = () => {
                     if (typeof auth !== 'undefined' && auth.user !== undefined) {
-                        pageViews.trackView('card', '2026-06-28-loop-harness-engineering');
+                        pageViews.trackView('card', '2026-06-28-archiveexplorer-loop-harness-7-files-5-steps');
                     } else {
                         // auth 还没初始化，等一下再试
                         setTimeout(trackWithAuth, 100);
