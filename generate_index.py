@@ -16,6 +16,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# Import shared title utilities
+from title_utils import format_title, extract_headline
+
 WEBSITE_DIR = Path(__file__).parent
 POSTS_DIR = WEBSITE_DIR / "_posts"
 X_ARTICLE_DIR = Path.home() / "AI_News" / "raw" / "sources" / "x-article"
@@ -261,39 +264,6 @@ def filter_report_content(text):
     return '\n'.join(filtered_lines)
 
 
-def format_title(title):
-    """Normalize report title to consistent format: MMDD-早报/午报/晚报 | ..."""
-    # Match patterns like "0705午报", "0705 午报", "0705-午报", "AI 午报 - 0705", etc.
-    # and normalize to "0705-午报 | ..."
-    
-    # Pattern 1: "0705午报" or "0705 午报" or "0705-午报" (with optional suffix)
-    m = re.match(r'^(\d{4})\s*[-]?\s*(早报|午报|晚报|周报)\s*\|?\s*(.*)$', title)
-    if m:
-        date_part = m.group(1)
-        type_part = m.group(2)
-        suffix = m.group(3).strip()
-        if suffix:
-            return f"{date_part}-{type_part} | {suffix}"
-        else:
-            return f"{date_part}-{type_part}"
-    
-    # Pattern 2: "AI 早报 - 2026-07-05" or similar
-    m = re.match(r'^AI\s+(早报|午报|晚报|周报)\s*[-–—]\s*(\d{4}-\d{2}-\d{2})\s*\|?\s*(.*)$', title)
-    if m:
-        type_part = m.group(1)
-        full_date = m.group(2)
-        suffix = m.group(3).strip()
-        # Extract MMDD from YYYY-MM-DD
-        date_part = full_date[5:7] + full_date[8:10]
-        if suffix:
-            return f"{date_part}-{type_part} | {suffix}"
-        else:
-            return f"{date_part}-{type_part}"
-    
-    # No match, return original
-    return title
-
-
 def parse_post(filepath):
     """Extract metadata from a post file."""
     text = filepath.read_text(encoding="utf-8", errors="replace")
@@ -315,29 +285,8 @@ def parse_post(filepath):
 
     title = format_title(title_m.group(1).strip())
     
-    # If title has no headline suffix, try to extract from H1 or "今日头条"
-    if '|' not in title:
-        # First try: extract from H1 title like "# 0707午报 | headline"
-        h1_match = re.search(r'^#\s+(.+?)(?:\n|$)', text, re.MULTILINE)
-        if h1_match and '|' in h1_match.group(1):
-            h1_title = h1_match.group(1).strip()
-            # Extract headline after |
-            parts = h1_title.split('|', 1)
-            if len(parts) > 1:
-                headline = parts[1].strip()
-                # Limit headline length
-                if len(headline) > 50:
-                    headline = headline[:47] + "..."
-                title = f"{title} | {headline}"
-        else:
-            # Fallback: look for "今日头条" in the Response section
-            headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', text)
-            if headline_match:
-                headline = headline_match.group(1).strip()
-                # Limit headline length
-                if len(headline) > 50:
-                    headline = headline[:47] + "..."
-                title = f"{title} | {headline}"
+    # Extract headline from content using shared utility
+    title = extract_headline(text, title)
     
     date_str = date_m.group(1).strip()
     
