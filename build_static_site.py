@@ -6,6 +6,7 @@
 
 import os
 import re
+import html
 from pathlib import Path
 from datetime import datetime
 import markdown
@@ -50,9 +51,10 @@ def extract_report_type(filename):
 
 def build_post_page(metadata, body, output_path):
     """构建单篇报告页面"""
-    title = metadata.get("title", "AI 资讯报告")
-    date = metadata.get("date", "")
-    report_type = metadata.get("report_type", "")
+    # XSS 防护：转义所有动态内容
+    title = html.escape(metadata.get("title", "AI 资讯报告"))
+    date = html.escape(metadata.get("date", ""))
+    report_type = html.escape(metadata.get("report_type", ""))
     
     # 转换 Markdown 为 HTML
     html_content = markdown.markdown(
@@ -60,7 +62,7 @@ def build_post_page(metadata, body, output_path):
         extensions=['extra', 'codehilite', 'toc']
     )
     
-    html = f"""<!DOCTYPE html>
+    page_html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -96,7 +98,7 @@ def build_post_page(metadata, body, output_path):
 </body>
 </html>"""
     
-    output_path.write_text(html, encoding="utf-8")
+    output_path.write_text(page_html, encoding="utf-8")
 
 def build_index_page(posts):
     """构建首页"""
@@ -109,11 +111,13 @@ def build_index_page(posts):
     latest_html = ""
     for post in latest_posts:
         report_type_label = extract_report_type(post["filename"])
+        post_title = html.escape(post.get("title", ""))
+        post_date = html.escape(post.get("date", ""))
         latest_html += f"""
         <article class="report-card">
             <a href="{BASE_URL}{post['url']}">
-                <h3>{post['title']}</h3>
-                <time>{post['date']}</time>
+                <h3>{post_title}</h3>
+                <time>{post_date}</time>
                 <span class="report-type type-{post.get('report_type', '')}">{report_type_label}</span>
             </a>
         </article>
@@ -123,15 +127,17 @@ def build_index_page(posts):
     archive_html = ""
     for post in posts:
         report_type_label = extract_report_type(post["filename"])
+        post_title = html.escape(post.get("title", ""))
+        post_date = html.escape(post.get("date", ""))
         archive_html += f"""
         <div class="archive-item">
-            <a href="{BASE_URL}{post['url']}">{post['title']}</a>
-            <time>{post['date']}</time>
+            <a href="{BASE_URL}{post['url']}">{post_title}</a>
+            <time>{post_date}</time>
             <span class="report-type type-{post.get('report_type', '')}">{report_type_label}</span>
         </div>
         """
     
-    html = f"""<!DOCTYPE html>
+    page_html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -171,7 +177,7 @@ def build_index_page(posts):
 </body>
 </html>"""
     
-    return html
+    return page_html
 
 def extract_headline(content, title):
     """从 H1 或正文中提取 headline"""
