@@ -56,6 +56,12 @@ class SupabaseInteractions {
     if (commentCountEl && comments !== null) {
       commentCountEl.textContent = comments;
     }
+    
+    // 同步更新 header 中的计数器
+    const commentCountHeader = document.getElementById('comment-count-header');
+    if (commentCountHeader && comments !== null) {
+      commentCountHeader.textContent = comments;
+    }
   }
 
   // 加载当前用户状态（是否已点赞/收藏）

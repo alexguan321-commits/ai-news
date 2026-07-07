@@ -1813,3 +1813,95 @@ tbody tr:hover {
     min-width: 1ch;
     text-align: center;
 }
+
+/* ── Interaction Counters (header) ───────────────────────────── */
+.interaction-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.interaction-counter:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.interaction-counter.active {
+    background: rgba(244, 67, 54, 0.2);
+    border-color: rgba(244, 67, 54, 0.4);
+}
+
+.interaction-counter#bookmark-counter.active {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+.interaction-counter span {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 1ch;
+    text-align: center;
+}
+
+/* ── Comment Login Prompt ────────────────────────────────────── */
+.comment-login-prompt {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.comment-login-prompt p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.comment-login-prompt button {
+    padding: 0.5rem 1.5rem;
+    background: rgba(100, 181, 246, 0.2);
+    border: 1px solid rgba(100, 181, 246, 0.4);
+    border-radius: 6px;
+    color: #64b5f6;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.comment-login-prompt button:hover {
+    background: rgba(100, 181, 246, 0.3);
+    border-color: rgba(100, 181, 246, 0.6);
+}
+
+/* ── Comments History Section ────────────────────────────────── */
+.comments-history-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comments-history-section h4 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+}
+
+.comments-login-hint {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8125rem;
+}

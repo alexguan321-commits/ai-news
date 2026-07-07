@@ -40,6 +40,15 @@
                     <time>2026-07-05 08:00:00 +0800</time>
                     <span class="report-type type-evening">晚报</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span>
+                    </button>
                 </div>
             </header>
 
@@ -752,12 +761,23 @@ planning-with-files 占据了"状态持久化"的生态位。plannotator 占据�
             </div>
             
             <div class="comments-section">
-                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
-                <div class="comment-form">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
                     <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
                     <button onclick="interactions.submitComment()">Post Comment</button>
                 </div>
-                <div id="comments-list"></div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -774,7 +794,40 @@ planning-with-files 占据了"状态持久化"的生态位。plannotator 占据�
         
         document.addEventListener('DOMContentLoaded', function() {
             interactions.init('report', '2026-07-05-evening');
-            interactions.loadComments();
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined') {
+                const originalOnAuthChange = auth.onAuthStateChange;
+                auth.onAuthStateChange = function() {
+                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+                    updateCommentVisibility();
+                };
+            }
             
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
