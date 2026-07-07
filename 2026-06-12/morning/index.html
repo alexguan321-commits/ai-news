@@ -70,6 +70,7 @@
 <strong>So What for Alex：</strong>
 </p>
 <ul>
+<li><strong>FDE 视角：</strong> 你在某跨国消费品巨头推 Dify/Agent 落地，一定会遇到"要不要给 agent 加更多 reasoning/搜索"的决策。DIRECT 的结论很实用：<strong>不要无脑 scale，要在关键决策点集中 compute</strong>。这对你的 agent 成本控制和延迟优化直接有用。</li>
 <li><strong>创业视角：</strong> 如果你做 AI agent SaaS，"智能 compute 分配"是一个可以产品化的差异化点——同样的任务，花 1/3 的 token 达到同样效果，就是竞争力。</li>
 <li><strong>行动建议：</strong> 读 paper 的 Section 4（收益分布分析），把它的方法论应用到你现在跑的 Dify workflow 里——哪些 node 值得加 retry/反思，哪些直接 pass-through。</li>
 </ul>
@@ -87,11 +88,13 @@
 <strong>🟠 OCELOT: Inference-Leakage Budgets for Privacy-Preserving LLM Agents</strong>
 来源：<a href="https://arxiv.org/pdf/2606.12341v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12341</a>
 LLM agent 代替用户读文件、调工具、调 API，每一步都可能泄露 PII。OCELOT 提出 inference-leakage budget——给 agent 的每一步设定隐私预算，跨步骤累积追踪。
+<strong>So What：</strong> 某跨国消费品巨头是消费品公司，agent 会接触消费者数据、供应链数据。当你的 agent 从"内部 demo"走向"生产环境"，隐私合规是绕不过去的。OCELOT 的 budget 思路可以提前纳入你的 agent 架构设计。
 </p>
 <p>
 <strong>🟠 Breaking Entropy Bounds: Accelerating RL Training via MTP with Rejection Sampling</strong>
 来源：<a href="https://arxiv.org/pdf/2606.12370v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12370</a>
 RL rollout 是 LLM 训练的瓶颈。本文用 Multi-Token Prediction + rejection sampling 加速 rollout，突破了 entropy bound 的限制。
+<strong>So What：</strong> 如果你未来做 domain-specific RLHF/GRPO fine-tune（比如某跨国消费品巨头供应链场景），训练成本会直接降。
 </p>
 <p>
 <strong>🟡 Redesign MoE Routers with Manifold Power Iteration</strong> | 来源：<a href="https://arxiv.org/pdf/2606.12397v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12397</a>
@@ -109,6 +112,7 @@ RL rollout 是 LLM 训练的瓶颈。本文用 Multi-Token Prediction + rejectio
 <strong>🟠 FACTR 2: 用神经网络给普通机械臂"装"上力传感器</strong>
 来源：<a href="https://arxiv.org/pdf/2606.12406v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12406</a>
 力传感器贵，很多机械臂没有。NEXT 方法用数据驱动方式从关节扭矩估算外力，1 小时训练即可部署，显著提升 contact-rich manipulation 的策略学习效果。
+<strong>So What：</strong> 这直接降低了"灵巧操作"的硬件门槛。如果你关注仓储物流中的机械臂应用（某跨国消费品巨头供应链场景），这种"软件定义力控"的思路比买贵传感器更 scalable。
 </p>
 <p>
 <strong>🟠 World Pilot: 用 World-Action Priors 引导 VLA 模型</strong>
@@ -166,6 +170,7 @@ VLA 模型在自动驾驶中缺乏 dense 3D grounding。VLGA 设计了 objective
 <strong>🟠 A Five-Plane Reference Architecture for Runtime Governance of Production AI Agents</strong>
 来源：<a href="https://arxiv.org/pdf/2606.12320v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12320</a>
 企业安全原本治理的是数据边界（data at rest/in transit）。Production AI agent 打破了这个假设——agent 读 context、调工具、做决策，边界模糊了。本文提出五层参考架构来做 runtime governance。
+<strong>So What：</strong> 你在某跨国消费品巨头推 agent 落地，这篇文章的架构可以直接作为你设计 agent governance 框架的参考。特别是"agent 不是数据管道，是决策实体"这个认知转变。
 </p>
 <p>
 <strong>🟡 Selection Integrity for LLM Graph Memory</strong> | 来源：<a href="https://arxiv.org/pdf/2606.12290v1" target="_blank" rel="noopener noreferrer">arXiv 2606.12290</a>
@@ -202,6 +207,9 @@ Agent 的 graph memory 的 provenance 防御存在结构性盲区——retrieval
 <hr>
 <p>
 🎯 <strong>一句话总结</strong>
+</p>
+<p>
+Agent 领域今天的主旋律是<strong>"精细化"</strong>——compute 怎么分配（DIRECT）、credit 怎么归因（APPO）、隐私怎么预算（OCELOT）、governance 怎么分层（Five-Plane）。粗放堆 compute 的时代结束了，工程化、可治理的 agent 才是 production-ready 的 agent。对 Alex 来说，现在是在某跨国消费品巨头 agent 架构里嵌入这些精细化机制的最佳窗口期。
 </p>
             </div>
         </article>

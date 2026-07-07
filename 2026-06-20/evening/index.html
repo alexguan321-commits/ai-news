@@ -60,6 +60,7 @@
 <ul>
 <li><strong>事实</strong>：GDM 发布内部 guardrails 路线图，旨在捕获强 AI 系统的潜在危险行为。这是 DeepMind 首次公开其 AI 控制框架的系统性规划。</li>
 <li><strong>判断</strong>：从"对齐"到"控制"的范式转移——行业意识到仅靠 RLHF 不够，需要运行时监控和结构化约束。这与 Agentic AI 大规模部署直接相关。</li>
+<li><strong>对负责人的启示</strong>：FDE 团队推广 Dify/Agent 时，需要提前设计 Agent 的"控制平面"——不是限制能力，而是让 Agent 行为可审计、可回滚。建议关注 GDM 路线图细节，为某跨国消费品巨头内部 Agent 部署建立参考框架。</li>
 <li>🔗 <a href="https://www.alignmentforum.org/posts/hEtkyKGoPpFeWnKkX/gdm-ai-control-roadmap" target="_blank" rel="noopener noreferrer">Alignment Forum</a></li>
 </ul>
 <p>
@@ -68,6 +69,7 @@
 <ul>
 <li><strong>事实</strong>：开源工具，检测 AI agent skills 中的漏洞、恶意模式和安全风险。GitHub 日增 5000+ stars。</li>
 <li><strong>判断</strong>：Agent 生态正在形成"供应链安全"需求。当企业开始大规模使用第三方 skills/plugins 时，安全扫描成为刚需。</li>
+<li><strong>对负责人的启示</strong>：FDE 团队在引入外部 Agent 技能（如 Dify 工具、MCP servers）前，应建立安全审查流程。SkillSpector 可作为第一道防线。</li>
 <li>🔗 <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 </ul>
 <p>
@@ -76,6 +78,7 @@
 <ul>
 <li><strong>事实</strong>：压缩 tool outputs、logs、RAG chunks，减少 token 消耗同时保持答案质量。支持 Library、proxy、MCP server 三种模式。日增 12000+ stars。</li>
 <li><strong>判断</strong>：推理成本优化从"模型侧"转向"输入侧"。当 Agent 调用大量工具时，上下文爆炸成为实际瓶颈。</li>
+<li><strong>对负责人的启示</strong>：某跨国消费品巨头供应链 Agent 如果涉及大量日志/数据处理，headroom 可显著降低 API 成本。建议技术团队评估 MCP server 模式集成。</li>
 <li>🔗 <a href="https://github.com/chopratejas/headroom" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 </ul>
 <p>
@@ -84,6 +87,7 @@
 <ul>
 <li><strong>事实</strong>：解决 Agent 在多轮对话中维护任务状态、遵守领域策略的问题。提出"ledger"概念追踪事实、约束、条件。</li>
 <li><strong>判断</strong>：Agent 从"能调用工具"进化到"能遵守业务流程"。这是企业级 Agent 部署的核心需求。</li>
+<li><strong>对负责人的启示</strong>：供应链场景（如仓储异常处理）需要 Agent 严格遵守 SOP。LedgerAgent 的思路可参考用于设计某跨国消费品巨头内部 Agent 的状态管理。</li>
 <li>🔗 <a href="https://arxiv.org/pdf/2606.20529v1" target="_blank" rel="noopener noreferrer">arXiv 2606.20529</a></li>
 </ul>
 <p>
@@ -107,6 +111,9 @@
 </p>
 <p>
 <strong>深层逻辑</strong>：Agent 从"demo 阶段"进入"生产部署阶段"，企业需要的不再是"更聪明的 Agent"，而是"可审计、可约束、可回滚的 Agent"。
+</p>
+<p>
+<strong>对某跨国消费品巨头的意义</strong>：FDE 团队在推广 Dify/Agent 时，应该提前设计：
 </p>
 <ul>
 <li>Agent 行为日志（谁调用了什么工具，结果是什么）</li>

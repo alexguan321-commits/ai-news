@@ -61,6 +61,9 @@
 <p>
 OrchRM 提出了一套自监督框架来训练 multi-agent 系统的 orchestrator，不再依赖人工标注或昂贵的端到端训练。同一时间，Recursive Agent Harnesses 论文正式命名并研究了"递归 agent"模式——正是 Anthropic dynamic workflows 背后的核心架构。加上 HyperTool 提出的"超工具"抽象（把多步确定性工具调用折叠成单次模型可见操作），今天 arXiv 在 agent 工程方向集中爆发。
 </p>
+<p>
+<strong>So What for Alex：</strong> 你在某跨国消费品巨头推 Dify + RPA 的 FDE 实践，本质上就是在做 agent orchestration。OrchRM 的思路——用 reward model 替代人工编排规则——值得跟踪。HyperTool 的"折叠确定性步骤"思路可以直接应用到你的 Dify workflow 设计中：把 RPA 的确定性步骤封装成单个 tool call，减少 LLM 的推理负担。
+</p>
 <hr>
 <p>
 <strong>🟠 Agents-K1：Agent-native 的知识编排</strong>
@@ -68,6 +71,9 @@ OrchRM 提出了一套自监督框架来训练 multi-agent 系统的 orchestrato
 </p>
 <p>
 指出现有 research agent 把论文简化为 abstract + cite 边，丢失了关键实体、claims、evidence、mechanisms 和 method lineage。提出 Agent-native Knowledge Orchestration 框架，将知识图谱从扁平引用升级为结构化知识编排。
+</p>
+<p>
+<strong>So What for Alex：</strong> 这直接命中你的 Ontology & Knowledge Engineering 关注点。某跨国消费品巨头供应链的知识管理如果只做到"文档 → 向量检索"这一层，就是在犯论文里说的同一个错误。建议评估：你的 Teable/Dify 知识层是否需要引入 claim-evidence 结构，而不只是 embedding similarity。
 </p>
 <hr>
 <p>
@@ -98,6 +104,7 @@ OrchRM 提出了一套自监督框架来训练 multi-agent 系统的 orchestrato
 <strong>1. Learning to Reason by Analogy via Retrieval-Augmented Reinforcement Fine-Tuning</strong>
 来源：<a href="https://arxiv.org/pdf/2606.13680v1" target="_blank" rel="noopener noreferrer">arXiv</a>
 核心贡献：传统 RAG 基于语义相似度检索，但语义相似的问题可能需要完全不同的推理路径。本文用 reinforcement fine-tuning 训练 retriever 学习"类比检索"——检索结构相似而非表面相似的问题。
+为什么重要：这是 RAG 从"知识检索"升级到"推理检索"的关键一步。对 enterprise RAG（如某跨国消费品巨头供应链问题检索）有直接启示。
 </p>
 <p>
 <strong>2. Operadic Consistency：无标签检测 LLM 组合推理失败</strong>
@@ -147,6 +154,9 @@ Atlas 机器人学踢足球，展示运动控制能力的持续进化。
 <p>
 这篇论文直接命中 FDE 实践：LLM agent 正在进入受监管行业（制药、金融、制造），自动化 judgment-intensive 的质量管理流程。核心论点是——这些领域已有的符号结构（法规、类型化流程模型、合规约束）不应仅被视为外部约束，而应被当作 agent 架构的一等公民。
 </p>
+<p>
+<strong>So What for Alex：</strong> 某跨国消费品巨头是高度受监管的 FMCG 企业。你的 FDE 团队在帮业务部署 AI agent 时，合规约束（GxP、数据隐私、审计追踪）不能事后 patch，必须内嵌到 agent 架构中。这篇论文提出的 neuro-symbolic 框架值得深读——它给出了一个将 domain regulation 编码为 agent 可执行约束的方法论。建议作为 FDE 团队下周 reading group 的材料。
+</p>
 <hr>
 <p>
 🧠 <strong>Ontology & Knowledge Engineering</strong>
@@ -157,6 +167,9 @@ Atlas 机器人学踢足球，展示运动控制能力的持续进化。
 </p>
 <p>
 （已在今日回顾中详述）核心观点：现有 agent 把知识简化为 abstract + citation，丢失了 entity → claim → evidence → mechanism → method lineage 的完整结构。提出从扁平知识图谱到结构化知识编排的升级路径。
+</p>
+<p>
+<strong>So What for Alex：</strong> 你的 Ontology 工作在某跨国消费品巨头 AI 落地中的定位越来越清晰——不是"给数据打标签"，而是为 agent 提供可推理的知识结构。如果 agent 只能检索文档片段而不能追溯 claim 的证据链和方法论谱系，它的推理质量会有天花板。建议：在下一个 PoC 中试验 claim-evidence 结构，对比纯 embedding retrieval 的效果差异。
 </p>
 <hr>
 <p>
