@@ -378,6 +378,9 @@ def parse_knowledge_card(filepath):
             summary = line.strip()[:200]
             break
 
+    # Get file modification time (push time to website)
+    push_time = os.path.getmtime(filepath)
+
     return {
         "title": title,
         "author": author,
@@ -388,6 +391,7 @@ def parse_knowledge_card(filepath):
         "url": url,
         "slug": slug,
         "summary": summary,
+        "push_time": push_time,
         "filepath": filepath,
     }
 
@@ -738,7 +742,8 @@ def generate_html(posts, cards):
     """Generate the full index.html content."""
     # Sort posts by date descending
     posts.sort(key=lambda p: p["date"], reverse=True)
-    cards.sort(key=lambda c: c["date_prefix"], reverse=True)
+    # Sort cards by push time (file modification time) descending
+    cards.sort(key=lambda c: c.get("push_time", 0), reverse=True)
 
     total_posts = len(posts)
     total_cards = len(cards)

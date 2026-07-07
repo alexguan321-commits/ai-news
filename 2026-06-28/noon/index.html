@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="0627-晚报">
+    <meta property="og:title" content="0628-午报">
     <meta property="og:description" content="AI Knowledge Base Report">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>0627-晚报 - Alex Guan's AI Knowledge Base</title>
+    <title>0628-午报 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -35,10 +35,10 @@
     <main class="container">
         <article class="report-content">
             <header class="report-header">
-                <h1>0627-晚报</h1>
+                <h1>0628-午报</h1>
                 <div class="meta">
-                    <time>2026-06-27 21:03:39 +0800</time>
-                    <span class="report-type type-evening">晚报</span>
+                    <time>2026-06-28 14:02:00 +0800</time>
+                    <span class="report-type type-noon">午报</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
@@ -46,11 +46,11 @@
             
 
             <div class="content">
-                <h1>Cron Job: AI 晚报 (20:00)</h1>
+                <h1>Cron Job: AI 午报 (12:00)</h1>
 <p>
-<strong>Job ID:</strong> 26da9ef864ba
-<strong>Run Time:</strong> 2026-06-27 21:03:39
-<strong>Schedule:</strong> 0 21 <em> </em> *
+<strong>Job ID:</strong> 79c3eecbed89
+<strong>Run Time:</strong> 2026-06-28 14:02:00
+<strong>Schedule:</strong> 0 14 <em> </em> *
 </p>
 <h2>Prompt</h2>
 <p>
@@ -64,50 +64,30 @@ The following data was collected by a pre-run script. Use it as context for your
 ============================================================
 AI News Collection Complete (V3 - Config-Driven)
 ============================================================
-Time: 56.2s
-Total new items: 4
+Time: 62.1s
+Total new items: 0
 
 Per source:
-  ✅ github: 4 items (0.4s)
-  ✅ arxiv: 0 items (3.9s)
-  ✅ hacker_news: 0 items (11.1s)
-  ✅ youtube: 0 items (11.8s)
-  ✅ rss: 0 items (40.6s)
-  ✅ blogs: 0 items (56.2s)
+  ✅ github: 0 items (1.6s)
+  ✅ arxiv: 0 items (5.7s)
+  ✅ hacker_news: 0 items (10.2s)
+  ✅ youtube: 0 items (14.5s)
+  ✅ rss: 0 items (17.4s)
+  ✅ blogs: 0 items (62.1s)
 
-Pipeline inbox: /Users/alexguan/AI_News/pipeline/inbox/2026-06-27_2101.json
-Readable: /Users/alexguan/AI_News/pipeline/inbox/2026-06-27_2101.md
+Pipeline inbox: /Users/alexguan/AI_News/pipeline/inbox/2026-06-28_1401.json
+Readable: /Users/alexguan/AI_News/pipeline/inbox/2026-06-28_1401.md
 
 ============================================================
 FULL NEWS CONTENT (for LLM processing):
 ============================================================
 
-# AI News Collection | 2026-06-27 21:01 CST
+# AI News Collection | 2026-06-28 14:01 CST
 
-Collected in 56.2s | 4 new items
+Collected in 62.1s | 0 new items
 
 
-## GITHUB (4 items)
-
-- **hugohe3/ppt-master**
-  URL: https://github.com/hugohe3/ppt-master
-  Date: 2026-06-27
-  GitHub Trending
-
-- **luongnv89/claude-howto**
-  URL: https://github.com/luongnv89/claude-howto
-  Date: 2026-06-27
-  GitHub Trending
-
-- **HKUDS/Vibe-Trading**
-  URL: https://github.com/HKUDS/Vibe-Trading
-  Date: 2026-06-27
-  GitHub Trending
-
-- **Asabeneh/30-Days-Of-Python**
-  URL: https://github.com/Asabeneh/30-Days-Of-Python
-  Date: 2026-06-27
-  GitHub Trending
+## GITHUB (0 items)
 
 ## ARXIV (0 items)
 
@@ -123,12 +103,13 @@ Collected in 56.2s | 4 new items
 <h2>任务</h2>
 <p>
 1. 读取上方脚本输出的采集数据（来自 ~/AI_News/pipeline/inbox/ 最新文件）
-2. 生成 AI 晚报，包含以下板块：
+2. 生成 AI 午报，包含以下板块：
 </p>
 <ul>
 <li>📌 今日最重要的一件事</li>
 <li>🔥 必看（🟠🔴级别）</li>
 <li>📌 关注（🟡级别）</li>
+<li>🏭 FMCG 应用（午报专区）</li>
 <li>🦾 具身智能专区</li>
 <li>🎯 FDE 启示</li>
 <li>🧠 Ontology 机会</li>
@@ -139,12 +120,12 @@ Collected in 56.2s | 4 new items
 <li>🎨 自由发挥</li>
 </ul>
 <p>
-4. 保存报告到 ~/projects/ai-news-website/_posts/YYYY-MM-DD-evening.md（带 Jekyll front matter）
+4. 保存报告到 ~/projects/ai-news-website/_posts/YYYY-MM-DD-noon.md（带 Jekyll front matter）
 5. <strong>发布到网站</strong>：运行 <code>python3 ~/AI_News/pipeline/ai_news_publisher.py</code>
 </p>
 <h2>输出格式</h2>
 <p>
-Markdown 格式，标题为 <code># AI 晚报 - YYYY-MM-DD</code>
+Markdown 格式，标题为 <code># AI 午报 - YYYY-MM-DD</code>
 </p>
 <h2>质量标准</h2>
 <ul>
@@ -155,64 +136,7 @@ Markdown 格式，标题为 <code># AI 晚报 - YYYY-MM-DD</code>
 </ul>
 <h2>Response</h2>
 <p>
-✅ <strong>AI 晚报已生成并发布</strong>
-</p>
-<p>
-📄 报告路径：<code>~/projects/ai-news-website/_posts/2026-06-27-evening.md</code>
-🌐 网站已更新：59 篇报告已发布至 GitHub Pages
-</p>
-<hr>
-<h2>📊 今日采集概况</h2>
-<table>
-<thead><tr>
-<th>来源</th>
-<th>数量</th>
-<th>耗时</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>GitHub Trending</td>
-<td>4</td>
-<td>0.4s</td>
-</tr>
-<tr>
-<td>ArXiv</td>
-<td>0</td>
-<td>3.9s</td>
-</tr>
-<tr>
-<td>Hacker News</td>
-<td>0</td>
-<td>11.1s</td>
-</tr>
-<tr>
-<td>YouTube</td>
-<td>0</td>
-<td>11.8s</td>
-</tr>
-<tr>
-<td>RSS</td>
-<td>0</td>
-<td>40.6s</td>
-</tr>
-<tr>
-<td>Blogs</td>
-<td>0</td>
-<td>56.2s</td>
-</tr>
-</tbody></table>
-<h2>🔑 今日核心看点</h2>
-<p>
-2. <strong>🟠 claude-howto（38.4k stars）</strong> — Claude Code 最佳实践指南爆发，说明 AI 编程助手正从"开发者玩具"变成"工程团队标配"。建议 FDE 团队据此整理内部 AI 编程 SOP。
-</p>
-<p>
-3. <strong>🟠 Vibe-Trading（13.5k stars）</strong> — 港大多 Agent 交易系统开源，展示了"多 Agent 分工 + MCP 协作"的可复用架构模式，可迁移至供应链决策场景。
-</p>
-<p>
-4. <strong>🟡 30-Days-Of-Python 重回 Trending（66.4k stars）</strong> — AI 时代"学 Python"需求反弹，Python 正在成为"和 AI 对话的语言"。
-</p>
-<p>
-<strong>今日是"消化日"</strong>——本周重大叙事已在早报/午报覆盖，晚报聚焦行动规划：模板化、SOP 化、多 Agent 协作。
+[SILENT]
 </p>
             </div>
         </article>
@@ -273,18 +197,18 @@ Markdown 格式，标题为 <code># AI 晚报 - YYYY-MM-DD</code>
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            interactions.init('report', '2026-06-27-evening');
+            interactions.init('report', '2026-06-28-noon');
             interactions.loadComments();
             
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
                 // 先显示浏览次数
-                pageViews.displayViewCount('view-count', 'report', '2026-06-27-evening');
+                pageViews.displayViewCount('view-count', 'report', '2026-06-28-noon');
                 
                 // 等待 auth 初始化完成后再记录浏览
                 const trackWithAuth = () => {
                     if (typeof auth !== 'undefined' && auth.user !== undefined) {
-                        pageViews.trackView('report', '2026-06-27-evening');
+                        pageViews.trackView('report', '2026-06-28-noon');
                     } else {
                         // auth 还没初始化，等一下再试
                         setTimeout(trackWithAuth, 100);

@@ -3,28 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 晚报 - 2026-06-09 - AI 资讯日报</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0609-晚报">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>0609-晚报 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
 </head>
 <body>
     <nav class="navbar">
-        <a href="../../" class="logo">AI 资讯日报</a>
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">75</span> reports</div>
+            <div><span class="stat-value">88</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
+        <div id="auth-container"></div>
     </nav>
 
     <main class="container">
         <article class="report-content">
             <header class="report-header">
-                <h1>AI 晚报 - 2026-06-09</h1>
+                <h1>0609-晚报</h1>
                 <div class="meta">
                     <time>2026-06-09 20:01:54 +0800</time>
                     <span class="report-type type-evening">晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
+
+            
 
             <div class="content">
                 <h1>Cron Job: AI 晚报 (20:00)</h1>
@@ -695,9 +714,88 @@ Apple 用 WWDC 证明了"慢 AI"也能打动人心，OpenAI 和 Anthropic 则用
             </div>
         </article>
 
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div id="comments-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-06-09-evening');
+            interactions.loadComments();
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-06-09-evening');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-06-09-evening');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
         <footer class="footer">
-            <p><a href="../../">← 返回所有报告</a></p>
-            <p>AI 资讯日报 — 由 Hermes Agent 自动采集、分析、生成</p>
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
         </footer>
     </main>
 </body>
