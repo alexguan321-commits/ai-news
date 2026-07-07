@@ -37,48 +37,647 @@
             <header class="report-header">
                 <h1>0706-晚报</h1>
                 <div class="meta">
-                    <time>2026-07-06 21:04:40 +0800</time>
+                    <time>2026-07-06 21:00:00 +0800</time>
                     <span class="report-type type-evening">晚报</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
-            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-06-evening.jpg" alt="Cover"></div>
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-06-evening.png" alt="Cover"></div>
 
             <div class="content">
-                <h2>Response</h2>
+                <h1>0706晚报 | LeRobot v0.6.0：机器人学会"想象"未来</h1>
+<blockquote><p>采集时间：2026-07-06 21:00 CST | 共 15 条新资讯 | GitHub 10 / RSS 3 / YouTube 1 / Blog 1</p></blockquote>
+<hr>
+<h2>📌 今日最重要的一件事</h2>
+<h3>Hugging Face 发布 LeRobot v0.6.0：机器人第一次学会了"先想象再行动"</h3>
 <p>
-✅ <strong>0706晚报已完成并发布</strong>
+🔗 <a href="https://huggingface.co/blog/lerobot-release-v060" target="_blank" rel="noopener noreferrer">来源：Hugging Face Blog</a>
 </p>
 <p>
-<strong>标题：</strong> <code>0706晚报 | Fable 5回归却遭质疑，Opus 4.8仍是日常首选</code>
+<strong>这不是一个普通的版本更新。这是具身智能从"模仿学习"跨越到"世界模型驱动"的分水岭时刻。</strong>
 </p>
 <p>
-<strong>今日核心信号：</strong> AI 模型竞争正在从"谁更聪明"转向"谁更好用"——Fable 5 虽然能力强大但使用限制让日常用户望而却步。
+LeRobot v0.6.0 的核心突破是引入了三种世界模型策略（VLA-JEPA、FastWAM、LingBot-VA），让机器人在执行动作之前能够"想象"未来会发生什么。这不是科幻——VLA-JEPA 基于 Qwen3-VL-2B 在潜空间中预测未来帧，关键设计是世界模型在推理时消失，零额外推理成本获得世界模型监督。LingBot-VA 更进一步，自回归逐步预测视频和动作，你可以用 <code>--policy.save_predicted_video=true</code> 保存机器人想象的画面，与实际发生的情况对比。
 </p>
 <p>
-<strong>报告亮点：</strong>
-</p>
-<ul>
-<li>🔴 <strong>Fable 5 vs Opus 4.8</strong>：可用性陷阱分析，预判 Anthropic 6个月内推出"Fable 5 Lite"</li>
-<li>🟠 <strong>Agent 评估方法论升级</strong>：Plackett-Luce 模型取代平均分，预判"Agent Evaluation Platform"成为独立品类</li>
-<li>🟠 <strong>APTSell 获 DCM 投资</strong>：AI 版 CSO 验证了"组合式 Agent"商业模式</li>
-<li>🦾 <strong>LeRobot v0.6.0</strong>：世界模型 + 奖励模型 + DAgger 闭环，预判成为机器人学习事实标准</li>
-<li>🐙 <strong>GitHub Trending</strong>：addyosmani/agent-skills、ruvnet/RuView（WiFi感知）、claude-video</li>
-</ul>
-<p>
-<strong>第二大脑关联：</strong> 交叉分析了 Fable 5 Prompting Guide、60 Opus Workflows、第二大脑 1500 Conversations 等知识卡片，验证了多个预测。
+<strong>为什么这是今天最重要的事？</strong>
 </p>
 <p>
-<strong>执行状态：</strong>
+因果链：世界模型策略成熟 → 机器人不再只是"看一遍学一遍"的鹦鹉 → 泛化能力指数级提升 → 家庭服务机器人的可行性时间线提前 12-18 个月。
+</p>
+<p>
+具体数据：
 </p>
 <ul>
-<li>✅ 报告保存至 `_posts/2026-07-06-evening.md`</li>
-<li>✅ 隐私过滤通过（0 处修改）</li>
-<li>✅ 封面图片提取成功（Towards Data Science）</li>
-<li>✅ 网站索引重新生成（80 篇报告，41 张知识卡片）</li>
-<li>✅ Git commit + push 完成</li>
+<li><strong>5 种新 VLA 模型</strong>：GR00T N1.7（NVIDIA 跨形态基础模型）、MolmoAct2、EO-1（基于 Qwen2.5-VL-3B）、EVO1（仅 0.77B 参数，普通 GPU 可实时微调）、Multitask DiT</li>
+<li><strong>2 个奖励模型 API</strong>：Robometer（4B 参数，基于 Qwen3-VL-4B，通过 100 万+ 机器人轨迹训练，通用任务评估无需特定任务训练）和 TOPReward</li>
+<li><strong>6 个新仿真基准</strong>，统一在 lerobot-eval CLI 下</li>
+<li><strong>FSDP 训练</strong>支持大于 GPU 内存的模型</li>
+<li><strong>深度感知</strong>、VLM 驱动的数据集自动标注、自定义视频编码</li>
+<li>数据加载速度提升最高 <strong>2 倍</strong></li>
 </ul>
+<p>
+<strong>大胆预判</strong>：18 个月内，基于世界模型的机器人策略将成为行业标准范式。LeRobot 正在成为具身智能的"PyTorch"——就像 PyTorch 统一了 NLP/CV 的训练框架，LeRobot 正在统一机器人学习的训练-评估-部署全链路。EVO1 的 0.77B 参数量意味着消费级 GPU（RTX 4090）就能跑，这将引爆社区实验。
+</p>
+<p>
+<strong>对 负责人的意义</strong>：LeRobot + Hermes 的 Agent Skill 模式 = 具身智能的"第二大脑"。想象一下：Hermes 管理知识库和决策，LeRobot 管理物理世界交互。这个组合在 FDE 场景下的应用是——工厂巡检机器人不再需要逐场景训练，它能"想象"没见过的场景。
+</p>
+<hr>
+<h2>🔥 必看</h2>
+<h3>1. 🔴 Claude Fable 5 回归：Mythos 级能力 + 令人意外的限制</h3>
+<p>
+🔗 <a href="https://www.zdnet.com/article/claude-fable-5-returns-why-im-using-opus-4-8-instead/" target="_blank" rel="noopener noreferrer">来源：ZDNet</a>
+</p>
+<p>
+Anthropic 的 Claude Fable 5 重新上线（7 月 1 日恢复 AWS 访问），但 ZDNet 作者选择了继续使用 Opus 4.8 做日常工作，给出了 5 个理由。这篇文章揭示了一个行业级的矛盾。
+</p>
+<p>
+<strong>Fable 5 是什么？</strong>
+</p>
+<p>
+Fable 5 是 Anthropic 的 Mythos 级模型——与 Claude Mythos 5 共享同一底层模型，但加了安全护栏。在网络安全等领域，Fable 5 的能力如果没有限制可能被滥用，因此特定主题的查询会回退到 Opus 4.8。同时 Anthropic 发布了 Claude Mythos 5，面向少量网络防御者和关键基础设施提供商，底层模型相同但移除了部分安全限制，通过 Project Glasswing 与美国政府合作部署。
+</p>
+<p>
+<strong>定价信号</strong>：$10/百万输入 token，$50/百万输出 token。这是 premium tier 定价，与前沿推理模型持平。
+</p>
+<p>
+<strong>ZDNet 作者选择 Opus 4.8 的 5 个理由（推断）</strong>：
+1. Fable 5 的安全限制导致某些专业领域查询被意外拦截
+2. 回退机制增加了不可预测性
+3. 对于日常编码和分析任务，Opus 4.8 已经足够
+4. Fable 5 的定价更高
+5. 护栏的存在让工作流变得不确定
+</p>
+<p>
+<strong>因果链</strong>：前沿模型能力触及危险边界 → Anthropic 被迫做"分层发布"（Fable=有护栏 / Mythos=无护栏） → 用户面临"更强但不确定性更高"vs"稍弱但可控"的选择 → 这将成为所有前沿实验室的常态。
+</p>
+<p>
+<strong>大胆预判</strong>：12 个月内，"分层模型发布"将成为行业标准。OpenAI、Google 都会推出类似机制——同一个底层模型，不同安全等级的版本。这会催生一个新的中间件市场："安全路由器"，根据用户权限和任务类型自动选择模型版本。
+</p>
+<p>
+<strong>策略建议</strong>：对于 负责人的 AI 创业方向，这是一个信号——企业客户需要的不是"最强模型"，而是"最可预测的模型"。在 FDE 场景中，选择 Opus 4.8 做日常工作流、Fable 5 做需要突破的任务，是当前最优组合。
+</p>
+<p>
+<strong>深层分析：为什么"安全限制"会成为产品差异化的核心？</strong>
+</p>
+<p>
+Anthropic 的 Fable/Mythos 分层实际上创造了一个新的产品维度：<strong>安全即功能</strong>。传统软件的安全是"防御外部攻击"，但 AI 的安全是"限制自身能力"。这意味着：
+</p>
+<ul>
+<li>Fable 5 的"弱"不是缺陷，而是特性——它被设计为在某些领域"不能做"</li>
+<li>Mythos 5 的"强"需要特殊授权——它被设计为在某些领域"可以做"</li>
+<li>用户选择的不是"哪个模型更聪明"，而是"哪个模型的安全边界更适合我的场景"</li>
+</ul>
+<p>
+这对企业采购决策有深远影响。合规团队需要评估的不是"这个模型够不够强"，而是"这个模型的安全护栏是否覆盖了我们的风险场景"。Anthropic 正在把 AI 安全从"技术话题"变成"采购决策因素"——这是一个极其聪明的商业策略。
+</p>
+<hr>
+<h3>2. 🟠 APTSell 获 DCM Ventures 数百万美元种子轮：AI CSO 赛道正式开跑</h3>
+<p>
+🔗 <a href="https://36kr.com/p/3883591654895873?f=rss" target="_blank" rel="noopener noreferrer">来源：36Kr</a> | <a href="https://www.chinaventure.com.cn/news/113-20260707-392175.html" target="_blank" rel="noopener noreferrer">投中网</a>
+</p>
+<p>
+北京治真治合科技（成立于 2024 年）旗下产品 APTSell 完成 DCM Ventures 独家投资的数百万美元种子轮。此前获 Atom Capital 近千万元天使轮。
+</p>
+<p>
+<strong>核心定位</strong>：全球首个 AI CSO（Chief Sales Officer）。不是 Sales Agent（帮销售个人提效），而是面向企业销售管理场景的 AI——持续承担业务洞察、经营判断、收入预测、策略制定、组织执行等核心工作。
+</p>
+<p>
+<strong>关键数据</strong>：
+</p>
+<ul>
+<li>部署后销售团队整体工作效率平均提升 <strong>30%</strong></li>
+<li>销售转化率平均提升 <strong>15%</strong> 以上</li>
+<li>企业销售业绩平均增长近 <strong>40%</strong></li>
+<li>2025 年 Q4 正式商业化以来保持快速增长</li>
+<li>已服务高科技、制造、医疗等多行业客户</li>
+</ul>
+<p>
+<strong>与现有方案的区别</strong>：过去的路径是 CRM 查数据 → BI 还原过程 → 销售领导决策。APTSell 的 AI CSO 直接承担"决策"环节，不只是辅助。创始人赵磊曾任微步在线销售 VP，5 年创造 3 亿营收。
+</p>
+<p>
+<strong>因果链</strong>：AI Agent 从执行层（SDR/销售助手）→ 管理层（CSO/销售VP） → 销售管理的"人治"模式被颠覆 → CRM 厂商（Salesforce、HubSpot）面临降维打击 → 3 年内 50% 的销售管理岗位被 AI CSO 替代或重塑。
+</p>
+<p>
+<strong>对 负责人的意义</strong>：这验证了一个重要判断——AI Agent 的商业价值不在"帮个人提效"（这是红海），而在"替代管理决策层"（这是蓝海）。APTSell 的路径和 FDE 模式高度吻合：AI 不是辅助工具，而是直接承担业务决策角色。
+</p>
+<p>
+<strong>大胆预判</strong>：18 个月内，中国会出现 5-10 个"AI CXO"创业公司——AI CFO、AI CMO、AI COO。APTSell 是第一个明确打"AI CSO"定位的。DCM 的投资信号说明顶级 VC 已经开始为"AI 管理层"赛道下注。
+</p>
+<hr>
+<h3>3. 🟠 addyosmani/agent-skills：31K Star，AI 编码 Agent 的"工程标准"正在形成</h3>
+<p>
+🔗 <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">来源：GitHub</a> | <a href="https://agentconn.com/skills/agent-skills" target="_blank" rel="noopener noreferrer">AgentConn</a>
+</p>
+<p>
+Addy Osmani（Google Chrome 团队）的 agent-skills 项目持续霸榜 GitHub Trending，截至 2026 年 5 月已达 31,051 stars（24h +629）。这个项目定义了 AI 编码 Agent 的"生产级工程技能"标准。
+</p>
+<p>
+<strong>核心创新</strong>：不是 prompt pack，而是 SKILL.md 格式的结构化工程技能文件。包含 20 个生产级技能，覆盖完整开发生命周期，映射为 7 个 slash 命令：
+</p>
+<ul>
+<li>`/spec` 定义要构建什么</li>
+<li>`/plan` 分解为原子任务</li>
+<li>`/build` 薄垂直切片</li>
+<li>`/test` 红绿重构</li>
+<li>`/review` 五轴质量审查</li>
+<li>`/code-simplify` Chesterton's Fence 原则</li>
+<li>`/ship` Feature flags + 安全回滚</li>
+</ul>
+<p>
+<strong>关键差异化</strong>：
+</p>
+<ul>
+<li>反合理化表（Anti-rationalization tables）：消灭"我以后再补测试"的借口</li>
+<li>验证门（Verification gates）：要求证据而非感觉</li>
+<li>Google 工程实践内嵌（Hyrum's Law、Beyonce Rule、trunk-based dev）</li>
+<li>跨平台兼容：Claude Code、Cursor、Antigravity IDE、Codex CLI、Gemini CLI、Windsurf、Copilot</li>
+</ul>
+<p>
+<strong>因果链</strong>：SKILL.md 格式被 Addy Osmani 背书 → 成为事实标准 → AI 编码 Agent 从"通用助手"分化为"加载不同技能包的专业工程师" → 催生"Agent 技能市场" → 类似 App Store 的新生态。
+</p>
+<p>
+<strong>与 负责人工作的关联</strong>：Hermes 的 Skill 系统和 agent-skills 是同一范式。负责人已经在用的 Context Engineering 系统（Harness + Loop + 验证器网络）正是 agent-skills 所倡导的"结构化上下文准备流程"。
+</p>
+<p>
+<strong>大胆预判</strong>：6 个月内，SKILL.md 或类似格式将成为所有主流 AI 编码工具的标准。"Agent 技能市场"会出现第一个估值过亿的创业公司。
+</p>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<h3>1. Why I Avoid Sci-Fi Specifics</h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=wt-fLWxkrfs" target="_blank" rel="noopener noreferrer">来源：YouTube</a>
+</p>
+<p>
+今天采集到的唯一 YouTube 视频，但值得注意。标题暗示了一种对"AI 预测具体科幻场景"的回避态度。这与 Karpathy 一贯的立场一致——不要预测具体的科幻场景，而要理解底层趋势。
+</p>
+<p>
+<strong>为什么值得关注</strong>：在 AI 行业充斥着"AGI 明年到来"或"AI 会毁灭世界"的极端叙事时，这种"拒绝具体科幻预测、专注底层趋势"的思维方式是一种认知升级。对于 负责人的 FDE 实践和 AI 创业，正确的姿态不是猜测 GPT-6 会怎样，而是理解"代码生成成本趋零、审查能力成为瓶颈"这种结构性变化。
+</p>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<h3>1. 🌟 addyosmani/agent-skills（详见🔥必看 #3）</h3>
+<p>
+31K Star，AI 编码 Agent 的生产级工程技能标准。SKILL.md 格式正在成为事实标准。
+</p>
+<h3>2. 🌟 ruvnet/RuView：用 WiFi 信号实现"穿墙透视"</h3>
+<p>
+🔗 <a href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+这个项目太酷了。RuView 把普通 WiFi 信号变成空间智能系统——检测人员、测量呼吸和心率、追踪移动、监控房间，穿墙、黑暗环境、无需摄像头或可穿戴设备。
+</p>
+<p>
+<strong>技术栈</strong>：
+</p>
+<ul>
+<li>ESP32 mesh 节点（最低 $9/个）读取房间内人员的无线电反射</li>
+<li>预训练模型发布在 Hugging Face：`ruvnet/wifi-densepose-pretrained`</li>
+<li>v2 编码器：时序三元组准确率 82.3%（从原始 66.4% 提升）</li>
+<li>v0.7.0 新增摄像头监督的姿态训练（MediaPipe + 真实 ESP32 CSI 数据）</li>
+<li>实时 3D 点云：融合摄像头深度 + WiFi CSI + mmWave 雷达</li>
+<li>17 个 COCO 关键点的骨架叠加</li>
+<li>17 种感知应用（v0.6.0）</li>
+<li>完全边缘计算，配合 Cognitum Seed 实现持久记忆和加密认证</li>
+</ul>
+<p>
+<strong>因果链</strong>：WiFi 感知成熟 → 智能家居不再依赖摄像头（隐私友好） → 养老院/医院/监狱等场景的无感监控成为可能 → 与具身智能结合 = 机器人能"感知"看不见的房间里的人。
+</p>
+<p>
+<strong>对具身智能的意义</strong>：RuView 提供了一种全新的"环境感知"输入源。LeRobot 的机器人如果能接入 WiFi CSI 数据，就能在完全黑暗或遮挡环境中感知人员位置和生命体征。这是具身智能的"第六感"。
+</p>
+<h3>3. bradautomates/claude-video：给 Claude 装上"看视频"的能力</h3>
+<p>
+🔗 <a href="https://github.com/bradautomates/claude-video" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+<code>/watch</code> 命令：下载视频 → 提取帧 → 转录 → 交给 Claude 处理。简单但实用。
+</p>
+<p>
+<strong>为什么值得关注</strong>：这解决了 AI Agent 的一个关键盲区——视频内容理解。当前 AI 资讯系统（包括 负责人的）主要处理文本，视频内容几乎完全丢失。claude-video 的模式（帧提取 + 转录 + 多模态输入）是一个可复制的范式。
+</p>
+<h3>4. mvanhorn/last30days-skill：跨平台话题研究 Agent</h3>
+<p>
+🔗 <a href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+一个 AI Agent 技能，跨 Reddit、X、YouTube、HN、Polymarket 和 Web 研究任何话题，然后综合成有根据的报告。这正是 负责人的 AI 资讯采集系统的"技能化"版本。
+</p>
+<h3>5. karakeep-app/karakeep：自托管的"收藏一切"应用</h3>
+<p>
+🔗 <a href="https://github.com/karakeep-app/karakeep" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+自托管书签应用（链接、笔记、图片），AI 自动标签 + 全文搜索。这是"第二大脑"基础设施的又一个实现。与 负责人的 LLM Wiki + Obsidian 体系形成对照。
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>1. 🟡 Stop Ranking Agent Configs by Average Score</h3>
+<p>
+🔗 <a href="https://towardsdatascience.com/stop-ranking-agent-configs-by-average-score/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
+</p>
+<p>
+这篇文章提出了一个被广泛忽视的问题：用平均分排名 Agent 配置是错的。提出了三种更好的方法：
+</p>
+<ul>
+<li><strong>Best-worst 比较</strong>：看最坏情况而非平均</li>
+<li><strong>MaxDiff 式评判</strong>：最大化感知差异</li>
+<li><strong>Plackett-Luce 效用分数</strong>：基于排序的概率模型</li>
+</ul>
+<p>
+<strong>为什么值得关注</strong>：随着 Agent 系统越来越复杂（多 Agent、多配置），如何评估和选择最优配置成为核心问题。传统 A/B 测试的平均分方法会掩盖 Agent 的长尾失败。这对 负责人的 Multica Agent Team 有直接参考价值——评估 5 人 Agent 团队的配置时，不要用平均分，要看最坏情况。
+</p>
+<h3>2. 🟡 karpathy/nanoGPT 重回 Trending</h3>
+<p>
+🔗 <a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+Karpathy 的经典项目重回 GitHub Trending。nanoGPT 是训练/微调中等规模 GPT 的最简最快仓库。在 Fable 5/Mythos 5 发布的背景下，nanoGPT 的回暖暗示社区对"理解模型内部机制"的需求在增长——不只是用模型，更要懂模型。
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>LeRobot v0.6.0 深度拆解</h3>
+<p>
+这是本期具身智能专区的绝对核心。让我从 Jim Fan 的视角拆解 v0.6.0 的技术架构：
+</p>
+<p>
+<strong>1. 世界模型策略层（Imagine）</strong>
+</p>
+<table>
+<thead><tr>
+<th>模型</th>
+<th>基座</th>
+<th>关键创新</th>
+<th>推理成本</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>VLA-JEPA</td>
+<td>Qwen3-VL-2B</td>
+<td>潜空间预测未来，推理时世界模型消失</td>
+<td>零额外成本</td>
+</tr>
+<tr>
+<td>FastWAM</td>
+<td>-</td>
+<td>快速世界动作模型</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LingBot-VA</td>
+<td>-</td>
+<td>自回归分块预测，可保存想象画面</td>
+<td>单卡 24-32GB GPU</td>
+</tr>
+</tbody></table>
+<p>
+VLA-JEPA 的设计最优雅：训练时 JEPA 世界模型必须从模型自身动作中预判下一帧，推理时世界模型消失。这意味着你获得了世界模型训练的泛化能力，但不付出推理成本。
+</p>
+<p>
+<strong>2. VLA 模型层（Act）</strong>
+</p>
+<table>
+<thead><tr>
+<th>模型</th>
+<th>参数量</th>
+<th>基座</th>
+<th>特点</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>GR00T N1.7</td>
+<td>-</td>
+<td>Cosmos-Reason2-2B + Qwen3-VL</td>
+<td>NVIDIA 跨形态，流匹配动作头</td>
+</tr>
+<tr>
+<td>MolmoAct2</td>
+<td>-</td>
+<td>-</td>
+<td>新增集成</td>
+</tr>
+<tr>
+<td>EO-1</td>
+<td>~3B</td>
+<td>Qwen2.5-VL-3B</td>
+<td>交错视觉-文本-动作预训练</td>
+</tr>
+<tr>
+<td>EVO1</td>
+<td>0.77B</td>
+<td>InternVL3-1B</td>
+<td>消费级 GPU 可跑</td>
+</tr>
+<tr>
+<td>Multitask DiT</td>
+<td>-</td>
+<td>-</td>
+<td>多任务扩散策略</td>
+</tr>
+</tbody></table>
+<p>
+EVO1 的 0.77B 参数量是社区引爆点。RTX 4090（24GB）就能实时微调和运行，这意味着个人开发者可以在家训练自己的机器人策略。
+</p>
+<p>
+<strong>3. 奖励模型层（Evaluate）</strong>
+</p>
+<ul>
+<li><strong>Robometer</strong>（4B，Qwen3-VL-4B）：通用奖励模型，通过 100 万+ 机器人轨迹对比训练，无需特定任务训练即可评估任务进度和成功状态</li>
+<li><strong>TOPReward</strong>：另一个奖励模型 API</li>
+</ul>
+<p>
+Robometer 的意义在于：它解决了机器人学习中最痛苦的问题之一——如何自动判断机器人是否成功完成了任务。以前需要为每个任务单独训练奖励函数，现在一个通用模型搞定。
+</p>
+<p>
+<strong>4. 评估平台层（Benchmark）</strong>
+</p>
+<p>
+6 个新仿真基准，统一在 <code>lerobot-eval</code> CLI 下，每个配有文档、Docker 镜像、CI 烟雾测试基线。新增 <code>lerobot-rollout</code> CLI 支持 DAgger 风格的人机协同校正。
+</p>
+<p>
+<strong>因果链</strong>：世界模型 + 通用奖励模型 + 标准化评估 → 机器人学习的"ImageNet 时刻" → 不同实验室的结果可以直接比较 → 社区协作加速 → 6-12 个月内出现"基础机器人模型"（类似 GPT-2 之于 NLP）。
+</p>
+<hr>
+<h2>🧠 第二大脑关联</h2>
+<h3>今日新闻 vs 已有知识的交叉分析</h3>
+<p>
+<strong>关联 1：LeRobot v0.6.0 × Context Engineering（Anthropic 8x 产出文章）</strong>
+</p>
+<p>
+知识卡片 <code>anthropic-8x-output-context-engineering.md</code> 揭示了 Anthropic 工程师 8x 产出的秘密：Context Engineering（给 Claude 更好的上下文结构）。LeRobot v0.6.0 的世界模型策略本质上是同一个原理的物理世界版本——机器人不是需要更多数据，而是需要更好的"上下文"（对未来的想象）。
+</p>
+<p>
+因果链：Context Engineering 在软件工程中证明了"更好的上下文 > 更多的 token" → LeRobot 的世界模型在物理世界中验证了同一原理（更好的未来想象 > 更多的模仿数据） → 这是 AI 的统一范式：信息质量 > 信息数量。
+</p>
+<p>
+<strong>关联 2：APTSell AI CSO × 60 Opus Workflows</strong>
+</p>
+<p>
+知识卡片 <code>60-opus-workflows.md</code> 列出了 60 个"睡觉时赚钱"的 Agent 工作流，其中 #6-#10 是交易和市场分析类。APTSell 的 AI CSO 本质上是把这类工作流从"个人自动化"升级为"组织级自动化"——不只是帮你分析数据，而是帮你做管理决策。
+</p>
+<p>
+关键区别：60 Workflows 的验证步骤是"你早上审查"（人类在环），而 APTSell 的 AI CSO 正在尝试让 AI 直接承担决策（人类在环但更高层级）。
+</p>
+<p>
+<strong>关联 3：Agent Skills × Second Brain 1500 Conversations</strong>
+</p>
+<p>
+知识卡片 <code>second-brain-1500-conversations.md</code> 描述了 leopardracer 的第二大脑系统——1500 次对话喂入 Karpathy Wiki 方法，生成 4 种 Agent（Post/Build/Stoic/Note）每 6 小时更新。这与 addyosmani/agent-skills 的范式完全一致：都是把"知识"结构化为 Agent 可执行的"技能"。
+</p>
+<p>
+leopardracer 的系统是个人版（"我的 238 篇文章、1391 次对话"），agent-skills 是团队/社区版（"Google 工程实践"）。两者合并的方向是：个人第二大脑 + 团队工程技能 = 超级个体。
+</p>
+<p>
+<strong>关联 4：RuView × FDE 模式</strong>
+</p>
+<p>
+RuView 的 WiFi 感知技术对 FDE 场景有直接应用价值。在某跨国消费品巨头的工厂/仓库环境中，RuView 可以提供：
+</p>
+<ul>
+<li>无摄像头的人员监控（隐私合规）</li>
+<li>实时定位工人位置（安全优化）</li>
+<li>生命体征监测（健康保障）</li>
+</ul>
+<p>
+这与 FDE 的"混编纵队"模式结合：FDE 团队负责定义业务场景，RuView 类技术提供环境感知输入，LeRobot 机器人执行物理操作。
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>1. DCM Ventures 投资 APTSell（AI CSO 赛道）</h3>
+<p>
+<strong>信号强度</strong>：🟠 强
+</p>
+<p>
+DCM 是顶级 VC，选择 AI CSO 赛道说明：
+</p>
+<ul>
+<li>"AI 管理层"比"AI 执行层"更有商业价值</li>
+<li>销售管理是 AI 替代管理岗位的第一个大规模验证场景</li>
+<li>40% 业绩增长的数据如果可复现，这个赛道的 TAM 是千亿级</li>
+</ul>
+<p>
+<strong>投资策略</strong>：关注 APTSell 的竞品和后续融资。预测 12 个月内会出现 AI CFO、AI CMO 赛道的种子轮。
+</p>
+<h3>2. Anthropic 的 Fable/Mythos 分层发布模式</h3>
+<p>
+<strong>信号强度</strong>：🟠 强
+</p>
+<p>
+$10/$50 per million tokens 的定价 + 分层安全发布 = Anthropic 在建立"AI 安全即服务"的商业模式。Mythos 5 只面向政府和安全机构，这意味着 Anthropic 正在成为"AI 军火商"——最强武器只卖给盟友。
+</p>
+<p>
+<strong>投资策略</strong>：Anthropic 的估值逻辑正在从"模型公司"转向"安全基础设施公司"。关注 Project Glasswing 的后续发展。
+</p>
+<h3>3. LeRobot 生态的开源效应</h3>
+<p>
+<strong>信号强度</strong>：🟡 中
+</p>
+<p>
+Hugging Face 通过 LeRobot 正在建立具身智能的"安卓"——开源标准平台。EVO1 的 0.77B 参数量让个人开发者能参与，这会加速长尾创新。
+</p>
+<p>
+<strong>投资策略</strong>：关注 LeRobot 生态中出现的创业公司（类似 Android 生态中的手机厂商）。具身智能的"应用层"机会正在形成。
+</p>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<p>
+本期无 ArXiv 新采集。但 LeRobot v0.6.0 涉及的论文值得深入关注：
+</p>
+<h3>VLA-JEPA 方法论拆解</h3>
+<p>
+VLA-JEPA 的核心创新是联合训练 VLA 和 JEPA 世界模型：
+</p>
+<ul>
+<li>训练时：模型同时学习动作策略和世界模型（在潜空间中预测未来帧）</li>
+<li>推理时：世界模型消失，只保留动作策略</li>
+<li>结果：零额外推理成本获得世界模型的泛化收益</li>
+</ul>
+<p>
+这与 Yann LeCun 长期倡导的 JEPA（Joint Embedding Predictive Architecture）理念一致——在潜空间预测，而不是在像素空间。LeRobot v0.6.0 是 JEPA 在机器人领域的第一次大规模工程实现。
+</p>
+<h3>Robometer 的方法论</h3>
+<p>
+Robometer 基于 Qwen3-VL-4B，通过 100 万+ 机器人轨迹的轨迹对比训练。关键设计：输入是原始视频 + 语言指令，输出是任务进度和成功状态评估。无需特定任务训练——这是"通用奖励模型"的第一次实现。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察 1：AI Agent 正在从"个人工具"进化为"组织角色"</h3>
+<p>
+APTSell 的 AI CSO、agent-skills 的生产级技能、LeRobot 的机器人策略——这三件事的共同主题是：AI 不再只是"帮你做事"，而是"替代一个角色"。
+</p>
+<ul>
+<li>APTSell：AI 替代销售 VP 角色</li>
+<li>agent-skills：AI 从"通用助手"变成"加载特定技能的专家"</li>
+<li>LeRobot：机器人从"遥控操作"变成"自主决策"</li>
+</ul>
+<p>
+<strong>因果链</strong>：AI Agent 角色化 → 企业组织架构重塑 → "人+AI"的混合团队成为标准 → FDE 模式从"实验"变成"默认"。
+</p>
+<h3>洞察 2：Context Engineering 正在成为 AI 工程的核心学科</h3>
+<p>
+从 Anthropic 的 8x 产出文章到 agent-skills 到 LeRobot 的世界模型，所有突破都指向同一个方向：<strong>更好的上下文 > 更多的计算</strong>。
+</p>
+<ul>
+<li>Anthropic：给 Claude 更好的上下文结构 → 8x 产出</li>
+<li>agent-skills：给编码 Agent 结构化的工程技能 → 生产级输出</li>
+<li>LeRobot：给机器人世界模型上下文 → 泛化能力飞跃</li>
+</ul>
+<p>
+<strong>预测</strong>：2026 年下半年，"Context Engineer"会成为热门职位。这不是 prompt engineer 的升级，而是一个全新角色——设计 AI 系统的信息输入结构。
+</p>
+<p>
+<strong>具体证据</strong>：
+</p>
+<ul>
+<li>Anthropic 的 Context Engineering 系统让同样团队的产出提升 8 倍（不增加人手、不升级模型）</li>
+<li>agent-skills 的 31K star 证明开发者社区已经接受"结构化上下文 > 即兴 prompt"的范式</li>
+<li>LeRobot 的世界模型本质上是给机器人一个"上下文引擎"——让它理解物理世界的因果关系</li>
+<li>Stop Ranking Agent Configs 文章指出：评估 Agent 配置需要更精细的方法，因为上下文质量差异会导致平均分掩盖极端失败</li>
+</ul>
+<p>
+这意味着：未来最有价值的 AI 人才不是"会写 prompt 的人"，而是"会设计上下文架构的人"——知道给 AI 看什么文件、不看什么文件、如何组织信息层级、如何设置验证标准。
+</p>
+<h3>洞察 3：WiFi 感知可能是被低估的传感器赛道</h3>
+<p>
+RuView 用 $9 的 ESP32 实现了穿墙人员检测和生命体征监测。如果这个技术成熟，它会颠覆多个行业：
+</p>
+<ul>
+<li>智能家居：无需摄像头的全屋感知</li>
+<li>养老护理：无感生命体征监测</li>
+<li>安防：隐私友好的入侵检测</li>
+<li>零售：店内客流分析（无需摄像头）</li>
+</ul>
+<p>
+<strong>关键数据点</strong>：$9/节点的硬件成本意味着大规模部署的经济门槛极低。RuView 的 v2 编码器时序三元组准确率达到 82.3%（从 66.4% 提升），虽然还不完美，但已经跨过了"可用"的门槛。随着更多训练数据加入，准确率会持续提升。
+</p>
+<hr>
+<h2>🎯 大胆预判</h2>
+<h3>预判 1：12 个月内，"AI CXO"赛道会出现 10+ 创业公司</h3>
+<p>
+<strong>置信度：85%</strong>
+</p>
+<p>
+因果链：APTSell 验证了 AI CSO 的商业模式 → DCM 的投资信号被其他 VC 读取 → 各管理职能的 AI 替代方案涌现 → AI CFO（财务预测+决策）、AI CMO（营销策略+执行）、AI COO（运营优化+调度）密集出现。
+</p>
+<h3>预判 2：18 个月内，SKILL.md 或类似格式成为 AI 编码工具的标准</h3>
+<p>
+<strong>置信度：90%</strong>
+</p>
+<p>
+因果链：Addy Osmani（31K star）背书 → Claude Code/Cursor/Codex 全部支持 → 开发者习惯形成 → "Agent 技能市场"出现 → 类似 npm 之于 Node.js，技能市场之于 AI Agent。
+</p>
+<h3>预判 3：6 个月内，LeRobot 的 GitHub star 突破 50K</h3>
+<p>
+<strong>置信度：75%</strong>
+</p>
+<p>
+因果链：v0.6.0 的世界模型 + 奖励模型 + 标准化评估 → 成为具身智能事实标准 → EVO1 的 0.77B 参数引爆社区 → 各大学/公司基于 LeRobot 发论文/产品 → star 快速增长。
+</p>
+<h3>预判 4：24 个月内，WiFi 感知技术进入主流智能家居产品</h3>
+<p>
+<strong>置信度：60%</strong>
+</p>
+<p>
+因果链：RuView 证明技术可行性 → ESP32 生态成熟 → 智能家居厂商（小米/涂鸦/Aqara）集成 → "无摄像头全屋感知"成为卖点 → 隐私法规推动摄像头替代需求。
+</p>
+<h3>预判 5：Anthropic 的 Fable/Mythos 分层模式会在 12 个月内被 OpenAI 和 Google 复制</h3>
+<p>
+<strong>置信度：80%</strong>
+</p>
+<p>
+因果链：Anthropic 建立"同一模型不同安全等级"的发布范式 → 监管压力要求其他实验室提供类似机制 → OpenAI 推出"GPT-X/GPT-X Shield" → Google 推出"Gemini-Ultra/Gemini-Ultra Gov" → 分层发布成为行业标准。
+</p>
+<hr>
+<h2>🎨 自由发挥</h2>
+<h3>"代码成本趋零"时代的生存指南</h3>
+<p>
+今天三条看似不相关的新闻（Fable 5 定价、agent-skills 31K star、APTSell AI CSO）指向同一个底层趋势：<strong>代码生成成本正在趋零，但审查能力和决策能力成为瓶颈</strong>。
+</p>
+<p>
+Anthropic 的 Context Engineering 文章说得很清楚：同样的团队、同样的模型、同样的硬件，只是上下文结构变了，产出就提升了 8 倍。这意味着瓶颈从来不是"AI 能不能写代码"，而是"你能不能给 AI 足够好的上下文让它写出正确的代码"。
+</p>
+<p>
+这对 负责人的 FDE 实践意味着什么？
+</p>
+<p>
+FDE 的核心不是"让工程师去前线"，而是"让 AI 获得前线的上下文"。当代码成本趋零时，竞争优势来自：
+1. <strong>上下文质量</strong>：谁能给 AI 更好的业务上下文（客户痛点、市场数据、组织约束）
+2. <strong>验证能力</strong>：谁能更快验证 AI 输出的正确性（这就是 agent-skills 的验证门）
+3. <strong>决策框架</strong>：谁能让 AI 承担更高层级的决策（这就是 APTSell 的 AI CSO）
+</p>
+<p>
+<strong>一句话总结</strong>：2026 年的竞争优势不是"谁有最好的 AI"，而是"谁能给 AI 最好的上下文"。Context is the new code.
+</p>
+<hr>
+<h3>给 负责人的行动清单</h3>
+<p>
+基于今天的资讯，以下是具体可执行的行动建议：
+</p>
+<p>
+<strong>本周内（Q3 2026 W28）</strong>：
+1. 在 Multica Agent Team 中测试 SKILL.md 格式——把 Addy Osmani 的验证门和反合理化表移植到 Multica 的 5 人团队中。具体操作：下载 agent-skills，提取 <code>/review</code> 和 <code>/test</code> 两个技能文件，适配为 Multica QA Agent 的指令。
+2. 评估 LeRobot EVO1（0.77B）在 RTX 4090 上的运行可行性——如果能在本地跑通，就具备了具身智能实验的基础条件。
+</p>
+<p>
+<strong>本月内</strong>：
+3. 研究 APTSell 的 AI CSO 架构——它如何把"销售管理决策"拆解为 AI 可执行的任务链。这个模式可以直接映射到 FDE 场景：FDE 团队的管理决策也可以被结构化、可计算化。
+4. 在 LLM Wiki 中建立"Context Engineering"主题卡片——把 Anthropic 的 8x 产出方法论、agent-skills 的结构化技能、LeRobot 的世界模型统一到一个知识框架下。
+</p>
+<p>
+<strong>本季度内</strong>：
+5. 构建"WiFi 感知 + LeRobot + Hermes"的概念验证——在某跨国消费品巨头 FDE 场景中，用 RuView 类技术做环境感知输入，LeRobot 做物理操作，Hermes 做决策管理。这是一个完整的"具身 FDE"闭环。
+</p>
+<h3>思维模型：AI 时代的"三层蛋糕"</h3>
+<p>
+今天的资讯让我想到一个思维模型。AI 产业正在形成一个"三层蛋糕"结构：
+</p>
+<p>
+<strong>底层：基础设施层</strong>
+</p>
+<ul>
+<li>模型提供商（Anthropic/OpenAI/Google）</li>
+<li>训练框架（LeRobot/PyTorch）</li>
+<li>硬件（NVIDIA/ESP32）</li>
+<li>特征：赢家通吃，护城河极深</li>
+</ul>
+<p>
+<strong>中层：技能/上下文层</strong>
+</p>
+<ul>
+<li>Agent Skills（addyosmani/agent-skills）</li>
+<li>Context Engineering（Anthropic 的方法论）</li>
+<li>第二大脑（Karpathy Wiki + Hermes）</li>
+<li>特征：标准化趋势明显，先发者定义格式</li>
+</ul>
+<p>
+<strong>顶层：应用/角色层</strong>
+</p>
+<ul>
+<li>APTSell AI CSO</li>
+<li>60 Opus Workflows</li>
+<li>FDE 团队</li>
+<li>特征：最接近商业价值，但依赖中层的标准化</li>
+</ul>
+<p>
+<strong>关键洞察</strong>：负责人的位置应该在"中层"和"顶层"之间。不做基础设施（那是巨头的游戏），而是利用中层标准化（SKILL.md、Context Engineering）来构建顶层应用（FDE、AI 创业）。
+</p>
+<p>
+这就是为什么 agent-skills 的 31K star 比 Fable 5 的发布更重要——它标志着"中层"正在标准化，标准化意味着上层应用可以规模化构建。
+</p>
+<h3>明日关注</h3>
+<ul>
+<li>LeRobot v0.6.0 社区反馈和首批复现结果</li>
+<li>Claude Fable 5 的更多用户评测（特别是安全限制的边界案例）</li>
+<li>APTSell 的客户案例和竞品动态</li>
+<li>GitHub Trending 上 agent-skills 生态的新贡献</li>
+<li>RuView 项目的发展——如果 ESP32 生态成熟，这是一个低成本高回报的传感器方向</li>
+</ul>
+<hr>
+<p>
+<em>本报告由 Hermes Agent 自动生成 | 数据来源：GitHub Trending / RSS / YouTube / HuggingFace Blog</em>
+<em>知识关联：LLM Wiki 最近 5 张卡片（60 Opus Workflows / Second Brain 1500 Conversations / Anthropic 8x Context Engineering / Claude Agent Playbook / Loop Harness Guide）</em>
+</p>
             </div>
         </article>
 
