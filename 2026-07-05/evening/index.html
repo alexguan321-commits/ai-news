@@ -37,43 +37,683 @@
             <header class="report-header">
                 <h1>0705-晚报</h1>
                 <div class="meta">
-                    <time>2026-07-05 21:04:05 +0800</time>
+                    <time>2026-07-05 08:00:00 +0800</time>
                     <span class="report-type type-evening">晚报</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                 </div>
             </header>
 
-            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-05-evening.jpg" alt="Cover"></div>
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-05-evening.png" alt="Cover"></div>
 
             <div class="content">
-                <h2>Response</h2>
+                <h1>0705晚报 | AI编程Agent基础设施大爆发，Harness工程时代来临</h1>
+<blockquote><p>采集时间：2026-07-05 21:00 CST | 数据源：GitHub Trending | 新增条目：8条</p></blockquote>
+<blockquote><p>本期关键词：<strong>AI Coding Agent 基础设施、持久化规划、Agent 多路复用、品味工程、免费LLM资源</strong></p></blockquote>
+<hr>
+<h2>📌 今日最重要的一件事</h2>
+<h3>GitHub Trending 被 AI Coding Agent 基础设施项目全面占领——这标志着"Agent 工程"正式从实验阶段进入工业化阶段</h3>
 <p>
-✅ <strong>0705 晚报已完成并发布</strong>
+<strong>大胆预判：18个月内，"AI Coding Agent"将从个人开发者的效率工具变成企业IT部门的标准配置。不会部署Agent基础设施的IT团队，将像2015年不会写Docker的团队一样被淘汰。</strong>
 </p>
 <p>
-<strong>标题：</strong> <code>0705晚报 | AI Coding Agent进入基建时代</code>
+今天 GitHub Trending 的 8 个项目中，至少 6 个直接服务于 AI Coding Agent 的工程化落地：
 </p>
 <p>
-<strong>核心发现：</strong> 今日 GitHub Trending 8 个项目中 6 个是 AI Agent 工程化基础设施——planning-with-files（持久化规划）、plannotator（计划可视化审查）、oh-my-pi（终端 AI Agent）、herdr（Agent 多路复用）、taste-skill（品味注入）、postiz-app（Agentic 社交媒体）。这是昨日「Vibe Coding 已死」叙事的直接延续：社区正在从「能力竞赛」转向「基建竞赛」。
+1. <strong>planning-with-files</strong> — 持久化文件规划系统，让 Agent 的规划在崩溃后存活
+2. <strong>plannotator</strong> — 可视化审查 Agent 的规划和代码 diff，团队协作层
+3. <strong>oh-my-pi</strong> — 终端 AI Coding Agent，hash-anchored 编辑、LSP、子代理
+4. <strong>herdr</strong> — Agent 多路复用器，在终端中管理多个 Agent
+5. <strong>taste-skill</strong> — 给 AI 注入"品味"，防止生成无聊的通用内容
+6. <strong>postiz-app</strong> — Agent 驱动的社交媒体调度工具
 </p>
 <p>
-<strong>关键预判：</strong>
+这不是巧合。这是一个信号。
+</p>
+<p>
+<strong>因果链分析：</strong>
+</p>
+<p>
+A（模型能力溢出）→ B（单 Agent 能完成的任务复杂度大幅提升）→ C（但多 Agent 协调、状态持久化、质量控制的工具链缺失）→ D（GitHub 社区集中填补这些基础设施缺口）→ E（6-12个月内，Agent 基础设施标准化，企业大规模部署成为可能）→ F（传统"写代码"的开发者角色加速向"Agent Harness 工程师"转型）
+</p>
+<p>
+<strong>为什么这是最重要的事？</strong>
+</p>
+<p>
+因为上周我们刚入库了 Anthropic 的 Context Engineering 系统（Anthropic 工程师 8x 产出）和 Loop/Harness Engineering 的 7 文件 5 步方法论。今天 GitHub Trending 的数据证明：这些方法论正在被快速产品化。从"方法论"到"开源工具"的转化周期只有 1-2 周。这意味着扩散速度极快。
+</p>
+<p>
+<strong>对某跨国消费品巨头 FDE 团队的启示：</strong>
+</p>
+<p>
+FDE 团队的核心工作不是"写代码"，而是构建 Agent 的 Harness（权限、工具、上下文管理）和 Loop（目标、验证、状态）。今天 Trending 的 planning-with-files 和 plannotator 正好对应 Harness 层的两个关键组件：持久化状态管理和人类审查接口。建议在 Q3 前为 FDE 团队搭建基于这些开源组件的 Agent 工作流原型。
+</p>
+<p>
+<strong>对 AI 创业的启示：</strong>
+</p>
+<p>
+Claude Agent Playbook（本周入库的知识卡片）明确指出：2026年 AI 创业的核心不是"造 Agent"，而是"卖 Agent 产出的结果"。planning-with-files、plannotator 这类工具的出现，意味着构建可靠 Agent 的门槛在急剧下降。6个月内，"帮企业部署 AI Agent"的服务市场将爆发。
+</p>
+<p>
+🔗 <a href="https://github.com/trending" target="_blank" rel="noopener noreferrer">来源：GitHub Trending</a>
+</p>
+<hr>
+<h2>🔥 必看</h2>
+<h3>🔴 1. planning-with-files：AI Agent 的"黑匣子"——为什么持久化规划是 Agent 可靠性的关键缺失拼图</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/OthmanAdi/planning-with-files" target="_blank" rel="noopener noreferrer">OthmanAdi/planning-with-files</a>
+<strong>语言：</strong> Python | <strong>Trending：</strong> Python 榜
+</p>
+<h4>深度分析</h4>
+<p>
+这个项目解决了一个被严重低估的问题：<strong>AI Coding Agent 的规划在崩溃后消失</strong>。
+</p>
+<p>
+当前主流的 AI Coding Agent（Claude Code、Cursor、Copilot Workspace）都有一个致命缺陷：它们的"思考过程"存在于对话上下文中。一旦会话中断、上下文窗口溢出、或者 Agent 需要跨多个 session 工作，之前精心制定的计划就消失了。Agent 每次重启都要从零开始理解任务。
+</p>
+<p>
+planning-with-files 的方案极其简洁但极其有效：<strong>把规划写成 Markdown 文件，持久化到磁盘</strong>。每次 Agent 启动时，先读取规划文件，恢复上下文，然后继续执行。
+</p>
+<p>
+这看似简单，但它实际上解决了 Agent 工程中的一个根本性问题：<strong>状态持久化</strong>。
+</p>
+<h4>因果链</h4>
+<p>
+A（Agent 任务复杂度上升，单次 session 无法完成）→ B（Agent 需要跨 session 工作）→ C（但对话上下文是有状态的，session 结束就消失）→ D（需要外部持久化机制保存规划状态）→ E（planning-with-files 用 Markdown 文件实现这一点）→ F（Agent 可靠性大幅提升，可以处理天级别的任务）→ G（企业开始信任 Agent 处理关键业务流程）
+</p>
+<h4>与知识库的关联</h4>
+<p>
+这直接验证了我们在 Loop/Harness Engineering 知识卡片中学到的核心原则：<strong>"Harness 是地板，Loop 是建筑"</strong>。planning-with-files 就是 Harness 层的关键组件——它提供了状态持久化的"地板"，让 Loop（目标→行动→验证→记忆→决策）可以在多次迭代中稳定运行。
+</p>
+<p>
+同时，Anthropic 的 Context Engineering 系统告诉我们：修剪+摘要策略把 token 从 1.48M 降到 553K，完成度从 71% 提升到 91.6%。planning-with-files 本质上是一种更激进的上下文管理——它不是修剪上下文，而是把上下文外化到文件系统。
+</p>
+<h4>预测</h4>
+<p>
+<strong>12个月内，所有主流 AI Coding Agent 都将内置持久化规划功能。这不是差异化特性，这是基础设施。</strong> 没有持久化规划的 Agent 将被视为"玩具级"工具。
+</p>
+<p>
+<strong>策略建议：</strong> 如果你在构建 Agent 产品，现在就把持久化规划作为核心功能。如果你在使用 Agent，今天就配置一个 planning-with-files 类似的工作流。
+</p>
+<hr>
+<h3>🔴 2. plannotator：人类审查 Agent 规划的可视化界面——Agent 协作的"最后一公里"</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener noreferrer">backnotprop/plannotator</a>
+<strong>语言：</strong> TypeScript | <strong>Trending：</strong> TypeScript 榜
+</p>
+<h4>深度分析</h4>
+<p>
+plannotator 解决的是 Agent 工程中最被忽视的问题：<strong>人类如何有效审查 Agent 的工作？</strong>
+</p>
+<p>
+当前 Agent 工作流的典型模式是：Agent 生成代码 → 人类读 diff → 人类决定是否接受。但这有一个根本问题：<strong>人类看不到 Agent 的决策过程</strong>。你只看到最终输出，不知道 Agent 为什么选择这个方案、考虑了哪些替代方案、放弃了什么。
+</p>
+<p>
+plannotator 的方案是：<strong>可视化 Agent 的规划和代码 diff，让团队可以在规划层面提供反馈，而不只是在代码层面</strong>。这相当于给 Agent 工作流加了一个"设计评审"环节。
+</p>
+<h4>因果链</h4>
+<p>
+A（Agent 生成的代码量爆发）→ B（人类审查能力成为瓶颈）→ C（只看 diff 不够，需要理解 Agent 的规划意图）→ D（plannotator 提供规划可视化 + 团队协作 + 一键反馈）→ E（人类审查效率提升 3-5x）→ F（Agent 可以处理更大规模的任务，因为审查不再是瓶颈）→ G（Agent 的角色从"辅助编码"升级为"独立开发者"）
+</p>
+<h4>与知识库的关联</h4>
+<p>
+Anthropic Context Engineering 系统的一个核心原则是：<strong>"写代码的 agent ≠ 检查代码的 agent（Maker-checker 分离）"</strong>。plannotator 正是这个原则的产品化实现——它提供了一个独立的审查界面，让人类（或另一个 Agent）可以在不干扰 Agent 工作的情况下审查其规划和输出。
+</p>
+<p>
+Claude Agent Playbook 中也强调：<strong>"设置监控——即使是简单的每日日志邮件，让客户看到 agent 在运行。"</strong> plannotator 就是这个"监控"的企业级版本。
+</p>
+<h4>预测</h4>
+<p>
+<strong>18个月内，"Agent 规划审查"将成为软件工程团队的标准实践。就像代码审查（Code Review）在 2010 年代成为标配一样，Agent 规划审查（Plan Review）将在 2027 年成为标配。</strong>
+</p>
+<p>
+不会做 Plan Review 的团队，将像不会做 Code Review 的团队一样，产出质量低下、bug 频发。
+</p>
+<p>
+<strong>策略建议：</strong> 在你的团队中引入 Agent 规划审查流程。不需要等 plannotator 成熟——用 Markdown 文件 + PR 评论就能开始。关键是建立"审查 Agent 规划"的习惯。
+</p>
+<hr>
+<h3>🟠 3. oh-my-pi：终端 AI Coding Agent 的全栈实现——hash-anchored 编辑的启示</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/can1357/oh-my-pi" target="_blank" rel="noopener noreferrer">can1357/oh-my-pi</a>
+<strong>语言：</strong> TypeScript | <strong>Trending：</strong> TypeScript 榜
+</p>
+<h4>深度分析</h4>
+<p>
+oh-my-pi 是一个终端 AI Coding Agent，但它的技术选择值得深入分析：
+</p>
+<p>
+1. <strong>Hash-anchored edits</strong>：用哈希值锚定编辑位置，而不是行号。这解决了 LLM 编辑代码时的一个经典问题——行号漂移导致编辑错位。
+2. <strong>LSP 集成</strong>：内置 Language Server Protocol，让 Agent 可以理解代码结构（函数定义、类型信息、引用关系），而不是把代码当纯文本处理。
+3. <strong>子代理支持</strong>：可以生成子代理处理子任务，实现任务分解。
+4. <strong>浏览器集成</strong>：Agent 可以操作浏览器，处理前端调试、API 测试等任务。
+</p>
+<p>
+这些技术选择的组合揭示了一个趋势：<strong>AI Coding Agent 正在从"文本生成器"进化为"真正的开发环境感知者"</strong>。
+</p>
+<h4>Hash-Anchored Edits 的技术深度</h4>
+<p>
+传统的 LLM 代码编辑方式是：LLM 输出"在第 N 行插入 X"。但当前面的编辑改变了行号后，后续编辑就会错位。oh-my-pi 的方案是给每个代码块计算哈希值，编辑指令变成"在哈希为 ABC123 的代码块后插入 X"。这样即使行号变化，只要代码块内容没变，编辑就能正确定位。
+</p>
+<p>
+这个思路与 Git 的内容寻址（content-addressable）哲学一致。它暗示了一个更深层的趋势：<strong>未来的代码编辑将基于语义而非语法</strong>。
+</p>
+<h4>与知识库的关联</h4>
+<p>
+Loop/Harness Engineering 知识卡片中提到：<strong>"Skills 决定 loop 是否能特化"</strong>。oh-my-pi 的 LSP 集成本质上是一种 Skill——它让 Agent 具备了理解代码结构的能力，而不是每次都从零解析文本。
+</p>
+<h4>预测</h4>
+<p>
+<strong>12个月内，hash-anchored editing 将成为所有 AI Coding Agent 的标准编辑模式。基于行号的编辑将被淘汰。</strong>
+</p>
+<p>
+<strong>策略建议：</strong> 如果你在构建 AI Coding Agent，立即研究 content-addressable editing。这是编辑可靠性的关键突破。
+</p>
+<hr>
+<h3>🟠 4. herdr：Agent 多路复用器——终端里的 Agent 编排层</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/ogulcancelik/herdr" target="_blank" rel="noopener noreferrer">ogulcancelik/herdr</a>
+<strong>语言：</strong> TypeScript | <strong>Trending：</strong> 全语言榜
+</p>
+<h4>深度分析</h4>
+<p>
+herdr 的定位极其精准：<strong>它是一个 Agent 多路复用器（multiplexer），运行在终端中</strong>。
+</p>
+<p>
+这意味着什么？意味着一个开发者可以同时运行多个 Agent，herdr 负责管理它们的路由、状态和输出。这就像 tmux 管理多个终端会话一样，herdr 管理多个 Agent 会话。
+</p>
+<h4>因果链</h4>
+<p>
+A（Agent 任务越来越复杂，单个 Agent 不够）→ B（需要同时运行多个 Agent 协作）→ C（但手动管理多个 Agent 会话极其混乱）→ D（herdr 提供多路复用：路由、状态管理、输出聚合）→ E（开发者可以高效管理 5-10 个并行 Agent）→ F（Agent 从"单兵作战"进化为"编队协作"）→ G（生产力从 1 Agent = 2x 开发者，跃升到 5 Agent = 20x 开发者）
+</p>
+<h4>与知识库的关联</h4>
+<p>
+60 Opus Workflows 知识卡片中列出了 60 个自动化工作流，但隐含了一个未解决的问题：<strong>如何同时运行这些工作流？</strong> herdr 就是这个"同时运行"的基础设施。
+</p>
+<p>
+Claude Agent Playbook 中的"自动化代理"模式（持续的 agent 基础设施 + 支持）也需要 herdr 这样的编排层来管理多个长期运行的 Agent。
+</p>
+<h4>预测</h4>
+<p>
+<strong>18个月内，"Agent 多路复用"将成为开发者工作站的标配。就像每个开发者都用 tmux/screen 一样，未来每个开发者都用 Agent multiplexer。</strong>
+</p>
+<p>
+<strong>策略建议：</strong> 如果你已经在运行多个 Agent（比如 Hermes 的 cron job + 交互式 Agent），开始思考如何系统化地编排它们。herdr 是一个起点，但最终你需要一个适合自己工作流的编排方案。
+</p>
+<hr>
+<h2>🐙 GitHub Trending 深度解析</h2>
+<h3>1. taste-skill：给 AI 注入"品味"——反 Slop 运动的技术实现</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/Leonxlnx/taste-skill" target="_blank" rel="noopener noreferrer">Leonxlnx/taste-skill</a>
+<strong>Trending：</strong> 全语言榜
+</p>
+<h4>为什么重要</h4>
+<p>
+taste-skill 的 README 只有一句话：<strong>"gives your AI good taste. stops the AI from generating boring, generic slop"</strong>。
+</p>
+<p>
+但这句话戳中了 AI 生成内容的一个核心痛点：<strong>当所有人都用 AI 生成内容时，AI 的默认输出就变成了"所有人都有的东西"——也就是毫无价值的东西</strong>。
+</p>
+<p>
+taste-skill 的方案是通过某种机制（可能是 prompt 工程、fine-tuning、或检索增强）给 AI 注入"品味"——让它生成的内容有独特性、有风格、有判断力。
+</p>
+<h4>因果链</h4>
+<p>
+A（AI 生成内容泛滥）→ B（默认输出 = 通用输出 = 无差异化）→ C（差异化需要"品味"——知道什么好、什么不好、为什么）→ D（taste-skill 把"品味"编码为可复用的技能/配置）→ E（使用 taste-skill 的 Agent 产出有辨识度的内容）→ F（内容差异化成为竞争优势）→ G（"品味工程"成为 AI 工程的新分支）
+</p>
+<h4>与知识库的关联</h4>
+<p>
+这直接关联到 Anthropic Context Engineering 的核心理念：<strong>上下文不只是信息，还是品味</strong>。你给 Agent 的上下文决定了它输出的"品味"。taste-skill 本质上是把品味显式化、可配置化。
+</p>
+<p>
+Second Brain 知识卡片中的 leopardracer 用 1,500 个对话训练了自己的 AI 系统，让它能生成"像他写的"内容。这就是 taste-skill 的个人化版本——用个人历史数据注入品味。
+</p>
+<h4>预测</h4>
+<p>
+<strong>12个月内，"品味工程"（Taste Engineering）将成为 AI 内容创作的核心竞争力。"Prompt Engineering"会进化为"Taste Engineering"——不只是告诉 AI 做什么，而是告诉它什么是好的。</strong>
+</p>
+<p>
+<strong>策略建议：</strong> 为你的 AI 系统建立"品味库"——收集你认为好的输出样本，标注为什么好，作为 Agent 的参考标准。这比写更好的 prompt 更有效。
+</p>
+<hr>
+<h3>2. free-llm-api-resources：免费 LLM 推理资源大全——AI 民主化的基础设施</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/cheahjs/free-llm-api-resources" target="_blank" rel="noopener noreferrer">cheahjs/free-llm-api-resources</a>
+<strong>Trending：</strong> Python 榜
+</p>
+<h4>为什么重要</h4>
+<p>
+这个项目列出了所有可以免费使用的 LLM API 推理资源。在 AI 成本日益成为门槛的今天（GPT-4 级别模型每次调用几美分，高频使用每月数百美元），免费资源的汇总具有战略价值。
+</p>
+<h4>对创业者的意义</h4>
+<p>
+Claude Agent Playbook 中明确指出：AI 创业的第一原则是<strong>"先验证，再投入"</strong>。免费 LLM 资源让你可以零成本验证 Agent 工作流，确认产出质量后再切换到付费模型。这把创业的试错成本降到了零。
+</p>
+<h4>预测</h4>
+<p>
+<strong>6个月内，免费 LLM 推理资源的总量将翻倍。模型厂商将把免费层作为获客的主要手段，就像云计算的免费层一样。</strong>
+</p>
+<hr>
+<h3>3. postiz-app：Agent 驱动的社交媒体调度——内容自动化的产品化</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/gitroomhq/postiz-app" target="_blank" rel="noopener noreferrer">gitroomhq/postiz-app</a>
+<strong>Trending：</strong> TypeScript 榜
+</p>
+<h4>为什么重要</h4>
+<p>
+postiz-app 把自己定位为"the ultimate agentic social media scheduling tool"。关键词是 <strong>agentic</strong>——不是简单的定时发布，而是 Agent 驱动的内容策划、生成、调度全流程。
+</p>
+<h4>因果链</h4>
+<p>
+A（社交媒体需要持续的内容输出）→ B（手动创作 + 发布消耗大量时间）→ C（Agent 可以自动化：内容策划 → 生成 → 调度 → 发布）→ D（postiz-app 把这个流程产品化）→ E（个人创作者和小团队的产出能力提升 5-10x）→ F（社交媒体内容竞争加剧）→ G（"品味"和"独特视角"成为最后的差异化壁垒）
+</p>
+<h4>与知识库的关联</h4>
+<p>
+60 Opus Workflows 中的 Content Machines 类别（工作流 1-5）正是 postiz-app 在做的事情：ingest and publish pipeline、competitor monitor、repurposing engine、SEO cluster builder、newsletter autopilot。
+</p>
+<p>
+这验证了 Claude Agent Playbook 的核心观点：<strong>"持久的业务都是窄的"</strong>。postiz-app 不做什么都能做的 Agent，它只做社交媒体调度——但做到极致。
+</p>
+<hr>
+<h3>4. outline：最快的团队知识库——知识管理的开源标杆</h3>
+<p>
+<strong>项目：</strong> <a href="https://github.com/outline/outline" target="_blank" rel="noopener noreferrer">outline/outline</a>
+<strong>Trending：</strong> TypeScript 榜
+</p>
+<h4>为什么重要</h4>
+<p>
+outline 再次登上 Trending，说明团队知识管理的需求持续旺盛。在 AI Agent 时代，知识库不只是给人用的——Agent 也需要读取和写入知识库。outline 的 Markdown 兼容、API 优先设计，让它成为 Agent 知识管理的理想后端。
+</p>
+<h4>与知识库的关联</h4>
+<p>
+Second Brain 知识卡片中的 leopardracer 用 Obsidian 作为知识库后端，让 Agent 读写笔记。outline 是团队版的 Obsidian——当 Agent 需要与整个团队共享知识时，outline 是更好的选择。
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>🟡 1. AI Coding Agent 的"Harness 层"正在快速标准化</h3>
+<p>
+今天 Trending 的 6 个 Agent 相关项目，实际上在构建 Harness 层的不同组件：
+</p>
+<table>
+<thead><tr>
+<th>组件</th>
+<th>项目</th>
+<th>功能</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>状态持久化</td>
+<td>planning-with-files</td>
+<td>规划跨 session 存活</td>
+</tr>
+<tr>
+<td>人类审查</td>
+<td>plannotator</td>
+<td>可视化 Agent 规划</td>
+</tr>
+<tr>
+<td>编辑可靠性</td>
+<td>oh-my-pi</td>
+<td>hash-anchored edits</td>
+</tr>
+<tr>
+<td>多 Agent 编排</td>
+<td>herdr</td>
+<td>Agent 多路复用</td>
+</tr>
+<tr>
+<td>质量控制</td>
+<td>taste-skill</td>
+<td>品味注入</td>
+</tr>
+<tr>
+<td>领域应用</td>
+<td>postiz-app</td>
+<td>社交媒体自动化</td>
+</tr>
+</tbody></table>
+<p>
+<strong>趋势判断：2026 Q4 之前，这些组件中的大部分将被整合到主流 AI Coding Agent 平台中（Cursor、Claude Code、GitHub Copilot）。独立工具将要么被收购，要么变成小众市场。</strong>
+</p>
+<h3>🟡 2. "Agent 工程"正在分化为三个子领域</h3>
+<p>
+从今天 Trending 的项目分布来看：
+</p>
+<p>
+1. <strong>Harness Engineering</strong>（基础设施层）：planning-with-files, oh-my-pi, herdr
+2. <strong>Quality Engineering</strong>（质量控制层）：taste-skill, plannotator
+3. <strong>Domain Engineering</strong>（领域应用层）：postiz-app, outline
+</p>
+<p>
+这与 Loop/Harness Engineering 知识卡片中的分层完全一致。Agent 工程正在形成自己的技术栈，就像 Web 开发分化为前端、后端、基础设施一样。
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<p>
+本期采集数据中无具身智能相关内容。但 GitHub Trending 中的 oh-my-pi 项目值得具身智能关注者注意：它的<strong>浏览器集成</strong>能力意味着 Agent 可以操作 GUI——这是从"代码世界"到"视觉世界"的桥梁。
+</p>
+<p>
+<strong>趋势关联：</strong> Jim Fan 一直在推动的"Agent 需要感知和操作真实世界"的愿景，正在从两个方向同时推进：
+1. 自下而上：AI Coding Agent 开始集成浏览器操作（oh-my-pi）
+2. 自上而下：具身智能机器人开始集成 LLM 作为"大脑"
+</p>
+<p>
+<strong>18个月内，这两条路径将汇合——具备浏览器操作能力的 AI Agent 和具备语言理解能力的机器人将共享相同的技术栈。</strong>
+</p>
+<hr>
+<h2>🧠 第二大脑关联：今日新闻 vs 已有知识</h2>
+<h3>关联 1：Context Engineering → planning-with-files → Harness Engineering</h3>
+<p>
+<strong>知识卡片：</strong> Anthropic 8x Output（Context Engineering 系统）
+<strong>今日验证：</strong> planning-with-files 是 Context Engineering 的外化实现
+</p>
+<p>
+Anthropic 的 Context Engineering 系统通过"修剪+摘要"策略管理上下文（553K token → 91.6% 完成度）。planning-with-files 走得更远——它把上下文直接外化到文件系统，彻底解决了上下文窗口限制。
+</p>
+<p>
+<strong>新模式发现：</strong> Context Engineering 正在从"在窗口内管理上下文"进化为"把上下文外化到持久存储"。这是一个范式转变——从"有限的注意力"到"无限的外部记忆"。
+</p>
+<p>
+<strong>因果链：</strong> 有限的上下文窗口 → 上下文外化到文件 → Agent 可以处理无限复杂度的任务 → Agent 可靠性从"偶尔好用"变成"始终可靠" → 企业信任 Agent 处理关键业务
+</p>
+<h3>关联 2：60 Opus Workflows → herdr + postiz-app → 工作流编排</h3>
+<p>
+<strong>知识卡片：</strong> 60 Claude Opus 4.8 Workflows
+<strong>今日验证：</strong> herdr 和 postiz-app 是工作流编排的基础设施
+</p>
+<p>
+60 Workflows 列出了 60 个自动化工作流，但隐含了一个未解决的问题：如何同时运行和管理这些工作流？herdr（多路复用）和 postiz-app（领域应用）正在填补这个缺口。
+</p>
+<p>
+<strong>被验证的预测：</strong> 60 Workflows 中预测"Agent 将移除你的实时参与"。herdr 的存在证明这个趋势正在加速——你不再需要盯着一个 Agent，你可以同时运行多个。
+</p>
+<h3>关联 3：Second Brain → taste-skill → 个人化 AI 品味</h3>
+<p>
+<strong>知识卡片：</strong> Second Brain 1,500 Conversations
+<strong>今日验证：</strong> taste-skill 是 Second Brain 的"品味层"实现
+</p>
+<p>
+leopardracer 的 Second Brain 用 1,500 个对话训练了 AI 的"记忆"。taste-skill 更进一步——它不只记忆，还注入"品味"。这是从"AI 知道你写过什么"到"AI 知道你什么是好的"的跃升。
+</p>
+<p>
+<strong>新模式发现：</strong> Second Brain 的三个层次正在浮现：
+1. <strong>记忆层</strong>（Obsidian/LLM Wiki）：AI 知道你的历史
+2. <strong>思维层</strong>（Karpathy Wiki 方法）：AI 能建立连接、产生新想法
+3. <strong>品味层</strong>（taste-skill）：AI 知道什么是好的、什么是坏的
+</p>
+<h3>关联 4：Claude Agent Playbook → 全部 Trending 项目 → Agent 商业化</h3>
+<p>
+<strong>知识卡片：</strong> Claude Agent Playbook（2026 年围绕 AI Agent 建立真实业务）
+<strong>今日验证：</strong> 所有 Trending 项目都在降低 Agent 构建的门槛
+</p>
+<p>
+Playbook 指出"瓶颈不再是技术能力，而是清晰度"。今天 Trending 的项目进一步降低了技术门槛——当 planning-with-files 解决了状态持久化、plannotator 解决了审查、herdr 解决了编排，构建可靠 Agent 的技术挑战所剩无几。
+</p>
+<p>
+<strong>因果链：</strong> 技术门槛下降 → 更多人能构建 Agent → Agent 市场供给增加 → 差异化来自"清晰度"（知道自动化什么、如何打包、如何销售）→ Playbook 的"三种商业模式"框架变得更加重要
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>信号 1：Agent 基础设施层是下一个平台级机会</h3>
+<p>
+今天 Trending 的数据清楚地表明：Agent 基础设施正在快速成熟。这意味着：
 </p>
 <ul>
-<li>6 个月内「Agent Planning」成为独立品类</li>
-<li>12 个月内「Agent Plan Review」成为标准工作流</li>
-<li>24 个月内 Agent 基建公司会比 Agent 模型公司更值钱</li>
+<li><strong>短期（6个月）</strong>：Agent 基础设施创业窗口正在关闭。planning-with-files、herdr 等开源项目将覆盖大部分基础需求。</li>
+<li><strong>中期（12-18个月）</strong>：价值将向"Agent 平台"集中。谁能把这些零散的基础设施组件整合成一个统一平台，谁就是下一个 Vercel/Netlify。</li>
+<li><strong>长期（24个月）</strong>：Agent 平台的赢家将成为开发者工具领域的巨头。每个软件公司都需要 Agent 平台，就像每个软件公司都需要 CI/CD 一样。</li>
 </ul>
 <p>
-<strong>执行状态：</strong>
+<strong>投资方向：</strong> Agent 平台（类似 Heroku for Agents）、Agent 监控（类似 Datadog for Agents）、Agent 安全（Agent 权限管理和审计）
+</p>
+<h3>信号 2："品味"将成为 AI 内容赛道的核心壁垒</h3>
+<p>
+taste-skill 的 Trending 表明：市场已经意识到"AI 生成内容 = 通用内容 = 无价值"。未来的内容竞争将围绕"品味"展开。
+</p>
+<p>
+<strong>投资方向：</strong> 个人化 AI 训练（让 AI 学习你的品味）、品味评估服务（给 AI 输出打分）、品味数据市场（高质量品味样本的交易市场）
+</p>
+<h3>信号 3：免费 LLM 资源的战略价值</h3>
+<p>
+free-llm-api-resources 的 Trending 表明：开发者对 LLM 推理成本高度敏感。这意味着：
 </p>
 <ul>
-<li>✅ 报告保存至 `_posts/2026-07-05-evening.md`</li>
-<li>✅ 隐私过滤通过（0 处修改）</li>
-<li>✅ 封面图片提取成功（planning-with-files OG image）</li>
-<li>✅ 网站索引重新生成（77 篇报告，37 张知识卡片）</li>
-<li>✅ Git commit + push 完成（`c964e5e` → main）</li>
+<li>模型厂商的定价压力将持续增大</li>
+<li>"免费层"将成为获客标配</li>
+<li>推理优化（量化、蒸馏、推测解码）的投资回报将持续上升</li>
 </ul>
+<p>
+<strong>投资方向：</strong> 推理优化技术、边缘部署（在设备上运行 LLM）、模型压缩
+</p>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<p>
+本期无 ArXiv 新采集数据。
+</p>
+<p>
+<strong>但结合近期知识库中的关键论文引用：</strong>
+</p>
+<p>
+Loop/Harness Engineering 知识卡片引用了论文 <strong>"Less Context, Better Agents"（arXiv 2606.10209）</strong>，其核心发现是：
+</p>
+<ul>
+<li>过大的 standing context 导致任务完成度从 91.6% 降到 71%</li>
+<li>修剪+摘要策略把 token 从 1.48M 降到 553K，同时完成度提升 20.6%</li>
+<li>全历史上下文引入 3 个隐藏幻觉，修剪后幻觉归零</li>
+</ul>
+<p>
+<strong>这篇论文的方法论值得拆解：</strong>
+</p>
+<p>
+1. <strong>实验设计</strong>：控制变量是上下文策略（全历史 vs 修剪+摘要），因变量是任务完成度和幻觉率
+2. <strong>关键发现</strong>：更多上下文 ≠ 更好表现。存在一个"上下文甜蜜点"——足够理解任务，但不足以迷失在细节中
+3. <strong>机制解释</strong>：过大的上下文导致注意力稀释（attention dilution）——模型在海量信息中找不到关键决策点
+4. <strong>实践建议</strong>：CLAUDE.md 控制在 300 行以内，每周修剪
+</p>
+<p>
+<strong>与今日 Trending 的关联：</strong> planning-with-files 的外化策略是这篇论文的极端版本——不只是修剪上下文，而是把上下文完全移出对话窗口，只在需要时按需加载。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察 1：Agent 工程正在经历"Web 开发的 2012 时刻"</h3>
+<p>
+2012 年的 Web 开发：零散的工具（jQuery、Bootstrap、Heroku、AWS）、快速演化的最佳实践、每周都有新框架。
+2026 年的 Agent 工程：零散的工具（planning-with-files、plannotator、herdr、oh-my-pi）、快速演化的最佳实践（Harness Engineering、Context Engineering、Loop Engineering）、每周都有新框架。
+</p>
+<p>
+<strong>历史类比的价值：</strong> 2012 年之后，Web 开发经历了三个阶段的整合：
+1. <strong>框架整合</strong>（React/Angular/Vue 统一了前端）
+2. <strong>平台整合</strong>（Vercel/Netlify 统一了部署）
+3. <strong>工具链整合</strong>（VS Code 统一了编辑器）
+</p>
+<p>
+Agent 工程将经历同样的整合路径。<strong>18个月内，我们会看到 Agent 领域的"React 时刻"——一个统一框架的涌现。</strong>
+</p>
+<h3>洞察 2："人类审查"正在成为 Agent 系统的核心组件</h3>
+<p>
+plannotator 和 taste-skill 的 Trending 揭示了一个反直觉的趋势：<strong>Agent 越强大，人类审查越重要</strong>。
+</p>
+<p>
+这不是"Agent 不够好所以 human-in-the-loop"。而是"Agent 太强大所以必须有质量关卡"。就像自动驾驶 L4 级别仍然需要安全员一样，L4 级别的 AI Coding Agent 需要 Plan Reviewer。
+</p>
+<p>
+<strong>深层原因：</strong> Agent 的错误是系统性的——它不是随机犯错，而是在特定类型的任务上一致地犯错。这意味着没有审查的 Agent 会在你不知情的情况下持续犯同一类错误。审查不是成本，是保险。
+</p>
+<h3>洞察 3：终端正在成为 Agent 的主战场</h3>
+<p>
+8 个 Trending 项目中，至少 4 个是终端工具（oh-my-pi、herdr、planning-with-files、free-llm-api-resources 的 CLI 使用场景）。这反映了 AI Coding Agent 的一个关键选择：<strong>终端 vs IDE vs 浏览器</strong>。
+</p>
+<p>
+终端的优势：
+</p>
+<ul>
+<li>与现有开发工作流无缝集成</li>
+<li>资源消耗低，可以长期运行</li>
+<li>脚本化能力强，适合自动化</li>
+<li>不受 IDE 厂商的商业策略限制</li>
+</ul>
+<p>
+<strong>预测：终端将成为 Agent 的"操作系统"。就像 Docker 让终端成为容器的管理界面一样，Agent 框架将让终端成为 Agent 的管理界面。</strong>
+</p>
+<hr>
+<h2>🎯 大胆预判</h2>
+<h3>预判 1：2027 年 Q1，"Agent Harness 工程师"将成为热门职位</h3>
+<p>
+<strong>置信度：85%</strong>
+<strong>时间线：9-12 个月</strong>
+</p>
+<p>
+因果链：
+</p>
+<ul>
+<li>Agent 基础设施成熟（今天 Trending 的项目）→ 企业大规模部署 Agent → 需要专人管理 Agent 的 Harness（权限、工具、上下文、状态）→ 招聘市场出现"Agent Harness 工程师"职位 → 薪资溢价 30-50%（因为这是全新技能，供给稀缺）</li>
+</ul>
+<p>
+<strong>对某跨国消费品巨头 FDE 团队的启示：</strong> FDE 团队转型的核心就是成为"Agent Harness 工程师"。这个 Trending 数据证明你们走在正确的方向上。
+</p>
+<h3>预判 2：2026 Q4，Cursor/Claude Code 将内置持久化规划和多 Agent 编排</h3>
+<p>
+<strong>置信度：80%</strong>
+<strong>时间线：6-9 个月</strong>
+</p>
+<p>
+因果链：
+</p>
+<ul>
+<li>planning-with-files、herdr 等开源项目验证了需求 → 用户开始期待这些功能 → Cursor/Claude Code 面临竞争压力 → 内置这些功能（或收购这些项目）→ 独立工具变成小众市场</li>
+</ul>
+<h3>预判 3：2027 年中，"品味审计"将成为 AI 内容团队的标配流程</h3>
+<p>
+<strong>置信度：70%</strong>
+<strong>时间线：12-15 个月</strong>
+</p>
+<p>
+因果链：
+</p>
+<ul>
+<li>AI 生成内容泛滥 → 所有内容都"看起来像 AI 写的" → 品牌差异化受损 → 需要"品味审计"确保 AI 输出符合品牌调性 → 类似"品牌指南"但针对 AI 输出的"品味指南"成为标配</li>
+</ul>
+<h3>预判 4：2026 年底，Agent 编排工具的用户将超过 tmux 的用户</h3>
+<p>
+<strong>置信度：60%</strong>
+<strong>时间线：6-9 个月</strong>
+</p>
+<p>
+因果链：
+</p>
+<ul>
+<li>每个使用 AI Coding Agent 的开发者都需要管理多个 Agent → herdr 类工具解决这个需求 → 使用频率超过 tmux（因为 Agent 需要持续监控，不像终端会话可以放着不管）→ 用户量超越</li>
+</ul>
+<h3>预判 5：2027 年，不会用 Agent 的开发者将被排除在顶级团队之外</h3>
+<p>
+<strong>置信度：90%</strong>
+<strong>时间线：12-18 个月</strong>
+</p>
+<p>
+因果链：
+</p>
+<ul>
+<li>Agent 让单个开发者的产出提升 5-10x → 使用 Agent 的团队产出碾压不使用的团队 → 顶级团队只招能用 Agent 的开发者 → 不会用 Agent = 不会用 Git = 职业天花板</li>
+</ul>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<p>
+本期采集数据中无 YouTube 新内容。
+</p>
+<p>
+<strong>推荐回看（基于知识库关联）：</strong>
+</p>
+<p>
+如果你在关注 Agent 工程趋势，建议回看以下主题的视频：
+1. <strong>Jim Fan 关于 Grounded Agent 的演讲</strong> — 理解 Agent 从"代码世界"到"物理世界"的演进路径
+2. <strong>Andrej Karpathy 关于 LLM 操作系统的演讲</strong> — 理解 Agent 基础设施的长期演化方向
+3. <strong>Anthropic 关于 Context Engineering 的分享</strong> — 理解为什么上下文管理是 Agent 可靠性的关键
+</p>
+<hr>
+<h2>🎨 自由发挥</h2>
+<h3>从今天的 Trending 看 AI 工程的"寒武纪大爆发"</h3>
+<p>
+如果把 AI 工程的历史压缩成一个时间线，今天 GitHub Trending 的画面就像寒武纪大爆发——大量新物种同时出现，占据不同的生态位。
+</p>
+<p>
+planning-with-files 占据了"状态持久化"的生态位。plannotator 占据了"人类审查"的生态位。herdr 占据了"多 Agent 编排"的生态位。taste-skill 占据了"品味注入"的生态位。
+</p>
+<p>
+在寒武纪大爆发之后，大部分物种都灭绝了——只有少数演化成了今天还存在的门类。同样，今天 Trending 的 8 个项目中，大部分会在 12 个月内消失或被整合。但它们的"设计思想"会存活下来，成为主流平台的标准功能。
+</p>
+<p>
+<strong>真正重要的不是哪个项目赢了，而是这些项目揭示的生态结构：</strong>
+</p>
+<p>
+1. Agent 需要持久化状态（planning-with-files 赢了这一局）
+2. Agent 需要人类审查（plannotator 赢了这一局）
+3. Agent 需要多路复用（herdr 赢了这一局）
+4. Agent 需要品味（taste-skill 赢了这一局）
+</p>
+<p>
+这四个需求是结构性的，不会因为具体项目的兴衰而改变。
+</p>
+<h3>对 负责人的个人建议</h3>
+<p>
+你正在搭建的 Multica 5 人 Agent 团队（PM、Scrum Master、Full-stack Dev×2、QA）正好需要今天 Trending 的这些基础设施：
+</p>
+<p>
+1. <strong>PM Agent</strong> 需要 planning-with-files 来持久化项目规划
+2. <strong>QA Agent</strong> 需要 plannotator 来审查 Dev Agent 的代码
+3. <strong>Full-stack Dev Agent</strong> 需要 oh-my-pi 的 hash-anchored editing 来可靠地编辑代码
+4. <strong>整个团队</strong> 需要 herdr 来编排多个 Agent 的协作
+5. <strong>所有 Agent</strong> 需要 taste-skill 来确保输出质量
+</p>
+<p>
+<strong>建议：本周花 2 小时，把 planning-with-files 和 herdr 集成到 Multica 团队的 Soul 文件中。这会让你的 Agent 团队从"演示级"升级到"生产级"。</strong>
+</p>
+<hr>
+<h2>📊 今日数据总览</h2>
+<table>
+<thead><tr>
+<th>数据源</th>
+<th>采集量</th>
+<th>关键发现</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>GitHub Trending</td>
+<td>8 项</td>
+<td>Agent 基础设施全面爆发</td>
+</tr>
+<tr>
+<td>ArXiv</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hacker News</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Blogs</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>
+<strong>本期核心判断：AI Coding Agent 正从"个人玩具"进入"企业基础设施"阶段。Harness 工程（权限、工具、上下文、状态管理）是这一转变的关键使能者。不会构建 Agent Harness 的 IT 团队将被淘汰。</strong>
+</p>
+<hr>
+<p>
+<em>报告生成时间：2026-07-05 21:30 CST</em>
+<em>下期预告：关注 GitHub Trending 是否继续被 Agent 基础设施项目主导，以及 Anthropic/OpenAI 是否发布 Agent 平台级产品</em>
+</p>
             </div>
         </article>
 
