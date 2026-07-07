@@ -750,13 +750,13 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
                     <span class="report-type type-{post['report_type']}">{label}</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
-                        ❤️ <span id="like-count">0</span>
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
                     </button>
                     <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
-                        🔖 <span id="bookmark-count">0</span>
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
                     </button>
                     <button class="interaction-counter" onclick="toggleInteractionSidebar()">
-                        💬 <span id="comment-count-header">0</span>
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
             </header>
@@ -821,13 +821,13 @@ def generate_card_page(card, total_cards):
                     {" | ".join(f'<span class="tag">{t}</span>' for t in card['tags'])}
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
-                        ❤️ <span id="like-count">0</span>
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
                     </button>
                     <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
-                        🔖 <span id="bookmark-count">0</span>
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
                     </button>
                     <button class="interaction-counter" onclick="toggleInteractionSidebar()">
-                        💬 <span id="comment-count-header">0</span>
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
                 {"<p><a href='" + card['source'] + "' target='_blank'>Original ↗</a></p>" if card['source'] else ""}
