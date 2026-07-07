@@ -271,16 +271,29 @@ def parse_post(filepath):
 
     title = format_title(title_m.group(1).strip())
     
-    # If title has no suffix (just "MMDD-早报"), try to extract headline from Response section
-    if re.match(r'^\d{4}-(早报|午报|晚报|周报)$', title):
-        # Look for "今日头条" in the Response section
-        headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', text)
-        if headline_match:
-            headline = headline_match.group(1).strip()
-            # Limit headline length
-            if len(headline) > 50:
-                headline = headline[:47] + "..."
-            title = f"{title} | {headline}"
+    # If title has no headline suffix, try to extract from H1 or "今日头条"
+    if '|' not in title:
+        # First try: extract from H1 title like "# 0707午报 | headline"
+        h1_match = re.search(r'^#\s+(.+?)(?:\n|$)', text, re.MULTILINE)
+        if h1_match and '|' in h1_match.group(1):
+            h1_title = h1_match.group(1).strip()
+            # Extract headline after |
+            parts = h1_title.split('|', 1)
+            if len(parts) > 1:
+                headline = parts[1].strip()
+                # Limit headline length
+                if len(headline) > 50:
+                    headline = headline[:47] + "..."
+                title = f"{title} | {headline}"
+        else:
+            # Fallback: look for "今日头条" in the Response section
+            headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', text)
+            if headline_match:
+                headline = headline_match.group(1).strip()
+                # Limit headline length
+                if len(headline) > 50:
+                    headline = headline[:47] + "..."
+                title = f"{title} | {headline}"
     
     date_str = date_m.group(1).strip()
     

@@ -173,6 +173,33 @@ def build_index_page(posts):
     
     return html
 
+def extract_headline(content, title):
+    """从 H1 或正文中提取 headline"""
+    # 如果 title 已经包含 headline，直接返回
+    if '|' in title:
+        return title
+    
+    # 尝试从 H1 标题提取
+    h1_match = re.search(r'^#\s+(.+?)(?:\n|$)', content, re.MULTILINE)
+    if h1_match and '|' in h1_match.group(1):
+        h1_title = h1_match.group(1).strip()
+        parts = h1_title.split('|', 1)
+        if len(parts) > 1:
+            headline = parts[1].strip()
+            if len(headline) > 50:
+                headline = headline[:47] + "..."
+            return f"{title} | {headline}"
+    
+    # 尝试从 "今日头条" 提取
+    headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', content)
+    if headline_match:
+        headline = headline_match.group(1).strip()
+        if len(headline) > 50:
+            headline = headline[:47] + "..."
+        return f"{title} | {headline}"
+    
+    return title
+
 def main():
     """主函数"""
     print("🔨 开始构建静态网站...")
@@ -209,9 +236,13 @@ def main():
         # 生成 HTML
         build_post_page(metadata, body, post_dir / "index.html")
         
+        # 提取 headline
+        base_title = metadata.get("title", f"AI 资讯 - {date_str}")
+        full_title = extract_headline(content, base_title)
+        
         posts.append({
             "filename": md_file.stem,
-            "title": metadata.get("title", f"AI 资讯 - {date_str}"),
+            "title": full_title,
             "date": metadata.get("date", date_str),
             "report_type": metadata.get("report_type", ""),
             "url": url
