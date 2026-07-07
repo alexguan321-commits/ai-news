@@ -149,6 +149,27 @@ def should_filter_content():
     return True
 
 
+def extract_response_section(text):
+    """Extract only the '## Response' section from cron job output.
+    
+    Cron job reports contain:
+    - Job metadata (Job ID, Run Time, Schedule)
+    - Prompt (system instructions)
+    - Script Output (raw data)
+    - Response (the actual report content)
+    
+    We only want to display the Response section.
+    """
+    # Look for "## Response" heading
+    response_match = re.search(r'^## Response\s*\n', text, re.MULTILINE)
+    if response_match:
+        # Return everything from "## Response" onwards
+        return text[response_match.start():]
+    
+    # If no "## Response" found, return text as-is (for older reports)
+    return text
+
+
 def filter_report_content(text):
     """Remove personal/P&G content from report text."""
     if not should_filter_content():
@@ -249,6 +270,18 @@ def parse_post(filepath):
         return None
 
     title = format_title(title_m.group(1).strip())
+    
+    # If title has no suffix (just "MMDD-早报"), try to extract headline from Response section
+    if re.match(r'^\d{4}-(早报|午报|晚报|周报)$', title):
+        # Look for "今日头条" in the Response section
+        headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', text)
+        if headline_match:
+            headline = headline_match.group(1).strip()
+            # Limit headline length
+            if len(headline) > 50:
+                headline = headline[:47] + "..."
+            title = f"{title} | {headline}"
+    
     date_str = date_m.group(1).strip()
     
     # Get report_type from front matter, or infer from categories/title/filename
@@ -612,6 +645,9 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
 
     # Remove front matter
     md_text = re.sub(r"^---\s*\n.*?\n---\s*\n", "", md_text, count=1, flags=re.DOTALL)
+
+    # Extract only the Response section (filter out cron job metadata)
+    md_text = extract_response_section(md_text)
 
     # Apply content filtering
     if should_filter_content():
