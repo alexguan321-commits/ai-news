@@ -662,7 +662,7 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
     # Convert markdown to HTML
     content_html = simple_md_to_html(md_text)
 
-    type_labels = {"morning": "早报", "noon": "午报", "evening": "晚报", "weekly": "周报"}
+    type_labels = {"morning": "🌅 早报", "noon": "☀️ 午报", "evening": "🌙 晚报", "weekly": "周报"}
     label = type_labels.get(post["report_type"], post["report_type"])
 
     return f"""<!DOCTYPE html>
