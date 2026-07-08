@@ -55,7 +55,8 @@ def extract_headline(content: str, title: str) -> str:
     Priority:
     1. If title already contains '|', return as-is
     2. Try to extract from H1 title like "# 0707午报 | headline"
-    3. Fallback: look for "**今日头条：** headline" in content
+    3. Look for "**标题：** `MMDD早报 | headline`" pattern
+    4. Fallback: look for "**今日头条：** headline" in content
     
     Args:
         content: Full markdown content of the report
@@ -79,6 +80,19 @@ def extract_headline(content: str, title: str) -> str:
             if len(headline) > 50:
                 headline = headline[:47] + "..."
             return f"{title} | {headline}"
+    
+    # Look for "**标题：** `MMDD早报 | headline`" pattern
+    title_match = re.search(r'\*\*标题[：:]\*\*\s*`([^`]+)`', content)
+    if title_match:
+        full_title = title_match.group(1).strip()
+        if '|' in full_title:
+            parts = full_title.split('|', 1)
+            if len(parts) > 1:
+                headline = parts[1].strip()
+                # Limit headline length
+                if len(headline) > 50:
+                    headline = headline[:47] + "..."
+                return f"{title} | {headline}"
     
     # Fallback: look for "今日头条" in content
     headline_match = re.search(r'\*\*今日头条[：:]\*\*\s*(.+?)(?:\n|$)', content)
