@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="The 6-Month Agentic Engineer Roadmap">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>The 6-Month Agentic Engineer Roadmap - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">46</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>The 6-Month Agentic Engineer Roadmap</h1>
+                <div class="meta">
+                    <span class="author">@sairahul1 (Sai Rahul)</span>
+                    <time>2026-07-08</time>
+                    <span class="tag">agentic-engineering</span> | <span class="tag">roadmap</span> | <span class="tag">learning-path</span> | <span class="tag">multi-agent</span> | <span class="tag">tool-calling</span> | <span class="tag">memory</span> | <span class="tag">production-deployment</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+                <p><a href='X (Twitter)' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: "The 6-Month Agentic Engineer Roadmap"
+source: "X (Twitter)"
+author: "@sairahul1 (Sai Rahul)"
+url: "https://x.com/sairahul1/status/2074790798584062278"
+date: 2026-07-08
+tags: [agentic-engineering, roadmap, learning-path, multi-agent, tool-calling, memory, production-deployment]
+category: "AI工程实践"
+</p>
+<hr>
+<h2>Why（背景动机）</h2>
+<p>
+Everyone wants to build AI agents right now. Very few people actually can. The gap isn't talent, courses, or time — it's that most people watch one more video instead of building one real thing.
+</p>
+<p>
+This article provides the exact 6-month plan with 12 stages to become an agentic engineer.
+</p>
+<p>
+<strong>Key insight</strong>: A regular developer writes code that does exactly what it's told. An agentic engineer builds systems that decide what to do.
+</p>
+<h2>What（核心定义）</h2>
+<p>
+<strong>Agentic Engineer</strong>: Someone who builds systems that figure out logic themselves, not just programming steps.
+</p>
+<p>
+<strong>The shift</strong>: From programming steps to designing reasoning.
+</p>
+<p>
+<strong>The agent loop</strong>:
+→ The agent reads a goal
+→ Breaks it into steps
+→ Picks the right tools
+→ Executes, checks the result, adjusts
+→ Loops until the job is done
+</p>
+<h2>How（具体方法/参数）</h2>
+<h3>12-Stage Roadmap</h3>
+<p>
+<strong>Stage 1 — Python & Async Foundations (Weeks 1–2)</strong>
+</p>
+<ul>
+<li>Problem: Agents spend most of their lives waiting (for model responses, API returns, tool completion)</li>
+<li>Solution: asyncio for 10× faster concurrent operations</li>
+<li>Build: FastAPI server handling 10 concurrent LLM calls, retry logic, error handlers</li>
+</ul>
+<p>
+<strong>Stage 2 — LLM Fundamentals for Agents (Weeks 3–4)</strong>
+Four critical understandings:
+1. <strong>Context limits are real</strong>: GPT-4o: 128k tokens (~96,000 words), Claude 3.5: 200k tokens (~150,000 words)
+2. <strong>Model routing saves money</strong>: Not every task needs the most expensive model
+3. <strong>Tokens cost money</strong>: Track spend per agent run from day one
+4. <strong>Know where models fail</strong>: Hallucination, lost in middle, instruction drift, slow responses
+</p>
+<p>
+<strong>Stage 3 — Tool Calling & Structured Outputs (Weeks 5–6)</strong>
+</p>
+<ul>
+<li>Tool calling pattern transforms chatbot into agent</li>
+<li>Use Pydantic for structured outputs — never trust raw strings</li>
+<li>Plan for wrong tool calls, build recovery into every tool handler</li>
+</ul>
+<p>
+<strong>Stage 4 — Memory & State Management (Weeks 7–8)</strong>
+4 types of memory every agent needs:
+</p>
+<ul>
+<li>Without memory: Repeats questions, loses context, feels like vending machine</li>
+<li>With memory: Picks up where left off, knows preferences, handles hour-long workflows, feels like coworker</li>
+</ul>
+<p>
+<strong>Stage 5 — Single Agent Workflows (Weeks 9–10)</strong>
+Core pattern: ReAct (Reason → Act → Think about result → Repeat)
+Rules:
+</p>
+<ul>
+<li>Always set max steps limit (or it loops forever)</li>
+<li>Always handle case where agent can't finish</li>
+<li>Always log every step (needed for debugging)</li>
+<li>Always validate tool outputs before feeding back</li>
+</ul>
+<p>
+<strong>Stage 6 — Multi-Agent Orchestration (Weeks 11–12)</strong>
+</p>
+<ul>
+<li>Add agents only when single agent genuinely cannot do the job alone</li>
+<li>Supervisor pattern is most important multi-agent design</li>
+<li>Where multi-agent breaks: Agents passing bad outputs silently, no validation between handoffs, supervisor not checking if specialist finished, infinite approval loops</li>
+</ul>
+<p>
+<strong>Stage 7 — Human-in-the-Loop (Week 13)</strong>
+4 rules:
+</p>
+<ul>
+<li>Teach agent to notice when unsure and ask</li>
+<li>Add approval gates before every irreversible action</li>
+<li>Keep audit trail of what agent did and why</li>
+<li>Make it possible to pause, let human step in, then resume cleanly</li>
+</ul>
+<p>
+<strong>Stage 8 — Evaluation & Quality (Week 14)</strong>
+Track 4 numbers:
+</p>
+<ul>
+<li>Task completion rate (does it finish?)</li>
+<li>Accuracy rate (is output correct?)</li>
+<li>Hallucination rate (how often does it make things up?)</li>
+<li>Cost per task (is it getting cheaper as you optimize?)</li>
+</ul>
+<p>
+<strong>Stage 9 — Observability & Tracing (Week 15)</strong>
+3 surprises in production:
+</p>
+<ul>
+<li>Cost: One agent run costs $0.04 in dev, $2.40 under real load (60× increase)</li>
+<li>Latency: Tool calls thought instant take 3–8 seconds</li>
+<li>Failures: 5% of runs fail in ways never tested</li>
+</ul>
+<p>
+<strong>Stage 10 — Security & Guardrails (Week 16)</strong>
+Biggest threat: Prompt injection (malicious user embeds instructions in content agent reads)
+5 security rules:
+</p>
+<ul>
+<li>Always separate system instructions from user/external content</li>
+<li>Never run untrusted code outside sandbox</li>
+<li>Redact personal data before entering context window</li>
+<li>Set output filters — check what agent sends before sending</li>
+<li>Know compliance rules for your industry before deploying</li>
+</ul>
+<p>
+<strong>Stage 11 — Production Deployment (Week 17)</strong>
+Deployment checklist:
+</p>
+<ul>
+<li>Async API — never let one slow agent block all other requests</li>
+<li>Background jobs — return job ID immediately, poll for results</li>
+<li>Rate limiting — prevent one user from burning entire budget</li>
+<li>Canary deploy — roll out to 5% of traffic first, watch for errors</li>
+<li>Rollback plan — one command to revert if something breaks</li>
+</ul>
+<p>
+<strong>Stage 12 — Ship in Public (Week 18+)</strong>
+What to ship:
+</p>
+<ul>
+<li>One real working agent on GitHub (not tutorial clone)</li>
+<li>Short README explaining architecture decisions and why</li>
+<li>60-second Loom showing agent completing real task</li>
+<li>One X thread breaking down what you built and learned</li>
+</ul>
+<h3>6-Month Roadmap Summary</h3>
+<p>
+<strong>Month 1 — Foundation</strong>: Python async, FastAPI, error handling, LLM mechanics, model routing, token costs
+</p>
+<p>
+<strong>Month 2 — Agent Core</strong>: Tool calling, structured outputs, Pydantic, memory systems, context compression, state
+</p>
+<p>
+<strong>Month 3 — Building Agents</strong>: Single agent ReAct loop, limits, recovery, multi-agent supervisor pattern, handoffs
+</p>
+<p>
+<strong>Month 4 — Production Skills</strong>: Human-in-the-loop, approval gates, audit logs, eval suite, LLM-as-judge, regression testing
+</p>
+<p>
+<strong>Month 5 — Ship It</strong>: Observability, tracing, cost dashboards, security, prompt injection defense, guardrails
+</p>
+<p>
+<strong>Month 6 — Real World</strong>: Production deployment, async APIs, canary releases, ship in public, build portfolio, get hired
+</p>
+<h2>So What（启示和行动项）</h2>
+<h3>关键洞察</h3>
+<p>
+<strong>The one thing most people miss</strong>: Everyone wants to skip to multi-agent systems. Nobody wants to do the async foundations. But every production agent failure comes from the same three causes:
+1. Blocking code that crawls under load (Stage 1)
+2. No eval suite so bugs ship silently (Stage 8)
+3. No tracing so production failures are invisible (Stage 9)
+</p>
+<p>
+<strong>The boring stages are the ones that matter most.</strong>
+</p>
+<h3>对 FDE 团队的启示</h3>
+<p>
+1. <strong>Agentic Engineer 定义与 FDE 高度吻合</strong>：FDE 不是写代码，而是设计推理系统
+2. <strong>12 阶段路线图可作为 FDE 转型培训大纲</strong>：从基础（async/LLM）到生产（安全/部署）
+3. <strong>Stage 7 Human-in-the-Loop 与 FDE 的"双人舞"模式一致</strong>：业务专家 + 全栈开发，人在关键节点介入
+</p>
+<h3>对 AI 创业者的启示</h3>
+<p>
+1. <strong>从 Stage 12 倒推</strong>：先想清楚要 ship 什么，再决定学什么
+2. <strong>生产失败三大原因</strong>是创业公司的常见死因：性能瓶颈、隐藏 bug、不可见故障
+3. <strong>成本意识从 Day 1 开始</strong>：$0.04 → $2.40 的 60× 成本增长是真实的生产环境教训
+</p>
+<h3>与 Harness Engineering 的关联</h3>
+<p>
+这篇文章是 Lilian Weng 的 Harness Engineering 文章的<strong>实践版</strong>：
+</p>
+<ul>
+<li>Weng 讲理论和研究（Harness 设计模式、优化方法）</li>
+<li>Sai Rahul 讲实践路径（如何从零成为 agentic engineer）</li>
+<li>两者结合：理论指导实践，实践验证理论</li>
+</ul>
+<h3>行动项</h3>
+<ul>
+<li>[ ] 将 12 阶段路线图作为 FDE 团队培训参考</li>
+<li>[ ] 重点关注 Stage 8-9（评估和可观测性），这是当前系统的薄弱环节</li>
+<li>[ ] 在 AI 资讯系统中实施 Stage 9 的 tracing 和 cost dashboard</li>
+</ul>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-07-08-sairahul1-agentic-engineer-roadmap');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined') {
+                const originalOnAuthChange = auth.onAuthStateChange;
+                auth.onAuthStateChange = function() {
+                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+                    updateCommentVisibility();
+                };
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-07-08-sairahul1-agentic-engineer-roadmap');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-07-08-sairahul1-agentic-engineer-roadmap');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>
