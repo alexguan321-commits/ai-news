@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="Prefill & Decode in LLM Inference">
+    <meta property="og:title" content="Prefill &amp; Decode in LLM Inference">
     <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>Prefill & Decode in LLM Inference - Knowledge Card</title>
+    <title>Prefill &amp; Decode in LLM Inference - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -35,7 +35,7 @@
         <article class="card-content">
             <header class="card-header">
                 <span class="card-badge">Knowledge Card</span>
-                <h1>Prefill & Decode in LLM Inference</h1>
+                <h1>Prefill &amp; Decode in LLM Inference</h1>
                 <div class="meta">
                     <span class="author">Avi Chawla (@_avichawla)</span>
                     <time>2026-06-29</time>
@@ -55,7 +55,7 @@
             </header>
 
             <div class="content">
-                <h1>Prefill & Decode in LLM Inference</h1>
+                <h1>Prefill &amp; Decode in LLM Inference</h1>
 <p>
 <strong>Author:</strong> Avi Chawla (@_avichawla)
 <strong>Source:</strong> <a href="https://x.com/_avichawla/status/2071522418594861215" target="_blank" rel="noopener noreferrer">https://x.com/_avichawla/status/2071522418594861215</a>
@@ -68,7 +68,7 @@
 Have you ever noticed that the first token from an LLM always takes a moment to appear? But the subsequent tokens stream out smoothly?
 </p>
 <p>
-That pause isn't a network lag, but rather it's a structural property of how LLMs fundamentally work.
+That pause isn&#x27;t a network lag, but rather it&#x27;s a structural property of how LLMs fundamentally work.
 </p>
 <p>
 Inference happens in two phases that share the same model and the same code path, but the workload looks completely different in each, with different bottlenecks.
@@ -132,11 +132,11 @@ The entire field is now optimizing around this constraint with:
 <li>Sliding windows</li>
 <li>Grouped-query attention</li>
 <li>PagedAttention</li>
-<li>DeepSeek's V4 series redesigns attention itself so the cache stays small from the start</li>
+<li>DeepSeek&#x27;s V4 series redesigns attention itself so the cache stays small from the start</li>
 </ul>
 <h2>Practical Takeaway</h2>
 <p>
-When someone says their model feels slow, the first question is whether it's <strong>slow to start</strong> or <strong>slow to stream</strong>.
+When someone says their model feels slow, the first question is whether it&#x27;s <strong>slow to start</strong> or <strong>slow to stream</strong>.
 </p>
 <ul>
 <li><strong>Slow to start</strong> = prefill = compute bottleneck</li>

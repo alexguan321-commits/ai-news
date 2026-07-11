@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,10 +57,10 @@
             <div class="content">
                 <hr>
 <p>
-title: "Building Real Businesses Around Claude AI Agents in 2026"
-author: "Yury Shevichankau (@yurshevv)"
-source: "X (Twitter) Article"
-url: "https://x.com/yurshevv/status/2072541864226406767"
+title: &quot;Building Real Businesses Around Claude AI Agents in 2026&quot;
+author: &quot;Yury Shevichankau (@yurshevv)&quot;
+source: &quot;X (Twitter) Article&quot;
+url: &quot;<a href="https://x.com/yurshevv/status/2072541864226406767&quot;" target="_blank" rel="noopener noreferrer">https://x.com/yurshevv/status/2072541864226406767&quot;</a>
 date: 2026-07-02
 tags: [ai-agents, claude, business-model, automation-agency, entrepreneurship, prompt-engineering, pricing]
 </p>
@@ -75,10 +75,10 @@ tags: [ai-agents, claude, business-model, automation-agency, entrepreneurship, p
 A chatbot answers a question and waits for the next one. An agent is different: it holds a goal, works through a sequence of steps, calls tools when it needs data or has to take an action, checks its own output, and only comes back to a human when something genuinely needs a decision.
 </p>
 <p>
-That distinction sounds small. It isn't. It's the difference between "Claude helped me draft this" and "Claude ran this end-to-end while I did something else." The second version is what businesses will pay a monthly fee for — because it replaces hours of labor, not minutes of typing.
+That distinction sounds small. It isn&#x27;t. It&#x27;s the difference between &quot;Claude helped me draft this&quot; and &quot;Claude ran this end-to-end while I did something else.&quot; The second version is what businesses will pay a monthly fee for — because it replaces hours of labor, not minutes of typing.
 </p>
 <p>
-By 2026, the tooling to build agents — connectors, scheduled tasks, tool use, memory, multi-step orchestration — has moved from "engineering project" to "weekend build." That shift is the opportunity this guide is about. <strong>The bottleneck used to be technical skill. Now it's mostly clarity</strong>: knowing which workflow to automate, how to package it, and how to sell it.
+By 2026, the tooling to build agents — connectors, scheduled tasks, tool use, memory, multi-step orchestration — has moved from &quot;engineering project&quot; to &quot;weekend build.&quot; That shift is the opportunity this guide is about. <strong>The bottleneck used to be technical skill. Now it&#x27;s mostly clarity</strong>: knowing which workflow to automate, how to package it, and how to sell it.
 </p>
 <p>
 <strong>Key takeaways from this guide:</strong>
@@ -86,19 +86,19 @@ By 2026, the tooling to build agents — connectors, scheduled tasks, tool use, 
 <ul>
 <li>AI Agents are not chatbots. They are workflows with judgment built in, and that makes them sellable as outcomes, not access.</li>
 <li>There are three distinct ways to make money here: <strong>build agents as a service</strong>, <strong>sell agent templates as a product</strong>, and <strong>run an automation agency that combines both</strong>. Each has a different ceiling, a different amount of client contact, and a different amount of risk.</li>
-<li>The businesses that last are narrow. "An agent that does everything" sells to no one. "An agent that reconciles Shopify refunds against Stripe payouts every morning" sells itself.</li>
+<li>The businesses that last are narrow. &quot;An agent that does everything&quot; sells to no one. &quot;An agent that reconciles Shopify refunds against Stripe payouts every morning&quot; sells itself.</li>
 <li>Pricing should track the value of the outcome the agent produces, not the number of hours you spent building it.</li>
-<li>None of the figures in this guide are guarantees. Where a number appears, it's either a documented pricing benchmark from a public platform or an explicitly labeled illustrative scenario.</li>
+<li>None of the figures in this guide are guarantees. Where a number appears, it&#x27;s either a documented pricing benchmark from a public platform or an explicitly labeled illustrative scenario.</li>
 </ul>
 <h2>Introduction: You Are Probably Using Claude Wrong</h2>
 <p>
-Most people treat Claude like a very fast intern who forgets everything overnight. They open a chat, ask for a draft, copy it out, and close the tab. That's a real use case, and it has real value — but it caps out fast, because the human is still the one doing the orchestration: deciding what to ask, when to ask it, and what to do with the answer.
+Most people treat Claude like a very fast intern who forgets everything overnight. They open a chat, ask for a draft, copy it out, and close the tab. That&#x27;s a real use case, and it has real value — but it caps out fast, because the human is still the one doing the orchestration: deciding what to ask, when to ask it, and what to do with the answer.
 </p>
 <p>
-An agent removes the human from that loop for the parts that <em>don't</em> need judgment, and only surfaces the parts that <em>do</em>. Instead of a person prompting Claude five times a day to check on something, an agent is already checking, on a schedule, using real data, and only pinging a human when a threshold is crossed or a decision is required.
+An agent removes the human from that loop for the parts that <em>don&#x27;t</em> need judgment, and only surfaces the parts that <em>do</em>. Instead of a person prompting Claude five times a day to check on something, an agent is already checking, on a schedule, using real data, and only pinging a human when a threshold is crossed or a decision is required.
 </p>
 <p>
-This reframes what you're selling. You are no longer selling "AI-written content" or "a custom document." <strong>You're selling a standing capability</strong> — something that keeps working after the invoice is paid. That's what turns a one-off gig into a retainer, and a retainer into a business.
+This reframes what you&#x27;re selling. You are no longer selling &quot;AI-written content&quot; or &quot;a custom document.&quot; <strong>You&#x27;re selling a standing capability</strong> — something that keeps working after the invoice is paid. That&#x27;s what turns a one-off gig into a retainer, and a retainer into a business.
 </p>
 <p>
 Three ways to build a business on top of that idea, covered in order of how fast you can start and how much client interaction each requires:
@@ -137,33 +137,33 @@ Three ways to build a business on top of that idea, covered in order of how fast
 <h2>Method 1: Build AI Agent Services for Businesses</h2>
 <h3>The explanation</h3>
 <p>
-This is the fastest way to make your first dollar, because you're not waiting for an audience or a distribution channel — you're solving one business's specific, painful, recurring problem, and charging for the outcome.
+This is the fastest way to make your first dollar, because you&#x27;re not waiting for an audience or a distribution channel — you&#x27;re solving one business&#x27;s specific, painful, recurring problem, and charging for the outcome.
 </p>
 <p>
-The pattern almost every good first client fits: a task that is (a) repetitive, (b) rule-based enough that a human doesn't need deep judgment for most instances, but (c) currently done manually because nobody's had time to automate it, usually because it touches two or three different tools that don't talk to each other.
+The pattern almost every good first client fits: a task that is (a) repetitive, (b) rule-based enough that a human doesn&#x27;t need deep judgment for most instances, but (c) currently done manually because nobody&#x27;s had time to automate it, usually because it touches two or three different tools that don&#x27;t talk to each other.
 </p>
 <p>
 Examples of that pattern:
 </p>
 <ul>
 <li>A small e-commerce brand manually checking Stripe payouts against Shopify order refunds every week.</li>
-<li>A local law firm's intake coordinator retyping client intake-form answers into their case management software.</li>
+<li>A local law firm&#x27;s intake coordinator retyping client intake-form answers into their case management software.</li>
 <li>A boutique recruiting agency screening resumes against a job spec and writing rejection or interview-invite emails by hand.</li>
 <li>A property management company fielding the same five maintenance-request questions over email, every day, from different tenants.</li>
 </ul>
 <p>
-None of these need "AI" in the client's mind. They need "the thing that used to take three hours a week to stop taking three hours a week." <strong>That's the pitch — never lead with the technology.</strong>
+None of these need &quot;AI&quot; in the client&#x27;s mind. They need &quot;the thing that used to take three hours a week to stop taking three hours a week.&quot; <strong>That&#x27;s the pitch — never lead with the technology.</strong>
 </p>
 <h3>Client workflow</h3>
 <p>
-A repeatable process for taking a business from "problem" to "paying for a working agent":
+A repeatable process for taking a business from &quot;problem&quot; to &quot;paying for a working agent&quot;:
 </p>
 <p>
-1. <strong>Discovery call (free, 20–30 minutes).</strong> Ask what tasks eat the most time and are the most repetitive. Don't ask "do you want AI." Ask "what's the task you dread every Monday."
+1. <strong>Discovery call (free, 20–30 minutes).</strong> Ask what tasks eat the most time and are the most repetitive. Don&#x27;t ask &quot;do you want AI.&quot; Ask &quot;what&#x27;s the task you dread every Monday.&quot;
 2. <strong>Scope one workflow.</strong> Resist the urge to solve everything. Pick the single highest-friction, most repeatable task and write a one-page scope: trigger, inputs, steps, output, what still needs a human.
 3. <strong>Build a working prototype</strong> against their real (or realistic sample) data before asking for full payment. This is your proof and your sales close in one step.
-4. <strong>Demo the outcome, not the mechanism.</strong> Show the before/after: "here's the report that used to take you two hours, now it's in your inbox at 7am."
-5. <strong>Price and deliver</strong>, with a short trial period and a clear escalation path (what happens when the agent hits something it can't handle).
+4. <strong>Demo the outcome, not the mechanism.</strong> Show the before/after: &quot;here&#x27;s the report that used to take you two hours, now it&#x27;s in your inbox at 7am.&quot;
+5. <strong>Price and deliver</strong>, with a short trial period and a clear escalation path (what happens when the agent hits something it can&#x27;t handle).
 6. <strong>Set up monitoring.</strong> Even a simple daily-log email so the client can see the agent is running and catch failures early.
 </p>
 <h3>Prompt examples</h3>
@@ -208,18 +208,18 @@ understand exactly what the agent will and won't do.
 </code></pre>
 <h3>Mistakes to avoid</h3>
 <ul>
-<li><strong>Automating a task before mapping it.</strong> If you can't write the workflow as a clean if-this-then-that flow, the agent will fail unpredictably and erode trust fast.</li>
-<li><strong>No escalation path.</strong> Every agent will eventually hit a case it can't handle. Clients forgive that. They don't forgive silent failures.</li>
+<li><strong>Automating a task before mapping it.</strong> If you can&#x27;t write the workflow as a clean if-this-then-that flow, the agent will fail unpredictably and erode trust fast.</li>
+<li><strong>No escalation path.</strong> Every agent will eventually hit a case it can&#x27;t handle. Clients forgive that. They don&#x27;t forgive silent failures.</li>
 <li><strong>Overscoping the first build.</strong> A narrow agent that reliably does one thing beats a broad one that does five things unreliably.</li>
-<li><strong>Selling "AI" instead of the outcome.</strong> Business owners buy time back and risk reduced, not technology.</li>
-<li><strong>No monitoring.</strong> An agent nobody's watching is a liability, not an asset.</li>
+<li><strong>Selling &quot;AI&quot; instead of the outcome.</strong> Business owners buy time back and risk reduced, not technology.</li>
+<li><strong>No monitoring.</strong> An agent nobody&#x27;s watching is a liability, not an asset.</li>
 </ul>
 <h3>Scaling strategy</h3>
 <p>
 The natural ceiling of Method 1 is your own time — each new client is a custom build. Three ways past that:
 </p>
 <p>
-1. <strong>Specialize in one industry.</strong> The fifth invoice-reconciliation agent for an e-commerce brand takes a fraction of the time the first one did, because you're reusing scoped logic and prompt structures.
+1. <strong>Specialize in one industry.</strong> The fifth invoice-reconciliation agent for an e-commerce brand takes a fraction of the time the first one did, because you&#x27;re reusing scoped logic and prompt structures.
 2. <strong>Turn recurring patterns into templates</strong> (this is where Method 1 feeds directly into Method 2 — see below).
 3. <strong>Hire or partner for delivery</strong> once your pipeline of leads outpaces your build capacity, and shift your own time toward sales and scoping.
 </p>
@@ -235,9 +235,9 @@ This flips the economics of Method 1. You trade custom-fit precision for distrib
 Good template categories share a trait: the underlying workflow is common across many small businesses or solo operators, even if the exact company details differ. Examples:
 </p>
 <ul>
-<li>A "client onboarding agent" template for freelancers and consultants — collects intake info, drafts a scope of work, sets up a project tracker.</li>
-<li>A "content repurposing agent" template for creators — takes one long-form piece and outputs a platform-specific batch (thread, caption set, newsletter blurb).</li>
-<li>A "customer support triage agent" template for small SaaS teams — classifies incoming tickets, drafts responses, flags anything urgent.</li>
+<li>A &quot;client onboarding agent&quot; template for freelancers and consultants — collects intake info, drafts a scope of work, sets up a project tracker.</li>
+<li>A &quot;content repurposing agent&quot; template for creators — takes one long-form piece and outputs a platform-specific batch (thread, caption set, newsletter blurb).</li>
+<li>A &quot;customer support triage agent&quot; template for small SaaS teams — classifies incoming tickets, drafts responses, flags anything urgent.</li>
 </ul>
 <h3>Platforms and how they differ</h3>
 <table>
@@ -255,7 +255,7 @@ Good template categories share a trait: the underlying workflow is common across
 <tr>
 <td>Etsy</td>
 <td>Buyers already searching with commercial intent</td>
-<td>Works well when the template is framed as a "kit" or "system," not raw code</td>
+<td>Works well when the template is framed as a &quot;kit&quot; or &quot;system,&quot; not raw code</td>
 </tr>
 <tr>
 <td>Shopify</td>
@@ -291,7 +291,7 @@ A workable tiered structure:
 <h2>Method 3: Run an AI Automation Agency</h2>
 <h3>The explanation</h3>
 <p>
-This is the long game. You combine Method 1 (custom agent builds) with ongoing support, monitoring, and iteration — typically on a monthly retainer. You're not selling a one-off project; you're selling a standing capability that evolves with the client's business.
+This is the long game. You combine Method 1 (custom agent builds) with ongoing support, monitoring, and iteration — typically on a monthly retainer. You&#x27;re not selling a one-off project; you&#x27;re selling a standing capability that evolves with the client&#x27;s business.
 </p>
 <p>
 The agency model compounds in three ways:
@@ -309,7 +309,7 @@ Retainer tiers typically cover:
 <li>Hosting and infrastructure (where the agent runs, what it connects to)</li>
 <li>Monitoring and incident response (what happens when something breaks)</li>
 <li>Monthly tweak allowance (small changes to logic, new data sources, updated prompts)</li>
-<li>Response time SLA (how fast you'll look at something when they flag it)</li>
+<li>Response time SLA (how fast you&#x27;ll look at something when they flag it)</li>
 </ul>
 <p>
 Illustrative pricing structure:
@@ -321,19 +321,19 @@ Illustrative pricing structure:
 </ul>
 <h3>Mistakes to avoid</h3>
 <ul>
-<li><strong>Underpricing retainers.</strong> If you're charging less than the client would pay for a part-time human to do the same task, you're leaving money on the table and attracting price-sensitive clients who churn fastest.</li>
-<li><strong>No clear scope boundary.</strong> Retainers without boundaries become open-ended support tickets. Define what's included and what's a new project.</li>
-<li><strong>Taking on clients who aren't ready.</strong> If a business doesn't have clear data sources or can't articulate the workflow, they'll blame the agent when the real problem is their own process. Fire these early.</li>
+<li><strong>Underpricing retainers.</strong> If you&#x27;re charging less than the client would pay for a part-time human to do the same task, you&#x27;re leaving money on the table and attracting price-sensitive clients who churn fastest.</li>
+<li><strong>No clear scope boundary.</strong> Retainers without boundaries become open-ended support tickets. Define what&#x27;s included and what&#x27;s a new project.</li>
+<li><strong>Taking on clients who aren&#x27;t ready.</strong> If a business doesn&#x27;t have clear data sources or can&#x27;t articulate the workflow, they&#x27;ll blame the agent when the real problem is their own process. Fire these early.</li>
 </ul>
 <h2>Common Mistakes That Kill Momentum</h2>
 <ul>
-<li><strong>Leading with "AI" instead of the outcome.</strong> Business owners buy time saved and risk reduced, not technology.</li>
-<li><strong>No escalation logic.</strong> Every agent eventually hits a case it can't handle; plan for that from day one.</li>
-<li><strong>Trying to serve every industry at once.</strong> Narrow focus compounds; generalist pitches don't.</li>
-<li><strong>Selling access instead of an outcome.</strong> "Here's a chatbot" is a much weaker pitch than "here's the report that used to take two hours."</li>
+<li><strong>Leading with &quot;AI&quot; instead of the outcome.</strong> Business owners buy time saved and risk reduced, not technology.</li>
+<li><strong>No escalation logic.</strong> Every agent eventually hits a case it can&#x27;t handle; plan for that from day one.</li>
+<li><strong>Trying to serve every industry at once.</strong> Narrow focus compounds; generalist pitches don&#x27;t.</li>
+<li><strong>Selling access instead of an outcome.</strong> &quot;Here&#x27;s a chatbot&quot; is a much weaker pitch than &quot;here&#x27;s the report that used to take two hours.&quot;</li>
 <li><strong>Underpricing to win the first client.</strong> A too-low first price anchors every future negotiation with that client.</li>
 <li><strong>No monitoring after delivery.</strong> An unmonitored agent is a liability, not an asset — and silent failures cost trust fast.</li>
-<li><strong>One attempt and done.</strong> Whether it's one cold email, one template listing, or one case study — a single attempt is a test, not evidence of demand.</li>
+<li><strong>One attempt and done.</strong> Whether it&#x27;s one cold email, one template listing, or one case study — a single attempt is a test, not evidence of demand.</li>
 <li><strong>Ignoring platform and client-data policies.</strong> Terms of service and data handling expectations vary by platform and industry; check before you build, not after a client asks.</li>
 </ul>
 <h2>30-Day Launch Roadmap</h2>
@@ -366,13 +366,13 @@ Illustrative pricing structure:
 None of the three methods in this guide are shortcuts. Method 1 trades time for fast revenue. Method 2 trades a slower start for a business that scales without your hours. Method 3 asks for patience up front in exchange for a business that compounds.
 </p>
 <p>
-What they share is the underlying shift this whole guide is built on: stop asking Claude one question at a time, and start building things that keep working after you close the tab. That's the actual unlock in "AI agents" — not a smarter chatbot, but fewer places where a human has to show up just to keep something moving.
+What they share is the underlying shift this whole guide is built on: stop asking Claude one question at a time, and start building things that keep working after you close the tab. That&#x27;s the actual unlock in &quot;AI agents&quot; — not a smarter chatbot, but fewer places where a human has to show up just to keep something moving.
 </p>
 <p>
-The fastest way to find out which of these three methods fits you isn't more reading. It's picking one narrow workflow, in one niche, and building a single working prototype this week. Everything in this guide compounds from that first concrete build — not from planning a perfect version of all three at once.
+The fastest way to find out which of these three methods fits you isn&#x27;t more reading. It&#x27;s picking one narrow workflow, in one niche, and building a single working prototype this week. Everything in this guide compounds from that first concrete build — not from planning a perfect version of all three at once.
 </p>
 <p>
-<strong>The people making money with Claude in 2026 aren't smarter than you. They just started before you finished deciding.</strong>
+<strong>The people making money with Claude in 2026 aren&#x27;t smarter than you. They just started before you finished deciding.</strong>
 </p>
             </div>
         </article>

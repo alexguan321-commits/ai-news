@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -71,30 +71,30 @@ Six AI agents run my entire life while I sleep.
 Not a demo. Not a weekend project.
 </p>
 <p>
-A real team that works 24/7 making sure I'm never behind. Research done. Content drafted. Code reviewed. Newsletter ready. By the time I open Telegram in the morning, they've already put in a full shift.
+A real team that works 24/7 making sure I&#x27;m never behind. Research done. Content drafted. Code reviewed. Newsletter ready. By the time I open Telegram in the morning, they&#x27;ve already put in a full shift.
 </p>
 <p>
-Yesterday I posted about my agent team. The number one question: "How do I actually set this thing up?"
+Yesterday I posted about my agent team. The number one question: &quot;How do I actually set this thing up?&quot;
 </p>
 <p>
 This is the answer. Not theory. Not architecture diagrams. The actual file structure I use, the actual costs I pay, the actual failures I hit. Everything.
 </p>
 <h2>Why a team and not a tool</h2>
 <p>
-Running Unwind AI and the Awesome LLM Apps repo means doing six things daily. Research what's trending in AI. Write tweets. Write LinkedIn posts. Draft the newsletter. Review GitHub contributions on the repo. Triage community issues.
+Running Unwind AI and the Awesome LLM Apps repo means doing six things daily. Research what&#x27;s trending in AI. Write tweets. Write LinkedIn posts. Draft the newsletter. Review GitHub contributions on the repo. Triage community issues.
 </p>
 <p>
-Each task: 30 to 60 minutes. Six tasks. That's my entire day gone before I do any real work.
+Each task: 30 to 60 minutes. Six tasks. That&#x27;s my entire day gone before I do any real work.
 </p>
 <p>
-I tried solving this with a single agent. One massive prompt that researches and writes and reviews. It produced mediocre everything. The context filled up. The quality degraded. One agent couldn't hold six different jobs in its head.
+I tried solving this with a single agent. One massive prompt that researches and writes and reviews. It produced mediocre everything. The context filled up. The quality degraded. One agent couldn&#x27;t hold six different jobs in its head.
 </p>
 <p>
 So I hired six AI Agents.
 </p>
 <h2>Meet the squad</h2>
 <p>
-Every agent is named after a TV character. This is not a gimmick. When I tell Claude "you have Dwight Schrute energy," it already knows what that means from training data. Thorough, intense, takes the job dead seriously. That is 30 seasons of character development I get for free.
+Every agent is named after a TV character. This is not a gimmick. When I tell Claude &quot;you have Dwight Schrute energy,&quot; it already knows what that means from training data. Thorough, intense, takes the job dead seriously. That is 30 seasons of character development I get for free.
 </p>
 <p>
 1. <strong>Monica (Chief of Staff)</strong>: Named after Monica Geller. She is the main agent, the one I talk to the most on Telegram. She coordinates the others, handles strategic decisions, and delegates tasks to the right specialist.
@@ -103,7 +103,7 @@ Every agent is named after a TV character. This is not a gimmick. When I tell Cl
 2. <strong>Dwight (Research)</strong>: Named after Dwight Schrute. He runs research sweeps three times a day. Checks X, Hacker News, GitHub trending, Google AI blog, research papers. Writes structured intel reports that every other agent consumes.
 </p>
 <p>
-3. <strong>Kelly (X/Twitter)</strong>: Named after Kelly Kapoor. She reads Dwight's research and crafts tweet drafts in my voice. Single tweets, threads, quote tweets.
+3. <strong>Kelly (X/Twitter)</strong>: Named after Kelly Kapoor. She reads Dwight&#x27;s research and crafts tweet drafts in my voice. Single tweets, threads, quote tweets.
 </p>
 <p>
 4. <strong>Rachel (LinkedIn)</strong>: Named after Rachel Green. Same intel source as Kelly, different platform, different tone. Thought leadership angles instead of hot takes.
@@ -112,7 +112,7 @@ Every agent is named after a TV character. This is not a gimmick. When I tell Cl
 5. <strong>Ross (Engineering)</strong>: Named after Ross Geller. Handles code reviews, bug fixes, technical implementations.
 </p>
 <p>
-6. <strong>Pam (Newsletter)</strong>: Named after Pam Beesly. Turns Dwight's daily intel into a newsletter digest.
+6. <strong>Pam (Newsletter)</strong>: Named after Pam Beesly. Turns Dwight&#x27;s daily intel into a newsletter digest.
 </p>
 <p>
 Six agents. One job each. No confusion about who does what.
@@ -171,9 +171,9 @@ Monica lives at the root. She is the main agent I talk to. The others are sub-ag
 </p>
 <h2>What the heck is a SOUL.md</h2>
 <p>
-Every agent is defined by one file: SOUL.md. This is the agent's identity, role, and operating instructions. It is the most important file in the entire system.
+Every agent is defined by one file: SOUL.md. This is the agent&#x27;s identity, role, and operating instructions. It is the most important file in the entire system.
 </p>
-<h3>Dwight's SOUL.md:</h3>
+<h3>Dwight&#x27;s SOUL.md:</h3>
 <pre><code class="language-markdown">
 # SOUL.md (Dwight)
 
@@ -206,7 +206,7 @@ organize, and deliver intel that other agents use to create content.
 - Prioritize: relevance to AI/agents, engagement velocity,
   source credibility
 </code></pre>
-<h3>Monica's SOUL.md:</h3>
+<h3>Monica&#x27;s SOUL.md:</h3>
 <pre><code class="language-markdown">
 # SOUL.md (Monica)
 
@@ -253,7 +253,7 @@ Dwight does research and writes findings to intel/DAILY-INTEL.md. Kelly wakes up
 The coordination is the filesystem.
 </p>
 <p>
-Dwight's SOUL.md tells him exactly where to write:
+Dwight&#x27;s SOUL.md tells him exactly where to write:
 </p>
 <pre><code class="language-markdown">
 ## Output Files
@@ -263,7 +263,7 @@ intel/
 └── DAILY-INTEL.md          ← Generated view (agents read this)
 </code></pre>
 <p>
-Kelly's AGENTS.md tells her exactly where to read:
+Kelly&#x27;s AGENTS.md tells her exactly where to read:
 </p>
 <pre><code class="language-markdown">
 ## Intel-Powered Workflow
@@ -316,7 +316,7 @@ You wake up fresh each session. These files are your continuity:
 The agents actually get better over time. Not because the model improves. Because the context they load gets richer.
 </p>
 <p>
-Kelly learned that my writing voice has no emojis and no hashtags. That is in her memory now. Every future draft reflects it without me saying it again. Dwight learned which types of stories pass the "Alex filter" (our target audience profile) and which ones to skip. That is in his memory too.
+Kelly learned that my writing voice has no emojis and no hashtags. That is in her memory now. Every future draft reflects it without me saying it again. Dwight learned which types of stories pass the &quot;Alex filter&quot; (our target audience profile) and which ones to skip. That is in his memory too.
 </p>
 <p>
 During heartbeats, agents periodically review their daily logs and distill the important stuff into MEMORY.md. Daily files are raw notes. MEMORY.md is curated wisdom.
@@ -418,16 +418,16 @@ My typical morning: I wake up, open Telegram, and Dwight has already sent me a r
 You do not design the perfect personality upfront. You start with a rough sketch in SOUL.md, watch how the agent behaves, and course-correct over time. Exactly like managing real people.
 </p>
 <p>
-I call it "corrective prompt-engineering."
+I call it &quot;corrective prompt-engineering.&quot;
 </p>
 <p>
-Kelly's first drafts were full of emojis and exclamation points. That is not my voice. So I gave feedback: "No emojis. No hashtags. Short punchy sentences." She updated her memory. After a week, she nailed it consistently. Dwight initially captured too much noise. Every trending repo, every minor update. I told him: "Not everything trending matters. I need signal, not noise." He updated his principles. Now his intel reports are focused and actionable.
+Kelly&#x27;s first drafts were full of emojis and exclamation points. That is not my voice. So I gave feedback: &quot;No emojis. No hashtags. Short punchy sentences.&quot; She updated her memory. After a week, she nailed it consistently. Dwight initially captured too much noise. Every trending repo, every minor update. I told him: &quot;Not everything trending matters. I need signal, not noise.&quot; He updated his principles. Now his intel reports are focused and actionable.
 </p>
 <p>
 The first version of any agent is mediocre. The tenth version is good. The thirtieth version is great. You have to invest the reps.
 </p>
 <p>
-The TV character naming gives the model an immediate personality baseline. "Dwight Schrute energy" means thorough, intense, no-nonsense. But the real personality emerges from weeks of corrections stored in memory files.
+The TV character naming gives the model an immediate personality baseline. &quot;Dwight Schrute energy&quot; means thorough, intense, no-nonsense. But the real personality emerges from weeks of corrections stored in memory files.
 </p>
 <p>
 One tip: give each agent a single boring job title and a stop condition. Constraints make agents better. The more specific the role, the better the output.
@@ -459,7 +459,7 @@ This is not magic. It is infrastructure. And infrastructure fails.
 2. <strong>Cron jobs miss their window.</strong> The machine sleeps, network drops, API rate limits hit. Fix: the HEARTBEAT.md self-healing pattern.
 </p>
 <p>
-3. <strong>Context window overflow.</strong> Agents reading too many files at session start, running out of room for actual work. Fix: keep SOUL.md short (40-60 lines). Keep AGENTS.md focused. Only load today's memory file plus yesterday's.
+3. <strong>Context window overflow.</strong> Agents reading too many files at session start, running out of room for actual work. Fix: keep SOUL.md short (40-60 lines). Keep AGENTS.md focused. Only load today&#x27;s memory file plus yesterday&#x27;s.
 </p>
 <p>
 4. <strong>Agent output quality degrades.</strong> This happens when the memory files get cluttered or contradictory. Fix: periodic memory maintenance. During heartbeats, agents review daily logs and distill them into clean MEMORY.md entries.
@@ -531,7 +531,7 @@ These agents cannot do original thinking, strategic pivots, or creative breakthr
 <strong>Week 1:</strong> One agent, one job. Install OpenClaw. Write one SOUL.md. Pick the most repetitive task you do daily. Set up Telegram. Create one cron job. Watch it run for a week. Fix what breaks.
 </p>
 <p>
-<strong>Week 2:</strong> Add memory and refine. Your agent's first outputs will be mediocre. That is normal. Give feedback. Watch the memory files grow. Course-correct the SOUL.md.
+<strong>Week 2:</strong> Add memory and refine. Your agent&#x27;s first outputs will be mediocre. That is normal. Give feedback. Watch the memory files grow. Course-correct the SOUL.md.
 </p>
 <p>
 <strong>Week 3:</strong> Add a second agent. Now you feel the need. Your research agent is producing intel, but you are still manually writing tweets from it. Time for a content agent. Set up the shared file pattern: agent one writes, agent two reads.
@@ -556,10 +556,10 @@ That system is yours. Nobody else has your agents, your memory files, your refin
 And it compounds every day.
 </p>
 <p>
-Every research sweep makes Dwight's memory richer. Every round of feedback makes Kelly's drafts sharper. Every bug Ross fixes teaches him more about your codebase.
+Every research sweep makes Dwight&#x27;s memory richer. Every round of feedback makes Kelly&#x27;s drafts sharper. Every bug Ross fixes teaches him more about your codebase.
 </p>
 <p>
-That's the real moat. Not the model. The system that learns.
+That&#x27;s the real moat. Not the model. The system that learns.
 </p>
 <p>
 Start today. One agent. One job. One schedule.

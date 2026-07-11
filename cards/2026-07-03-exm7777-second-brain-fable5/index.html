@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,17 +57,17 @@
             <div class="content">
                 <hr>
 <p>
-title: "How to build a second brain with Fable 5"
-author: "exm7777"
-source: "X (Twitter) Article"
-url: "https://x.com/exm7777/status/2073045719020343705"
+title: &quot;How to build a second brain with Fable 5&quot;
+author: &quot;exm7777&quot;
+source: &quot;X (Twitter) Article&quot;
+url: &quot;<a href="https://x.com/exm7777/status/2073045719020343705&quot;" target="_blank" rel="noopener noreferrer">https://x.com/exm7777/status/2073045719020343705&quot;</a>
 date: 2026-07-03
 tags: [fable5, obsidian, second-brain, knowledge-management, llm-wiki, agentic-workflow, context-engineering]
 </p>
 <hr>
 <h1>How to build a second brain with Fable 5</h1>
 <p>
-I'm going to show you, step by step, how to turn Fable 5 into a machine that knows your business inside out... and ships outputs that look nothing like what everyone else is getting.
+I&#x27;m going to show you, step by step, how to turn Fable 5 into a machine that knows your business inside out... and ships outputs that look nothing like what everyone else is getting.
 </p>
 <p>
 The tool is a second brain built in Obsidian, and a small group of people is already running one... exactly the same model, a world of difference in every output.
@@ -95,7 +95,7 @@ Running an AI agent without a second brain is wasting your time... and the gap o
 Here are the numbers behind that claim:
 </p>
 <p>
-In accounting, a model working without the client's history lands around 70% accuracy. Give it the client's transaction history and it starts at 85% and climbs past 90%.
+In accounting, a model working without the client&#x27;s history lands around 70% accuracy. Give it the client&#x27;s transaction history and it starts at 85% and climbs past 90%.
 </p>
 <p>
 Nothing about the model changed, the knowledge did.
@@ -107,7 +107,7 @@ Writing works the same way. A mid-tier model with a well-built voice profile pro
 The files carry more of the result than the model tier does.
 </p>
 <p>
-And the model itself rewards this harder than anything before it. Anthropic's own testing had Fable play a full deck-building game with file-based memory, and it improved three times more than the previous flagship.
+And the model itself rewards this harder than anything before it. Anthropic&#x27;s own testing had Fable play a full deck-building game with file-based memory, and it improved three times more than the previous flagship.
 </p>
 <h2>What Obsidian is, in one minute</h2>
 <p>
@@ -117,7 +117,7 @@ Obsidian is a free app that sits on top of a folder of markdown files on your co
 You only need two of its features:
 </p>
 <ul>
-<li>`[[wikilinks]]`: type double brackets around any note's name and the two notes are now connected</li>
+<li>`[[wikilinks]]`: type double brackets around any note&#x27;s name and the two notes are now connected</li>
 <li>The graph view: Obsidian draws every note as a dot and every link as a line, so you see your knowledge as a web</li>
 </ul>
 <p>
@@ -128,7 +128,7 @@ You use the app, the agent uses the folder, both are looking at the same brain.
 </p>
 <h2>The structure: four pieces, nothing else</h2>
 <p>
-The thinking comes from Karpathy's LLM-Wiki idea: treat your knowledge base like a codebase.
+The thinking comes from Karpathy&#x27;s LLM-Wiki idea: treat your knowledge base like a codebase.
 </p>
 <p>
 Obsidian is the editor, the model is the programmer, the wiki is the code.
@@ -143,7 +143,7 @@ Four pieces:
 <li><strong>INDEX.md</strong> - the front door: every page listed with a one-line description, so the agent knows what exists without opening everything</li>
 </ul>
 <p>
-The agent's job is compiling: it reads new material in raw/ and updates the entity and concept pages, linking them as it goes.
+The agent&#x27;s job is compiling: it reads new material in raw/ and updates the entity and concept pages, linking them as it goes.
 </p>
 <p>
 The writing rules:
@@ -165,20 +165,20 @@ Every <code>[[link]]</code> the agent writes between two pages is an edge in a g
 A search-based knowledge base gets noisier as it grows, because more files means more junk in every search. A linked wiki gets stronger as it grows, because every new page connects into the web and makes the surrounding pages more useful.
 </p>
 <p>
-When the agent needs to answer something, it doesn't scan everything... it walks the links. From the client's page to the campaign concept to the competitor page, following connections the way you'd follow your own memory.
+When the agent needs to answer something, it doesn&#x27;t scan everything... it walks the links. From the client&#x27;s page to the campaign concept to the competitor page, following connections the way you&#x27;d follow your own memory.
 </p>
 <p>
-Karpathy's own vault sits around 100 articles and 400,000 words, all compiled by the model, all connected.
+Karpathy&#x27;s own vault sits around 100 articles and 400,000 words, all compiled by the model, all connected.
 </p>
 <h2>Populate it with goals</h2>
 <p>
-The first move is a backfill, and Fable's goal system was built for exactly this job.
+The first move is a backfill, and Fable&#x27;s goal system was built for exactly this job.
 </p>
 <p>
 <code>/goal</code> in Claude Code lets you write one finish line, and the model keeps working on its own while a second, smaller model reads along as the judge and confirms when the line is crossed.
 </p>
 <p>
-The trick is the judge only sees what's in the conversation, so the goal must demand proof it can read:
+The trick is the judge only sees what&#x27;s in the conversation, so the goal must demand proof it can read:
 </p>
 <p>
 Feed raw/ with what you already own before you run it: old chat transcripts, bookmarked threads, your notes app export, client folders, past research.
@@ -202,9 +202,9 @@ Maintenance runs on schedules, not on memory:
 </p>
 <ul>
 <li><strong>After every session</strong>: a hook, a small script that fires on its own when a session ends, mines what just happened... decisions made, mistakes caught, patterns confirmed, written into the vault as dated notes... work you already did becomes memory without you filing anything</li>
-<li><strong>Every night</strong>: a compile pass on a cheap model reads the day's new raw material and updates the wiki pages... routine work, routine tier</li>
+<li><strong>Every night</strong>: a compile pass on a cheap model reads the day&#x27;s new raw material and updates the wiki pages... routine work, routine tier</li>
 <li><strong>Every week</strong>: a lint pass hunts contradictions, duplicate pages, and dead links... this is the loop that keeps the graph clean, and it exists because unmaintained wikis rot</li>
-<li><strong>Every week</strong>: one synthesis pass on the big model reads across the whole vault and writes what changed this week, what's drifting, what deserves attention</li>
+<li><strong>Every week</strong>: one synthesis pass on the big model reads across the whole vault and writes what changed this week, what&#x27;s drifting, what deserves attention</li>
 </ul>
 <p>
 That last one is the only pass where the premium model earns its seat. Everything else runs on the cheap tier, because updating notes is routine work and routing routine work to Fable is how people burn money for nothing.
@@ -214,7 +214,7 @@ That last one is the only pass where the premium model earns its seat. Everythin
 The default AI research is one prompt to a chatbot, and the answer dies in the scrollback.
 </p>
 <p>
-Worse, it's built on stale knowledge... in AI, advice from six months ago is often actively wrong, and the real practitioner layer, what people are running right now, what breaks, what works, lives on socials, not in official docs.
+Worse, it&#x27;s built on stale knowledge... in AI, advice from six months ago is often actively wrong, and the real practitioner layer, what people are running right now, what breaks, what works, lives on socials, not in official docs.
 </p>
 <p>
 So the research machine works like this:
@@ -238,20 +238,20 @@ The stack:
 <li><strong>Firecrawl</strong>: pulls the full text of every page worth keeping, as clean markdown</li>
 </ul>
 <p>
-The skeptic is what separates research from rumor collection: fresh-context checkers outperform a model reviewing its own work, so the attack always comes from an agent that didn't do the research.
+The skeptic is what separates research from rumor collection: fresh-context checkers outperform a model reviewing its own work, so the attack always comes from an agent that didn&#x27;t do the research.
 </p>
 <h2>Read it without burning money</h2>
 <p>
 The context window is an expensive room, and everything that enters it gets paid for in tokens.
 </p>
 <ul>
-<li>Your CLAUDE.md, the instruction file the agent reads at the start of every session, loads automatically every single time... that's the always-paid tax... keep it under 200 lines pointing at the vault, never containing it</li>
+<li>Your CLAUDE.md, the instruction file the agent reads at the start of every session, loads automatically every single time... that&#x27;s the always-paid tax... keep it under 200 lines pointing at the vault, never containing it</li>
 <li>Everything else is pay-per-read: the agent checks INDEX.md, follows links, greps for keywords, and opens only the pages the trail points at... a full-folder sweep is the one move that never happens</li>
 <li>For big questions, send a worker: a subagent reads fifty pages in its own separate context and returns one paragraph of conclusions to your session... the expensive room holds decisions, not the library</li>
 </ul>
 <h2>Wire it into everything you build</h2>
 <p>
-Point any project at it with three lines in that project's CLAUDE.md.
+Point any project at it with three lines in that project&#x27;s CLAUDE.md.
 </p>
 <p>
 The outputs change immediately:
@@ -263,7 +263,7 @@ The outputs change immediately:
 <li><strong>Client work</strong>: every deliverable opens with the full relationship history behind it</li>
 </ul>
 <p>
-Then the second half: the vault itself becomes product. The research pages become articles and guides, the concept pages become courses, the client pages become case studies... you're not creating from a blank page anymore, you're packaging what the machine already verified.
+Then the second half: the vault itself becomes product. The research pages become articles and guides, the concept pages become courses, the client pages become case studies... you&#x27;re not creating from a blank page anymore, you&#x27;re packaging what the machine already verified.
 </p>
 <p>
 The warning that saves your vault: sync is where vaults die. Run a single sync system... if the agent writes files while iCloud syncs them, you get conflicted copies and scrambled folders. Git works as the checkpoint layer... it locks in a version only when you tell it to.
@@ -271,15 +271,15 @@ The warning that saves your vault: sync is where vaults die. Run a single sync s
 <h2>The card (build in order)</h2>
 <p>
 1. Create the vault: raw/, entities/, concepts/, and an INDEX.md
-2. Write the four rules into your CLAUDE.md: one lesson per file, update don't duplicate, delete what's wrong, never touch raw/
+2. Write the four rules into your CLAUDE.md: one lesson per file, update don&#x27;t duplicate, delete what&#x27;s wrong, never touch raw/
 3. Dump everything you own into raw/: transcripts, bookmarks, notes, client folders
 4. Run the /goal backfill with pasted proof and a stop clause
 5. Schedule the loops: session hook, nightly compile on the cheap tier, weekly lint, one premium synthesis pass
 6. Run the weekly research sweep: fan out, let the skeptic attack, land survivors as dated pages
-7. Add the three knowledge lines to every project's CLAUDE.md
+7. Add the three knowledge lines to every project&#x27;s CLAUDE.md
 </p>
 <p>
-The model in the driver's seat will change again... the vault survives every swap, and the feedback written into it makes it smarter every week no matter who's driving.
+The model in the driver&#x27;s seat will change again... the vault survives every swap, and the feedback written into it makes it smarter every week no matter who&#x27;s driving.
 </p>
 <p>
 The smallest version takes an hour: one folder, ten files about your business, and an agent told to read them first.

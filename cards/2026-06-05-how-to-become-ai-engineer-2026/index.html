@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -99,7 +99,7 @@
 <li>工程化 context — 每一步模型前面放什么 token</li>
 <li>编写模型能正确 pick 的 tools</li>
 <li>添加 memory、durability、sandboxing 应对生产流量</li>
-<li>接入 evals 和 CI regression gates 让"更好"可测量</li>
+<li>接入 evals 和 CI regression gates 让&quot;更好&quot;可测量</li>
 <li>交付能扛住真实用户和真实成本的 agents</li>
 </ul>
 <p>
@@ -175,7 +175,7 @@
 </p>
 <ul>
 <li>CLAUDE.md（项目约定）</li>
-<li>一个 Skill（定义 "research-summary" 输出格式）</li>
+<li>一个 Skill（定义 &quot;research-summary&quot; 输出格式）</li>
 <li>一个 PostToolUse hook（自动格式化 agent 写的每个文件）</li>
 <li>一个通过 Task tool 生成的子 agent</li>
 </ul>
@@ -241,7 +241,7 @@
 3. Context management — system-prompt 组装、85% window 时压缩
 4. Persistence — 每个 node checkpoint 以恢复、回退、分叉
 5. Sub-agent orchestration — 隔离 context 的子 agent，压缩摘要返回
-6. Skills & progressive disclosure — 只在相关时加载能力
+6. Skills &amp; progressive disclosure — 只在相关时加载能力
 7. Hooks — PreToolUse、PostToolUse、PreCompact、Stop
 8. Observability — 每个 model/tool/sub-agent 调用的 OTEL spans
 9. Sandboxing — 模型永远没有凭据的容器内代码执行
@@ -267,7 +267,7 @@
 <hr>
 <h3>Phase 4: 构建 Eval 和 Regression Harness（Week 14-17）</h3>
 <p>
-<strong>没有这个，每个"改进"都是 vibes。</strong>
+<strong>没有这个，每个&quot;改进&quot;都是 vibes。</strong>
 </p>
 <p>
 <strong>必须实现的 4 种 eval 类型：</strong>
@@ -337,7 +337,7 @@
 2. <strong>Latency</strong>
 </p>
 <ul>
-<li>并行 tool calls，永远 — Anthropic 自己研究 agent 的 system prompt 说"必须用并行 tool calls"</li>
+<li>并行 tool calls，永远 — Anthropic 自己研究 agent 的 system prompt 说&quot;必须用并行 tool calls&quot;</li>
 <li>流式部分输出到 UI</li>
 <li>Sub-agent fan-out：60 步顺序 agent → 10 步 lead + 5 个并行 10 步 sub-agents</li>
 </ul>
@@ -393,8 +393,8 @@
 </p>
 <ul>
 <li>Fork 开源编辑器（Shotcut），构建理解编辑意图的 AI agent</li>
-<li>用户说"make this cinematic"，agent 处理剪辑、转场、调色</li>
-<li>关键：视觉模型分析每帧 + 音频模型分析对话、意图翻译（"cinematic" → 具体参数）、场景检测、增量预览</li>
+<li>用户说&quot;make this cinematic&quot;，agent 处理剪辑、转场、调色</li>
+<li>关键：视觉模型分析每帧 + 音频模型分析对话、意图翻译（&quot;cinematic&quot; → 具体参数）、场景检测、增量预览</li>
 </ul>
 <h3>Project 4: Personal Life OS Agent</h3>
 <p>
@@ -425,7 +425,7 @@
 <ul>
 <li><strong>CrewAI:</strong> 最快 demo，生产脆弱，用于 hackathons</li>
 <li><strong>AutoGen:</strong> 合并到 Microsoft Agent Framework，未来不明</li>
-<li><strong>OpenAI Swarm:</strong> OpenAI 自己 README 说"not production-ready"</li>
+<li><strong>OpenAI Swarm:</strong> OpenAI 自己 README 说&quot;not production-ready&quot;</li>
 </ul>
 <p>
 LangGraph 提供：state machine + PostgresSaver durability + time-travel debugging + OTEL-friendly observability + model-agnostic
@@ -521,10 +521,10 @@ LangGraph 提供：state machine + PostgresSaver durability + time-travel debugg
 </p>
 <hr>
 <h2>关键语录</h2>
-<blockquote><p>"The companies hiring right now don't need people who understand the math. They need people who can build systems that survive production."</p></blockquote>
-<blockquote><p>"Prompt engineering is dead as a standalone skill. Context engineering replaced it."</p></blockquote>
-<blockquote><p>"The model matters less than the harness."</p></blockquote>
-<blockquote><p>"Expertise is the only job security left. Production systems are the only portfolio that matters."</p></blockquote>
+<blockquote><p>&quot;The companies hiring right now don&#x27;t need people who understand the math. They need people who can build systems that survive production.&quot;</p></blockquote>
+<blockquote><p>&quot;Prompt engineering is dead as a standalone skill. Context engineering replaced it.&quot;</p></blockquote>
+<blockquote><p>&quot;The model matters less than the harness.&quot;</p></blockquote>
+<blockquote><p>&quot;Expertise is the only job security left. Production systems are the only portfolio that matters.&quot;</p></blockquote>
 <hr>
 <h2>行动号召</h2>
 <p>

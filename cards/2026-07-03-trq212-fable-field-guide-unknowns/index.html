@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,10 +57,10 @@
             <div class="content">
                 <hr>
 <p>
-title: "A Field Guide to Fable: Finding Your Unknowns"
-author: "trq212"
-source: "X (Twitter) Article"
-url: "https://x.com/trq212/status/2073100352921215386"
+title: &quot;A Field Guide to Fable: Finding Your Unknowns&quot;
+author: &quot;trq212&quot;
+source: &quot;X (Twitter) Article&quot;
+url: &quot;<a href="https://x.com/trq212/status/2073100352921215386&quot;" target="_blank" rel="noopener noreferrer">https://x.com/trq212/status/2073100352921215386&quot;</a>
 date: 2026-07-03
 tags: [fable5, claude, agentic-coding, prompting, unknowns, implementation, workflow]
 </p>
@@ -70,7 +70,7 @@ tags: [fable5, claude, agentic-coding, prompting, unknowns, implementation, work
 Working with Claude Fable 5 keeps re-teaching me an old lesson: the map is not the territory.
 </p>
 <p>
-The map, a representation of the work to be done, is my prompts and skills and context, it's what I give Claude. The territory is where the work needs to happen, the codebase, the real world, its actual constraints.
+The map, a representation of the work to be done, is my prompts and skills and context, it&#x27;s what I give Claude. The territory is where the work needs to happen, the codebase, the real world, its actual constraints.
 </p>
 <p>
 The difference between the map and the territory is what I call unknowns. When Claude runs into an unknown, it needs to make a decision based on its best guess of what I want. The more work being done, the more unknowns Claude might run into.
@@ -79,10 +79,10 @@ The difference between the map and the territory is what I call unknowns. When C
 Fable is the first model where I find the quality of the work is bottlenecked by my ability to clarify its unknowns.
 </p>
 <p>
-Importantly, just planning ahead isn't always enough. You can find unknowns deep in implementation, or your unknowns may point you to the fact that you should actually be solving the problem in a different way altogether.
+Importantly, just planning ahead isn&#x27;t always enough. You can find unknowns deep in implementation, or your unknowns may point you to the fact that you should actually be solving the problem in a different way altogether.
 </p>
 <p>
-I've found that working with Fable is an iterative process of discovering my unknowns before, during, and after implementation.
+I&#x27;ve found that working with Fable is an iterative process of discovering my unknowns before, during, and after implementation.
 </p>
 <h2>Knowing your unknowns</h2>
 <p>
@@ -92,13 +92,13 @@ What are your unknowns? When I come to Claude with a problem I tend to break it 
 <strong>Known Knowns:</strong> This is essentially what is in my prompt. What do I tell the agent that I want?
 </p>
 <p>
-<strong>Known Unknowns:</strong> What haven't I figured out yet, but I'm aware that I haven't?
+<strong>Known Unknowns:</strong> What haven&#x27;t I figured out yet, but I&#x27;m aware that I haven&#x27;t?
 </p>
 <p>
-<strong>Unknown Knowns:</strong> What's so obvious I'd never write it down, but would recognize it if I saw it?
+<strong>Unknown Knowns:</strong> What&#x27;s so obvious I&#x27;d never write it down, but would recognize it if I saw it?
 </p>
 <p>
-<strong>Unknown Unknowns:</strong> What haven't I considered at all? What knowledge am I not aware of? Do I know how good something can be?
+<strong>Unknown Unknowns:</strong> What haven&#x27;t I considered at all? What knowledge am I not aware of? Do I know how good something can be?
 </p>
 <p>
 The best agentic coders have relatively few unknowns. Watching someone like Boris or Jarred prompt, it is obvious to me that they know what they want in-detail. They are deeply in-sync with both the codebase and the model behaviors.
@@ -111,7 +111,7 @@ But they also assume unknowns. In many ways, reducing and planning for your unkn
 Instructing Claude is a delicate balance. If you are too specific, Claude will follow your instructions even when a pivot may be more appropriate. If you are too vague, Claude will often make choices and assumptions based on industry best practices that may not be a fit for your task.
 </p>
 <p>
-When you don't account for your unknowns you fail both ways. You don't know when the path will be filled with obstacles and you don't know when the path will be clear, but you still want Claude to veer.
+When you don&#x27;t account for your unknowns you fail both ways. You don&#x27;t know when the path will be filled with obstacles and you don&#x27;t know when the path will be clear, but you still want Claude to veer.
 </p>
 <p>
 Claude can help you discover your unknowns faster. It can search through your codebase and the internet extremely quickly and it knows much more about the average topic than you. It can also iterate from failure faster.
@@ -122,54 +122,54 @@ The most important part of this process is to give Claude context about your sta
 <h1>Pre-implementation</h1>
 <h2>Blind Spot Pass</h2>
 <p>
-When starting work, one of the most useful things you can do is understand your blindspots. For example, if you're writing a feature in a new part of the codebase or using Claude to help you with unfamiliar work like iterating on a design, you're likely to have a lot of unknown unknowns.
+When starting work, one of the most useful things you can do is understand your blindspots. For example, if you&#x27;re writing a feature in a new part of the codebase or using Claude to help you with unfamiliar work like iterating on a design, you&#x27;re likely to have a lot of unknown unknowns.
 </p>
 <p>
 You may not know what questions to ask, what good looks like, what historical work has been done or what potholes to avoid.
 </p>
 <p>
-To do this, you can ask Claude to help you find your unknown unknowns and explain them to you. I like to use the literal words "blindspot pass" and "unknown unknowns". Giving it context on who you are and what you know is usually important.
+To do this, you can ask Claude to help you find your unknown unknowns and explain them to you. I like to use the literal words &quot;blindspot pass&quot; and &quot;unknown unknowns&quot;. Giving it context on who you are and what you know is usually important.
 </p>
 <p>
 Example Prompts:
 </p>
 <p>
-"I'm working on adding a new auth provider but I know nothing about the auth modules in this codebase. Can you do a blindspot pass to help me figure out my relevant unknown unknowns and help me prompt you better."
+&quot;I&#x27;m working on adding a new auth provider but I know nothing about the auth modules in this codebase. Can you do a blindspot pass to help me figure out my relevant unknown unknowns and help me prompt you better.&quot;
 </p>
 <p>
-"I don't know what color grading is but I need to grade this video. Can you teach me to understand my unknown unknowns about color grading, so that I can prompt better?"
+&quot;I don&#x27;t know what color grading is but I need to grade this video. Can you teach me to understand my unknown unknowns about color grading, so that I can prompt better?&quot;
 </p>
 <h2>Brainstorms and prototypes</h2>
 <p>
-When I'm working in an area with a lot of unknown knowns, involving criteria I only know to define when I see it, I like to ask Claude to brainstorm and prototype with me.
+When I&#x27;m working in an area with a lot of unknown knowns, involving criteria I only know to define when I see it, I like to ask Claude to brainstorm and prototype with me.
 </p>
 <p>
-It's extremely valuable to identify and verbalize unknown knowns early during prototyping, because finding them out during implementation can be (relatively) expensive. Small changes in a feature or spec can cause drastically different implementations in code and it can be more difficult for your agent to revert previous changes.
+It&#x27;s extremely valuable to identify and verbalize unknown knowns early during prototyping, because finding them out during implementation can be (relatively) expensive. Small changes in a feature or spec can cause drastically different implementations in code and it can be more difficult for your agent to revert previous changes.
 </p>
 <p>
 For example, you may just want to see how a button added to a frame looks without having to wire up a backend route or maintaining additional state in the frontend.
 </p>
 <p>
-Visual design is something that for me is difficult to articulate, but I know what I want when I see it. In these cases, I'll ask for several design approaches to an artifact.
+Visual design is something that for me is difficult to articulate, but I know what I want when I see it. In these cases, I&#x27;ll ask for several design approaches to an artifact.
 </p>
 <p>
-I also start almost every coding session with an exploration or brainstorming phase. This helps me start with intent to define the project's scope. Claude often finds high-value approaches I would have missed and sometimes misses the forest through the trees. Brainstorming prevents me from setting too narrow or too wide a scope.
+I also start almost every coding session with an exploration or brainstorming phase. This helps me start with intent to define the project&#x27;s scope. Claude often finds high-value approaches I would have missed and sometimes misses the forest through the trees. Brainstorming prevents me from setting too narrow or too wide a scope.
 </p>
 <p>
 Example prompts:
 </p>
 <p>
-"I want a dashboard for this data but I have no visual taste and don't know what's possible. Make me an HTML page with 4 wildly different design directions so I can react to them."
+&quot;I want a dashboard for this data but I have no visual taste and don&#x27;t know what&#x27;s possible. Make me an HTML page with 4 wildly different design directions so I can react to them.&quot;
 </p>
 <p>
-"Before wiring anything up, make a single HTML file mocking the new editor toolbar with fake data. I want to react to the layout before you touch the real app."
+&quot;Before wiring anything up, make a single HTML file mocking the new editor toolbar with fake data. I want to react to the layout before you touch the real app.&quot;
 </p>
 <p>
-"Here's my rough problem: users churn after onboarding. Search the codebase and brainstorm 10 places we could intervene, from cheapest to most ambitious. I'll tell you which ones resonate."
+&quot;Here&#x27;s my rough problem: users churn after onboarding. Search the codebase and brainstorm 10 places we could intervene, from cheapest to most ambitious. I&#x27;ll tell you which ones resonate.&quot;
 </p>
 <h2>Interviews</h2>
 <p>
-Once I've done sufficient brainstorming, I likely still have unknowns.
+Once I&#x27;ve done sufficient brainstorming, I likely still have unknowns.
 </p>
 <p>
 In this case, I ask Claude to interview me about any unknowns or ambiguities. When asking Claude to interview you, try and give it context about your problem to guide its questions.
@@ -178,20 +178,20 @@ In this case, I ask Claude to interview me about any unknowns or ambiguities. Wh
 Example prompts:
 </p>
 <p>
-"Interview me one question at a time about anything ambiguous, prioritize questions where my answer would change the architecture."
+&quot;Interview me one question at a time about anything ambiguous, prioritize questions where my answer would change the architecture.&quot;
 </p>
 <h2>References</h2>
 <p>
-Sometimes you can't describe what you want in detail. For example, you might not have the language or it might be so complicated that it would take you quite a while.
+Sometimes you can&#x27;t describe what you want in detail. For example, you might not have the language or it might be so complicated that it would take you quite a while.
 </p>
 <p>
 In this case, the best answer is a reference. While you can include diagrams, documentation or pictures, the absolute best reference is source code.
 </p>
 <p>
-If you have a library that implements something in a certain way or a design component you really like, just point Fable at the folder and tell it what to look for, even if it's in a different language.
+If you have a library that implements something in a certain way or a design component you really like, just point Fable at the folder and tell it what to look for, even if it&#x27;s in a different language.
 </p>
 <p>
-This is also the way Claude Design works. You don't have to hand it a file (although you can do that too). You can point it at a module on a website you like, and it reads the underlying code, not just the screenshot. This provides much richer detail around the markup, structure, and how the component is actually built.
+This is also the way Claude Design works. You don&#x27;t have to hand it a file (although you can do that too). You can point it at a module on a website you like, and it reads the underlying code, not just the screenshot. This provides much richer detail around the markup, structure, and how the component is actually built.
 </p>
 <p>
 Example prompts:
@@ -201,13 +201,13 @@ This Rust crate in vendor/rate-limiter implements the exact backoff behavior I w
 </p>
 <h2>Implementation Plans</h2>
 <p>
-When I think I'm ready to implement, I tend to ask Claude to put together an implementation plan for me to review that focuses on the parts that might be most likely to change, for example to review data models, type interfaces or UX flows. This allows Claude to surface things I might actually need to alter.
+When I think I&#x27;m ready to implement, I tend to ask Claude to put together an implementation plan for me to review that focuses on the parts that might be most likely to change, for example to review data models, type interfaces or UX flows. This allows Claude to surface things I might actually need to alter.
 </p>
 <p>
 Example prompts:
 </p>
 <p>
-"Write an implementation plan in HTML, but lead with the decisions I'm most likely to tweak with: data model changes, new type interfaces, and anything user-facing. Bury the mechanical refactoring at the bottom, I trust you on that part."
+&quot;Write an implementation plan in HTML, but lead with the decisions I&#x27;m most likely to tweak with: data model changes, new type interfaces, and anything user-facing. Bury the mechanical refactoring at the bottom, I trust you on that part.&quot;
 </p>
 <h1>During implementation</h1>
 <h2>Implementation notes</h2>
@@ -218,13 +218,13 @@ Once I am satisfied with my plan, I make a new session and pass any artifacts to
 But the truth is that no matter how much planning you do, there are always unknown unknowns lurking. The agent may find during its work that it needs to take a different tack due to an edge case it found in the code.
 </p>
 <p>
-I ask Claude Code to keep a temporary 'implementation-notes.md' (or .html) file where it keeps track of decisions it makes so we can learn from our next attempt.
+I ask Claude Code to keep a temporary &#x27;implementation-notes.md&#x27; (or .html) file where it keeps track of decisions it makes so we can learn from our next attempt.
 </p>
 <p>
 Example prompts:
 </p>
 <p>
-"Keep an implementation-notes.md file. If you hit an edge case that forces you to deviate from the plan, pick the conservative option, log it under 'Deviations', and keep going."
+&quot;Keep an implementation-notes.md file. If you hit an edge case that forces you to deviate from the plan, pick the conservative option, log it under &#x27;Deviations&#x27;, and keep going.&quot;
 </p>
 <h1>Post implementation</h1>
 <h2>Pitches and explainers</h2>
@@ -239,7 +239,7 @@ One of the most important parts of shipping something is getting buy-in and appr
 Example prompts:
 </p>
 <p>
-"Package the prototype, the spec, and the implementation notes into a single doc I can drop in Slack to get buy-in. Lead with the demo GIF."
+&quot;Package the prototype, the spec, and the implementation notes into a single doc I can drop in Slack to get buy-in. Lead with the demo GIF.&quot;
 </p>
 <h2>Quizzes</h2>
 <p>
@@ -252,27 +252,27 @@ Asking Claude to quiz me about the change after giving me a bunch of context hel
 Example prompts:
 </p>
 <p>
-"I want to make sure I understand everything that's happened in this change. Give me a HTML report on the changes for me to read and understand with context, intuition, what was done, etc. and a quiz at the bottom on the changes that I must pass."
+&quot;I want to make sure I understand everything that&#x27;s happened in this change. Give me a HTML report on the changes for me to read and understand with context, intuition, what was done, etc. and a quiz at the bottom on the changes that I must pass.&quot;
 </p>
 <h2>How this comes together: launching Fable</h2>
 <p>
-The launch video for Fable was edited entirely by Claude Code. This was a new domain for me and I'm by no means an expert.
+The launch video for Fable was edited entirely by Claude Code. This was a new domain for me and I&#x27;m by no means an expert.
 </p>
 <p>
-So I started with what I did know. I knew that Claude could use code to edit videos and transcribe them, but I wasn't sure if it was accurate enough. I then asked Claude to explain to me how transcription like Whisper worked, and whether I would be able to accurately cut out things like ums or large pauses using ffmpeg.
+So I started with what I did know. I knew that Claude could use code to edit videos and transcribe them, but I wasn&#x27;t sure if it was accurate enough. I then asked Claude to explain to me how transcription like Whisper worked, and whether I would be able to accurately cut out things like ums or large pauses using ffmpeg.
 </p>
 <p>
-I wanted Claude to create a UI that was timed with the words I was saying, but wasn't sure if it would be able to so I asked Claude to create a prototype video using Remotion and a transcription to see if it would work.
+I wanted Claude to create a UI that was timed with the words I was saying, but wasn&#x27;t sure if it would be able to so I asked Claude to create a prototype video using Remotion and a transcription to see if it would work.
 </p>
 <p>
-Finally, the video itself looked a bit muted, which I knew was the result of color grading but I didn't really know what color grading was. My first pass attempt was to try and get Claude to do a few variations to pick, but I realized that I didn't know what "good" looked like when it came to color grading. So instead, I asked Claude to teach me about color grading to discover my unknowns.
+Finally, the video itself looked a bit muted, which I knew was the result of color grading but I didn&#x27;t really know what color grading was. My first pass attempt was to try and get Claude to do a few variations to pick, but I realized that I didn&#x27;t know what &quot;good&quot; looked like when it came to color grading. So instead, I asked Claude to teach me about color grading to discover my unknowns.
 </p>
 <h2>Matching the Map and Territory</h2>
 <p>
-The better models get, the more you can achieve with the right approach. When a long-horizon task comes back wrong, it's likely you need to spend more time defining your unknowns or creating an implementation plan that allows for Claude to improvise through them.
+The better models get, the more you can achieve with the right approach. When a long-horizon task comes back wrong, it&#x27;s likely you need to spend more time defining your unknowns or creating an implementation plan that allows for Claude to improvise through them.
 </p>
 <p>
-Every explainer, brainstorm, interview, prototype, and reference is a cheap way to find out what you didn't know before it gets expensive to fix.
+Every explainer, brainstorm, interview, prototype, and reference is a cheap way to find out what you didn&#x27;t know before it gets expensive to fix.
 </p>
 <p>
 So start your next project by asking Claude to help you find your unknowns.

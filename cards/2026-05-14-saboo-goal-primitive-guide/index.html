@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,10 +57,10 @@
             <div class="content">
                 <hr>
 <p>
-title: "The ultimate guide to /goal"
-author: "Shubham Saboo (@saboo_shubham_)"
-source: "X (Twitter) Article"
-url: "https://x.com/saboo_shubham_/status/2054988166541770782"
+title: &quot;The ultimate guide to /goal&quot;
+author: &quot;Shubham Saboo (@saboo_shubham_)&quot;
+source: &quot;X (Twitter) Article&quot;
+url: &quot;<a href="https://x.com/saboo_shubham_/status/2054988166541770782&quot;" target="_blank" rel="noopener noreferrer">https://x.com/saboo_shubham_/status/2054988166541770782&quot;</a>
 date: 2026-05-14
 tags: [goal-primitive, hermes-agent, codex, claude-code, orchestrator, kanban, multi-agent]
 </p>
@@ -73,7 +73,7 @@ tags: [goal-primitive, hermes-agent, codex, claude-code, orchestrator, kanban, m
 HTTP is a primitive. JSON is a primitive. /goal is becoming one for coding agents.
 </p>
 <p>
-A few weeks ago, OpenAI's Codex CLI added /goal as a way to give the coding worker a job with a defined done state. Claude Code added it this week.
+A few weeks ago, OpenAI&#x27;s Codex CLI added /goal as a way to give the coding worker a job with a defined done state. Claude Code added it this week.
 </p>
 <p>
 Hermes Agent, the orchestrator I run on a Mac Mini to coordinate work between coding workers, has had /goal built in for a while.
@@ -82,49 +82,49 @@ Hermes Agent, the orchestrator I run on a Mac Mini to coordinate work between co
 So I now have a builder, a reviewer, and an orchestrator that all accept the same instruction format, even though they share nothing else.
 </p>
 <p>
-If you've only seen /goal used as a fancier prompt, you've missed what it changes.
+If you&#x27;ve only seen /goal used as a fancier prompt, you&#x27;ve missed what it changes.
 </p>
 <h2>What /goal actually is</h2>
 <p>
-A regular prompt asks an agent for the next response. You read what comes back, decide if it's right, and push the agent forward to the next step. You're steering every turn.
+A regular prompt asks an agent for the next response. You read what comes back, decide if it&#x27;s right, and push the agent forward to the next step. You&#x27;re steering every turn.
 </p>
 <p>
-/goal flips that. You write down what "done" looks like, submit it once, and the agent works toward it until it gets there. Here's a real one:
+/goal flips that. You write down what &quot;done&quot; looks like, submit it once, and the agent works toward it until it gets there. Here&#x27;s a real one:
 </p>
 <p>
-The goal stays active until it's achieved, paused, blocked, cleared, or it runs out of budget.
+The goal stays active until it&#x27;s achieved, paused, blocked, cleared, or it runs out of budget.
 </p>
 <p>
-This is different from putting the word "goal" inside a normal one-shot command. If you write codex exec 'goal: build the app', that's still a prompt with a label. The real primitive lives inside an interactive worker session. You launch the CLI, you submit /goal, and you walk away.
+This is different from putting the word &quot;goal&quot; inside a normal one-shot command. If you write codex exec &#x27;goal: build the app&#x27;, that&#x27;s still a prompt with a label. The real primitive lives inside an interactive worker session. You launch the CLI, you submit /goal, and you walk away.
 </p>
 <p>
 The shift is from prompting (you driving) to assigning (the agent driving toward a target you defined).
 </p>
 <h2>The three tools that currently speak /goal</h2>
 <p>
-The three tools accepting /goal aren't all the same kind of thing, so it's worth being specific.
+The three tools accepting /goal aren&#x27;t all the same kind of thing, so it&#x27;s worth being specific.
 </p>
 <p>
-<strong>Codex</strong> is OpenAI's coding CLI. Strong at implementation, especially when given a clear spec. /goal is how you give it that spec.
+<strong>Codex</strong> is OpenAI&#x27;s coding CLI. Strong at implementation, especially when given a clear spec. /goal is how you give it that spec.
 </p>
 <p>
-<strong>Claude Code</strong> is Anthropic's coding CLI. Strong at the inverse: finding what's wrong with code that looks right. Spec compliance, safety issues, error states, security holes. /goal is how you point it at code and ask for a review.
+<strong>Claude Code</strong> is Anthropic&#x27;s coding CLI. Strong at the inverse: finding what&#x27;s wrong with code that looks right. Spec compliance, safety issues, error states, security holes. /goal is how you point it at code and ask for a review.
 </p>
 <p>
 <strong>Hermes Agent</strong> is a different kind of tool entirely. Not a coding worker, but an orchestrator that coordinates work between coding workers like the two above. /goal is how Hermes hands off tasks to whichever tool is right for the job, and also how I tell Hermes what I want in the first place.
 </p>
 <p>
-What matters isn't that any one of them shipped /goal. It's that three different teams converged on the same primitive, and that convergence is what makes it possible to compose them.
+What matters isn&#x27;t that any one of them shipped /goal. It&#x27;s that three different teams converged on the same primitive, and that convergence is what makes it possible to compose them.
 </p>
 <h2>Setting things up</h2>
 <p>
-The first time I needed Codex and Claude Code on the Mac Mini that runs Hermes, I didn't install them by hand. I sent Hermes a message asking it to install both and log me in. It handled the rest.
+The first time I needed Codex and Claude Code on the Mac Mini that runs Hermes, I didn&#x27;t install them by hand. I sent Hermes a message asking it to install both and log me in. It handled the rest.
 </p>
 <p>
-That's the workflow now. You don't type install commands. Setup is just another goal.
+That&#x27;s the workflow now. You don&#x27;t type install commands. Setup is just another goal.
 </p>
 <p>
-If you don't have an orchestrator running yet, the install pages for Codex and Claude Code are easy enough to follow. But once you do, you shouldn't set up another tool by hand. The point of having an orchestrator is that mechanical work stops being yours.
+If you don&#x27;t have an orchestrator running yet, the install pages for Codex and Claude Code are easy enough to follow. But once you do, you shouldn&#x27;t set up another tool by hand. The point of having an orchestrator is that mechanical work stops being yours.
 </p>
 <h2>What Hermes adds on top of /goal</h2>
 <p>
@@ -147,11 +147,11 @@ Hermes turns those loose runs into a workflow:
 8. Hermes verifies the final output by inspecting the filesystem, tests, build, and git state
 </p>
 <p>
-The board is what /goal becomes when there's an orchestrator on top of it. Every goal has a card, every card has a status, every handoff leaves a trail. Instead of hunting through terminals, you watch the work move across columns on your phone.
+The board is what /goal becomes when there&#x27;s an orchestrator on top of it. Every goal has a card, every card has a status, every handoff leaves a trail. Instead of hunting through terminals, you watch the work move across columns on your phone.
 </p>
 <h2>The three roles</h2>
 <p>
-The tools change. The roles don't.
+The tools change. The roles don&#x27;t.
 </p>
 <p>
 <strong>Orchestrator.</strong> Owns the control loop. Task decomposition, worker selection, Kanban cards, background processes, dependencies, final verification, the user-facing summary. In my setup, Hermes.
@@ -160,7 +160,7 @@ The tools change. The roles don't.
 <strong>Builder.</strong> Takes a spec and produces working code. Implementation is the bottleneck this role solves. Codex tends to be strong here.
 </p>
 <p>
-<strong>Reviewer.</strong> Reads what the builder produced and finds what's wrong with it. Correctness is the bottleneck. Claude Code tends to be strong here.
+<strong>Reviewer.</strong> Reads what the builder produced and finds what&#x27;s wrong with it. Correctness is the bottleneck. Claude Code tends to be strong here.
 </p>
 <h2>A real run, end to end</h2>
 <p>
@@ -192,26 +192,26 @@ All of that came from one message. Three different tools did the actual work, bu
 </p>
 <h2>The verification rule</h2>
 <p>
-Hermes never trusted Codex's self-report. After Codex marked the build done, Hermes ran the commands itself:
+Hermes never trusted Codex&#x27;s self-report. After Codex marked the build done, Hermes ran the commands itself:
 </p>
 <p>
-The verifier is what makes a /goal a contract instead of a promise. Don't trust the worker's self-report as final. Trust the verifier.
+The verifier is what makes a /goal a contract instead of a promise. Don&#x27;t trust the worker&#x27;s self-report as final. Trust the verifier.
 </p>
 <p>
-Coding agents are confident. They'll tell you the build passes when the build was never run. They'll tell you tests pass when they wrote tests that never executed. The verifier closes that gap.
+Coding agents are confident. They&#x27;ll tell you the build passes when the build was never run. They&#x27;ll tell you tests pass when they wrote tests that never executed. The verifier closes that gap.
 </p>
 <p>
 Without verification, /goal is just a fancier prompt. With verification, it becomes a contract.
 </p>
 <h2>Running multiple goals</h2>
 <p>
-You can run multiple /goals in parallel, but you can't point multiple coding workers at the same files without thinking about it first.
+You can run multiple /goals in parallel, but you can&#x27;t point multiple coding workers at the same files without thinking about it first.
 </p>
 <p>
-My default is one main builder per repo. If I want parallelism, I add it across clear boundaries. Different repos, different branches, git worktrees, separate packages, docs vs code, tests vs implementation. Anywhere two workers can't step on each other.
+My default is one main builder per repo. If I want parallelism, I add it across clear boundaries. Different repos, different branches, git worktrees, separate packages, docs vs code, tests vs implementation. Anywhere two workers can&#x27;t step on each other.
 </p>
 <p>
-The bad pattern is three workers all editing the same file in the same repo. You get conflicts, partial overwrites, and one worker silently undoing another's work.
+The bad pattern is three workers all editing the same file in the same repo. You get conflicts, partial overwrites, and one worker silently undoing another&#x27;s work.
 </p>
 <p>
 The better pattern is one writer at a time on any given file. Builder writes, reviewer only reads, fix goals stay scoped to the fix. Or run three builders in three worktrees on three competing approaches and let the orchestrator pick the best one.
@@ -221,10 +221,10 @@ The board is what makes this practical. Without it, parallel background workers 
 </p>
 <h2>What changes for me</h2>
 <p>
-The useful framing here is not "I can run agents in the background."
+The useful framing here is not &quot;I can run agents in the background.&quot;
 </p>
 <p>
-It's that one message turns into a pipeline across three different coding tools, and I watch the whole thing move across one board.
+It&#x27;s that one message turns into a pipeline across three different coding tools, and I watch the whole thing move across one board.
 </p>
 <p>
 You stop sitting in a terminal waiting for one agent to finish, and start managing a queue of work with visible state.
@@ -233,10 +233,10 @@ You stop sitting in a terminal waiting for one agent to finish, and start managi
 If Codex and Claude Code had each invented their own job-handoff format, no orchestrator could route between them. The board is impressive, but the primitive makes the board even more useful.
 </p>
 <p>
-The workers can change, but the primitive stays the same. The next coding tool that adopts /goal will join this pipeline without me changing anything. I'll just route work to it.
+The workers can change, but the primitive stays the same. The next coding tool that adopts /goal will join this pipeline without me changing anything. I&#x27;ll just route work to it.
 </p>
 <p>
-That's what good primitives do.
+That&#x27;s what good primitives do.
 </p>
             </div>
         </article>

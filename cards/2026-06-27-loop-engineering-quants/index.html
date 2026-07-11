@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -74,7 +74,7 @@ It pulls data on a schedule. It runs alpha research. It verifies every signal th
 This is everything I figured out about loop engineering and how to wire it into a complete autonomous trading system. No fluff, just the build.
 </p>
 <p>
-By the end you'll know 3 things:
+By the end you&#x27;ll know 3 things:
 </p>
 <ul>
 <li>The real difference between prompting an agent and engineering a loop</li>
@@ -95,7 +95,7 @@ Loop engineering ends that. You stop being the thing inside the loop and become 
 A loop is a recursive goal. You define a purpose, the agent iterates against it, and the loop keeps running until a real stopping condition is met. The agent forgets between runs. The loop does not. That single fact is the whole architecture.
 </p>
 <p>
-Boris Cherny, who runs Claude Code at Anthropic, put it plainly: "I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops." He stopped typing instructions one at a time and built systems that send the instructions for him, read the results and decide what happens next.
+Boris Cherny, who runs Claude Code at Anthropic, put it plainly: &quot;I don&#x27;t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.&quot; He stopped typing instructions one at a time and built systems that send the instructions for him, read the results and decide what happens next.
 </p>
 <p>
 For coding, that changes how software ships. For trading, it changes everything.
@@ -104,16 +104,16 @@ For coding, that changes how software ships. For trading, it changes everything.
 No quant ever got rich by typing one prompt and walking away. The edge comes from running the same cycle thousands of times, getting one percent better every iteration and never sleeping. That is exactly what a loop does.
 </p>
 <p>
-A lot of retail quants will read this and assume it doesn't apply to them because they're small. The opposite is true. The smaller your capital, the more this matters, because a self-running loop is the only way a solo builder ever closes the gap with a fund running 100 PhDs.
+A lot of retail quants will read this and assume it doesn&#x27;t apply to them because they&#x27;re small. The opposite is true. The smaller your capital, the more this matters, because a self-running loop is the only way a solo builder ever closes the gap with a fund running 100 PhDs.
 </p>
 <p>
 Quant trading is already a loop. Pull data, generate signals, backtest, execute, monitor risk, repeat. Every fund on Wall Street runs that exact cycle. Renaissance has been running it since 1988. Citadel runs it with teams of engineers watching every stage. Two Sigma, Jane Street, all of them.
 </p>
 <p>
-The only real difference is they need hundreds of humans sitting inside the loop. You don't.
+The only real difference is they need hundreds of humans sitting inside the loop. You don&#x27;t.
 </p>
 <p>
-If you're still typing prompts into Claude one trade at a time, the leverage point has already moved a floor up. You are not writing better prompts anymore. You are writing the system that writes the prompts.
+If you&#x27;re still typing prompts into Claude one trade at a time, the leverage point has already moved a floor up. You are not writing better prompts anymore. You are writing the system that writes the prompts.
 </p>
 <h2>Part 2: The 6 Pieces That Run Every Working Loop</h2>
 <p>
@@ -131,11 +131,11 @@ Two flavors are worth knowing:
 <li><strong>/goal</strong> — keeps going until a condition you wrote is actually true, with a separate small model grading whether the work is done</li>
 </ul>
 <p>
-In trading, /loop is your data pull every minute. /goal is "keep iterating on this signal until the backtest Sharpe is above 1.5."
+In trading, /loop is your data pull every minute. /goal is &quot;keep iterating on this signal until the backtest Sharpe is above 1.5.&quot;
 </p>
 <h3>2. The skill</h3>
 <p>
-A skill is a procedure manual the agent reads instead of being told everything from scratch each session. It lives in a SKILL.md file and holds your conventions, your rules and your "we don't do it like this because of that one incident."
+A skill is a procedure manual the agent reads instead of being told everything from scratch each session. It lives in a SKILL.md file and holds your conventions, your rules and your &quot;we don&#x27;t do it like this because of that one incident.&quot;
 </p>
 <p>
 Without skills, every loop run starts from zero. With skills, intent compounds.
@@ -291,7 +291,7 @@ Together, these 5 sub-loops form one self-running system. Data flows in, signals
 I designed this once. I have not prompted any of these steps since.
 </p>
 <p>
-<strong>One warning.</strong> A loop with no real stopping condition fails quietly. The agent emits a completion signal believing a half-done job is finished, the loop exits and the bad trade sits open. Your stop conditions need to be checkable by something other than the agent's own claim. "Sharpe above 1.5 over the last 30 trades." "Drawdown below 5 percent." "Test suite passes." Never "the agent says it's done."
+<strong>One warning.</strong> A loop with no real stopping condition fails quietly. The agent emits a completion signal believing a half-done job is finished, the loop exits and the bad trade sits open. Your stop conditions need to be checkable by something other than the agent&#x27;s own claim. &quot;Sharpe above 1.5 over the last 30 trades.&quot; &quot;Drawdown below 5 percent.&quot; &quot;Test suite passes.&quot; Never &quot;the agent says it&#x27;s done.&quot;
 </p>
 <h2>The Takeaway</h2>
 <p>

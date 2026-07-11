@@ -119,7 +119,7 @@ def main():
     subprocess.run(['git', 'push'], check=True)
     
     print(f"\n✅ 成功发布 {len(created_files)} 个报告到网站")
-    print(f"🌐 网站将在 1-2 分钟后更新: https://ai-news-olive-tau.vercel.app")
+    print(f"🌐 网站将在 1-2 分钟后更新: https://alexguan321-commits.github.io/ai-news/")
 
 if __name__ == "__main__":
     main()

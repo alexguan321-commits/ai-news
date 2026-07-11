@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -77,7 +77,7 @@
 <li><strong>2026 年资本支出预算已上调至 1800-1900 亿美元</strong>（此前预估 1750-1850 亿），这个数字本身就超过了大多数国家的 GDP</li>
 </ul>
 <p>
-<strong>Alphabet 官方声明的关键句：</strong> "The company is experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company's available supply."——翻译：需求已经超过供给能力，不是不想赚更多钱，是算力不够。
+<strong>Alphabet 官方声明的关键句：</strong> &quot;The company is experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company&#x27;s available supply.&quot;——翻译：需求已经超过供给能力，不是不想赚更多钱，是算力不够。
 </p>
 <p>
 <strong>为什么这是今天最重要的事：</strong>
@@ -142,7 +142,7 @@ Alphabet 800亿股权融资 + 1800-1900亿资本支出
 <strong>第一阶段（2023 年初）：</strong> LLM API 刚出来，大家不知道怎么编排多步调用。LangChain 提供了 Chain、Agent、Memory 等抽象，降低了入门门槛。此时 LangChain 的价值是「教育」——让开发者理解 LLM 应用的可能性。
 </p>
 <p>
-<strong>第二阶段（2023 年中 - 2024 年）：</strong> 开发者开始把 LangChain 用于生产环境。问题暴露：抽象层太厚导致调试困难（「5 层抽象只为了改一个细节」），回调机制不透明，版本升级频繁破坏兼容性。Octomind 的文章精准描述了这个问题：「LangChain does not provide a method for externally observing an agent's state」——你甚至无法从外部观察 agent 在干什么。
+<strong>第二阶段（2023 年中 - 2024 年）：</strong> 开发者开始把 LangChain 用于生产环境。问题暴露：抽象层太厚导致调试困难（「5 层抽象只为了改一个细节」），回调机制不透明，版本升级频繁破坏兼容性。Octomind 的文章精准描述了这个问题：「LangChain does not provide a method for externally observing an agent&#x27;s state」——你甚至无法从外部观察 agent 在干什么。
 </p>
 <p>
 <strong>第三阶段（2024 年中 - 2026 年）：</strong> LLM 模型本身的能力大幅提升（context window 从 4K 到 2M，工具调用能力内建），使得大量 LangChain 的抽象变得不必要。你不再需要一个框架来管理 memory——模型自己就能处理 200K token 的上下文。你不再需要一个框架来编排工具——模型原生支持 function calling。
@@ -254,7 +254,7 @@ Gemini 3.5 Pro 发布（2M 上下文 + 强推理）
 </p>
 <hr>
 <h2>📺 YouTube 精选</h2>
-<h3>1. NEW Gemini 3.5 Pro LEAKS! Google Is Back and Will Rival Fable 5 & GPT-5.6!</h3>
+<h3>1. NEW Gemini 3.5 Pro LEAKS! Google Is Back and Will Rival Fable 5 &amp; GPT-5.6!</h3>
 <p>
 🔗 <a href="https://www.youtube.com/watch?v=-z2QiGjtOzk" target="_blank" rel="noopener noreferrer">来源：YouTube</a> | 发布日期：2026-07-05
 </p>
@@ -302,7 +302,7 @@ Gemini 3.5 Pro 发布（2M 上下文 + 强推理）
       → 短视频/广告/电商产品视频的制作成本趋近于零
         → 12个月内，50% 的电商产品视频将由 AI 生成
 </code></pre>
-<h3>🟡 Seedance 2.0 & Seedream 5.0：字节跳动的视觉 AI 双引擎</h3>
+<h3>🟡 Seedance 2.0 &amp; Seedream 5.0：字节跳动的视觉 AI 双引擎</h3>
 <p>
 🔗 <a href="https://replicate.com/blog/seedance-2" target="_blank" rel="noopener noreferrer">来源：Seedance 2.0</a> | <a href="https://replicate.com/blog/how-to-prompt-seedream-5" target="_blank" rel="noopener noreferrer">来源：Seedream 5.0</a>
 </p>
@@ -733,7 +733,7 @@ Grok Imagine Video 1.5 的「音频单次生成」看似是一个技术细节，
 </p>
 <h3>预判 4：视频生成将在 12 个月内颠覆电商产品视频</h3>
 <p>
-<strong>预测：</strong> 12 个月内，至少 30% 的电商产品视频将由 AI 生成（当前 < 5%）。Grok Imagine Video 1.5 或类似模型将成为主流工具。
+<strong>预测：</strong> 12 个月内，至少 30% 的电商产品视频将由 AI 生成（当前 &lt; 5%）。Grok Imagine Video 1.5 或类似模型将成为主流工具。
 </p>
 <p>
 <strong>因果链：</strong> 生成速度翻倍（25 秒/视频）+ 音频单次生成 → 制作成本降低 90% → 中小商家也能负担 → 大规模采用 → 传统产品视频制作公司收入下降 50%+
@@ -809,7 +809,7 @@ Grok Imagine Video 1.5 的「音频单次生成」看似是一个技术细节，
 <blockquote><p>- GitHub Trending：0 条（本次采集无数据）</p></blockquote>
 <blockquote><p>- RSS：0 条（本次采集无数据）</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>⚠️ 本次采集的 HN 数据中有大量旧帖重登（LangChain 系列、仓库自动化系列），建议在 sources.yaml 中检查是否有配置问题导致旧帖被重复采集。</p></blockquote>
             </div>

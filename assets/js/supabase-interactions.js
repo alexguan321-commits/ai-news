@@ -247,7 +247,7 @@ class SupabaseInteractions {
             <button class="comment-delete" onclick="interactions.deleteComment('${escapeHtml(comment.id)}')">×</button>
           ` : ''}
         </div>
-        <div class="comment-body">${this.escapeHtml(comment.body)}</div>
+        <div class="comment-body">${escapeHtml(comment.body)}</div>
         <button class="comment-reply-btn" onclick="interactions.showReplyForm('${escapeHtml(comment.id)}')">回复</button>
         <div class="reply-form" id="reply-form-${escapeHtml(comment.id)}" style="display:none;">
           <textarea placeholder="回复..." maxlength="2000"></textarea>
@@ -435,14 +435,14 @@ class SupabaseInteractions {
       return `
       <div class="suggestion-item status-${s.status}">
         <div class="suggestion-header">
-          <h3>${this.escapeHtml(s.title)}</h3>
+          <h3>${escapeHtml(s.title)}</h3>
           <span class="status-badge status-${s.status}">${statusLabels[s.status] || s.status}</span>
         </div>
-        <p>${this.escapeHtml(s.description)}</p>
+        <p>${escapeHtml(s.description)}</p>
         ${s.admin_reply ? `
           <div class="admin-reply">
             <strong>管理员回复：</strong>
-            <p>${this.escapeHtml(s.admin_reply)}</p>
+            <p>${escapeHtml(s.admin_reply)}</p>
           </div>
         ` : ''}
         <div class="suggestion-meta">
@@ -454,12 +454,8 @@ class SupabaseInteractions {
     }).join('');
   }
 
-  // 工具函数
-  escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
+  // 工具函数 - 使用全局 escapeHtml (supabase-utils.js)
+  // escapeHtml 已在 window.escapeHtml 中定义
 
   getTimeAgo(date) {
     const seconds = Math.floor((new Date() - date) / 1000);

@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -64,16 +64,16 @@
 </p>
 <hr>
 <p>
-Most skills don't work. The ones that do follow the same 6 patterns.
+Most skills don&#x27;t work. The ones that do follow the same 6 patterns.
 </p>
 <p>
-I'll walk through each one with real examples from skills people actually use daily.
+I&#x27;ll walk through each one with real examples from skills people actually use daily.
 </p>
 <p>
-By the end you'll know exactly why your custom skills don't fire and how to fix them👇
+By the end you&#x27;ll know exactly why your custom skills don&#x27;t fire and how to fix them👇
 </p>
 <p>
-Before we dive in, I share daily notes on AI & vibe coding in my Telegram channel: <a href="https://t.me/zodchixquant🧠" target="_blank" rel="noopener noreferrer">https://t.me/zodchixquant🧠</a>
+Before we dive in, I share daily notes on AI &amp; vibe coding in my Telegram channel: <a href="https://t.me/zodchixquant🧠" target="_blank" rel="noopener noreferrer">https://t.me/zodchixquant🧠</a>
 </p>
 <h2>The 30-second refresher</h2>
 <p>
@@ -92,11 +92,11 @@ laude loads it automatically when context matches the description, or you invoke
     └── scripts/helper.sh
 </code></pre>
 <p>
-That's the whole architecture. The hard part is what goes inside SKILL.md.
+That&#x27;s the whole architecture. The hard part is what goes inside SKILL.md.
 </p>
 <h2>Pattern 1: Description tells Claude WHEN, not just WHAT</h2>
 <p>
-This is the single most important field. Claude scans descriptions of all available skills before deciding which to load. If your description only says what the skill does, Claude won't know when to use it.
+This is the single most important field. Claude scans descriptions of all available skills before deciding which to load. If your description only says what the skill does, Claude won&#x27;t know when to use it.
 </p>
 <p>
 <strong>Bad description:</strong>
@@ -116,7 +116,7 @@ or when user mentions "review", "PR", "code quality", or "best practices".
 The good one tells Claude: what the skill does + when to trigger it + which keywords to listen for.
 </p>
 <p>
-Skills with descriptions under 50 characters get invoked 3-5x less often than skills with proper trigger context. Front-load the use case in the first 250 characters because that's all that gets included in Claude's context budget.
+Skills with descriptions under 50 characters get invoked 3-5x less often than skills with proper trigger context. Front-load the use case in the first 250 characters because that&#x27;s all that gets included in Claude&#x27;s context budget.
 </p>
 <h2>Pattern 2: Be directive, not conversational</h2>
 <p>
@@ -143,7 +143,7 @@ Output as a checklist with severity ratings.
 Claude follows imperative instructions much more reliably than questions or polite requests.
 </p>
 <p>
-Look at any skill from the official Anthropic repository, and you'll see the same pattern: direct verbs, numbered steps, explicit output formats.
+Look at any skill from the official Anthropic repository, and you&#x27;ll see the same pattern: direct verbs, numbered steps, explicit output formats.
 </p>
 <h2>Pattern 3: Specify the output format</h2>
 <p>
@@ -176,12 +176,12 @@ Short description is under 50 characters, present tense, lowercase.
 <p>
 Now you get the same output structure every time. The skill is reusable.
 </p>
-<h2>Pattern 4: Include the "read first" step</h2>
+<h2>Pattern 4: Include the &quot;read first&quot; step</h2>
 <p>
-The best skills don't assume Claude knows your project. They tell Claude to look first.
+The best skills don&#x27;t assume Claude knows your project. They tell Claude to look first.
 </p>
 <p>
-Take the /test skill from the awesome-claude-skills repo. Instead of "write tests," it does this:
+Take the /test skill from the awesome-claude-skills repo. Instead of &quot;write tests,&quot; it does this:
 </p>
 <pre><code class="language-">
 Before writing tests:
@@ -200,14 +200,14 @@ Match exact import style and patterns from existing tests.
 Run tests after writing them. Fix failures before finishing.
 </code></pre>
 <p>
-The "read first" step is what separates skills that produce code matching your project from skills that produce generic code that breaks your linter.
+The &quot;read first&quot; step is what separates skills that produce code matching your project from skills that produce generic code that breaks your linter.
 </p>
 <h2>Pattern 5: Define what the skill does NOT do</h2>
 <p>
-Counterintuitive but powerful. The best skills explicitly list what's out of scope.
+Counterintuitive but powerful. The best skills explicitly list what&#x27;s out of scope.
 </p>
 <p>
-From Anthropic's official PDF skill:
+From Anthropic&#x27;s official PDF skill:
 </p>
 <pre><code class="language-">
 ## Out of Scope
@@ -218,7 +218,7 @@ This skill does NOT:
 - Process password-protected files
 </code></pre>
 <p>
-Why this matters: when a user asks for something the skill can't do, Claude doesn't try and fail.
+Why this matters: when a user asks for something the skill can&#x27;t do, Claude doesn&#x27;t try and fail.
 </p>
 <p>
 It either picks a different skill or asks for clarification. You get fewer broken outputs and more correct routing.
@@ -228,7 +228,7 @@ This pattern shows up in 70% of high-quality skills and almost never in low-qual
 </p>
 <h2>Pattern 6: Keep it under 500 lines</h2>
 <p>
-Every skill loads into Claude's context when invoked. A 2000-line skill eats 5000+ tokens before doing anything.
+Every skill loads into Claude&#x27;s context when invoked. A 2000-line skill eats 5000+ tokens before doing anything.
 </p>
 <p>
 The longer the skill, the more chance Claude loses focus halfway through and starts ignoring instructions at the bottom.
@@ -258,7 +258,7 @@ Claude loads the supporting files only when the task actually needs them.
 </p>
 <h2>A real example: The /commit skill, broken down</h2>
 <p>
-Here's a /commit skill that follows all 6 patterns. This is what good looks like:
+Here&#x27;s a /commit skill that follows all 6 patterns. This is what good looks like:
 </p>
 <pre><code class="language-yaml">
 ---
@@ -304,7 +304,7 @@ Notice:
 <li>Description tells Claude WHEN</li>
 <li>Instructions are directive (imperative verbs, numbered steps)</li>
 <li>Output format is explicit (the commit message structure)</li>
-<li>"Read first" step is built in (git status, git diff)</li>
+<li>&quot;Read first&quot; step is built in (git status, git diff)</li>
 <li>Out of scope is defined</li>
 <li>Total length: under 50 lines</li>
 </ul>
@@ -313,14 +313,14 @@ This skill works on every project, in every language, every time.
 </p>
 <h2>What kills skills</h2>
 <p>
-The skills that don't work share these failure patterns:
+The skills that don&#x27;t work share these failure patterns:
 </p>
 <p>
 <strong>DESCRIPTION FAILURES:</strong>
 </p>
 <ul>
 <li>Under 50 characters</li>
-<li>Inconsistent point of view ("I help" vs "You can use this")</li>
+<li>Inconsistent point of view (&quot;I help&quot; vs &quot;You can use this&quot;)</li>
 <li>No trigger keywords</li>
 <li>No use case context</li>
 </ul>
@@ -330,7 +330,7 @@ The skills that don't work share these failure patterns:
 <ul>
 <li>Conversational instead of directive</li>
 <li>No output format specified</li>
-<li>No "read first" step</li>
+<li>No &quot;read first&quot; step</li>
 <li>No out-of-scope section</li>
 <li>Over 1000 lines</li>
 </ul>
@@ -339,12 +339,12 @@ The skills that don't work share these failure patterns:
 </p>
 <ul>
 <li>Trying to do 5 things in one skill</li>
-<li>Hardcoded to one project's specifics</li>
+<li>Hardcoded to one project&#x27;s specifics</li>
 <li>No version control on the skill itself</li>
 <li>Never updated after first write</li>
 </ul>
 <p>
-If your custom skill checks 3+ of these boxes, it's probably not getting invoked or producing bad output.
+If your custom skill checks 3+ of these boxes, it&#x27;s probably not getting invoked or producing bad output.
 </p>
 <h2>How to fix existing skills</h2>
 <p>
@@ -376,7 +376,7 @@ Good skills compound in the opposite direction.
 Each well-written skill makes Claude better at picking the right one for any task. The skills become a system, not a collection.
 </p>
 <p>
-The skills folder of someone who's been doing this for 6 months looks completely different from someone who just started.
+The skills folder of someone who&#x27;s been doing this for 6 months looks completely different from someone who just started.
 </p>
 <p>
 Same Claude, completely different output quality.

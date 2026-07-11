@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -95,10 +95,10 @@ If you remember one line: a loop is just a prompt the system sends instead of yo
 A loop is not always worth it. It earns its cost only when all four are true. Miss one and it costs more than it returns.
 </p>
 <p>
-1. <strong>The task repeats.</strong> A loop amortizes its setup over many runs. For a one-time job, a good prompt is faster and cheaper. If it doesn't recur, you don't have a loop, you have a script you ran once.
+1. <strong>The task repeats.</strong> A loop amortizes its setup over many runs. For a one-time job, a good prompt is faster and cheaper. If it doesn&#x27;t recur, you don&#x27;t have a loop, you have a script you ran once.
 </p>
 <p>
-2. <strong>Verification is automated.</strong> Something has to fail the work without you in the room: a test, a type check, a linter, a build. No automated gate and you're back in the chair reading every diff, which is the exact job the loop was supposed to remove.
+2. <strong>Verification is automated.</strong> Something has to fail the work without you in the room: a test, a type check, a linter, a build. No automated gate and you&#x27;re back in the chair reading every diff, which is the exact job the loop was supposed to remove.
 </p>
 <p>
 3. <strong>Your budget can absorb the waste.</strong> Loops re-read context, retry, and explore. That burns tokens whether or not a run ships anything. Free on an unmetered plan, painful on a $20 one.
@@ -107,7 +107,7 @@ A loop is not always worth it. It earns its cost only when all four are true. Mi
 4. <strong>The agent has real tools.</strong> Logs, a way to run the code it writes, and see what breaks. Without that, the loop iterates blind.
 </p>
 <p>
-If you fail one of these, the honest answer is: don't build a loop yet. A single well-aimed prompt still wins for one-off and judgment-call work.
+If you fail one of these, the honest answer is: don&#x27;t build a loop yet. A single well-aimed prompt still wins for one-off and judgment-call work.
 </p>
 <h3>3. Know which jobs to hand it</h3>
 <p>
@@ -120,30 +120,30 @@ If you fail one of these, the honest answer is: don't build a loop yet. A single
 <li>Flaky-test reproduction: loop until a theory survives.</li>
 </ul>
 <p>
-<strong>Bad first loops</strong> need a human in the chair: architecture rewrites, auth or payments code, production deploys, anything where "done" is a judgment call. Keep the loop on small changes a test suite can reject.
+<strong>Bad first loops</strong> need a human in the chair: architecture rewrites, auth or payments code, production deploys, anything where &quot;done&quot; is a judgment call. Keep the loop on small changes a test suite can reject.
 </p>
 <h2>TIER 2 - Build the core</h2>
 <h3>4. Get one manual run reliable first</h3>
 <p>
-A loop multiplies whatever is underneath it. Wrap one around a weak setup and you don't get autonomy, you get slop produced faster.
+A loop multiplies whatever is underneath it. Wrap one around a weak setup and you don&#x27;t get autonomy, you get slop produced faster.
 </p>
 <p>
 So before you automate anything, make a single manual run solid. The standing facts in a CLAUDE.md, the right tools connected, a clear thing to verify against. The loop reuses all of it on every iteration, so every weakness gets multiplied by however many times it runs. Fix the run first. Then loop it.
 </p>
 <h3>5. Give it a goal and an independent grader</h3>
 <p>
-A loop needs a stop condition that is not "the agent feels done." A goal gives you one: an objective the loop iterates against until an independent check says it's met.
+A loop needs a stop condition that is not &quot;the agent feels done.&quot; A goal gives you one: an objective the loop iterates against until an independent check says it&#x27;s met.
 </p>
 <pre><code class="language-">
 /goal All tests pass and lint is clean.
   Triage failures, draft fixes, repeat until the goal holds.
 </code></pre>
 <p>
-The key word is independent. The thing that decides "done" must not be the thing that did the work. That one separation is what makes a loop trustworthy instead of a machine that congratulates itself.
+The key word is independent. The thing that decides &quot;done&quot; must not be the thing that did the work. That one separation is what makes a loop trustworthy instead of a machine that congratulates itself.
 </p>
 <h3>6. Split the maker from the checker</h3>
 <p>
-Why a separate grader beats self-review is structural, not effort. A model judging its own output sees its own reasoning and prefers conclusions that match what it already wrote. A fresh agent, with its own clean context, sees only the artifact and the standard. It has no stake in the maker's choices.
+Why a separate grader beats self-review is structural, not effort. A model judging its own output sees its own reasoning and prefers conclusions that match what it already wrote. A fresh agent, with its own clean context, sees only the artifact and the standard. It has no stake in the maker&#x27;s choices.
 </p>
 <p>
 So define the verifier as a subagent:
@@ -211,7 +211,7 @@ description: Classify CI failures, draft fixes for the easy ones, escalate the r
 - Never disable a failing test to make CI green. File it instead.
 </code></pre>
 <p>
-When a loop hits a wall, the lesson goes into the skill, and every future loop on every future project inherits it. That's the difference between an agent that re-derives your setup each time and one that stands on everything it learned before.
+When a loop hits a wall, the lesson goes into the skill, and every future loop on every future project inherits it. That&#x27;s the difference between an agent that re-derives your setup each time and one that stands on everything it learned before.
 </p>
 <h3>10. Make it fail safe with guardrails</h3>
 <p>
@@ -232,7 +232,7 @@ An unattended loop is also an unattended attack surface. No one is watching each
 }
 </code></pre>
 <p>
-A loop that runs unattended and cannot do anything irreversible is one you can actually leave alone. Keep a human on the merge button and anything that can't be undone.
+A loop that runs unattended and cannot do anything irreversible is one you can actually leave alone. Keep a human on the merge button and anything that can&#x27;t be undone.
 </p>
 <h3>11. Route the work by cost</h3>
 <p>
@@ -240,24 +240,24 @@ An always-on loop on the top-tier model for every step bleeds money on work a ch
 </p>
 <h3>12. Track one number, and know how loops die</h3>
 <p>
-The only metric that matters is cost per accepted change. Not tokens spent, not tasks attempted, not loops scheduled. If you're accepting less than half of what the loop produces, you're doing the review work it was supposed to save, and it's losing.
+The only metric that matters is cost per accepted change. Not tokens spent, not tasks attempted, not loops scheduled. If you&#x27;re accepting less than half of what the loop produces, you&#x27;re doing the review work it was supposed to save, and it&#x27;s losing.
 </p>
 <p>
 <strong>The three ways loops die quietly:</strong>
 </p>
 <p>
-1. <strong>The Ralph Wiggum loop.</strong> It calls a half-done job finished because "done" was the agent's opinion, not a test. Fix: a real gate that can fail the work.
+1. <strong>The Ralph Wiggum loop.</strong> It calls a half-done job finished because &quot;done&quot; was the agent&#x27;s opinion, not a test. Fix: a real gate that can fail the work.
 </p>
 <p>
-2. <strong>Goal drift.</strong> Over long runs the original constraints fade. The "don't touch billing" rule disappears around turn 47. Fix: a standing spec the agent rereads each run.
+2. <strong>Goal drift.</strong> Over long runs the original constraints fade. The &quot;don&#x27;t touch billing&quot; rule disappears around turn 47. Fix: a standing spec the agent rereads each run.
 </p>
 <p>
-3. <strong>Comprehension debt.</strong> The faster the loop ships code you didn't write, the larger the gap between what the repo contains and what you understand. Fix: read the diffs, keep the loop on small changes, and never let it touch architecture.
+3. <strong>Comprehension debt.</strong> The faster the loop ships code you didn&#x27;t write, the larger the gap between what the repo contains and what you understand. Fix: read the diffs, keep the loop on small changes, and never let it touch architecture.
 </p>
 <h2>The mistakes that turn loops into money pits</h2>
 <ul>
 <li>Skipping the 4-condition test. Most people fail at least one and build anyway.</li>
-<li>No objective gate. A second agent asked to "review" with no test is just a second optimist.</li>
+<li>No objective gate. A second agent asked to &quot;review&quot; with no test is just a second optimist.</li>
 <li>One agent doing both the work and the verification. It always gives itself an A.</li>
 <li>No state file, so every run restarts from zero.</li>
 <li>No hard stop, so the loop runs until you notice the bill.</li>
@@ -272,7 +272,7 @@ A prompter has a powerful tool and operates it by hand. A loop designer builds a
 The move from one to the other is a sequence, not a secret: see the agent as a loop, make one run reliable, give it a goal and an honest grader, put it on a timer, then teach it to remember and to fail safe. The model at the center never changes. Everything that improves is the loop you wrapped around it.
 </p>
 <p>
-Pick the one step you're not doing yet, probably an independent grader, a state file, or a single safety hook, and add it today. Then the next. Stop operating it by hand. Build the loop.
+Pick the one step you&#x27;re not doing yet, probably an independent grader, a state file, or a single safety hook, and add it today. Then the next. Stop operating it by hand. Build the loop.
 </p>
             </div>
         </article>

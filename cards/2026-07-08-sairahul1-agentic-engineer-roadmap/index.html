@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,24 +57,24 @@
             <div class="content">
                 <hr>
 <p>
-title: "The 6-Month Agentic Engineer Roadmap"
-source: "X (Twitter)"
-author: "@sairahul1 (Sai Rahul)"
-url: "https://x.com/sairahul1/status/2074790798584062278"
+title: &quot;The 6-Month Agentic Engineer Roadmap&quot;
+source: &quot;X (Twitter)&quot;
+author: &quot;@sairahul1 (Sai Rahul)&quot;
+url: &quot;<a href="https://x.com/sairahul1/status/2074790798584062278&quot;" target="_blank" rel="noopener noreferrer">https://x.com/sairahul1/status/2074790798584062278&quot;</a>
 date: 2026-07-08
 tags: [agentic-engineering, roadmap, learning-path, multi-agent, tool-calling, memory, production-deployment]
-category: "AI工程实践"
+category: &quot;AI工程实践&quot;
 </p>
 <hr>
 <h2>Why（背景动机）</h2>
 <p>
-Everyone wants to build AI agents right now. Very few people actually can. The gap isn't talent, courses, or time — it's that most people watch one more video instead of building one real thing.
+Everyone wants to build AI agents right now. Very few people actually can. The gap isn&#x27;t talent, courses, or time — it&#x27;s that most people watch one more video instead of building one real thing.
 </p>
 <p>
 This article provides the exact 6-month plan with 12 stages to become an agentic engineer.
 </p>
 <p>
-<strong>Key insight</strong>: A regular developer writes code that does exactly what it's told. An agentic engineer builds systems that decide what to do.
+<strong>Key insight</strong>: A regular developer writes code that does exactly what it&#x27;s told. An agentic engineer builds systems that decide what to do.
 </p>
 <h2>What（核心定义）</h2>
 <p>
@@ -94,7 +94,7 @@ This article provides the exact 6-month plan with 12 stages to become an agentic
 <h2>How（具体方法/参数）</h2>
 <h3>12-Stage Roadmap</h3>
 <p>
-<strong>Stage 1 — Python & Async Foundations (Weeks 1–2)</strong>
+<strong>Stage 1 — Python &amp; Async Foundations (Weeks 1–2)</strong>
 </p>
 <ul>
 <li>Problem: Agents spend most of their lives waiting (for model responses, API returns, tool completion)</li>
@@ -110,7 +110,7 @@ Four critical understandings:
 4. <strong>Know where models fail</strong>: Hallucination, lost in middle, instruction drift, slow responses
 </p>
 <p>
-<strong>Stage 3 — Tool Calling & Structured Outputs (Weeks 5–6)</strong>
+<strong>Stage 3 — Tool Calling &amp; Structured Outputs (Weeks 5–6)</strong>
 </p>
 <ul>
 <li>Tool calling pattern transforms chatbot into agent</li>
@@ -118,7 +118,7 @@ Four critical understandings:
 <li>Plan for wrong tool calls, build recovery into every tool handler</li>
 </ul>
 <p>
-<strong>Stage 4 — Memory & State Management (Weeks 7–8)</strong>
+<strong>Stage 4 — Memory &amp; State Management (Weeks 7–8)</strong>
 4 types of memory every agent needs:
 </p>
 <ul>
@@ -132,7 +132,7 @@ Rules:
 </p>
 <ul>
 <li>Always set max steps limit (or it loops forever)</li>
-<li>Always handle case where agent can't finish</li>
+<li>Always handle case where agent can&#x27;t finish</li>
 <li>Always log every step (needed for debugging)</li>
 <li>Always validate tool outputs before feeding back</li>
 </ul>
@@ -155,7 +155,7 @@ Rules:
 <li>Make it possible to pause, let human step in, then resume cleanly</li>
 </ul>
 <p>
-<strong>Stage 8 — Evaluation & Quality (Week 14)</strong>
+<strong>Stage 8 — Evaluation &amp; Quality (Week 14)</strong>
 Track 4 numbers:
 </p>
 <ul>
@@ -165,7 +165,7 @@ Track 4 numbers:
 <li>Cost per task (is it getting cheaper as you optimize?)</li>
 </ul>
 <p>
-<strong>Stage 9 — Observability & Tracing (Week 15)</strong>
+<strong>Stage 9 — Observability &amp; Tracing (Week 15)</strong>
 3 surprises in production:
 </p>
 <ul>
@@ -174,7 +174,7 @@ Track 4 numbers:
 <li>Failures: 5% of runs fail in ways never tested</li>
 </ul>
 <p>
-<strong>Stage 10 — Security & Guardrails (Week 16)</strong>
+<strong>Stage 10 — Security &amp; Guardrails (Week 16)</strong>
 Biggest threat: Prompt injection (malicious user embeds instructions in content agent reads)
 5 security rules:
 </p>
@@ -240,7 +240,7 @@ What to ship:
 <p>
 1. <strong>Agentic Engineer 定义与 FDE 高度吻合</strong>：FDE 不是写代码，而是设计推理系统
 2. <strong>12 阶段路线图可作为 FDE 转型培训大纲</strong>：从基础（async/LLM）到生产（安全/部署）
-3. <strong>Stage 7 Human-in-the-Loop 与 FDE 的"双人舞"模式一致</strong>：业务专家 + 全栈开发，人在关键节点介入
+3. <strong>Stage 7 Human-in-the-Loop 与 FDE 的&quot;双人舞&quot;模式一致</strong>：业务专家 + 全栈开发，人在关键节点介入
 </p>
 <h3>对 AI 创业者的启示</h3>
 <p>

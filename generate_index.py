@@ -10,6 +10,7 @@ Usage:
     python3 generate_index.py --dry-run    # Preview without writing
 """
 
+import html
 import os
 import re
 import sys
@@ -29,7 +30,7 @@ CARDS_DIR = WEBSITE_DIR / "cards"
 SUPABASE_HEAD = """
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -455,6 +456,8 @@ def simple_md_to_html(md_text):
 
     def process_inline_md(text):
         """Process inline markdown: bold, italic, links, code, auto-links."""
+        # First escape HTML to prevent XSS
+        text = html.escape(text)
         text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
@@ -551,7 +554,7 @@ def simple_md_to_html(md_text):
         if stripped.startswith('#### '):
             if in_list: html_lines.append('</ul>'); in_list = False
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
-            text = stripped[5:]
+            text = html.escape(stripped[5:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             html_lines.append(f'<h4>{text}</h4>')
@@ -559,7 +562,7 @@ def simple_md_to_html(md_text):
         if stripped.startswith('### '):
             if in_list: html_lines.append('</ul>'); in_list = False
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
-            text = stripped[4:]
+            text = html.escape(stripped[4:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             html_lines.append(f'<h3>{text}</h3>')
@@ -567,7 +570,7 @@ def simple_md_to_html(md_text):
         if stripped.startswith('## '):
             if in_list: html_lines.append('</ul>'); in_list = False
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
-            text = stripped[3:]
+            text = html.escape(stripped[3:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             html_lines.append(f'<h2>{text}</h2>')
@@ -575,7 +578,7 @@ def simple_md_to_html(md_text):
         if stripped.startswith('# '):
             if in_list: html_lines.append('</ul>'); in_list = False
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
-            text = stripped[2:]
+            text = html.escape(stripped[2:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             html_lines.append(f'<h1>{text}</h1>')
@@ -592,7 +595,7 @@ def simple_md_to_html(md_text):
         if stripped.startswith('> '):
             if in_list: html_lines.append('</ul>'); in_list = False
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
-            text = stripped[2:]
+            text = html.escape(stripped[2:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             text = re.sub(r'(?<!["\(])(https?://[^\s<>"\']+)', r'<a href="\1" target="_blank" rel="noopener noreferrer">\1</a>', text)
@@ -605,7 +608,7 @@ def simple_md_to_html(md_text):
             if not in_list:
                 html_lines.append('<ul>')
                 in_list = True
-            text = stripped[2:]
+            text = html.escape(stripped[2:])
             text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
             text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
             text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
@@ -621,7 +624,7 @@ def simple_md_to_html(md_text):
             html_lines.append('<p>')
             in_paragraph = True
 
-        text = stripped
+        text = html.escape(stripped)
         text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', safe_link, text)
@@ -734,6 +737,13 @@ def generate_card_page(card, total_cards):
 
     # Convert markdown to HTML
     content_html = simple_md_to_html(md_text)
+    
+    # Escape all dynamic content to prevent XSS
+    safe_title = html.escape(card['title'])
+    safe_author = html.escape(card['author'])
+    safe_date = html.escape(card['date'])
+    safe_tags = [html.escape(t) for t in card['tags']]
+    safe_source = html.escape(card['source']) if card['source'] else ''
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -741,11 +751,11 @@ def generate_card_page(card, total_cards):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="{card['title']}">
+    <meta property="og:title" content="{safe_title}">
     <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>{card['title']} - Knowledge Card</title>
+    <title>{safe_title} - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     {SUPABASE_HEAD}
 </head>
@@ -763,11 +773,11 @@ def generate_card_page(card, total_cards):
         <article class="card-content">
             <header class="card-header">
                 <span class="card-badge">Knowledge Card</span>
-                <h1>{card['title']}</h1>
+                <h1>{safe_title}</h1>
                 <div class="meta">
-                    <span class="author">{card['author']}</span>
-                    <time>{card['date']}</time>
-                    {" | ".join(f'<span class="tag">{t}</span>' for t in card['tags'])}
+                    <span class="author">{safe_author}</span>
+                    <time>{safe_date}</time>
+                    {" | ".join(f'<span class="tag">{t}</span>' for t in safe_tags)}
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
                         ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
@@ -779,7 +789,7 @@ def generate_card_page(card, total_cards):
                         💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
-                {"<p><a href='" + card['source'] + "' target='_blank'>Original ↗</a></p>" if card['source'] else ""}
+                {f"<p><a href='{safe_source}' target='_blank'>Original ↗</a></p>" if safe_source else ""}
             </header>
 
             <div class="content">

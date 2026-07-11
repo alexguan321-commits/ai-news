@@ -118,10 +118,10 @@ report_type: {metadata['report_type']}
     return post_file
 
 def build_site():
-    """构建静态网站"""
+    """构建静态网站 - 使用 generate_index.py"""
     print("\n🔨 构建静态网站...")
     result = subprocess.run(
-        ["python3", "build_static_site.py"],
+        ["python3", "generate_index.py"],
         cwd=WEBSITE_DIR,
         capture_output=True,
         text=True
@@ -132,22 +132,6 @@ def build_site():
         return False
     
     print(result.stdout)
-    
-    # 复制构建结果到根目录
-    print("\n📋 复制构建结果到根目录...")
-    site_dir = WEBSITE_DIR / "_site"
-    for item in site_dir.iterdir():
-        dest = WEBSITE_DIR / item.name
-        if dest.exists():
-            if dest.is_dir():
-                shutil.rmtree(dest)
-            else:
-                dest.unlink()
-        if item.is_dir():
-            shutil.copytree(item, dest)
-        else:
-            shutil.copy2(item, dest)
-    
     return True
 
 def git_push(commit_msg):
@@ -157,7 +141,7 @@ def git_push(commit_msg):
     os.chdir(WEBSITE_DIR)
     
     # Git add — 明确指定目录，避免误提交敏感文件
-    subprocess.run(["git", "add", "_posts/", "reports/", "cards/", "knowledge-cards/", "index.html", "assets/"], check=True)
+    subprocess.run(["git", "add", "_posts/", "cards/", "index.html", "assets/"], check=True)
     
     # Git commit
     result = subprocess.run(

@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -80,7 +80,7 @@ This article is about the three tools that, stacked together correctly, remove t
 Individually, each of these is a good tool. Stacked correctly, they become something closer to a company you run by yourself, with most of the operational weight carried by systems instead of willpower.
 </p>
 <p>
-Here is the honest version of why this matters now and not two years ago. Earlier AI tools could each do one piece of this in isolation. A note app with AI search. A chatbot you could paste context into manually. A simple automation that ran the same script every day regardless of what actually happened. None of those pieces talked to each other, and none of them got better at their job over time. What changed is that Claude Code can now hold and act on an entire vault's worth of context reliably, and agent frameworks like Hermes Agent can run unattended for real stretches of time while actually learning from what they did. The connective tissue between memory, processing, and action finally got strong enough to build a real system on top of it, not just a collection of clever individual tools.
+Here is the honest version of why this matters now and not two years ago. Earlier AI tools could each do one piece of this in isolation. A note app with AI search. A chatbot you could paste context into manually. A simple automation that ran the same script every day regardless of what actually happened. None of those pieces talked to each other, and none of them got better at their job over time. What changed is that Claude Code can now hold and act on an entire vault&#x27;s worth of context reliably, and agent frameworks like Hermes Agent can run unattended for real stretches of time while actually learning from what they did. The connective tissue between memory, processing, and action finally got strong enough to build a real system on top of it, not just a collection of clever individual tools.
 </p>
 <h2>The Problem With Running Solo</h2>
 <p>
@@ -116,7 +116,7 @@ Open your Obsidian vault in Claude Code and you have given an agent direct read 
 This is fundamentally different from summarizing a document and forgetting it the moment the chat ends. Every source you feed it makes the next source easier to process, because Claude is working against an ever growing map of what you already know, not starting fresh every time.
 </p>
 <p>
-The compounding effect here is the entire point. Month one, your vault is thin and Claude's connections are obvious. Month six, you have hundreds of linked notes and Claude starts surfacing connections you would never have made yourself, an idea from a marketing book linking to a comment a customer made three weeks ago, both filed under the same underlying principle neither source named directly.
+The compounding effect here is the entire point. Month one, your vault is thin and Claude&#x27;s connections are obvious. Month six, you have hundreds of linked notes and Claude starts surfacing connections you would never have made yourself, an idea from a marketing book linking to a comment a customer made three weeks ago, both filed under the same underlying principle neither source named directly.
 </p>
 <p>
 Practically, this layer handles three kinds of work for a one person company.
@@ -148,7 +148,7 @@ For a one person company, this is the layer that actually buys back hours. You h
 The Trinity only works because each layer feeds the next one, not because the three tools happen to coexist.
 </p>
 <p>
-Obsidian captures the raw material. A customer conversation, a competitor's new feature, an idea you had on a walk.
+Obsidian captures the raw material. A customer conversation, a competitor&#x27;s new feature, an idea you had on a walk.
 </p>
 <p>
 Claude Code, with vault access, processes that raw material into structured knowledge and can draft the response, document, or content piece that the situation calls for, informed by everything else already in the vault.
@@ -157,7 +157,7 @@ Claude Code, with vault access, processes that raw material into structured know
 Hermes Agent takes the routine, repeatable version of that workflow and runs it without a human in the loop, learning a faster path through it every time it repeats.
 </p>
 <p>
-In practice this looks like a morning routine that takes ten minutes instead of two hours. You ask your vault for a status update across every active project, pulled from notes you actually wrote, not from memory. You review what Hermes handled overnight while you slept. You feed yesterday's new information into raw and let Claude Code do the filing. Then you spend your actual working hours on the parts of the business that genuinely need a human, which by this point is a much shorter list than it used to be.
+In practice this looks like a morning routine that takes ten minutes instead of two hours. You ask your vault for a status update across every active project, pulled from notes you actually wrote, not from memory. You review what Hermes handled overnight while you slept. You feed yesterday&#x27;s new information into raw and let Claude Code do the filing. Then you spend your actual working hours on the parts of the business that genuinely need a human, which by this point is a much shorter list than it used to be.
 </p>
 <h2>What This Replaces</h2>
 <p>
@@ -170,7 +170,7 @@ It replaces the morning spent rereading old notes to remember where a project le
 It replaces hiring a virtual assistant for routine inbox triage and follow ups, because Hermes Agent handles the repeatable slice of that work and gets faster at it the longer it runs.
 </p>
 <p>
-It replaces the slow creep of knowledge loss that happens when a solo founder's best thinking lives only in their head, vulnerable to a bad week, a bad memory, or simply moving on to the next shiny idea before writing the last one down properly.
+It replaces the slow creep of knowledge loss that happens when a solo founder&#x27;s best thinking lives only in their head, vulnerable to a bad week, a bad memory, or simply moving on to the next shiny idea before writing the last one down properly.
 </p>
 <p>
 It does not replace judgment. Pricing decisions, hard conversations with customers, the actual creative or strategic core of your business, those still need you. The Trinity exists to clear everything else off your plate so that judgment is the thing you are spending your time on, rather than the thing you are too exhausted to apply properly by the time you get to it.
@@ -183,7 +183,7 @@ The Trinity fails in predictable ways, and almost all of them trace back to skip
 The most common failure is treating Obsidian as a dumping ground with no eventual processing step. Raw piles up. Nothing moves to wiki. Six months later you have a thousand unprocessed notes and the vault has become exactly the kind of mess it was supposed to prevent. The fix is not a better folder structure, it is a standing habit, even just once a week, of actually running the ingestion step on whatever piled up.
 </p>
 <p>
-The second failure is giving Claude Code vague instructions in CLAUDE.md and assuming it will infer your preferences. It will not, not reliably, and the cost of that ambiguity compounds the same way the benefit does. A CLAUDE.md that says "organize notes well" produces inconsistent filing. A CLAUDE.md that says exactly which folder structure to use, how to handle duplicate topics, and when to create a new note versus extend an existing one produces a system you can actually predict.
+The second failure is giving Claude Code vague instructions in CLAUDE.md and assuming it will infer your preferences. It will not, not reliably, and the cost of that ambiguity compounds the same way the benefit does. A CLAUDE.md that says &quot;organize notes well&quot; produces inconsistent filing. A CLAUDE.md that says exactly which folder structure to use, how to handle duplicate topics, and when to create a new note versus extend an existing one produces a system you can actually predict.
 </p>
 <p>
 The third failure is handing Hermes Agent a task with no real verification step and assuming overnight autonomy means unattended trust. The learning loop makes the agent better at tasks it has done before, but that is a reason to start with low stakes, reversible tasks, not a reason to skip checking its work for the first few weeks. Build trust the same way you would with a new hire. Review closely at first. Loosen the leash as the track record earns it.

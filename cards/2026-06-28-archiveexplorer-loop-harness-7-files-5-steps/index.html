@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,17 +57,17 @@
             <div class="content">
                 <hr>
 <p>
-title: "Loop and Harness engineering: 7 files, 5 steps. Every config inside"
-author: "Archive (@ArchiveExplorer)"
-source: "X (Twitter) Article"
-url: "https://x.com/ArchiveExplorer/status/2071192832455430283"
+title: &quot;Loop and Harness engineering: 7 files, 5 steps. Every config inside&quot;
+author: &quot;Archive (@ArchiveExplorer)&quot;
+source: &quot;X (Twitter) Article&quot;
+url: &quot;<a href="https://x.com/ArchiveExplorer/status/2071192832455430283&quot;" target="_blank" rel="noopener noreferrer">https://x.com/ArchiveExplorer/status/2071192832455430283&quot;</a>
 date: 2026-06-28
 tags: [loop-engineering, harness-engineering, claude-code, agent-setup, context-engineering, subagents, skills, mcp, memory]
 </p>
 <hr>
 <h1>Loop and Harness engineering: 7 files, 5 steps. Every config inside</h1>
 <p>
-<strong>Most builders fight the loop. The loop is fine. The folder underneath isn't set up.</strong>
+<strong>Most builders fight the loop. The loop is fine. The folder underneath isn&#x27;t set up.</strong>
 </p>
 <p>
 Open .claude/ in any working Claude Code project and you find roughly seven things doing the actual work: CLAUDE.md, settings.json, hooks/, agents/, skills/, .mcp.json, and a state file like MEMORY.md.
@@ -98,7 +98,7 @@ The harness is the kitchen. The loop is the recipe.
 Both fail without the other. A kitchen with no recipe is unused space. A recipe with no kitchen is wishful thinking.
 </p>
 <p>
-Most builders treat the whole thing as one blob ("my agent setup") and miss that failures live in different layers.
+Most builders treat the whole thing as one blob (&quot;my agent setup&quot;) and miss that failures live in different layers.
 </p>
 <p>
 Token blowups, prompt fatigue, dropped permissions: harness problems. Loops that never converge, verifications that pass garbage, scheduled runs that drift: loop problems.
@@ -164,7 +164,7 @@ Where the tool allowlist, environment variables, and hook registrations live.
 Two locations matter for daily work: .claude/settings.json at repo root for repo-scoped rules, and ~/.claude/settings.json for your personal defaults.
 </p>
 <p>
-Scope hierarchy resolves managed > project > local > user, so project always overrides personal.
+Scope hierarchy resolves managed &gt; project &gt; local &gt; user, so project always overrides personal.
 </p>
 <p>
 <strong>The first move that pays off in one afternoon is an allow array for read-only Bash and MCP calls:</strong>
@@ -239,7 +239,7 @@ Return a JSON verdict: {passes: bool, failures: [{line, reason}]}.
 Do not propose fixes. Do not run code. Do not be polite.
 </code></pre>
 <p>
-The reviewer that lives inside the maker's context always agrees with itself. Pulling review into a fresh context closes the loudest failure mode.
+The reviewer that lives inside the maker&#x27;s context always agrees with itself. Pulling review into a fresh context closes the loudest failure mode.
 </p>
 <p>
 Reference: wshobson/agents (37K stars) for 194 ready-made shapes. For an adversarial verifier with 11 named shortcut-checks (relaxed tests, swallowed errors, fake renames), pull moonrunnerkc/swarm-orchestrator.
@@ -267,7 +267,7 @@ when_to_use: schema change requested, new feature requires a new column,
 4. Never touch existing migration files.
 </code></pre>
 <p>
-This discipline keeps a fifty-skill library from costing fifty skills' worth of tokens on every prompt.
+This discipline keeps a fifty-skill library from costing fifty skills&#x27; worth of tokens on every prompt.
 </p>
 <p>
 Canonical pattern: anthropics/skills (155K stars). Maximal pre-built kit: affaan-m/ECC (222K stars).
@@ -280,7 +280,7 @@ Three skills built when you hit the same task a third time beat fifty skills bui
 Servers declared in .mcp.json at repo root. Model Context Protocol is the spec that lets the loop call out to live external tools.
 </p>
 <p>
-Three rules: only servers your current work uses, prefer official ones for credentialed tools, never install five "just in case".
+Three rules: only servers your current work uses, prefer official ones for credentialed tools, never install five &quot;just in case&quot;.
 </p>
 <pre><code class="language-json">
 {
@@ -331,7 +331,7 @@ Shape: a MEMORY.md index file at a known path, plus a vault directory for projec
 Memory holds what changes across sessions. Vault holds what does not.
 </p>
 <p>
-For production-grade session compression (200K-token transcript -> 4K-token recap without losing load-bearing facts): thedotmack/claude-mem (84K stars).
+For production-grade session compression (200K-token transcript -&gt; 4K-token recap without losing load-bearing facts): thedotmack/claude-mem (84K stars).
 </p>
 <p>
 Theory behind why this matters: Anthropic engineering on context engineering names the failure mode: context rot.
@@ -342,7 +342,7 @@ The first mistake is treating memory as append-only. Prune it every session, or 
 <h2>The loop, on top of the harness</h2>
 <h3>1. Goal spec</h3>
 <p>
-The external contract that says what "done" looks like. Lives on disk, not in the agent's head. The loop re-reads it every iteration.
+The external contract that says what &quot;done&quot; looks like. Lives on disk, not in the agent&#x27;s head. The loop re-reads it every iteration.
 </p>
 <p>
 <strong>Name: PROMPT.md, AGENTS.md, or AGENT_SPEC.md. The re-read is what matters.</strong>
@@ -409,7 +409,7 @@ Production TypeScript reference with verifyCompletion: vercel-labs/ralph-loop-ag
 Full installable Plan-to-Work-to-Review-to-Release cycle: Chachamaru127/claude-code-harness (2.9K stars).
 </p>
 <p>
-Drop the verify step and confident garbage compounds. Every wrong output becomes the next iteration's input.
+Drop the verify step and confident garbage compounds. Every wrong output becomes the next iteration&#x27;s input.
 </p>
 <h3>3. Sub-agent fan-out</h3>
 <p>
@@ -438,7 +438,7 @@ Anthropic engineering on multi-agent research measured +90.2% on their internal 
 Official SDK: anthropics/claude-agent-sdk-python (7.4K stars). Heaviest public fan-out kit (60+ agent types, 314 MCP tools): ruvnet/ruflo (61K stars).
 </p>
 <p>
-Skip the fan-out and the orchestrator drowns. One context loaded with ten jobs' worth of source material is the exact shape that triggers context rot.
+Skip the fan-out and the orchestrator drowns. One context loaded with ten jobs&#x27; worth of source material is the exact shape that triggers context rot.
 </p>
 <h3>4. Scheduler and persistence</h3>
 <p>
@@ -477,7 +477,7 @@ Three failure modes kill almost every first attempt:
 <strong>(a) Confident garbage.</strong> Verify step missing or weak. Wrong outputs pass and compound across iterations.
 </p>
 <p>
-<strong>(b) Context rot.</strong> Single long context where the model degrades past a threshold (Anthropic's term). Accuracy collapses around 200K tokens of accumulated history.
+<strong>(b) Context rot.</strong> Single long context where the model degrades past a threshold (Anthropic&#x27;s term). Accuracy collapses around 200K tokens of accumulated history.
 </p>
 <p>
 <strong>(c) Ralph Wiggum loops.</strong> Same iteration repeats because state on disk did not capture progress. The agent re-plans the step it already finished.

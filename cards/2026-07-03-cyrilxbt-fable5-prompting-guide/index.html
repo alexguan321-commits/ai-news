@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -57,11 +57,11 @@
             <div class="content">
                 <hr>
 <p>
-title: "How to Actually Prompt Fable 5, Straight From the Team That Built It"
-author: "@cyrilXBT (CyrilXBT)"
-source: "https://x.com/cyrilxbt/status/2072706408710058492"
+title: &quot;How to Actually Prompt Fable 5, Straight From the Team That Built It&quot;
+author: &quot;@cyrilXBT (CyrilXBT)&quot;
+source: &quot;<a href="https://x.com/cyrilxbt/status/2072706408710058492&quot;" target="_blank" rel="noopener noreferrer">https://x.com/cyrilxbt/status/2072706408710058492&quot;</a>
 date: 2026-07-02
-type: "x-article"
+type: &quot;x-article&quot;
 tags: [anthropic, fable5, prompting, agent, autonomous-workflow]
 </p>
 <hr>
@@ -70,7 +70,7 @@ tags: [anthropic, fable5, prompting, agent, autonomous-workflow]
 Fable 5 于 2026 年 7 月 1 日全球重新上线。Anthropic 发布了官方 Fable 5 提示指南，但大多数团队在用 Opus 4.8 的旧方法测试新模型，导致严重低估其能力。
 </p>
 <p>
-<strong>核心问题：</strong> 团队在简单任务上测试 Fable 5，看到边际改进就认为不值得升级。实际上 Fable 5 不是"更聪明的同一工具"，而是"不同类别的工具"，需要不同类别的提示。
+<strong>核心问题：</strong> 团队在简单任务上测试 Fable 5，看到边际改进就认为不值得升级。实际上 Fable 5 不是&quot;更聪明的同一工具&quot;，而是&quot;不同类别的工具&quot;，需要不同类别的提示。
 </p>
 <p>
 <strong>关键洞察：</strong> 看到最佳结果的团队不是问出更好问题的人，而是给它更难问题、不同结构化管理长期运行、理解行为变化需要更新提示的人。
@@ -96,7 +96,7 @@ Fable 5 于 2026 年 7 月 1 日全球重新上线。Anthropic 发布了官方 F
 <strong>关键行为变化：</strong>
 1. <strong>响应时间更长</strong>（分钟级，甚至小时级）— 这是特性不是 bug
 2. <strong>更主动</strong>（会做你没要求的事，如自动备份 git、草拟邮件）
-3. <strong>需要明确的进度验证</strong>（长任务中可能报告"完成了"但实际未验证）
+3. <strong>需要明确的进度验证</strong>（长任务中可能报告&quot;完成了&quot;但实际未验证）
 </p>
 <hr>
 <h2>How（具体方法/参数）</h2>
@@ -134,7 +134,7 @@ Fable 5 于 2026 年 7 月 1 日全球重新上线。Anthropic 发布了官方 F
 </p>
 <h3>2. 进度验证提示（最重要技巧）</h3>
 <p>
-<strong>问题：</strong> 长任务中 Fable 5 可能报告"完成了"但未验证实际执行结果。
+<strong>问题：</strong> 长任务中 Fable 5 可能报告&quot;完成了&quot;但未验证实际执行结果。
 </p>
 <p>
 <strong>解决方案（加入 system prompt）：</strong>
@@ -164,7 +164,7 @@ changes system state, including restarts, deletes, or config edits, confirm that
 the evidence actually supports that specific action."
 </code></pre>
 <p>
-<strong>关键：</strong> 明确区分"观察"和"行动"的边界。
+<strong>关键：</strong> 明确区分&quot;观察&quot;和&quot;行动&quot;的边界。
 </p>
 <h3>4. 记忆系统（跨会话持久化）</h3>
 <p>
@@ -247,7 +247,7 @@ Crop and zoom into any areas where the comparison is unclear before reporting
 findings."
 </code></pre>
 <p>
-<strong>关键：</strong> 明确指示"crop and zoom"解锁 bash 工具行为。
+<strong>关键：</strong> 明确指示&quot;crop and zoom&quot;解锁 bash 工具行为。
 </p>
 <h3>8. 安全分类器和回退</h3>
 <p>
@@ -262,13 +262,13 @@ findings."
 <strong>拒绝处理：</strong>
 </p>
 <ul>
-<li>`stop_reason: "refusal"` 作为 HTTP 200，不是错误</li>
+<li>`stop_reason: &quot;refusal&quot;` 作为 HTTP 200，不是错误</li>
 <li>API 集成需要单独检查 `stop_reason`</li>
 <li>Anthropic 提供 SDK 中间件自动回退到 Opus 4.8</li>
 <li>拒绝时 prompt-cache 成本由 Anthropic 承担</li>
 </ul>
 <p>
-<strong>影响：</strong> 典型开发者查询 <5% 触发拒绝，但可能在良性生物/代码审查任务中出现。
+<strong>影响：</strong> 典型开发者查询 &lt;5% 触发拒绝，但可能在良性生物/代码审查任务中出现。
 </p>
 <p>
 <strong>Mythos 5：</strong> 移除网络安全分类器，保留生物/化学，仅限 Project Glasswing 合作伙伴。
@@ -286,7 +286,7 @@ findings."
 </tr>
 <tr>
 <td><strong>拒绝处理</strong></td>
-<td>添加 <code>stop_reason: "refusal"</code> 处理，设置 Opus 4.8 回退</td>
+<td>添加 <code>stop_reason: &quot;refusal&quot;</code> 处理，设置 Opus 4.8 回退</td>
 </tr>
 <tr>
 <td><strong>主动性约束</strong></td>
@@ -320,7 +320,7 @@ findings."
 </p>
 <ul>
 <li>不要在已经能完成的任务上测试 Fable 5</li>
-<li>选择之前"放弃了自动化"的工作流（需要多会话、人工干预的任务）</li>
+<li>选择之前&quot;放弃了自动化&quot;的工作流（需要多会话、人工干预的任务）</li>
 <li>这才是 Fable 5 真正价值的体现</li>
 </ul>
 <p>
@@ -361,7 +361,7 @@ findings."
 1. <strong>产品定位：</strong>
 </p>
 <ul>
-<li>Fable 5 不是"更好的 ChatGPT"，而是"自主工作流引擎"</li>
+<li>Fable 5 不是&quot;更好的 ChatGPT&quot;，而是&quot;自主工作流引擎&quot;</li>
 <li>目标客户：有复杂、长周期、多步骤工作流的企业</li>
 <li>价值主张：之前需要人工干预的任务，现在可以自主完成</li>
 </ul>
@@ -369,7 +369,7 @@ findings."
 2. <strong>技术差异化：</strong>
 </p>
 <ul>
-<li>进度验证提示是关键技术（防止模型"说谎"）</li>
+<li>进度验证提示是关键技术（防止模型&quot;说谎&quot;）</li>
 <li>记忆系统实现跨会话连贯性</li>
 <li>视觉自我验证闭环</li>
 </ul>
@@ -418,10 +418,10 @@ findings."
 <hr>
 <h2>关键洞察</h2>
 <p>
-<strong>Fable 5 不是"更聪明的 Opus 4.8"，而是"不同类别的工具"。</strong> 大多数团队在简单任务上测试它，看到边际改进就放弃。真正看到价值的是那些把它用在之前放弃自动化的复杂任务上的团队。
+<strong>Fable 5 不是&quot;更聪明的 Opus 4.8&quot;，而是&quot;不同类别的工具&quot;。</strong> 大多数团队在简单任务上测试它，看到边际改进就放弃。真正看到价值的是那些把它用在之前放弃自动化的复杂任务上的团队。
 </p>
 <p>
-<strong>核心技术突破：</strong> 进度验证提示（audit 语言）几乎完全消除了长任务中模型"说谎"的问题。这是从"玩具"到"生产"的关键。
+<strong>核心技术突破：</strong> 进度验证提示（audit 语言）几乎完全消除了长任务中模型&quot;说谎&quot;的问题。这是从&quot;玩具&quot;到&quot;生产&quot;的关键。
 </p>
 <p>
 <strong>商业启示：</strong> 不要在已经能完成的任务上和竞争对手比，要在之前无法完成的任务上创造新价值。
@@ -430,7 +430,7 @@ findings."
 <h2>延伸思考</h2>
 <h3>FDE 团队的新机会</h3>
 <p>
-宝洁的 FDE 团队一直在寻找"之前无法自动化"的工作流。Fable 5 的长自主运行能力 + 进度验证 + 记忆系统，可能让之前"需要人工干预"的任务变成"自主完成"。
+宝洁的 FDE 团队一直在寻找&quot;之前无法自动化&quot;的工作流。Fable 5 的长自主运行能力 + 进度验证 + 记忆系统，可能让之前&quot;需要人工干预&quot;的任务变成&quot;自主完成&quot;。
 </p>
 <p>
 <strong>具体场景：</strong>
@@ -449,11 +449,11 @@ findings."
 4. 设置记忆系统（跨会话 lesson 文件）
 </p>
 <p>
-这将让 Hermes 从"响应式助手"升级为"自主工作流引擎"。
+这将让 Hermes 从&quot;响应式助手&quot;升级为&quot;自主工作流引擎&quot;。
 </p>
 <h3>创业机会</h3>
 <p>
-构建"Fable 5 迁移服务"：
+构建&quot;Fable 5 迁移服务&quot;：
 </p>
 <ul>
 <li>帮助企业从 Opus 4.8 迁移到 Fable 5</li>

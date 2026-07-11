@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -70,13 +70,13 @@ Last December, one engineer shipped 259 finished code changes in a single month 
 <p>
 Peter Steinberger put it in two lines that more than eight million people have seen:
 </p>
-<blockquote><p>Here's your monthly reminder that you shouldn't be prompting coding agents anymore.</p></blockquote>
+<blockquote><p>Here&#x27;s your monthly reminder that you shouldn&#x27;t be prompting coding agents anymore.</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>You should be designing loops that prompt your agents.</p></blockquote>
 <p>
-The flip side showed up the same month. Someone else's loop ran unwatched for 11 days and burned $47,000 before anyone noticed. So there are two skills, and only the first gets taught: build a loop that does the work, and build the brakes that keep it from driving you off a cliff.
+The flip side showed up the same month. Someone else&#x27;s loop ran unwatched for 11 days and burned $47,000 before anyone noticed. So there are two skills, and only the first gets taught: build a loop that does the work, and build the brakes that keep it from driving you off a cliff.
 </p>
 <h2>The loop in one picture</h2>
 <p>
@@ -93,7 +93,7 @@ A loop pays off under four conditions. Miss one, and it costs more than it retur
 1. The task repeats at least weekly. Otherwise it is a one-time script, not a loop.
 2. Verification is automated. A test, a linter (a code-style checker), a build. No check, and you are back to reading every change by hand.
 3. Your budget can absorb waste. A loop re-reads context and explores, so it burns money even on empty runs.
-4. The agent has an engineer's tools. Logs, an environment to reproduce a failure, the ability to run its own code.
+4. The agent has an engineer&#x27;s tools. Logs, an environment to reproduce a failure, the ability to run its own code.
 </p>
 <p>
 <strong>Good first loops:</strong>
@@ -111,7 +111,7 @@ A loop pays off under four conditions. Miss one, and it costs more than it retur
 <li>Architecture rewrites</li>
 <li>Auth and payments code</li>
 <li>Production deploys</li>
-<li>Anything where "done" is a matter of taste</li>
+<li>Anything where &quot;done&quot; is a matter of taste</li>
 </ul>
 <h2>Anatomy: the 6 parts of any loop</h2>
 <p>
@@ -119,7 +119,7 @@ Strip the noise and a working loop is six parts. You no longer build them by han
 </p>
 <h3>1. State: the only thing the next run inherits</h3>
 <p>
-A model forgets everything when a run ends. The chat's memory dies with it, so the memory has to live on disk. In practice that is one file.
+A model forgets everything when a run ends. The chat&#x27;s memory dies with it, so the memory has to live on disk. In practice that is one file.
 </p>
 <pre><code class="language-markdown">
 # STATUS.md  (the loop reads it first, writes it last)
@@ -152,7 +152,7 @@ A loop becomes a loop when it starts on its own. In Codex that is the Automation
 /goal all tests in test/auth pass and the lint step is clean
 </code></pre>
 <p>
-The key one is /goal. The agent that wrote the code does not get to grade itself. Write the stop condition like a contract: "all tests in test/auth pass" is a contract, "make it better" is how you keep a loop spinning until payday.
+The key one is /goal. The agent that wrote the code does not get to grade itself. Write the stop condition like a contract: &quot;all tests in test/auth pass&quot; is a contract, &quot;make it better&quot; is how you keep a loop spinning until payday.
 </p>
 <h3>3. Worktrees: parallel agents without chaos</h3>
 <p>
@@ -198,7 +198,7 @@ claude mcp add --transport http linear https://mcp.linear.app/mcp
 codex mcp add linear --url https://mcp.linear.app/mcp
 </code></pre>
 <p>
-This is the line between "here is how to fix it" and a loop that opens the pull request itself, links the ticket, and reports the tests green. Both tools speak MCP, so a connector for one usually drops into the other. Fastest payback: a code tracker, an issue tracker (Linear, Jira), chat (Slack), an error tracker.
+This is the line between &quot;here is how to fix it&quot; and a loop that opens the pull request itself, links the ticket, and reports the tests green. Both tools speak MCP, so a connector for one usually drops into the other. Fastest payback: a code tracker, an issue tracker (Linear, Jira), chat (Slack), an error tracker.
 </p>
 <h3>6. Sub-agents: the maker apart from the checker</h3>
 <p>
@@ -274,19 +274,19 @@ The core rule: scope the loop by what it can break, not by what you want it to d
 <h2>The four deaths of a loop</h2>
 <p>
 1. <strong>Runaway recursion.</strong> Two agents feed each other work forever. Cure: a step cap and a money ceiling.
-2. <strong>Silent death.</strong> The context filled up, the loop stalled, but it looks alive and reports "progress." Cure: a heartbeat and a fresh context per phase.
-3. <strong>Walking in circles.</strong> With no verifiable condition, the loop drifts from the goal. Green tests are a point it can reach. "Looks done" is not.
-4. <strong>Comprehension debt.</strong> The faster the loop writes code you never read, the further you drift from your own project. Cure: a mandatory "a human read this" step you never skip.
+2. <strong>Silent death.</strong> The context filled up, the loop stalled, but it looks alive and reports &quot;progress.&quot; Cure: a heartbeat and a fresh context per phase.
+3. <strong>Walking in circles.</strong> With no verifiable condition, the loop drifts from the goal. Green tests are a point it can reach. &quot;Looks done&quot; is not.
+4. <strong>Comprehension debt.</strong> The faster the loop writes code you never read, the further you drift from your own project. Cure: a mandatory &quot;a human read this&quot; step you never skip.
 </p>
 <p>
-A bonus with a name: the "Ralph loop." The agent signals "done" too early and exits halfway. It happens where there is no real checker and no hard stop. A useful self-check metric: count not tokens, but the cost per accepted change. Below half accepted, and the loop runs at a loss.
+A bonus with a name: the &quot;Ralph loop.&quot; The agent signals &quot;done&quot; too early and exits halfway. It happens where there is no real checker and no hard stop. A useful self-check metric: count not tokens, but the cost per accepted change. Below half accepted, and the loop runs at a loss.
 </p>
 <h2>Ordinary budget: 5 cheaper plays</h2>
 <p>
 The loop is built for people who do not pay for tokens. Here is how to get most of the value for less.
 </p>
 <p>
-1. <strong>Spend the thinking before the tokens.</strong> "Build me auth" spins for 30 steps of guessing. A finished spec (login method, token lifetime, error states, definition of done) hits the target in one pass.
+1. <strong>Spend the thinking before the tokens.</strong> &quot;Build me auth&quot; spins for 30 steps of guessing. A finished spec (login method, token lifetime, error states, definition of done) hits the target in one pass.
 </p>
 <p>
 2. <strong>Plan cheap, execute expensive.</strong> Your top model should not read files. Give reading and planning to a small model, leave the hard part to the strong agent.

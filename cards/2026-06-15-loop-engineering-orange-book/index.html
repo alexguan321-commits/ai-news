@@ -13,7 +13,7 @@
     
     <!-- Supabase User System -->
     <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-KawSBLEOl80/L6dw7nKeqiG2oW3plWQbJ/urD96vwgGi+vo/tQb49hFyEjG18C9k" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
@@ -75,14 +75,14 @@
 <h2>一句话定义</h2>
 <blockquote><p>Loop engineering is replacing yourself as the person who prompts the agent. You design the system that does it instead.</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>循环工程，就是把「那个负责 prompt agent 的人」从你自己换成一套系统。你不再亲自一句句喂，而是设计那套替你喂的系统。</p></blockquote>
 <hr>
 <h2>命名由来：一周之内三个人点着了它</h2>
 <ul>
-<li><strong>Peter Steinberger</strong>（OpenClaw作者）："You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents."</li>
-<li><strong>Boris Cherny</strong>（Anthropic，Claude Code负责人）："I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops."</li>
+<li><strong>Peter Steinberger</strong>（OpenClaw作者）：&quot;You shouldn&#x27;t be prompting coding agents anymore. You should be designing loops that prompt your agents.&quot;</li>
+<li><strong>Boris Cherny</strong>（Anthropic，Claude Code负责人）：&quot;I don&#x27;t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.&quot;</li>
 <li><strong>Addy Osmani</strong>（Google Chrome团队）：6月7日写成文章，正式命名 Loop Engineering</li>
 </ul>
 <hr>
@@ -115,7 +115,7 @@
 <td><strong>怎么让它自己一遍遍跑起来</strong></td>
 </tr>
 </tbody></table>
-<blockquote><p>"Loop engineering sits one floor above the harness." — Addy Osmani</p></blockquote>
+<blockquote><p>&quot;Loop engineering sits one floor above the harness.&quot; — Addy Osmani</p></blockquote>
 <hr>
 <h2>一个循环的五个动作</h2>
 <table>
@@ -165,51 +165,51 @@
 <td><strong>Automations</strong></td>
 <td>挂在时间表/触发器上自动跑</td>
 <td>调度</td>
-<td>"make a loop an actual loop"</td>
+<td>&quot;make a loop an actual loop&quot;</td>
 </tr>
 <tr>
 <td><strong>Worktrees</strong></td>
 <td>隔离并行 agent 的工作目录</td>
 <td>交付</td>
-<td>"same headache as two engineers"</td>
+<td>&quot;same headache as two engineers&quot;</td>
 </tr>
 <tr>
 <td><strong>Skills</strong></td>
 <td>固化项目知识、还意图债</td>
 <td>发现</td>
-<td>"fire $skill-name, not a wall of instructions"</td>
+<td>&quot;fire $skill-name, not a wall of instructions&quot;</td>
 </tr>
 <tr>
 <td><strong>Connectors</strong></td>
 <td>MCP 接外部系统</td>
 <td>持久化/发现</td>
-<td>"only see the filesystem is a tiny loop"</td>
+<td>&quot;only see the filesystem is a tiny loop&quot;</td>
 </tr>
 <tr>
 <td><strong>Sub-agents</strong></td>
 <td>生成者与评判者分离</td>
 <td>验证</td>
-<td>"too nice grading its own homework"</td>
+<td>&quot;too nice grading its own homework&quot;</td>
 </tr>
 <tr>
 <td><strong>Memory</strong></td>
 <td>磁盘上的持久状态</td>
 <td>持久化</td>
-<td>"the agent forgets, the repo doesn't"</td>
+<td>&quot;the agent forgets, the repo doesn&#x27;t&quot;</td>
 </tr>
 </tbody></table>
 <hr>
 <h2>生成器与评判器：为什么写代码的 AI 不能给自己打分</h2>
 <h3>核心问题</h3>
-<blockquote><p>"when asked to evaluate work they've produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre."</p></blockquote>
+<blockquote><p>&quot;when asked to evaluate work they&#x27;ve produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre.&quot;</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>让 agent 评价自己产出的东西，它往往会自信地夸一通，哪怕在人看来质量明显很一般。</p></blockquote>
 <h3>解决方案：结构上分开</h3>
-<blockquote><p>"tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work."</p></blockquote>
+<blockquote><p>&quot;tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work.&quot;</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>调一个独立的评判器，让它变得怀疑，比让生成器自我批判要容易得多。</p></blockquote>
 <h3>GAN 式架构</h3>
@@ -218,7 +218,7 @@
 <li><strong>Evaluator</strong>：负责挑刺，instructions 不同、有时模型也不同</li>
 </ul>
 <h3>/goal 命令（Claude Code）</h3>
-<blockquote><p>"After each turn, a small fast model checks whether the condition holds. If not, Claude starts another turn instead of returning control to you. completion is decided by a fresh model rather than the one doing the work."</p></blockquote>
+<blockquote><p>&quot;After each turn, a small fast model checks whether the condition holds. If not, Claude starts another turn instead of returning control to you. completion is decided by a fresh model rather than the one doing the work.&quot;</p></blockquote>
 <p>
 每跑完一轮，一个又小又快的模型来检查条件成立没有。是否完成，由一个全新的模型判定，不是由干活的那个判定。
 </p>
@@ -241,7 +241,7 @@
 <li><strong>关键设计</strong>：LLM 醒来之前，确定性 orchestrator 先把上下文备齐</li>
 <li>底层是开源工具 Goose 的 fork</li>
 <li>架构：六层，确定性 gate 和 LLM 创造步骤交替咬合</li>
-<li>沙箱用 Devbox，跑在 EC2 上，"cattle not pets"，用完即弃</li>
+<li>沙箱用 Devbox，跑在 EC2 上，&quot;cattle not pets&quot;，用完即弃</li>
 </ul>
 <table>
 <thead><tr>
@@ -313,23 +313,23 @@
 <hr>
 <h2>四笔代价</h2>
 <h3>1. 验证债</h3>
-<blockquote><p>"A loop running unattended is also a loop making mistakes unattended."</p></blockquote>
+<blockquote><p>&quot;A loop running unattended is also a loop making mistakes unattended.&quot;</p></blockquote>
 <p>
 省下来的时间变成一堆「还没人验证过」的产出，堆在那儿等你还。
 </p>
-<blockquote><p>"The hard part of a loop is not the loop. It is putting something inside it that can say no."</p></blockquote>
+<blockquote><p>&quot;The hard part of a loop is not the loop. It is putting something inside it that can say no.&quot;</p></blockquote>
 <h3>2. 理解腐烂</h3>
-<blockquote><p>"The faster the loop ships code you did not write, the bigger the gap between what exists and what you actually get."</p></blockquote>
+<blockquote><p>&quot;The faster the loop ships code you did not write, the bigger the gap between what exists and what you actually get.&quot;</p></blockquote>
 <p>
 循环每天替你写一堆你没写过的代码。代码在长大，你脑子里的那张地图却停在三个月前。
 </p>
 <h3>3. 认知投降</h3>
-<blockquote><p>"When the loop runs itself its very tempting to stop having an opinion and just take whatever it gives back."</p></blockquote>
+<blockquote><p>&quot;When the loop runs itself its very tempting to stop having an opinion and just take whatever it gives back.&quot;</p></blockquote>
 <p>
 循环越可靠，你越容易把判断这件事整个外包出去。
 </p>
 <h3>4. Token 失控</h3>
-<blockquote><p>"You absolutely have to be careful about token costs."</p></blockquote>
+<blockquote><p>&quot;You absolutely have to be careful about token costs.&quot;</p></blockquote>
 <p>
 一个自主跑的循环，消耗有多少，很难提前算准。一个 bug 让它空转一整晚，你睡醒看到的就是账单。
 </p>
@@ -364,14 +364,14 @@
 </tbody></table>
 <hr>
 <h2>当工程师，不只是按下启动键</h2>
-<blockquote><p>"Two people can build the same loop and get opposite outcomes."</p></blockquote>
+<blockquote><p>&quot;Two people can build the same loop and get opposite outcomes.&quot;</p></blockquote>
 <p>
 一个人用循环，是为了在自己已经吃透的事情上跑得更快。循环帮他扩大的，是他本来就有的判断。
 </p>
 <p>
 另一个人用同样的循环，是为了不必再去理解。他用循环把「理解」这件麻烦事整个绕过去了。
 </p>
-<blockquote><p>"循环本身不偏向任何一边，它只是个忠实的乘号，乘的是你。"</p></blockquote>
+<blockquote><p>&quot;循环本身不偏向任何一边，它只是个忠实的乘号，乘的是你。&quot;</p></blockquote>
 <h3>什么稀缺？</h3>
 <p>
 循环让生成变得极其便宜。当一样东西可以被无限生成，它就不再值钱。
@@ -383,9 +383,9 @@
 循环能生成一百个选项，但它没法替你选。或者更准确地说，它可以替你选，但它选的依据是「看起来合理」，不是「真的对」。
 </p>
 <h3>Addy 的收尾</h3>
-<blockquote><p>"Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."</p></blockquote>
+<blockquote><p>&quot;Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go.&quot;</p></blockquote>
 <p>
->
+&gt;
 </p>
 <blockquote><p>造那个循环。但要像一个打算继续当工程师的人去造它，而不是一个只负责按下启动键的人。</p></blockquote>
 <hr>
@@ -477,13 +477,13 @@
 </tbody></table>
 <hr>
 <h2>核心语录</h2>
-<blockquote><p>"Loop engineering sits one floor above the harness."</p></blockquote>
-<blockquote><p>"Automations are what make a loop an actual loop and not just one run you did once."</p></blockquote>
-<blockquote><p>"The agent forgets, the repo doesn't. The memory has to be on disk and not in the context."</p></blockquote>
-<blockquote><p>"The hard part of a loop is not the loop. It is putting something inside it that can say no."</p></blockquote>
-<blockquote><p>"A loop running unattended is also a loop making mistakes unattended."</p></blockquote>
-<blockquote><p>"Two people can build the same loop and get opposite outcomes."</p></blockquote>
-<blockquote><p>"Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."</p></blockquote>
+<blockquote><p>&quot;Loop engineering sits one floor above the harness.&quot;</p></blockquote>
+<blockquote><p>&quot;Automations are what make a loop an actual loop and not just one run you did once.&quot;</p></blockquote>
+<blockquote><p>&quot;The agent forgets, the repo doesn&#x27;t. The memory has to be on disk and not in the context.&quot;</p></blockquote>
+<blockquote><p>&quot;The hard part of a loop is not the loop. It is putting something inside it that can say no.&quot;</p></blockquote>
+<blockquote><p>&quot;A loop running unattended is also a loop making mistakes unattended.&quot;</p></blockquote>
+<blockquote><p>&quot;Two people can build the same loop and get opposite outcomes.&quot;</p></blockquote>
+<blockquote><p>&quot;Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go.&quot;</p></blockquote>
 <hr>
 <h2>关于作者</h2>
 <p>
