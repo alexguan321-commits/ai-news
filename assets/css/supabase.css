@@ -1,11 +1,8 @@
-/* Supabase 用户系统样式 */
-
-/* ============================================
-   页面背景 - 物理公式底图（全站统一）
-   ============================================ */
-body {
-  background: url('/ai-news/assets/login-bg.jpg') center/cover no-repeat fixed !important;
-}
+/* ═══════════════════════════════════════════════════════════════
+   Supabase 用户系统样式
+   仅包含 Supabase 特有组件（登录门控、Auth UI、评论管理、建议状态）
+   基础布局（.hero/.navbar/.report-card 等）已在 styles.css 中定义
+   ═══════════════════════════════════════════════════════════════ */
 
 /* ============================================
    主内容始终可见（公开访问）
@@ -13,20 +10,9 @@ body {
 body main.container,
 body .nav-stats,
 body .hero {
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* ============================================
-   字体 - Space Grotesk (英文) + 得意黑 (中文)
-   ============================================ */
-
-/* 全站字体应用 */
-body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
-.filter-tag, .tab-btn, .search-bar input, .interaction-btn,
-.comment, .suggestion-item, .modal-content, .login-gate-content {
-  font-family: 'Space Grotesk', 'Smiley Sans Oblique', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif !important;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ============================================
@@ -45,7 +31,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   z-index: 9998;
 }
 
-/* 深色遮罩层 - 10% 透明度 */
+/* 深色遮罩层 - 75% 透明度 */
 #login-gate::before {
   content: '';
   position: absolute;
@@ -118,119 +104,6 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 /* ============================================
-   玻璃磨砂质感 - 全局按钮和图层
-   ============================================ */
-
-/* Hero 标题区域 - 10% 透明度 + 4px 模糊 */
-.hero {
-  background: rgba(15, 23, 42, 0.75) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-}
-
-/* 导航栏 - 10% 透明度 + 4px 模糊 */
-.navbar {
-  background: rgba(15, 23, 42, 0.75) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-/* 报告卡片 - 10% 透明度 + 4px 模糊 */
-.report-card,
-.knowledge-card {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-
-.report-card:hover,
-.knowledge-card:hover {
-  background: rgba(30, 41, 59, 0.9);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* 统计卡片 - 10% 透明度 + 4px 模糊 */
-.stat-card {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-}
-
-/* 标签按钮 - 10% 透明度 + 4px 模糊 */
-.filter-tag,
-.tab-btn {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  transition: all 0.2s;
-}
-
-.filter-tag:hover,
-.tab-btn:hover {
-  background: rgba(30, 41, 59, 0.9);
-}
-
-.filter-tag.active,
-.tab-btn.active {
-  background: rgba(26, 115, 232, 0.2);
-  border-color: rgba(26, 115, 232, 0.4);
-}
-
-/* 搜索框 - 10% 透明度 + 4px 模糊 */
-.search-bar input {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-}
-
-/* 互动按钮 - 10% 透明度 + 4px 模糊 */
-.interaction-btn {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.interaction-btn:hover {
-  background: rgba(30, 41, 59, 0.9);
-}
-
-.interaction-btn.active {
-  background: rgba(26, 115, 232, 0.15);
-  border-color: rgba(26, 115, 232, 0.3);
-}
-
-/* 评论区 - 10% 透明度 + 4px 模糊 */
-.comment {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* 建议卡片 - 10% 透明度 + 4px 模糊 */
-.suggestion-item {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================
    Auth 按钮和菜单
    ============================================ */
 #auth-container {
@@ -240,7 +113,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .login-btn {
   padding: 8px 20px;
-  background: var(--accent-color, #1a73e8);
+  background: var(--accent, #64b5f6);
   color: white;
   border: none;
   border-radius: 20px;
@@ -251,7 +124,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .login-btn:hover {
-  background: var(--accent-hover, #1557b0);
+  background: var(--accent-hover, #42a5f5);
   transform: translateY(-1px);
 }
 
@@ -265,14 +138,14 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   gap: 8px;
   padding: 6px 12px;
   background: transparent;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .user-avatar-btn:hover {
-  background: #f5f5f5;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .user-avatar-btn img,
@@ -287,7 +160,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-color, #1a73e8);
+  background: var(--accent, #64b5f6);
   color: white;
   font-weight: 600;
   font-size: 14px;
@@ -307,10 +180,12 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   top: 100%;
   right: 0;
   margin-top: 8px;
-  background: white;
-  border: 1px solid #e0e0e0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   min-width: 180px;
   z-index: 1000;
   overflow: hidden;
@@ -325,19 +200,19 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   border: none;
   cursor: pointer;
   font-size: 14px;
-  color: #333;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: background 0.2s;
 }
 
 .user-dropdown .dropdown-item:hover {
-  background: #f5f5f5;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .user-dropdown hr {
   margin: 0;
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ============================================
@@ -358,7 +233,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .modal-content {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -374,9 +249,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 24px;
   cursor: pointer;
@@ -391,7 +264,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .modal-close:hover {
-  background: rgba(30, 41, 59, 0.9);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .modal-content h2 {
@@ -400,6 +273,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   color: #fff;
 }
 
+/* ============================================
+   OAuth 按钮
+   ============================================ */
 .oauth-buttons {
   display: flex;
   flex-direction: column;
@@ -415,9 +291,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
   font-size: 15px;
   font-weight: 500;
@@ -426,8 +300,8 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .oauth-btn:hover {
-  background: rgba(30, 41, 59, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .oauth-btn.github:hover {
@@ -455,6 +329,9 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   padding: 0 16px;
 }
 
+/* ============================================
+   邮箱登录/注册表单
+   ============================================ */
 #email-login-form,
 #signup-form {
   display: flex;
@@ -465,9 +342,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 #email-login-form input,
 #signup-form input {
   padding: 12px 16px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 15px;
@@ -483,16 +358,14 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 #email-login-form input:focus,
 #signup-form input:focus {
   outline: none;
-  border-color: rgba(26, 115, 232, 0.6);
+  border-color: var(--accent, #64b5f6);
 }
 
 .submit-btn {
   padding: 12px;
-  background: rgba(26, 115, 232, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--accent-light, rgba(100, 181, 246, 0.2));
   color: white;
-  border: 1px solid rgba(26, 115, 232, 0.3);
+  border: 1px solid rgba(100, 181, 246, 0.3);
   border-radius: 12px;
   font-size: 15px;
   font-weight: 500;
@@ -501,8 +374,8 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .submit-btn:hover {
-  background: rgba(26, 115, 232, 0.3);
-  border-color: rgba(26, 115, 232, 0.4);
+  background: rgba(100, 181, 246, 0.3);
+  border-color: rgba(100, 181, 246, 0.4);
 }
 
 .switch-form {
@@ -513,59 +386,14 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .switch-form a {
-  color: #64b5f6;
+  color: var(--accent, #64b5f6);
   text-decoration: none;
   font-weight: 500;
 }
 
 /* ============================================
-   点赞和收藏按钮
+   互动按钮 - 锁定状态（未登录用户）
    ============================================ */
-.interaction-bar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 0;
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.interaction-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #fff;
-  transition: all 0.2s;
-}
-
-.interaction-btn:hover {
-  background: rgba(30, 41, 59, 0.9);
-}
-
-.interaction-btn.active {
-  background: rgba(26, 115, 232, 0.2);
-  color: #64b5f6;
-  border-color: rgba(26, 115, 232, 0.3);
-}
-
-.interaction-btn svg {
-  width: 18px;
-  height: 18px;
-}
-
-.interaction-btn.active svg {
-  fill: currentColor;
-}
-
-/* 未登录用户的互动按钮 - 锁定状态 */
 .interaction-btn.locked {
   opacity: 0.5;
   cursor: not-allowed;
@@ -599,80 +427,14 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 /* ============================================
-   评论区
+   评论卡片（单条评论）
    ============================================ */
-.comments-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.comments-section h3 {
-  margin: 0 0 16px;
-  font-size: 18px;
-  color: #fff;
-}
-
-.comment-form {
-  margin-bottom: 24px;
-}
-
-.comment-form textarea {
-  width: 100%;
-  min-height: 80px;
-  padding: 12px;
+.comment {
+  padding: 16px;
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 14px;
-  resize: vertical;
-  font-family: inherit;
-  color: #fff;
-}
-
-.comment-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.comment-form textarea:focus {
-  outline: none;
-  border-color: rgba(26, 115, 232, 0.6);
-}
-
-.comment-form button {
-  margin-top: 8px;
-  padding: 8px 20px;
-  background: rgba(26, 115, 232, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  color: white;
-  border: 1px solid rgba(26, 115, 232, 0.3);
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.comment-form button:hover {
-  background: rgba(26, 115, 232, 0.3);
-}
-
-#comments-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.no-comments {
-  color: #999;
-  font-style: italic;
-  padding: 20px 0;
-}
-
-.comment {
-  padding: 16px;
-  background: #f9f9f9;
   border-radius: 12px;
 }
 
@@ -698,11 +460,11 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 
 .comment-author {
   font-weight: 500;
-  color: #333;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .comment-time {
-  color: #999;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 12px;
 }
 
@@ -710,18 +472,18 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   margin-left: auto;
   background: none;
   border: none;
-  color: #999;
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   font-size: 18px;
   padding: 4px 8px;
 }
 
 .comment-delete:hover {
-  color: #e53935;
+  color: #ef5350;
 }
 
 .comment-body {
-  color: #333;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
   word-break: break-word;
 }
@@ -730,7 +492,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   margin-top: 8px;
   background: none;
   border: none;
-  color: var(--accent-color, #1a73e8);
+  color: var(--accent, #64b5f6);
   cursor: pointer;
   font-size: 13px;
   padding: 4px 0;
@@ -745,10 +507,12 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   width: 100%;
   min-height: 60px;
   padding: 8px;
-  border: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
   font-size: 13px;
   resize: vertical;
+  color: #fff;
 }
 
 .reply-form button {
@@ -757,97 +521,41 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   font-size: 13px;
 }
 
+.no-comments {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  padding: 20px 0;
+}
+
 /* ============================================
-   建议/工单
+   建议/工单 - 状态标签
    ============================================ */
-.suggestion-form {
-  background: #000000;
-  padding: 24px;
-  border-radius: 12px;
-  margin-bottom: 32px;
-  border: 1px solid #ffffff;
-}
-
-.suggestion-form h3 {
-  margin: 0 0 16px;
-  color: #ffffff;
-}
-
-.suggestion-form input,
-.suggestion-form textarea,
-.suggestion-form select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  font-size: 14px;
-  margin-bottom: 12px;
-  font-family: inherit;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-.suggestion-form input::placeholder,
-.suggestion-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.suggestion-form select option {
-  background: #1e293b;
-  color: #ffffff;
-}
-
-.suggestion-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.suggestion-form button {
-  padding: 12px 24px;
-  background: rgba(100, 181, 246, 0.2);
-  color: #64b5f6;
-  border: 1px solid rgba(100, 181, 246, 0.3);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.suggestion-form button:hover {
-  background: rgba(100, 181, 246, 0.3);
-}
-
-#my-suggestions-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
 .suggestion-item {
   padding: 20px;
-  background: #000000;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
-  border-left: 4px solid #ccc;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 4px solid #ccc;
-  color: #ffffff;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .suggestion-item.status-submitted {
-  border-left-color: #ffc107;
+  border-left-color: var(--morning, #fbbf24);
 }
 
 .suggestion-item.status-in_progress {
-  border-left-color: #2196f3;
+  border-left-color: var(--accent, #64b5f6);
 }
 
 .suggestion-item.status-optimized {
-  border-left-color: #4caf50;
+  border-left-color: var(--noon, #34d399);
 }
 
 .suggestion-item.status-closed {
-  border-left-color: #9e9e9e;
+  border-left-color: rgba(255, 255, 255, 0.3);
 }
 
 .suggestion-header {
@@ -871,23 +579,23 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .status-badge.status-submitted {
-  background: rgba(255, 193, 7, 0.2);
-  color: #ffc107;
+  background: var(--morning-bg, rgba(251, 191, 36, 0.15));
+  color: var(--morning, #fbbf24);
 }
 
 .status-badge.status-in_progress {
-  background: rgba(33, 150, 243, 0.2);
-  color: #2196f3;
+  background: var(--accent-light, rgba(100, 181, 246, 0.2));
+  color: var(--accent, #64b5f6);
 }
 
 .status-badge.status-optimized {
-  background: rgba(76, 175, 80, 0.2);
-  color: #4caf50;
+  background: var(--noon-bg, rgba(52, 211, 153, 0.15));
+  color: var(--noon, #34d399);
 }
 
 .status-badge.status-closed {
-  background: rgba(158, 158, 158, 0.2);
-  color: #9e9e9e;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .suggestion-item p {
@@ -897,7 +605,7 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
 }
 
 .suggestion-item time {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 12px;
 }
 
@@ -906,19 +614,19 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   gap: 16px;
   margin-top: 8px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .admin-reply {
   margin-top: 12px;
   padding: 12px;
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(52, 211, 153, 0.1);
   border-radius: 8px;
-  border-left: 3px solid #4caf50;
+  border-left: 3px solid var(--noon, #34d399);
 }
 
 .admin-reply strong {
-  color: #4caf50;
+  color: var(--noon, #34d399);
 }
 
 /* ============================================
@@ -935,5 +643,14 @@ body, .navbar, .hero, .report-card, .knowledge-card, .stat-card,
   
   .interaction-bar {
     flex-wrap: wrap;
+  }
+
+  .login-gate-content {
+    padding: 40px 30px;
+  }
+
+  .login-gate-content .gate-title {
+    white-space: normal;
+    font-size: 1.8rem;
   }
 }

@@ -1,6 +1,13 @@
 // Supabase 配置
-// 注意：anon key 是公开的，用于客户端访问
-// 安全性通过 Supabase Row Level Security (RLS) 策略保证
+// ═══════════════════════════════════════════════════════════════
+// 安全架构说明：
+// anon key 故意公开（Supabase 设计如此），安全性完全依赖 RLS 策略：
+//   - likes:       anon 只读，INSERT/UPDATE/DELETE 需认证且仅限本人数据
+//   - comments:    anon 只读，INSERT/UPDATE/DELETE 需认证且仅限本人数据
+//   - suggestions: anon 只读，INSERT/UPDATE/DELETE 需认证且仅限本人数据
+//   - page_views:  anon 可 INSERT（设计如此，匿名访问统计）
+// 审计日期: 2026-07-10
+// ═══════════════════════════════════════════════════════════════
 const SUPABASE_URL = 'https://xhmzbrvzuxbdcvntwlut.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhobXpicnZ6dXhiZGN2bnR3bHV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMjcwNjQsImV4cCI6MjA5ODcwMzA2NH0.sjMGP10WuIS5xPNul8uyq5LSB3JEEI6SDxqtDq7tPA8';
 
