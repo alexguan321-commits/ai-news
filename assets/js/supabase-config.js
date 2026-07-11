@@ -1,4 +1,6 @@
 // Supabase 配置
+// 注意：anon key 是公开的，用于客户端访问
+// 安全性通过 Supabase Row Level Security (RLS) 策略保证
 const SUPABASE_URL = 'https://xhmzbrvzuxbdcvntwlut.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhobXpicnZ6dXhiZGN2bnR3bHV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMjcwNjQsImV4cCI6MjA5ODcwMzA2NH0.sjMGP10WuIS5xPNul8uyq5LSB3JEEI6SDxqtDq7tPA8';
 
