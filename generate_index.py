@@ -956,15 +956,16 @@ def generate_html(posts, cards):
 
         <section class="search-section">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
-                <span id="searchCount" class="search-count"></span>
+                <label for="searchInput" class="sr-only">Search reports and knowledge cards</label>
+                <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" aria-label="Search reports and knowledge cards">
+                <span id="searchCount" class="search-count" aria-live="polite"></span>
             </div>
         </section>
 
         <div class="tab-container">
-            <div class="tab-nav">
-                <button class="tab-btn active" data-tab="reports">📰 Reports ({total_posts})</button>
-                <button class="tab-btn" data-tab="cards">📚 Knowledge Cards ({total_cards})</button>
+            <div class="tab-nav" role="tablist">
+                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports ({total_posts})</button>
+                <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards ({total_cards})</button>
             </div>
 
             <div class="tab-content active" id="reports-tab">
@@ -1056,7 +1057,11 @@ def generate_html(posts, cards):
         // Tab switching
         function switchTab(tabName) {{
             activeTab = tabName;
-            tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabName));
+            tabBtns.forEach(btn => {{
+                const isActive = btn.dataset.tab === tabName;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            }});
             tabContents.forEach(content => {{
                 content.classList.toggle('active', content.id === tabName + '-tab');
             }});
@@ -1121,7 +1126,12 @@ def generate_html(posts, cards):
             }}
         }}
 
-        searchInput.addEventListener('input', filterContent);
+        // Debounce search for performance
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {{
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterContent, 150);
+        }});
         filterTags.forEach(tag => {{
             tag.addEventListener('click', function() {{
                 filterTags.forEach(t => t.classList.remove('active'));
