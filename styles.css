@@ -554,12 +554,17 @@ body {
     }
 
     .navbar .logo {
-        font-size: 1.25rem;
+        font-size: 0;  /* 隐藏原文字 */
         flex-shrink: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         min-width: 0;
+        max-width: calc(100% - 80px);  /* 给 auth-container 留空间 */
+    }
+
+    .navbar .logo::after {
+        content: "AI News";
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #ffffff;
     }
 
     #auth-container {
