@@ -34,7 +34,7 @@ SUPABASE_HEAD = """
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
     <script src="/ai-news/assets/js/supabase-auth.js?v=20260712a" defer></script>
-    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
     <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 """
 

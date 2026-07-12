@@ -16,6 +16,24 @@ class SupabaseInteractions {
     this.loadStats();
     this.loadUserState();
     this.initLockState();
+    
+    // 监听登录状态变化，登录后更新锁定状态
+    if (typeof auth !== 'undefined' && auth.onChange) {
+      auth.onChange((user) => {
+        if (user) {
+          // 用户登录了，移除锁定状态
+          document.querySelectorAll('.interaction-btn.locked').forEach(btn => {
+            btn.classList.remove('locked');
+            btn.removeAttribute('data-tooltip');
+          });
+          // 重新加载用户状态（点赞/收藏状态）
+          this.loadUserState();
+        } else {
+          // 用户登出了，重新添加锁定状态
+          this.initLockState();
+        }
+      });
+    }
   }
 
   // 初始化锁定状态（未登录用户）
