@@ -20,7 +20,9 @@ window.initSupabaseClient = function() {
         persistSession: true,
         detectSessionInUrl: true,
         // 72 小时 = 259200 秒
-        storageExpiresIn: 259200
+        storageExpiresIn: 259200,
+        // 显式指定使用 localStorage 存储 session
+        storage: window.localStorage
       }
     });
     return true;
