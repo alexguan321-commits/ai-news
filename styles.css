@@ -562,13 +562,17 @@ body {
     }
 
     .navbar .logo-mobile {
-        display: block;  /* 显示移动版 logo */
+        display: inline-block;  /* 使用 inline-block 确保在 flex 容器中正确显示 */
         font-size: 1.25rem;
         font-weight: 800;
         color: #ffffff;
         text-decoration: none;
         flex-shrink: 1;
         min-width: 0;
+        max-width: 50%;  /* 限制最大宽度，给 auth-container 留空间 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     #auth-container {
