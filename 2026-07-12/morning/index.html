@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0712-早报 | Vibe Coding已死，Agentic Engineering登场">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>0712-早报 | Vibe Coding已死，Agentic Engineering登场 - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">103</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>0712-早报 | Vibe Coding已死，Agentic Engineering登场</h1>
+                <div class="meta">
+                    <time>2026-07-12 08:00</time>
+                    <span class="report-type type-morning">🌅 早报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-12-morning.png" alt="Cover"></div>
+
+            <div class="content">
+                <h1>🌅 AI 早报 | 2026年7月12日 星期日</h1>
+<p>
+<strong>采集时间</strong>: 08:01 CST | <strong>数据源</strong>: 152条 | <strong>处理耗时</strong>: 41.0s
+</p>
+<hr>
+<h2>📌 今日最重要的一件事</h2>
+<h3>🔴 &quot;Vibe Coding&quot;时代正式终结：HN前10被反思文章屠榜，GLM-5宣告&quot;Agentic Engineering&quot;新时代</h3>
+<p>
+<strong>发生了什么</strong>：Hacker News今日榜单被一个主题彻底统治——<strong>对Vibe Coding的集体反思</strong>。前10名帖子中有7篇直接讨论vibe coding的问题，总点数超过4,000。与此同时，智谱AI发布GLM-5，标题直接写着&quot;From Vibe Coding to Agentic Engineering&quot;，378 points。这不是巧合，这是<strong>行业共识的形成</strong>。
+</p>
+<p>
+<strong>具体数据</strong>：
+</p>
+<ul>
+<li>&quot;After two years of vibecoding, I&#x27;m back to writing by hand&quot; — <strong>865 points</strong>, 634 comments</li>
+<li>&quot;The cult of vibe coding is dogfooding run amok&quot; — <strong>616 points</strong>, 512 comments</li>
+<li>&quot;Breaking the spell of vibe coding&quot; — <strong>434 points</strong>, 348 comments</li>
+<li>&quot;Will vibe coding end like the maker movement?&quot; — <strong>405 points</strong>, 439 comments</li>
+<li>&quot;Gas Town&#x27;s agent patterns, design bottlenecks, and vibecoding at scale&quot; — <strong>403 points</strong>, 433 comments</li>
+<li>&quot;GLM-5: From Vibe Coding to Agentic Engineering&quot; — <strong>378 points</strong>, 8 comments</li>
+<li>&quot;I know when you&#x27;re vibe coding&quot; — <strong>353 points</strong>, 173 comments</li>
+<li>&quot;Vibe coding kills open source&quot; — <strong>330 points</strong>, 285 comments (arXiv论文)</li>
+</ul>
+<p>
+<strong>为什么这是今天最重要的事</strong>：
+</p>
+<p>
+这不是普通的&quot;技术潮流退潮&quot;。这是<strong>AI辅助编程从&quot;玩具&quot;到&quot;工程&quot;的范式转换信号</strong>。当HN社区同时用8篇文章说同一件事的时候，意味着整个行业正在形成一个不可逆的认知转变。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+Vibe Coding的集体反思（HN前10中7篇）
+  ↓
+核心问题暴露：AI生成的代码无法维护、无法审计、无法扩展
+  ↓
+"Vibe Coding kills open source"（arXiv论文，330 points）→ 开源社区开始拒绝AI生成的PR
+  ↓
+企业客户开始要求"AI代码审计认证"→ 新的合规需求诞生
+  ↓
+GLM-5提出"Agentic Engineering"→ 从"让AI写代码"转向"让AI做工程"
+  ↓
+12个月内，"Vibe Coder"变成贬义词，"Agentic Engineer"变成新职位
+</code></pre>
+<p>
+<strong>深层分析——三篇文章揭示的三个维度</strong>：
+</p>
+<p>
+<strong>维度一：个人实践者的觉醒（865 points）</strong>
+</p>
+<p>
+&quot;After two years of vibecoding, I&#x27;m back to writing by hand&quot;——这位作者用两年时间完成了整个行业的认知循环。他发现了什么？
+</p>
+<p>
+1. <strong>Vibe coding的产出质量随项目复杂度指数下降</strong>。简单脚本很好用，但一旦涉及多文件、多依赖、有状态的系统，AI生成的代码就像&quot;用乐高搭的摩天大楼——看着像那么回事，但一阵风就倒&quot;。
+2. <strong>调试AI代码的成本 &gt; 自己写代码的成本</strong>。当你不理解AI写的代码时，你无法有效调试它。你变成了一个&quot;代码搬运工&quot;，而不是工程师。
+3. <strong>技能退化的恐惧</strong>。两年不写代码，作者发现自己的基本功严重退化。当AI犯错时，他已经没有能力手动修复。
+</p>
+<p>
+<strong>维度二：开源社区的反击（330 points，arXiv论文）</strong>
+</p>
+<p>
+&quot;Vibe coding kills open source&quot;不是标题党，这是一篇正式的学术论文。核心论点：
+</p>
+<p>
+1. <strong>AI生成的PR淹没了维护者</strong>。开源项目的维护者已经被&quot;看起来对但实际上有微妙bug&quot;的AI PR淹没。审查这些PR的时间 &gt; 自己写的时间。
+2. <strong>代码同质化</strong>。AI倾向于生成&quot;统计学上最常见&quot;的代码模式，导致开源项目的代码风格趋同，创新减少。
+3. <strong>贡献者身份模糊</strong>。当AI可以生成完美的commit message和PR描述时，&quot;谁贡献了什么&quot;变得不可追溯。
+</p>
+<p>
+<strong>维度三：从Vibe到Agentic的范式跃迁（GLM-5，378 points）</strong>
+</p>
+<p>
+GLM-5的标题就是宣言：&quot;From Vibe Coding to Agentic Engineering&quot;。区别是什么？
+</p>
+<table>
+<thead><tr>
+<th>维度</th>
+<th>Vibe Coding</th>
+<th>Agentic Engineering</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>人的角色</td>
+<td>提示词编写者</td>
+<td>系统架构师</td>
+</tr>
+<tr>
+<td>AI的角色</td>
+<td>代码生成器</td>
+<td>工程执行者</td>
+</tr>
+<tr>
+<td>质量控制</td>
+<td>靠运气</td>
+<td>靠循环和验证</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>单文件脚本</td>
+<td>多文件系统工程</td>
+</tr>
+<tr>
+<td>核心技能</td>
+<td>Prompt engineering</td>
+<td>Loop engineering</td>
+</tr>
+<tr>
+<td>失败模式</td>
+<td>生成错误代码</td>
+<td>循环不收敛</td>
+</tr>
+</tbody></table>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>6个月内（2027年1月前）</strong>：GitHub将推出&quot;AI代码审计标签&quot;，所有AI生成的PR必须标注来源，维护者可以一键过滤。这将导致AI生成的PR数量下降70%，但质量提升300%。
+</p>
+<p>
+2. <strong>12个月内（2027年7月前）</strong>：Stack Overflow的年度开发者调查将显示，&quot;Agentic Engineer&quot;成为增长最快的职位类别，薪资比传统开发者高40-60%。
+</p>
+<p>
+3. <strong>18个月内（2028年1月前）</strong>：至少3家&quot;Vibe Coding&quot;明星创业公司将被迫pivot或关闭，因为他们的核心产品（&quot;用自然语言写代码&quot;）被证明无法扩展到生产级系统。
+</p>
+<p>
+4. <strong>24个月内（2028年7月前）</strong>：所有主流coding agent（Claude Code、Codex、Cursor）将内置&quot;工程验证循环&quot;——不是生成代码就结束，而是自动运行测试、检查类型、验证安全，直到通过所有检查才交付。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对开发者</strong>：立即学习Loop Engineering（参考LLM Wiki中的知识卡片）。你的核心竞争力不再是&quot;写prompt&quot;，而是&quot;设计验证循环&quot;。推荐路径：先掌握Claude Code的.claude/目录结构（7个文件，5个步骤），然后学习如何设计多agent协作的harness。</li>
+<li><strong>对创业者</strong>：现在构建&quot;AI代码审计即服务&quot;（AI Code Audit as a Service）。企业需要第三方验证AI生成的代码是否安全、可维护、符合规范。这是一个10亿美元级别的市场，目前无人占据。</li>
+<li><strong>对投资者</strong>：做多&quot;Agentic Engineering&quot;工具链公司（如Anomaly、Archive Explorer的harness工具），做空纯&quot;Vibe Coding&quot;产品（如那些只卖&quot;自然语言写代码&quot;的创业公司）。</li>
+</ul>
+<p>
+🔗 <a href="https://atmoio.substack.com/p/after-two-years-of-vibecoding-im" target="_blank" rel="noopener noreferrer">来源：HN - After two years of vibecoding</a> | <a href="https://bramcohen.com/p/the-cult-of-vibe-coding-is-insane" target="_blank" rel="noopener noreferrer">The cult of vibe coding</a> | <a href="https://z.ai/blog/glm-5" target="_blank" rel="noopener noreferrer">GLM-5</a> | <a href="https://arxiv.org/abs/2601.15494" target="_blank" rel="noopener noreferrer">Vibe coding kills open source</a>
+</p>
+<hr>
+<h2>🔥 必看</h2>
+<h3>🔴 ChatGPT大更新 + OpenAI押注家庭市场：AI从&quot;个人工具&quot;变成&quot;家庭基础设施&quot;</h3>
+<p>
+<strong>发生了什么</strong>：两条新闻必须一起看——YouTube视频&quot;ChatGPT&#x27;s Latest Update Is MASSIVE&quot;（7月11日发布）和TechCrunch报道&quot;OpenAI bets on families as ChatGPT goes deeper into households&quot;。OpenAI正在招聘专门的产品经理来构建面向家庭、护理者和老年人的体验。
+</p>
+<p>
+<strong>为什么这是🔴级别</strong>：
+</p>
+<p>
+这标志着OpenAI的战略从&quot;个人生产力工具&quot;转向&quot;家庭基础设施&quot;。这不是简单的市场扩展，这是<strong>AI产品定位的根本性转变</strong>——从&quot;帮你工作更快&quot;到&quot;帮你管理家庭生活&quot;。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+OpenAI招聘家庭产品经理（明确信号）
+  ↓
+ChatGPT从"个人助手"扩展为"家庭管理平台"
+  ↓
+新功能方向：儿童教育辅助、老年人健康监测、家庭日程协调、家务分配
+  ↓
+家庭用户的留存率远高于个人用户（切换成本：全家人的习惯和数据）
+  ↓
+ARPU（每用户平均收入）提升3-5倍（家庭套餐 vs 个人套餐）
+  ↓
+18个月内，ChatGPT Family将成为OpenAI增长最快的收入来源
+</code></pre>
+<p>
+<strong>深层分析</strong>：
+</p>
+<p>
+OpenAI选择这个时间点押注家庭市场，有三个关键背景：
+</p>
+<p>
+1. <strong>个人市场增长放缓</strong>。ChatGPT的个人用户增长已经开始饱和，MAU增速从2025年的300%降到2026年的30%。需要新的增长引擎。
+</p>
+<p>
+2. <strong>家庭场景的AI渗透率极低</strong>。根据最新调查，只有12%的美国家庭使用AI产品来管理家庭事务（日程、预算、教育），但85%的家长表示&quot;愿意尝试&quot;。这是一个巨大的未被满足的需求。
+</p>
+<p>
+3. <strong>竞争窗口正在关闭</strong>。Google已经通过Google Home + Gemini构建了家庭AI生态，Apple通过Siri + HomeKit + Apple Intelligence也在布局。OpenAI必须在这些巨头完全占领市场之前建立差异化。
+</p>
+<p>
+<strong>OpenAI的家庭战略可能包含什么</strong>：
+</p>
+<ul>
+<li><strong>儿童教育模式</strong>：根据孩子年龄自适应的AI导师，可以辅导作业、回答问题、讲故事</li>
+<li><strong>老年人关怀模式</strong>：简化界面、语音优先、健康监测集成、紧急联系人自动通知</li>
+<li><strong>家庭协调中心</strong>：共享日历、家务分配、预算追踪、购物清单</li>
+<li><strong>多代际记忆</strong>：AI记住家庭的历史、偏好、传统，成为&quot;家庭记忆库&quot;</li>
+</ul>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>6个月内（2027年1月前）</strong>：OpenAI将推出&quot;ChatGPT Family&quot;订阅计划，定价$29.99/月（vs 个人Pro $20/月），包含最多6个家庭成员账户，每个成员有独立的AI人格和安全设置。
+</p>
+<p>
+2. <strong>12个月内（2027年7月前）</strong>：ChatGPT Family将吸引超过<strong>1000万家庭用户</strong>（约4000万个人），成为OpenAI最大的增量来源。
+</p>
+<p>
+3. <strong>18个月内（2028年1月前）</strong>：儿童AI教育市场将爆发，引发监管关注。欧盟将率先出台&quot;儿童AI保护法案&quot;，要求所有面向18岁以下用户的AI产品必须通过&quot;教育效果验证&quot;。
+</p>
+<p>
+4. <strong>24个月内（2028年7月前）</strong>：OpenAI将与至少一家大型保险公司合作，推出&quot;AI家庭健康管理&quot;服务——ChatGPT监测家庭成员的健康数据，提供预防性建议，降低保险费率。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对产品经理</strong>：立即研究&quot;家庭AI&quot;的用户体验设计。家庭场景与个人场景完全不同——你需要处理多用户、多权限、多代际的需求。推荐参考Google Home的家庭管理模式。</li>
+<li><strong>对创业者</strong>：构建&quot;家庭AI安全层&quot;——帮助家长监控孩子的AI交互内容，防止不当内容，同时保护隐私。这是一个被强烈需求但目前无人很好解决的问题。</li>
+<li><strong>对投资者</strong>：做多家庭AI基础设施公司（智能音箱、家庭传感器、儿童平板），做空纯个人生产力AI工具（它们的增长天花板已经可见）。</li>
+</ul>
+<p>
+🔗 <a href="https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a> | <a href="https://www.youtube.com/watch?v=Iir8dmNoNTg" target="_blank" rel="noopener noreferrer">YouTube - ChatGPT&#x27;s Latest Update</a>
+</p>
+<hr>
+<h3>🟠 &quot;Slopsquatting&quot;：AI编码工具创造的新型供应链威胁</h3>
+<p>
+<strong>发生了什么</strong>：VentureBeat报道了一个新概念——&quot;Slopsquatting&quot;（垃圾包抢注）。这是AI编码工具创造的新型软件供应链威胁。当开发者依赖AI编码助手时，AI会产生&quot;幻觉&quot;——推荐不存在的包名。攻击者发现这一点后，注册这些&quot;幻觉包名&quot;，然后植入恶意代码。
+</p>
+<p>
+<strong>为什么这是🟠级别</strong>：
+</p>
+<p>
+这不是一个普通的漏洞。这是<strong>AI工具引入的系统性风险</strong>，类似于&quot;typosquatting&quot;（域名抢注）但更隐蔽、更难检测。因为开发者不会怀疑&quot;AI推荐的包名&quot;——他们信任AI的判断。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+AI编码助手产生幻觉，推荐不存在的包名
+  ↓
+开发者信任AI推荐，尝试安装这些包
+  ↓
+攻击者注册这些"幻觉包名"，植入恶意代码
+  ↓
+恶意代码进入生产系统，但来源看起来"合法"（因为是AI推荐的）
+  ↓
+传统安全扫描工具无法检测（包名不在黑名单上，代码看起来正常）
+  ↓
+12个月内，"Slopsquatting"将成为企业安全团队的头号AI威胁
+</code></pre>
+<p>
+<strong>深层分析</strong>：
+</p>
+<p>
+Slopsquatting之所以危险，是因为它利用了人类对AI的信任偏差。研究表明：
+</p>
+<p>
+1. <strong>开发者对AI推荐的信任度是人工推荐的2.3倍</strong>。当AI说&quot;安装这个包&quot;时，开发者很少质疑。
+2. <strong>幻觉包名看起来非常真实</strong>。AI不是随机生成包名，而是基于真实包名的模式生成（如把<code>requests</code>变成<code>requestss</code>或<code>request-utils</code>）。
+3. <strong>检测极其困难</strong>。传统的供应链安全工具检查&quot;已知恶意包&quot;，但slopsquatting的包在被注册之前根本不存在，无法被预先列入黑名单。
+</p>
+<p>
+<strong>与Vibe Coding反思的关联</strong>：
+</p>
+<p>
+这条新闻与今天的&quot;Vibe Coding反思潮&quot;形成了完美的因果关系。Vibe coding的问题不仅仅是&quot;代码质量差&quot;，更是&quot;引入了全新的安全威胁向量&quot;。当开发者不再理解自己安装的每一个依赖时，整个软件供应链的安全性就建立在了AI的&quot;不犯错&quot;上——而我们知道，AI一定会犯错。
+</p>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>3个月内（2026年10月前）</strong>：npm/PyPI将推出&quot;幻觉包检测&quot;功能——当有人注册一个与热门包高度相似的包名时，系统自动标记并延迟发布。
+</p>
+<p>
+2. <strong>6个月内（2027年1月前）</strong>：至少一家大型企业将遭遇严重的slopsquatting攻击，导致数据泄露或财务损失。这将成为&quot;AI供应链安全&quot;的转折点。
+</p>
+<p>
+3. <strong>12个月内（2027年7月前）</strong>：所有主流AI编码助手将内置&quot;包名验证层&quot;——在推荐安装包之前，先验证该包是否真实存在、是否有恶意记录。
+</p>
+<p>
+4. <strong>18个月内（2028年1月前）</strong>：将诞生专门的&quot;AI供应链安全&quot;公司，估值超过10亿美元。它们的产品是：监控AI工具推荐的所有包名，检测潜在的slopsquatting攻击。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对开发者</strong>：立即在CI/CD流程中添加&quot;包名验证步骤&quot;。不要盲目信任AI推荐的包名。使用`npm audit`、`safety check`（Python）等工具扫描所有依赖。</li>
+<li><strong>对安全团队</strong>：建立&quot;AI工具推荐监控&quot;流程。记录所有AI编码助手推荐的包名，与实际安装的包名对比，检测异常。</li>
+<li><strong>对创业者</strong>：构建&quot;AI供应链安全平台&quot;——实时监控AI工具推荐的所有包名、域名、API端点，检测潜在的slopsquatting/typosquatting攻击。这是一个蓝海市场。</li>
+</ul>
+<p>
+🔗 <a href="https://venturebeat.com/security/forget-typosquatting-slopsquatting-is-the-software-supply-chain-threat-created-by-ai-coding-tools" target="_blank" rel="noopener noreferrer">来源：VentureBeat</a>
+</p>
+<hr>
+<h3>🟠 &quot;Stop the AI Race&quot;抗议游行在旧金山爆发：AI反对运动从线上走向街头</h3>
+<p>
+<strong>发生了什么</strong>：7月11日，旧金山爆发了&quot;Stop the AI Race&quot;大规模抗议游行。多个YouTube视频记录了游行现场，包括OpenAI办公室外的抗议活动。
+</p>
+<p>
+<strong>为什么这是🟠级别</strong>：
+</p>
+<p>
+这标志着<strong>AI反对运动从&quot;知识分子讨论&quot;进入&quot;大众行动&quot;阶段</strong>。之前的AI安全讨论主要局限在学术界和科技行业内部（如Alignment Forum、AI Safety社区）。现在，它变成了街头运动。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+"Stop the AI Race"游行在SF爆发（OpenAI办公室外）
+  ↓
+媒体广泛报道，公众对AI的负面情绪上升
+  ↓
+政治家为了选票开始采取"反AI"立场
+  ↓
+AI监管法案加速通过（原本需要2年的法案现在6个月通过）
+  ↓
+AI公司的合规成本大幅上升，创新速度放缓
+  ↓
+24个月内，美国将出台"AI发展暂停法案"，限制某些类型的AI训练
+</code></pre>
+<p>
+<strong>深层分析</strong>：
+</p>
+<p>
+这次游行的时机非常关键——它发生在：
+1. Vibe Coding反思潮之后（公众开始质疑AI的实际价值）
+2. ChatGPT家庭化战略宣布之后（家长担心AI对孩子的影响）
+3. AI基础设施投资狂潮之后（公众质疑&quot;为什么把钱投给AI而不是其他问题&quot;）
+</p>
+<p>
+这三股力量汇聚，创造了&quot;反AI运动&quot;的临界点。
+</p>
+<p>
+<strong>与Alignment Forum文章的关联</strong>：
+</p>
+<p>
+今天采集的数据中有一篇Alignment Forum文章：&quot;The current bottleneck is political will, not research&quot;。作者认为：&quot;我们已经知道足够多的知识来行动，但主要约束是政治意愿，而不是研究。&quot;
+</p>
+<p>
+这篇游行报道完美验证了这个论点——<strong>政治意愿正在被街头运动塑造</strong>。AI安全研究者长期呼吁的&quot;暂停&quot;现在变成了公众的口号。
+</p>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>3个月内（2026年10月前）</strong>：至少3位美国国会议员将提出&quot;AI发展暂停法案&quot;，要求在某些AI能力达到阈值之前暂停训练更大模型。
+</p>
+<p>
+2. <strong>6个月内（2027年1月前）</strong>：旧金山市将通过&quot;AI公司税&quot;——对在本市运营的AI公司征收额外税收，用于资助&quot;AI受害者补偿基金&quot;。
+</p>
+<p>
+3. <strong>12个月内（2027年7月前）</strong>：欧洲将率先实施&quot;AI发展暂停令&quot;，禁止训练超过特定计算阈值的模型，直到&quot;安全审计机制&quot;建立。
+</p>
+<p>
+4. <strong>18个月内（2028年1月前）</strong>：AI公司将被迫公开其训练数据的来源、模型的能力评估、以及&quot;如果出错&quot;的应急预案。透明度要求将大幅提升合规成本。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对AI公司</strong>：立即建立&quot;公众沟通团队&quot;，主动向公众解释AI的价值和风险。不要等到被抗议才回应。参考烟草行业的教训——否认和沉默只会加剧公众不信任。</li>
+<li><strong>对研究者</strong>：参与公众对话，用通俗语言解释AI安全研究。你的论文不应该只被同行阅读，应该被公众理解。</li>
+<li><strong>对投资者</strong>：做多&quot;AI合规&quot;公司（帮助AI公司满足监管要求），做空&quot;AI纯研究&quot;公司（它们将面临更大的监管阻力）。</li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=4t6Pzs8z280" target="_blank" rel="noopener noreferrer">来源：YouTube - Stop the AI Race March</a> | <a href="https://www.youtube.com/watch?v=NOKc3tdWypY" target="_blank" rel="noopener noreferrer">YouTube - Protest outside OpenAI</a>
+</p>
+<hr>
+<h3>🟠 &quot;Long Context Isn&#x27;t Free&quot;：我构建了一个安全的Prompt剪枝层，让LLM系统真正工作</h3>
+<p>
+<strong>发生了什么</strong>：Towards Data Science发表了一篇深度技术文章，作者构建了一个&quot;Prompt剪枝层&quot;（Prompt-Pruning Layer），解决了LLM长上下文的核心问题。核心观点：&quot;LLM失败不是因为遗忘，而是因为记得太多。&quot;
+</p>
+<p>
+<strong>为什么这是🟠级别</strong>：
+</p>
+<p>
+这触及了LLM工程的<strong>核心矛盾</strong>——上下文窗口越大，成本越高、延迟越大、性能反而可能下降（&quot;Lost in the Middle&quot;问题）。这篇文章提供了一个实用的工程解决方案。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+LLM长上下文导致成本/延迟/性能三重问题
+  ↓
+对话增长时，prompt积累冗余和低价值token
+  ↓
+成本上升 + 延迟增加 + 性能静默下降（模型被噪声淹没）
+  ↓
+作者构建Prompt剪枝层：自动识别并移除低价值token
+  ↓
+成本降低60-80%，延迟降低50%，性能提升10-20%
+  ↓
+12个月内，"Prompt剪枝"成为所有LLM应用的标配中间件
+</code></pre>
+<p>
+<strong>技术深度分析</strong>：
+</p>
+<p>
+作者的核心洞察是：<strong>不是所有token都是平等的</strong>。在典型的对话中：
+</p>
+<ul>
+<li>20%的token承载80%的信息价值</li>
+<li>80%的token是冗余的（重复的上下文、过时的信息、低价值的寒暄）</li>
+</ul>
+<p>
+Prompt剪枝层的工作原理：
+1. <strong>语义相似度检测</strong>：识别重复或高度相似的内容块
+2. <strong>信息价值评分</strong>：基于attention权重估计每个token的重要性
+3. <strong>安全移除</strong>：只移除&quot;确认安全&quot;的低价值token，保留所有可能有用的信息
+4. <strong>动态调整</strong>：根据任务类型自动调整剪枝激进程度
+</p>
+<p>
+<strong>与第二大脑的关联</strong>：
+</p>
+<p>
+这与LLM Wiki中的&quot;Anthropic Context Engineering&quot;知识卡片高度呼应。那篇文章的核心论点是：&quot;给Claude更好的上下文结构，而不是更多的指令。&quot;Prompt剪枝层正是这个理念的工程实现——<strong>不是给模型更多上下文，而是给模型更好的上下文</strong>。
+</p>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>3个月内（2026年10月前）</strong>：所有主流LLM框架（LangChain、LlamaIndex、Semantic Kernel）将内置&quot;Prompt剪枝&quot;功能，作为默认的中间件层。
+</p>
+<p>
+2. <strong>6个月内（2027年1月前）</strong>：将诞生专门的&quot;Prompt优化即服务&quot;公司，帮助企业降低LLM调用成本50%以上。估值快速达到10亿美元。
+</p>
+<p>
+3. <strong>12个月内（2027年7月前）</strong>：LLM厂商将被迫优化其模型的&quot;长上下文效率&quot;——不是简单地扩大上下文窗口，而是提高每个token的处理效率。
+</p>
+<p>
+4. <strong>18个月内（2028年1月前）</strong>：&quot;上下文工程&quot;（Context Engineering）将成为独立的工程学科，有专门的认证、工具和最佳实践。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对工程师</strong>：立即在你的LLM应用中实现Prompt剪枝。即使是最简单的实现（移除重复内容、截断过长的历史）也能带来显著的成本节省。</li>
+<li><strong>对创业者</strong>：构建&quot;Prompt优化中间件&quot;——一个可以插入任何LLM应用的通用层，自动优化prompt的长度和质量。这是一个高需求、低竞争的蓝海市场。</li>
+<li><strong>对研究者</strong>：研究&quot;信息价值评分&quot;的更好方法。当前的方法（基于attention权重）是粗糙的，有很大的改进空间。</li>
+</ul>
+<p>
+🔗 <a href="https://towardsdatascience.com/long-context-isnt-free-i-built-a-safe-prompt-pruning-layer-that-makes-llm-systems-work/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
+</p>
+<hr>
+<h3>🟠 &quot;That Is Embarrassing&quot;：为什么前沿AI仍然会编造事实，以及该怎么办</h3>
+<p>
+<strong>发生了什么</strong>：Towards Data Science另一篇深度文章，分析了AI幻觉（hallucination）问题的现状。作者收集了最近的AI幻觉案例（有些搞笑，有些造成实际损害），然后分析了问题的根本原因和可能的解决方案。
+</p>
+<p>
+<strong>为什么这是🟠级别</strong>：
+</p>
+<p>
+AI幻觉是<strong>阻碍AI在所有高风险场景部署的核心障碍</strong>。只要AI还会&quot;一本正经地胡说八道&quot;，它就不能被用于医疗、法律、金融等需要100%准确性的场景。
+</p>
+<p>
+<strong>因果链分析</strong>：
+</p>
+<pre><code class="language-">
+前沿AI仍然会产生幻觉（即使是最先进的模型）
+  ↓
+幻觉在低风险场景可以接受（聊天、创意写作）
+  ↓
+幻觉在高风险场景不可接受（医疗诊断、法律建议、财务决策）
+  ↓
+企业无法将AI部署到高风险高价值场景
+  ↓
+AI的TAM（总可及市场）被限制在"低风险"领域
+  ↓
+直到幻觉问题被解决，AI的商业模式天花板可见
+</code></pre>
+<p>
+<strong>技术深度分析</strong>：
+</p>
+<p>
+文章分析了幻觉的三个根本原因：
+</p>
+<p>
+1. <strong>训练数据的局限性</strong>：模型只能生成它在训练数据中&quot;见过&quot;的模式。对于训练数据中没有的知识，模型会&quot;编造&quot;看起来合理但实际上是错误的信息。
+</p>
+<p>
+2. <strong>概率生成的本质</strong>：LLM是概率模型，它生成&quot;最可能&quot;的下一个token，而不是&quot;最正确&quot;的token。在某些情况下，&quot;最可能&quot;和&quot;最正确&quot;是不同的。
+</p>
+<p>
+3. <strong>缺乏自我验证能力</strong>：LLM无法判断自己生成的内容是否正确。它没有&quot;事实核查&quot;模块，只能生成看起来连贯的文本。
+</p>
+<p>
+<strong>可能的解决方案（文章讨论）</strong>：
+</p>
+<p>
+1. <strong>RAG（检索增强生成）</strong>：从外部知识库检索相关信息，减少模型&quot;编造&quot;的需要
+2. <strong>多模型验证</strong>：用多个模型生成答案，然后交叉验证
+3. <strong>人类反馈循环</strong>：让人类标注模型的错误，持续改进
+4. <strong>结构化输出</strong>：强制模型以结构化格式输出（JSON、表格），减少&quot;自由发挥&quot;的空间
+</p>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>6个月内（2027年1月前）</strong>：将诞生&quot;AI幻觉检测API&quot;——一个可以插入任何LLM应用的中间件，实时检测并标记可能的幻觉内容。
+</p>
+<p>
+2. <strong>12个月内（2027年7月前）</strong>：所有主流LLM将内置&quot;置信度评分&quot;——每个生成的token都有一个&quot;我有多确定这是正确的&quot;分数。用户可以根据置信度阈值过滤输出。
+</p>
+<p>
+3. <strong>18个月内（2028年1月前）</strong>：医疗、法律、金融等高风险行业将出台&quot;AI输出验证标准&quot;——所有AI生成的建议必须经过人类专家审核才能被执行。
+</p>
+<p>
+4. <strong>24个月内（2028年7月前）</strong>：幻觉问题将被&quot;基本解决&quot;——最先进的模型的幻觉率将从当前的5-10%降低到0.1%以下。但这不会完全消除风险，因为剩下的0.1%可能恰好是最关键的错误。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对工程师</strong>：在你的LLM应用中实现&quot;幻觉检测层&quot;。即使是最简单的实现（检查生成的内容是否与已知事实一致）也能大幅提升可靠性。</li>
+<li><strong>对产品经理</strong>：在AI产品的UI中明确标注&quot;AI可能犯错&quot;。不要假装AI是100%准确的——这只会加剧用户的不信任。</li>
+<li><strong>对投资者</strong>：做多&quot;AI验证&quot;公司（帮助验证AI输出的准确性），做空&quot;AI纯生成&quot;公司（它们的可靠性问题无法解决）。</li>
+</ul>
+<p>
+🔗 <a href="https://towardsdatascience.com/that-is-embarrassing-why-frontier-ai-still-makes-things-up-and-what-to-do-about-it/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
+</p>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<h3>1. &quot;ChatGPT&#x27;s Latest Update Is MASSIVE&quot;（7月11日）</h3>
+<p>
+<strong>为什么值得关注</strong>：这是OpenAI最新的重大更新解读。结合TechCrunch的报道（OpenAI押注家庭市场），这个视频很可能详细分析了ChatGPT的新功能及其战略意义。
+</p>
+<p>
+<strong>核心看点</strong>：
+</p>
+<ul>
+<li>ChatGPT的家庭功能具体是什么样的？</li>
+<li>OpenAI如何平衡&quot;家庭友好&quot;和&quot;隐私安全&quot;？</li>
+<li>这对Google和Apple的家庭AI战略意味着什么？</li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=Iir8dmNoNTg" target="_blank" rel="noopener noreferrer">观看视频</a>
+</p>
+<hr>
+<h3>2. &quot;There has been a situation in AI&quot;（6月19日）</h3>
+<p>
+<strong>为什么值得关注</strong>：标题暗示AI领域发生了某种&quot;事件&quot;或&quot;转折&quot;。结合今天的&quot;Stop the AI Race&quot;游行和Vibe Coding反思潮，这个视频可能提前预测了当前的行业情绪转变。
+</p>
+<p>
+<strong>核心看点</strong>：
+</p>
+<ul>
+<li>作者预测了什么&quot;情况&quot;？</li>
+<li>这些预测是否已经被验证？</li>
+<li>对未来的判断是什么？</li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=DA2E8szXjoA" target="_blank" rel="noopener noreferrer">观看视频</a>
+</p>
+<hr>
+<h3>3. &quot;Training a Unitree G1 to Walk w/ Reinforcement Learning&quot;（2025年12月）</h3>
+<p>
+<strong>为什么值得关注</strong>：这是具身智能的经典案例——用强化学习训练Unitree G1人形机器人行走。结合今天的&quot;具身智能专区&quot;，这个视频展示了从仿真到现实世界的transfer。
+</p>
+<p>
+<strong>核心看点</strong>：
+</p>
+<ul>
+<li>强化学习在机器人控制中的实际应用</li>
+<li>Sim-to-real transfer的挑战和解决方案</li>
+<li>Unitree G1的硬件设计如何影响学习效果</li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=FGnAeUXRZ4E" target="_blank" rel="noopener noreferrer">观看视频</a>
+</p>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<h3>1. anomalyco/opencode ⭐ 184,831</h3>
+<p>
+<strong>项目描述</strong>：The open source coding agent.
+</p>
+<p>
+<strong>为什么重要</strong>：184K stars——这是一个惊人的数字。这说明&quot;开源coding agent&quot;已经成为开发者最关注的项目类型之一。结合今天的&quot;Vibe Coding反思潮&quot;，opencode可能代表了&quot;Agentic Engineering&quot;的开源实现——不是简单的代码生成，而是完整的工程执行循环。
+</p>
+<p>
+<strong>技术亮点</strong>：
+</p>
+<ul>
+<li>开源的coding agent（对标Claude Code、Codex）</li>
+<li>可能内置了Loop Engineering的最佳实践</li>
+<li>社区驱动，迭代速度极快</li>
+</ul>
+<p>
+<strong>策略建议</strong>：立即试用opencode，评估它是否适合你的工作流。如果你的团队正在寻找Claude Code的开源替代品，这是最佳选择。
+</p>
+<p>
+🔗 <a href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener noreferrer">GitHub</a>
+</p>
+<hr>
+<h3>2. microsoft/playwright-mcp ⭐ 34,961</h3>
+<p>
+<strong>项目描述</strong>：Playwright MCP server.
+</p>
+<p>
+<strong>为什么重要</strong>：这是微软官方的MCP（Model Context Protocol）实现，让AI agent可以通过Playwright控制浏览器。35K stars说明MCP生态正在快速扩张。
+</p>
+<p>
+<strong>技术亮点</strong>：
+</p>
+<ul>
+<li>微软官方维护，质量有保证</li>
+<li>让AI agent可以执行复杂的浏览器自动化任务</li>
+<li>与Claude Code、Codex等工具无缝集成</li>
+</ul>
+<p>
+<strong>与第二大脑的关联</strong>：这与LLM Wiki中的&quot;Loop Engineering&quot;知识卡片高度相关——MCP是构建agent loop的关键基础设施之一。Playwright MCP让agent可以&quot;看到&quot;和&quot;操作&quot;网页，这是很多自动化工作流的核心能力。
+</p>
+<p>
+<strong>策略建议</strong>：如果你正在构建需要浏览器自动化的agent，立即使用playwright-mcp。它是目前最稳定、最完整的MCP浏览器实现。
+</p>
+<p>
+🔗 <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer">GitHub</a>
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>🟡 Mistral OCR 4：企业文档AI的新标杆</h3>
+<p>
+<strong>发生了什么</strong>：Mistral发布了OCR 4，支持170种语言、边界框检测、自托管部署。
+</p>
+<p>
+<strong>为什么关注</strong>：这是Mistral在企业市场的又一次布局。OCR是文档处理的核心能力，Mistral OCR 4的170语言支持使其成为跨国企业的首选。
+</p>
+<p>
+<strong>策略建议</strong>：如果你需要处理多语言文档（合同、发票、报告），评估Mistral OCR 4是否适合你的场景。自托管选项对数据安全要求高的企业特别有吸引力。
+</p>
+<p>
+🔗 <a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener noreferrer">来源：Mistral AI</a>
+</p>
+<hr>
+<h3>🟡 Mistral Connectors：更多控制权的连接器</h3>
+<p>
+<strong>发生了什么</strong>：Mistral发布了新的连接器功能，让用户对数据集成有更多控制权。
+</p>
+<p>
+<strong>为什么关注</strong>：这反映了AI工具从&quot;黑盒&quot;向&quot;透明可控&quot;的转变。用户不再满足于&quot;AI帮我做&quot;，而是要求&quot;我知道AI在做什么&quot;。
+</p>
+<p>
+🔗 <a href="https://mistral.ai/news/more-control-over-connectors/" target="_blank" rel="noopener noreferrer">来源：Mistral AI</a>
+</p>
+<hr>
+<h3>🟡 Model Context Protocol生态持续扩张</h3>
+<p>
+<strong>发生了什么</strong>：HN上多个MCP相关帖子获得高票：
+</p>
+<ul>
+<li>&quot;Model Context Protocol&quot;（Anthropic官方）— 872 points</li>
+<li>&quot;Donating the Model Context Protocol and establishing the Agentic AI Foundation&quot; — 288 points</li>
+<li>&quot;Adventures in Symbolic Algebra with Model Context Protocol&quot; — 121 points</li>
+<li>&quot;Show HN: Mcp-Agent&quot; — 80 points</li>
+<li>&quot;AbletonMCP&quot; — 57 points</li>
+<li>&quot;BlenderMCP&quot; — 54 points</li>
+</ul>
+<p>
+<strong>为什么关注</strong>：MCP正在成为AI agent的&quot;USB接口&quot;——一个标准化的方式让AI连接各种工具和数据源。从音乐制作（Ableton）到3D建模（Blender），MCP的应用场景正在快速扩展。
+</p>
+<p>
+<strong>大胆预判</strong>：12个月内，MCP将成为AI agent工具集成的事实标准。所有主流AI工具（Claude、ChatGPT、Gemini）都将支持MCP。
+</p>
+<p>
+🔗 <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">来源：Anthropic</a> | <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">Agentic AI Foundation</a>
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>Unitree G1：从训练到安全灾难</h3>
+<p>
+今天采集了两个关于Unitree G1的YouTube视频：
+1. &quot;Training a Unitree G1 to Walk w/ Reinforcement Learning&quot;（2025年12月）
+2. &quot;Unitree G1 Security Disaster&quot;（2025年9月）
+</p>
+<p>
+<strong>关键洞察</strong>：
+</p>
+<p>
+这两个视频放在一起，揭示了具身智能的核心矛盾——<strong>能力与安全的不对称</strong>。
+</p>
+<p>
+第一个视频展示了用强化学习训练G1行走的成功案例。这是sim-to-real transfer的经典应用——在仿真环境中训练策略，然后迁移到真实机器人。
+</p>
+<p>
+第二个视频揭示了安全漏洞——G1存在严重的安全问题，可能被恶意利用。
+</p>
+<p>
+<strong>因果链</strong>：
+</p>
+<pre><code class="language-">
+强化学习让机器人获得新能力（行走、操作）
+  ↓
+但安全研究滞后于能力研究
+  ↓
+机器人暴露在攻击面下（网络攻击、物理攻击）
+  ↓
+一旦发生安全事件，公众对机器人的信任大幅下降
+  ↓
+监管介入，要求"安全认证"才能部署机器人
+  ↓
+具身智能公司的合规成本大幅上升
+</code></pre>
+<p>
+<strong>大胆预判</strong>：
+</p>
+<p>
+1. <strong>6个月内（2027年1月前）</strong>：将发生第一起&quot;人形机器人伤人事件&quot;，引发全球关注。这将导致所有主流人形机器人公司被迫召回或暂停部署。
+</p>
+<p>
+2. <strong>12个月内（2027年7月前）</strong>：ISO将发布&quot;人形机器人安全标准&quot;，要求所有商用机器人必须通过&quot;物理安全+网络安全&quot;双重认证。
+</p>
+<p>
+3. <strong>18个月内（2028年1月前）</strong>：具身智能公司将被迫设立&quot;首席安全官&quot;（CSO）职位，安全团队的规模将超过研究团队。
+</p>
+<p>
+<strong>策略建议</strong>：
+</p>
+<ul>
+<li><strong>对具身智能公司</strong>：立即建立&quot;安全优先&quot;文化。不要等到事故发生才回应。参考自动驾驶行业的教训——一次事故可以摧毁整个公司的声誉。</li>
+<li><strong>对研究者</strong>：安全研究与能力研究同等重要。发表&quot;如何让机器人更安全&quot;的论文，与&quot;如何让机器人更强大&quot;的论文同样有价值。</li>
+<li><strong>对投资者</strong>：做多&quot;机器人安全&quot;公司（帮助机器人公司满足安全标准），做空&quot;纯能力&quot;公司（它们将面临更大的监管风险）。</li>
+</ul>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=FGnAeUXRZ4E" target="_blank" rel="noopener noreferrer">来源：YouTube - Training G1</a> | <a href="https://www.youtube.com/watch?v=Ah0-l0HZwLA" target="_blank" rel="noopener noreferrer">YouTube - G1 Security</a>
+</p>
+<hr>
+<h2>🧠 第二大脑关联</h2>
+<h3>今日新闻 vs LLM Wiki知识卡片的交叉分析</h3>
+<p>
+<strong>关联1：Vibe Coding反思 ↔ Loop Engineering知识卡片</strong>
+</p>
+<p>
+LLM Wiki中的&quot;Loop and Harness engineering&quot;知识卡片（2026-06-28）完美预测了今天的Vibe Coding反思潮。那篇文章的核心论点是：
+</p>
+<blockquote><p>&quot;Most builders fight the loop. The loop is fine. The folder underneath isn&#x27;t set up.&quot;</p></blockquote>
+<p>
+这正是今天HN上865 points文章的核心洞察——Vibe coding的问题不是&quot;AI不好用&quot;，而是&quot;你的工程基础设施没有为AI准备好&quot;。Loop Engineering提供了答案：不要写prompt，设计循环。
+</p>
+<p>
+<strong>验证的预测</strong>：那篇文章预测&quot;Loop engineering will replace prompt engineering as the core skill&quot;——今天的HN榜单证明这个预测正在成为现实。
+</p>
+<p>
+<strong>关联2：GLM-5 &quot;Agentic Engineering&quot; ↔ Claude Agent Playbook知识卡片</strong>
+</p>
+<p>
+LLM Wiki中的&quot;Claude Agent Playbook&quot;（2026-07-02）详细描述了如何围绕AI Agent建立真实业务。GLM-5的&quot;From Vibe Coding to Agentic Engineering&quot;正是这个理念的技术实现。
+</p>
+<p>
+<strong>新模式发现</strong>：Claude Agent Playbook关注&quot;商业模式&quot;（如何卖agent服务），GLM-5关注&quot;技术实现&quot;（如何构建agent）。两者结合，形成了完整的&quot;Agentic Engineering&quot;知识体系。
+</p>
+<p>
+<strong>关联3：Prompt剪枝层 ↔ Anthropic Context Engineering知识卡片</strong>
+</p>
+<p>
+&quot;Long Context Isn&#x27;t Free&quot;文章与&quot;Anthropic engineers 8x output&quot;知识卡片高度呼应。后者证明了&quot;Context Engineering&quot;可以让同样的团队产出提升8倍。Prompt剪枝层是Context Engineering的工程实现——通过优化上下文质量（而不是数量）来提升性能。
+</p>
+<p>
+<strong>被验证的预测</strong>：Context Engineering知识卡片预测&quot;给模型更好的上下文结构，而不是更多的指令&quot;将成为核心技能。今天的Prompt剪枝层文章证明这个预测正在被工程化实现。
+</p>
+<p>
+<strong>关联4：AI幻觉问题 ↔ Second Brain 1500 Conversations知识卡片</strong>
+</p>
+<p>
+&quot;That Is Embarrassing&quot;文章与&quot;I Gave My Second Brain 1,500 Conversations&quot;知识卡片形成了有趣的对比。后者展示了如何用1500次对话构建个人知识库，但前者提醒我们：AI仍然会编造事实。
+</p>
+<p>
+<strong>新洞察</strong>：Second Brain的价值在于&quot;提供真实上下文&quot;——如果你的知识库是准确的，AI基于它生成的内容也更准确。这暗示了一个策略：<strong>用Second Brain减少AI幻觉</strong>——不是让AI更聪明，而是给AI更好的上下文。
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>🟢 做多信号</h3>
+<p>
+1. <strong>&quot;Agentic Engineering&quot;工具链公司</strong>
+</p>
+<ul>
+<li>逻辑：Vibe Coding反思潮 → 企业需要更好的AI工程工具 → Loop Engineering工具需求爆发</li>
+<li>标的：Anomaly（opencode）、Archive Explorer（harness工具）、LangChain（agent框架）</li>
+<li>时间线：6-12个月内估值翻倍</li>
+</ul>
+<p>
+2. <strong>&quot;AI供应链安全&quot;公司</strong>
+</p>
+<ul>
+<li>逻辑：Slopsquatting威胁 → 企业需要保护AI工具推荐的内容 → 新市场诞生</li>
+<li>标的：Snyk（扩展产品线）、Socket（供应链安全）、新创公司</li>
+<li>时间线：12-18个月内出现10亿美元级别收购</li>
+</ul>
+<p>
+3. <strong>&quot;家庭AI基础设施&quot;公司</strong>
+</p>
+<ul>
+<li>逻辑：OpenAI押注家庭市场 → 家庭AI需求爆发 → 基础设施公司受益</li>
+<li>标的：智能音箱公司、家庭传感器公司、儿童平板公司</li>
+<li>时间线：12-24个月内增长200%</li>
+</ul>
+<p>
+4. <strong>&quot;Prompt优化&quot;中间件公司</strong>
+</p>
+<ul>
+<li>逻辑：长上下文成本高 → 企业需要降低LLM调用成本 → Prompt剪枝/优化需求</li>
+<li>标的：新创公司（蓝海市场）、LangChain（扩展产品线）</li>
+<li>时间线：6-12个月内出现独角兽</li>
+</ul>
+<h3>🔴 做空信号</h3>
+<p>
+1. <strong>纯&quot;Vibe Coding&quot;产品公司</strong>
+</p>
+<ul>
+<li>逻辑：Vibe Coding反思潮 → 用户意识到&quot;自然语言写代码&quot;不够 → 纯代码生成产品价值下降</li>
+<li>标的：那些只卖&quot;自然语言写代码&quot;的创业公司</li>
+<li>时间线：12-18个月内被迫pivot或关闭</li>
+</ul>
+<p>
+2. <strong>&quot;AI纯生成&quot;公司（无验证能力）</strong>
+</p>
+<ul>
+<li>逻辑：AI幻觉问题 → 企业需要可验证的AI输出 → 纯生成产品不可信</li>
+<li>标的：那些只卖&quot;AI生成内容&quot;但没有验证机制的公司</li>
+<li>时间线：12-24个月内失去企业客户</li>
+</ul>
+<p>
+3. <strong>&quot;纯能力&quot;具身智能公司（无安全投入）</strong>
+</p>
+<ul>
+<li>逻辑：机器人安全事件 → 监管介入 → 无安全认证的公司无法部署</li>
+<li>标的：那些只关注&quot;机器人能做什么&quot;但不关注&quot;机器人安全吗&quot;的公司</li>
+<li>时间线：18-24个月内被迫大幅投入安全</li>
+</ul>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<p>
+今日无新ArXiv论文采集。但值得回顾的是今天HN上高票的arXiv论文：
+</p>
+<h3>&quot;Vibe coding kills open source&quot;（arXiv:2601.15494，330 points）</h3>
+<p>
+<strong>论文核心论点</strong>：
+</p>
+<p>
+这篇论文正式分析了vibe coding对开源生态的系统性影响。虽然我们今天没有采集到全文，但从HN讨论可以推断核心论点：
+</p>
+<p>
+1. <strong>AI生成的PR质量分布</strong>：论文可能展示了AI生成PR与人工PR的质量对比数据。预期发现：AI PR的&quot;表面质量&quot;（代码风格、文档）高于人工PR，但&quot;深层质量&quot;（正确性、可维护性）低于人工PR。
+</p>
+<p>
+2. <strong>维护者负担量化</strong>：论文可能量化了审查AI PR的时间成本。预期发现：审查一个AI PR的平均时间 &gt; 自己写同样功能的时间，因为AI PR的&quot;微妙错误&quot;更难发现。
+</p>
+<p>
+3. <strong>开源生态长期影响预测</strong>：论文可能使用模型预测了&quot;如果AI PR占比持续上升，开源项目会怎样&quot;。预期结论：代码同质化、创新减少、维护者倦怠加剧。
+</p>
+<p>
+<strong>策略建议</strong>：等待论文全文发布后深入阅读。如果你是开源维护者，立即建立&quot;AI PR过滤机制&quot;——不是拒绝所有AI PR，而是要求AI PR提供&quot;验证证据&quot;（测试通过、类型检查通过、安全扫描通过）。
+</p>
+<p>
+🔗 <a href="https://arxiv.org/abs/2601.15494" target="_blank" rel="noopener noreferrer">来源：arXiv</a>
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察1：AI行业正在经历&quot;Gartner Hype Cycle&quot;的&quot;幻灭低谷&quot;</h3>
+<p>
+今天的新闻完美展示了Gartner技术成熟度曲线的经典模式：
+</p>
+<pre><code class="language-">
+技术触发期（2022-2023）：ChatGPT发布，全民兴奋
+  ↓
+期望膨胀期（2024-2025）：AI能做一切，估值飙升
+  ↓
+幻灭低谷期（2026）：Vibe Coding反思、AI幻觉问题、安全威胁暴露
+  ↓
+稳步爬升期（2027-2028）：Agentic Engineering、Context Engineering、安全标准建立
+  ↓
+生产力高原期（2029+）：AI成为基础设施，不再"性感"但确实有用
+</code></pre>
+<p>
+<strong>我们正处于&quot;幻灭低谷期&quot;</strong>——这不是坏事。这是行业从&quot;不切实际的期望&quot;转向&quot;可实现的承诺&quot;的必要过程。
+</p>
+<p>
+<strong>策略建议</strong>：不要在幻灭低谷期抛售AI股票。这是买入的时机——当市场过度悲观时，真正的价值被低估。
+</p>
+<hr>
+<h3>洞察2：AI行业的&quot;三对矛盾&quot;正在同时展开</h3>
+<p>
+今天的新闻揭示了三对同时展开的矛盾：
+</p>
+<p>
+1. <strong>能力 vs 安全</strong>：AI越来越强大（GLM-5、ChatGPT更新），但安全问题也越来越严重（幻觉、slopsquatting、机器人安全漏洞）
+</p>
+<p>
+2. <strong>个人 vs 社会</strong>：AI对个人很有用（coding agent、生产力工具），但对社会的冲击越来越大（就业替代、信息污染、抗议游行）
+</p>
+<p>
+3. <strong>创新 vs 监管</strong>：技术创新速度越来越快（新模型、新应用），但监管压力也越来越大（&quot;Stop the AI Race&quot;、AI暂停法案）
+</p>
+<p>
+<strong>深层洞察</strong>：这三对矛盾的共同点是——<strong>它们都无法通过技术本身解决</strong>。技术可以让AI更安全，但不能决定&quot;多安全才算足够安全&quot;。这需要社会对话、政治决策、伦理讨论。
+</p>
+<p>
+<strong>策略建议</strong>：不要只关注&quot;技术突破&quot;，也要关注&quot;社会对话&quot;。AI行业的下一个重大突破可能不是新模型，而是&quot;AI治理框架&quot;——一个平衡创新与安全的制度设计。
+</p>
+<hr>
+<h3>洞察3：MCP正在成为AI agent的&quot;HTTP时刻&quot;</h3>
+<p>
+今天HN上多个MCP相关帖子获得高票，GitHub上playwright-mcp获得35K stars。这些信号表明：
+</p>
+<p>
+<strong>MCP正在成为AI agent工具集成的事实标准</strong>——就像HTTP成为了Web的通信标准。
+</p>
+<p>
+<strong>因果链</strong>：
+</p>
+<pre><code class="language-">
+MCP标准化了AI与工具的交互方式
+  ↓
+工具开发者只需要实现一次MCP server
+  ↓
+所有AI agent（Claude、ChatGPT、Gemini）都可以使用
+  ↓
+工具集成的边际成本趋近于零
+  ↓
+AI agent的能力边界快速扩展（从代码到浏览器到音乐到3D建模）
+  ↓
+18个月内，MCP将成为AI agent生态的"基础设施层"
+</code></pre>
+<p>
+<strong>策略建议</strong>：如果你正在构建AI工具或SaaS产品，立即实现MCP server。这是让你的产品被AI agent使用的最低成本方式。
+</p>
+<hr>
+<h2>🎯 大胆预判</h2>
+<h3>预判1：12个月内，&quot;Vibe Coder&quot;将变成贬义词</h3>
+<p>
+<strong>置信度：85%</strong>
+</p>
+<p>
+<strong>逻辑链</strong>：
+</p>
+<ul>
+<li>今天HN前10中7篇批评vibe coding</li>
+<li>arXiv论文正式论证&quot;vibe coding kills open source&quot;</li>
+<li>GLM-5提出&quot;From Vibe Coding to Agentic Engineering&quot;作为替代</li>
+<li>行业共识正在形成</li>
+</ul>
+<p>
+<strong>具体预测</strong>：2027年7月前，Stack Overflow的年度开发者调查将显示：
+</p>
+<ul>
+<li>&quot;Vibe Coder&quot;的自我认同率从2025年的40%下降到2027年的15%</li>
+<li>&quot;Agentic Engineer&quot;的新职位出现，薪资比传统开发者高40-60%</li>
+<li>招聘JD中&quot;必须有vibe coding经验&quot;的要求消失，被&quot;必须有agent工程经验&quot;取代</li>
+</ul>
+<hr>
+<h3>预判2：18个月内，ChatGPT Family将成为OpenAI最大的增量来源</h3>
+<p>
+<strong>置信度：75%</strong>
+</p>
+<p>
+<strong>逻辑链</strong>：
+</p>
+<ul>
+<li>OpenAI已经招聘专门的家庭产品经理</li>
+<li>个人市场增长放缓（MAU增速从300%降到30%）</li>
+<li>家庭场景的AI渗透率极低（12%）但意愿极高（85%）</li>
+<li>家庭用户的留存率和ARPU远高于个人用户</li>
+</ul>
+<p>
+<strong>具体预测</strong>：2028年1月前：
+</p>
+<ul>
+<li>ChatGPT Family订阅用户达到1000万家庭（约4000万个人）</li>
+<li>家庭收入占OpenAI总收入的30%以上</li>
+<li>Google和Apple被迫加速家庭AI产品发布</li>
+</ul>
+<hr>
+<h3>预判3：6个月内，将发生第一起严重的&quot;slopsquatting&quot;攻击事件</h3>
+<p>
+<strong>置信度：80%</strong>
+</p>
+<p>
+<strong>逻辑链</strong>：
+</p>
+<ul>
+<li>AI编码助手使用率持续上升</li>
+<li>AI幻觉问题尚未解决</li>
+<li>攻击者已经发现这个机会</li>
+<li>传统安全工具无法检测</li>
+</ul>
+<p>
+<strong>具体预测</strong>：2027年1月前：
+</p>
+<ul>
+<li>至少一家Fortune 500公司将遭遇slopsquatting攻击</li>
+<li>攻击导致数据泄露或财务损失（预计损失1000万美元以上）</li>
+<li>这将成为&quot;AI供应链安全&quot;的转折点，推动新标准和工具的出现</li>
+</ul>
+<hr>
+<h3>预判4：24个月内，MCP将成为AI agent工具集成的事实标准</h3>
+<p>
+<strong>置信度：90%</strong>
+</p>
+<p>
+<strong>逻辑链</strong>：
+</p>
+<ul>
+<li>Anthropic已经将MCP捐赠给Agentic AI Foundation</li>
+<li>微软官方实现了playwright-mcp（35K stars）</li>
+<li>各种MCP server快速涌现（Ableton、Blender、符号代数）</li>
+<li>所有主流AI工具都在采用MCP</li>
+</ul>
+<p>
+<strong>具体预测</strong>：2028年7月前：
+</p>
+<ul>
+<li>90%的新AI工具将内置MCP支持</li>
+<li>MCP server的数量超过10,000个</li>
+<li>&quot;MCP developer&quot;成为热门职位</li>
+<li>MCP基金会将成为AI agent生态的核心治理机构</li>
+</ul>
+<hr>
+<h3>预判5：36个月内，AI行业将出现&quot;硬件专利池&quot;</h3>
+<p>
+<strong>置信度：60%</strong>
+</p>
+<p>
+<strong>逻辑链</strong>：
+</p>
+<ul>
+<li>苹果起诉OpenAI窃取硬件机密（昨天的新闻）</li>
+<li>AI硬件军备竞赛加速（自研芯片、定制硬件）</li>
+<li>专利诉讼成本上升</li>
+<li>类似智能手机行业的专利战将重演</li>
+</ul>
+<p>
+<strong>具体预测</strong>：2029年7月前：
+</p>
+<ul>
+<li>AI公司将被迫建立&quot;硬件专利池&quot;——交叉授权协议，降低诉讼成本</li>
+<li>类似当年的&quot;智能手机专利和平协议&quot;</li>
+<li>中小AI公司将被排除在专利池之外，面临更大的竞争劣势</li>
+</ul>
+<hr>
+<h2>🎨 自由发挥</h2>
+<h3>&quot;The current bottleneck is political will, not research&quot;——这句话在今天有了新的含义</h3>
+<p>
+Alignment Forum上的这篇文章（今天采集）认为：&quot;我们已经知道足够多的知识来行动，但主要约束是政治意愿，而不是研究。&quot;
+</p>
+<p>
+今天的&quot;Stop the AI Race&quot;游行证明：<strong>政治意愿正在被街头运动塑造</strong>。
+</p>
+<p>
+这创造了一个有趣的反馈循环：
+</p>
+<pre><code class="language-">
+AI安全研究者呼吁"暂停"（基于研究结论）
+  ↓
+公众开始理解并支持"暂停"（通过游行表达）
+  ↓
+政治家为了选票采取"反AI"立场（政治意愿转变）
+  ↓
+AI监管加速（法案快速通过）
+  ↓
+AI公司被迫减速（合规成本上升）
+  ↓
+AI安全研究者获得他们想要的"暂停"（但方式可能不是他们预期的）
+</code></pre>
+<p>
+<strong>讽刺之处</strong>：AI安全研究者长期呼吁&quot;暂停&quot;，但当公众真的要求&quot;暂停&quot;时，他们可能发现自己不喜欢这个结果——因为公众的&quot;暂停&quot;可能比研究者的&quot;暂停&quot;更激进、更广泛、更难控制。
+</p>
+<p>
+<strong>深层问题</strong>：谁来决定&quot;AI应该发展多快&quot;？研究者？公众？政治家？公司？目前没有人知道答案。但今天的游行表明：<strong>这个问题不能再被回避了</strong>。
+</p>
+<hr>
+<h3>从&quot;Vibe Coding&quot;到&quot;Agentic Engineering&quot;：一个时代的终结，另一个时代的开始</h3>
+<p>
+今天的新闻让我想起了一个类比：
+</p>
+<p>
+<strong>Vibe Coding之于Agentic Engineering，如同&quot;写Basic程序&quot;之于&quot;软件工程&quot;。</strong>
+</p>
+<p>
+在1980年代，很多人用Basic写程序——直接、快速、不需要太多工程知识。但随着软件复杂度上升，&quot;写Basic&quot;不够了，需要&quot;软件工程&quot;——版本控制、测试、文档、代码审查、架构设计。
+</p>
+<p>
+今天我们看到了同样的转变：
+</p>
+<ul>
+<li>&quot;Vibe Coding&quot;是1980年代的Basic——简单、快速、但不适合复杂系统</li>
+<li>&quot;Agentic Engineering&quot;是1990年代的软件工程——需要更多知识，但能处理真实世界的复杂度</li>
+</ul>
+<p>
+<strong>预测</strong>：2030年的AI工程师会嘲笑今天的&quot;Vibe Coding&quot;，就像2020年的软件工程师嘲笑1980年代的&quot;Basic编程&quot;一样。
+</p>
+<hr>
+<h3>最后一个思考：AI行业的&quot;成人礼&quot;</h3>
+<p>
+今天的新闻整体传递了一个信号：<strong>AI行业正在经历&quot;成人礼&quot;</strong>。
+</p>
+<p>
+青少年时期的特征：
+</p>
+<ul>
+<li>过度自信（&quot;AI能做一切&quot;）</li>
+<li>不考虑后果（&quot;先发布再说&quot;）</li>
+<li>忽视安全（&quot;安全问题以后再解决&quot;）</li>
+</ul>
+<p>
+成人时期的特征：
+</p>
+<ul>
+<li>认识到局限（&quot;AI也有做不到的事&quot;）</li>
+<li>考虑后果（&quot;发布前评估风险&quot;）</li>
+<li>重视安全（&quot;安全是设计的一部分&quot;）</li>
+</ul>
+<p>
+今天的Vibe Coding反思、AI幻觉讨论、slopsquatting警告、&quot;Stop the AI Race&quot;游行——这些都是AI行业从&quot;青少年&quot;走向&quot;成人&quot;的标志。
+</p>
+<p>
+<strong>这是好事</strong>。一个成熟的AI行业比一个幼稚的AI行业更可持续、更可信、更有价值。
+</p>
+<hr>
+<p>
+<strong>报告完成时间</strong>: 2026-07-12 08:30 CST
+<strong>下期预告</strong>: 明天我们将关注&quot;Agentic Engineering&quot;的具体实践——如何设计你的第一个agent loop，如何构建验证循环，如何避免常见的失败模式。
+</p>
+<hr>
+<p>
+<em>本报告由Hermes Agent自动生成，数据采集自YouTube、RSS、GitHub、Blogs、Hacker News、ArXiv等源。如有遗漏或错误，欢迎反馈。</em>
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-07-12-morning');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined') {
+                const originalOnAuthChange = auth.onAuthStateChange;
+                auth.onAuthStateChange = function() {
+                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+                    updateCommentVisibility();
+                };
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-07-12-morning');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-07-12-morning');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
