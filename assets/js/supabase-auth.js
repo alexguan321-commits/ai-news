@@ -8,6 +8,8 @@ class SupabaseAuth {
     this.user = null;
     this.profile = null;
     this.listeners = [];
+    this.login_timestamp = null; // Track when user logged in for session expiry
+    this.session_expiry_ms = 7 * 24 * 60 * 60 * 1000; // 7 days session expiry
     
     // 等待 supabaseClient 就绪
     if (typeof window.supabaseClient !== 'undefined') {
@@ -31,22 +33,26 @@ class SupabaseAuth {
     
     if (session) {
       this.user = session.user;
+      this.login_timestamp = Date.now(); // Record login time for session expiry tracking
       console.log('[Auth] User restored from session:', this.user.email);
       await this.loadProfile();
       this.notifyListeners();
       this.updateUI();
+      this.scheduleSessionExpiryCheck();
     }
     
-    // 注册 onAuthStateChange 监听后续变化（登录/登出/token刷新）
+    // 先注册 auth 状态变化监听器，再处理后续登录/登出/token刷新事件
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       console.log('[Auth] onAuthStateChange event:', event, 'session:', session?.user?.email);
       
       if (event === 'SIGNED_IN' && session) {
         this.user = session.user;
+        this.login_timestamp = Date.now(); // Record login time for session expiry tracking
         console.log('[Auth] User signed in:', this.user.email);
         await this.loadProfile();
         this.notifyListeners();
         this.updateUI();
+        this.scheduleSessionExpiryCheck();
       } else if (event === 'SIGNED_OUT') {
         console.log('[Auth] User signed out');
         this.user = null;
@@ -75,6 +81,27 @@ class SupabaseAuth {
       .eq('id', this.user.id)
       .single();
     this.profile = data;
+  }
+
+  // Session expiry check - auto sign out when session expires
+  scheduleSessionExpiryCheck() {
+    if (this._expiryTimer) clearTimeout(this._expiryTimer);
+    if (!this.login_timestamp) return;
+    
+    const elapsed = Date.now() - this.login_timestamp;
+    const remaining = this.session_expiry_ms - elapsed;
+    
+    if (remaining <= 0) {
+      console.log('[Auth] Session already expired, signing out');
+      this.signOut();
+      return;
+    }
+    
+    console.log(`[Auth] Session expiry check scheduled in ${Math.round(remaining/1000/60)} min`);
+    this._expiryTimer = setTimeout(() => {
+      console.log('[Auth] Session expired, signing out');
+      this.signOut();
+    }, remaining);
   }
 
   // OAuth 登录
