@@ -32,6 +32,19 @@ class SupabaseAuth {
     const storedSession = localStorage.getItem(sessionKey);
     console.log('[Auth] Stored session in localStorage:', storedSession ? 'exists' : 'null');
     
+    // 临时调试：在页面上显示 localStorage 状态
+    const debugDiv = document.createElement('div');
+    debugDiv.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#0f0;padding:10px;font-size:12px;z-index:9999;font-family:monospace;max-height:200px;overflow:auto;';
+    debugDiv.innerHTML = `
+      <div><strong>DEBUG - localStorage 状态</strong></div>
+      <div>sessionKey: ${sessionKey}</div>
+      <div>hasSession: ${storedSession !== null}</div>
+      <div>login_timestamp: ${localStorage.getItem('login_timestamp') || 'null'}</div>
+      <div>allKeys: ${JSON.stringify(Object.keys(localStorage))}</div>
+      <div style="margin-top:5px;"><button onclick="this.parentElement.parentElement.remove()" style="padding:5px 10px;">关闭</button></div>
+    `;
+    document.body.appendChild(debugDiv);
+    
     // 检查 3 天登录过期
     const SESSION_DURATION = 3 * 24 * 60 * 60; // 3 天 = 259200 秒
     const loginTime = localStorage.getItem('login_timestamp');
