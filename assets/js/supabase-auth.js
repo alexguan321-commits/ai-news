@@ -38,14 +38,7 @@ class SupabaseAuth {
       }
     }
 
-    // 获取当前 session
-    const { data: { session } } = await supabaseClient.auth.getSession();
-    if (session) {
-      this.user = session.user;
-      await this.loadProfile();
-    }
-
-    // 监听 auth 变化
+    // 先注册 auth 状态变化监听器（确保能捕获 OAuth 回调）
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_IN' && session) {
         this.user = session.user;
@@ -63,6 +56,17 @@ class SupabaseAuth {
       this.updateUI();
     });
 
+    // 等待一小段时间让 detectSessionInUrl 处理 OAuth 回调
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // 获取当前 session
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+      this.user = session.user;
+      await this.loadProfile();
+    }
+
+    // 更新 UI
     this.updateUI();
   }
 
