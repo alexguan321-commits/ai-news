@@ -97,6 +97,10 @@ body {
     letter-spacing: -0.03em;
 }
 
+.navbar .logo-mobile {
+    display: none;  /* 默认隐藏，移动端显示 */
+}
+
 .navbar .nav-stats {
     display: flex;
     gap: 2rem;
@@ -554,17 +558,17 @@ body {
     }
 
     .navbar .logo {
-        font-size: 0;  /* 隐藏原文字 */
-        flex-shrink: 1;
-        min-width: 0;
-        max-width: calc(100% - 80px);  /* 给 auth-container 留空间 */
+        display: none;  /* 隐藏桌面版 logo */
     }
 
-    .navbar .logo::after {
-        content: "AI News";
+    .navbar .logo-mobile {
+        display: block;  /* 显示移动版 logo */
         font-size: 1.25rem;
         font-weight: 800;
         color: #ffffff;
+        text-decoration: none;
+        flex-shrink: 1;
+        min-width: 0;
     }
 
     #auth-container {
