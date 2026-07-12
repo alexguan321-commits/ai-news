@@ -26,34 +26,6 @@ class SupabaseAuth {
   async init() {
     console.log('[Auth] init() started');
     
-    // 检查 localStorage 中的 session
-    const projectRef = 'xhmzbrvzuxbdcvntwlut';
-    const sessionKey = `sb-${projectRef}-auth-token`;
-    const storedSession = localStorage.getItem(sessionKey);
-    console.log('[Auth] Stored session in localStorage:', storedSession ? 'exists' : 'null');
-    
-    // 检查 3 天登录过期
-    const SESSION_DURATION = 3 * 24 * 60 * 60; // 3 天 = 259200 秒
-    const loginTime = localStorage.getItem('login_timestamp');
-    console.log('[Auth] login_timestamp:', loginTime);
-    
-    if (loginTime) {
-      const elapsed = Math.floor(Date.now() / 1000) - parseInt(loginTime);
-      console.log('[Auth] elapsed time:', elapsed, 'seconds, SESSION_DURATION:', SESSION_DURATION);
-      if (elapsed > SESSION_DURATION) {
-        console.log('[Auth] Session expired, signing out');
-        // 过期，自动登出
-        localStorage.removeItem('login_timestamp');
-        await supabaseClient.auth.signOut();
-        this.updateUI();
-        return;
-      } else {
-        console.log('[Auth] Session still valid');
-      }
-    } else {
-      console.log('[Auth] No login_timestamp found');
-    }
-
     // 注册 auth 状态变化监听器（处理所有事件类型）
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       console.log('[Auth] onAuthStateChange event:', event, 'session:', session?.user?.email);
@@ -63,10 +35,6 @@ class SupabaseAuth {
       if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
         this.user = session.user;
         console.log('[Auth] User set from event:', this.user.email);
-        // 记录登录时间戳（如果还没有）
-        if (!localStorage.getItem('login_timestamp')) {
-          localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
-        }
         await this.loadProfile();
         this.notifyListeners();
         this.updateUI();
@@ -74,7 +42,6 @@ class SupabaseAuth {
         console.log('[Auth] SIGNED_OUT event received');
         this.user = null;
         this.profile = null;
-        localStorage.removeItem('login_timestamp');
         this.notifyListeners();
         this.updateUI();
       }
@@ -138,8 +105,6 @@ class SupabaseAuth {
       alert('登录失败: ' + error.message);
       return false;
     }
-    // 记录登录时间戳（用于 3 天过期检查）
-    localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
     return true;
   }
 
