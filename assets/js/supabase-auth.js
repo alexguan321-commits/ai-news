@@ -66,7 +66,8 @@ class SupabaseAuth {
       await this.loadProfile();
     }
 
-    // 更新 UI
+    // 更新 UI 并通知所有监听器（即使 session 已存在也要通知）
+    this.notifyListeners();
     this.updateUI();
   }
 

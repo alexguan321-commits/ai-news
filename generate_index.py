@@ -33,7 +33,7 @@ SUPABASE_HEAD = """
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
     <script src="/ai-news/assets/js/supabase-config.js"></script>
     <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
-    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712a" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
     <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
     <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
 """
