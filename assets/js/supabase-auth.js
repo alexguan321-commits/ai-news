@@ -22,51 +22,48 @@ class SupabaseAuth {
       });
     }
   }
-
   async init() {
     console.log('[Auth] init() started');
     
-    // 注册 auth 状态变化监听器（处理所有事件类型）
+    // 先获取当前 session（会等待 Supabase 初始化完成，包括 detectSessionInUrl）
+    const { data: { session }, error } = await supabaseClient.auth.getSession();
+    console.log('[Auth] getSession() result:', session?.user?.email, 'error:', error?.message);
+    
+    if (session) {
+      this.user = session.user;
+      console.log('[Auth] User restored from session:', this.user.email);
+      await this.loadProfile();
+      this.notifyListeners();
+      this.updateUI();
+    }
+    
+    // 注册 onAuthStateChange 监听后续变化（登录/登出/token刷新）
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
       console.log('[Auth] onAuthStateChange event:', event, 'session:', session?.user?.email);
-      // INITIAL_SESSION: 页面加载时恢复已有 session
-      // SIGNED_IN: 用户登录成功
-      // TOKEN_REFRESHED: token 刷新成功
-      if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
+      
+      if (event === 'SIGNED_IN' && session) {
         this.user = session.user;
-        console.log('[Auth] User set from event:', this.user.email);
+        console.log('[Auth] User signed in:', this.user.email);
         await this.loadProfile();
         this.notifyListeners();
         this.updateUI();
       } else if (event === 'SIGNED_OUT') {
-        console.log('[Auth] SIGNED_OUT event received');
+        console.log('[Auth] User signed out');
         this.user = null;
         this.profile = null;
         this.notifyListeners();
         this.updateUI();
-      }
-    });
-
-    // 等待一小段时间让 detectSessionInUrl 处理 OAuth 回调
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    // 如果 onAuthStateChange 没有恢复 session，手动获取
-    if (!this.user) {
-      console.log('[Auth] No user from onAuthStateChange, calling getSession()');
-      const { data: { session }, error } = await supabaseClient.auth.getSession();
-      console.log('[Auth] getSession() result:', session?.user?.email, 'error:', error?.message);
-      if (session) {
+      } else if (event === 'TOKEN_REFRESHED' && session) {
+        // Token 刷新，更新 user 但不触发 UI 更新
         this.user = session.user;
-        await this.loadProfile();
-        this.notifyListeners();
-        this.updateUI();
-      } else {
-        // 确认没有 session，更新 UI 显示登录按钮
-        console.log('[Auth] No session found, showing login button');
-        this.updateUI();
       }
-    } else {
-      console.log('[Auth] User already set:', this.user.email);
+      // 不再处理 INITIAL_SESSION，因为已经在上面用 getSession() 处理了
+    });
+    
+    // 如果没有 session，显示登录按钮
+    if (!this.user) {
+      console.log('[Auth] No session found, showing login button');
+      this.updateUI();
     }
   }
 
