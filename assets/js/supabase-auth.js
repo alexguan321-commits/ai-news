@@ -38,37 +38,45 @@ class SupabaseAuth {
       }
     }
 
-    // 先注册 auth 状态变化监听器（确保能捕获 OAuth 回调）
+    // 注册 auth 状态变化监听器（处理所有事件类型）
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' && session) {
+      // INITIAL_SESSION: 页面加载时恢复已有 session
+      // SIGNED_IN: 用户登录成功
+      // TOKEN_REFRESHED: token 刷新成功
+      if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
         this.user = session.user;
-        // OAuth 登录也需要记录时间戳
+        // 记录登录时间戳（如果还没有）
         if (!localStorage.getItem('login_timestamp')) {
           localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
         }
         await this.loadProfile();
+        this.notifyListeners();
+        this.updateUI();
       } else if (event === 'SIGNED_OUT') {
         this.user = null;
         this.profile = null;
         localStorage.removeItem('login_timestamp');
+        this.notifyListeners();
+        this.updateUI();
       }
-      this.notifyListeners();
-      this.updateUI();
     });
 
     // 等待一小段时间让 detectSessionInUrl 处理 OAuth 回调
     await new Promise(resolve => setTimeout(resolve, 100));
 
-    // 获取当前 session
-    const { data: { session } } = await supabaseClient.auth.getSession();
-    if (session) {
-      this.user = session.user;
-      await this.loadProfile();
+    // 如果 onAuthStateChange 没有恢复 session，手动获取
+    if (!this.user) {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        this.user = session.user;
+        await this.loadProfile();
+        this.notifyListeners();
+        this.updateUI();
+      } else {
+        // 确认没有 session，更新 UI 显示登录按钮
+        this.updateUI();
+      }
     }
-
-    // 更新 UI 并通知所有监听器（即使 session 已存在也要通知）
-    this.notifyListeners();
-    this.updateUI();
   }
 
   async loadProfile() {
