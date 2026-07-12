@@ -39,7 +39,7 @@ class SupabaseAuth {
     
     if (loginTime) {
       const elapsed = Math.floor(Date.now() / 1000) - parseInt(loginTime);
-      console.log('[Auth] elapsed time:', elapsed, 'seconds');
+      console.log('[Auth] elapsed time:', elapsed, 'seconds, SESSION_DURATION:', SESSION_DURATION);
       if (elapsed > SESSION_DURATION) {
         console.log('[Auth] Session expired, signing out');
         // 过期，自动登出
@@ -47,7 +47,11 @@ class SupabaseAuth {
         await supabaseClient.auth.signOut();
         this.updateUI();
         return;
+      } else {
+        console.log('[Auth] Session still valid');
       }
+    } else {
+      console.log('[Auth] No login_timestamp found');
     }
 
     // 注册 auth 状态变化监听器（处理所有事件类型）
@@ -67,6 +71,7 @@ class SupabaseAuth {
         this.notifyListeners();
         this.updateUI();
       } else if (event === 'SIGNED_OUT') {
+        console.log('[Auth] SIGNED_OUT event received');
         this.user = null;
         this.profile = null;
         localStorage.removeItem('login_timestamp');
