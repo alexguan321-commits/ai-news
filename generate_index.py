@@ -331,6 +331,14 @@ def parse_post(filepath):
 
     # Build URL path
     url = f"/ai-news/{date_prefix}/{report_type}/"
+    
+    # Extract content for search (first 1000 chars after front matter, stripped of markdown)
+    content_start = fm_match.end()
+    content_text = text[content_start:content_start+2000]
+    # Strip markdown syntax for search
+    content_text = re.sub(r'[#*`\[\]()!]', ' ', content_text)
+    content_text = re.sub(r'\s+', ' ', content_text).strip()
+    search_content = content_text[:1000]
 
     return {
         "title": title,
@@ -339,6 +347,7 @@ def parse_post(filepath):
         "url": url,
         "date_prefix": date_prefix,
         "cover_image": cover_image,
+        "search_content": search_content,
     }
 
 
@@ -418,6 +427,13 @@ def parse_knowledge_card(filepath):
 
     # Get file modification time (push time to website)
     push_time = os.path.getmtime(filepath)
+    
+    # Extract content for search (first 1000 chars, stripped of markdown)
+    content_text = text[:2000]
+    # Strip markdown syntax for search
+    content_text = re.sub(r'[#*`\[\]()!]', ' ', content_text)
+    content_text = re.sub(r'\s+', ' ', content_text).strip()
+    search_content = content_text[:1000]
 
     return {
         "title": title,
@@ -431,6 +447,7 @@ def parse_knowledge_card(filepath):
         "summary": summary,
         "push_time": push_time,
         "filepath": filepath,
+        "search_content": search_content,
     }
 
 
@@ -808,21 +825,44 @@ def generate_card_page(card, total_cards):
 
 def generate_html(posts, cards):
     """Generate the full index.html content."""
+    from datetime import datetime, timedelta
+    
     # Sort posts by date descending
     posts.sort(key=lambda p: p["date"], reverse=True)
     # Sort cards by push time (file modification time) descending
     cards.sort(key=lambda c: c.get("push_time", 0), reverse=True)
 
-    total_posts = len(posts)
+    # Filter posts to only show last 30 days
+    cutoff_date = datetime.now() - timedelta(days=30)
+    recent_posts = []
+    archived_posts = []
+    for p in posts:
+        try:
+            # Parse date string like "2026-07-12 21:00" or "2026-07-12 10:00:00 +0800"
+            date_str = p["date"]
+            # Remove timezone part like "+0800"
+            if " +" in date_str:
+                date_str = date_str.split(" +")[0]
+            # Parse the date
+            post_date = datetime.strptime(date_str.strip()[:19], "%Y-%m-%d %H:%M:%S")
+            if post_date >= cutoff_date:
+                recent_posts.append(p)
+            else:
+                archived_posts.append(p)
+        except (ValueError, IndexError):
+            # If date parsing fails, include the post
+            recent_posts.append(p)
+    
+    total_posts = len(recent_posts)
     total_cards = len(cards)
-    latest = posts[:6]
+    latest = recent_posts[:6]
     latest_cards = cards[:8]
 
-    type_labels = {"morning": "Morning", "noon": "Noon", "evening": "Evening"}
+    type_labels = {"morning": "Morning", "noon": "Noon", "evening": "Evening", "weekly": "Weekly"}
 
     def render_card(p):
         label = type_labels.get(p["report_type"], p["report_type"])
-        emoji = "🌅" if p["report_type"] == "morning" else "☀️" if p["report_type"] == "noon" else "🌙"
+        emoji = "🌅" if p["report_type"] == "morning" else "☀️" if p["report_type"] == "noon" else "🌙" if p["report_type"] == "evening" else "📰"
         
         # Use cover image if available, otherwise fall back to emoji
         if p.get("cover_image"):
@@ -834,7 +874,10 @@ def generate_html(posts, cards):
         else:
             card_image = emoji
         
-        return f"""        <article class="report-card">
+        # Escape content for data attribute
+        search_content = html.escape(p.get("search_content", ""))
+        
+        return f"""        <article class="report-card" data-content="{search_content}">
             <a href="{p['url']}">
                 <div class="card-image">{card_image}</div>
                 <div class="card-content">
@@ -847,7 +890,9 @@ def generate_html(posts, cards):
 
     def render_knowledge_card(c):
         tags_html = " ".join(f'<span class="tag">{t}</span>' for t in c['tags'][:3])
-        return f"""        <article class="knowledge-card">
+        # Escape content for data attribute
+        search_content = html.escape(c.get("search_content", ""))
+        return f"""        <article class="knowledge-card" data-content="{search_content}">
             <a href="{c['url']}">
                 <div class="kc-header">
                     <span class="kc-badge">📚 Knowledge Card</span>
@@ -864,14 +909,18 @@ def generate_html(posts, cards):
 
     def render_archive(p):
         label = type_labels.get(p["report_type"], p["report_type"])
-        return f"""        <div class="archive-item" data-type="{p['report_type']}">
+        # Escape content for data attribute
+        search_content = html.escape(p.get("search_content", ""))
+        return f"""        <div class="archive-item" data-type="{p['report_type']}" data-content="{search_content}">
             <a href="{p['url']}">{p['title']}</a>
             <time>{p['date']}</time>
             <span class="report-type type-{p['report_type']}">{label}</span>
         </div>"""
 
     def render_card_archive(c):
-        return f"""        <div class="archive-item" data-type="card">
+        # Escape content for data attribute
+        search_content = html.escape(c.get("search_content", ""))
+        return f"""        <div class="archive-item" data-type="card" data-content="{search_content}">
             <a href="{c['url']}">{c['title']}</a>
             <time>{c['date_prefix']}</time>
             <span class="report-type type-card">📚 Card</span>
@@ -972,6 +1021,7 @@ def generate_html(posts, cards):
                     <button class="filter-tag" data-filter="morning">Morning</button>
                     <button class="filter-tag" data-filter="noon">Noon</button>
                     <button class="filter-tag" data-filter="evening">Evening</button>
+                    <button class="filter-tag" data-filter="weekly">Weekly</button>
                 </div>
 
                 <section class="reports-list">
@@ -1084,9 +1134,10 @@ def generate_html(posts, cards):
 
                 reportCards.forEach(card => {{
                     const text = card.textContent.toLowerCase();
+                    const content = (card.dataset.content || '').toLowerCase();
                     const type = card.querySelector('.report-type');
                     const typeClass = type ? type.className : '';
-                    const matchesSearch = !query || text.includes(query);
+                    const matchesSearch = !query || text.includes(query) || content.includes(query);
                     const matchesFilter = activeFilter === 'all' || typeClass.includes('type-' + activeFilter);
                     card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
                     if (card.style.display !== 'none') visibleCount++;
@@ -1094,8 +1145,9 @@ def generate_html(posts, cards):
 
                 archiveItems.forEach(item => {{
                     const text = item.textContent.toLowerCase();
+                    const content = (item.dataset.content || '').toLowerCase();
                     const type = item.dataset.type || '';
-                    const matchesSearch = !query || text.includes(query);
+                    const matchesSearch = !query || text.includes(query) || content.includes(query);
                     const matchesFilter = activeFilter === 'all' || type === activeFilter;
                     item.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
                 }});
@@ -1105,14 +1157,16 @@ def generate_html(posts, cards):
 
                 knowledgeCards.forEach(card => {{
                     const text = card.textContent.toLowerCase();
-                    const matchesSearch = !query || text.includes(query);
+                    const content = (card.dataset.content || '').toLowerCase();
+                    const matchesSearch = !query || text.includes(query) || content.includes(query);
                     card.style.display = matchesSearch ? '' : 'none';
                     if (card.style.display !== 'none') visibleCount++;
                 }});
 
                 cardArchiveItems.forEach(item => {{
                     const text = item.textContent.toLowerCase();
-                    const matchesSearch = !query || text.includes(query);
+                    const content = (item.dataset.content || '').toLowerCase();
+                    const matchesSearch = !query || text.includes(query) || content.includes(query);
                     item.style.display = matchesSearch ? '' : 'none';
                 }});
             }}
