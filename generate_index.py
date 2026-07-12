@@ -834,8 +834,8 @@ def generate_html(posts, cards):
     # Sort cards by push time (file modification time) descending
     cards.sort(key=lambda c: c.get("push_time", 0), reverse=True)
 
-    # Filter posts to only show last 30 days
-    cutoff_date = datetime.now() - timedelta(days=30)
+    # Filter posts to only show last 15 days
+    cutoff_date = datetime.now() - timedelta(days=15)
     recent_posts = []
     archived_posts = []
     for p in posts:
@@ -1130,6 +1130,20 @@ def generate_html(posts, cards):
         function filterContent() {{
             const query = searchInput.value.toLowerCase().trim();
             let visibleCount = 0;
+            
+            // When searching, expand all hidden sections
+            const hiddenSections = document.querySelectorAll('.archive-hidden');
+            const showAllBtns = document.querySelectorAll('.show-all-btn');
+            
+            if (query || activeFilter !== 'all') {{
+                // Expand all hidden sections when searching/filtering
+                hiddenSections.forEach(section => section.style.display = 'block');
+                showAllBtns.forEach(btn => btn.style.display = 'none');
+            }} else {{
+                // Restore original state when no search/filter
+                hiddenSections.forEach(section => section.style.display = 'none');
+                showAllBtns.forEach(btn => btn.style.display = '');
+            }}
 
             if (activeTab === 'reports') {{
                 const reportCards = document.querySelectorAll('#reports-tab .report-card');
