@@ -334,12 +334,10 @@ Boston Dynamics 与 Hyundai 联合推出 Atlas 足球训练系列视频（Rabona
             updateCommentVisibility();
             
             // 监听登录状态变化
-            if (typeof auth !== 'undefined') {
-                const originalOnAuthChange = auth.onAuthStateChange;
-                auth.onAuthStateChange = function() {
-                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
                     updateCommentVisibility();
-                };
+                });
             }
             
             // 浏览统计 - 等待 auth 完成 session 检查

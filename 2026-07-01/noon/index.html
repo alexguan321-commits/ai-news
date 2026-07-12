@@ -791,12 +791,10 @@ Anthropic 的反应：(1) 快速修复安全分类器；(2) 提出行业 jailbre
             updateCommentVisibility();
             
             // 监听登录状态变化
-            if (typeof auth !== 'undefined') {
-                const originalOnAuthChange = auth.onAuthStateChange;
-                auth.onAuthStateChange = function() {
-                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
                     updateCommentVisibility();
-                };
+                });
             }
             
             // 浏览统计 - 等待 auth 完成 session 检查

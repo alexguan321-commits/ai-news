@@ -227,12 +227,10 @@ Apple 用 WWDC 证明了&quot;慢 AI&quot;也能打动人心，OpenAI 和 Anthro
             updateCommentVisibility();
             
             // 监听登录状态变化
-            if (typeof auth !== 'undefined') {
-                const originalOnAuthChange = auth.onAuthStateChange;
-                auth.onAuthStateChange = function() {
-                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
                     updateCommentVisibility();
-                };
+                });
             }
             
             // 浏览统计 - 等待 auth 完成 session 检查

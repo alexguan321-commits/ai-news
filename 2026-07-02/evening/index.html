@@ -646,12 +646,10 @@ OpenAI 的 5% 股权方案让我想到一个有趣的历史类比：中世纪欧
             updateCommentVisibility();
             
             // 监听登录状态变化
-            if (typeof auth !== 'undefined') {
-                const originalOnAuthChange = auth.onAuthStateChange;
-                auth.onAuthStateChange = function() {
-                    if (originalOnAuthChange) originalOnAuthChange.apply(this, arguments);
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
                     updateCommentVisibility();
-                };
+                });
             }
             
             // 浏览统计 - 等待 auth 完成 session 检查
