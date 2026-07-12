@@ -279,6 +279,7 @@ class SupabaseAuth {
       </div>
     `;
     document.body.appendChild(modal);
+    modal.style.display = 'flex';
   }
 
   closeLoginModal() {
