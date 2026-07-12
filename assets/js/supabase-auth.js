@@ -24,12 +24,24 @@ class SupabaseAuth {
   }
 
   async init() {
+    console.log('[Auth] init() started');
+    
+    // 检查 localStorage 中的 session
+    const projectRef = 'xhmzbrvzuxbdcvntwlut';
+    const sessionKey = `sb-${projectRef}-auth-token`;
+    const storedSession = localStorage.getItem(sessionKey);
+    console.log('[Auth] Stored session in localStorage:', storedSession ? 'exists' : 'null');
+    
     // 检查 3 天登录过期
     const SESSION_DURATION = 3 * 24 * 60 * 60; // 3 天 = 259200 秒
     const loginTime = localStorage.getItem('login_timestamp');
+    console.log('[Auth] login_timestamp:', loginTime);
+    
     if (loginTime) {
       const elapsed = Math.floor(Date.now() / 1000) - parseInt(loginTime);
+      console.log('[Auth] elapsed time:', elapsed, 'seconds');
       if (elapsed > SESSION_DURATION) {
+        console.log('[Auth] Session expired, signing out');
         // 过期，自动登出
         localStorage.removeItem('login_timestamp');
         await supabaseClient.auth.signOut();
@@ -40,11 +52,13 @@ class SupabaseAuth {
 
     // 注册 auth 状态变化监听器（处理所有事件类型）
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
+      console.log('[Auth] onAuthStateChange event:', event, 'session:', session?.user?.email);
       // INITIAL_SESSION: 页面加载时恢复已有 session
       // SIGNED_IN: 用户登录成功
       // TOKEN_REFRESHED: token 刷新成功
       if ((event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
         this.user = session.user;
+        console.log('[Auth] User set from event:', this.user.email);
         // 记录登录时间戳（如果还没有）
         if (!localStorage.getItem('login_timestamp')) {
           localStorage.setItem('login_timestamp', Math.floor(Date.now() / 1000).toString());
@@ -66,7 +80,9 @@ class SupabaseAuth {
 
     // 如果 onAuthStateChange 没有恢复 session，手动获取
     if (!this.user) {
-      const { data: { session } } = await supabaseClient.auth.getSession();
+      console.log('[Auth] No user from onAuthStateChange, calling getSession()');
+      const { data: { session }, error } = await supabaseClient.auth.getSession();
+      console.log('[Auth] getSession() result:', session?.user?.email, 'error:', error?.message);
       if (session) {
         this.user = session.user;
         await this.loadProfile();
@@ -74,8 +90,11 @@ class SupabaseAuth {
         this.updateUI();
       } else {
         // 确认没有 session，更新 UI 显示登录按钮
+        console.log('[Auth] No session found, showing login button');
         this.updateUI();
       }
+    } else {
+      console.log('[Auth] User already set:', this.user.email);
     }
   }
 
