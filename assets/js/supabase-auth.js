@@ -283,7 +283,7 @@ class SupabaseAuth {
 
   closeLoginModal() {
     const modal = document.getElementById('login-modal');
-    if (modal) modal.remove();
+    if (modal) modal.style.display = 'none';
   }
 
   async handleEmailLogin(e) {
