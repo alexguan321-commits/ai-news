@@ -555,6 +555,15 @@ body {
 
     .navbar .logo {
         font-size: 1.25rem;
+        flex-shrink: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    #auth-container {
+        flex-shrink: 0;
     }
 
     .navbar .nav-stats {
