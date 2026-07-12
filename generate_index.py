@@ -700,6 +700,7 @@ def generate_report_page(post, all_posts_count, filtered_content=None):
 <body>
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{all_posts_count}</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
@@ -777,6 +778,7 @@ def generate_card_page(card, total_cards):
 <body>
     <nav class="navbar">
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total_cards}</span> cards</div>
             <div><span class="stat-value">X</span> curated</div>
@@ -968,6 +970,7 @@ def generate_html(posts, cards):
 <body>
     <nav class="navbar">
         <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="/ai-news/" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total_posts}</span> reports</div>
             <div><span class="stat-value">{total_cards}</span> cards</div>
