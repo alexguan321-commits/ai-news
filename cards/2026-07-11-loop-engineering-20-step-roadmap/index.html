@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Loop Engineering 20-Step Roadmap: From Prompter to Loop Designer">
+    <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>Loop Engineering 20-Step Roadmap: From Prompter to Loop Designer - Knowledge Card</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">48</span> cards</div>
+            <div><span class="stat-value">X</span> curated</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="card-content">
+            <header class="card-header">
+                <span class="card-badge">Knowledge Card</span>
+                <h1>Loop Engineering 20-Step Roadmap: From Prompter to Loop Designer</h1>
+                <div class="meta">
+                    <span class="author">Khairallah AL-Awady (@eng_khairallah1)</span>
+                    <time>2026-07-11</time>
+                    
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+                <p><a href='X Article' target='_blank'>Original ↗</a></p>
+            </header>
+
+            <div class="content">
+                <hr>
+<p>
+title: &quot;Loop Engineering 20-Step Roadmap: From Prompter to Loop Designer&quot;
+author: &quot;Khairallah AL-Awady (@eng_khairallah1)&quot;
+source: &quot;X Article&quot;
+url: &quot;<a href="https://x.com/eng_khairallah1/status/2075862184299565100&quot;" target="_blank" rel="noopener noreferrer">https://x.com/eng_khairallah1/status/2075862184299565100&quot;</a>
+date: 2026-07-11
+collected: 2026-07-13
+tags:
+</p>
+<ul>
+<li>loop-engineering</li>
+<li>agent-design</li>
+<li>context-engineering</li>
+<li>prompt-engineering</li>
+<li>verifier-design</li>
+<li>taste-as-reward-function</li>
+<li>harness-engineering</li>
+<li>autonomous-agents</li>
+</ul>
+<hr>
+<h1>Loop Engineering 20-Step Roadmap: From Prompter to Loop Designer</h1>
+<p>
+<strong>Author:</strong> Khairallah AL-Awady (@eng_khairallah1)
+<strong>Date:</strong> July 11, 2026
+<strong>Engagement:</strong> 46 likes | 14 reposts | 10 replies
+</p>
+<h2>Core Thesis</h2>
+<blockquote><p>&quot;The unit of work is no longer a prompt you type. It is a loop you engineer.&quot;</p></blockquote>
+<p>
+Most people are still typing prompts into a box and waiting for an answer. A small group stopped doing that. They build loops that prompt AI for them, verify the output, retry when it fails, and stop when the job is actually done.
+</p>
+<p>
+The difference is not talent. It is that one group is still the loop, and the other group learned to design the loop.
+</p>
+<h2>Background: The Four Eras</h2>
+<table>
+<thead><tr>
+<th>Year</th>
+<th>Era</th>
+<th>Skill</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>2023</td>
+<td>Prompt Engineering</td>
+<td>Phrasing one request well</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>Orchestration</td>
+<td>Chaining steps together</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>Context Engineering</td>
+<td>Controlling what the model sees</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>Loop Engineering</td>
+<td>Designing the system that drives the model</td>
+</tr>
+</tbody></table>
+<p>
+Each era didn&#x27;t replace the last; it stacked on top of it.
+</p>
+<p>
+<strong>Origin:</strong> The phrase &quot;loop engineering&quot; was named and structured in an essay by Addy Osmani, and caught fire after Claude Code&#x27;s creator Boris Cherny described his workflow as &quot;loops that prompt Claude and figure out what to do next, instead of him prompting it turn by turn.&quot; A single post reportedly crossed 6.5 million views in days.
+</p>
+<h2>The 20-Step Roadmap</h2>
+<h3>Phase 1: Understand What Changed (Steps 1–4)</h3>
+<p>
+<strong>Step 1: See the four eras.</strong> Know where you are on the ladder to know what to learn next.
+</p>
+<p>
+<strong>Step 2: Learn the difference between a chain and a loop.</strong>
+</p>
+<ul>
+<li>Chain: fixed sequence (do step 1, then 2, then 3, done). Works when you know every step.</li>
+<li>Loop: tries something, observes what happened, decides what to do next based on the result. Can fix failing tests, handle dependencies between steps.</li>
+</ul>
+<p>
+<strong>Step 3: Internalize the reason-act-observe cycle.</strong>
+Every agent loop is: reason → act → observe → repeat. Pattern lineage: ReAct work (2022).
+</p>
+<p>
+<strong>Step 4: Accept that you are the bottleneck.</strong>
+For 3 years, working with AI meant you typed a prompt, read the answer, and typed again. You were the loop. The scarce skill is no longer writing prompts. It&#x27;s designing the system that writes them for you.
+</p>
+<h3>Phase 2: Master the Loop&#x27;s Anatomy (Steps 5–9)</h3>
+<p>
+<strong>Step 5: Define what &quot;done&quot; means, in measurable terms.</strong>
+The single most important thing in loop engineering, and where most people fail.
+</p>
+<ul>
+<li>NOT &quot;make it good&quot;</li>
+<li>YES &quot;All tests pass&quot;, &quot;Output matches this schema&quot;, &quot;No item on the checklist is unchecked&quot;</li>
+</ul>
+<p>
+<strong>Step 6: Build the verifier.</strong>
+The automated check that decides whether the output meets your bar.
+</p>
+<ul>
+<li>Trap: letting the model grade its own work → it almost always gives itself an A</li>
+<li>The stricter and more external your verifier, the better your loop</li>
+<li>Your taste, encoded as a check, becomes the reward function</li>
+</ul>
+<p>
+<strong>Step 7: Add termination logic, in layers.</strong>
+A loop with no exit is the most common and most expensive mistake.
+Stacked exits:
+1. Verifier confirms goal is met
+2. Hard cap on iterations
+3. Token or time budget
+4. No-progress detection (breaks when recent steps stop changing anything)
+</p>
+<p>
+<strong>Step 8: Design the state layer.</strong>
+Memory that survives a restart: files, task lists, checkpoints. If the loop crashes on iteration 40, it picks up from 39 instead of starting over.
+</p>
+<p>
+<strong>Step 9: Place the human checkpoint.</strong>
+Decide exactly where a person reviews before anything irreversible happens. Sending a message, deploying code, moving money, or deleting data should pause and wait.
+</p>
+<h3>Phase 3: Build Your First Loop (Steps 10–14)</h3>
+<p>
+<strong>Step 10: Pick one repetitive task.</strong>
+Choose something with a checkable output. Start narrow.
+</p>
+<p>
+<strong>Step 11: Do it manually first.</strong>
+Run the task with AI by hand a few times. This teaches you the exact steps, where it goes wrong, and what &quot;done&quot; really means. You cannot automate a process you can&#x27;t yet describe.
+</p>
+<p>
+<strong>Step 12: Write the loop contract.</strong>
+Goal, definition of done, checks that verify it, maximum iterations, and the point where you want to be asked.
+</p>
+<p>
+<strong>Step 13: Run it closed and watch it.</strong>
+Watch every iteration. Look for failure modes: loops forever, declares victory too early, wanders off goal, passes weak check while producing garbage.
+</p>
+<p>
+<strong>Step 14: Tighten the verifier until you trust it.</strong>
+Make checks stricter and more grounded. Add external checks, length limits, specific criteria. Keep tightening until the loop&#x27;s &quot;pass&quot; means the same thing your &quot;pass&quot; means.
+</p>
+<h3>Phase 4: Scale and Refine (Steps 15–20)</h3>
+<p>
+<strong>Step 15: Learn open versus closed loops.</strong>
+</p>
+<ul>
+<li>Closed loop: repeats same bounded task toward fixed target, safe and cheap</li>
+<li>Open loop: explores, tries novel approaches, risks more budget for more upside</li>
+<li>Choose deliberately per task</li>
+</ul>
+<p>
+<strong>Step 16: Understand the harness underneath.</strong>
+A loop runs inside a harness: tools, context management, state, permissions, recovery. A great loop on a poor harness still fails.
+</p>
+<p>
+<strong>Step 17: Manage cost like it matters.</strong>
+Loops make 10-100x more model calls than single prompts.
+</p>
+<ul>
+<li>Route each step to the cheapest capable model</li>
+<li>Small fast one for classification, mid for drafting, frontier for final review</li>
+<li>Reuse repeated parts of prompts (KV-cache)</li>
+</ul>
+<p>
+<strong>Step 18: Add sub-agents for parallel work.</strong>
+Spawn sub-agents that each handle a piece in parallel, then stitch results together. Hours → minutes.
+</p>
+<p>
+<strong>Step 19: Move the loop into a script.</strong>
+Write the loop as code that runs on a schedule and drives the agent for you. &quot;Runs while you sleep&quot; becomes a cron job. Your loop becomes infrastructure.
+</p>
+<p>
+<strong>Step 20: Make judgment your product.</strong>
+When the loop writes the code, runs the tests, and fixes its own failures, your value isn&#x27;t typing anymore. It&#x27;s knowing what &quot;correct&quot; looks like, setting the bar, and designing the checks.
+</p>
+<blockquote><p>&quot;Your taste isn&#x27;t a soft skill. It&#x27;s the reward function the whole system optimizes against.&quot;</p></blockquote>
+<h2>Worked Example: Auto-Fixing Tests</h2>
+<p>
+<strong>Scenario:</strong> Maintaining a codebase, tired of manually fixing tests that break when you change something.
+</p>
+<ul>
+<li><strong>Definition of done (Step 5):</strong> Entire test suite passes</li>
+<li><strong>Verifier (Step 6):</strong> The test command itself (exits clean or reports failures) — nothing for the agent to flatter</li>
+<li><strong>Termination logic (Step 7):</strong></li>
+<li>Stop when tests pass</li>
+<li>Stop after 15 attempts</li>
+<li>Stop if last 3 attempts didn&#x27;t change which tests are failing</li>
+<li><strong>State (Step 8):</strong> Running note of what&#x27;s been tried</li>
+<li><strong>Human checkpoint (Step 9):</strong> Right before anything gets committed or pushed</li>
+</ul>
+<p>
+<strong>Lesson learned watching:</strong> Loop &quot;fixed&quot; a test by weakening the test itself. Fix: instructions now forbid editing tests, check confirms test files unchanged.
+</p>
+<p>
+<strong>Result:</strong> Script it (Step 19), schedule every night. Wake up to a codebase where yesterday&#x27;s breakages are already fixed, with a summary waiting for review.
+</p>
+<h2>The Mistakes That Keep People Stuck as Prompters</h2>
+<p>
+1. <strong>Automating before understanding</strong> — Try to build the loop before doing the task by hand → fast, confident garbage
+2. <strong>Weak or self-referential verifier</strong> — Model checks its own work with vague standard → always approves itself
+3. <strong>No termination logic</strong> — Loop runs forever, drains budget, or spins in circles
+4. <strong>Skipping state</strong> — Loop starts from zero every time it hiccups
+5. <strong>Removing the human from irreversible actions</strong> — Point of loops is leverage, not recklessness
+</p>
+<h2>The Skill Behind the Skill: Developing Taste</h2>
+<blockquote><p>&quot;The quality of your loops is capped by the quality of your judgment.&quot;</p></blockquote>
+<p>
+The verifier is your judgment about what &quot;good&quot; means, written down precisely enough that a machine can enforce it. If you can&#x27;t tell good output from mediocre output, you can&#x27;t write a verifier that catches the difference.
+</p>
+<p>
+<strong>Why this rewards experienced practitioners:</strong>
+</p>
+<ul>
+<li>Senior engineer knows what correct code looks like → writes check that catches subtle wrongness</li>
+<li>Great editor knows what strong writing looks like → builds rubric that catches weak drafts</li>
+<li>Domain expertise doesn&#x27;t become obsolete. It becomes the reward function.</li>
+</ul>
+<h2>The Honest Truth</h2>
+<blockquote><p>&quot;A loop will not save a task you don&#x27;t understand.&quot;</p></blockquote>
+<p>
+Loop engineering is mostly the discipline of thinking precisely about what good output is and how you&#x27;d know it when you saw it.
+</p>
+<p>
+The people who learn to design loops are not going to be replaced by more capable models. They&#x27;re the ones who point those models at a goal, encode their judgment as a check, and let the system run. As models get better at long tasks, the person who can design the loop around them gets more valuable, not less.
+</p>
+<h2>One-Month Timeline</h2>
+<table>
+<thead><tr>
+<th>Week</th>
+<th>Progress</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Week 1</td>
+<td>Build one loop, mostly watch it, learn failure modes</td>
+</tr>
+<tr>
+<td>Week 2</td>
+<td>Tighten until you trust it unattended, build second loop</td>
+</tr>
+<tr>
+<td>Week 3</td>
+<td>Schedule reliable loops, feel first taste of work done while elsewhere</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Stop thinking in prompts entirely. Think in goals, checks, and exits</td>
+</tr>
+</tbody></table>
+<p>
+<strong>The transformation:</strong> When a new repetitive task shows up, your instinct is no longer &quot;how do I do this&quot; — it&#x27;s &quot;what&#x27;s the definition of done, and what&#x27;s the verifier.&quot;
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span id="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    Bookmark
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('card', '2026-07-11-loop-engineering-20-step-roadmap');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
+                    updateCommentVisibility();
+                });
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'card', '2026-07-11-loop-engineering-20-step-roadmap');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('card', '2026-07-11-loop-engineering-20-step-roadmap');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to Home</a></p>
+            <p>Alex Guan's AI Knowledge Base — Knowledge Card</p>
+        </footer>
+    </main>
+</body>
+</html>

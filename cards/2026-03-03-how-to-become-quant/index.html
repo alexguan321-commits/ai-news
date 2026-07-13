@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="Prefill &amp; Decode in LLM Inference">
+    <meta property="og:title" content="How I&#x27;d Become a Quant If I Had to Start Over Tomorrow">
     <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>Prefill &amp; Decode in LLM Inference - Knowledge Card</title>
+    <title>How I&#x27;d Become a Quant If I Had to Start Over Tomorrow - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -36,10 +36,10 @@
         <article class="card-content">
             <header class="card-header">
                 <span class="card-badge">Knowledge Card</span>
-                <h1>Prefill &amp; Decode in LLM Inference</h1>
+                <h1>How I&#x27;d Become a Quant If I Had to Start Over Tomorrow</h1>
                 <div class="meta">
-                    <span class="author">Avi Chawla (@_avichawla)</span>
-                    <time>2026-06-29</time>
+                    <span class="author">gemchanger (@gemchange_ltd)</span>
+                    <time>2026-03-03</time>
                     
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
@@ -52,101 +52,201 @@
                         💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
-                <p><a href='https://x.com/_avichawla/status/2071522418594861215' target='_blank'>Original ↗</a></p>
+                <p><a href='X Article' target='_blank'>Original ↗</a></p>
             </header>
 
             <div class="content">
-                <h1>Prefill &amp; Decode in LLM Inference</h1>
+                <hr>
 <p>
-<strong>Author:</strong> Avi Chawla (@_avichawla)
-<strong>Source:</strong> <a href="https://x.com/_avichawla/status/2071522418594861215" target="_blank" rel="noopener noreferrer">https://x.com/_avichawla/status/2071522418594861215</a>
-<strong>Date:</strong> 2026-06-29
-<strong>Type:</strong> X Thread + Article
-<strong>Extracted via:</strong> Chrome AppleScript (auto-cleanup)
-</p>
-<hr>
-<p>
-Have you ever noticed that the first token from an LLM always takes a moment to appear? But the subsequent tokens stream out smoothly?
-</p>
-<p>
-That pause isn&#x27;t a network lag, but rather it&#x27;s a structural property of how LLMs fundamentally work.
-</p>
-<p>
-Inference happens in two phases that share the same model and the same code path, but the workload looks completely different in each, with different bottlenecks.
-</p>
-<h2>Prefill Stage</h2>
-<p>
-Prefill stage starts when you submit a prompt.
-</p>
-<p>
-The model processes every input token in one parallel pass, computing Q, K, and V for all of them at once.
-</p>
-<p>
-Attention runs as a matrix multiplication, and the GPU chips run at high utilization, doing fast math.
-</p>
-<p>
-<strong>Prefill is compute-bound</strong>, and the metric that captures it is <strong>time-to-first-token (TTFT)</strong>.
-</p>
-<h2>Decode Stage</h2>
-<p>
-Decode stage starts once the first token is out.
-</p>
-<p>
-To generate the next one, the model only computes Q, K, and V for that single new token, because everything before it is already cached.
-</p>
-<p>
-So the model loops one token per forward pass, multiplying a single query against the cached keys instead of a full matrix. This makes the inference fast due to the tiny computation.
-</p>
-<p>
-But the GPU still has to load every weight and every cached entry from memory to do that tiny computation, so the bottleneck flips and compute sits idle while memory bandwidth becomes the limiting factor.
-</p>
-<p>
-<strong>Decode is memory-bound</strong>, and the metric that captures it is <strong>inter-token latency (ITL)</strong>.
-</p>
-<h2>Key Insights</h2>
-<ul>
-<li>GPU utilization peaks during prefill and drops sharply during decode because memory, not compute, is the bottleneck in the second phase.</li>
-</ul>
-<ul>
-<li>Throwing more compute at a slow-streaming model often does nothing because the fix for memory-bound workloads is faster memory or a smaller cache, not more FLOPs.</li>
-</ul>
-<ul>
-<li>Long contexts feel disproportionately slow because the KV cache grows with every token, and every decode step has to read all of it.</li>
-</ul>
-<h2>KV Cache</h2>
-<p>
-Maintaining the cache is an important optimization since it makes decoding viable.
+title: &quot;How I&#x27;d Become a Quant If I Had to Start Over Tomorrow&quot;
+author: &quot;gemchanger (@gemchange_ltd)&quot;
+source: &quot;X Article&quot;
+url: &quot;<a href="https://x.com/gemchange_ltd/status/2028904166895112617&quot;" target="_blank" rel="noopener noreferrer">https://x.com/gemchange_ltd/status/2028904166895112617&quot;</a>
+date: 2026-03-03
+collected: 2026-07-13
+tags:
 </p>
 <ul>
-<li><strong>Without KV cache:</strong> every new token would force a recomputation of attention over the entire growing sequence.</li>
-<li><strong>With KV cache:</strong> the cache is built once during prefill, then grows by exactly one entry per decode step, with existing entries reused rather than recomputed.</li>
-</ul>
-<p>
-The cache lives in GPU memory and grows linearly with sequence length, so a <strong>13B model roughly requires 1 MB per token</strong>, which means a <strong>4K context consumes 4 GB of VRAM on the cache alone</strong>.
-</p>
-<h2>Current Optimizations</h2>
-<p>
-The entire field is now optimizing around this constraint with:
-</p>
-<ul>
-<li>Quantized caches</li>
-<li>Sliding windows</li>
-<li>Grouped-query attention</li>
-<li>PagedAttention</li>
-<li>DeepSeek&#x27;s V4 series redesigns attention itself so the cache stays small from the start</li>
-</ul>
-<h2>Practical Takeaway</h2>
-<p>
-When someone says their model feels slow, the first question is whether it&#x27;s <strong>slow to start</strong> or <strong>slow to stream</strong>.
-</p>
-<ul>
-<li><strong>Slow to start</strong> = prefill = compute bottleneck</li>
-<li><strong>Slow to stream</strong> = decode = memory bottleneck</li>
+<li>quant-finance</li>
+<li>career-guide</li>
+<li>ai-ml-finance</li>
+<li>stochastic-calculus</li>
+<li>probability</li>
+<li>statistics</li>
+<li>linear-algebra</li>
+<li>black-scholes</li>
+<li>jane-street</li>
+<li>citadel</li>
 </ul>
 <hr>
+<h1>How I&#x27;d Become a Quant If I Had to Start Over Tomorrow</h1>
 <p>
-<strong>Stats:</strong> 19.4K views | 219 likes | 35 reposts
+<strong>Author:</strong> gemchanger (@gemchange_ltd)
+<strong>Date:</strong> March 3, 2026
+<strong>Engagement:</strong> 12,320 likes | 1,360 reposts | 183 replies | 8.23M views
 </p>
+<h2>Key Data Points</h2>
+<ul>
+<li><strong>Entry-level quant compensation (2025):</strong> $300K-$500K total comp at top firms</li>
+<li><strong>AI/ML hiring in finance:</strong> 88% year-over-year growth</li>
+<li><strong>Jane Street average employee compensation:</strong> $1.4M/year (H1 2025)</li>
+<li><strong>Learning timeline:</strong> ~18 months from zero to competent</li>
+</ul>
+<h2>The 5-Level Learning Path</h2>
+<h3>Part I: Probability (3-4 weeks)</h3>
+<ul>
+<li>Conditional thinking: P(A|B) = P(A∩B) / P(B)</li>
+<li>Bayes&#x27; theorem for real-time belief updating</li>
+<li>Expected value and variance</li>
+<li><strong>Homework:</strong> Blitzstein &amp; Hwang (Harvard), simulate 10K coin flips, implement Bayesian updater</li>
+</ul>
+<h3>Part II: Statistics (4-5 weeks)</h3>
+<ul>
+<li>Hypothesis testing as BS detector</li>
+<li>Multiple comparisons problem (test 1,000 strategies → 50 show p&lt;0.05 by chance)</li>
+<li>Regression: α (alpha) is your edge, everything else is market exposure</li>
+<li>Maximum Likelihood Estimation (MLE)</li>
+<li><strong>Homework:</strong> Wasserman &quot;All of Statistics&quot;, Fama-French 3-factor regression, permutation tests</li>
+</ul>
+<h3>Part III: Linear Algebra (4-6 weeks)</h3>
+<ul>
+<li>Covariance matrices: 500 stocks → 500×500 matrix with 125,250 entries</li>
+<li>Eigendecomposition: first 5 eigenvectors explain 70% of variance in 500-stock universe</li>
+<li>Markowitz portfolio theory: portfolio variance = quadratic form</li>
+<li><strong>Homework:</strong> Gilbert Strang MIT 18.06, PCA on S&amp;P 500, mean-variance optimization</li>
+</ul>
+<h3>Part IV: Calculus &amp; Optimization (4-5 weeks)</h3>
+<ul>
+<li>Taylor expansion: delta hedging (1st order), gamma hedging (2nd order)</li>
+<li>Itô calculus: (dW_t)² = dt is why stochastic calculus differs from ordinary calculus</li>
+<li><strong>Homework:</strong> Boyd &amp; Vandenberghe &quot;Convex Optimization&quot;, gradient descent, cvxpy portfolio optimization</li>
+</ul>
+<h3>Part V: Stochastic Calculus (6-8 weeks - hardest level)</h3>
+<ul>
+<li>Brownian motion: dW_t has &quot;size&quot; √dt, so (dW_t)² = dt</li>
+<li>Itô&#x27;s lemma: df = f&#x27;(x)dx + ½f&#x27;&#x27;(x)(dW_t)²</li>
+<li>Black-Scholes derivation from delta-hedging</li>
+<li>The Greeks: Delta, Gamma, Theta, Vega, Rho</li>
+<li><strong>Homework:</strong> Shreve &quot;Stochastic Calculus for Finance II&quot;, derive Black-Scholes from scratch</li>
+</ul>
+<h2>Polymarket &amp; LMSR</h2>
+<p>
+Logarithmic Market Scoring Rule (LMSR) by Robin Hanson:
+</p>
+<ul>
+<li>Cost function: C(q) = b * ln(Σ exp(q_i/b))</li>
+<li>Price = softmax function (same as neural network classifiers)</li>
+<li>Market maker&#x27;s max loss bounded at b * ln(n)</li>
+</ul>
+<h2>Career Landscape</h2>
+<h3>4 Archetypes:</h3>
+<p>
+1. <strong>Quant Researcher</strong> - PhD-level, finds patterns, builds models
+2. <strong>Quant Developer</strong> - Builder, trading platforms, low-latency systems
+3. <strong>Quant Trader</strong> - Decision-maker, runs capital, highest compensation variance
+4. <strong>Risk Quant</strong> - Model validation, VaR, stress testing
+5. <strong>AI/ML Quant</strong> - Fastest growing, 88% YoY hiring increase
+</p>
+<h3>Compensation:</h3>
+<table>
+<thead><tr>
+<th>Level</th>
+<th>Top Tier (Jane Street, Citadel, HRT)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>New grad</td>
+<td>$300K-$500K+</td>
+</tr>
+<tr>
+<td>Mid career (3-7yr)</td>
+<td>$550K-$950K</td>
+</tr>
+<tr>
+<td>Senior (8+yr)</td>
+<td>$1M-$3M+</td>
+</tr>
+<tr>
+<td>Star trader/PM</td>
+<td>$3M-$30M+</td>
+</tr>
+</tbody></table>
+<h3>Interview Process:</h3>
+<p>
+Resume → Online assessment (Zetamac, logic puzzles) → Phone screen → Superday (3-5 interviews)
+</p>
+<p>
+<strong>Jane Street specifics:</strong> Problems intentionally too hard to solve alone - test how you use hints and collaborate. 2/3+ recent intern class studied CS, 1/3+ studied math.
+</p>
+<h2>The Complete Toolbox</h2>
+<h3>Python Stack:</h3>
+<ul>
+<li>Data: pandas, polars (10-50x faster on large datasets)</li>
+<li>Numerics: numpy, scipy</li>
+<li>ML (tabular): xgboost, lightgbm, catboost</li>
+<li>ML (deep): pytorch</li>
+<li>Optimization: cvxpy</li>
+<li>Derivatives: QuantLib (C++ backend)</li>
+<li>Backtesting: NautilusTrader, backtrader, vectorbt</li>
+<li>Quant research: Microsoft Qlib (17K+ stars)</li>
+<li>RL for trading: FinRL (10K+ stars)</li>
+</ul>
+<h3>C++/Rust:</h3>
+<ul>
+<li>C++: QuantLib, Eigen, Boost</li>
+<li>Rust: RustQuant, NautilusTrader (Rust core + Python API)</li>
+</ul>
+<h3>Data Sources:</h3>
+<ul>
+<li>Free: yfinance, Finnhub (60 calls/min), Alpha Vantage</li>
+<li>Mid-range: Polygon.io ($199/mo, sub-20ms latency)</li>
+<li>Enterprise: Bloomberg Terminal (~$32K/yr)</li>
+</ul>
+<h3>Solvers:</h3>
+<ul>
+<li>Gurobi: Fastest commercial MIP solver</li>
+<li>Google OR-Tools: Strongest free solver</li>
+</ul>
+<h2>Three Things I Wish I&#x27;d Known</h2>
+<p>
+1. <strong>Estimation error is the real enemy</strong> - Full Kelly, unconstrained Markowitz, overfit ML all fail from overfitting noisy parameter estimates. Best quants respect the gap between theory and practice.
+</p>
+<p>
+2. <strong>Tools have democratized. Conviction hasn&#x27;t.</strong> - Edge lives in unique data, unique models, or unique execution - not better pip installs.
+</p>
+<p>
+3. <strong>The math is the moat</strong> - AI can write code. But deriving why Itô&#x27;s lemma has an extra term, proving martingales under risk-neutral measure - that mathematical fluency separates quants who build edge from quants who borrow it. Borrowed edge expires.
+</p>
+<h2>Reading List (In Order)</h2>
+<h3>Mathematics:</h3>
+<p>
+1. Blitzstein &amp; Hwang - Introduction to Probability
+2. Strang - Linear Algebra + MIT 18.06
+3. Wasserman - All of Statistics
+4. Boyd &amp; Vandenberghe - Convex Optimization
+5. Shreve - Stochastic Calculus for Finance I &amp; II
+</p>
+<h3>Quant Finance:</h3>
+<p>
+1. Hull - Options, Futures, and Other Derivatives
+2. Natenberg - Option Volatility and Pricing
+3. López de Prado - Advances in Financial Machine Learning
+4. Ernest Chan - Quantitative Trading
+5. Zuckerman - The Man Who Solved the Market
+</p>
+<h3>Interview Prep:</h3>
+<p>
+1. Zhou - Practical Guide to Quantitative Finance Interviews (Green Book)
+2. Crack - Heard on the Street
+3. Joshi - Quant Job Interview Questions
+</p>
+<h3>Competitions:</h3>
+<ul>
+<li>Jane Street Kaggle ($100K prize)</li>
+<li>WorldQuant BRAIN (100K+ users)</li>
+<li>Citadel Datathon</li>
+<li>Jane Street monthly puzzles</li>
+</ul>
             </div>
         </article>
 
@@ -217,7 +317,7 @@ When someone says their model feels slow, the first question is whether it&#x27;
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            interactions.init('card', '2026-06-29-llm-inference-prefill-decode');
+            interactions.init('card', '2026-03-03-how-to-become-quant');
             
             // 根据登录状态显示/隐藏评论相关元素
             function updateCommentVisibility() {
@@ -254,12 +354,12 @@ When someone says their model feels slow, the first question is whether it&#x27;
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
                 // 先显示浏览次数
-                pageViews.displayViewCount('view-count', 'card', '2026-06-29-llm-inference-prefill-decode');
+                pageViews.displayViewCount('view-count', 'card', '2026-03-03-how-to-become-quant');
                 
                 // 等待 auth 初始化完成后再记录浏览
                 const trackWithAuth = () => {
                     if (typeof auth !== 'undefined' && auth.user !== undefined) {
-                        pageViews.trackView('card', '2026-06-29-llm-inference-prefill-decode');
+                        pageViews.trackView('card', '2026-03-03-how-to-become-quant');
                     } else {
                         // auth 还没初始化，等一下再试
                         setTimeout(trackWithAuth, 100);
