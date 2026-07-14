@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="BestBlogs 周刊第 95 期：Agent 工程化的全面落地">
+    <meta property="og:title" content="Codex Pro 成本优化：从4小时烧完到48小时不触限">
     <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>BestBlogs 周刊第 95 期：Agent 工程化的全面落地 - Knowledge Card</title>
+    <title>Codex Pro 成本优化：从4小时烧完到48小时不触限 - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -36,10 +36,10 @@
         <article class="card-content">
             <header class="card-header">
                 <span class="card-badge">Knowledge Card</span>
-                <h1>BestBlogs 周刊第 95 期：Agent 工程化的全面落地</h1>
+                <h1>Codex Pro 成本优化：从4小时烧完到48小时不触限</h1>
                 <div class="meta">
-                    <span class="author"></span>
-                    <time></time>
+                    <span class="author">Rahul (@sairahul1)</span>
+                    <time>2026-07-13</time>
                     
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
@@ -52,208 +52,293 @@
                         💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
-                
+                <p><a href='X Article' target='_blank'>Original ↗</a></p>
             </header>
 
             <div class="content">
-                <h1>BestBlogs 周刊第 95 期：Agent 工程化的全面落地</h1>
+                <hr>
 <p>
-<strong>来源：</strong> <a href="https://x.com/hongming731/status/2055196423881421307" target="_blank" rel="noopener noreferrer">https://x.com/hongming731/status/2055196423881421307</a>
-<strong>在线阅读：</strong> <a href="https://www.bestblogs.dev/newsletter/issue95" target="_blank" rel="noopener noreferrer">https://www.bestblogs.dev/newsletter/issue95</a>
-<strong>日期：</strong> 2026-05-15
-<strong>作者：</strong> ginobefun (@hongming731)
-</p>
-<hr>
-<h2>导语</h2>
-<p>
-本周是名副其实的「Agent 工程化全面落地周」——Anthropic 和 OpenAI 把 Claude Code、Codex 推出 IDE 走向整个计算机，多会话管理、Computer Use 最佳实践、Windows 沙箱、Agent Skill 开放标准全部摆上桌面；国内 Kimi、阿里、腾讯、淘宝同期发出 5 篇生产级实战复盘，覆盖 Agent Database、Multi-Agent Harness、Java Harness 与流式 UI 渲染。阿里技术更追问其组织含义：当 AI 不再是工具而是新协作主体，组织本身也要被重新工程化。本周虽无顶级模型发布，但这 20 篇内容齐齐围绕一件事——把 Agent 真正推向生产。
-</p>
-<hr>
-<h2>10 大亮点</h2>
-<h3>🛠️ 1. Claude Code 在大型代码库的工程化打法</h3>
-<p>
-Anthropic 复盘了百万行 monorepo、十年遗留系统、几十个 microservices 里的真实落地——核心是<strong>放弃 RAG 嵌入式索引、改走 Agentic Search</strong>：让 Claude 像工程师一样用 grep 跨引用导航，避免索引滞后陷阱。三条关键模式：分层 CLAUDE.md、LSP 集成、明确的团队所有权。同期上线的 Claude Code Agent View 把多会话状态统一进 CLI，多 Agent 并行协作不再是马戏团杂技。
-</p>
-<h3>🖥️ 2. Coding 工具走出编辑器</h3>
-<p>
-Anthropic 发布 Computer Use / Browser Use 完整最佳实践，关键是截图按 Claude 4.6 的 1568px 或 Opus 4.7 的 2576px 预先降采样。OpenAI 给 Codex 加上独立光标的 Computer Use（不抢用户操控、自己开 UTM 跑虚机），并在 Windows 上从「非提权原型」迭代到带防火墙的「提权沙箱」。Agent 操控真实计算机的工程化底座正在成型。
-</p>
-<h3>🎯 3. Codex 下一形态：本地长周期 Agent</h3>
-<p>
-OpenAI Codex 负责人 Tibo Sio 勾勒下一形态：Codex 从开发者工具变成本地长周期 Agent，跑数小时甚至数天的自主任务。一句语音 prompt 生成定制电子表格、按价格质量过滤的旧金山面包房地图——「家常软件」让非技术用户也能为自己做工具。预告中的 Slash Goal 与 Auto Review（次级 AI 当裁判）会定义 Coding Agent 之后的通用 AI 队友。
-</p>
-<h3>📊 4. 评估与长时运行</h3>
-<p>
-Towards Data Science 基于 100+ 个企业部署沉淀出 12 项指标框架，Context Relevance &gt; 0.85、Hallucination &lt; 2% 等阈值都来自真实合规场景。Google ADK 团队用一个完整的入职流程教程示范了结构化记忆 schema、事件驱动休眠门、多智能体委派三处架构跃迁，让 Agent 跨两周空闲时间也不丢上下文。
-</p>
-<h3>🧩 5. Agent Skill 已成开放标准</h3>
-<p>
-Anthropic 在 2025 年 12 月发布规范，半年里 33+ 个 Agent 产品接入——Claude Code、Codex、GitHub Copilot、VS Code、Cursor、Gemini CLI、Kiro 用同一份 SKILL.md 协议。阿里云开发者深度解析点出关键一句：<strong>Skill 不是 Prompt，而是围绕任务、工具、流程和输出边界的结构化行为设计</strong>。
-</p>
-<h3>🏗️ 6. 国内厂商 Multi-Agent Harness 三连发</h3>
-<ul>
-<li><strong>PingCAP 黄东旭</strong>复盘 TiDB Cloud 如何成为 Kimi K2.6 Agent 的数据库——Supabase 单实例撑不住百万级动态小站，TiDB 用「虚拟数据库界面」把单租户成本压到订阅模式能算账</li>
-<li><strong>腾讯云开发者</strong>给出生产级 Harness 全景：Agent 负责局部智能，Harness 负责全局控制</li>
-<li><strong>阿里 AgentScope Java 1.1</strong> 把 OpenClaw 范式带到 Spring 阵营，国内首个 Java Harness Framework 落地</li>
-</ul>
-<h3>🎨 7. AI-Generated UI 全栈</h3>
-<p>
-大淘宝技术系统梳理：从 SSE、fetch + ReadableStream 基础，到 Vercel AI SDK、v0.dev、Bolt.new、WebContainers 开源项目，再到流式代码 / Markdown / JSON 增量解析三大挑战。如果你要做出 v0 / Cursor / Bolt 那样的体验，这是最佳起点。
-</p>
-<h3>🏢 8. AI Native 时代的组织重构</h3>
-<p>
-阿里技术访谈一线工程师发现：
+title: &quot;Codex Pro 成本优化：从4小时烧完到48小时不触限&quot;
+author: &quot;Rahul (@sairahul1)&quot;
+source: &quot;X Article&quot;
+url: &quot;<a href="https://x.com/sairahul1/status/2076556282195329249&quot;" target="_blank" rel="noopener noreferrer">https://x.com/sairahul1/status/2076556282195329249&quot;</a>
+date: 2026-07-13
+collected: 2026-07-14
+tags:
 </p>
 <ul>
-<li><strong>写代码占比从 30% 降到 5%</strong></li>
-<li><strong>和 Agent 对话占比从 5% 升到 60%</strong></li>
-<li>本来 6 周才能完成的功能现在一天就能上线 → 测试 → 下线 → 重发</li>
-</ul>
-<p>
-作者判断：AI 不是新工具，是新协作主体，所有「以人形约束为前提」的组织设计都开始失效。
-</p>
-<h3>🎤 9. 三场关键访谈</h3>
-<ul>
-<li><strong>Stripe 访 Manus AI 张涛</strong>——八个月做到 1 亿美元 ARR 的「大脑与手」哲学，把 Agent 内部过程做成会话回放换信任</li>
-<li><strong>红杉访 Suno Mikey Shulman</strong>——用物理学第一性原理把音乐建模为 48kHz 连续声波，90% 用户每天在创作而非消费</li>
-<li><strong>张小珺 4 小时访姚顺宇</strong>——曾在 Anthropic 和 Google DeepMind 训过 Claude 3.7、4.5、Gemini 3，「AI 个人英雄主义时代已经过去」</li>
-</ul>
-<h3>🚗 10. AI 在产业现场的两种姿态</h3>
-<ul>
-<li><strong>李想</strong>完成从汽车公司向「AI + 具身智能公司」的转型：自研马赫 M100 芯片、2560 TOPS 算力、全球首个完全体全线控底盘</li>
-<li><strong>flomo 少楠</strong>的真实困境：公司 70-80% 代码由 AI 贡献，开发周期从按月变成按小时，但效率上去了用户价值没跟上——「以前工程师烦死产品经理觉得需求太多，现在是产品经理不好意思提需求了。」16 人团队的协作重构比工具升级难得多。</li>
+<li>codex</li>
+<li>openai</li>
+<li>token-optimization</li>
+<li>cost-management</li>
+<li>subagent-routing</li>
+<li>model-tiering</li>
+<li>agent-harness</li>
+<li>gpt-5-6</li>
+<li>sol</li>
+<li>luna</li>
 </ul>
 <hr>
-<h2>20 篇精选文章列表</h2>
+<h1>Codex Pro 成本优化：从4小时烧完到48小时不触限</h1>
+<p>
+<strong>Author:</strong> Rahul (@sairahul1)
+<strong>Date:</strong> July 13, 2026
+<strong>Engagement:</strong> 33,697 views
+</p>
+<h2>Core Problem</h2>
+<p>
+You paid $200 for Codex Pro. You hit your limit in 4 hours of a 5-hour window.
+</p>
+<p>
+<strong>Root cause:</strong> When Codex spawns subagents, it copies the parent model exactly. Set Sol to Ultra? Every subagent also runs Sol Ultra. 3 subagents on one task = 3 Sol Ultra instances burning simultaneously.
+</p>
+<h2>The Ultra Trap</h2>
+<p>
+Ultra is not a reasoning level. It&#x27;s a <strong>multiplier</strong>.
+</p>
+<p>
+Ultra spawns 4 parallel sub-subagents inside a single agent call. On a simple task: subagents spawning subagents spawning more subagents. Recursive. Uncontrolled. Ruinously expensive.
+</p>
 <table>
 <thead><tr>
-<th>#</th>
-<th>标题</th>
-<th>来源</th>
-<th>字数</th>
+<th>Model</th>
+<th>Coding Benchmark</th>
+<th>Cost</th>
 </tr></thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Claude Code 在大型代码库中的运作方式</td>
-<td>Claude Blog</td>
-<td>2710</td>
+<td>Sol Ultra</td>
+<td>91.9%</td>
+<td>3x</td>
 </tr>
 <tr>
-<td>2</td>
-<td>使用 Claude 进行计算机和浏览器操作的最佳实践</td>
-<td>Claude Blog</td>
-<td>8431</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Claude Code 中的智能体视图</td>
-<td>Claude Blog</td>
-<td>398</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Codex 的 computer use</td>
-<td>OpenAI</td>
-<td>316</td>
-</tr>
-<tr>
-<td>5</td>
-<td>在 Windows 上为 Codex 构建安全有效的沙箱</td>
-<td>OpenAI</td>
-<td>3275</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Codex 负责人 Tibo Sio：Slash Goal 与 Auto Review</td>
-<td>OpenAI</td>
-<td>419</td>
-</tr>
-<tr>
-<td>7</td>
-<td>为生产级 AI 智能体构建评估框架</td>
-<td>Towards Data Science</td>
-<td>3758</td>
-</tr>
-<tr>
-<td>8</td>
-<td>构建支持暂停、恢复且永不丢失上下文的长时间运行 AI 智能体</td>
-<td>Google ADK</td>
-<td>2482</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Agent Skill 规范、构建与设计模式</td>
-<td>阿里云开发者</td>
-<td>10692</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Agent Infra 实践复盘：Kimi 如何搭建 Agent 数据库</td>
-<td>Founder Park</td>
-<td>3259</td>
-</tr>
-<tr>
-<td>11</td>
-<td>从零设计生产级 Multi-Agent Harness</td>
-<td>腾讯云开发者</td>
-<td>6359</td>
-</tr>
-<tr>
-<td>12</td>
-<td>AI-Generated UI 技术深度解析</td>
-<td>大淘宝技术</td>
-<td>7724</td>
-</tr>
-<tr>
-<td>13</td>
-<td>首个 Java Harness Framework</td>
-<td>阿里云开发者</td>
-<td>10327</td>
-</tr>
-<tr>
-<td>14</td>
-<td>AI Native 时代——研发组织何去何从</td>
-<td>阿里技术</td>
-<td>8252</td>
-</tr>
-<tr>
-<td>15</td>
-<td>如何打造能穿越时代的公司</td>
-<td>Lenny&#x27;s Podcast</td>
-<td>297</td>
-</tr>
-<tr>
-<td>16</td>
-<td>与张涛对话：Manus AI 的崛起</td>
-<td>Stripe</td>
-<td>374</td>
-</tr>
-<tr>
-<td>17</td>
-<td>Suno CEO Mikey Shulman</td>
-<td>Sequoia Capital</td>
-<td>454</td>
-</tr>
-<tr>
-<td>18</td>
-<td>对姚顺宇的 4 小时访谈</td>
-<td>张小珺</td>
-<td>1524</td>
-</tr>
-<tr>
-<td>19</td>
-<td>李想×罗永浩</td>
-<td>罗永浩的十字路口</td>
-<td>556</td>
-</tr>
-<tr>
-<td>20</td>
-<td>AI 让生产效率不再是瓶颈</td>
-<td>腾讯研究院</td>
-<td>9535</td>
+<td>Sol Extra High</td>
+<td>88.8%</td>
+<td>1x</td>
 </tr>
 </tbody></table>
+<p>
+3.1 extra points. 3x the cost. OpenAI didn&#x27;t even publish Ultra results for their two main coding benchmarks.
+</p>
+<p>
+<strong>Rule: Avoid Ultra entirely. Full stop.</strong>
+</p>
+<h2>3-Model System</h2>
+<h3>Sol Extra High → The Orchestrator</h3>
+<p>
+Plans. Architects. Delegates. Makes the hard decisions.
+</p>
+<p>
+Extra High gives you 58/100 on benchmarks. Max gives you 59/100. One point difference. Three times cheaper.
+</p>
+<h3>Sol Medium → The Executor</h3>
+<p>
+Writes code. Fixes bugs. Runs tests. Implements the plan.
+</p>
+<p>
+Sol Medium still beats Claude Fable 5 by 11.4 points on long-running agent workflows. At roughly a quarter of the cost.
+</p>
+<h3>Luna Extra High → The Scanner</h3>
+<p>
+File searches. Codebase exploration. Lightweight reads. Evidence gathering.
+</p>
+<p>
+Luna at Extra High:
+</p>
+<ul>
+<li>1.3x faster than Terra</li>
+<li>2.5x cheaper than Terra</li>
+<li>Same performance on lightweight tasks</li>
+</ul>
+<h2>Sol + Luna Routing Trick (48 hours, zero limits hit)</h2>
+<pre><code class="language-">
+→ Sol Extra High writes the plan
+→ Luna Extra High executes it
+→ Sol Extra High reviews the output
+</code></pre>
+<p>
+One loop. No recursive spawning. No Ultra clones burning in the background.
+</p>
+<h2>Critical Config: max_depth = 1</h2>
+<pre><code class="language-toml">
+[agents]
+max_threads = 6
+max_depth = 1
+</code></pre>
+<p>
+<code>max_depth = 1</code> is critical. It stops subagents from spawning their own subagents. One level of delegation. No recursive spawning. No runaway burns.
+</p>
+<h2>AGENTS.md Critical Setting</h2>
+<pre><code class="language-">
+Only spawn subagents when I explicitly ask you to.
+Do not spawn subagents automatically.
+</code></pre>
+<p>
+This stops Sol from eagerly spinning up agents on every task.
+</p>
+<h2>3 Agent Files</h2>
+<pre><code class="language-toml">
+# ~/.codex/agents/fast-scan.toml
+name = "fast_scan"
+description = "Quick searches, codebase exploration, lightweight read-only analysis."
+model = "gpt-5.6-luna"
+model_reasoning_effort = "extra-high"
+sandbox_mode = "read-only"
+developer_instructions = """
+Gather evidence quickly and return a concise summary.
+Do not edit files.
+"""
+
+# ~/.codex/agents/routine-worker.toml
+name = "routine_worker"
+description = "Routine coding, tests, documentation, and bounded fixes."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Implement the assigned bounded task and verify the result.
+"""
+
+# ~/.codex/agents/deep-worker.toml
+name = "deep_worker"
+description = "Difficult debugging, architecture, security, and ambiguous multi-step work."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "extra-high"
+developer_instructions = """
+Handle complex work carefully, validate assumptions,
+and provide strong verification.
+"""
+</code></pre>
+<h2>Effort Level Guide</h2>
+<table>
+<thead><tr>
+<th>Task</th>
+<th>Model</th>
+<th>Effort</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Simple fix</td>
+<td>Sol</td>
+<td>Low or Medium</td>
+</tr>
+<tr>
+<td>New feature</td>
+<td>Sol</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Hard problem</td>
+<td>Sol</td>
+<td>Extra High</td>
+</tr>
+<tr>
+<td>Fast scan</td>
+<td>Luna</td>
+<td>Extra High</td>
+</tr>
+<tr>
+<td>Never</td>
+<td>Ultra</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>
+Default for most developers: <strong>High</strong>. It&#x27;s plenty capable.
+</p>
+<p>
+Daily driver recommendation from Codex team: <strong>Sol Medium</strong>.
+</p>
+<h2>Stop Points Pattern</h2>
+<p>
+Tell the model exactly when to stop. Not vague. Not &quot;use your judgment.&quot; Explicit checkpoints. Clear handoffs.
+</p>
+<p>
+<strong>Planning tasks:</strong>
+</p>
+<pre><code class="language-">
+Build this new feature.
+Start by writing a plan only.
+When the plan is done, stop and ask for my feedback.
+Do not write any code yet.
+</code></pre>
+<p>
+<strong>Implementation tasks:</strong>
+</p>
+<pre><code class="language-">
+The plan looks great. Build it out now.
+Use computer use to test as you go.
+Keep going until tests pass and you're satisfied.
+Open a PR when done.
+Stop after the PR is open. I'll handle reviews from there.
+</code></pre>
+<p>
+<strong>Debugging:</strong>
+</p>
+<pre><code class="language-">
+Fix the bug in auth.ts.
+Read the file first. Write your diagnosis.
+Stop and show me the diagnosis before making changes.
+I'll confirm before you proceed.
+</code></pre>
+<h2>Benchmark Summary</h2>
+<table>
+<thead><tr>
+<th>Comparison</th>
+<th>Result</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Sol Extra High vs Max</td>
+<td>58 vs 59 pts. One point. 3x cheaper.</td>
+</tr>
+<tr>
+<td>Sol Medium vs Fable 5</td>
+<td>Sol Medium wins by 11.4 pts. 4x lower cost.</td>
+</tr>
+<tr>
+<td>Luna Extra High vs Terra</td>
+<td>Same perf. 1.3x faster. 2.5x cheaper.</td>
+</tr>
+<tr>
+<td>Ultra vs Extra High</td>
+<td>3.1 extra pts. 3x more expensive.</td>
+</tr>
+</tbody></table>
+<p>
+<strong>Pattern: one tier down = same quality, dramatically cheaper.</strong>
+</p>
+<h2>Before and After</h2>
+<p>
+<strong>Before:</strong>
+</p>
+<ul>
+<li>Sol Ultra running everything</li>
+<li>Subagents cloning parent model</li>
+<li>3 subagents = 3 Sol Ultra instances burning simultaneously</li>
+<li>5-hour window gone in 90 minutes</li>
+</ul>
+<p>
+<strong>After:</strong>
+</p>
+<ul>
+<li>Sol Extra High as orchestrator</li>
+<li>Sol Medium for implementation</li>
+<li>Luna Extra High for scanning</li>
+<li>max_depth = 1 stopping recursive spawning</li>
+<li>AGENTS.md telling Sol not to spawn agents automatically</li>
+<li>Stop points in every prompt</li>
+</ul>
+<p>
+<strong>Result: 48 hours of continuous work. Zero limit hits. Same $200 plan.</strong>
+</p>
+<h2>Setup Checklist</h2>
+<p>
+1. Open AGENTS.md. Add: &quot;Only spawn subagents when I explicitly ask you to.&quot;
+2. Create 3 agent TOML files under ~/.codex/agents/
+3. Set max_depth = 1 and max_threads = 6 in config.toml
+4. Switch default effort to Sol High (not Ultra)
+5. Add explicit stop points to every long-running prompt
+</p>
             </div>
         </article>
 
@@ -324,7 +409,7 @@ Anthropic 在 2025 年 12 月发布规范，半年里 33+ 个 Agent 产品接入
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            interactions.init('card', '2026-05-15-bestblogs-weekly-95-agent-engineering');
+            interactions.init('card', '2026-07-13-codex-pro-cost-optimization');
             
             // 根据登录状态显示/隐藏评论相关元素
             function updateCommentVisibility() {
@@ -361,12 +446,12 @@ Anthropic 在 2025 年 12 月发布规范，半年里 33+ 个 Agent 产品接入
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
                 // 先显示浏览次数
-                pageViews.displayViewCount('view-count', 'card', '2026-05-15-bestblogs-weekly-95-agent-engineering');
+                pageViews.displayViewCount('view-count', 'card', '2026-07-13-codex-pro-cost-optimization');
                 
                 // 等待 auth 初始化完成后再记录浏览
                 const trackWithAuth = () => {
                     if (typeof auth !== 'undefined' && auth.user !== undefined) {
-                        pageViews.trackView('card', '2026-05-15-bestblogs-weekly-95-agent-engineering');
+                        pageViews.trackView('card', '2026-07-13-codex-pro-cost-optimization');
                     } else {
                         // auth 还没初始化，等一下再试
                         setTimeout(trackWithAuth, 100);
