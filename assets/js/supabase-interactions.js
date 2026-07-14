@@ -116,8 +116,11 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    // 更新所有 like 按钮状态（header + 浮动工具栏）
-    const allLikeBtns = document.querySelectorAll('#like-btn, .like-btn');
+    // 更新所有 like 按钮状态（header counter + panel button）
+    const allLikeBtns = [
+      document.getElementById('like-counter'),
+      document.getElementById('like-btn')
+    ].filter(Boolean);
     allLikeBtns.forEach(btn => {
       if (liked) {
         btn.classList.add('active');
@@ -134,8 +137,11 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    // 更新所有 bookmark 按钮状态（header + 浮动工具栏）
-    const allBookmarkBtns = document.querySelectorAll('#bookmark-btn, .bookmark-btn');
+    // 更新所有 bookmark 按钮状态（header counter + panel button）
+    const allBookmarkBtns = [
+      document.getElementById('bookmark-counter'),
+      document.getElementById('bookmark-btn')
+    ].filter(Boolean);
     allBookmarkBtns.forEach(btn => {
       if (bookmarked) {
         btn.classList.add('active');
@@ -163,17 +169,17 @@ class SupabaseInteractions {
 
     // 乐观更新 + 禁用按钮
     likeBtn.classList.add('loading');
+    // 同时更新 header 按钮状态
+    const headerLikeBtn = document.getElementById('like-counter');
     if (isLiked) {
       likeBtn.classList.remove('active');
-      // 同步更新浮动工具栏
-      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.remove('active'));
+      headerLikeBtn?.classList.remove('active');
       const newCount = Math.max(0, currentCount - 1);
       this._updateAllCounts('like-count', newCount);
       this._updateAllCounts('.like-count', newCount);
     } else {
       likeBtn.classList.add('active');
-      // 同步更新浮动工具栏
-      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.add('active'));
+      headerLikeBtn?.classList.add('active');
       const newCount = currentCount + 1;
       this._updateAllCounts('like-count', newCount);
       this._updateAllCounts('.like-count', newCount);
@@ -202,7 +208,7 @@ class SupabaseInteractions {
       // 失败时回滚 UI
       console.error('Toggle like failed:', e);
       likeBtn.classList.toggle('active');
-      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.toggle('active'));
+      document.getElementById('like-counter')?.classList.toggle('active');
       this._updateAllCounts('like-count', currentCount);
       this._updateAllCounts('.like-count', currentCount);
     } finally {
@@ -229,17 +235,17 @@ class SupabaseInteractions {
 
     // 乐观更新 + 禁用按钮
     bookmarkBtn.classList.add('loading');
+    // 同时更新 header 按钮状态
+    const headerBookmarkBtn = document.getElementById('bookmark-counter');
     if (isBookmarked) {
       bookmarkBtn.classList.remove('active');
-      // 同步更新浮动工具栏
-      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.remove('active'));
+      headerBookmarkBtn?.classList.remove('active');
       const newCount = Math.max(0, currentCount - 1);
       this._updateAllCounts('bookmark-count', newCount);
       this._updateAllCounts('.bookmark-count', newCount);
     } else {
       bookmarkBtn.classList.add('active');
-      // 同步更新浮动工具栏
-      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.add('active'));
+      headerBookmarkBtn?.classList.add('active');
       const newCount = currentCount + 1;
       this._updateAllCounts('bookmark-count', newCount);
       this._updateAllCounts('.bookmark-count', newCount);
@@ -268,7 +274,7 @@ class SupabaseInteractions {
       // 失败时回滚 UI
       console.error('Toggle bookmark failed:', e);
       bookmarkBtn.classList.toggle('active');
-      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.toggle('active'));
+      document.getElementById('bookmark-counter')?.classList.toggle('active');
       this._updateAllCounts('bookmark-count', currentCount);
       this._updateAllCounts('.bookmark-count', currentCount);
     } finally {
