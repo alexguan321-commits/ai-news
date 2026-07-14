@@ -173,6 +173,10 @@ class SupabaseAuth {
   // 订阅变化
   onChange(callback) {
     this.listeners.push(callback);
+    // 如果已经登录，立即调用回调（解决竞态条件）
+    if (this.user) {
+      callback(this.user, this.profile);
+    }
   }
 
   notifyListeners() {
