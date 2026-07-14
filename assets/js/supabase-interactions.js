@@ -47,7 +47,21 @@ class SupabaseInteractions {
     }
   }
 
-  // 加载统计数据（点赞数、评论数）
+  // 更新所有匹配的选择器元素文本（支持 id 和 class）
+  _updateAllCounts(selectorOrId, value) {
+    const strValue = String(value);
+    // 先尝试 getElementById
+    const byId = document.getElementById(selectorOrId);
+    if (byId) byId.textContent = strValue;
+    // 再尝试 querySelectorAll（class 选择器如 .like-count）
+    if (selectorOrId.startsWith('.')) {
+      document.querySelectorAll(selectorOrId).forEach(el => {
+        el.textContent = strValue;
+      });
+    }
+  }
+
+  // 加载统计数据（点赞数、收藏数、评论数）
   async loadStats() {
     if (!this.contentType || !this.contentId) return;
 
@@ -58,9 +72,21 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    const likeCountEl = document.getElementById('like-count');
-    if (likeCountEl && likes !== null) {
-      likeCountEl.textContent = likes;
+    if (likes !== null) {
+      this._updateAllCounts('like-count', likes);
+      this._updateAllCounts('.like-count', likes);
+    }
+
+    // 收藏数
+    const { data: bookmarks } = await supabaseClient
+      .rpc('get_bookmark_count', {
+        p_content_type: this.contentType,
+        p_content_id: this.contentId
+      });
+    
+    if (bookmarks !== null) {
+      this._updateAllCounts('bookmark-count', bookmarks);
+      this._updateAllCounts('.bookmark-count', bookmarks);
     }
 
     // 评论数
@@ -70,15 +96,11 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    const commentCountEl = document.getElementById('comment-count');
-    if (commentCountEl && comments !== null) {
-      commentCountEl.textContent = comments;
-    }
-    
-    // 同步更新 header 中的计数器
-    const commentCountHeader = document.getElementById('comment-count-header');
-    if (commentCountHeader && comments !== null) {
-      commentCountHeader.textContent = comments;
+    if (comments !== null) {
+      this._updateAllCounts('comment-count', comments);
+      // 同步更新 header 中的计数器
+      const commentCountHeader = document.getElementById('comment-count-header');
+      if (commentCountHeader) commentCountHeader.textContent = comments;
     }
   }
 
@@ -94,10 +116,15 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    const likeBtn = document.getElementById('like-btn');
-    if (likeBtn && liked) {
-      likeBtn.classList.add('active');
-    }
+    // 更新所有 like 按钮状态（header + 浮动工具栏）
+    const allLikeBtns = document.querySelectorAll('#like-btn, .like-btn');
+    allLikeBtns.forEach(btn => {
+      if (liked) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
 
     // 是否已收藏
     const { data: bookmarked } = await supabaseClient
@@ -107,10 +134,15 @@ class SupabaseInteractions {
         p_content_id: this.contentId
       });
     
-    const bookmarkBtn = document.getElementById('bookmark-btn');
-    if (bookmarkBtn && bookmarked) {
-      bookmarkBtn.classList.add('active');
-    }
+    // 更新所有 bookmark 按钮状态（header + 浮动工具栏）
+    const allBookmarkBtns = document.querySelectorAll('#bookmark-btn, .bookmark-btn');
+    allBookmarkBtns.forEach(btn => {
+      if (bookmarked) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
   }
 
   // 切换点赞
@@ -133,10 +165,18 @@ class SupabaseInteractions {
     likeBtn.classList.add('loading');
     if (isLiked) {
       likeBtn.classList.remove('active');
-      if (likeCountEl) likeCountEl.textContent = Math.max(0, currentCount - 1);
+      // 同步更新浮动工具栏
+      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.remove('active'));
+      const newCount = Math.max(0, currentCount - 1);
+      this._updateAllCounts('like-count', newCount);
+      this._updateAllCounts('.like-count', newCount);
     } else {
       likeBtn.classList.add('active');
-      if (likeCountEl) likeCountEl.textContent = currentCount + 1;
+      // 同步更新浮动工具栏
+      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.add('active'));
+      const newCount = currentCount + 1;
+      this._updateAllCounts('like-count', newCount);
+      this._updateAllCounts('.like-count', newCount);
     }
 
     try {
@@ -162,7 +202,9 @@ class SupabaseInteractions {
       // 失败时回滚 UI
       console.error('Toggle like failed:', e);
       likeBtn.classList.toggle('active');
-      if (likeCountEl) likeCountEl.textContent = currentCount;
+      document.querySelectorAll('.like-btn').forEach(btn => btn.classList.toggle('active'));
+      this._updateAllCounts('like-count', currentCount);
+      this._updateAllCounts('.like-count', currentCount);
     } finally {
       likeBtn.classList.remove('loading');
       this._togglingLike = false;
@@ -179,16 +221,28 @@ class SupabaseInteractions {
     this._togglingBookmark = true;
 
     const bookmarkBtn = document.getElementById('bookmark-btn');
+    const bookmarkCountEl = document.getElementById('bookmark-count');
     if (!bookmarkBtn) { this._togglingBookmark = false; return; }
 
     const isBookmarked = bookmarkBtn.classList.contains('active');
+    const currentCount = parseInt(bookmarkCountEl?.textContent || '0');
 
     // 乐观更新 + 禁用按钮
     bookmarkBtn.classList.add('loading');
     if (isBookmarked) {
       bookmarkBtn.classList.remove('active');
+      // 同步更新浮动工具栏
+      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.remove('active'));
+      const newCount = Math.max(0, currentCount - 1);
+      this._updateAllCounts('bookmark-count', newCount);
+      this._updateAllCounts('.bookmark-count', newCount);
     } else {
       bookmarkBtn.classList.add('active');
+      // 同步更新浮动工具栏
+      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.add('active'));
+      const newCount = currentCount + 1;
+      this._updateAllCounts('bookmark-count', newCount);
+      this._updateAllCounts('.bookmark-count', newCount);
     }
 
     try {
@@ -214,6 +268,9 @@ class SupabaseInteractions {
       // 失败时回滚 UI
       console.error('Toggle bookmark failed:', e);
       bookmarkBtn.classList.toggle('active');
+      document.querySelectorAll('.bookmark-btn').forEach(btn => btn.classList.toggle('active'));
+      this._updateAllCounts('bookmark-count', currentCount);
+      this._updateAllCounts('.bookmark-count', currentCount);
     } finally {
       bookmarkBtn.classList.remove('loading');
       this._togglingBookmark = false;

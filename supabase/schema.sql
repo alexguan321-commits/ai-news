@@ -177,6 +177,13 @@ RETURNS INTEGER AS $$
   WHERE content_type = p_content_type AND content_id = p_content_id;
 $$ LANGUAGE SQL STABLE;
 
+-- 获取内容的收藏数
+CREATE OR REPLACE FUNCTION public.get_bookmark_count(p_content_type TEXT, p_content_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT COUNT(*)::INTEGER FROM public.bookmarks
+  WHERE content_type = p_content_type AND content_id = p_content_id;
+$$ LANGUAGE SQL STABLE;
+
 -- 获取内容的评论数
 CREATE OR REPLACE FUNCTION public.get_comment_count(p_content_type TEXT, p_content_id TEXT)
 RETURNS INTEGER AS $$
