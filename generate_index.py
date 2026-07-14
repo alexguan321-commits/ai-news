@@ -751,6 +751,9 @@ def generate_card_page(card, total_cards):
     """Generate an individual knowledge card HTML page."""
     md_text = card["filepath"].read_text(encoding="utf-8", errors="replace")
 
+    # Remove front matter before converting to HTML
+    md_text = re.sub(r"^---\s*\n.*?\n---\s*\n", "", md_text, count=1, flags=re.DOTALL)
+
     # Convert markdown to HTML
     content_html = simple_md_to_html(md_text)
     
