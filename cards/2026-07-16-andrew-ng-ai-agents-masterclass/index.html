@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="Prefill &amp; Decode in LLM Inference">
+    <meta property="og:title" content="Andrew Ng AI Agents Masterclass: 2小时免费课程">
     <meta property="og:description" content="Knowledge Card from AI Knowledge Base">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>Prefill &amp; Decode in LLM Inference - Knowledge Card</title>
+    <title>Andrew Ng AI Agents Masterclass: 2小时免费课程 - Knowledge Card</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -36,11 +36,11 @@
         <article class="card-content">
             <header class="card-header">
                 <span class="card-badge">Knowledge Card</span>
-                <h1>Prefill &amp; Decode in LLM Inference</h1>
+                <h1>Andrew Ng AI Agents Masterclass: 2小时免费课程</h1>
                 <div class="meta">
-                    <span class="author">Avi Chawla (@_avichawla)</span>
-                    <time>2026-06-29</time>
-                    
+                    <span class="author">@_vmlops</span>
+                    <time>2026-07-16 15:30:00</time>
+                    <span class="tag">AI Agents</span> | <span class="tag">Anthropic</span> | <span class="tag">Claude</span> | <span class="tag">Andrew Ng</span> | <span class="tag">Agent Skills</span> | <span class="tag">MCP</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
                         ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
@@ -52,100 +52,104 @@
                         💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
                     </button>
                 </div>
-                <p><a href='https://x.com/_avichawla/status/2071522418594861215' target='_blank'>Original ↗</a></p>
+                <p><a href='https://x.com/_vmlops/status/2077652116173426924' target='_blank'>Original ↗</a></p>
             </header>
 
             <div class="content">
-                <h1>Prefill &amp; Decode in LLM Inference</h1>
+                <h1>Andrew Ng AI Agents Masterclass: 2小时免费课程</h1>
+<blockquote><p><strong>Andrew Ng（吴恩达）发布了免费的 2 小时 masterclass，专门讲解如何使用 Anthropic 的 Claude 构建 AI agents。这标志着 AI agent 开发从理论研究进入实战部署阶段。</strong></p></blockquote>
+<h2>📚 课程核心内容</h2>
+<h3>1. Build reusable agent skills with Claude</h3>
+<ul>
+<li>创建可复用的 agent 技能模块</li>
+<li>技能封装和抽象</li>
+</ul>
+<h3>2. Use Anthropic&#x27;s built-in skills</h3>
+<ul>
+<li>利用 Anthropic 预置的技能系统</li>
+<li>开箱即用的 agent 能力</li>
+</ul>
+<h3>3. Understand skills vs MCP, tools &amp; subagents</h3>
+<ul>
+<li><strong>Skills</strong>：可复用的高级能力模块</li>
+<li><strong>MCP (Model Context Protocol)</strong>：标准化的工具调用协议</li>
+<li><strong>Tools</strong>：具体的工具实现</li>
+<li><strong>Subagents</strong>：子 agent 协调</li>
+</ul>
+<h3>4. Design long-running autonomous agents</h3>
+<ul>
+<li>长时间运行的自主 agent 架构</li>
+<li>状态管理和容错机制</li>
+</ul>
+<h2>🎯 Skills vs MCP vs Tools vs Subagents</h2>
+<table>
+<thead><tr>
+<th>概念</th>
+<th>定义</th>
+<th>使用场景</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Skills</strong></td>
+<td>可复用的高级能力模块</td>
+<td>复杂任务的抽象和封装</td>
+</tr>
+<tr>
+<td><strong>MCP</strong></td>
+<td>标准化工具调用协议</td>
+<td>跨模型/跨平台的工具互操作</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>具体的工具实现</td>
+<td>文件操作、API 调用、计算等</td>
+</tr>
+<tr>
+<td><strong>Subagents</strong></td>
+<td>子 agent 协调</td>
+<td>多 agent 协作、任务分解</td>
+</tr>
+</tbody></table>
+<h2>💡 对 FDE 模式的启示</h2>
 <p>
-<strong>Author:</strong> Avi Chawla (@_avichawla)
-<strong>Source:</strong> <a href="https://x.com/_avichawla/status/2071522418594861215" target="_blank" rel="noopener noreferrer">https://x.com/_avichawla/status/2071522418594861215</a>
-<strong>Date:</strong> 2026-06-29
-<strong>Type:</strong> X Thread + Article
-<strong>Extracted via:</strong> Chrome AppleScript (auto-cleanup)
+1. <strong>Agent Skills 是 FDE 的核心能力</strong>
 </p>
+<ul>
+<li>FDE 需要快速构建可复用的 agent 技能</li>
+<li>Anthropic 的 skills 系统提供了标准化框架</li>
+</ul>
+<p>
+2. <strong>MCP 是工具互操作的标准</strong>
+</p>
+<ul>
+<li>FDE 应该采用 MCP 协议确保工具的可移植性</li>
+<li>避免 vendor lock-in</li>
+</ul>
+<p>
+3. <strong>长时间运行 agent 是生产级应用的关键</strong>
+</p>
+<ul>
+<li>从 demo 到 production 需要容错和监控</li>
+<li>FDE 需要掌握 agent 运维技能</li>
+</ul>
+<h2>🚀 创业机会</h2>
+<p>
+1. <strong>Agent Skills 市场</strong> — 可复用的 skills 可以形成 marketplace
+2. <strong>MCP 工具集成服务</strong> — 帮助企业将现有系统封装为 MCP 工具
+3. <strong>Agent 运维平台</strong> — 监控、调试、优化长时间运行的 agents
+</p>
+<h2>🔗 知识关联</h2>
+<ul>
+<li><strong>FDE 模式</strong>：Agent skills 是 FDE 快速交付业务价值的核心能力</li>
+<li><strong>Loop Engineering</strong>：长时间运行 agent 需要 loop 设计和状态管理</li>
+<li><strong>Context Engineering</strong>：Agent 的上下文管理是成功的关键</li>
+<li><strong>Ontology</strong>：Skills 的分类和组织需要知识图谱支持</li>
+</ul>
 <hr>
 <p>
-Have you ever noticed that the first token from an LLM always takes a moment to appear? But the subsequent tokens stream out smoothly?
-</p>
-<p>
-That pause isn&#x27;t a network lag, but rather it&#x27;s a structural property of how LLMs fundamentally work.
-</p>
-<p>
-Inference happens in two phases that share the same model and the same code path, but the workload looks completely different in each, with different bottlenecks.
-</p>
-<h2>Prefill Stage</h2>
-<p>
-Prefill stage starts when you submit a prompt.
-</p>
-<p>
-The model processes every input token in one parallel pass, computing Q, K, and V for all of them at once.
-</p>
-<p>
-Attention runs as a matrix multiplication, and the GPU chips run at high utilization, doing fast math.
-</p>
-<p>
-<strong>Prefill is compute-bound</strong>, and the metric that captures it is <strong>time-to-first-token (TTFT)</strong>.
-</p>
-<h2>Decode Stage</h2>
-<p>
-Decode stage starts once the first token is out.
-</p>
-<p>
-To generate the next one, the model only computes Q, K, and V for that single new token, because everything before it is already cached.
-</p>
-<p>
-So the model loops one token per forward pass, multiplying a single query against the cached keys instead of a full matrix. This makes the inference fast due to the tiny computation.
-</p>
-<p>
-But the GPU still has to load every weight and every cached entry from memory to do that tiny computation, so the bottleneck flips and compute sits idle while memory bandwidth becomes the limiting factor.
-</p>
-<p>
-<strong>Decode is memory-bound</strong>, and the metric that captures it is <strong>inter-token latency (ITL)</strong>.
-</p>
-<h2>Key Insights</h2>
-<ul>
-<li>GPU utilization peaks during prefill and drops sharply during decode because memory, not compute, is the bottleneck in the second phase.</li>
-</ul>
-<ul>
-<li>Throwing more compute at a slow-streaming model often does nothing because the fix for memory-bound workloads is faster memory or a smaller cache, not more FLOPs.</li>
-</ul>
-<ul>
-<li>Long contexts feel disproportionately slow because the KV cache grows with every token, and every decode step has to read all of it.</li>
-</ul>
-<h2>KV Cache</h2>
-<p>
-Maintaining the cache is an important optimization since it makes decoding viable.
-</p>
-<ul>
-<li><strong>Without KV cache:</strong> every new token would force a recomputation of attention over the entire growing sequence.</li>
-<li><strong>With KV cache:</strong> the cache is built once during prefill, then grows by exactly one entry per decode step, with existing entries reused rather than recomputed.</li>
-</ul>
-<p>
-The cache lives in GPU memory and grows linearly with sequence length, so a <strong>13B model roughly requires 1 MB per token</strong>, which means a <strong>4K context consumes 4 GB of VRAM on the cache alone</strong>.
-</p>
-<h2>Current Optimizations</h2>
-<p>
-The entire field is now optimizing around this constraint with:
-</p>
-<ul>
-<li>Quantized caches</li>
-<li>Sliding windows</li>
-<li>Grouped-query attention</li>
-<li>PagedAttention</li>
-<li>DeepSeek&#x27;s V4 series redesigns attention itself so the cache stays small from the start</li>
-</ul>
-<h2>Practical Takeaway</h2>
-<p>
-When someone says their model feels slow, the first question is whether it&#x27;s <strong>slow to start</strong> or <strong>slow to stream</strong>.
-</p>
-<ul>
-<li><strong>Slow to start</strong> = prefill = compute bottleneck</li>
-<li><strong>Slow to stream</strong> = decode = memory bottleneck</li>
-</ul>
-<hr>
-<p>
-<strong>Stats:</strong> 19.4K views | 219 likes | 35 reposts
+<strong>原文链接</strong>: <a href="https://x.com/_vmlops/status/2077652116173426924" target="_blank" rel="noopener noreferrer">https://x.com/_vmlops/status/2077652116173426924</a>
+<strong>入库时间</strong>: 2026-07-16 15:30 CST
+<strong>Wiki</strong>: ~/LLM_WIKI/wiki/concepts/andrew-ng-ai-agents-masterclass.md
 </p>
             </div>
         </article>
@@ -217,7 +221,7 @@ When someone says their model feels slow, the first question is whether it&#x27;
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            interactions.init('card', '2026-06-29-llm-inference-prefill-decode');
+            interactions.init('card', '2026-07-16-andrew-ng-ai-agents-masterclass');
             
             // 根据登录状态显示/隐藏评论相关元素
             function updateCommentVisibility() {
@@ -254,12 +258,12 @@ When someone says their model feels slow, the first question is whether it&#x27;
             // 浏览统计 - 等待 auth 完成 session 检查
             if (typeof pageViews !== 'undefined') {
                 // 先显示浏览次数
-                pageViews.displayViewCount('view-count', 'card', '2026-06-29-llm-inference-prefill-decode');
+                pageViews.displayViewCount('view-count', 'card', '2026-07-16-andrew-ng-ai-agents-masterclass');
                 
                 // 等待 auth 初始化完成后再记录浏览
                 const trackWithAuth = () => {
                     if (typeof auth !== 'undefined' && auth.user !== undefined) {
-                        pageViews.trackView('card', '2026-06-29-llm-inference-prefill-decode');
+                        pageViews.trackView('card', '2026-07-16-andrew-ng-ai-agents-masterclass');
                     } else {
                         // auth 还没初始化，等一下再试
                         setTimeout(trackWithAuth, 100);
