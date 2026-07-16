@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta property="og:title" content="🛠️ AI Tools Hub - Alex Guan's AI Knowledge Base">
+    <meta property="og:description" content="Curated AI tools for developers, researchers, and creators. Find the best AI tools for coding, data analysis, productivity and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexguan321-commits.github.io/ai-news/tools/">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>🛠️ AI Tools Hub - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../styles.css?v=20260712d">
+    <link rel="stylesheet" href="../assets/css/supabase.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="../assets/js/supabase-config.js"></script>
+    <script src="../assets/js/supabase-utils.js" defer></script>
+    <script src="../assets/js/supabase-auth.js" defer></script>
+    <style>
+        .tools-hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+        .tools-hero h1 { font-size: 28px; margin-bottom: 8px; }
+        .tools-hero p { color: rgba(255,255,255,0.6); font-size: 15px; }
+
+        /* Search */
+        .tools-search {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .tools-search input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            box-sizing: border-box;
+        }
+        .tools-search input:focus {
+            border-color: rgba(99,102,241,0.6);
+            background: rgba(255,255,255,0.1);
+        }
+        .tools-search input::placeholder { color: rgba(255,255,255,0.4); }
+        .tools-search .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.5;
+        }
+        .tools-search .search-count {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Tags filter */
+        .tools-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            max-width: 900px;
+            margin: 16px auto 24px;
+            padding: 0 16px;
+        }
+        .tools-tag {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tools-tag:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .tools-tag.active {
+            background: rgba(99,102,241,0.3);
+            border-color: rgba(99,102,241,0.6);
+            color: #fff;
+        }
+
+        /* Stats bar */
+        .tools-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .tools-stat {
+            text-align: center;
+        }
+        .tools-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .tools-stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+        }
+
+        /* Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px 40px;
+        }
+
+        /* Card */
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            position: relative;
+        }
+        .tool-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .tool-card.featured {
+            border-color: rgba(234,179,8,0.3);
+        }
+        .tool-card.featured::before {
+            content: '⭐';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 14px;
+        }
+        .tool-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .tool-card-icon {
+            font-size: 32px;
+            line-height: 1;
+        }
+        .tool-card-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+        }
+        .tool-card-platform {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .tool-card-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .tool-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .tool-card-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(99,102,241,0.15);
+            color: rgba(99,102,241,0.9);
+            font-size: 11px;
+        }
+        .tool-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .tool-card-pricing {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .tool-card-pricing.free { background: rgba(34,197,94,0.15); color: #4ade80; }
+        .tool-card-pricing.freemium { background: rgba(234,179,8,0.15); color: #fbbf24; }
+        .tool-card-pricing.paid { background: rgba(239,68,68,0.15); color: #f87171; }
+        .tool-card-likes {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Modal */
+        .tool-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+        .tool-modal-overlay.active { display: flex; }
+        .tool-modal {
+            background: #1e293b;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            max-width: 560px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 28px;
+            position: relative;
+        }
+        .tool-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        .tool-modal-close:hover { color: #fff; }
+        .tool-modal-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .tool-modal-icon { font-size: 48px; }
+        .tool-modal-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .tool-modal-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .tool-modal-desc {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .tool-modal-section {
+            margin-bottom: 20px;
+        }
+        .tool-modal-section h3 {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            margin: 0 0 10px;
+            letter-spacing: 0.5px;
+        }
+        .tool-install-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .tool-install-cmd {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            color: #4ade80;
+            word-break: break-all;
+            flex: 1;
+        }
+        .tool-install-copy {
+            background: rgba(99,102,241,0.2);
+            border: 1px solid rgba(99,102,241,0.4);
+            color: #a5b4fc;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .tool-install-copy:hover {
+            background: rgba(99,102,241,0.3);
+        }
+        .tool-install-copy.copied {
+            background: rgba(34,197,94,0.2);
+            border-color: rgba(34,197,94,0.4);
+            color: #4ade80;
+        }
+        .tool-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .tool-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #a5b4fc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .tool-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .tool-link-icon { font-size: 18px; }
+        .tool-actions {
+            display: flex;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .tool-action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tool-action-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .tool-action-btn.active {
+            background: rgba(99,102,241,0.2);
+            border-color: rgba(99,102,241,0.4);
+            color: #a5b4fc;
+        }
+
+        /* No results */
+        .tools-no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.5);
+            grid-column: 1 / -1;
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .tools-hero h1 { font-size: 22px; }
+            .tool-modal { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="/ai-news/" class="logo-mobile">AI News</a>
+        <div class="nav-stats">
+            <div><a href="/ai-news/tools/" style="color:inherit;text-decoration:none;">🛠️ Tools</a></div>
+            <div><a href="/ai-news/bookmarks/" style="color:inherit;text-decoration:none;">⭐ Bookmarks</a></div>
+        </div>
+        <div id="auth-container">
+            <button class="login-btn" onclick="auth.showLoginModal()">登录</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="tools-hero">
+            <h1>🛠️ AI Tools Hub</h1>
+            <p>Curated AI tools for developers, researchers, and creators</p>
+        </section>
+
+        <div class="tools-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="toolsSearchInput" placeholder="Search tools by name, description, or tag..." autocomplete="off" aria-label="Search AI tools">
+            <span id="toolsSearchCount" class="search-count"></span>
+        </div>
+
+        <div class="tools-tags" id="toolsTags">
+            <button class="tools-tag active" data-tag="all">All</button>
+        </div>
+
+        <div class="tools-stats" id="toolsStats"></div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <p style="text-align:center;color:rgba(255,255,255,0.5);grid-column:1/-1;">Loading tools...</p>
+        </div>
+    </main>
+
+    <!-- Tool Detail Modal -->
+    <div class="tool-modal-overlay" id="toolModal">
+        <div class="tool-modal" id="toolModalContent">
+            <button class="tool-modal-close" onclick="closeToolModal()">×</button>
+            <div id="toolModalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p><a href="/ai-news/">← Back to Home</a></p>
+        <p>AI Intelligence Daily — Auto-collected, analyzed, and generated by Hermes Agent</p>
+    </footer>
+
+    <script>
+    (function() {
+        let allTools = [];
+        let allTags = {};
+        let activeTag = 'all';
+        let searchQuery = '';
+        let toolLikes = {};  // tool_id -> count
+        let userLikedTools = new Set();
+        let userBookmarkedTools = new Set();
+
+        // Load tools data
+        async function loadTools() {
+            try {
+                // Support both local dev (root) and GitHub Pages (/ai-news/)
+                const basePath = window.location.pathname.includes('/ai-news/') ? '/ai-news' : '';
+                const resp = await fetch(basePath + '/_data/tools.json');
+                const data = await resp.json();
+                allTools = data.tools;
+                allTags = data.tags;
+                renderTags();
+                renderStats();
+                renderTools();
+                loadToolLikes();
+            } catch (e) {
+                console.error('Failed to load tools:', e);
+                document.getElementById('toolsGrid').innerHTML = 
+                    '<p class="tools-no-results">Failed to load tools data.</p>';
+            }
+        }
+
+        // Load likes from Supabase
+        async function loadToolLikes() {
+            try {
+                // Load like counts for all tools
+                for (const tool of allTools) {
+                    try {
+                        const { data, error } = await supabaseClient
+                            .rpc('get_tool_like_count', { tool_id_param: tool.id });
+                        if (!error && data !== null) {
+                            toolLikes[tool.id] = data;
+                        } else {
+                            toolLikes[tool.id] = 0;
+                        }
+                    } catch(e) {
+                        toolLikes[tool.id] = 0;
+                    }
+                }
+
+                // Load user's liked/bookmarked tools if logged in
+                if (auth && auth.isLoggedIn() && auth.user) {
+                    const { data: likes } = await supabaseClient
+                        .from('tool_likes')
+                        .select('tool_id')
+                        .eq('user_id', auth.user.id);
+                    if (likes) {
+                        userLikedTools = new Set(likes.map(l => l.tool_id));
+                    }
+
+                    const { data: bookmarks } = await supabaseClient
+                        .from('tool_bookmarks')
+                        .select('tool_id')
+                        .eq('user_id', auth.user.id);
+                    if (bookmarks) {
+                        userBookmarkedTools = new Set(bookmarks.map(b => b.tool_id));
+                    }
+                }
+
+                renderTools();
+            } catch(e) {
+                console.warn('Failed to load tool likes:', e);
+                renderTools();
+            }
+        }
+
+        // Render tags
+        function renderTags() {
+            const container = document.getElementById('toolsTags');
+            // Collect used tags
+            const usedTags = new Set();
+            allTools.forEach(t => t.tags.forEach(tag => usedTags.add(tag)));
+
+            let html = '<button class="tools-tag active" data-tag="all">All</button>';
+            Object.entries(allTags).forEach(([key, label]) => {
+                if (usedTags.has(key)) {
+                    html += `<button class="tools-tag" data-tag="${key}">${label}</button>`;
+                }
+            });
+            container.innerHTML = html;
+
+            container.querySelectorAll('.tools-tag').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    container.querySelectorAll('.tools-tag').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeTag = btn.dataset.tag;
+                    renderTools();
+                });
+            });
+        }
+
+        // Render stats
+        function renderStats() {
+            const total = allTools.length;
+            const free = allTools.filter(t => t.pricing === 'free').length;
+            const featured = allTools.filter(t => t.featured).length;
+            const tags = new Set();
+            allTools.forEach(t => t.tags.forEach(tag => tags.add(tag)));
+
+            document.getElementById('toolsStats').innerHTML = `
+                <div class="tools-stat">
+                    <div class="tools-stat-value">${total}</div>
+                    <div class="tools-stat-label">Tools</div>
+                </div>
+                <div class="tools-stat">
+                    <div class="tools-stat-value">${tags.size}</div>
+                    <div class="tools-stat-label">Categories</div>
+                </div>
+                <div class="tools-stat">
+                    <div class="tools-stat-value">${free}</div>
+                    <div class="tools-stat-label">Free</div>
+                </div>
+                <div class="tools-stat">
+                    <div class="tools-stat-value">${featured}</div>
+                    <div class="tools-stat-label">Featured</div>
+                </div>
+            `;
+        }
+
+        // Filter tools
+        function getFilteredTools() {
+            return allTools.filter(tool => {
+                // Tag filter
+                if (activeTag !== 'all' && !tool.tags.includes(activeTag)) return false;
+                // Search filter
+                if (searchQuery) {
+                    const q = searchQuery.toLowerCase();
+                    const haystack = [
+                        tool.name,
+                        tool.description,
+                        tool.platform,
+                        ...tool.tags,
+                        ...(tool.tags.map(t => allTags[t] || ''))
+                    ].join(' ').toLowerCase();
+                    return haystack.includes(q);
+                }
+                return true;
+            });
+        }
+
+        // Render tools grid
+        function renderTools() {
+            const filtered = getFilteredTools();
+            const container = document.getElementById('toolsGrid');
+            const countEl = document.getElementById('toolsSearchCount');
+            countEl.textContent = `${filtered.length} / ${allTools.length}`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<p class="tools-no-results">No tools found. Try a different search or tag.</p>';
+                return;
+            }
+
+            // Sort: featured first, then by date
+            const sorted = [...filtered].sort((a, b) => {
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return (b.added_date || '').localeCompare(a.added_date || '');
+            });
+
+            container.innerHTML = sorted.map(tool => {
+                const likes = toolLikes[tool.id] || 0;
+                const pricingLabel = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
+                const tagHtml = tool.tags.slice(0, 4).map(t => 
+                    `<span class="tool-card-tag">${allTags[t] || t}</span>`
+                ).join('');
+
+                return `
+                    <div class="tool-card ${tool.featured ? 'featured' : ''}" onclick="openToolModal('${tool.id}')">
+                        <div class="tool-card-header">
+                            <span class="tool-card-icon">${tool.icon}</span>
+                            <div>
+                                <h3 class="tool-card-name">${tool.name}</h3>
+                                <span class="tool-card-platform">${tool.platform}</span>
+                            </div>
+                        </div>
+                        <p class="tool-card-desc">${tool.description}</p>
+                        <div class="tool-card-tags">${tagHtml}</div>
+                        <div class="tool-card-footer">
+                            <span class="tool-card-pricing ${tool.pricing}">${pricingLabel[tool.pricing] || tool.pricing}</span>
+                            <span class="tool-card-likes">❤️ ${likes}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Search
+        document.getElementById('toolsSearchInput').addEventListener('input', function(e) {
+            searchQuery = e.target.value.trim();
+            renderTools();
+        });
+
+        // Modal
+        window.openToolModal = function(toolId) {
+            const tool = allTools.find(t => t.id === toolId);
+            if (!tool) return;
+
+            const likes = toolLikes[tool.id] || 0;
+            const isLiked = userLikedTools.has(tool.id);
+            const isBookmarked = userBookmarkedTools.has(tool.id);
+            const pricingLabel = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
+
+            // Build links
+            let linksHtml = '';
+            if (tool.links) {
+                const linkIcons = {
+                    github: '🐙', docs: '📖', website: '🌐', skill_sh: '🔧', clawhub: '🦞'
+                };
+                const linkLabels = {
+                    github: 'GitHub', docs: 'Documentation', website: 'Website',
+                    skill_sh: 'Skill.sh', clawhub: 'ClawHub'
+                };
+                Object.entries(tool.links).forEach(([key, url]) => {
+                    linksHtml += `
+                        <a href="${url}" target="_blank" rel="noopener" class="tool-link">
+                            <span class="tool-link-icon">${linkIcons[key] || '🔗'}</span>
+                            ${linkLabels[key] || key}
+                        </a>
+                    `;
+                });
+            }
+
+            // Build tags
+            const tagHtml = tool.tags.map(t => 
+                `<span class="tool-card-tag">${allTags[t] || t}</span>`
+            ).join('');
+
+            document.getElementById('toolModalBody').innerHTML = `
+                <div class="tool-modal-header">
+                    <span class="tool-modal-icon">${tool.icon}</span>
+                    <div>
+                        <h2 class="tool-modal-name">${tool.name}</h2>
+                        <div class="tool-modal-meta">
+                            <span class="tool-card-platform">${tool.platform}</span>
+                            <span class="tool-card-pricing ${tool.pricing}">${pricingLabel[tool.pricing] || tool.pricing}</span>
+                            ${tool.featured ? '<span style="font-size:12px;color:#fbbf24;">⭐ Featured</span>' : ''}
+                        </div>
+                    </div>
+                </div>
+                <p class="tool-modal-desc">${tool.description}</p>
+                <div class="tool-modal-section" style="margin-bottom:12px;">
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">${tagHtml}</div>
+                </div>
+                <div class="tool-modal-section">
+                    <h3>📦 Install</h3>
+                    <div class="tool-install-box">
+                        <code class="tool-install-cmd">${tool.install.command}</code>
+                        <button class="tool-install-copy" onclick="copyInstall(this, '${tool.install.command.replace(/'/g, "\\'")}')">📋 Copy</button>
+                    </div>
+                </div>
+                ${linksHtml ? `
+                <div class="tool-modal-section">
+                    <h3>🔗 Links</h3>
+                    <div class="tool-links">${linksHtml}</div>
+                </div>
+                ` : ''}
+                <div class="tool-actions">
+                    <button class="tool-action-btn ${isLiked ? 'active' : ''}" id="modalLikeBtn" onclick="toggleToolLike('${tool.id}')">
+                        ❤️ <span id="modalLikeCount">${likes}</span> Like
+                    </button>
+                    <button class="tool-action-btn ${isBookmarked ? 'active' : ''}" id="modalBookmarkBtn" onclick="toggleToolBookmark('${tool.id}')">
+                        🔖 Bookmark
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('toolModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeToolModal = function() {
+            document.getElementById('toolModal').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // Close modal on overlay click
+        document.getElementById('toolModal').addEventListener('click', function(e) {
+            if (e.target === this) closeToolModal();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeToolModal();
+        });
+
+        // Copy install command
+        window.copyInstall = function(btn, cmd) {
+            navigator.clipboard.writeText(cmd).then(() => {
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        };
+
+        // Toggle like
+        window.toggleToolLike = async function(toolId) {
+            if (!auth || !auth.isLoggedIn()) {
+                auth.showLoginModal();
+                return;
+            }
+
+            const btn = document.getElementById('modalLikeBtn');
+            const countEl = document.getElementById('modalLikeCount');
+            const isLiked = userLikedTools.has(toolId);
+
+            try {
+                if (isLiked) {
+                    await supabaseClient.from('tool_likes').delete()
+                        .eq('user_id', auth.user.id).eq('tool_id', toolId);
+                    userLikedTools.delete(toolId);
+                    toolLikes[toolId] = Math.max(0, (toolLikes[toolId] || 1) - 1);
+                } else {
+                    await supabaseClient.from('tool_likes').insert({
+                        user_id: auth.user.id, tool_id: toolId
+                    });
+                    userLikedTools.add(toolId);
+                    toolLikes[toolId] = (toolLikes[toolId] || 0) + 1;
+                }
+                btn.classList.toggle('active');
+                countEl.textContent = toolLikes[toolId];
+                renderTools();
+            } catch(e) {
+                console.error('Like failed:', e);
+            }
+        };
+
+        // Toggle bookmark
+        window.toggleToolBookmark = async function(toolId) {
+            if (!auth || !auth.isLoggedIn()) {
+                auth.showLoginModal();
+                return;
+            }
+
+            const btn = document.getElementById('modalBookmarkBtn');
+            const isBookmarked = userBookmarkedTools.has(toolId);
+
+            try {
+                if (isBookmarked) {
+                    await supabaseClient.from('tool_bookmarks').delete()
+                        .eq('user_id', auth.user.id).eq('tool_id', toolId);
+                    userBookmarkedTools.delete(toolId);
+                } else {
+                    await supabaseClient.from('tool_bookmarks').insert({
+                        user_id: auth.user.id, tool_id: toolId
+                    });
+                    userBookmarkedTools.add(toolId);
+                }
+                btn.classList.toggle('active');
+            } catch(e) {
+                console.error('Bookmark failed:', e);
+            }
+        };
+
+        // Init
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTools();
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function(user) {
+                    if (user) loadToolLikes();
+                });
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
