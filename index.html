@@ -73,6 +73,7 @@
             <div class="tab-nav" role="tablist">
                 <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (46)</button>
                 <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards (51)</button>
+                <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (10)</button>
             </div>
 
             <div class="tab-content active" id="reports-tab">
@@ -1018,6 +1019,20 @@
                     </div>
                 </section>
             </div>
+
+            <div class="tab-content" id="tools-tab">
+                <div class="tools-search-inline">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="inlineToolsSearch" placeholder="Search AI tools..." autocomplete="off">
+                    <span id="inlineToolsCount" class="search-count"></span>
+                </div>
+                <div class="tools-tags-inline" id="inlineToolsTags">
+                    <button class="filter-tag active" data-tag="all">All</button>
+                </div>
+                <div class="tools-grid-inline" id="inlineToolsGrid">
+                    <p style="text-align:center;color:rgba(255,255,255,0.5);">Loading tools...</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -1171,6 +1186,216 @@
                 filterContent();
             }
         });
+    })();
+
+    // ── Tools Tab ────────────────────────────────────────────────
+    (function() {
+        let inlineTools = [];
+        let inlineTags = {};
+        let inlineActiveTag = 'all';
+        let inlineSearchQuery = '';
+        let inlineToolLikes = {};
+
+        async function loadInlineTools() {
+            try {
+                const resp = await fetch('/ai-news/_data/tools.json');
+                const data = await resp.json();
+                inlineTools = data.tools;
+                inlineTags = data.tags;
+                renderInlineTags();
+                renderInlineTools();
+                loadInlineToolLikes();
+            } catch (e) {
+                document.getElementById('inlineToolsGrid').innerHTML = 
+                    '<p style="text-align:center;color:rgba(255,255,255,0.5);">Failed to load tools.</p>';
+            }
+        }
+
+        async function loadInlineToolLikes() {
+            for (const tool of inlineTools) {
+                try {
+                    const { data, error } = await supabaseClient
+                        .rpc('get_tool_like_count', { tool_id_param: tool.id });
+                    inlineToolLikes[tool.id] = (!error && data !== null) ? data : 0;
+                } catch(e) {
+                    inlineToolLikes[tool.id] = 0;
+                }
+            }
+            renderInlineTools();
+        }
+
+        function renderInlineTags() {
+            const container = document.getElementById('inlineToolsTags');
+            const usedTags = new Set();
+            inlineTools.forEach(t => t.tags.forEach(tag => usedTags.add(tag)));
+            let html = '<button class="filter-tag active" data-tag="all">All</button>';
+            Object.entries(inlineTags).forEach(([key, label]) => {
+                if (usedTags.has(key)) {
+                    html += `<button class="filter-tag" data-tag="${key}">${label}</button>`;
+                }
+            });
+            container.innerHTML = html;
+            container.querySelectorAll('.filter-tag').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    container.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    inlineActiveTag = btn.dataset.tag;
+                    renderInlineTools();
+                });
+            });
+        }
+
+        function getFilteredInlineTools() {
+            return inlineTools.filter(tool => {
+                if (inlineActiveTag !== 'all' && !tool.tags.includes(inlineActiveTag)) return false;
+                if (inlineSearchQuery) {
+                    const q = inlineSearchQuery.toLowerCase();
+                    const haystack = [tool.name, tool.description, tool.platform, ...tool.tags, ...(tool.tags.map(t => inlineTags[t] || ''))].join(' ').toLowerCase();
+                    return haystack.includes(q);
+                }
+                return true;
+            });
+        }
+
+        function renderInlineTools() {
+            const filtered = getFilteredInlineTools();
+            const container = document.getElementById('inlineToolsGrid');
+            const countEl = document.getElementById('inlineToolsCount');
+            if (countEl) countEl.textContent = `${filtered.length} / ${inlineTools.length}`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.5);grid-column:1/-1;">No tools found.</p>';
+                return;
+            }
+
+            const sorted = [...filtered].sort((a, b) => {
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return (b.added_date || '').localeCompare(a.added_date || '');
+            });
+
+            const pricingLabel = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
+
+            container.innerHTML = sorted.map(tool => {
+                const likes = inlineToolLikes[tool.id] || 0;
+                const tagHtml = tool.tags.slice(0, 3).map(t => 
+                    `<span class="tool-card-tag-inline">${inlineTags[t] || t}</span>`
+                ).join('');
+
+                return `
+                    <div class="tool-card-inline ${tool.featured ? 'featured' : ''}" onclick="openInlineToolModal('${tool.id}')">
+                        <div class="tool-card-header-inline">
+                            <span class="tool-card-icon-inline">${tool.icon}</span>
+                            <div>
+                                <h3 class="tool-card-name-inline">${tool.name}</h3>
+                                <span class="tool-card-platform-inline">${tool.platform}</span>
+                            </div>
+                        </div>
+                        <p class="tool-card-desc-inline">${tool.description}</p>
+                        <div class="tool-card-tags-inline">${tagHtml}</div>
+                        <div class="tool-card-footer-inline">
+                            <span class="tool-card-pricing-inline ${tool.pricing}">${pricingLabel[tool.pricing] || tool.pricing}</span>
+                            <span class="tool-card-likes-inline">❤️ ${likes}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Search
+        const inlineSearchInput = document.getElementById('inlineToolsSearch');
+        if (inlineSearchInput) {
+            inlineSearchInput.addEventListener('input', function(e) {
+                inlineSearchQuery = e.target.value.trim();
+                renderInlineTools();
+            });
+        }
+
+        // Modal
+        window.openInlineToolModal = function(toolId) {
+            const tool = inlineTools.find(t => t.id === toolId);
+            if (!tool) return;
+
+            const likes = inlineToolLikes[tool.id] || 0;
+            const pricingLabel = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
+
+            let linksHtml = '';
+            if (tool.links) {
+                const linkIcons = { github: '🐙', docs: '📖', website: '🌐', skill_sh: '🔧', clawhub: '🦞' };
+                const linkLabels = { github: 'GitHub', docs: 'Documentation', website: 'Website', skill_sh: 'Skill.sh', clawhub: 'ClawHub' };
+                Object.entries(tool.links).forEach(([key, url]) => {
+                    linksHtml += `<a href="${url}" target="_blank" rel="noopener" class="tool-link"><span>${linkIcons[key] || '🔗'}</span> ${linkLabels[key] || key}</a>`;
+                });
+            }
+
+            const tagHtml = tool.tags.map(t => `<span class="tool-card-tag-inline">${inlineTags[t] || t}</span>`).join('');
+
+            // Create modal if not exists
+            let modal = document.getElementById('inlineToolModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'inlineToolModal';
+                modal.className = 'tool-modal-overlay';
+                modal.innerHTML = '<div class="tool-modal"><button class="tool-modal-close" onclick="closeInlineToolModal()">×</button><div id="inlineToolModalBody"></div></div>';
+                modal.addEventListener('click', function(e) { if (e.target === this) closeInlineToolModal(); });
+                document.body.appendChild(modal);
+            }
+
+            document.getElementById('inlineToolModalBody').innerHTML = `
+                <div class="tool-modal-header">
+                    <span class="tool-modal-icon">${tool.icon}</span>
+                    <div>
+                        <h2 class="tool-modal-name">${tool.name}</h2>
+                        <div class="tool-modal-meta">
+                            <span class="tool-card-platform-inline">${tool.platform}</span>
+                            <span class="tool-card-pricing-inline ${tool.pricing}">${pricingLabel[tool.pricing] || tool.pricing}</span>
+                            ${tool.featured ? '<span style="font-size:11px;color:#fbbf24;">⭐ Featured</span>' : ''}
+                        </div>
+                    </div>
+                </div>
+                <p class="tool-modal-desc">${tool.description}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;">${tagHtml}</div>
+                <div class="tool-modal-section">
+                    <h3>📦 Install</h3>
+                    <div class="tool-install-box">
+                        <code class="tool-install-cmd">${tool.install.command}</code>
+                        <button class="tool-install-copy" onclick="copyInlineInstall(this, '${tool.install.command.replace(/'/g, "\\'")}')">📋 Copy</button>
+                    </div>
+                </div>
+                ${linksHtml ? `<div class="tool-modal-section"><h3>🔗 Links</h3><div class="tool-links">${linksHtml}</div></div>` : ''}
+                <div class="tool-actions">
+                    <button class="tool-action-btn" onclick="alert('Login required to like')">❤️ ${likes} Like</button>
+                    <button class="tool-action-btn" onclick="alert('Login required to bookmark')">🔖 Bookmark</button>
+                </div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeInlineToolModal = function() {
+            const modal = document.getElementById('inlineToolModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
+        window.copyInlineInstall = function(btn, cmd) {
+            navigator.clipboard.writeText(cmd).then(() => {
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied'); }, 2000);
+            });
+        };
+
+        // Load tools when tools tab is activated
+        const toolsTabBtn = document.querySelector('.tab-btn[data-tab="tools"]');
+        if (toolsTabBtn) {
+            toolsTabBtn.addEventListener('click', function() {
+                if (inlineTools.length === 0) loadInlineTools();
+            });
+        }
     })();
     </script>
 </body>
