@@ -1019,7 +1019,7 @@ def generate_html(posts, cards):
             <div class="tab-nav" role="tablist">
                 <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports ({total_posts})</button>
                 <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards ({total_cards})</button>
-                <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (10)</button>
+                <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (11)</button>
             </div>
 
             <div class="tab-content active" id="reports-tab">
