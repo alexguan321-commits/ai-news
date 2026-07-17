@@ -218,6 +218,38 @@
             font-size: 13px;
             color: rgba(255,255,255,0.5);
         }
+        .tool-card-source {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .tool-card-source a {
+            color: rgba(99,102,241,0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .tool-card-source a:hover {
+            color: #a5b4fc;
+        }
+        .tool-card-stars {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            color: #fbbf24;
+            font-size: 12px;
+            margin-left: auto;
+        }
 
         /* Modal */
         .tool-modal-overlay {
@@ -621,6 +653,24 @@
                     `<span class="tool-card-tag">${allTags[t] || t}</span>`
                 ).join('');
 
+                // Build source link
+                let sourceHtml = '';
+                if (tool.links) {
+                    const sourceUrl = tool.links.github || tool.links.website || tool.links.docs;
+                    if (sourceUrl) {
+                        const sourceLabel = tool.links.github ? 'GitHub' : (tool.links.website ? 'Website' : 'Docs');
+                        const starsHtml = tool.stars ? `<span class="tool-card-stars">⭐ ${(tool.stars / 1000).toFixed(1)}k</span>` : '';
+                        sourceHtml = `
+                            <div class="tool-card-source">
+                                <a href="${sourceUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                                    🔗 ${sourceLabel}
+                                </a>
+                                ${starsHtml}
+                            </div>
+                        `;
+                    }
+                }
+
                 return `
                     <div class="tool-card ${tool.featured ? 'featured' : ''}" onclick="openToolModal('${tool.id}')">
                         <div class="tool-card-header">
@@ -636,6 +686,7 @@
                             <span class="tool-card-pricing ${tool.pricing}">${pricingLabel[tool.pricing] || tool.pricing}</span>
                             <span class="tool-card-likes">❤️ ${likes}</span>
                         </div>
+                        ${sourceHtml}
                     </div>
                 `;
             }).join('');
