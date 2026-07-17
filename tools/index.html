@@ -494,7 +494,7 @@
             try {
                 // Support both local dev (root) and GitHub Pages (/ai-news/)
                 const basePath = window.location.pathname.includes('/ai-news/') ? '/ai-news' : '';
-                const resp = await fetch(basePath + '/_data/tools.json');
+                const resp = await fetch(basePath + '/_data/tools.json?_=' + Date.now(), {cache: 'no-cache'});
                 const data = await resp.json();
                 allTools = data.tools;
                 allTags = data.tags;
