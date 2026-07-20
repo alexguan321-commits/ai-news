@@ -784,7 +784,6 @@ def generate_card_page(card, total_cards):
         <a href="../../" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
             <div><span class="stat-value">{total_cards}</span> cards</div>
-            <div><span class="stat-value">X</span> curated</div>
         </div>
         {supabase_nav_auth()}
     </nav>
