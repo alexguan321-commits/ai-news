@@ -881,7 +881,7 @@ def generate_html(posts, cards):
         # Escape content for data attribute
         search_content = html.escape(p.get("search_content", ""))
         
-        return f"""        <article class="report-card" data-content="{search_content}">
+        return f"""        <article class="report-card" data-type="{p['report_type']}" data-content="{search_content}">
             <a href="{p['url']}">
                 <div class="card-image">{card_image}</div>
                 <div class="card-content">
