@@ -211,6 +211,51 @@ Stanford 学生抗议 → 顶级 AI 人才拒绝加入军事 AI 项目 → Googl
 <strong>大胆预判（置信度 75%）</strong>：36 个月内，Gritt 或类似公司将在美国西南部完成至少一个 100MW+ 的全机器人建造太阳能电站。这将使太阳能电站建设成本降低 40-50%，加速可再生能源部署。
 </p>
 <hr>
+<h2>🔧 工具链</h2>
+<h3>🔴 Google Agents CLI: Karpathy Agentic Engineering 理论的工具链落地</h3>
+<p>
+🔗 <a href="https://x.com/akshay_pachaar/status/2070860837448040832" target="_blank" rel="noopener noreferrer">来源：Akshay Pachaar</a>
+📅 2026-06-27 | 互动：1,321 likes | 3,009 bookmarks | 488K views 🔴极强信号
+</p>
+<p>
+<strong>背景：</strong> Andrej Karpathy 在 Sequoia Ascent 2026 定义了 <strong>Agentic Engineering</strong>——区分生产级 Agent 工作与 vibe coding 的学科。核心技能：spec design, eval loops, security oversight。但实践工具一直缺失。
+</p>
+<p>
+<strong>Google Agents CLI 解决了这个问题：</strong>
+</p>
+<ul>
+<li>一次安装，向所有 coding agent（Claude Code, Cursor, Codex 等）注入 7 个 skills</li>
+<li>覆盖 ADK patterns, eval setup, deployment config, observability</li>
+<li>6 步完整流程：install → build → test → evaluate → deploy → register</li>
+</ul>
+<p>
+<strong>关键数据点（Karpathy）：</strong>
+</p>
+<ul>
+<li>89% 的团队有 observability ✅</li>
+<li><strong>52% 的团队有 evals</strong> ← 这是瓶颈</li>
+</ul>
+<p>
+<strong>6 步流程演示（RAG Agent）：</strong>
+1. Install Agents CLI（注入 7 skills）
+2. Build RAG Agent（自然语言描述 → 自动 scaffold + citation 支持 + Vector Search）
+3. Test Locally（ADK Web UI，验证检索引用和拒绝能力）
+4. <strong>Evaluate</strong>（自动生成 20 测试场景，4 类别；Citation accuracy: 1.00）
+5. Deploy to Agent Runtime（2-3 分钟，Cloud Trace 默认启用）
+6. Register to Gemini Enterprise（全组织可发现，IAM 控制）
+</p>
+<p>
+<strong>核心洞察：</strong>
+</p>
+<ul>
+<li>&quot;Eval 是瓶颈&quot;再次被验证（52% → 目标 95%）</li>
+<li>&quot;Skills 注入&quot;模式：不直接构建 Agent，而是教 coding agent 如何构建 Agent</li>
+<li>从 vibe coding 到 agentic engineering 的分水岭：spec design + eval loops + security oversight</li>
+</ul>
+<p>
+<strong>对 FDE 行动项：</strong> 安装 Google Agents CLI，体验 6 步流程。为现有 Agent 添加 eval loops（从 LLM-as-judge 开始）。
+</p>
+<hr>
 <h2>📺 YouTube 精选</h2>
 <h3>🎬 Andrew Ng &quot;Agentic Knowledge Graph Construction&quot; 课程 + @0xCodez Graph Engineering 14步</h3>
 <p>
