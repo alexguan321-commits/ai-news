@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="0731-晚报 | Graph Engineering完整课程 + Master Agent Architecture">
+    <meta property="og:title" content="0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构">
     <meta property="og:description" content="AI Knowledge Base Report">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>0731-晚报 | Graph Engineering完整课程 + Master Agent Architecture - Alex Guan's AI Knowledge Base</title>
+    <title>0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -26,7 +26,7 @@
         <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
         <a href="../../" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">92</span> reports</div>
+            <div><span class="stat-value">93</span> reports</div>
             <div><span class="stat-value">35</span> sources</div>
             <div><span class="stat-value">24/7</span> monitoring</div>
         </div>
@@ -36,7 +36,7 @@
     <main class="container">
         <article class="report-content">
             <header class="report-header">
-                <h1>0731-晚报 | Graph Engineering完整课程 + Master Agent Architecture</h1>
+                <h1>0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构</h1>
                 <div class="meta">
                     <time>2026-07-31 21:00:00 +0800</time>
                     <span class="report-type type-evening">🌙 晚报</span>
@@ -56,95 +56,14 @@
             <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-31-evening.jpg" alt="Cover"></div>
 
             <div class="content">
-                <h1>📰 0731晚报 | Graph Engineering完整课程 + Master Agent Architecture</h1>
-<blockquote><p>📅 2026-07-31 21:00 | 🤖 AI自动采集分析 | 📊 采集 2 条 | 覆盖 X/Twitter</p></blockquote>
+                <h1>📰 0731晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构</h1>
+<blockquote><p>📅 2026-07-31 21:00 | 🤖 AI自动采集分析 | 📊 采集 1 条 | 覆盖 X/Twitter</p></blockquote>
 <p>
 &gt;
 </p>
-<blockquote><p><strong>今日最重要</strong>：Argona发布Graph Engineering完整课程，提供6步教学法、Amdahl定律、6个实战模板，以及Bun 100万行代码重写案例。同时marfin发布Master Agent Architecture文章，将Harness、Loop、Graph Engineering统一为三层架构。这是Agent工程从"昂贵的实习生"到"生产就绪系统"的关键概念整合。</p></blockquote>
+<blockquote><p><strong>今日最重要</strong>：marfin发布Master Agent Architecture文章，将Harness、Loop、Graph Engineering统一为三层架构，提供失败诊断矩阵和5阶段Master架构。这是Agent工程从&quot;昂贵的实习生&quot;到&quot;生产就绪系统&quot;的关键概念整合。</p></blockquote>
 <hr>
-<h2>📌 今日最重要一件事</h2>
-<h3>🔴 Graph Engineering完整课程：从Prompt到产品的隐藏层</h3>
-<p>
-<strong>来源</strong>：<a href="https://x.com/Argona0x/status/2080626046903157126" target="_blank" rel="noopener noreferrer">Argona - X/Twitter</a>
-<strong>作者</strong>：Argona (@Argona0x)
-<strong>互动</strong>：17 likes | 32 retweets | 932 replies | 383,000 views | 252 bookmarks
-<strong>发布时间</strong>：2026-07-24
-</p>
-<hr>
-<h4>核心洞察</h4>
-<p>
-<strong>Bun案例</strong>：
-</p>
-<ul>
-<li>Bun用AI在11天内将535,000行Zig代码重写为100万+行Rust代码</li>
-<li>这相当于一个团队近一年的手工工作量</li>
-<li>生成的运行时（Bun v1.4.0）已经在你电脑上</li>
-</ul>
-<p>
-<strong>关键洞察</strong>：
-</p>
-<blockquote><p>"You draw a line where the work is a graph."（工作本来是图，你却画了一条线）</p></blockquote>
-<hr>
-<h4>6步构建你的第一个图</h4>
-<p>
-<strong>Step 1: 看到不存在的边（假边测试）</strong>
-</p>
-<ul>
-<li>对每个"然后"问：下一步是否真的读取了上一步的输出？</li>
-<li>是 = 真正的边，保持顺序；否 = 从未是边，同时运行</li>
-</ul>
-<p>
-<strong>Step 2: 画出你的图</strong>
-</p>
-<ul>
-<li>遍历步骤，标记每个接缝：真正的边，还是不是</li>
-<li>找到最长的真正边链 = 关键路径</li>
-</ul>
-<p>
-<strong>Step 3: 构建和运行你的第一个图</strong>
-</p>
-<ul>
-<li>Claude Code实现：一行描述，让Claude写编排器</li>
-<li>四个阶段：Scope → Fan-out → Verify → Synthesize</li>
-<li>限制：16个Agent同时运行，每次运行1000个</li>
-</ul>
-<p>
-<strong>Step 4: 让图变得强大</strong>
-</p>
-<ul>
-<li><strong>新鲜上下文验证器</strong>：验证器是独立节点，有新鲜上下文</li>
-<li><strong>隔离</strong>：将舰队分片到worktrees（仓库的独立工作副本）</li>
-</ul>
-<p>
-<strong>Step 5: 瞄准舰队并计算胜利（Amdahl定律）</strong>
-</p>
-<pre><code>S = 1 / ((1 − p) + p/N)
-  p = 独立工作的份额（可并行）
-  N = Agent数量
-
-p = 0.95, N = 16  →  ×9.14   (不是×16)
-p = 0.70, N = 16  →  ×2.91
-ceiling (N = ∞)   =  1 / (1 − p)</code></pre>
-<p>
-<strong>Step 6: 本周你将构建的六个图</strong>
-</p>
-<ul>
-<li>安全扫描、引用研究、模块移植、对抗性diff审查、定时生态系统扫描、未知大小发现</li>
-</ul>
-<hr>
-<h4>关键洞察</h4>
-<blockquote><p>"A prompter asks a question. An architect draws a graph."（Prompt工程师问问题，架构师画图）</p></blockquote>
-<p>
-<strong>三句话掌握整个学科</strong>：
-</p>
-<ol>
-<li>Fan out where the work is independent.（在独立工作处扇出）</li>
-<li>Gate the edges where confidence matters.（在信心重要的地方门控边）</li>
-<li>Freeze the nodes that hold the truth.（冻结持有真相的节点）</li>
-</ol>
-<hr>
-<h2>📌 今日最重要一件事</h2>
+<h2>📌 今日最重要的一件事</h2>
 <h3>🔴 Master Agent Architecture：统一Harness、Loop、Graph三层架构</h3>
 <p>
 <strong>来源</strong>：<a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - X/Twitter</a>
@@ -385,21 +304,19 @@ ceiling (N = ∞)   =  1 / (1 − p)</code></pre>
 <hr>
 <h2>🔗 来源链接</h2>
 <ul>
-<li><a href="https://x.com/Argona0x/status/2080626046903157126" target="_blank" rel="noopener noreferrer">Argona - Graph Engineering完整课程</a></li>
 <li><a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - Master Agent Architecture</a></li>
 </ul>
 <hr>
 <h2>🔗 来源链接</h2>
 <ul>
-<li><a href="https://x.com/Argona0x/status/2080626046903157126" target="_blank" rel="noopener noreferrer">Argona - Graph Engineering完整课程</a></li>
 <li><a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - Master Agent Architecture</a></li>
 </ul>
 <hr>
 <h2>📊 今日统计</h2>
 <ul>
-<li><strong>采集数量</strong>：2 条</li>
+<li><strong>采集数量</strong>：1 条</li>
 <li><strong>覆盖来源</strong>：X/Twitter</li>
-<li><strong>知识卡片</strong>：2 张（Graph Engineering Full Course Argona + Master Agent Architecture Unified）</li>
+<li><strong>知识卡片</strong>：1 张（Master Agent Architecture Unified）</li>
 <li><strong>关联更新</strong>：from-loop-to-graph-engineering.md 已添加交叉引用</li>
 </ul>
 <hr>
