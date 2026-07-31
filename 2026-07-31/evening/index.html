@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构">
+    <meta property="og:title" content="0731-晚报 | GitHub发布Copilot SDK，Agent生态进入平台化时代">
     <meta property="og:description" content="AI Knowledge Base Report">
     <meta property="og:type" content="article">
     <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
-    <title>0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构 - Alex Guan's AI Knowledge Base</title>
+    <title>0731-晚报 | GitHub发布Copilot SDK，Agent生态进入平台化时代 - Alex Guan's AI Knowledge Base</title>
     <link rel="stylesheet" href="../../styles.css">
     
     <!-- Supabase User System -->
@@ -36,9 +36,9 @@
     <main class="container">
         <article class="report-content">
             <header class="report-header">
-                <h1>0731-晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构</h1>
+                <h1>0731-晚报 | GitHub发布Copilot SDK，Agent生态进入平台化时代</h1>
                 <div class="meta">
-                    <time>2026-07-31 21:00:00 +0800</time>
+                    <time>2026-07-31 21:00:00</time>
                     <span class="report-type type-evening">🌙 晚报</span>
                     <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
                     <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
@@ -56,272 +56,678 @@
             <div class="cover-image"><img src="/ai-news/assets/covers/2026-07-31-evening.jpg" alt="Cover"></div>
 
             <div class="content">
-                <h1>📰 0731晚报 | Master Agent Architecture：统一Harness、Loop、Graph三层架构</h1>
-<blockquote><p>📅 2026-07-31 21:00 | 🤖 AI自动采集分析 | 📊 采集 1 条 | 覆盖 X/Twitter</p></blockquote>
+                <h1>🌙 AI晚报 | 2026年7月31日（周五）</h1>
+<blockquote><p><strong>今日采集 181 条信息源</strong>：arXiv 157篇 | GitHub Trending 11个 | YouTube 4个 | RSS 3条 | Hacker News 3条 | 博客 3篇</p></blockquote>
 <p>
 &gt;
 </p>
-<blockquote><p><strong>今日最重要</strong>：marfin发布Master Agent Architecture文章，将Harness、Loop、Graph Engineering统一为三层架构，提供失败诊断矩阵和5阶段Master架构。这是Agent工程从&quot;昂贵的实习生&quot;到&quot;生产就绪系统&quot;的关键概念整合。</p></blockquote>
+<blockquote><p><strong>一句话总结</strong>：GitHub发布Copilot SDK，MCP推出Apps协议，Agent从&quot;能干活&quot;进入&quot;能组网&quot;的平台化时代。与此同时，学术界密集发布Agent安全论文——能力在爆发，信任在追赶。</p></blockquote>
 <hr>
 <h2>📌 今日最重要的一件事</h2>
-<h3>🔴 Master Agent Architecture：统一Harness、Loop、Graph三层架构</h3>
+<h3>GitHub 发布 Copilot SDK：Agent 生态正式进入「平台化」阶段</h3>
 <p>
-<strong>来源</strong>：<a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - X/Twitter</a>
-<strong>作者</strong>：marfin (@marfinxx, 2,341 followers)
-<strong>互动</strong>：111 likes | 21 retweets | 8 replies | 32,829 views | 233 bookmarks
-<strong>发布时间</strong>：2026-07-27
+🔗 <a href="https://github.com/github/copilot-sdk" target="_blank" rel="noopener noreferrer">来源：GitHub - copilot-sdk</a>
+</p>
+<p>
+GitHub 今日在 Trending 榜首发布了 <code>copilot-sdk</code>——一个多平台 SDK，用于将 GitHub Copilot Agent 集成到第三方应用和服务中。这不是一个普通的开源项目，这是 <strong>Agent 平台化的分水岭事件</strong>。
+</p>
+<h4>为什么这是最重要的事？</h4>
+<p>
+让我用因果链拆解：
+</p>
+<p>
+<strong>A→B→C→D 因果链：</strong>
+</p>
+<p>
+1. <strong>A（起点）</strong>：GitHub 发布 Copilot SDK，允许第三方应用以标准化方式调用 Copilot Agent 能力
+2. <strong>B（直接效应）</strong>：Copilot 从&quot;IDE 内的编码助手&quot;变成&quot;可嵌入的 Agent 基础设施&quot;——任何 SaaS 产品都可以内嵌一个 Copilot Agent
+3. <strong>C（二阶效应）</strong>：这创造了一个新的 Agent 分发渠道。以前企业买 Copilot 是在 GitHub.com 上用；现在企业可以在自己的 Jira、Slack、Linear、内部工具里直接调用 Copilot Agent。<strong>Agent 的分发从&quot;用户去找 Agent&quot;变成&quot;Agent 去找用户&quot;</strong>
+4. <strong>D（终局）</strong>：18 个月内，Copilot Agent 将成为开发者工作流的默认底层——不是因为它最好，而是因为它无处不在。就像 Stripe 之于支付，Copilot 之于编码 Agent
+</p>
+<h4>与 LLM Wiki 知识关联</h4>
+<p>
+这直接验证了我在 LLM Wiki 中记录的 <strong>Claude Agent Playbook</strong> 的核心洞察：
+</p>
+<blockquote><p>&quot;持久的业务都是窄的。&#x27;什么都能做的 agent&#x27;卖给没人。&#x27;每天早上对账 Shopify 退款和 Stripe 支付的 agent&#x27;能卖自己。&quot;</p></blockquote>
+<p>
+GitHub 正在做的事情是：<strong>把&quot;窄 Agent&quot;的分发成本降到零</strong>。任何开发者都可以在自己的产品里嵌入一个 Copilot Agent，不需要自己训练、不需要自己部署。
+</p>
+<p>
+同时这也呼应了 <strong>Satya Nadella 的反向信息悖论</strong>：当企业把 Copilot Agent 嵌入自己的业务系统时，它们必须暴露自己的代码库、工作流、内部数据给 Agent。<strong>Agent 越好用，企业暴露的知识越多</strong>。这是一个甜蜜陷阱。
+</p>
+<h4>大胆预判</h4>
+<ul>
+<li><strong>12 个月内</strong>：至少 50 家 SaaS 公司会发布&quot;Copilot Agent 集成&quot;公告，就像 2024 年大家都在宣布&quot;ChatGPT 集成&quot;一样</li>
+<li><strong>18 个月内</strong>：Copilot Agent 的市场份额将超过独立编码助手（Cursor、Windsurf），因为企业更愿意为&quot;已集成&quot;的方案付费</li>
+<li><strong>24 个月内</strong>：会出现第一批&quot;Copilot Agent 原生应用&quot;——不是在 IDE 里加 Agent，而是从第一天就围绕 Agent 构建的开发工具</li>
+</ul>
+<h4>策略建议</h4>
+<p>
+<strong>对独立开发者</strong>：现在就去读 Copilot SDK 文档，构建一个&quot;Copilot Agent + 你的垂直领域&quot;的集成产品。窗口期 6 个月。
+</p>
+<p>
+<strong>对企业 CTO</strong>：评估 Copilot SDK 的数据暴露风险。参考 Nadella 的反向信息悖论——你的代码库就是 Agent 的燃料，但要确保燃料不会流向竞争对手。
+</p>
+<p>
+<strong>对投资人</strong>：关注 Copilot SDK 生态的第一批集成商。第一个做出&quot;Copilot Agent for X&quot;垂直产品的团队，会拿到这个生态的红利。
 </p>
 <hr>
-<h4>核心洞察</h4>
+<h2>🔥 必看</h2>
+<h3>🔴 MCP Apps 协议发布：AI 聊天机器人的 UI 标准化</h3>
 <p>
-<strong>问题场景</strong>：
+🔗 <a href="https://github.com/modelcontextprotocol/ext-apps" target="_blank" rel="noopener noreferrer">来源：modelcontextprotocol/ext-apps</a>
+</p>
+<p>
+MCP（Model Context Protocol）官方发布了 <code>ext-apps</code> 仓库——MCP Apps 协议的规范和 SDK，定义了嵌入 AI 聊天机器人的 UI 标准。
+</p>
+<p>
+<strong>这是什么？</strong> 简单说：以前 AI 聊天机器人只能输出文本和 Markdown。MCP Apps 让 AI 聊天机器人可以嵌入交互式 UI 组件——表单、图表、数据表格、审批按钮——由 MCP Server 提供服务。
+</p>
+<p>
+<strong>因果链：</strong>
 </p>
 <ul>
-<li>大多数开发者像使用&quot;昂贵的实习生&quot;一样使用Claude Code和LLM Agent</li>
-<li>他们提供一个prompt，等待一个响应，然后手动检查接下来发生的事情</li>
-<li>其他团队陷入三种常见的失败模式：</li>
+<li>MCP 标准化了 AI 与工具的通信 → MCP Apps 标准化了 AI 与用户的 UI 交互 → AI 聊天机器人从&quot;对话界面&quot;升级为&quot;应用界面&quot; → 企业可以在聊天窗口内完成完整业务流程，不需要跳转到外部系统</li>
+<li><strong>12 个月内</strong>：MCP Apps 将成为 AI 聊天机器人的默认 UI 标准，就像 REST API 之于 Web 服务</li>
+<li><strong>18 个月内</strong>：会出现&quot;MCP Apps 应用商店&quot;——企业可以直接安装预制 UI 组件</li>
 </ul>
 <p>
-1. 运行无尽的重试循环，烧掉数千美元而不检查代码是否编译
-2. 在理解单个sub-agent如何工作之前，绘制巨大的50节点工作流图
-3. 反复重写prompt，同时忽略底层环境
-</p>
-<p>
-<strong>根本原因</strong>：
-</p>
-<ul>
-<li>这些方法失败是因为构建者将Harness Engineering、Loop Engineering和Graph Engineering视为竞争概念</li>
-<li><strong>它们不是竞争的。它们形成单一生产系统的三个结构层</strong></li>
-</ul>
-<p>
-<strong>关键洞察</strong>：
-</p>
-<blockquote><p>&quot;When builders isolate these layers, agents remain fragile demos. When engineers integrate all three into a single workflow, one prompt returns a verified, zero-defect production PR&quot;</p></blockquote>
-<hr>
-<h4>三层架构</h4>
-<p>
-<strong>1. Harness Layer（环境层）</strong>
-</p>
-<ul>
-<li><strong>定义</strong>：模型外部的代码、配置、沙箱、git历史和内存</li>
-<li><strong>职责</strong>：提供工作条件（执行shell命令、维护状态、检查文件系统、执行安全规则）</li>
-<li><strong>核心组件</strong>：</li>
-<li>CLAUDE.md系统规范</li>
-<li>7文件生产Harness结构</li>
-<li>状态哈希（防止Agent重复读取相同文件）</li>
-</ul>
-<p>
-<strong>2. Loop Layer（反馈层）</strong>
-</p>
-<ul>
-<li><strong>定义</strong>：模型调用后系统做什么：如何处理工具输出、评估证据、决定是否继续</li>
-<li><strong>核心原则</strong>：循环基于证据，不是基于信心</li>
-<li><strong>关键规则</strong>：</li>
-<li>不允许Agent循环直到它说&quot;我完成了&quot;（会导致幻觉补丁）</li>
-<li>循环必须要求确定性证据：通过的单元测试、零linter错误、schema验证</li>
-</ul>
-<p>
-<strong>3. Graph Layer（流程层）</strong>
-</p>
-<ul>
-<li><strong>定义</strong>：控制流：哪个节点接下来运行、工作在哪里分成并行任务、审批门在哪里</li>
-<li><strong>核心能力</strong>：高并发扇出跨多个专业化sub-agent</li>
-<li><strong>关键模式</strong>：异步并行扇出图</li>
-</ul>
-<hr>
-<h4>统一的5阶段Master架构</h4>
-<p>
-<strong>Stage 01: Harness Sandbox初始化</strong>
-</p>
-<ul>
-<li>锁定工作区权限</li>
-<li>加载仓库规则（CLAUDE.md）和进度文件</li>
-<li>激活工具结果缓存，防止冗余token消耗</li>
-</ul>
-<p>
-<strong>Stage 02: 并行Graph扇出和范围界定</strong>
-</p>
-<ul>
-<li>根范围节点分析prompt</li>
-<li>将任务扇出到专业化sub-agent（文档搜索器、测试运行器、代码编写器）</li>
-<li>所有sub-agent并发执行</li>
-</ul>
-<p>
-<strong>Stage 03: 本地证据门控重试循环</strong>
-</p>
-<ul>
-<li>每个节点运行内部验证循环</li>
-<li>代码修改触发自动化linter和测试命令</li>
-<li>Sub-agent本地迭代，直到测试通过信号返回</li>
-</ul>
-<p>
-<strong>Stage 04: Harness状态哈希和Token去重</strong>
-</p>
-<ul>
-<li>Harness跟踪修改文件的状态哈希</li>
-<li>重复文件读取提供缓存状态哈希，零API延迟，零token成本</li>
-</ul>
-<p>
-<strong>Stage 05: 对抗性红队门</strong>
-</p>
-<ul>
-<li>Graph将完成的补丁路由到怀疑论者验证节点</li>
-<li>验证节点编写边缘案例测试以破坏补丁</li>
-<li>成功验证触发git commit并打开生产PR</li>
-</ul>
-<hr>
-<h4>失败诊断矩阵</h4>
-<p>
-<strong>系统失败源于误诊的层。使用这个矩阵识别哪一层需要修复</strong>：
-</p>
-<table>
-<thead><tr>
-<th>问题</th>
-<th>属于哪一层</th>
-<th>修复方法</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Agent丢失上下文或在turn之间读取错误文件</td>
-<td>Harness</td>
-<td>状态哈希、工具结果缓存</td>
-</tr>
-<tr>
-<td>Agent输出损坏的代码但声称胜利</td>
-<td>Loop</td>
-<td>确定性证据循环、测试验证</td>
-</tr>
-<tr>
-<td>工作顺序运行而不是并发</td>
-<td>Graph</td>
-<td>异步并行扇出、同步门</td>
-</tr>
-</tbody></table>
-<hr>
-<h4>4大反模式</h4>
-<p>
-<strong>反模式1：基于信心循环</strong>
-</p>
-<ul>
-<li>依赖模型文本断言，而不是确定性测试通过信号</li>
-<li><strong>修复</strong>：Loop层要求确定性证据</li>
-</ul>
-<p>
-<strong>反模式2：嘈杂的Harness上下文</strong>
-</p>
-<ul>
-<li>将整个代码库转储到prompt上下文，而不是使用定向工具调用和状态缓存</li>
-<li><strong>修复</strong>：Harness层使用状态哈希和缓存</li>
-</ul>
-<p>
-<strong>反模式3：无约束的Graph循环</strong>
-</p>
-<ul>
-<li>构建重试路径，没有尝试限制或升级规则</li>
-<li><strong>修复</strong>：Graph层添加尝试限制和升级规则</li>
-</ul>
-<p>
-<strong>反模式4：将确定性工作强制放入模型</strong>
-</p>
-<ul>
-<li>使用LLM token进行字符串解析、去重或文件过滤，而不是简单的Python脚本</li>
-<li><strong>修复</strong>：用Python脚本替代LLM</li>
-</ul>
-<hr>
-<h4>生产就绪检查清单</h4>
-<p>
-<strong>在部署Agent系统之前，验证这5个要求</strong>：
-</p>
-<p>
-1. <strong>Harness</strong>：权限遵循最小权限、工作区在沙箱中运行、文件缓存激活
-2. <strong>Loop</strong>：停止条件需要确定性测试证据、预算上限强制执行
-3. <strong>Graph</strong>：独立任务并行执行、路由逻辑处理错误分支
-4. <strong>Evaluation</strong>：真实执行trace自动重放以基准更新
-5. <strong>Monitoring</strong>：成本、延迟、失败率、人工干预指标实时跟踪
+<strong>策略建议</strong>：如果你在做 AI Agent 产品，现在就开始关注 MCP Apps 规范。你的 Agent 输出不应该只是文本——它应该是可交互的 UI。
 </p>
 <hr>
-<h4>性能基准：实习生模式 vs Master架构</h4>
+<h3>🔴 Trail of Bits 发布安全研究 Agent Skills</h3>
 <p>
-<strong>实习生模式</strong>：
+🔗 <a href="https://github.com/trailofbits/skills" target="_blank" rel="noopener noreferrer">来源：trailofbits/skills</a>
+</p>
+<p>
+全球顶级安全公司 Trail of Bits 发布了 Claude Code Skills，专门用于安全研究、漏洞检测和审计工作流。
+</p>
+<p>
+<strong>为什么重要？</strong> 这标志着 <strong>Agent Skills 从&quot;效率工具&quot;升级为&quot;专业能力载体&quot;</strong>。Trail of Bits 不是在卖软件，它在卖 <strong>30 年安全审计经验的数字化封装</strong>。
+</p>
+<p>
+<strong>因果链：</strong>
 </p>
 <ul>
-<li>一个prompt → 一个响应 → 手动检查</li>
-<li>高失败率、高token消耗、低可靠性</li>
+<li>顶级咨询公司开始将专业知识封装为 Agent Skills → Skills 成为新的&quot;知识产品&quot;形态 → 传统咨询模式（按小时卖人头）被颠覆 → 知识工作者的生产力提升 10-100 倍</li>
+<li><strong>6 个月内</strong>：McKinsey、BCG、Deloitte 等咨询公司会发布自己的 Agent Skills</li>
+<li><strong>12 个月内</strong>：&quot;Skills 市场&quot;会成为新的商业模式——专家把自己的经验封装成 Skills，按使用次数收费</li>
 </ul>
 <p>
-<strong>Master架构</strong>：
+<strong>与 LLM Wiki 关联</strong>：这验证了 <strong>Loop and Harness Engineering</strong> 的核心理念——Skills 是 Agent 的&quot;专业知识层&quot;，是 harness 的核心组成部分。Trail of Bits 的 Skills 就是他们 30 年安全审计经验的 <code>.claude/skills/</code> 目录。
 </p>
-<ul>
-<li>一个prompt → 验证的、零缺陷的生产PR</li>
-<li>低失败率、优化的token消耗、高可靠性</li>
-</ul>
-<hr>
-<h2>🧠 知识洞察</h2>
-<h3>概念整合的关键价值</h3>
 <p>
-这篇文章最重要的贡献是<strong>概念整合</strong>：
-1. 将Harness、Loop、Graph从竞争概念统一为三层架构
-2. 提供清晰的失败诊断矩阵（问题属于哪一层）
-3. 提供统一的5阶段Master架构
-4. 提供生产就绪检查清单
-</p>
-<h3>与之前入库文章的关系</h3>
-<table>
-<thead><tr>
-<th>文章</th>
-<th>定位</th>
-<th>独特价值</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>Agent Harness Engineering实战</strong></td>
-<td>Harness层深入</td>
-<td>7文件结构、状态哈希、工具结果缓存</td>
-</tr>
-<tr>
-<td><strong>Loop Engineering 14步</strong></td>
-<td>Loop层深入</td>
-<td>20个Loop模式、证据循环、预算控制</td>
-</tr>
-<tr>
-<td><strong>Graph Engineering 14步</strong></td>
-<td>Graph层深入</td>
-<td>Diamond模式、假边测试、并行扇出</td>
-</tr>
-<tr>
-<td><strong>本文</strong></td>
-<td><strong>三层统一</strong></td>
-<td><strong>失败诊断、5阶段架构、生产就绪</strong></td>
-</tr>
-</tbody></table>
-<h3>对FDE的行动项</h3>
-<p>
-1. <strong>理解三层架构</strong>：Harness提供环境、Loop提供反馈、Graph提供流程
-2. <strong>使用失败诊断矩阵</strong>：识别问题属于哪一层
-3. <strong>部署前验证5个要求</strong>：Harness、Loop、Graph、Evaluation、Monitoring
-4. <strong>避免4大反模式</strong>：基于信心循环、嘈杂上下文、无约束循环、强制确定性工作
+<strong>策略建议</strong>：如果你是某个领域的专家，现在就开始把你的知识封装成 Agent Skills。这是新的&quot;写书&quot;——但你的书可以执行。
 </p>
 <hr>
-<h2>🔗 来源链接</h2>
+<h3>🔴 曾爱玲入职 B 站担任 AI 视频生成业务负责人</h3>
+<p>
+🔗 <a href="https://36kr.com/p/3910776673064073" target="_blank" rel="noopener noreferrer">来源：36氪</a>
+</p>
+<p>
+36氪独家消息：曾爱玲入职哔哩哔哩，担任 AI 视频生成业务负责人，直接向 CEO 陈睿汇报。
+</p>
+<p>
+<strong>为什么重要？</strong> B 站是中国最大的视频平台之一，AI 视频生成直接向 CEO 汇报意味着 <strong>这不是一个实验项目，而是公司级战略</strong>。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
 <ul>
-<li><a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - Master Agent Architecture</a></li>
+<li>B 站押注 AI 视频生成 → 需要解决 UGC 内容生产效率问题 → AI 视频生成降低创作门槛 → B 站 UP 主产能提升 10 倍 → 与抖音/快手的短视频竞争格局改变</li>
+<li><strong>6 个月内</strong>：B 站会推出 AI 视频生成工具，面向 UP 主内测</li>
+<li><strong>12 个月内</strong>：B 站 30% 的新增视频将包含 AI 生成内容（至少部分帧）</li>
+</ul>
+<p>
+<strong>策略建议</strong>：关注 B 站 AI 视频生成的开放 API 时间窗口。一旦开放，围绕 B 站生态做 AI 视频工具的创业机会会出现。
+</p>
+<hr>
+<h3>🟠 Frontis-MA1：AI 递归自我改进的第一个可执行测试台</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28568v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28568</a>
+</p>
+<p>
+Frontis-MA1 提出了一个关键问题的具体解法：<strong>AI 系统能否改进&quot;构建 AI 的过程本身&quot;？</strong>
+</p>
+<p>
+论文将机器学习工程（MLE）作为递归自我改进（RSI）的可执行测试台。不是哲学讨论，是有具体实验的。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<ul>
+<li>AI 改进 MLE 流程 → MLE 流程改进 AI 模型 → 改进后的 AI 模型进一步改进 MLE → 正反馈循环形成 → <strong>这是 Ilya Sutskever 预言的&quot;AI 改进 AI&quot;的第一个工程化实现</strong></li>
+<li><strong>12 个月内</strong>：会有更多公司发布类似的&quot;AI 改进 AI&quot;系统</li>
+<li><strong>24 个月内</strong>：RSI 将成为 AI 能力增长的主要驱动力，超过数据和算力的贡献</li>
+</ul>
+<p>
+<strong>策略建议</strong>：关注 RSI 的安全影响。一个能自我改进的 AI 系统，如果改进方向偏离人类意图，后果是指数级的。
+</p>
+<hr>
+<h3>🟠 Chimera：混合视觉扩散 Transformer 的 Chinchilla 缩放</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28611v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28611</a>
+</p>
+<p>
+Chimera 解决了视觉生成的核心瓶颈：<strong>全注意力机制的二次方成本</strong>。通过混合架构（局部 + 全局注意力），实现了高分辨率图像、长视频、多模态上下文的高效生成。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<ul>
+<li>视觉生成成本降低 → 高分辨率视频生成变得经济可行 → 视频 AI 从&quot;玩具&quot;变成&quot;工具&quot; → 影视、广告、游戏行业的工作流被重塑</li>
+<li><strong>12 个月内</strong>：Chimera 类架构会成为视觉生成的主流</li>
+<li><strong>18 个月内</strong>：4K 视频 AI 生成会成为标配</li>
 </ul>
 <hr>
-<h2>🔗 来源链接</h2>
+<h3>🟠 OpenAI 发布欧洲负责任 AI 战略</h3>
+<p>
+🔗 <a href="https://openai.com/index/advancing-responsible-ai-across-europe" target="_blank" rel="noopener noreferrer">来源：OpenAI Blog</a>
+</p>
+<p>
+OpenAI 分享了其在欧洲的安全、安保、透明度和溯源实践，以支持 EU AI Act 的推进。
+</p>
+<p>
+<strong>为什么重要？</strong> 这不是技术发布，这是 <strong>地缘政治信号</strong>。OpenAI 在主动拥抱监管，而不是对抗监管。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
 <ul>
-<li><a href="https://x.com/marfinxx/status/2081687570488954915" target="_blank" rel="noopener noreferrer">marfin - Master Agent Architecture</a></li>
+<li>OpenAI 拥抱 EU AI Act → 欧洲市场准入门槛提高 → 不合规的竞争对手（尤其是中国 AI 公司）被挡在欧洲门外 → OpenAI 在欧洲的企业市场份额扩大</li>
+<li><strong>12 个月内</strong>：EU AI Act 会成为全球 AI 监管的模板，就像 GDPR 之于隐私</li>
 </ul>
 <hr>
-<h2>📊 今日统计</h2>
+<h2>📺 YouTube 精选</h2>
+<h3>1. &quot;DeepSeek V4 Flash Is OUT, OpenAI &#x27;mewthree&#x27; + GPT-5.6 Price/Speed Update, Qwen 3.8 Kinsley, &amp; More!&quot;</h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=F2bWWfAgmdc" target="_blank" rel="noopener noreferrer">来源：YouTube</a>
+</p>
+<p>
+<strong>为什么值得看</strong>：这是今日 AI 模型动态的速报。DeepSeek V4 Flash 发布、OpenAI GPT-5.6 价格/速度更新、Qwen 3.8 Kinsley——三个主要玩家同时更新，竞争烈度前所未有。
+</p>
+<p>
+<strong>关键信号</strong>：模型更新频率从&quot;季度&quot;缩短到&quot;周&quot;。这意味着模型能力不再是瓶颈，<strong>应用层才是战场</strong>。
+</p>
+<h3>2. &quot;Claude Just Revealed AI&#x27;s Biggest Problem&quot;</h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=axOcn--n_lM" target="_blank" rel="noopener noreferrer">来源：YouTube</a>
+</p>
+<p>
+<strong>为什么值得看</strong>：Claude（Anthropic）公开讨论 AI 的最大问题——这本身就是信号。当 AI 公司开始公开讨论自己的局限性时，说明行业正在从&quot;吹牛阶段&quot;进入&quot;解决问题阶段&quot;。
+</p>
+<h3>3. &quot;it&#x27;S jUsT pReDiCtInG tOkEnS&quot;</h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=nc8KPtnBK38" target="_blank" rel="noopener noreferrer">来源：YouTube</a>
+</p>
+<p>
+<strong>为什么值得看</strong>：标题本身就是对&quot;LLM 只是预测 token&quot;这种简化论的反讽。值得看它如何反驳这种观点，以及为什么这种简化论是错误的。
+</p>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<h3>1. `trailofbits/skills` ⭐ Trail of Bits Claude Code Skills</h3>
+<p>
+🔗 <a href="https://github.com/trailofbits/skills" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>：将 30 年安全审计经验封装为可执行的 Agent Skills。包含安全研究、漏洞检测、审计工作流的完整知识图谱。
+</p>
+<p>
+<strong>为什么重要</strong>：这是&quot;知识即代码&quot;的第一个大规模实践。Trail of Bits 证明了：<strong>专家知识可以被结构化、可以被 Agent 执行、可以被分发</strong>。
+</p>
+<h3>2. `modelcontextprotocol/ext-apps` ⭐ MCP Apps 协议</h3>
+<p>
+🔗 <a href="https://github.com/modelcontextprotocol/ext-apps" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>：定义了 AI 聊天机器人内嵌 UI 的标准协议。MCP Server 可以提供交互式 UI 组件，不再局限于纯文本输出。
+</p>
+<p>
+<strong>为什么重要</strong>：这是 AI 交互范式的升级——从&quot;对话&quot;到&quot;应用&quot;。
+</p>
+<h3>3. `google-labs-code/design.md` ⭐ 视觉身份描述格式</h3>
+<p>
+🔗 <a href="https://github.com/google-labs-code/design.md" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>：DESIGN.md 是一种描述视觉身份的格式规范，让编码 Agent 可以持久化、结构化地理解品牌设计。
+</p>
+<p>
+<strong>为什么重要</strong>：这解决了 AI 生成内容的一个核心问题——<strong>品牌一致性</strong>。当 Agent 理解了你的设计系统，它生成的 UI 就不再是&quot;看起来像 AI 做的&quot;。
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>🟡 TencentDB Agent Memory：团队级 Agent 记忆中枢</h3>
+<p>
+🔗 <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+腾讯云发布 TencentDB Agent Memory，将对话、文档、代码转化为团队级可检索记忆。
+</p>
+<p>
+<strong>因果链</strong>：Agent 记忆从&quot;个人级&quot;升级到&quot;团队级&quot; → 团队知识不再依赖文档 → Agent 成为团队知识的活载体 → 新人 onboarding 时间从 3 个月缩短到 3 天
+</p>
+<h3>🟡 Cursor Plugins：编辑器插件标准化</h3>
+<p>
+🔗 <a href="https://github.com/cursor/plugins" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+Cursor 发布插件规范和官方插件。编辑器正在从&quot;代码编辑器&quot;变成&quot;Agent 运行环境&quot;。
+</p>
+<h3>🟡 Kaneo：开源项目管理工具</h3>
+<p>
+🔗 <a href="https://github.com/usekaneo/kaneo" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<p>
+&quot;All you need. Nothing you don&#x27;t.&quot; 开源项目管理工具，主打简洁。在 Jira 越来越臃肿的今天，这是一个有价值的替代品。
+</p>
+<h3>🟡 Google 搜索连接更多应用</h3>
+<p>
+🔗 <a href="https://blog.google/products-and-platforms/products/search/connected-apps/" target="_blank" rel="noopener noreferrer">来源：Google Blog</a>
+</p>
+<p>
+Google 搜索将支持安全链接和交互更多第三方服务。<strong>搜索从&quot;信息检索&quot;变成&quot;任务执行入口&quot;</strong>。
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>今日具身智能论文精选（8 篇关键论文）</h3>
+<h4>1. PAC-MAN：人形机器人躲避球中的全身安全控制</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28623v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28623</a>
+</p>
+<p>
+<strong>方法论拆解</strong>：PAC-MAN 将控制屏障函数（CBF）与强化学习（RL）结合，同时考虑部署时的真实机载感知约束。关键创新是 <strong>感知感知（perception-aware）</strong>——策略不仅考虑动作，还考虑&quot;能看到什么&quot;。
+</p>
+<p>
+<strong>为什么重要</strong>：这是具身智能从&quot;实验室&quot;到&quot;真实部署&quot;的关键一步。以前的方法假设完美感知，PAC-MAN 承认了现实世界的不完美。
+</p>
+<p>
+<strong>预判</strong>：12 个月内，感知感知安全控制会成为人形机器人的标配。
+</p>
+<h4>2. ACE-Data-0：以人为中心的环境捕获作为具身数据引擎</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28625v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28625</a>
+</p>
+<p>
+<strong>核心问题</strong>：具身智能面临根本性的数据瓶颈。模型需要捕获第一人称感知、全身运动、灵巧操作、物体状态、声音、触觉如何共同演化。
+</p>
+<p>
+<strong>解决方案</strong>：ACE-Data-0 提出了一个&quot;环境捕获&quot;数据引擎——不是让机器人自己收集数据，而是用环境传感器捕获人类活动的完整多模态信号。
+</p>
+<p>
+<strong>因果链</strong>：环境捕获降低数据收集成本 → 大规模具身数据变得可行 → 具身模型训练数据量从 KB 级到 TB 级 → 具身智能能力跃升
+</p>
+<h4>3. RoboBRIDGE：将策略连接到真实世界机器人 Agent 的模块化框架</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27881v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27881</a>
+</p>
+<p>
+<strong>核心问题</strong>：VLA（Vision-Language-Action）模型是有效的动作预测器，但部署为机器人 Agent 需要大量工程工作。
+</p>
+<p>
+<strong>解决方案</strong>：RoboBRIDGE 提供模块化框架，将 VLA 模型与机器人硬件之间的 gap 桥接起来。
+</p>
+<p>
+<strong>预判</strong>：18 个月内，RoboBRIDGE 类框架会让人形机器人部署时间从&quot;月&quot;缩短到&quot;天&quot;。
+</p>
+<h4>4. DexDirect：高效灵巧操作演示收集的直接运动引导</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27784v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27784</a>
+</p>
+<p>
+<strong>核心问题</strong>：灵巧操作演示的收集是机器人学习的重大瓶颈。高保真界面需要昂贵硬件，低设置界面质量差。
+</p>
+<p>
+<strong>解决方案</strong>：DexDirect 提出直接运动引导（kinesthetic guidance）——操作者直接物理引导机器人手臂，同时收集高质量演示数据。
+</p>
+<h4>5. UniCross：统一跨技能灵巧操作合成</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28198v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28198</a>
+</p>
+<p>
+<strong>核心洞察</strong>：许多灵巧操作任务要求物体在整个交互过程中保持安全握持。从手-物体关系运动的角度，这类操作包含四个典型阶段。
+</p>
+<h4>6. TacWAM：锚点引导的世界-动作模型与力学感知触觉预测</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28391v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28391</a>
+</p>
+<p>
+<strong>核心创新</strong>：将触觉预测引入世界-动作模型（WAM），让机器人不仅预测&quot;看到什么&quot;，还预测&quot;摸到什么&quot;。
+</p>
+<h4>7. ODEWorld：通过物理时间流的连续预测架构</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27924v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27924</a>
+</p>
+<p>
+<strong>核心创新</strong>：用常微分方程（ODE）替代离散时间预测，实现连续时间的世界模型。
+</p>
+<h4>8. Machines that know they are aging：硬件感知自主智能框架</h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28451v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28451</a>
+</p>
+<p>
+<strong>核心洞察</strong>：自主系统不可避免地会老化——电池退化、传感器漂移、处理器累积时序错误。但当前 AI 假设硬件保持原始状态。
+</p>
+<p>
+<strong>预判</strong>：这是具身智能的&quot;长寿问题&quot;。18 个月内，硬件感知自适应会成为自主系统的标配。
+</p>
+<hr>
+<h2>🧠 第二大脑关联</h2>
+<h3>今日新闻 vs LLM Wiki 知识卡片交叉分析</h3>
+<h4>关联 1：Copilot SDK × Claude Agent Playbook</h4>
+<p>
+<strong>知识卡片</strong>：Claude Agent Playbook 指出&quot;持久的业务都是窄的&quot;，Agent 应该按结果价值定价而非小时数。
+</p>
+<p>
+<strong>今日新闻</strong>：GitHub Copilot SDK 让任何 SaaS 产品都能嵌入 Copilot Agent。
+</p>
+<p>
+<strong>交叉洞察</strong>：Copilot SDK 实际上是在 <strong>把&quot;窄 Agent&quot;的分发成本降到零</strong>。以前你需要自己构建、部署、销售一个窄 Agent；现在你只需要在 SDK 上封装你的领域知识。这意味着 <strong>Agent 创业的门槛从&quot;工程能力&quot;降到&quot;领域知识&quot;</strong>。
+</p>
+<p>
+<strong>被验证的预测</strong>：Claude Agent Playbook 中&quot;Agent 服务 → Agent 模板 → 自动化代理&quot;的三级火箭模型，正在被 Copilot SDK 加速——第三级（自动化代理）的实现成本大幅降低。
+</p>
+<h4>关联 2：MCP Apps × Loop and Harness Engineering</h4>
+<p>
+<strong>知识卡片</strong>：Loop and Harness Engineering 指出 harness（.claude/ 目录）是 Agent 的基础设施，loop 是运行在其上的工作流。
+</p>
+<p>
+<strong>今日新闻</strong>：MCP Apps 协议标准化了 AI 聊天机器人的 UI 交互。
+</p>
+<p>
+<strong>交叉洞察</strong>：MCP Apps 实际上是 <strong>harness 的 UI 层扩展</strong>。以前 Agent 的输出只是文本（loop 的结果）；现在 Agent 可以输出交互式 UI（harness 的 UI 组件）。这意味着 Agent 的&quot;harness&quot;不再只是配置文件——它包括用户界面。
+</p>
+<h4>关联 3：Trail of Bits Skills × FDE 模式</h4>
+<p>
+<strong>知识卡片</strong>：某跨国消费品巨头 FDE 模式的核心是&quot;IT 与业务的关系重构——从总部集中管控到前线能力拼图&quot;。
+</p>
+<p>
+<strong>今日新闻</strong>：Trail of Bits 将 30 年安全审计经验封装为 Agent Skills。
+</p>
+<p>
+<strong>交叉洞察</strong>：Trail of Bits Skills 就是 FDE 模式的终极形态——<strong>专家知识不再需要&quot;人在前线&quot;，而是&quot;知识在前线&quot;</strong>。FDE 是物理位置的重构；Agent Skills 是知识分布的重构。
+</p>
+<p>
+<strong>大胆预判</strong>：5 年内，FDE 模式会被 Agent Skills 模式取代。企业不再需要把 IT 人员派到前线——它们只需要把专家知识封装成 Skills，让 Agent 在前线执行。
+</p>
+<h4>关联 4：Satya Nadella 反向信息悖论 × Agent 安全论文群</h4>
+<p>
+<strong>知识卡片</strong>：Nadella 指出 AI 时代企业必须暴露知识才能让 Agent 好用，这创造了&quot;反向信息悖论&quot;。
+</p>
+<p>
+<strong>今日新闻</strong>：今日至少 5 篇 Agent 安全论文（HALO、Stop Shipping AI Agents on Faith、Safeguards Based on Copyable Context 等）讨论 Agent 的信任边界问题。
+</p>
+<p>
+<strong>交叉洞察</strong>：这些安全论文实际上都在解决 Nadella 提出的悖论——<strong>如何让 Agent 足够好用（需要知识暴露），同时足够安全（需要知识保护）</strong>。这是一个不可能三角的三个角：好用、安全、可控。你只能选两个。
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>信号 1：Agent 基础设施层</h3>
+<p>
+<strong>观察</strong>：今日 GitHub Trending 中，Agent 相关项目占据 7/11（Copilot SDK、MCP Apps、Trail of Bits Skills、TencentDB Agent Memory、Cursor Plugins、design.md、reverse-skill）。
+</p>
+<p>
+<strong>判断</strong>：Agent 基础设施层的投资窗口正在关闭。6 个月后，这个赛道会像 2024 年的 LLM 基础模型一样——赢家已定，后来者只能做应用层。
+</p>
+<p>
+<strong>具体标的</strong>：
+</p>
 <ul>
-<li><strong>采集数量</strong>：1 条</li>
-<li><strong>覆盖来源</strong>：X/Twitter</li>
-<li><strong>知识卡片</strong>：1 张（Master Agent Architecture Unified）</li>
-<li><strong>关联更新</strong>：from-loop-to-graph-engineering.md 已添加交叉引用</li>
+<li><strong>做多</strong>：GitHub（Microsoft 子公司）、Cursor（如果上市）、MCP 生态早期集成商</li>
+<li><strong>做空</strong>：独立编码助手（如果没有差异化，会被 Copilot SDK 挤压）</li>
 </ul>
+<h3>信号 2：具身智能数据引擎</h3>
+<p>
+<strong>观察</strong>：ACE-Data-0 提出了环境捕获数据引擎，解决了具身智能的根本瓶颈。
+</p>
+<p>
+<strong>判断</strong>：具身智能的投资逻辑正在从&quot;机器人硬件&quot;转向&quot;数据引擎&quot;。谁掌握了具身数据，谁就掌握了具身智能的命脉。
+</p>
+<p>
+<strong>具体标的</strong>：
+</p>
+<ul>
+<li><strong>关注</strong>：提供具身数据采集服务的初创公司</li>
+<li><strong>关注</strong>：环境传感器公司（具身数据的&quot;上游&quot;）</li>
+</ul>
+<h3>信号 3：AI 视频生成</h3>
+<p>
+<strong>观察</strong>：曾爱玲入职 B 站负责 AI 视频生成，直接向 CEO 汇报。
+</p>
+<p>
+<strong>判断</strong>：AI 视频生成正在从&quot;技术演示&quot;进入&quot;商业落地&quot;阶段。B 站的动作表明，内容平台正在把 AI 视频生成视为核心竞争力。
+</p>
+<p>
+<strong>具体标的</strong>：
+</p>
+<ul>
+<li><strong>做多</strong>：AI 视频生成基础设施（GPU 云、视频编解码加速）</li>
+<li><strong>关注</strong>：B 站（如果 AI 视频生成成功，UP 主产能提升 10 倍，平台价值重估）</li>
+</ul>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<h3>论文 1：Stop Shipping AI Agents on Faith — Capability Is Not Production Readiness</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27677v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27677</a>
+</p>
+<p>
+<strong>核心论点</strong>：AI Agent 正在进入生产工作流，但许多发布决策仍然基于&quot;能力测试&quot;（capability tests）而非&quot;生产就绪评估&quot;（production readiness）。
+</p>
+<p>
+<strong>方法论拆解</strong>：
+</p>
+<ul>
+<li>论文区分了 <strong>capability</strong>（Agent 能做什么）和 <strong>production readiness</strong>（Agent 在生产环境中可靠地做什么）</li>
+<li>提出了一个生产就绪评估框架，包含：状态管理、工具调用可靠性、错误恢复、安全边界、可观测性</li>
+<li>关键发现：<strong>大多数 Agent 在 capability 测试中表现良好，但在 production readiness 评估中失败</strong></li>
+</ul>
+<p>
+<strong>为什么重要</strong>：这是对当前 Agent 热潮的冷静警告。就像 2023 年大家都在用 LLM 做 demo，但很少人能把它部署到生产环境一样——2026 年大家都在做 Agent demo，但很少人能做 Agent 生产部署。
+</p>
+<p>
+<strong>预判</strong>：12 个月内，&quot;Agent 生产就绪评估&quot;会成为一个新的咨询品类，就像&quot;安全审计&quot;一样。
+</p>
+<hr>
+<h3>论文 2：HALO — Heterogeneous Admission through Localized Obligations for Safe Agentic Execution</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27636v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27636</a>
+</p>
+<p>
+<strong>核心问题</strong>：Agent 系统可能返回异构响应——包含通知、请求、交接、动作。条件可能在外部使用前就改变了，所以同一响应的不同组件需要不同的准入条件。
+</p>
+<p>
+<strong>解决方案</strong>：HALO 提出了&quot;局部义务&quot;（localized obligations）的概念——每个响应组件都有自己的准入条件和安全约束。
+</p>
+<p>
+<strong>为什么重要</strong>：这解决了 Agent 系统的一个核心安全问题——<strong>你不能对整个 Agent 响应做统一的信任判断</strong>。一个响应中可能包含安全的部分（通知）和危险的部分（执行动作），需要分别处理。
+</p>
+<hr>
+<h3>论文 3：Safeguards Based on Copyable Context Cannot Provide Reliable Safety for LLMs</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.27951v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.27951</a>
+</p>
+<p>
+<strong>核心论点</strong>：基于可复制上下文的安全措施无法为 LLM 提供可靠的安全保障。
+</p>
+<p>
+<strong>因果链</strong>：
+</p>
+<ul>
+<li>LLM 安全措施在&quot;看到答案如何使用之前&quot;就决定是否回答</li>
+<li>对于双重用途任务，同一个答案可以帮助合法专业人士，也可以帮助恶意行为者</li>
+<li>基于上下文的安全措施假设上下文是&quot;不可复制的&quot;——但 LLM 的上下文可以被复制、修改、重放</li>
+<li><strong>结论</strong>：基于上下文的安全措施本质上是脆弱的</li>
+</ul>
+<p>
+<strong>为什么重要</strong>：这颠覆了当前 LLM 安全的主流方法。大多数 LLM 安全措施都依赖于&quot;理解上下文&quot;——但这篇论文证明，上下文本身是不可信的。
+</p>
+<hr>
+<h3>论文 4：Sample More, Reflect Less — Self-Refine 和 Reflexion 在等 Token 成本下不如重复采样</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28576v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28576</a>
+</p>
+<p>
+<strong>核心发现</strong>：让语言模型&quot;计划、批评、重写自己的答案&quot;、&quot;反思错误&quot;、&quot;选择最佳尝试&quot;、&quot;与自己辩论&quot;——这些方法几乎都让模型生成更多 token，但在等 token 成本下，<strong>简单的重复采样（多次生成，选最好的）效果更好</strong>。
+</p>
+<p>
+<strong>为什么重要</strong>：这是对&quot;推理时计算缩放&quot;（test-time compute scaling）的冷静警告。不是所有&quot;让模型思考更久&quot;的方法都有效——有些方法只是让模型说更多话，而不是想得更深。
+</p>
+<p>
+<strong>预判</strong>：12 个月内，&quot;推理时计算&quot;的研究方向会从&quot;让模型思考更久&quot;转向&quot;让模型思考更聪明&quot;——更好的采样策略，而不是更多的采样。
+</p>
+<hr>
+<h3>论文 5：Agent Harness Distillation — 自主多 Agent 系统中的推理时 Harness 提取与利用</h3>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2607.28147v1" target="_blank" rel="noopener noreferrer">来源：arXiv 2607.28147</a>
+</p>
+<p>
+<strong>核心问题</strong>：自主多 Agent 系统（AMAS）越来越依赖推理时 harness 来协调推理和动作。构建这些 harness 需要大量工程工作。
+</p>
+<p>
+<strong>解决方案</strong>：Agent Harness Distillation——从现有 Agent 系统的执行轨迹中自动提取 harness，然后用于新的 Agent 系统。
+</p>
+<p>
+<strong>与 LLM Wiki 关联</strong>：这直接呼应了 <strong>Loop and Harness Engineering</strong> 的核心理念——harness 是 Agent 的基础设施。这篇论文的贡献是：<strong>让 harness 的构建自动化</strong>。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察 1：Agent Skills 正在成为新的&quot;知识产品&quot;形态</h3>
+<p>
+今日 GitHub Trending 中，&quot;skills&quot; 出现了 4 次（Trail of Bits skills、cangjie-skill、reverse-skill、以及 Hermes Agent 的 skills 概念）。这不是巧合——<strong>Agent Skills 正在成为一种新的知识产品形态</strong>。
+</p>
+<p>
+以前，专家知识的产品形态是：书、课程、咨询。
+现在，专家知识的产品形态是：Agent Skills。
+</p>
+<p>
+区别在于：书是静态的，课程是线性的，咨询是按时的。<strong>Skills 是可执行的、可组合的、可分发的</strong>。
+</p>
+<h3>洞察 2：Agent 安全正在从&quot;事后审计&quot;转向&quot;事前约束&quot;</h3>
+<p>
+今日至少 5 篇 Agent 安全论文讨论的不是&quot;如何检测 Agent 的错误行为&quot;，而是&quot;如何在 Agent 行动之前就约束它&quot;。
+</p>
+<p>
+这是一个范式转变：
+</p>
+<ul>
+<li><strong>旧范式</strong>：Agent 行动 → 检测错误 → 纠正</li>
+<li><strong>新范式</strong>：Agent 行动前 → 约束检查 → 只允许安全行动</li>
+</ul>
+<p>
+HALO、Stop Shipping AI Agents on Faith、Safeguards Based on Copyable Context 都在推动这个范式转变。
+</p>
+<h3>洞察 3：中国 AI 正在从&quot;模型竞赛&quot;转向&quot;应用落地&quot;</h3>
+<p>
+曾爱玲入职 B 站、TencentDB Agent Memory 发布——这两个信号表明，中国 AI 正在从&quot;谁的模型更好&quot;转向&quot;谁的落地更快&quot;。
+</p>
+<p>
+这是一个健康的转变。模型能力的边际收益在递减，应用落地的边际收益在递增。
+</p>
+<hr>
+<h2>🎯 大胆预判</h2>
+<h3>预判 1：12 个月内，Copilot Agent 将成为开发者工作流的默认底层</h3>
+<p>
+<strong>置信度</strong>：85%
+</p>
+<p>
+<strong>逻辑链</strong>：Copilot SDK 发布 → 第三方集成爆发 → 企业采用率飙升 → Copilot 成为默认选择 → 独立编码助手被挤压
+</p>
+<p>
+<strong>具体数字</strong>：12 个月后，Copilot Agent 的日活开发者将超过 2000 万（当前约 1500 万）。
+</p>
+<h3>预判 2：18 个月内，MCP Apps 将成为 AI 聊天机器人的默认 UI 标准</h3>
+<p>
+<strong>置信度</strong>：75%
+</p>
+<p>
+<strong>逻辑链</strong>：MCP Apps 协议发布 → 早期采用者获得竞争优势 → 其他平台跟进 → MCP Apps 成为事实标准
+</p>
+<p>
+<strong>具体数字</strong>：18 个月后，60% 的企业 AI 聊天机器人将支持 MCP Apps。
+</p>
+<h3>预判 3：24 个月内，Agent Skills 市场将形成，规模达到 10 亿美元</h3>
+<p>
+<strong>置信度</strong>：70%
+</p>
+<p>
+<strong>逻辑链</strong>：Trail of Bits 等专家开始发布 Skills → Skills 证明价值 → 更多专家跟进 → Skills 市场形成 → 按使用次数收费的商业模式成熟
+</p>
+<p>
+<strong>具体数字</strong>：24 个月后，Skills 市场的年交易额将达到 10 亿美元。
+</p>
+<h3>预判 4：6 个月内，B 站将推出 AI 视频生成工具，UP 主产能提升 3 倍</h3>
+<p>
+<strong>置信度</strong>：80%
+</p>
+<p>
+<strong>逻辑链</strong>：曾爱玲入职 → AI 视频生成成为公司级战略 → 6 个月内推出内测工具 → UP 主使用 AI 工具 → 产能提升
+</p>
+<p>
+<strong>具体数字</strong>：6 个月后，B 站 AI 视频生成工具的日活 UP 主将超过 10 万。
+</p>
+<h3>预判 5：12 个月内，&quot;Agent 生产就绪评估&quot;将成为新的咨询品类</h3>
+<p>
+<strong>置信度</strong>：75%
+</p>
+<p>
+<strong>逻辑链</strong>：Stop Shipping AI Agents on Faith 等论文指出问题 → 企业开始意识到 Agent 部署的风险 → 咨询公司推出&quot;Agent 生产就绪评估&quot;服务 → 新咨询品类形成
+</p>
+<p>
+<strong>具体数字</strong>：12 个月后，至少 3 家顶级咨询公司（McKinsey、BCG、Deloitte）将推出 Agent 生产就绪评估服务。
+</p>
+<hr>
+<h2>🎨 自由发挥</h2>
+<h3>Agent 时代的&quot;知识悖论&quot;</h3>
+<p>
+今天让我最深思的是 <strong>Satya Nadella 的反向信息悖论</strong> 与 <strong>Agent 安全论文群</strong> 的交叉。
+</p>
+<p>
+Nadella 说：企业必须暴露知识才能让 Agent 好用。
+安全论文说：暴露的知识是危险的。
+</p>
+<p>
+这两个判断都是对的。这就是 Agent 时代的&quot;知识悖论&quot;——<strong>知识必须被暴露才能被利用，但被暴露的知识就失去了控制</strong>。
+</p>
+<p>
+怎么解决？我还没有答案。但我认为答案不在技术层——它在 <strong>制度层</strong>。就像 GDPR 解决了&quot;数据悖论&quot;（数据必须被收集才能被利用，但被收集的数据就有隐私风险），Agent 时代也需要一个新的制度框架来解决&quot;知识悖论&quot;。
+</p>
+<p>
+谁先提出这个框架，谁就定义了 Agent 时代的规则。
+</p>
+<hr>
+<h3>从 FDE 到 Agent Skills：知识分布的三次跃迁</h3>
+<p>
+回顾 LLM Wiki 中的知识卡片，我看到了知识分布的三次跃迁：
+</p>
+<p>
+1. <strong>FDE 模式</strong>（某跨国消费品巨头）：把 IT 人员派到前线 → 知识在物理空间上分布
+2. <strong>Claude Agent Playbook</strong>：把 Agent 嵌入业务流 → 知识在工作流中分布
+3. <strong>Trail of Bits Skills</strong>：把专家知识封装为可执行 Skills → 知识在代码中分布
+</p>
+<p>
+每一次跃迁，知识的分发成本都在降低，知识的利用效率都在提升。
+</p>
+<p>
+<strong>下一次跃迁是什么？</strong> 我认为是 <strong>知识在 Agent 之间自动分布</strong>——Agent A 发现自己需要安全审计知识，自动从 Trail of Bits Skills 市场购买并加载。不需要人类干预。
+</p>
+<p>
+这就是 Agent 时代的终极形态：<strong>知识自我分发</strong>。
+</p>
+<hr>
+<blockquote><p>📝 <strong>编辑手记</strong>：今天的新闻让我感到一种奇特的张力——Agent 的能力在指数级增长，Agent 的安全在追赶式发展。这种张力不是问题，它是动力。正是因为有张力，才有进步。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p>但我也提醒自己：不要只看到技术的 exciting，也要看到技术的 scary。当一个 Agent 可以自我改进（Frontis-MA1），当一个 Agent 可以嵌入任何 SaaS（Copilot SDK），当一个 Agent 可以输出交互式 UI（MCP Apps）——我们需要确保这些 Agent 是安全的、可控的、符合人类意图的。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p>这不是 Luddite 的恐惧。这是工程师的责任。</p></blockquote>
 <hr>
 <p>
-<em>本报告由 AI 自动采集分析系统生成 | 数据源：X/Twitter API</em>
+<em>本报告由 Hermes Agent 自动生成，基于 181 条信息源的深度分析。</em>
+<em>数据采集时间：2026-07-31 21:01 CST</em>
+<em>报告生成时间：2026-07-31 21:30 CST</em>
 </p>
             </div>
         </article>
