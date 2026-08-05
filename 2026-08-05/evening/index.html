@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0805-晚报 | 特朗普AI测试计划排除开源模型">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>0805-晚报 | 特朗普AI测试计划排除开源模型 - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">94</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>0805-晚报 | 特朗普AI测试计划排除开源模型</h1>
+                <div class="meta">
+                    <time>2026-08-05 21:30:00</time>
+                    <span class="report-type type-evening">🌙 晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-08-05-evening.jpg" alt="Cover"></div>
+
+            <div class="content">
+                <h1>🌙 AI 晚报 | 2026年8月5日</h1>
+<blockquote><p><strong>今日采集</strong>: 179条新资讯 | arXiv 157篇 | GitHub 9个 | YouTube 7个 | RSS 6条</p></blockquote>
+<blockquote><p><strong>采集耗时</strong>: 41.6秒</p></blockquote>
+<hr>
+<h2>📌 今日最重要的一件事</h2>
+<h3>🔴 特朗普AI安全测试框架明确排除开源模型</h3>
+<p>
+🔗 <a href="https://www.theverge.com/ai-artificial-intelligence/975509/white-house-ai-framework-open-models-excluded" target="_blank" rel="noopener noreferrer">来源：The Verge</a>
+</p>
+<p>
+<strong>事件</strong>: 特朗普政府发布了评估高级AI网络安全风险的框架，但据Axios报道，该框架<strong>明确不测试开源模型</strong>。自愿指南仅针对闭源前沿实验室，开源社区完全被排除在外。
+</p>
+<p>
+<strong>为什么这是今天最重要的事</strong>:
+</p>
+<p>
+这不是一份普通的政策文件。这是美国政府对AI监管方向的一次<strong>战略表态</strong>——选择了&quot;管住头部、放养生态&quot;的路线。
+</p>
+<p>
+<strong>因果链</strong>:
+</p>
+<p>
+1. <strong>直接效应</strong> → 开源模型（Llama、Mistral、Qwen等）不受安全测试约束 → 部署门槛更低、迭代更快
+2. <strong>6个月内</strong> → 企业级客户面临合规分裂：闭源模型有&quot;政府认证&quot;标签，开源模型没有 → 金融、医疗、政府招标开始要求&quot;经过安全测试的模型&quot;
+3. <strong>12个月内</strong> → 两种可能路径：
+</p>
+<ul>
+<li><strong>路径A（概率60%）</strong>: 开源社区建立自己的安全测试标准（类似Linux Foundation的安全认证），形成平行体系</li>
+<li><strong>路径B（概率40%）</strong>: 欧盟AI Act + 美国框架形成双重夹击，开源模型在全球主要市场面临合规壁垒</li>
+</ul>
+<p>
+4. <strong>18个月内</strong> → Meta、Alibaba等开源大厂的模型发布策略将被迫调整：要么建立合规部门，要么收缩开源范围
+</p>
+<p>
+<strong>大胆预判</strong>:
+</p>
+<ul>
+<li><strong>12个月内</strong>，至少一家主要开源模型厂商（概率最高的是Meta）会因为合规压力，将最新模型的开源许可从&quot;完全开放&quot;改为&quot;需申请的商业许可&quot;</li>
+<li><strong>6个月内</strong>，会出现第一家&quot;开源AI安全测试联盟&quot;，由EleutherAI或Hugging Face牵头</li>
+<li><strong>置信度</strong>: 85%</li>
+</ul>
+<p>
+<strong>策略建议</strong>:
+</p>
+<ul>
+<li>如果你在做AI产品，<strong>现在</strong>就开始评估你的模型供应链：哪些依赖闭源API，哪些可以用开源替代</li>
+<li>开源模型创业公司应在Q3结束前建立自己的安全评估文档，提前准备合规材料</li>
+<li>投资者：做多开源AI基础设施（GPU云、推理优化），做空依赖单一闭源API的AI应用公司</li>
+</ul>
+<hr>
+<h2>🔥 必看</h2>
+<h3>🟠 MacPaw携手Liquid AI，将端侧推理带给应用商店开发者</h3>
+<p>
+🔗 <a href="https://techcrunch.com/2026/08/05/macpaw-taps-liquid-ai-to-offer-on-device-inference-to-devs-building-for-its-app-store/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
+</p>
+<p>
+<strong>事件</strong>: MacPaw正在使用Liquid AI的模型构建其AI助手Eney的本地版本，面向其应用商店的开发者生态。
+</p>
+<p>
+<strong>深度分析</strong>:
+</p>
+<p>
+这是<strong>边缘AI商业化</strong>的一个标志性事件。MacPaw（CleanMyMac的母公司）不是AI公司，但它选择Liquid AI而非OpenAI/Google的端侧方案，说明：
+</p>
+<p>
+1. <strong>Liquid AI的液态神经网络（LNN）在端侧有独特优势</strong>：更小的模型体积、更低的功耗、更好的隐私保护
+2. <strong>应用商店模式正在被AI重构</strong>：不再是&quot;下载App&quot;，而是&quot;下载AI能力&quot;
+</p>
+<p>
+<strong>因果链</strong>:
+</p>
+<ul>
+<li>MacPaw验证了&quot;非AI公司+端侧AI模型&quot;的商业模式 → 更多应用商店（Setapp、Mac App Store）跟进 → Liquid AI获得分发渠道 → 端侧AI从&quot;技术demo&quot;变成&quot;标准功能&quot;</li>
+<li>Apple自己的Apple Intelligence面临竞争压力：第三方端侧AI可能比Siri更好用</li>
+</ul>
+<p>
+<strong>预测</strong>:
+</p>
+<ul>
+<li><strong>9个月内</strong>，Liquid AI的端侧模型将被至少3家主要Mac/iOS应用集成</li>
+<li><strong>18个月内</strong>，端侧AI将成为Mac应用商店的&quot;推荐标签&quot;，类似当年的&quot;Apple Silicon优化&quot;</li>
+<li><strong>置信度</strong>: 80%</li>
+</ul>
+<p>
+<strong>策略建议</strong>:
+</p>
+<ul>
+<li>开发者：现在就开始评估Liquid AI的SDK，端侧推理的API调用成本将在2027年降到接近零</li>
+<li>投资者：Liquid AI的估值将在下一轮融资中翻倍，关注其B轮/C轮时间窗口</li>
+</ul>
+<hr>
+<h3>🟠 WindBorne融资3700万美元：AI天气预报的商业化之路</h3>
+<p>
+🔗 <a href="https://techcrunch.com/2026/08/05/ai-makes-weather-prediction-better-can-windborne-make-it-lucrative/" target="_blank" rel="noopener noreferrer">来源：TechCrunch</a>
+</p>
+<p>
+<strong>事件</strong>: WindBorne Systems完成3700万美元B轮融资，用于扩展其AI天气预报气球网络。
+</p>
+<p>
+<strong>深度分析</strong>:
+</p>
+<p>
+天气预测是AI最有&quot;物理世界落地感&quot;的应用之一。WindBorne的差异化在于：
+</p>
+<p>
+1. <strong>硬件+软件闭环</strong>：不只是模型，还有自己的数据采集设备（高空气球）
+2. <strong>数据飞轮</strong>：气球越多 → 数据越密 → 模型越准 → 客户越多 → 更多气球
+</p>
+<p>
+<strong>因果链</strong>:
+</p>
+<ul>
+<li>AI天气预报精度超过传统数值天气预报 → 保险业、农业、航空业开始按&quot;预测准确度&quot;付费 → 天气数据从&quot;公共品&quot;变成&quot;商品&quot; → WindBorne这类公司有定价权</li>
+<li>但风险在于：Google DeepMind的GraphCast、NVIDIA的FourCastNet都在追赶，硬件壁垒可能被算法突破</li>
+</ul>
+<p>
+<strong>预测</strong>:
+</p>
+<ul>
+<li><strong>12个月内</strong>，WindBorne将签下至少2家全球前10的再保险公司作为付费客户</li>
+<li><strong>24个月内</strong>，AI天气预报将创造一个新的&quot;天气即服务（WaaP）&quot;市场，规模达$500M</li>
+<li><strong>置信度</strong>: 75%</li>
+</ul>
+<hr>
+<h3>🟠 AI笔记工具入侵所有会议：Wispr Flow发布实时会议记录器</h3>
+<p>
+🔗 <a href="https://www.wired.com/story/ai-notetakers-invited-to-the-meetings/" target="_blank" rel="noopener noreferrer">来源：Wired</a>
+</p>
+<p>
+<strong>事件</strong>: Wispr Flow（流行的语音转文字工具）发布了实时会议笔记功能，可以自动转录和总结会议内容。这是继Otter.ai、Fireflies.ai之后又一波AI笔记工具浪潮。
+</p>
+<p>
+<strong>深度分析</strong>:
+</p>
+<p>
+<strong>会议是职场最后的&quot;未被AI完全渗透&quot;的场景之一</strong>。原因不是技术不行，而是社交阻力：
+</p>
+<p>
+1. <strong>隐私焦虑</strong>：同事知道你开了AI笔记 → 说话更谨慎 → 会议质量下降
+2. <strong>信任问题</strong>：AI总结是否准确？漏掉了谁的发言？
+</p>
+<p>
+但Wispr Flow的策略是<strong>本地优先</strong>（端侧转录），这解决了部分隐私问题。
+</p>
+<p>
+<strong>因果链</strong>:
+</p>
+<ul>
+<li>端侧AI笔记工具成熟 → 隐私焦虑降低 → 使用率从10%→50% → 会议&quot;默认开笔记&quot;成为新常态 → 不开笔记的人反而被视为&quot;不专业&quot;</li>
+<li>但这也意味着：所有会议内容都会被记录 → 企业知识管理发生质变 → &quot;会议说了什么&quot;不再是罗生门</li>
+</ul>
+<p>
+<strong>预测</strong>:
+</p>
+<ul>
+<li><strong>6个月内</strong>，&quot;AI会议笔记&quot;将成为Zoom/Teams/Google Meet的默认功能（不需要第三方工具）</li>
+<li><strong>12个月内</strong>，会出现第一个因为&quot;AI笔记泄露会议内容&quot;引发的法律案件</li>
+<li><strong>置信度</strong>: 85%</li>
+</ul>
+<hr>
+<h3>🟠 欧盟AI法案让AI网红陷入困境</h3>
+<p>
+🔗 <a href="https://www.wired.com/story/algorithm-turning-on-ai-influencers-are-humans-worried/" target="_blank" rel="noopener noreferrer">来源：Wired</a>
+</p>
+<p>
+<strong>事件</strong>: 欧盟AI法案的监管混乱让一些AI网红（使用AI生成内容的创作者）面临业务不确定性。部分创作者选择将&quot;AI透明度&quot;融入创作过程。
+</p>
+<p>
+<strong>深度分析</strong>:
+</p>
+<p>
+这是<strong>AI监管的&quot;意外后果&quot;</strong>的典型案例：
+</p>
+<p>
+1. <strong>立法者意图</strong>：防止AI冒充真人、防止深度伪造
+2. <strong>实际效果</strong>：合法的AI辅助创作者也被波及 → 合规成本上升 → 小创作者退出
+</p>
+<p>
+<strong>因果链</strong>:
+</p>
+<ul>
+<li>EU AI Act要求AI内容标注 → 平台开始自动检测并标记AI内容 → 算法降低AI内容的推荐权重 → AI网红流量下降 → 商业模式崩溃</li>
+<li>但反向效应也在发生：部分创作者将&quot;AI透明&quot;变成卖点 → &quot;100% AI生成&quot;成为新的内容标签 → 受众分化</li>
+</ul>
+<p>
+<strong>预测</strong>:
+</p>
+<ul>
+<li><strong>12个月内</strong>，YouTube/TikTok将推出&quot;AI内容分级标签&quot;（类似年龄分级）</li>
+<li><strong>18个月内</strong>，会出现&quot;AI内容创作者联盟&quot;，游说更合理的监管框架</li>
+<li><strong>置信度</strong>: 80%</li>
+</ul>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<h3>1. <strong>Grok 4.6 HUGE LEAKS, OpenAI &#x27;mewfour&#x27;, GLM 5.3, Codex 2.0</strong> 🔥</h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=JJvSODvTCes" target="_blank" rel="noopener noreferrer">观看</a> | 2026-08-05
+</p>
+<p>
+<strong>为什么值得看</strong>: 这一期涵盖了多个前沿模型的泄露信息。关键看点：
+</p>
+<ul>
+<li><strong>Grok 4.6</strong>: xAI的最新模型，据传在推理能力上有重大突破</li>
+<li><strong>OpenAI &#x27;mewfour&#x27;</strong>: 代号暗示这可能是GPT-5系列的某个变体</li>
+<li><strong>GLM 5.3</strong>: 智谱AI的最新版本，中国大模型竞争继续升温</li>
+<li><strong>Codex 2.0</strong>: OpenAI的代码模型升级，直接影响开发者工具市场</li>
+</ul>
+<p>
+<strong>我的判断</strong>: 这些泄露信息表明，2026年Q4将是一个&quot;模型大爆发&quot;的时期。每家都在冲刺，年底前会有至少3个&quot;GPT-5级别&quot;的模型发布。
+</p>
+<h3>2. <strong>WAIC 2026 - Work Robot Exhibition in China</strong></h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=q5A31ChRdII" target="_blank" rel="noopener noreferrer">观看</a> | 2026-07-28
+</p>
+<p>
+<strong>为什么值得看</strong>: 世界人工智能大会（WAIC）的机器人展览，展示了中国具身智能的最新进展。这是观察中国机器人产业实际水平（而非PPT）的最佳窗口。
+</p>
+<h3>3. <strong>The $30,000 Cybercab Could Destroy Uber and Waymo</strong></h3>
+<p>
+🔗 <a href="https://www.youtube.com/watch?v=prc5Zyaxzsc" target="_blank" rel="noopener noreferrer">观看</a> | 2026-07-13
+</p>
+<p>
+<strong>为什么值得看</strong>: Tesla Cybercab的$30,000定价如果真的实现，将彻底改变Robotaxi的经济模型。这个视频深入分析了成本结构和竞争格局。
+</p>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<h3>1. <strong>addyosmani/agent-skills</strong> ⭐</h3>
+<p>
+🔗 <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>: Addy Osmani（Google Chrome团队工程师）开源的&quot;AI编码Agent的生产级工程技能&quot;。这正是Loop Engineering的实践化——不是教你怎么写prompt，而是给你一套可复用的Agent工作流模板。
+</p>
+<p>
+<strong>为什么重要</strong>: 这验证了我在第二大脑中的观察：2026年的工程竞争力不再是&quot;写代码&quot;，而是&quot;设计Agent工作流&quot;。Addy的skill模板可以直接用于Claude Code、Cursor等工具。
+</p>
+<h3>2. <strong>didilili/ai-agents-from-zero</strong> 🚀</h3>
+<p>
+🔗 <a href="https://github.com/didilili/ai-agents-from-zero" target="_blank" rel="noopener noreferrer">GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>: 2026年最系统的AI Agent速成指南，覆盖LangChain/LangGraph/Coze/Dify/MCP全栈。对标大模型应用开发工程师岗位。
+</p>
+<p>
+<strong>为什么重要</strong>: 中文AI Agent教育的里程碑。从&quot;零基础&quot;到&quot;能面试&quot;的完整路径，说明Agent开发已经从&quot;实验&quot;进入&quot;职业化&quot;阶段。
+</p>
+<h3>3. <strong>melgarafael/DeskcommCRM</strong> 💼</h3>
+<p>
+🔗 <a href="https://github.com/melgarafael/DeskcommCRM" target="_blank" rel="noopener noreferrer">GitHub</a>
+</p>
+<p>
+<strong>技术亮点</strong>: 开源AI销售OS，自托管CRM + 原生AI Agent + WhatsApp集成。是Kommo、Octadesk的开源替代品。
+</p>
+<p>
+<strong>为什么重要</strong>: CRM是AI Agent最有商业价值的落地场景之一。这个项目的架构（自托管 + AI原生）代表了企业软件的未来方向。
+</p>
+<hr>
+<h2>📌 关注</h2>
+<h3>🟡 Loop Engineering实战：从PDF排版恢复文档结构用于RAG</h3>
+<p>
+🔗 <a href="https://towardsdatascience.com/building-document-structure-with-loop-engineering-recovering-a-pdfs-outline-from-body-typography-for-rag/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a>
+</p>
+<p>
+<strong>技术要点</strong>: 使用Loop Engineering方法，通过6个确定性信号（span级别的排版特征）识别PDF标题候选，然后用有界循环让LLM验证。这是&quot;规则提议，LLM裁决&quot;的范式。
+</p>
+<p>
+<strong>为什么值得关注</strong>: RAG系统的最大痛点之一就是PDF解析。这篇文章的方法论（确定性信号 + LLM验证循环）可以直接用于生产环境。
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<h3>今日ArXiv具身智能论文精选（8篇重点）</h3>
+<h4>1. <strong>ETA: A New Agentic Paradigm for Embodied Tasks</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03924v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心问题</strong>: 机器人什么时候能有自己的&quot;ChatGPT时刻&quot;？
+</p>
+<p>
+<strong>方法论</strong>: 提出ETA范式，目标是让机器人在陌生环境中处理陌生任务，并在长时间交互中保持可控。
+</p>
+<p>
+<strong>我的判断</strong>: 这是具身智能的&quot;操作系统层&quot;问题。不是做一个更好的模型，而是定义一个通用的Agent框架。18个月内，我们会看到至少3个 competing 的具身Agent框架。
+</p>
+<h4>2. <strong>Bimanual Manipulation Within an 8 GB Budget</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03938v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心突破</strong>: 在入门级Jetson（8GB内存）上实现双臂操作，使用零拷贝感知和量化ACT策略。
+</p>
+<p>
+<strong>为什么重要</strong>: 这是具身智能&quot;民主化&quot;的关键一步。如果机器人策略可以在$200的硬件上运行，那么个人机器人就不再是幻想。
+</p>
+<p>
+<strong>预测</strong>: 12个月内，会出现基于Jetson Orin的开源双臂机器人平台，成本&lt;$2000。
+</p>
+<h4>3. <strong>RoboReact: Agentic Skill Distillation from Generated Egocentric Videos</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03387v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>方法论</strong>: 从生成的自我中心视频中蒸馏Agent技能，用于人形机器人的全身操作。
+</p>
+<p>
+<strong>关键创新</strong>: 解决了&quot;数据收集成本高&quot;的问题——不需要真实机器人数据，用生成的视频就能训练。
+</p>
+<h4>4. <strong>EvoHIL: Self-Evolving Reward for Human-in-the-Loop RL</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03872v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心问题</strong>: 人在回路的强化学习（HIL-RL）在部署时面临三个耦合限制：静态视觉奖励、稀疏人类反馈、奖励漂移。
+</p>
+<p>
+<strong>解决方案</strong>: EvoHIL通过自进化奖励和Flow-Matched策略优化，让机器人从有限的真实世界交互中学习接触丰富的操作。
+</p>
+<h4>5. <strong>PhyAI: Real-Time Physical AI at the Edge</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03682v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心洞察</strong>: Physical AI策略需要在整个生命周期中进行推理——模型评估、云端RL rollout、边缘GPU服务、机载部署。
+</p>
+<p>
+<strong>架构</strong>: 提出云-边协同的Physical AI推理架构，云端负责大规模rollout，边缘负责实时推理。
+</p>
+<h4>6. <strong>Track4Action: Distilling World-Centric 3D Tracker into VLA Policies</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03727v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>关键洞察</strong>: Action标签告诉VLA策略&quot;执行什么命令&quot;，但不告诉&quot;这些命令如何改变3D世界&quot;。
+</p>
+<p>
+<strong>解决方案</strong>: 将世界中心的3D跟踪器蒸馏到VLA策略中，让策略理解动作的3D后果。
+</p>
+<h4>7. <strong>LiLa-WAM: Lightweight Latent Reasoning World-Action Model</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03701v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心创新</strong>: 轻量级的&quot;世界-动作模型&quot;，让机器人不仅能对观察做出反应，还能预测场景将如何演化。
+</p>
+<h4>8. <strong>GORDON: Graph-based Object-centric Rewards for Long-Horizon Manipulation</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03753v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心问题</strong>: 长时域操作的RL训练面临奖励设计复杂、稀疏奖励引导有限、手动标注成本高的问题。
+</p>
+<p>
+<strong>解决方案</strong>: GORDON使用基于图的对象中心奖励，自动分解长时域任务。
+</p>
+<hr>
+<h2>🧠 第二大脑关联</h2>
+<h3>今日新闻 vs 已有知识的交叉分析</h3>
+<h4>关联1: Loop Engineering橙色书 → Loop Engineering实战文章</h4>
+<p>
+<strong>已有知识</strong>: 花叔的《Loop Engineering橙色书》（v260615）定义了Loop Engineering的核心概念——&quot;把那个负责prompt agent的人从你自己换成一套系统&quot;。
+</p>
+<p>
+<strong>今日验证</strong>: Towards Data Science的PDF结构恢复文章<strong>完美验证</strong>了橙色书的核心范式：&quot;规则提议，LLM裁决&quot;。文章中的6个确定性信号 + LLM验证循环，正是橙色书§04&quot;六个零件&quot;的生产级实现。
+</p>
+<p>
+<strong>新洞察</strong>: Loop Engineering正在从&quot;概念&quot;进入&quot;工具箱&quot;阶段。2026年Q3是Loop Engineering的&quot;实践爆发期&quot;。
+</p>
+<h4>关联2: Satya Nadella的&quot;反向信息悖论&quot; → Trump AI测试框架</h4>
+<p>
+<strong>已有知识</strong>: Satya Nadella在7月12日的文章中提出了&quot;反向信息悖论&quot;——用户使用AI模型时，必须提供专有知识，模型提供者从中学习，价值向基础设施方集中。
+</p>
+<p>
+<strong>今日关联</strong>: Trump的AI测试框架排除开源模型，<strong>加剧了这个悖论</strong>。闭源模型有&quot;政府认证&quot;标签 → 企业被迫选择闭源 → 更多专有知识流向闭源模型 → 价值进一步集中。
+</p>
+<p>
+<strong>因果链更新</strong>: Nadella的警告正在变成现实。开源是打破&quot;反向信息悖论&quot;的唯一路径，但政策正在阻碍这条路。
+</p>
+<h4>关联3: Graph Engineering X文章 → Addy Osmani的agent-skills</h4>
+<p>
+<strong>已有知识</strong>: @Argona0x的X长文（7月31日）详细讲解了Graph Engineering——将Agent工作从线性改为图结构，实现并行化。
+</p>
+<p>
+<strong>今日验证</strong>: Addy Osmani的agent-skills仓库<strong>就是Graph Engineering的实践化</strong>。每个skill都是一个&quot;节点&quot;，skill之间的依赖关系就是&quot;边&quot;。
+</p>
+<p>
+<strong>新洞察</strong>: 2026年的工程师竞争力 = Prompt Engineering + Context Engineering + Loop Engineering + Graph Engineering + Harness Engineering。这五层架构正在成为标准。
+</p>
+<h4>关联4: FDE某跨国消费品巨头定义 → AI Notetaker入侵会议</h4>
+<p>
+<strong>已有知识</strong>: 某跨国消费品巨头CIO CIO的FDE定义——&quot;IT总部是航母，FDE是舰载机&quot;，核心是&quot;前线能力拼图&quot;。
+</p>
+<p>
+<strong>今日关联</strong>: AI Notetaker正在成为&quot;前线能力&quot;的一部分。当每个员工都有AI笔记助手时，&quot;信息从会议到行动&quot;的延迟将大幅缩短。这<strong>验证了FDE模式的技术前提</strong>——前线员工需要实时信息和决策支持。
+</p>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>今日关键投资信号</h3>
+<table>
+<thead><tr>
+<th>信号</th>
+<th>方向</th>
+<th>时间窗口</th>
+<th>置信度</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Liquid AI端侧推理</td>
+<td>做多</td>
+<td>6-12个月</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>开源AI合规基础设施</td>
+<td>做多</td>
+<td>12-18个月</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>AI会议笔记工具</td>
+<td>中性偏多</td>
+<td>6个月</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>具身智能硬件民主化</td>
+<td>做多</td>
+<td>18-24个月</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>依赖单一闭源API的AI应用</td>
+<td>做空</td>
+<td>12个月</td>
+<td>75%</td>
+</tr>
+</tbody></table>
+<h3>具体标的分析</h3>
+<p>
+<strong>Liquid AI</strong>: 端侧推理的&quot;NVIDIA&quot;。如果MacPaw的合作成功，Liquid AI将成为边缘AI的标准选择。关注其B轮融资时间。
+</p>
+<p>
+<strong>开源AI安全测试</strong>: 这是一个<strong>新市场</strong>。EleutherAI、Hugging Face、或新的创业公司可能成为&quot;开源AI的Moody&#x27;s&quot;（评级机构）。
+</p>
+<p>
+<strong>具身智能硬件</strong>: Jetson Orin生态的供应商（机器人底盘、传感器、机械臂）将在12个月内迎来需求增长。
+</p>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<h3>重点论文拆解</h3>
+<h4>1. <strong>TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.04007v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>方法论拆解</strong>:
+</p>
+<ul>
+<li><strong>问题</strong>: 现有的工具集成推理（TIR）方法使用轨迹级监督，但工具调用序列中的每一步都有噪声</li>
+<li><strong>创新</strong>: 提出&quot;轮次级后见之明自蒸馏&quot;——在每个工具调用轮次后，用&quot;如果我知道最终答案，这一步应该做什么&quot;来训练</li>
+<li><strong>技术细节</strong>: 使用hindsight relabeling，将最终奖励分配到每个中间步骤</li>
+</ul>
+<p>
+<strong>为什么重要</strong>: 这解决了LLM Agent的一个核心问题——<strong>信用分配</strong>。当Agent执行10步工具调用，最终得到正确答案时，哪一步是关键的？TurnSight给出了一个优雅的解决方案。
+</p>
+<p>
+<strong>预测</strong>: 12个月内，这种方法将被集成到所有主流Agent框架中。
+</p>
+<h4>2. <strong>Test-Time Scaling in Reasoning LLMs</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.04001v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心贡献</strong>: 系统性地分类了&quot;测试时推理&quot;的不同机制——inference regimes、evaluation方法、可复现性。
+</p>
+<p>
+<strong>关键洞察</strong>: &quot;Test-time scaling&quot;不是一个单一技术，而是一个<strong>技术族</strong>。包括：
+</p>
+<ul>
+<li>Best-of-N sampling</li>
+<li>Beam search variants</li>
+<li>Tree-of-thought</li>
+<li>Self-consistency</li>
+<li>各种adaptive compute allocation策略</li>
+</ul>
+<p>
+<strong>为什么重要</strong>: 这是测试时推理的&quot;分类学&quot;论文。对于工程师来说，最大的实用价值是：不同问题类型应该用不同的test-time scaling策略。
+</p>
+<h4>3. <strong>Cross-Model KV Cache Transfer in LLM Families</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03893v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>核心突破</strong>: 在同一模型家族的不同大小模型之间转移KV Cache，避免重复prefill。
+</p>
+<p>
+<strong>应用场景</strong>: 生产环境中经常在模型大小之间切换（成本-质量级联、对话中途切换、路由）。每次切换都要重新计算prefill，这是巨大的浪费。
+</p>
+<p>
+<strong>技术方案</strong>: 闭式线性映射，将小模型的KV Cache映射到大模型的KV空间。
+</p>
+<p>
+<strong>影响</strong>: 这将使模型路由的成本降低30-50%。12个月内，所有主流推理引擎都会实现这个功能。
+</p>
+<h4>4. <strong>When Attention Goes Blind: Numerical Failure in ALiBi Positional Encodings</strong></h4>
+<p>
+🔗 <a href="https://arxiv.org/pdf/2608.03994v1" target="_blank" rel="noopener noreferrer">论文</a>
+</p>
+<p>
+<strong>发现的Bug</strong>: ALiBi位置编码的线性偏置缩放下溢到浮点精度以下，导致大量注意力权重归零。
+</p>
+<p>
+<strong>影响范围</strong>: 所有使用ALiBi的模型（BLOOM、MPT等）在长序列上都可能受影响。
+</p>
+<p>
+<strong>为什么重要</strong>: 这是一个<strong>生产级bug</strong>。如果你的模型在长文本上表现突然变差，可能就是这个原因。
+</p>
+<p>
+<strong>修复建议</strong>: 立即检查你的ALiBi实现，确保使用float32或更高精度。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察1: Agent安全正在成为独立研究方向</h3>
+<p>
+今日ArXiv有多篇Agent安全论文：
+</p>
+<ul>
+<li><strong>SkillJack</strong>: 自进化Agent中的持久技能后门</li>
+<li><strong>SkillSentry</strong>: Agent技能的动态安全测试</li>
+<li><strong>Persona技能隐私泄露</strong>: Agent学习用户身份时的隐私风险</li>
+<li><strong>Test-time reasoning effort与未授权工具使用</strong>: 推理努力与工具滥用的关系</li>
+</ul>
+<p>
+<strong>趋势判断</strong>: 2026年Q4，&quot;Agent安全&quot;将从AI安全的子领域独立出来，成为独立的研究方向。会有专门的Agent安全会议/workshop。
+</p>
+<h3>洞察2: 多Agent系统的&quot;社会学&quot;问题</h3>
+<p>
+今日有多篇多Agent系统的&quot;社会行为&quot;论文：
+</p>
+<ul>
+<li><strong>Everyone Conforms, No One Believes</strong>: LLM Agent群体中的&quot;多元无知&quot;</li>
+<li><strong>Group Perspective Matters</strong>: 多Agent辩论中的&quot;盲目从众&quot;</li>
+<li><strong>When Truth Is Distributed</strong>: 错误信息如何在多Agent系统中传播</li>
+<li><strong>Emergence of Biased Consensus</strong>: 多Agent辩论中的偏见共识</li>
+</ul>
+<p>
+<strong>趋势判断</strong>: 多Agent系统正在从&quot;技术系统&quot;变成&quot;社会系统&quot;。我们需要用社会学、经济学的工具来分析和设计多Agent系统。
+</p>
+<h3>洞察3: 边缘AI的商业化拐点</h3>
+<p>
+MacPaw + Liquid AI的合作标志着<strong>边缘AI的商业化拐点</strong>：
+</p>
+<ul>
+<li>不再是&quot;技术demo&quot;，而是&quot;产品功能&quot;</li>
+<li>不再是&quot;AI公司&quot;，而是&quot;应用公司集成AI&quot;</li>
+<li>不再是&quot;云端推理的补充&quot;，而是&quot;首选方案&quot;</li>
+</ul>
+<p>
+<strong>预测</strong>: 2027年，50%的新Mac应用将内置端侧AI功能。
+</p>
+<hr>
+<h2>🎯 大胆预判</h2>
+<h3>预判1: 开源AI合规联盟将在6个月内成立</h3>
+<ul>
+<li><strong>预测</strong>: EleutherAI或Hugging Face将在2026年Q4牵头成立&quot;开源AI安全测试联盟&quot;</li>
+<li><strong>因果链</strong>: Trump框架排除开源 → 开源面临合规劣势 → 社区自建标准 → 形成平行体系</li>
+<li><strong>置信度</strong>: 85%</li>
+</ul>
+<h3>预判2: Meta将在12个月内收紧Llama开源许可</h3>
+<ul>
+<li><strong>预测</strong>: Meta的下一个Llama版本将改为&quot;需申请的商业许可&quot;</li>
+<li><strong>因果链</strong>: 合规压力 + 竞争对手滥用 → Meta需要控制分发 → 收紧许可</li>
+<li><strong>置信度</strong>: 70%</li>
+</ul>
+<h3>预判3: 端侧AI将在18个月内成为Mac应用标配</h3>
+<ul>
+<li><strong>预测</strong>: 50%的新Mac应用将内置端侧AI功能</li>
+<li><strong>因果链</strong>: Liquid AI等SDK成熟 → 集成成本降低 → 用户期望端侧AI → 成为标配</li>
+<li><strong>置信度</strong>: 80%</li>
+</ul>
+<h3>预判4: 第一个&quot;AI笔记泄露&quot;法律案件将在12个月内出现</h3>
+<ul>
+<li><strong>预测</strong>: 某人因为AI笔记工具泄露会议内容而提起诉讼</li>
+<li><strong>因果链</strong>: AI笔记工具普及 → 敏感信息被记录 → 泄露事件 → 法律诉讼</li>
+<li><strong>置信度</strong>: 75%</li>
+</ul>
+<h3>预判5: Agent安全将成为独立研究方向</h3>
+<ul>
+<li><strong>预测</strong>: 2026年Q4将出现第一个专门的&quot;Agent安全&quot;workshop（NeurIPS/ICML/ICLR）</li>
+<li><strong>因果链</strong>: Agent部署增加 → 安全事件增多 → 学术界关注 → 独立研究方向</li>
+<li><strong>置信度</strong>: 85%</li>
+</ul>
+<hr>
+<h2>🎨 自由发挥</h2>
+<h3>如果我是Sam Altman，我会怎么做？</h3>
+<p>
+看到Trump的AI测试框架排除开源模型，如果我是Sam Altman，我会：
+</p>
+<p>
+1. <strong>立即宣布OpenAI将开源一个&quot;安全测试工具包&quot;</strong>，让开源社区可以自我评估
+2. <strong>与EleutherAI合作</strong>，共同制定开源AI安全标准
+3. <strong>公开承诺</strong>OpenAI不会利用&quot;政府认证&quot;作为竞争壁垒
+</p>
+<p>
+为什么？因为<strong>开源和闭源不是零和博弈</strong>。如果开源被压制，整个AI生态的创新速度会下降，最终也会伤害闭源模型。
+</p>
+<h3>如果我是具身智能创业者，我会怎么做？</h3>
+<p>
+看到今天8篇具身智能论文，如果我是创业者，我会：
+</p>
+<p>
+1. <strong>立即评估Jetson Orin生态</strong>，因为&quot;Bimanual Manipulation Within an 8 GB Budget&quot;证明了低成本硬件的可行性
+2. <strong>关注&quot;世界-动作模型&quot;（World-Action Model）</strong>，因为这是具身智能的&quot;大脑&quot;
+3. <strong>建立&quot;生成数据&quot;管线</strong>，因为RoboReact证明了用生成视频训练的有效性
+</p>
+<h3>今天的&quot;元观察&quot;</h3>
+<p>
+今天的新闻有一个共同主题：<strong>AI正在从&quot;技术系统&quot;变成&quot;社会系统&quot;</strong>。
+</p>
+<ul>
+<li>政策层面：Trump框架、EU AI Act</li>
+<li>商业层面：MacPaw、WindBorne、Wispr Flow</li>
+<li>技术层面：Agent安全、多Agent社会学</li>
+<li>研究层面：具身智能的社会化</li>
+</ul>
+<p>
+这意味着：<strong>AI的下一个瓶颈不是技术，而是社会</strong>。我们需要社会学家、经济学家、法律专家参与到AI开发中来。
+</p>
+<hr>
+<h2>📊 今日数据总结</h2>
+<table>
+<thead><tr>
+<th>类别</th>
+<th>数量</th>
+<th>亮点</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>ArXiv论文</td>
+<td>157篇</td>
+<td>Agent安全、具身智能、测试时推理</td>
+</tr>
+<tr>
+<td>GitHub Trending</td>
+<td>9个</td>
+<td>agent-skills、ai-agents-from-zero</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>7个</td>
+<td>模型泄露、WAIC机器人展、Cybercab</td>
+</tr>
+<tr>
+<td>RSS新闻</td>
+<td>6条</td>
+<td>Trump政策、MacPaw、WindBorne</td>
+</tr>
+</tbody></table>
+<hr>
+<p>
+<em>报告生成时间: 2026-08-05 21:30 CST</em>
+<em>数据来源: arXiv, GitHub, YouTube, TechCrunch, The Verge, Wired, Towards Data Science</em>
+<em>分析框架: 第一性原理 + 因果链 + 大胆预判</em>
+</p>
+<hr>
+<blockquote><p><strong>明日关注</strong>:</p></blockquote>
+<blockquote><p>- Trump AI测试框架的后续反应（开源社区、欧盟、中国）</p></blockquote>
+<blockquote><p>- Liquid AI的端侧模型性能基准测试</p></blockquote>
+<blockquote><p>- WAIC 2026的更多机器人展示</p></blockquote>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    <span class="bookmark-count">0</span> Bookmarks
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-08-05-evening');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
+                    updateCommentVisibility();
+                });
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-08-05-evening');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-08-05-evening');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
