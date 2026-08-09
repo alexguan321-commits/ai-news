@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="evening" data-content="📌 今日最重要的一件事 DeepMind 开源 WeatherNext 2：6,925 星/天，AI 天气预报从&quot;学术演示&quot;正式跨入&quot;业务级基础设施&quot;——传统气象产业 50 年格局将被改写 🔗 来源：GitHub - google-deepmind/weathernext https://github.com/google-deepmind/weathernext 发生了什么 Google DeepMind 于 2026 年 8 月 9 日在 GitHub 上开源了 WeatherNext 2（WN2） ——一个全球中期大气和气旋预报模型。该仓库在不到 24 小时内获得 6,925 颗 Star 和 913 个 Fork ，成为当日 GitHub Python 语言 Trending 第一名。 WeatherNext 2 的关键特征： - 全球中期天气预报 ：覆盖全球范围，预报时效为数天到两周 - 气旋预报能力 ：专门针对热带气旋（台风/飓风）路径和强度的预测 - 数据馈送已上线 ：通过 Google Cloud、WeatherLab、OpenMeteo 三个平台直接提供每日预报数据 - Apache 2.0 许可 ：完全开源，可商用 - 继承 GraphCast 和 GenCast ：仓库同时包含前代模型 GraphCast 和 GenCast 的代码 深度分析：为什么 WeatherNext 2 是今日最重要的事件 第一层：这不是一个 GitHub 项目，这是气象产业的&quot;ChatGPT 时刻&quot; 天气预报是一个年产值超过 $300B 的全球产业（包括农业决策、能源交易、灾害管理、航空调度等），但过去 50 年的核心技术——数值天气预报（NWP）——本质上没有根本性变化。NWP 基于物理方程（Navier-Stokes 方程组）的离散化求解，需要超级计算机运行数小时才能产出预报结果。 WeatherNext 2 代表的是 范式转换 ：从&quot;求解物理方程&quot;到&quot;学习物理模式&quot;。AI 气象模型的优势不是&quot;更准确&quot;（虽然确实更准确），而是： 1. 速度快 10,000 倍 ：NWP 在超级计算机上运行需要 1-4 小时；WeatherNext 2 在单张 GPU 上推理只需 秒级 。这意味着可以做 高频集合预报 （每小时更新一次，而非每天 2-4 次），对气旋路径预测的实时修">
+            <a href="/ai-news/2026-08-09/evening/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-09-evening.jpg" alt="0809-晚报 | DeepMind WeatherNext 2开源，AI天气预报正式进入业务级" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0809-晚报 | DeepMind WeatherNext 2开源，AI天气预报正式进入业务级</h3>
+                    <time>2026-08-09 21:00:00</time>
+                    <span class="report-type type-evening">Evening</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="noon" data-content="📌 今日最重要的一件事 Mistral 发布 Leanstral 1.5：6B 参数模型饱和 miniF2F、在 57 个真实仓库中发现 5 个未知 Bug——形式验证从学术象牙塔正式走入工程实战 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 发生了什么 Mistral AI 于 2026 年 7 月 2 日发布 Leanstral 1.5 ——一个 Apache 2.0 完全开源的形式验证模型，总参数 119B、活跃参数仅 6B。这个模型在多个数学证明基准上取得突破性成绩： - miniF2F 完全饱和 ：验证集和测试集均达到 100% - PutnamBench 解决 587/672 题 ：每题成本仅约 $4，而竞品 Seed-Prover 1.5 high 设置每题成本超 $300 - FATE-H 87%、FATE-X 34% ：研究生和博士级抽象代数问题，均为 SOTA - FLTEval pass@8 从 21.9 提升到 28.9（pass@1）/ 43.2（pass@8） ：超越 Opus 4.6 的 39.6，成本仅为其 1/7 - 实战 Bug 发现 ：在 57 个开源 Rust 仓库中自动发现 47 个违反属性，其中 11 个指向真实 Bug，5 个是此前从未在 GitHub 上报告过的未知缺陷 深度分析：这不是一个模型发布，这是软件工程范式的转折点 第一层：为什么 Leanstral 1.5 比看起来重要 100 倍 形式验证（Formal Verification）一直是计算机科学中的&quot;圣杯&quot;——用数学证明代码的正确性，而非依赖测试。但几十年来，它被锁在学术象牙塔里，因为只有顶尖数学家才能写出验证脚本，成本高昂到只有航空航天和芯片设计等极端领域才用得起。 Leanstral 1.5 打破了这个困局的三个关键约束： 1. 成本约束被击穿 ：$4/题 vs $300/题，成本降低 75 倍。这意味着形式验证不再是&quot;只有 NASA 才用得起&quot;的技术，而是每个中等规模软件团队都能考虑的选项。 2. 能力约束被击穿 ：6B 活跃参数（MoE 架构，总参数 119B）意味着它可以在单张消费级 GPU 上运行。Apache 2.0 许可意味着没有任何使用限制。 3. 实用性约束被击">
             <a href="/ai-news/2026-08-09/noon/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-08-09-noon.jpg" alt="0809-午报 | Leanstral开源让形式验证走入实战" loading="lazy"></div>
@@ -141,16 +151,6 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事 OpenAI 暂停 Astra 模型开发：当&quot;太强了&quot;成为真正的安全红线 🔗 来源：OpenAI https://openai.com/index/responding-next-frontier-critical-cyber-capabilities | 来源：TechCrunch https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/ | 来源：The Verge https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities 发生了什么 OpenAI 宣布暂停其下一代模型 Astra 的部分内部开发工作，原因是该模型在网络安全（cybersecurity）领域展现出&quot;关键能力&quot;（critical cyber capabilities），超出了公司当前安全标准的容忍范围。这是 OpenAI 历史上第一次因为模型&quot;太强&quot;而主动踩刹车——不是能力不够，而是能力太强。 深度分析：这不是公关，是范式转移 第一层：表面叙事 vs 真实信号 表面看，这是一个&quot;负责任AI&quot;的公关故事。但深挖下去，这揭示了AI安全领域一个根本性的矛盾正在从理论走向现实： 1. 能力-安全边界正在被实际触碰 ：过去三年，AI安全讨论一直停留在&quot;假设场景&quot;——&quot;如果模型足够强大，可能会……&quot;。Astra 是第一个公开承认&quot;我们确实造出了超出安全边界的东西&quot;的案例。 2. 网络安全是第一个爆点 ：为什么是cyber而不是bio或physical？因为网络攻击的评估最容易标准化（CTF benchmarks、CVE发现能力、自动化exploit生成），且商业价值最直接。这预示着未来模型评估将以&quot;可量化的危险能力&quot;为第一道关卡。 3. 竞争压力下的自我约束 ：OpenAI 在 Anthropic（Claude Opus 4.8）、Google（Gemini 2）的夹击下选择自停，说明内部评估显示 Astra 的网络安全能力远超竞品，且这种领先带来的风险大于收益。 第二层：因">
-            <a href="/ai-news/2026-08-08/morning/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-08-morning.webp" alt="0808-早报 | OpenAI暂停Astra模型：太强了不敢发" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0808-早报 | OpenAI暂停Astra模型：太强了不敢发</h3>
-                    <time>2026-08-08 08:00:00</time>
-                    <span class="report-type type-morning">Morning</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
@@ -160,6 +160,11 @@
                         <span class="count">74 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="evening" data-content="📌 今日最重要的一件事 DeepMind 开源 WeatherNext 2：6,925 星/天，AI 天气预报从&quot;学术演示&quot;正式跨入&quot;业务级基础设施&quot;——传统气象产业 50 年格局将被改写 🔗 来源：GitHub - google-deepmind/weathernext https://github.com/google-deepmind/weathernext 发生了什么 Google DeepMind 于 2026 年 8 月 9 日在 GitHub 上开源了 WeatherNext 2（WN2） ——一个全球中期大气和气旋预报模型。该仓库在不到 24 小时内获得 6,925 颗 Star 和 913 个 Fork ，成为当日 GitHub Python 语言 Trending 第一名。 WeatherNext 2 的关键特征： - 全球中期天气预报 ：覆盖全球范围，预报时效为数天到两周 - 气旋预报能力 ：专门针对热带气旋（台风/飓风）路径和强度的预测 - 数据馈送已上线 ：通过 Google Cloud、WeatherLab、OpenMeteo 三个平台直接提供每日预报数据 - Apache 2.0 许可 ：完全开源，可商用 - 继承 GraphCast 和 GenCast ：仓库同时包含前代模型 GraphCast 和 GenCast 的代码 深度分析：为什么 WeatherNext 2 是今日最重要的事件 第一层：这不是一个 GitHub 项目，这是气象产业的&quot;ChatGPT 时刻&quot; 天气预报是一个年产值超过 $300B 的全球产业（包括农业决策、能源交易、灾害管理、航空调度等），但过去 50 年的核心技术——数值天气预报（NWP）——本质上没有根本性变化。NWP 基于物理方程（Navier-Stokes 方程组）的离散化求解，需要超级计算机运行数小时才能产出预报结果。 WeatherNext 2 代表的是 范式转换 ：从&quot;求解物理方程&quot;到&quot;学习物理模式&quot;。AI 气象模型的优势不是&quot;更准确&quot;（虽然确实更准确），而是： 1. 速度快 10,000 倍 ：NWP 在超级计算机上运行需要 1-4 小时；WeatherNext 2 在单张 GPU 上推理只需 秒级 。这意味着可以做 高频集合预报 （每小时更新一次，而非每天 2-4 次），对气旋路径预测的实时修">
+            <a href="/ai-news/2026-08-09/evening/">0809-晚报 | DeepMind WeatherNext 2开源，AI天气预报正式进入业务级</a>
+            <time>2026-08-09 21:00:00</time>
+            <span class="report-type type-evening">Evening</span>
+        </div>
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 Mistral 发布 Leanstral 1.5：6B 参数模型饱和 miniF2F、在 57 个真实仓库中发现 5 个未知 Bug——形式验证从学术象牙塔正式走入工程实战 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 发生了什么 Mistral AI 于 2026 年 7 月 2 日发布 Leanstral 1.5 ——一个 Apache 2.0 完全开源的形式验证模型，总参数 119B、活跃参数仅 6B。这个模型在多个数学证明基准上取得突破性成绩： - miniF2F 完全饱和 ：验证集和测试集均达到 100% - PutnamBench 解决 587/672 题 ：每题成本仅约 $4，而竞品 Seed-Prover 1.5 high 设置每题成本超 $300 - FATE-H 87%、FATE-X 34% ：研究生和博士级抽象代数问题，均为 SOTA - FLTEval pass@8 从 21.9 提升到 28.9（pass@1）/ 43.2（pass@8） ：超越 Opus 4.6 的 39.6，成本仅为其 1/7 - 实战 Bug 发现 ：在 57 个开源 Rust 仓库中自动发现 47 个违反属性，其中 11 个指向真实 Bug，5 个是此前从未在 GitHub 上报告过的未知缺陷 深度分析：这不是一个模型发布，这是软件工程范式的转折点 第一层：为什么 Leanstral 1.5 比看起来重要 100 倍 形式验证（Formal Verification）一直是计算机科学中的&quot;圣杯&quot;——用数学证明代码的正确性，而非依赖测试。但几十年来，它被锁在学术象牙塔里，因为只有顶尖数学家才能写出验证脚本，成本高昂到只有航空航天和芯片设计等极端领域才用得起。 Leanstral 1.5 打破了这个困局的三个关键约束： 1. 成本约束被击穿 ：$4/题 vs $300/题，成本降低 75 倍。这意味着形式验证不再是&quot;只有 NASA 才用得起&quot;的技术，而是每个中等规模软件团队都能考虑的选项。 2. 能力约束被击穿 ：6B 活跃参数（MoE 架构，总参数 119B）意味着它可以在单张消费级 GPU 上运行。Apache 2.0 许可意味着没有任何使用限制。 3. 实用性约束被击">
             <a href="/ai-news/2026-08-09/noon/">0809-午报 | Leanstral开源让形式验证走入实战</a>
             <time>2026-08-09 14:00:00</time>
@@ -255,13 +260,13 @@
             <time>2026-08-03 21:00:00</time>
             <span class="report-type type-evening">Evening</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="noon" data-content="🍜 AI午报 | 2026年8月3日（周日） &gt; 今日采集 12 条信息源 ：Hacker News 10条 | YouTube 1个 | RSS 1条 &gt; &gt; 一句话总结 ：Hacker News 被同一个话题屠榜—— 遥操作（Teleoperation） ，10 篇文章从 Mobile ALOHA 到 Tesla Robotaxi，从 WebRTC 延迟分析到&quot;遥操作是通往自主的必经之路&quot;。这不是偶然，这是具身智能社区在用脚投票： 2026 年 Q3，人形机器人的主流路径正在从&quot;端到端自动驾驶式的全自主&quot;转向&quot;人类遥操作 + 数据飞轮&quot;。 与此同时，清华 00 后博士的奇点逃逸完成千万级种子轮融资，研发 AI 原生团队协作操作系统 Nexus——Agent 协作的&quot;操作系统层&quot;正在被定义。两条线索指向同一个结论： 无论是物理世界还是数字世界，&quot;人类在环&quot;不是权宜之计，而是范式。 --- 📌 今日最重要的一件事 🟠 HN 遥操作屠榜：10 篇文章揭示具身智能的&quot;人类在环&quot;范式转向 优先级：🟠 高 | 具身智能 + 机器人 + 数据采集范式 + Tesla 战略 🔗 来源1：Learning bimanual mobile manipulation with low-cost whole-body teleoperation Mobile ALOHA https://mobile-aloha.github.io | 126分 / 47评论 🔗 来源2：Tesla appears to be building a teleoperations team for its robotaxi service https://techcrunch.com/2024/11/25/tesla-appears-to-be-building-a-teleoperations-team-for-its-robotaxi-service/ | 24分 / 72评论 🔗 来源3：Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation https://human2humanoid.com/ | 6分 / 3评论 🔗 来源4：Tesla&#x27;s robotaxi fleet will be powered by &#x27;plenty o">
             <a href="/ai-news/2026-08-03/noon/">0803-午报 | 遥操作霸榜HN：人形机器人的'人类在环'时刻</a>
             <time>2026-08-03 14:00:00</time>
             <span class="report-type type-noon">Noon</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="morning" data-content="☀️ AI早报 | 2026年8月3日（周日） &gt; 今日采集 93 条信息源 ：Hacker News 85条 | YouTube 3个 | RSS 5条 &gt; &gt; 一句话总结 ：MCP 生态迎来安全大清算。Supabase MCP 被曝可通过 prompt injection 泄露整个 SQL 数据库（848分），HN 上 9 篇 MCP 相关文章同时霸榜、总计 6,200+ 分——这不是技术讨论，这是 对整个 Agent 基础设施层的信任危机审判 。与此同时，Cursor AI 客服机器人幻觉编造不存在的政策导致用户退订（1511分，本周 HN 最高分），Sam Altman 公开呼吁&quot;减速&quot;AI 发展。三条线索指向同一个结论： 2026 年 Q3，AI 行业正从&quot;能力竞赛&quot;转向&quot;信任重建&quot;。 --- 📌 今日最重要的一件事 🔴 MCP 安全大清算：Supabase 泄露全库 + 9 篇 MCP 文章霸榜 HN，总计 6,200+ 分——Agent 基础设施层的信任危机 🔗 来源1：Supabase MCP can leak your entire SQL database https://www.generalanalysis.com/blog/supabase-mcp-blog | 848分 / 470评论 🔗 来源2：MCP: An Accidentally Universal Plugin System https://worksonmymachine.substack.com/p/mcp-an-accidentally-universal-plugin | 808分 / 350评论 🔗 来源3：OpenAI adds MCP support to Agents SDK https://openai.github.io/openai-agents-python/mcp/ | 807分 / 267评论 🔗 来源4：Claude Skills are awesome, maybe a bigger deal than MCP https://simonwillison.net/2025/Oct/16/claude-skills/ | 738分 / 370评论 🔗 来源5：The &quot;S&quot; in MCP Stands for Security https://el">
             <a href="/ai-news/2026-08-03/morning/">0803-早报 | MCP安全大清算：Supabase泄露全库，Cursor幻觉引发退订潮</a>
             <time>2026-08-03 08:00:00</time>
