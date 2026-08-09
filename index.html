@@ -29,7 +29,7 @@
         <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
         <a href="/ai-news/" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">73</span> reports</div>
+            <div><span class="stat-value">74</span> reports</div>
             <div><span class="stat-value">51</span> cards</div>
             <div><span class="stat-value">35</span> sources</div>
         </div>
@@ -44,7 +44,7 @@
 
         <div class="stats-bar">
             <div class="stat-card">
-                <div class="stat-number">73</div>
+                <div class="stat-number">74</div>
                 <div class="stat-label">Reports</div>
             </div>
             <div class="stat-card">
@@ -71,7 +71,7 @@
 
         <div class="tab-container">
             <div class="tab-nav" role="tablist">
-                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (73)</button>
+                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (74)</button>
                 <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards (51)</button>
                 <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (11)</button>
             </div>
@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="noon" data-content="📌 今日最重要的一件事 Mistral 发布 Leanstral 1.5：6B 参数模型饱和 miniF2F、在 57 个真实仓库中发现 5 个未知 Bug——形式验证从学术象牙塔正式走入工程实战 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 发生了什么 Mistral AI 于 2026 年 7 月 2 日发布 Leanstral 1.5 ——一个 Apache 2.0 完全开源的形式验证模型，总参数 119B、活跃参数仅 6B。这个模型在多个数学证明基准上取得突破性成绩： - miniF2F 完全饱和 ：验证集和测试集均达到 100% - PutnamBench 解决 587/672 题 ：每题成本仅约 $4，而竞品 Seed-Prover 1.5 high 设置每题成本超 $300 - FATE-H 87%、FATE-X 34% ：研究生和博士级抽象代数问题，均为 SOTA - FLTEval pass@8 从 21.9 提升到 28.9（pass@1）/ 43.2（pass@8） ：超越 Opus 4.6 的 39.6，成本仅为其 1/7 - 实战 Bug 发现 ：在 57 个开源 Rust 仓库中自动发现 47 个违反属性，其中 11 个指向真实 Bug，5 个是此前从未在 GitHub 上报告过的未知缺陷 深度分析：这不是一个模型发布，这是软件工程范式的转折点 第一层：为什么 Leanstral 1.5 比看起来重要 100 倍 形式验证（Formal Verification）一直是计算机科学中的&quot;圣杯&quot;——用数学证明代码的正确性，而非依赖测试。但几十年来，它被锁在学术象牙塔里，因为只有顶尖数学家才能写出验证脚本，成本高昂到只有航空航天和芯片设计等极端领域才用得起。 Leanstral 1.5 打破了这个困局的三个关键约束： 1. 成本约束被击穿 ：$4/题 vs $300/题，成本降低 75 倍。这意味着形式验证不再是&quot;只有 NASA 才用得起&quot;的技术，而是每个中等规模软件团队都能考虑的选项。 2. 能力约束被击穿 ：6B 活跃参数（MoE 架构，总参数 119B）意味着它可以在单张消费级 GPU 上运行。Apache 2.0 许可意味着没有任何使用限制。 3. 实用性约束被击">
+            <a href="/ai-news/2026-08-09/noon/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-09-noon.jpg" alt="0809-午报 | Leanstral开源让形式验证走入实战" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0809-午报 | Leanstral开源让形式验证走入实战</h3>
+                    <time>2026-08-09 14:00:00</time>
+                    <span class="report-type type-noon">Noon</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事 OpenAI 收购演示文稿创业公司 NextSlide：ChatGPT 的「超级应用」野心浮出水面 🔗 来源：TechCrunch https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/ 发生了什么 OpenAI 宣布收购演示文稿创业公司 NextSlide。NextSlide 团队成员现已加入 ChatGPT 团队。这是 OpenAI 继收购 Jony Ive 硬件团队（后解散）、io（前 Infinity AI，语音方向）之后的又一次 acqui-hire，但方向完全不同——这不是在补强基础模型能力，而是在 直接构建终端用户产品 。 深度分析：从 API 公司到超级应用的战略转向 第一层：表面叙事 vs 真实信号 表面看，这是一次小型 acqui-hire——NextSlide 不是 Stripe 级别的独角兽，团队规模不大。但如果把它放进 OpenAI 过去 12 个月的收购序列中，一个清晰的战略弧线浮现： 1. ChatGPT 正在从「聊天界面」变成「操作系统」 ：2025 年的 ChatGPT 是一个对话窗口。2026 年的 ChatGPT 已经有了代码执行（Code Interpreter）、图片生成（DALL-E / GPT Image）、语音对话（Advanced Voice）、搜索（ChatGPT Search）、记忆（Memory）、Canvas（协作文档编辑）。现在加上演示文稿——它正在变成一个 全栈知识工作者操作系统 。 2. 为什么是演示文稿？ 因为演示文稿是企业知识工作的「最后一公里」。你可以用 AI 写报告、做分析、生成图表，但最终你需要把它包装成 PPT 才能在会议上呈现。这个「最后一公里」目前完全手动，且极其耗时。NextSlide 的价值不在于它的技术，而在于它 解决了 ChatGPT 工作流中最后一个需要人类手动操作的环节 。 3. 对标 Google Workspace 和 Microsoft 365 ：这不是在收购一个小创业公司，这是在 直接挑战 Google 和 Microsoft 的核心企业产品线 。Google Slides、PowerPoint 是企业演示文稿市场的两大垄断者。OpenA">
             <a href="/ai-news/2026-08-09/morning/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-08-09-morning.jpg" alt="0809-早报 | OpenAI收购NextSlide：ChatGPT要做PPT了" loading="lazy"></div>
@@ -141,25 +151,20 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="evening" data-content="🌙 AI 晚报 | 2026年8月7日（周五） &gt; 今日采集 : 188条新资讯 | GitHub 10条 | ArXiv 149条 | YouTube 11条 | Hacker News 3条 | RSS 4条 | Blogs 11条 &gt; 采集耗时 : 22.5秒 &gt; 第二大脑 : 已关联 LLM Wiki 中 FDE 模式、Reverse Information Paradox、Graph Engineering、Loop/Harness Engineering 等知识卡片，发现 5 条新因果链 --- 📌 今日最重要的一件事 🔴 Google 发布 Gemini Robotics 2.0 + 同时录得史上首次负现金流季度——AI 军备竞赛的「攻」与「代价」同时到达临界点 🔗 来源：DeepMind Blog - Gemini Robotics 2 https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ 🔗 来源：Ars Technica - Google Negative Cash Flow https://arstechnica.com/google/2026/07/google-just-had-its-first-negative-cash-flow-quarter-ever-due-to-massive-ai-spending/ 事件 : 今天有两件看似矛盾但实际紧密关联的事同时发生—— 1. Google DeepMind 正式发布 Gemini Robotics 2.0 ，包含三个模型版本（ER 2 专注视频理解、任务编排和多机器人协作），号称带来「全身智能」（whole body intelligence），大幅提升灵巧性和安全性。 2. Google 刚刚经历了公司历史上第一个负现金流季度 ，原因几乎可以确定是天文数字般的 AI 基础设施投入。 这两件事必须放在一起看。它们共同揭示了一个行业真相： AI 军备竞赛已经进入了「烧钱换未来」的决战阶段 ——巨头们不是不知道在亏钱，而是赌谁先停下来谁就输。 为什么这是今天最重要的事 : 让我拆解这条新闻背后的完整因果链： 第一层：Gemini Robotics 2.0 不只是一个产">
-            <a href="/ai-news/2026-08-07/evening/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-07-evening.jpg" alt="0807-晚报 | Google机器人2.0发布+首次负现金流" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0807-晚报 | Google机器人2.0发布+首次负现金流</h3>
-                    <time>2026-08-07 21:00:00</time>
-                    <span class="report-type type-evening">Evening</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
                 <section class="all-reports">
                     <div class="section-header">
                         <h2>Archive</h2>
-                        <span class="count">73 reports</span>
+                        <span class="count">74 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 Mistral 发布 Leanstral 1.5：6B 参数模型饱和 miniF2F、在 57 个真实仓库中发现 5 个未知 Bug——形式验证从学术象牙塔正式走入工程实战 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 发生了什么 Mistral AI 于 2026 年 7 月 2 日发布 Leanstral 1.5 ——一个 Apache 2.0 完全开源的形式验证模型，总参数 119B、活跃参数仅 6B。这个模型在多个数学证明基准上取得突破性成绩： - miniF2F 完全饱和 ：验证集和测试集均达到 100% - PutnamBench 解决 587/672 题 ：每题成本仅约 $4，而竞品 Seed-Prover 1.5 high 设置每题成本超 $300 - FATE-H 87%、FATE-X 34% ：研究生和博士级抽象代数问题，均为 SOTA - FLTEval pass@8 从 21.9 提升到 28.9（pass@1）/ 43.2（pass@8） ：超越 Opus 4.6 的 39.6，成本仅为其 1/7 - 实战 Bug 发现 ：在 57 个开源 Rust 仓库中自动发现 47 个违反属性，其中 11 个指向真实 Bug，5 个是此前从未在 GitHub 上报告过的未知缺陷 深度分析：这不是一个模型发布，这是软件工程范式的转折点 第一层：为什么 Leanstral 1.5 比看起来重要 100 倍 形式验证（Formal Verification）一直是计算机科学中的&quot;圣杯&quot;——用数学证明代码的正确性，而非依赖测试。但几十年来，它被锁在学术象牙塔里，因为只有顶尖数学家才能写出验证脚本，成本高昂到只有航空航天和芯片设计等极端领域才用得起。 Leanstral 1.5 打破了这个困局的三个关键约束： 1. 成本约束被击穿 ：$4/题 vs $300/题，成本降低 75 倍。这意味着形式验证不再是&quot;只有 NASA 才用得起&quot;的技术，而是每个中等规模软件团队都能考虑的选项。 2. 能力约束被击穿 ：6B 活跃参数（MoE 架构，总参数 119B）意味着它可以在单张消费级 GPU 上运行。Apache 2.0 许可意味着没有任何使用限制。 3. 实用性约束被击">
+            <a href="/ai-news/2026-08-09/noon/">0809-午报 | Leanstral开源让形式验证走入实战</a>
+            <time>2026-08-09 14:00:00</time>
+            <span class="report-type type-noon">Noon</span>
+        </div>
         <div class="archive-item" data-type="morning" data-content="📌 今日最重要的一件事 OpenAI 收购演示文稿创业公司 NextSlide：ChatGPT 的「超级应用」野心浮出水面 🔗 来源：TechCrunch https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/ 发生了什么 OpenAI 宣布收购演示文稿创业公司 NextSlide。NextSlide 团队成员现已加入 ChatGPT 团队。这是 OpenAI 继收购 Jony Ive 硬件团队（后解散）、io（前 Infinity AI，语音方向）之后的又一次 acqui-hire，但方向完全不同——这不是在补强基础模型能力，而是在 直接构建终端用户产品 。 深度分析：从 API 公司到超级应用的战略转向 第一层：表面叙事 vs 真实信号 表面看，这是一次小型 acqui-hire——NextSlide 不是 Stripe 级别的独角兽，团队规模不大。但如果把它放进 OpenAI 过去 12 个月的收购序列中，一个清晰的战略弧线浮现： 1. ChatGPT 正在从「聊天界面」变成「操作系统」 ：2025 年的 ChatGPT 是一个对话窗口。2026 年的 ChatGPT 已经有了代码执行（Code Interpreter）、图片生成（DALL-E / GPT Image）、语音对话（Advanced Voice）、搜索（ChatGPT Search）、记忆（Memory）、Canvas（协作文档编辑）。现在加上演示文稿——它正在变成一个 全栈知识工作者操作系统 。 2. 为什么是演示文稿？ 因为演示文稿是企业知识工作的「最后一公里」。你可以用 AI 写报告、做分析、生成图表，但最终你需要把它包装成 PPT 才能在会议上呈现。这个「最后一公里」目前完全手动，且极其耗时。NextSlide 的价值不在于它的技术，而在于它 解决了 ChatGPT 工作流中最后一个需要人类手动操作的环节 。 3. 对标 Google Workspace 和 Microsoft 365 ：这不是在收购一个小创业公司，这是在 直接挑战 Google 和 Microsoft 的核心企业产品线 。Google Slides、PowerPoint 是企业演示文稿市场的两大垄断者。OpenA">
             <a href="/ai-news/2026-08-09/morning/">0809-早报 | OpenAI收购NextSlide：ChatGPT要做PPT了</a>
             <time>2026-08-09 08:00:00</time>
@@ -255,13 +260,13 @@
             <time>2026-08-03 14:00:00</time>
             <span class="report-type type-noon">Noon</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="morning" data-content="☀️ AI早报 | 2026年8月3日（周日） &gt; 今日采集 93 条信息源 ：Hacker News 85条 | YouTube 3个 | RSS 5条 &gt; &gt; 一句话总结 ：MCP 生态迎来安全大清算。Supabase MCP 被曝可通过 prompt injection 泄露整个 SQL 数据库（848分），HN 上 9 篇 MCP 相关文章同时霸榜、总计 6,200+ 分——这不是技术讨论，这是 对整个 Agent 基础设施层的信任危机审判 。与此同时，Cursor AI 客服机器人幻觉编造不存在的政策导致用户退订（1511分，本周 HN 最高分），Sam Altman 公开呼吁&quot;减速&quot;AI 发展。三条线索指向同一个结论： 2026 年 Q3，AI 行业正从&quot;能力竞赛&quot;转向&quot;信任重建&quot;。 --- 📌 今日最重要的一件事 🔴 MCP 安全大清算：Supabase 泄露全库 + 9 篇 MCP 文章霸榜 HN，总计 6,200+ 分——Agent 基础设施层的信任危机 🔗 来源1：Supabase MCP can leak your entire SQL database https://www.generalanalysis.com/blog/supabase-mcp-blog | 848分 / 470评论 🔗 来源2：MCP: An Accidentally Universal Plugin System https://worksonmymachine.substack.com/p/mcp-an-accidentally-universal-plugin | 808分 / 350评论 🔗 来源3：OpenAI adds MCP support to Agents SDK https://openai.github.io/openai-agents-python/mcp/ | 807分 / 267评论 🔗 来源4：Claude Skills are awesome, maybe a bigger deal than MCP https://simonwillison.net/2025/Oct/16/claude-skills/ | 738分 / 370评论 🔗 来源5：The &quot;S&quot; in MCP Stands for Security https://el">
             <a href="/ai-news/2026-08-03/morning/">0803-早报 | MCP安全大清算：Supabase泄露全库，Cursor幻觉引发退订潮</a>
             <time>2026-08-03 08:00:00</time>
             <span class="report-type type-morning">Morning</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="evening" data-content="🌙 AI晚报 | 2026年8月2日（周六） &gt; 今日采集 153 条信息源 ：Hacker News 129条 | GitHub Trending 13个 | YouTube 7个 | 博客 2篇 | RSS 2条 &gt; &gt; 一句话总结 ：Vibe Coding 的清算时刻到了。HN 首页被&quot;Vibe Coding 的失败&quot;系列文章屠榜——865分、616分、434分、405分、403分，五篇批判文章同时霸榜，总计 2,600+ 分、2,000+ 评论。这不是讨论，这是 审判 。与此同时，EU 正式要求所有 AI 交互必须披露，Mistral 发布 OCR 4，AMD Lemonade 让本地 LLM 在 GPU+NPU 上跑起来。 2026 年 H2 的叙事已经从&quot;AI 能做什么&quot;转向&quot;AI 不能做什么&quot;。 --- 📌 今日最重要的一件事 🔴 Vibe Coding 大溃败：五篇批判文章同时霸榜 HN，总计 2,600+ 分——这不是讨论，这是审判 🔗 来源1：After two years of vibecoding, I&#x27;m back to writing by hand https://atmoio.substack.com/p/after-two-years-of-vibecoding-im | 865分 / 634评论 🔗 来源2：The cult of vibe coding is dogfooding run amok https://bramcohen.com/p/the-cult-of-vibe-coding-is-insane | 616分 / 512评论 🔗 来源3：Breaking the spell of vibe coding https://www.fast.ai/posts/2026-01-28-dark-flow/ | 434分 / 348评论 🔗 来源4：Will vibe coding end like the maker movement? https://read.technically.dev/p/vibe-coding-and-the-maker-movement | 405分 / 439评论 🔗 来源5：Gas Town&#x27;s agent patterns, design bottlenecks, and vibeco">
             <a href="/ai-news/2026-08-02/evening/">0802-晚报 | Vibe Coding大溃败：两年后开发者回归手写代码</a>
             <time>2026-08-02 21:00:00</time>
@@ -629,7 +634,7 @@
         </div>
                     </div>
                     <button class="show-all-btn" id="show-all-btn" onclick="toggleArchive()">
-                        <span class="show-text">Show All (73)</span>
+                        <span class="show-text">Show All (74)</span>
                         <span class="hide-text" style="display:none;">Show Less</span>
                     </button>
                     <div class="report-archive" style="display:none;">
@@ -1043,7 +1048,7 @@
 
     <footer class="footer">
         <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
-        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 73 REPORTS · 51 CARDS</p>
+        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 74 REPORTS · 51 CARDS</p>
     </footer>
 
     <script>
