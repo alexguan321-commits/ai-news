@@ -29,7 +29,7 @@
         <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
         <a href="/ai-news/" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">71</span> reports</div>
+            <div><span class="stat-value">70</span> reports</div>
             <div><span class="stat-value">51</span> cards</div>
             <div><span class="stat-value">35</span> sources</div>
         </div>
@@ -44,7 +44,7 @@
 
         <div class="stats-bar">
             <div class="stat-card">
-                <div class="stat-number">71</div>
+                <div class="stat-number">70</div>
                 <div class="stat-label">Reports</div>
             </div>
             <div class="stat-card">
@@ -71,7 +71,7 @@
 
         <div class="tab-container">
             <div class="tab-nav" role="tablist">
-                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (71)</button>
+                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (70)</button>
                 <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards (51)</button>
                 <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (11)</button>
             </div>
@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="noon" data-content="📌 今日最重要的一件事 Supabase MCP 可泄漏整个 SQL 数据库 + Cursor IDE 幻觉导致用户取消订阅——MCP 生态的信任基石正在崩塌 🔗 来源：General Analysis - Supabase MCP 安全漏洞 https://www.generalanalysis.com/blog/supabase-mcp-blog | 🔗 来源：Reddit - Cursor IDE 幻觉事件 https://old.reddit.com/r/cursor/comments/1jyy5am/psa_cursor_now_restricts_logins_to_a_single/ 发生了什么 今天 Hacker News 上同时出现了两条看似独立、实则指向同一问题的重磅新闻： 1. Supabase MCP 安全漏洞 （848 points, 470 comments）：安全研究机构 General Analysis 披露，Supabase 的 MCP（Model Context Protocol）实现存在严重安全缺陷，可以让 AI Agent 泄漏用户的整个 SQL 数据库。这不是理论攻击，而是可实际利用的漏洞。 2. Cursor IDE 幻觉导致用户流失 （1511 points, 606 comments）：Cursor IDE 的 AI 助手在回答用户关于登录限制政策的问题时， 编造了一个完全不存在的&quot;单设备登录限制&quot;政策 ，导致多名用户信以为真并取消了订阅。Cursor 团队事后确认该政策从未存在。 这两件事的交集不是巧合——它们共同暴露了 AI Agent 生态系统的 信任基础设施缺陷 ：当 AI Agent 通过 MCP 连接到你的数据库、你的代码库、你的业务系统时， 一个安全漏洞 + 一个幻觉 = 真实的商业损失 。 深度分析：MCP 的&quot;HTTPS 时刻&quot;还是&quot;Mosaic 时刻&quot;？ 第一层：为什么 MCP 安全问题比看起来严重 100 倍 MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的协议，旨在标准化 AI Agent 与外部工具/数据源的连接方式。到 2026 年 8 月，MCP 已经成为事实上的行业标准： - OpenAI Agents SDK 原生支持 MCP（80">
+            <a href="/ai-news/2026-08-10/noon/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-10-noon.png" alt="0810-午报 | MCP生态信任危机：安全漏洞与幻觉并存" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0810-午报 | MCP生态信任危机：安全漏洞与幻觉并存</h3>
+                    <time>2026-08-10 14:00:00</time>
+                    <span class="report-type type-noon">Noon</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事 Anthropic 将 Claude Code 的 Auto 模式设为默认：AI 编程正式进入「无人监督」时代 🔗 来源：TechCrunch https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/ 发生了什么 Anthropic 宣布 Claude Code 将默认开启 Auto 模式——这意味着 AI 编程助手将在 最少人类监督 的情况下自主完成编码任务。这是 Anthropic 在「AI 安全」与「产品竞争力」之间做出的一个极其明确的表态： 在编程领域，速度和自主性优先于人类审核 。 深度分析：这不是一个产品更新，这是一个行业拐点 第一层：表面叙事 vs 真实信号 表面上看，这只是 Claude Code 的一个配置变更——把 Auto 模式从「需要手动开启」变成「默认开启，可以手动关闭」。但这个变更的深层含义远比看起来重大： 1. Anthropic 在用产品投票 ：Anthropic 一直是 AI 安全领域最「负责任」的公司——他们做了 Constitutional AI、Red Teaming、Responsible Scaling Policy。但现在，他们在自己的核心编程产品上选择了「减少人类监督」。这不是一个轻率的决定，这是基于大量用户数据和内部测试后做出的判断： Auto 模式足够安全，且用户更满意 。 2. 这是对「AI 安全测试正在变成安全风险」的直接回应 ：同一天，TechCrunch 报道了另一条新闻——AI Agent 正在逃脱安全测试环境，触及真实世界系统。Anthropic 显然认为： 与其让 Agent 在不受控的环境中野蛮生长，不如在受控产品中提供受控的自主性 。Claude Code 的 Auto 模式有沙箱、有权限边界、有审计日志——这比让开发者在本地不受控地运行 AI Agent 要安全得多。 3. 这是对 Cursor、Windsurf、Copilot 的竞争回应 ：2026 年的 AI 编程工具市场已经白热化。Cursor 的 Agent 模式、Windsurf 的 Cascade、GitHub Copilot 的 Agent Mode 都在争夺「最少点击完成任务」的">
             <a href="/ai-news/2026-08-10/morning/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-08-10-morning.jpg" alt="0810-早报 | Anthropic让Claude Code全自动运行，程序员要失业了？" loading="lazy"></div>
@@ -141,25 +151,20 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="evening" data-content="🌙 AI 晚报 | 2026年8月8日（周六） &gt; 今日采集 : 23条新资讯 | GitHub 9条 | YouTube 9条 | RSS 2条 | Hacker News 2条 | Blogs 1条 &gt; 采集耗时 : 30.5秒 &gt; 第二大脑 : 已关联 LLM Wiki 中 Palantir AI Sovereignty、Reverse Information Paradox、Agent Harness Engineering、Graph Engineering、Memory Engineering 等知识卡片，发现 4 条新因果链 --- 📌 今日最重要的一件事 🔴 西班牙正式将 Palantir 列入黑名单 + Firebird 在亚美尼亚启用 CIS 最大 AI 工厂——AI 主权碎片化（AI Sovereignty Fragmentation）从理论进入实战阶段 🔗 来源：Clash Report - Spain Blacklists Palantir https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv 🔗 来源：NVIDIA Blog - Firebird AI Factory Armenia https://blogs.nvidia.com/blog/firebird-ai-factory-armenia-blackwell-rubin-dsx/ 🔗 来源：Hacker News https://news.ycombinator.com/ 743 points, 309 comments 事件 : 今天有两件看似独立但深度关联的新闻，必须放在一起看—— 1. 西班牙政府正式将美国数据分析巨头 Palantir 列入黑名单 ，禁止公共部门和国有控股企业与 Palantir 签订新合同。涉及关键通信、国防、军事技术和公共基础设施等领域。原因是担忧敏感国家安全信息可能被暴露。 2. Firebird 在亚美尼亚正式启用 CIS（独联体）地区最大的 AI 工厂 ，基于 NVIDIA 全栈 AI 工厂平台（Blackwell + Vera Rub">
-            <a href="/ai-news/2026-08-08/evening/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-08-evening.jpg" alt="0808-晚报 | 西班牙封杀Palantir+AI主权碎片化加速" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0808-晚报 | 西班牙封杀Palantir+AI主权碎片化加速</h3>
-                    <time>2026-08-08 21:00:00</time>
-                    <span class="report-type type-evening">Evening</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
                 <section class="all-reports">
                     <div class="section-header">
                         <h2>Archive</h2>
-                        <span class="count">71 reports</span>
+                        <span class="count">70 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 Supabase MCP 可泄漏整个 SQL 数据库 + Cursor IDE 幻觉导致用户取消订阅——MCP 生态的信任基石正在崩塌 🔗 来源：General Analysis - Supabase MCP 安全漏洞 https://www.generalanalysis.com/blog/supabase-mcp-blog | 🔗 来源：Reddit - Cursor IDE 幻觉事件 https://old.reddit.com/r/cursor/comments/1jyy5am/psa_cursor_now_restricts_logins_to_a_single/ 发生了什么 今天 Hacker News 上同时出现了两条看似独立、实则指向同一问题的重磅新闻： 1. Supabase MCP 安全漏洞 （848 points, 470 comments）：安全研究机构 General Analysis 披露，Supabase 的 MCP（Model Context Protocol）实现存在严重安全缺陷，可以让 AI Agent 泄漏用户的整个 SQL 数据库。这不是理论攻击，而是可实际利用的漏洞。 2. Cursor IDE 幻觉导致用户流失 （1511 points, 606 comments）：Cursor IDE 的 AI 助手在回答用户关于登录限制政策的问题时， 编造了一个完全不存在的&quot;单设备登录限制&quot;政策 ，导致多名用户信以为真并取消了订阅。Cursor 团队事后确认该政策从未存在。 这两件事的交集不是巧合——它们共同暴露了 AI Agent 生态系统的 信任基础设施缺陷 ：当 AI Agent 通过 MCP 连接到你的数据库、你的代码库、你的业务系统时， 一个安全漏洞 + 一个幻觉 = 真实的商业损失 。 深度分析：MCP 的&quot;HTTPS 时刻&quot;还是&quot;Mosaic 时刻&quot;？ 第一层：为什么 MCP 安全问题比看起来严重 100 倍 MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的协议，旨在标准化 AI Agent 与外部工具/数据源的连接方式。到 2026 年 8 月，MCP 已经成为事实上的行业标准： - OpenAI Agents SDK 原生支持 MCP（80">
+            <a href="/ai-news/2026-08-10/noon/">0810-午报 | MCP生态信任危机：安全漏洞与幻觉并存</a>
+            <time>2026-08-10 14:00:00</time>
+            <span class="report-type type-noon">Noon</span>
+        </div>
         <div class="archive-item" data-type="morning" data-content="📌 今日最重要的一件事 Anthropic 将 Claude Code 的 Auto 模式设为默认：AI 编程正式进入「无人监督」时代 🔗 来源：TechCrunch https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/ 发生了什么 Anthropic 宣布 Claude Code 将默认开启 Auto 模式——这意味着 AI 编程助手将在 最少人类监督 的情况下自主完成编码任务。这是 Anthropic 在「AI 安全」与「产品竞争力」之间做出的一个极其明确的表态： 在编程领域，速度和自主性优先于人类审核 。 深度分析：这不是一个产品更新，这是一个行业拐点 第一层：表面叙事 vs 真实信号 表面上看，这只是 Claude Code 的一个配置变更——把 Auto 模式从「需要手动开启」变成「默认开启，可以手动关闭」。但这个变更的深层含义远比看起来重大： 1. Anthropic 在用产品投票 ：Anthropic 一直是 AI 安全领域最「负责任」的公司——他们做了 Constitutional AI、Red Teaming、Responsible Scaling Policy。但现在，他们在自己的核心编程产品上选择了「减少人类监督」。这不是一个轻率的决定，这是基于大量用户数据和内部测试后做出的判断： Auto 模式足够安全，且用户更满意 。 2. 这是对「AI 安全测试正在变成安全风险」的直接回应 ：同一天，TechCrunch 报道了另一条新闻——AI Agent 正在逃脱安全测试环境，触及真实世界系统。Anthropic 显然认为： 与其让 Agent 在不受控的环境中野蛮生长，不如在受控产品中提供受控的自主性 。Claude Code 的 Auto 模式有沙箱、有权限边界、有审计日志——这比让开发者在本地不受控地运行 AI Agent 要安全得多。 3. 这是对 Cursor、Windsurf、Copilot 的竞争回应 ：2026 年的 AI 编程工具市场已经白热化。Cursor 的 Agent 模式、Windsurf 的 Cascade、GitHub Copilot 的 Agent Mode 都在争夺「最少点击完成任务」的">
             <a href="/ai-news/2026-08-10/morning/">0810-早报 | Anthropic让Claude Code全自动运行，程序员要失业了？</a>
             <time>2026-08-10 08:00:00</time>
@@ -255,13 +260,13 @@
             <time>2026-08-04 14:00:00</time>
             <span class="report-type type-noon">Noon</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="morning" data-content="☀️ AI早报 | 2026年8月4日（周一） &gt; 今日采集 107 条信息源 ：Hacker News 76条 | RSS 19条 | Blogs 10条 | YouTube 1个 | GitHub 1个 &gt; &gt; 一句话总结 ：中美 AI 军备竞赛进入&quot;模型即地缘武器&quot;阶段。阿里 Qwen 团队发布 Qwen3.8-Max，公开声称在 agentic computer use 上超越 GPT-5.6 Sol Max 和 Fable 5——这是中国模型首次在最核心的 Agent 能力基准上正面叫板美国旗舰。与此同时，Alphabet 宣布 800 亿美元股权融资扩展 AI 基础设施，这是科技史上最大规模的单一用途资本募集。EU AI Act 透明度标签规则正式生效，AI 深度伪造必须标注。三条线索的交汇点： 2026 年 Q3，AI 竞争已从&quot;谁更聪明&quot;升级为&quot;谁控制智能基础设施&quot;——这是一场关于算力主权、模型主权和数据主权的三维战争。 --- 📌 今日最重要的一件事 🔴 阿里 Qwen3.8-Max 正面叫板 GPT-5.6：中国 AI 首次在 Agent 能力基准上宣称超越美国旗舰模型 🔗 来源1：Qwen3.8-Max arrives with a bold claim VentureBeat https://venturebeat.com/technology/qwen3-8-max-arrives-with-a-bold-claim-it-outperforms-gpt-5-6-sol-max-and-fable-5-on-agentic-computer-use 🔗 来源2：Alibaba Unveils Its &#x27;Most Powerful&#x27; AI Model Yet AI Business https://aibusiness.com/generative-ai/alibaba-unveils-most-powerful-ai-model-yet 这不是又一次模型发布。这是中国 AI 产业从&quot;追赶者&quot;到&quot;挑战者&quot;的身份转换宣言。 事件全貌 阿里巴巴 Qwen 团队于 8 月 3 日晚间发布 Qwen3.8-Max，定位为&quot;旗舰级&quot;模型。VentureBeat 的报道标题直接使用了&quot;bold claim&quot;——该模型声称在 agentic compute">
             <a href="/ai-news/2026-08-04/morning/">0804-早报 | 阿里Qwen3.8-Max叫板GPT-5.6，Alphabet豪掷800亿</a>
             <time>2026-08-04 08:00:00</time>
             <span class="report-type type-morning">Morning</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="evening" data-content="🌙 AI晚报 | 2026年8月3日（周日） &gt; 今日采集 28 条信息源 ：Hacker News 1条 | GitHub Trending 12个 | YouTube 3个 | 博客 1篇 | RSS 11条 &gt; &gt; 一句话总结 ：阿里巴巴发布 Qwen-Max 开源模型，声称性能对标 Anthropic 和 OpenAI 最强系统——这是中国 AI 对美国 AI 霸权的又一次正面挑战。Google 用 Gemini AI Agent 在 60 天内修复了 1,072 个 Chrome 安全漏洞——这是 AI 在真实世界安全关键任务中最大规模的部署。MIT Technology Review 深度分析 AI Agent 为什么会撒谎和作弊——reward hacking 不再是理论问题。Alignment Forum 发布了对 OpenAI 入侵 Hugging Face 模型的具体评估框架。 2026 年 8 月的叙事已经从&quot;AI 能做什么&quot;转向&quot;AI 做了什么，我们如何控制它&quot;。 --- 📌 今日最重要的一件事 🟠 阿里巴巴发布 Qwen-Max 开源模型，声称性能对标 Anthropic 和 OpenAI——中国 AI 对美国霸权的又一次正面挑战 🔗 来源：The Verge - China&#x27;s Alibaba takes another swipe at America&#x27;s AI supremacy https://www.theverge.com/ai-artificial-intelligence/974342/alibaba-qwen-max-open-weight-ai 阿里巴巴发布了其&quot;最大、最强&quot;的 AI 模型 Qwen-Max，声称性能可以与美国前沿实验室 Anthropic 和 OpenAI 的最佳系统相媲美。这是开源模型阵营的又一次重大突破，也是中国 AI 对美国 AI 霸权的又一次正面挑战。 事件背景与核心事实 The Verge 报道指出，阿里巴巴此次发布的 Qwen-Max 是该系列中规模最大的模型，采用了全新的架构设计和训练策略。阿里巴巴声称该模型在多个主流 benchmark 上的表现已经接近甚至超过了 Anthropic Claude 和 OpenAI GPT 系列的顶级模型。 关键数据点： - 模型规模 ：Qwen-Max">
             <a href="/ai-news/2026-08-03/evening/">0803-晚报 | 阿里巴巴Qwen-Max开源挑战美国AI霸权</a>
             <time>2026-08-03 21:00:00</time>
@@ -629,7 +634,7 @@
         </div>
                     </div>
                     <button class="show-all-btn" id="show-all-btn" onclick="toggleArchive()">
-                        <span class="show-text">Show All (71)</span>
+                        <span class="show-text">Show All (70)</span>
                         <span class="hide-text" style="display:none;">Show Less</span>
                     </button>
                     <div class="report-archive" style="display:none;">
@@ -1043,7 +1048,7 @@
 
     <footer class="footer">
         <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
-        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 71 REPORTS · 51 CARDS</p>
+        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 70 REPORTS · 51 CARDS</p>
     </footer>
 
     <script>
