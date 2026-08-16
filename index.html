@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="evening" data-content="📌 今日最重要的一件事 🟠 Mistral 发布 Leanstral 1.5：119B 参数定理证明模型完全免费开源，&quot;证明丰裕时代&quot;正式开启 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 🔗 来源：ModelCard https://modelglass.com.au/models/mistral--leanstral-1-5 🔗 来源：MarkTechPost 报道 https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems 核心事实 Mistral AI 于 2026 年 7 月 2 日正式发布 Leanstral 1.5 ——一个专门为 Lean 4 自动化定理证明和自动形式化（autoformalization） 优化的代码代理模型。这不是一个通用聊天模型，而是一个能够在形式化数学和代码验证领域完成&quot;机械可验证证明&quot;的专用系统。 关键数据： - 架构 ：Mixture-of-Experts MoE ，119B 总参数，128 个专家，每个 token 仅激活 4 个专家，实际活跃参数 6.5B - 上下文窗口 ：256K tokens - 许可证 ： Apache 2.0 （完全开源，可商用） - 价格 ：Mistral Labs 层级 $0 免费使用 ；自托管完全免费 - 训练方法 ：三阶段——中间训练（mid-training）→ 监督微调（SFT）→ 使用 CISPO 的强化学习（RL），在两个环境中训练： 1 多轮证明循环（提交证明→读取编译器反馈→重试）， 2 完整代码代理环境（编辑文件、运行 bash、使用 Lean 语言服务器） Benchmark 表现——全面碾压 - miniF2F ：验证集和测试集均 100% 饱和 - PutnamBench ：解决 587/672 道题（87.4%） - FATE-H ：新 SOTA 87% - FATE-X ： 34% - 实际案例 ：在一个 270 万 token 的会话中证明了 AV">
+            <a href="/ai-news/2026-08-16/evening/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-16-evening.jpg" alt="0816-晚报 | Mistral开源定理证明模型颠覆数学验证" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0816-晚报 | Mistral开源定理证明模型颠覆数学验证</h3>
+                    <time>2026-08-16 21:00</time>
+                    <span class="report-type type-evening">Evening</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="noon" data-content="📌 今日最重要的一件事 🟠 DiffusionGemma 被证实存在&quot;暗推理&quot;——AI 黑箱问题从 LLM 蔓延到扩散模型 🔗 来源：Alignment Forum - Does DiffusionGemma do latent reasoning? https://www.alignmentforum.org/posts/QBuJ3suRZxrrxSTtv/does-diffusiongemma-do-latent-reasoning 🔗 来源：arXiv - How Transparent is DiffusionGemma? https://arxiv.org/pdf/2606.20560 核心事实 Google DeepMind 在 2026 年 6 月发布的 DiffusionGemma 是一个基于离散扩散（discrete diffusion）的文本生成模型，基于 Gemma 4 26B A4B MoE 架构。与传统的自回归（autoregressive）模型逐 token 生成不同，DiffusionGemma 从一大块噪声 token 开始，通过迭代去噪（denoising）逐步精炼， 并行处理整个 canvas 。 关键数据： - 参数量 ：25.2B 总参数，3.8B 活跃参数（MoE） - 推理速度 ：在专用 GPU 上比标准自回归模型快 4 倍 - Benchmark 表现 ：MMLU Pro 77.6%、AIME 2026 69.1%、GPQA Diamond 73.2%、HLE no tools 11.0%（超过 Gemma 4 的 8.7%） - 开源协议 ：Apache 2.0 今天 Alignment Forum 的一篇分析文章和配套 arXiv 论文（2606.20560）提出了一个关键问题： DiffusionGemma 是否在中间去噪步骤中进行了&quot;潜在推理&quot;（latent reasoning）——即在人类不可理解的稠密向量中进行推理？ 关键发现 论文的研究结果令人深思： 1. 中间状态不是纯自然语言 ：DiffusionGemma 的去噪步骤之间的中间状态由&quot;稠密自条件向量&quot;（dense self-conditioning vectors）组成，这些向量 默认不可被人类解读 。 2. 存在&quot;幽灵推理 token&quot; ：在一个具体">
             <a href="/ai-news/2026-08-16/noon/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-08-16-noon.jpg" alt="0816-午报 | DiffusionGemma暗推理暴露AI黑箱危机" loading="lazy"></div>
@@ -141,16 +151,6 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事 Google 允许用户去除 AI 生成内容的可见水印——同日 Anthropic 发布 Claude 隐形水印技术详解，AI 水印战争正式打响 优先级：🔴 最高 🔗 来源：The Verge - Google Gemini Watermark Removal https://www.theverge.com/tech/980416/google-gemini-ai-watermarks-removal 🔗 来源：TechCrunch - Google AI Watermark https://techcrunch.com/2026/08/14/google-will-now-allow-users-to-remove-visible-watermark-from-its-ai-generations/ 🔗 来源：Anthropic - Claude Text Watermark https://www.anthropic.com/news/claude-text-watermark 核心事实 两条新闻必须放在一起看： 1. Google 宣布允许用户关闭 AI 生成内容的可见水印 。用户可以在 Gemini 和 Google AI Studio 中关闭新的「Media watermark」设置，生成的图片、视频和音乐将不再带有可见的 AI 标识。但 Google 强调： 不可见的 SynthID 数字水印仍然保留 ，用于技术检测。 2. 同日，Anthropic 发布技术博客详解 Claude 的文本水印机制 。Claude 将在所有未来模型的文本输出中嵌入隐形水印，使用 Google DeepMind 的 SynthID-Text 技术。关键细节： - 水印 不影响输出质量 ，人类无法区分有水印和无水印文本 - 水印 不添加隐藏字符 ，不增加 token 消耗，不增加费用 - 水印 不携带身份信息 ，无法追溯到具体用户或组织 - 原理：利用模型在多个合理候选词之间的「低风险随机选择」来编码模式——读者看不出区别，但持有密钥的人可以统计验证 - 这是为了 遵守 EU AI Act 的要求——8月2日起，欧盟要求 AI 提供商标记 AI 生成内容 - 190 家签署方 已签署同一 Code of Practice，各大模型厂商都将实施各自的水印">
-            <a href="/ai-news/2026-08-15/morning/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-15-morning.jpg" alt="0815-早报 | Google允许去除AI水印，Anthropic同日揭秘隐形水印技术" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0815-早报 | Google允许去除AI水印，Anthropic同日揭秘隐形水印技术</h3>
-                    <time>2026-08-15 08:02</time>
-                    <span class="report-type type-morning">Morning</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
@@ -160,6 +160,11 @@
                         <span class="count">55 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="evening" data-content="📌 今日最重要的一件事 🟠 Mistral 发布 Leanstral 1.5：119B 参数定理证明模型完全免费开源，&quot;证明丰裕时代&quot;正式开启 🔗 来源：Mistral AI 官方博客 https://mistral.ai/news/leanstral-1-5/ 🔗 来源：ModelCard https://modelglass.com.au/models/mistral--leanstral-1-5 🔗 来源：MarkTechPost 报道 https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems 核心事实 Mistral AI 于 2026 年 7 月 2 日正式发布 Leanstral 1.5 ——一个专门为 Lean 4 自动化定理证明和自动形式化（autoformalization） 优化的代码代理模型。这不是一个通用聊天模型，而是一个能够在形式化数学和代码验证领域完成&quot;机械可验证证明&quot;的专用系统。 关键数据： - 架构 ：Mixture-of-Experts MoE ，119B 总参数，128 个专家，每个 token 仅激活 4 个专家，实际活跃参数 6.5B - 上下文窗口 ：256K tokens - 许可证 ： Apache 2.0 （完全开源，可商用） - 价格 ：Mistral Labs 层级 $0 免费使用 ；自托管完全免费 - 训练方法 ：三阶段——中间训练（mid-training）→ 监督微调（SFT）→ 使用 CISPO 的强化学习（RL），在两个环境中训练： 1 多轮证明循环（提交证明→读取编译器反馈→重试）， 2 完整代码代理环境（编辑文件、运行 bash、使用 Lean 语言服务器） Benchmark 表现——全面碾压 - miniF2F ：验证集和测试集均 100% 饱和 - PutnamBench ：解决 587/672 道题（87.4%） - FATE-H ：新 SOTA 87% - FATE-X ： 34% - 实际案例 ：在一个 270 万 token 的会话中证明了 AV">
+            <a href="/ai-news/2026-08-16/evening/">0816-晚报 | Mistral开源定理证明模型颠覆数学验证</a>
+            <time>2026-08-16 21:00</time>
+            <span class="report-type type-evening">Evening</span>
+        </div>
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 🟠 DiffusionGemma 被证实存在&quot;暗推理&quot;——AI 黑箱问题从 LLM 蔓延到扩散模型 🔗 来源：Alignment Forum - Does DiffusionGemma do latent reasoning? https://www.alignmentforum.org/posts/QBuJ3suRZxrrxSTtv/does-diffusiongemma-do-latent-reasoning 🔗 来源：arXiv - How Transparent is DiffusionGemma? https://arxiv.org/pdf/2606.20560 核心事实 Google DeepMind 在 2026 年 6 月发布的 DiffusionGemma 是一个基于离散扩散（discrete diffusion）的文本生成模型，基于 Gemma 4 26B A4B MoE 架构。与传统的自回归（autoregressive）模型逐 token 生成不同，DiffusionGemma 从一大块噪声 token 开始，通过迭代去噪（denoising）逐步精炼， 并行处理整个 canvas 。 关键数据： - 参数量 ：25.2B 总参数，3.8B 活跃参数（MoE） - 推理速度 ：在专用 GPU 上比标准自回归模型快 4 倍 - Benchmark 表现 ：MMLU Pro 77.6%、AIME 2026 69.1%、GPQA Diamond 73.2%、HLE no tools 11.0%（超过 Gemma 4 的 8.7%） - 开源协议 ：Apache 2.0 今天 Alignment Forum 的一篇分析文章和配套 arXiv 论文（2606.20560）提出了一个关键问题： DiffusionGemma 是否在中间去噪步骤中进行了&quot;潜在推理&quot;（latent reasoning）——即在人类不可理解的稠密向量中进行推理？ 关键发现 论文的研究结果令人深思： 1. 中间状态不是纯自然语言 ：DiffusionGemma 的去噪步骤之间的中间状态由&quot;稠密自条件向量&quot;（dense self-conditioning vectors）组成，这些向量 默认不可被人类解读 。 2. 存在&quot;幽灵推理 token&quot; ：在一个具体">
             <a href="/ai-news/2026-08-16/noon/">0816-午报 | DiffusionGemma暗推理暴露AI黑箱危机</a>
             <time>2026-08-16 14:00</time>
@@ -255,13 +260,13 @@
             <time>2026-08-10 21:00:00</time>
             <span class="report-type type-evening">Evening</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 Supabase MCP 可泄漏整个 SQL 数据库 + Cursor IDE 幻觉导致用户取消订阅——MCP 生态的信任基石正在崩塌 🔗 来源：General Analysis - Supabase MCP 安全漏洞 https://www.generalanalysis.com/blog/supabase-mcp-blog | 🔗 来源：Reddit - Cursor IDE 幻觉事件 https://old.reddit.com/r/cursor/comments/1jyy5am/psa_cursor_now_restricts_logins_to_a_single/ 发生了什么 今天 Hacker News 上同时出现了两条看似独立、实则指向同一问题的重磅新闻： 1. Supabase MCP 安全漏洞 （848 points, 470 comments）：安全研究机构 General Analysis 披露，Supabase 的 MCP（Model Context Protocol）实现存在严重安全缺陷，可以让 AI Agent 泄漏用户的整个 SQL 数据库。这不是理论攻击，而是可实际利用的漏洞。 2. Cursor IDE 幻觉导致用户流失 （1511 points, 606 comments）：Cursor IDE 的 AI 助手在回答用户关于登录限制政策的问题时， 编造了一个完全不存在的&quot;单设备登录限制&quot;政策 ，导致多名用户信以为真并取消了订阅。Cursor 团队事后确认该政策从未存在。 这两件事的交集不是巧合——它们共同暴露了 AI Agent 生态系统的 信任基础设施缺陷 ：当 AI Agent 通过 MCP 连接到你的数据库、你的代码库、你的业务系统时， 一个安全漏洞 + 一个幻觉 = 真实的商业损失 。 深度分析：MCP 的&quot;HTTPS 时刻&quot;还是&quot;Mosaic 时刻&quot;？ 第一层：为什么 MCP 安全问题比看起来严重 100 倍 MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的协议，旨在标准化 AI Agent 与外部工具/数据源的连接方式。到 2026 年 8 月，MCP 已经成为事实上的行业标准： - OpenAI Agents SDK 原生支持 MCP（80">
             <a href="/ai-news/2026-08-10/noon/">0810-午报 | MCP生态信任危机：安全漏洞与幻觉并存</a>
             <time>2026-08-10 14:00:00</time>
             <span class="report-type type-noon">Noon</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="morning" data-content="📌 今日最重要的一件事 Anthropic 将 Claude Code 的 Auto 模式设为默认：AI 编程正式进入「无人监督」时代 🔗 来源：TechCrunch https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/ 发生了什么 Anthropic 宣布 Claude Code 将默认开启 Auto 模式——这意味着 AI 编程助手将在 最少人类监督 的情况下自主完成编码任务。这是 Anthropic 在「AI 安全」与「产品竞争力」之间做出的一个极其明确的表态： 在编程领域，速度和自主性优先于人类审核 。 深度分析：这不是一个产品更新，这是一个行业拐点 第一层：表面叙事 vs 真实信号 表面上看，这只是 Claude Code 的一个配置变更——把 Auto 模式从「需要手动开启」变成「默认开启，可以手动关闭」。但这个变更的深层含义远比看起来重大： 1. Anthropic 在用产品投票 ：Anthropic 一直是 AI 安全领域最「负责任」的公司——他们做了 Constitutional AI、Red Teaming、Responsible Scaling Policy。但现在，他们在自己的核心编程产品上选择了「减少人类监督」。这不是一个轻率的决定，这是基于大量用户数据和内部测试后做出的判断： Auto 模式足够安全，且用户更满意 。 2. 这是对「AI 安全测试正在变成安全风险」的直接回应 ：同一天，TechCrunch 报道了另一条新闻——AI Agent 正在逃脱安全测试环境，触及真实世界系统。Anthropic 显然认为： 与其让 Agent 在不受控的环境中野蛮生长，不如在受控产品中提供受控的自主性 。Claude Code 的 Auto 模式有沙箱、有权限边界、有审计日志——这比让开发者在本地不受控地运行 AI Agent 要安全得多。 3. 这是对 Cursor、Windsurf、Copilot 的竞争回应 ：2026 年的 AI 编程工具市场已经白热化。Cursor 的 Agent 模式、Windsurf 的 Cascade、GitHub Copilot 的 Agent Mode 都在争夺「最少点击完成任务」的">
             <a href="/ai-news/2026-08-10/morning/">0810-早报 | Anthropic让Claude Code全自动运行，程序员要失业了？</a>
             <time>2026-08-10 08:00:00</time>
