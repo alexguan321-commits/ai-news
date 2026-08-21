@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="evening" data-content="📌 今日最重要的一件事 DeepMind 宣布与 CCP Games 合作将 AI 引入 EVE Online——AI 行业的&quot;游戏奇点&quot;正在到来 今天最重要的不是某个模型又刷了榜，而是一个信号：AI 正在从&quot;工具&quot;变成&quot;世界构建者&quot;。Google DeepMind 官方博客宣布与冰岛 CCP Games 合作，将 15 年的 AI 游戏研究成果转化为 EVE Online 的&quot;突破性 AI 游戏体验&quot;。这不是一个普通的合作公告——这是 AI 行业从&quot;基准测试竞赛&quot;向&quot;体验经济&quot;转型的分水岭。 🔗 来源：DeepMind Blog - From Atari to EVE Online https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/ 为什么这是今天最重要的事？ 让我用第一性原理拆解这个合作的深层含义： 第一层：EVE Online 不是普通游戏，它是一个&quot;社会实验室&quot; EVE Online 是世界上最复杂的多人在线游戏之一。它不是一个简单的&quot;打怪升级&quot;游戏——它是一个拥有 80,000+ 玩家同时在线的虚拟经济体，拥有自己的&quot;议会&quot;、&quot;法律&quot;、&quot;战争&quot;和&quot;外交&quot;。游戏中的经济系统如此复杂，以至于经济学家经常用它来研究真实世界的市场行为。 这意味着 DeepMind 选择的不是一个&quot;玩具&quot;环境，而是一个 接近真实世界复杂性 的测试平台。这与 DeepMind 从 Atari 到 AlphaStar（星际争霸）再到现在的进化路径完全一致： Atari（2013-2015）→ 简单离散动作空间 ↓ Go/Chess（2016-2017）→ 完美信息博弈 ↓ StarCraft II（2019）→ 不完全信息 + 长期策略 ↓ EVE Online（2026）→ 开放世界 + 社会交互 + 经济系统 + 长期博弈 每一步都在增加环境的复杂性维度。 EVE Online 是迄今为止 AI 面对的最复杂环境——因为它不仅涉及策略，还涉及 社会智能 ：谈判、欺骗、联盟、背叛。 第二层：这是 DeepMind 的&quot;商业化路径&quot;信号 DeepMind 长期以来被批评为&quot;只做研究不做产品&quot;。Hassabis 多次表示 DeepMind 的">
+            <a href="/ai-news/2026-08-21/evening/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-21-evening.jpg" alt="0821-晚报 | GLM5.5泄露GPT-6延期，DeepMind杀入EVE Online" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0821-晚报 | GLM5.5泄露GPT-6延期，DeepMind杀入EVE Online</h3>
+                    <time>2026-08-21 21:00:00 +0800</time>
+                    <span class="report-type type-evening">Evening</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="noon" data-content="📌 今日最重要的一件事 Claude Code 被曝在系统提示中隐写标记用户身份——AI 行业的&quot;水门事件&quot; 今天最重要的不是某个模型又刷了榜，而是一个信号：AI 行业最核心的信任基础正在被侵蚀。 安全研究者 Thereallo 在审查 Claude Code（v2.1.196）的二进制文件时，发现了一个隐蔽的 隐写标记系统（Steganographic Marker System） ——Claude Code 会在每次发送给 API 的系统提示中，通过替换肉眼不可见的 Unicode 字符来标记用户的身份类别。 🔗 来源：Thereallo Blog https://thereallo.dev/blog/claude-code-prompt-steganography 技术细节：它到底做了什么？ Claude Code 在系统提示中插入日期字符串 Today&#x27;s date is 2026-06-30. ，然后 秘密替换其中两个字符 ： 1. 撇号替换 ： Today&#x27;s 中的 &#x27; （标准 ASCII 0x27）被替换为三种不同的 Unicode 撇号之一 2. 日期分隔符替换 ： - 被替换为 / 这些替换不是随机的——它们编码了两个维度的信息： | 用户类别 | 撇号字符 | 含义 | |---------|---------|------| | 普通用户（未知域名） | &#x27; U+0027 | 标准 ASCII | | 已知域名用户 | &#x27; U+2019 | 右单引号 | | 实验室关键词用户 | ʼ U+02BC | 修饰符字母 | | 已知 + 实验室用户 | ʹ U+02B9 | 修饰符素数 | 关键发现 ：代码中还特别检测了 Asia/Shanghai 和 Asia/Urumqi 时区——这意味着中国用户被单独标记。 为什么这件事比看起来更严重 让我用第一性原理拆解这件事的深层含义： 第一层：这不是 bug，是 feature 代码逻辑清晰且有意设计： javascript function edp known, labKw { if known &amp;&amp; labKw return &quot;&#x27;&quot;; // 普通用户 if known &amp;&amp; labKw return &quot;\u2019&quot;; // 企业用户 if known &amp;&amp; labKw return &quot;\u02BC&quot;">
             <a href="/ai-news/2026-08-21/noon/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-08-21-noon.png" alt="0821-午报 | Claude Code被曝隐写标记用户请求：AI信任危机全面爆发" loading="lazy"></div>
@@ -141,16 +151,6 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="evening" data-content="📌 今日最重要的一件事 ChatGPT 正式卖广告——AI 行业的&quot;谷歌时刻&quot;来了 OpenAI 宣布 ChatGPT Ads 扩展到 31 个欧洲市场。这不是一次简单的地域扩张，这是 AI 行业商业模式的根本性转折：AI 对话产品正式进入广告时代。 🔗 来源：OpenAI 官方博客 https://openai.com/index/chatgpt-ads-expands-across-europe 为什么这是今天最重要的事？ 过去 18 个月，AI 行业一直在寻找可持续的商业模式。订阅制被证明天花板太低（ChatGPT 的 ARPU 约 $20/月），API 业务增速放缓，企业级市场竞争白热化。广告，这个支撑了 Google 二十年万亿市值的商业模式，终于被 OpenAI 正式采纳。 因果链分析： 第一层：经济压力 OpenAI 2026 年预计亏损超 50 亿美元 ↓ 订阅收入无法覆盖推理成本（GPT-4 级别推理成本约 $0.02/次对话） ↓ 需要新的高毛利收入来源 ↓ 广告是唯一被验证可以在十亿用户规模上变现的模式 第二层：产品演进 ChatGPT 周活用户突破 8 亿（欧洲占 35%） ↓ 用户在对话中表达购买意图（&quot;推荐一款笔记本&quot;、&quot;帮我选保险&quot;） ↓ 这些意图数据比 Google Search 更精准（搜索只是关键词，对话是完整需求描述） ↓ 广告主愿意为这种精准意图支付 3-5 倍溢价 第三层：竞争格局 Google 在 AI Search 中已嵌入广告（SGE Ads） ↓ Meta 在 Llama 生态中探索广告变现 ↓ OpenAI 如果不做广告，等于把最高价值的意图数据拱手让人 ↓ &quot;免费 AI 助手 + 广告补贴&quot;成为行业标配 第四层：社会影响 AI 助手的中立性受到质疑（推荐是为你好还是为广告主好？） ↓ 欧盟 DMA/DSA 对 AI 广告的监管将成为新战场 ↓ 用户可能转向付费无广告替代品（但这是少数） ↓ AI 行业的&quot;谷歌时刻&quot;：从技术理想主义到商业现实主义 大胆预判 预判 1：12 个月内（2027 年 Q3），ChatGPT 广告收入将突破 20 亿美元年化，成为 OpenAI 最大收入来源。 逻辑链： - Google Search 广告年收入约 $1,800 亿，月活约 40 亿 - ChatGPT 欧洲月活约 2.8">
-            <a href="/ai-news/2026-08-19/evening/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-08-19-evening.png" alt="0819-晚报 | ChatGPT正式卖广告，AI免费时代终结" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0819-晚报 | ChatGPT正式卖广告，AI免费时代终结</h3>
-                    <time>2026-08-19 21:00:00 +0800</time>
-                    <span class="report-type type-evening">Evening</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
@@ -160,6 +160,11 @@
                         <span class="count">48 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="evening" data-content="📌 今日最重要的一件事 DeepMind 宣布与 CCP Games 合作将 AI 引入 EVE Online——AI 行业的&quot;游戏奇点&quot;正在到来 今天最重要的不是某个模型又刷了榜，而是一个信号：AI 正在从&quot;工具&quot;变成&quot;世界构建者&quot;。Google DeepMind 官方博客宣布与冰岛 CCP Games 合作，将 15 年的 AI 游戏研究成果转化为 EVE Online 的&quot;突破性 AI 游戏体验&quot;。这不是一个普通的合作公告——这是 AI 行业从&quot;基准测试竞赛&quot;向&quot;体验经济&quot;转型的分水岭。 🔗 来源：DeepMind Blog - From Atari to EVE Online https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/ 为什么这是今天最重要的事？ 让我用第一性原理拆解这个合作的深层含义： 第一层：EVE Online 不是普通游戏，它是一个&quot;社会实验室&quot; EVE Online 是世界上最复杂的多人在线游戏之一。它不是一个简单的&quot;打怪升级&quot;游戏——它是一个拥有 80,000+ 玩家同时在线的虚拟经济体，拥有自己的&quot;议会&quot;、&quot;法律&quot;、&quot;战争&quot;和&quot;外交&quot;。游戏中的经济系统如此复杂，以至于经济学家经常用它来研究真实世界的市场行为。 这意味着 DeepMind 选择的不是一个&quot;玩具&quot;环境，而是一个 接近真实世界复杂性 的测试平台。这与 DeepMind 从 Atari 到 AlphaStar（星际争霸）再到现在的进化路径完全一致： Atari（2013-2015）→ 简单离散动作空间 ↓ Go/Chess（2016-2017）→ 完美信息博弈 ↓ StarCraft II（2019）→ 不完全信息 + 长期策略 ↓ EVE Online（2026）→ 开放世界 + 社会交互 + 经济系统 + 长期博弈 每一步都在增加环境的复杂性维度。 EVE Online 是迄今为止 AI 面对的最复杂环境——因为它不仅涉及策略，还涉及 社会智能 ：谈判、欺骗、联盟、背叛。 第二层：这是 DeepMind 的&quot;商业化路径&quot;信号 DeepMind 长期以来被批评为&quot;只做研究不做产品&quot;。Hassabis 多次表示 DeepMind 的">
+            <a href="/ai-news/2026-08-21/evening/">0821-晚报 | GLM5.5泄露GPT-6延期，DeepMind杀入EVE Online</a>
+            <time>2026-08-21 21:00:00 +0800</time>
+            <span class="report-type type-evening">Evening</span>
+        </div>
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 Claude Code 被曝在系统提示中隐写标记用户身份——AI 行业的&quot;水门事件&quot; 今天最重要的不是某个模型又刷了榜，而是一个信号：AI 行业最核心的信任基础正在被侵蚀。 安全研究者 Thereallo 在审查 Claude Code（v2.1.196）的二进制文件时，发现了一个隐蔽的 隐写标记系统（Steganographic Marker System） ——Claude Code 会在每次发送给 API 的系统提示中，通过替换肉眼不可见的 Unicode 字符来标记用户的身份类别。 🔗 来源：Thereallo Blog https://thereallo.dev/blog/claude-code-prompt-steganography 技术细节：它到底做了什么？ Claude Code 在系统提示中插入日期字符串 Today&#x27;s date is 2026-06-30. ，然后 秘密替换其中两个字符 ： 1. 撇号替换 ： Today&#x27;s 中的 &#x27; （标准 ASCII 0x27）被替换为三种不同的 Unicode 撇号之一 2. 日期分隔符替换 ： - 被替换为 / 这些替换不是随机的——它们编码了两个维度的信息： | 用户类别 | 撇号字符 | 含义 | |---------|---------|------| | 普通用户（未知域名） | &#x27; U+0027 | 标准 ASCII | | 已知域名用户 | &#x27; U+2019 | 右单引号 | | 实验室关键词用户 | ʼ U+02BC | 修饰符字母 | | 已知 + 实验室用户 | ʹ U+02B9 | 修饰符素数 | 关键发现 ：代码中还特别检测了 Asia/Shanghai 和 Asia/Urumqi 时区——这意味着中国用户被单独标记。 为什么这件事比看起来更严重 让我用第一性原理拆解这件事的深层含义： 第一层：这不是 bug，是 feature 代码逻辑清晰且有意设计： javascript function edp known, labKw { if known &amp;&amp; labKw return &quot;&#x27;&quot;; // 普通用户 if known &amp;&amp; labKw return &quot;\u2019&quot;; // 企业用户 if known &amp;&amp; labKw return &quot;\u02BC&quot;">
             <a href="/ai-news/2026-08-21/noon/">0821-午报 | Claude Code被曝隐写标记用户请求：AI信任危机全面爆发</a>
             <time>2026-08-21 14:00:00 +0800</time>
@@ -255,13 +260,13 @@
             <time>2026-08-15 21:00</time>
             <span class="report-type type-evening">Evening</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 🔴 AMD 白送 10% 股权给 OpenAI 和 Meta，只为打破 NVIDIA 95% 垄断 🔗 来源：YouTube - To Beat NVIDIA, AMD is Giving Away Its Own Company https://www.youtube.com/watch?v=Y1SPfy9p_oE 核心事实 AMD 正在执行一项史无前例的商业策略： 向最大客户赠送公司股权认股权证 （warrants），本质上是&quot;白送&quot;最多 10% 的公司股份，换取客户承诺采购天文数字的 GPU。 两笔核心交易： | 交易方 | 时间 | GPU 采购量 | 股权认股权证 | 潜在价值 | |--------|------|-----------|-------------|---------| | OpenAI | 2025年10月 | 6 GW AMD Instinct MI450 | 1.6亿股 @ $0.01/股（~10%） | 数十亿美元 | | Meta | 2026年2月 | 6 GW 定制 MI450 | 1.6亿股 @ $0.01/股（~10%） | 超 $1000亿 | 关键数字： - NVIDIA 控制数据中心 GPU 市场 ~90-95% 份额 - AMD 市场份额仅 ~4.5% - NVIDIA 市值 $4.66万亿 vs AMD $3200亿 - AMD Helios 系统：7000磅，~$500万/套 - Meta 2026年资本支出预算： $1150-1350亿 （2025年为$722亿） - Jensen Huang（NVIDIA CEO）回应：&quot;我很惊讶他们在还没造出来之前就白送10%的公司&quot; 大胆预判 18个月内，AMD 数据中心 GPU 市场份额将从 4.5% 飙升至 20%+，NVIDIA 利润率将首次承压。 这不是一个温和的预测。让我解释因果链： 因果链 AMD 白送股权 → 客户变成股东 → 客户有经济激励帮 AMD 优化软件生态 → ROCm/Hyperloom 工具链快速成熟 → CUDA 护城河被侵蚀 → 更多客户愿意尝试 AMD → AMD 出货量上升 → 规模效应降低成本 → 每 token 推理成本 AMD 低于 NVIDIA → 推理市场（更大的市场）倒向 AMD → NVIDIA">
             <a href="/ai-news/2026-08-15/noon/">0815-午报 | AMD白送10%股权挑战NVIDIA霸权</a>
             <time>2026-08-15 14:00</time>
             <span class="report-type type-noon">Noon</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="morning" data-content="📌 今日最重要的一件事 Google 允许用户去除 AI 生成内容的可见水印——同日 Anthropic 发布 Claude 隐形水印技术详解，AI 水印战争正式打响 优先级：🔴 最高 🔗 来源：The Verge - Google Gemini Watermark Removal https://www.theverge.com/tech/980416/google-gemini-ai-watermarks-removal 🔗 来源：TechCrunch - Google AI Watermark https://techcrunch.com/2026/08/14/google-will-now-allow-users-to-remove-visible-watermark-from-its-ai-generations/ 🔗 来源：Anthropic - Claude Text Watermark https://www.anthropic.com/news/claude-text-watermark 核心事实 两条新闻必须放在一起看： 1. Google 宣布允许用户关闭 AI 生成内容的可见水印 。用户可以在 Gemini 和 Google AI Studio 中关闭新的「Media watermark」设置，生成的图片、视频和音乐将不再带有可见的 AI 标识。但 Google 强调： 不可见的 SynthID 数字水印仍然保留 ，用于技术检测。 2. 同日，Anthropic 发布技术博客详解 Claude 的文本水印机制 。Claude 将在所有未来模型的文本输出中嵌入隐形水印，使用 Google DeepMind 的 SynthID-Text 技术。关键细节： - 水印 不影响输出质量 ，人类无法区分有水印和无水印文本 - 水印 不添加隐藏字符 ，不增加 token 消耗，不增加费用 - 水印 不携带身份信息 ，无法追溯到具体用户或组织 - 原理：利用模型在多个合理候选词之间的「低风险随机选择」来编码模式——读者看不出区别，但持有密钥的人可以统计验证 - 这是为了 遵守 EU AI Act 的要求——8月2日起，欧盟要求 AI 提供商标记 AI 生成内容 - 190 家签署方 已签署同一 Code of Practice，各大模型厂商都将实施各自的水印">
             <a href="/ai-news/2026-08-15/morning/">0815-早报 | Google允许去除AI水印，Anthropic同日揭秘隐形水印技术</a>
             <time>2026-08-15 08:02</time>
