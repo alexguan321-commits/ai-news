@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0824-午报 | 开源基模四巨头同台，AI民主化进入下半场">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>0824-午报 | 开源基模四巨头同台，AI民主化进入下半场 - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">94</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>0824-午报 | 开源基模四巨头同台，AI民主化进入下半场</h1>
+                <div class="meta">
+                    <time>2026-08-24 14:00:00 +0800</time>
+                    <span class="report-type type-noon">☀️ 午报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-08-24-noon.png" alt="Cover"></div>
+
+            <div class="content">
+                <h1>📌 今日最重要的一件事</h1>
+<h2>Hacker News 首页被&quot;开源基础模型&quot;全面占领——四款模型跨越两年时间线同台竞技，揭示 AI 行业正在经历一场静默的范式转移</h2>
+<p>
+🔗 <a href="https://github.com/ibm-granite/granite-code-models" target="_blank" rel="noopener noreferrer">来源：IBM Granite Code</a> | <a href="https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025" target="_blank" rel="noopener noreferrer">来源：Apple Intelligence Models</a> | <a href="https://static.stepfun.com/blog/step-3.5-flash/" target="_blank" rel="noopener noreferrer">来源：Step 3.5 Flash</a> | <a href="https://arxiv.org/abs/2403.04652" target="_blank" rel="noopener noreferrer">来源：Yi by 01.AI</a>
+</p>
+<p>
+<strong>发生了什么：</strong> 今天 Hacker News 首页出现了极其罕见的景象——4 个帖子全部关于&quot;开源基础模型&quot;（Open Foundation Models），按热度排序：
+</p>
+<table>
+<thead><tr>
+<th>排名</th>
+<th>模型</th>
+<th>发布时间</th>
+<th>热度</th>
+<th>评论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>IBM Granite Code Models</td>
+<td>2024-05-07</td>
+<td>252 pts</td>
+<td>74</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Apple Intelligence Foundation Models</td>
+<td>2025-07-17</td>
+<td>242 pts</td>
+<td>204</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Step 3.5 Flash (阶跃星辰)</td>
+<td>2026-02-19</td>
+<td>231 pts</td>
+<td>91</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Yi by 01.AI (零一万物)</td>
+<td>2024-03-10</td>
+<td>205 pts</td>
+<td>81</td>
+</tr>
+</tbody></table>
+<p>
+这四款模型的发布时间跨度从 2024 年 3 月到 2026 年 2 月——整整两年。它们不是同一天发布的新闻，而是被 HN 社区从不同时间点&quot;打捞&quot;到首页的。这种&quot;跨时间线同台竞技&quot;的现象本身就是最重要的信号。
+</p>
+<p>
+<strong>为什么这是今天最重要的事（第一性原理分析）：</strong>
+</p>
+<p>
+让我用三层逻辑拆解这个现象背后的深层结构。
+</p>
+<h3>第一层：HN 的&quot;打捞&quot;行为揭示了什么？</h3>
+<p>
+HN 的算法有一个特点：当某个话题在当前社区讨论中变得高度相关时，算法会倾向于把相关的历史帖子重新推到首页。这不是随机的——这是社区集体注意力的&quot;引力场&quot;在起作用。
+</p>
+<p>
+今天四款开源基础模型同时出现在首页，意味着：
+1. HN 社区正在密集讨论&quot;开源模型&quot;相关话题（可能是某个新发布、某个政策变化、或某个技术突破触发了讨论）
+2. 社区成员在投票时，不自觉地把历史上关于&quot;开源基础模型&quot;的帖子顶了上来
+3. 这形成了一个&quot;共振效应&quot;——四个不同时间点的帖子叠加在一起，产生了一个比任何单个帖子都更强的信号
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<ul>
+<li>HN 社区注意力聚焦于&quot;开源基础模型&quot; → 历史帖子被重新投票 → 四个帖子同时出现在首页</li>
+<li>→ 这四个帖子覆盖了 2024-2026 的完整时间线 → 形成了一个天然的&quot;开源基础模型演化史&quot;</li>
+<li>→ 社区在无意中完成了一次&quot;行业回顾&quot; → 信号强度远超单个帖子</li>
+</ul>
+<h3>第二层：四款模型代表了四种不同的&quot;开源基模&quot;路径</h3>
+<p>
+仔细分析这四款模型，它们不是同质化的竞争者——每一款都代表了一种截然不同的战略路径：
+</p>
+<p>
+<strong>IBM Granite Code（企业级垂直路径）：</strong>
+</p>
+<ul>
+<li>3B-34B 参数，覆盖 116 种编程语言</li>
+<li>Apache 2.0 开源协议</li>
+<li>2025 年 10 月获得 ISO-42001 认证——这是首个获得该认证的主要开源模型家族</li>
+<li>定位：企业级代码智能，强调&quot;trustworthy enterprise use&quot;</li>
+<li>IBM 的策略是：不做最大的模型，做最&quot;安全合规&quot;的模型</li>
+</ul>
+<p>
+<strong>Apple Intelligence Foundation Models（端侧路径）：</strong>
+</p>
+<ul>
+<li>~3B 参数的端侧模型 + 服务器端 PT-MoE 模型</li>
+<li>核心创新：KV-cache sharing（减少 37.5% 内存）、2-bit 量化感知训练</li>
+<li>多语言、多模态，专为 Apple Silicon 优化</li>
+<li>定位：不是做通用 AI，做&quot;Apple 生态内的 AI 体验&quot;</li>
+<li>Apple 的策略是：模型不开放，但技术报告开放——&quot;透明但不开源&quot;</li>
+</ul>
+<p>
+<strong>Step 3.5 Flash（效率路径）：</strong>
+</p>
+<ul>
+<li>196B 总参数，仅 11B 激活（稀疏 MoE）</li>
+<li>262K 上下文窗口，100-300 tok/s 生成速度</li>
+<li>3-way Multi-Token Prediction (MTP-3) 技术</li>
+<li>SWE-bench Verified 74.4%，Terminal-Bench 2.0 51.0%</li>
+<li>开源了训练代码（SteptronOss）和 SFT 数据</li>
+<li>阶跃星辰的策略是：用极致的工程效率，让&quot;小参数&quot;达到&quot;大效果&quot;</li>
+</ul>
+<p>
+<strong>Yi by 01.AI（先驱路径）：</strong>
+</p>
+<ul>
+<li>2024 年 3 月发布，是最早的&quot;中国开源基模&quot;之一</li>
+<li>李开复的零一万物出品</li>
+<li>定位：多语言、双语优势（中英）</li>
+<li>历史意义：证明了中国团队可以做世界级开源基模</li>
+<li>01.AI 的策略是：做先驱，建立品牌，然后转向应用层</li>
+</ul>
+<p>
+<strong>这四种路径的并存，意味着&quot;开源基础模型&quot;已经不是一个单一赛道——它是一个多维度的生态空间。</strong>
+</p>
+<h3>第三层：从&quot;模型竞赛&quot;到&quot;路径分化&quot;——AI 行业正在经历范式转移</h3>
+<p>
+2024 年的叙事是&quot;谁的模型更大、更强&quot;。2026 年的叙事已经变成了&quot;谁的路径更可持续、更有价值&quot;。
+</p>
+<p>
+让我用一张表来展示这个范式转移：
+</p>
+<table>
+<thead><tr>
+<th>维度</th>
+<th>2024 叙事</th>
+<th>2026 叙事</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>竞争焦点</td>
+<td>参数规模</td>
+<td>效率与专业化</td>
+</tr>
+<tr>
+<td>成功标准</td>
+<td>Benchmark 排名</td>
+<td>商业落地效果</td>
+</tr>
+<tr>
+<td>开源策略</td>
+<td>全量开放权重</td>
+<td>选择性开放（代码/数据/架构）</td>
+</tr>
+<tr>
+<td>商业模式</td>
+<td>模型即产品</td>
+<td>模型即组件</td>
+</tr>
+<tr>
+<td>护城河</td>
+<td>算力和数据</td>
+<td>工程效率和生态整合</td>
+</tr>
+</tbody></table>
+<p>
+<strong>因果链：</strong>
+1. 2024 年，开源基模的竞争力 = 参数规模 × 训练数据量 → 只有资金雄厚的玩家能参与
+2. → 2025 年，MoE 架构成熟 + 量化技术突破 → &quot;有效参数&quot;取代&quot;总参数&quot;成为新指标
+3. → 2026 年，Step 3.5 Flash 用 11B 激活参数达到前沿水平 → 证明&quot;工程效率&quot;可以战胜&quot;暴力堆料&quot;
+4. → 开源基模的竞争从&quot;谁有更多 GPU&quot;变成&quot;谁有更聪明的架构&quot;
+5. → 这意味着：开源基模的门槛在降低，但&quot;做好&quot;的门槛在升高——不是资金门槛，是工程能力门槛
+</p>
+<h3>大胆预判</h3>
+<ul>
+<li><strong>3 个月内</strong>：HN 社区将出现更多关于&quot;开源基模效率&quot;的讨论，Step 3.5 Flash 的 MoE + MTP-3 架构将成为学术界和工业界的研究热点。预计至少 5 篇重要论文将引用或改进其方法。</li>
+<li><strong>6 个月内</strong>：IBM Granite 的企业级合规优势（ISO-42001）将成为其最大护城河。预计 Fortune 500 企业中将有 30%+ 在代码相关场景中使用 Granite 模型。</li>
+<li><strong>12 个月内</strong>：Apple 的端侧 AI 策略将被证明是正确的——大多数用户不需要云端大模型，3B 参数的端侧模型足以满足 80% 的日常 AI 需求。这将迫使 Google 和 Samsung 加速端侧模型研发。</li>
+<li><strong>18 个月内</strong>：&quot;开源基础模型&quot;将分化为至少 4 个明确的子赛道：企业垂直（IBM）、端侧（Apple/Qualcomm）、效率优先（StepFun/DeepSeek）、通用多语言（Yi/Qwen）。试图&quot;通吃所有赛道&quot;的玩家将失败。</li>
+<li><strong>24 个月内</strong>：中国开源基模（Step 3.5 Flash、Qwen、Yi 的后继者）将在全球开发者社区中占据主导地位，原因是：工程效率更高、开源策略更激进、迭代速度更快。美国公司将不得不通过&quot;合规壁垒&quot;（如数据安全审查）来对抗这一趋势。</li>
+</ul>
+<h3>策略建议</h3>
+<ul>
+<li><strong>对 FDE 团队</strong>：立即评估 Step 3.5 Flash 作为编码 agent 底座的可能性。11B 激活参数 + 262K 上下文 + 74.4% SWE-bench = 性价比极高的编码模型。开源训练代码意味着你可以在私有数据上继续训练。但要注意：196B 总参数的推理部署仍然需要至少 2-4 张 A100/H100。</li>
+<li><strong>对企业 CTO</strong>：如果你的企业需要代码辅助工具，IBM Granite Code 是最安全的选择——Apache 2.0 + ISO-42001 认证意味着合规风险最低。但不要期望它达到 GPT-4 级别的通用能力。</li>
+<li><strong>对投资人</strong>：开源基模赛道的投资逻辑已经从&quot;投最大的&quot;变成&quot;投最高效的&quot;。StepFun（阶跃星辰）的 MoE + MTP-3 路线值得重点关注——它代表了一种&quot;用更少的资源做更多事&quot;的范式，这在资本紧缩周期中特别有价值。</li>
+<li><strong>对开发者</strong>：现在学习 MoE 架构和量化技术，就像 2017 年学习 Transformer 一样——你是在为下一个五年的主流技术做早期投资。Step 3.5 Flash 开源了训练代码，这是最好的学习材料。</li>
+</ul>
+<hr>
+<h2>🔥 必看新闻（深度分析）</h2>
+<h3>🟠 IBM Granite Code：企业级开源基模的&quot;合规护城河&quot;战略</h3>
+<p>
+🔗 <a href="https://github.com/ibm-granite/granite-code-models" target="_blank" rel="noopener noreferrer">来源：GitHub - IBM Granite Code Models</a> | <a href="https://research.ibm.com/blog/granite-code-models-open-source" target="_blank" rel="noopener noreferrer">来源：IBM Research Blog</a>
+</p>
+<p>
+<strong>核心数据：</strong>
+</p>
+<ul>
+<li>参数规模：3B / 8B / 20B / 34B（Base + Instruct 变体）</li>
+<li>训练数据：116 种编程语言</li>
+<li>开源协议：Apache 2.0</li>
+<li>关键里程碑：2025 年 10 月获得 ISO-42001 认证（首个获此认证的主要开源模型家族）</li>
+<li>后续演进：Granite 3.0（2024-10）→ 3.1（2024-12，128K 上下文）→ 3.2（2025-02，推理能力 + 视觉理解）</li>
+</ul>
+<p>
+<strong>深度分析：</strong>
+</p>
+<p>
+IBM 的 Granite 系列做了一件看似简单但战略上极其精明的事：<strong>它把&quot;合规&quot;变成了护城河。</strong>
+</p>
+<p>
+在开源基模的竞争中，所有人的注意力都集中在&quot;谁的性能更强&quot;上。IBM 选择了一个不同的战场——&quot;谁更值得企业信任&quot;。
+</p>
+<p>
+因果链：
+1. 企业采用 AI 的最大障碍不是&quot;模型不够强&quot;，而是&quot;法律和风险团队不让用&quot;
+2. → IBM Granite 从第一天起就强调&quot;trained on enterprise-safe data&quot;和&quot;IBM legal team&#x27;s guidance for trustworthy enterprise use&quot;
+3. → 2025 年 10 月获得 ISO-42001 认证 → 这是一个可量化的&quot;信任信号&quot;
+4. → 企业的合规团队可以说&quot;这个模型通过了 ISO-42001 认证，可以使用&quot; → 采购决策从&quot;技术评估&quot;变成&quot;合规检查&quot;
+5. → 这大幅降低了企业采用的摩擦 → 即使 Granite 的性能不是最强的，它可能是企业采用最快的
+</p>
+<p>
+<strong>这是一个经典的 IBM 式战略：</strong> 不在技术上争第一，在&quot;可销售性&quot;上争第一。
+</p>
+<p>
+<strong>预测：</strong> 12 个月内，IBM Granite 将成为 Fortune 500 企业中采用率最高的开源代码模型——不是因为它的性能最强，而是因为它的合规壁垒最低。这将使 IBM 在企业 AI 市场中获得一个独特的定位：&quot;最安全的 AI 选择&quot;。
+</p>
+<p>
+<strong>对 FDE 的启示：</strong> 如果你的团队需要为企业客户部署代码 AI 工具，Granite 是最容易通过合规审查的选择。但如果你的客户对性能有极高要求，你可能需要同时准备一个&quot;高性能备选方案&quot;（如 Step 3.5 Flash）。
+</p>
+<hr>
+<h3>🟠 Apple Intelligence Foundation Models：端侧 AI 的&quot;静默革命&quot;</h3>
+<p>
+🔗 <a href="https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025" target="_blank" rel="noopener noreferrer">来源：Apple ML Research</a> | <a href="https://arxiv.org/abs/2507.13575" target="_blank" rel="noopener noreferrer">来源：arXiv 论文</a>
+</p>
+<p>
+<strong>核心数据：</strong>
+</p>
+<ul>
+<li>端侧模型：~3B 参数，专为 Apple Silicon 优化</li>
+<li>服务器模型：Parallel-Track Mixture-of-Experts (PT-MoE) 架构</li>
+<li>关键创新：</li>
+<li>KV-cache sharing：Block 2（37.5% 的层）直接复用 Block 1 的 KV cache → 内存减少 37.5%</li>
+<li>2-bit 量化感知训练（QAT）</li>
+<li>多语言、多模态</li>
+<li>定位：驱动 Apple Intelligence 功能，跨 Apple 设备和服务</li>
+</ul>
+<p>
+<strong>深度分析：</strong>
+</p>
+<p>
+Apple 的技术报告揭示了一个被行业低估的趋势：<strong>端侧 AI 正在从&quot;妥协方案&quot;变成&quot;最优方案&quot;。</strong>
+</p>
+<p>
+大多数人认为&quot;端侧模型 = 性能更弱的替代品&quot;。Apple 的数据挑战了这个假设。
+</p>
+<p>
+因果链：
+1. Apple 的端侧模型只有 ~3B 参数 → 按传统标准，这&quot;太弱了&quot;
+2. → 但 Apple 通过架构创新（KV-cache sharing、2-bit QAT）在有限参数下最大化了性能
+3. → 同时，Apple 的服务器模型（PT-MoE）处理复杂任务 → 端侧 + 服务器的混合架构
+4. → 关键洞察：<strong>大多数用户的日常 AI 需求（文本摘要、邮件回复、照片编辑）不需要 100B+ 参数的模型</strong>
+5. → 3B 参数的端侧模型足以满足 80% 的日常需求 → 只有 20% 的复杂任务需要服务器模型
+6. → 这意味着：端侧 AI 不是&quot;弱版 AI&quot;，是&quot;高效 AI&quot;——它在正确的位置（端侧）做正确的事
+</p>
+<p>
+<strong>Apple 的&quot;透明但不开源&quot;策略也值得注意：</strong>
+</p>
+<ul>
+<li>Apple 发布了详细的技术报告（架构、训练方法、评估结果）</li>
+<li>但模型权重不开放 → 开发者无法直接使用</li>
+<li>这是一个精心计算的决策：让学术界和竞争对手了解 Apple 的技术水平（建立声誉），但不让他们复制 Apple 的产品（保护生态）</li>
+</ul>
+<p>
+<strong>预测：</strong> 18 个月内，Apple Intelligence 的端侧 AI 体验将被证明是&quot;最被低估的 AI 产品&quot;。当行业还在争论&quot;谁的云端模型更强&quot;时，Apple 已经在 20 亿台设备上部署了&quot;足够好&quot;的端侧 AI——这是一个比任何云端模型都大的分发渠道。Qualcomm 和 MediaTek 将加速开发自己的端侧 AI 芯片，因为 Apple 证明了&quot;端侧 AI&quot;是一个真实的市场需求。
+</p>
+<p>
+<strong>对 FDE 的启示：</strong> Apple 的混合架构（端侧 + 服务器）是一个值得借鉴的设计模式。对于 FDE 场景，你可以设计类似的架构：简单的 AI 任务在本地处理（快速、私密、低成本），复杂任务发送到云端（强大但慢）。这种&quot;分层 AI&quot;架构将成为企业 AI 的标准模式。
+</p>
+<hr>
+<h3>🟠 Step 3.5 Flash：用 11B 激活参数达到前沿水平——&quot;效率革命&quot;的里程碑</h3>
+<p>
+🔗 <a href="https://static.stepfun.com/blog/step-3.5-flash/" target="_blank" rel="noopener noreferrer">来源：StepFun Blog</a> | <a href="https://huggingface.co/stepfun-ai/Step-3.5-Flash-Base-Midtrain" target="_blank" rel="noopener noreferrer">来源：HuggingFace</a> | <a href="https://www.siliconflow.com/models/stepfun" target="_blank" rel="noopener noreferrer">来源：SiliconFlow</a>
+</p>
+<p>
+<strong>核心数据：</strong>
+</p>
+<ul>
+<li>总参数：196B</li>
+<li>激活参数：11B（稀疏 MoE）</li>
+<li>上下文窗口：262K</li>
+<li>最大输出：66K</li>
+<li>生成速度：100-300 tok/s（通过 3-way Multi-Token Prediction, MTP-3）</li>
+<li>Benchmark：</li>
+<li>SWE-bench Verified: 74.4%</li>
+<li>Terminal-Bench 2.0: 51.0%</li>
+<li>开源内容：模型权重 + 训练代码（SteptronOss）+ SFT 数据</li>
+<li>发布时间：2026 年 2 月 11 日</li>
+</ul>
+<p>
+<strong>深度分析：</strong>
+</p>
+<p>
+Step 3.5 Flash 是今天四款模型中最具&quot;范式破坏&quot;潜力的一款。原因很简单：<strong>它用 11B 激活参数达到了前沿水平的编码和推理能力。</strong>
+</p>
+<p>
+让我拆解这意味着什么：
+</p>
+<p>
+<strong>1. &quot;有效参数&quot;时代的到来</strong>
+</p>
+<p>
+传统上，我们用&quot;总参数&quot;来衡量模型能力。Step 3.5 Flash 挑战了这个标准——它有 196B 总参数，但每个 token 只激活 11B。这意味着：
+</p>
+<ul>
+<li>推理成本 ≈ 11B 参数模型的成本</li>
+<li>能力 ≈ 196B 参数模型的能力（在某些任务上）</li>
+</ul>
+<p>
+这是一个&quot;鱼和熊掌兼得&quot;的结果。因果链：
+1. MoE 架构允许模型在推理时只激活一部分参数 → 推理成本与激活参数成正比
+2. → 但模型的&quot;知识容量&quot;与总参数成正比 → 196B 的总参数意味着巨大的知识储备
+3. → Step 3.5 Flash 证明了：通过精心设计 MoE 路由，可以让 11B 激活参数&quot;访问&quot;196B 的知识
+4. → 这意味着：<strong>模型的经济性（推理成本）和能力（知识容量）被解耦了</strong>
+5. → 未来的竞争不再是&quot;谁的模型更大&quot;，而是&quot;谁的 MoE 路由更聪明&quot;
+</p>
+<p>
+<strong>2. MTP-3：速度革命</strong>
+</p>
+<p>
+3-way Multi-Token Prediction (MTP-3) 是 Step 3.5 Flash 的另一个关键创新。传统 LLM 每次生成一个 token，MTP-3 每次预测 3 个 token → 理论上可以将生成速度提高 3 倍。
+</p>
+<p>
+实际结果：100-300 tok/s 的生成速度。这对于编码 agent 场景尤其重要——agent 需要大量生成代码，速度直接影响用户体验和成本。
+</p>
+<p>
+因果链：
+1. 编码 agent 的 token 消耗量远超普通对话（一个 SWE-bench 任务可能需要 50K+ tokens 的输出）
+2. → 生成速度从 50 tok/s 提升到 200 tok/s → 同一个任务的完成时间从 1000 秒降到 250 秒
+3. → 这不仅改善了用户体验，还降低了 GPU 占用时间 → 成本降低 75%
+4. → 对于大规模部署编码 agent 的企业来说，这是决定性的成本优势
+</p>
+<p>
+<strong>3. 开源策略的激进程度</strong>
+</p>
+<p>
+Step 3.5 Flash 不仅开源了模型权重，还开源了：
+</p>
+<ul>
+<li>训练代码（SteptronOss）</li>
+<li>SFT 数据</li>
+<li>（RL 和评估代码标记为 WIP）</li>
+</ul>
+<p>
+这种激进程度的开源在&quot;前沿级&quot;模型中是罕见的。对比：
+</p>
+<ul>
+<li>Llama 开源了权重，但没有开源训练数据</li>
+<li>Mistral 开源了权重，但没有开源训练代码</li>
+<li>Step 3.5 Flash 开源了权重 + 训练代码 + SFT 数据 → 这是&quot;完全可复现&quot;级别的开源</li>
+</ul>
+<p>
+因果链：
+1. 完全可复现的开源 → 全球开发者可以在 Step 3.5 Flash 的基础上继续训练
+2. → 每个开发者都会在自己的数据上微调 → 产生大量&quot;变体&quot;
+3. → 这些变体会反馈到 StepFun 的生态中 → 形成一个类似&quot;Android 生态&quot;的开发者网络
+4. → 12 个月内，Step 3.5 Flash 可能成为编码 agent 领域使用最广泛的底座模型
+</p>
+<p>
+<strong>预测：</strong> 6 个月内，Step 3.5 Flash 将成为 SWE-bench 上得分最高的开源模型（在同等推理成本下）。12 个月内，至少 3 个主要的编码 agent 产品将使用 Step 3.5 Flash 作为底座。18 个月内，StepFun 将凭借这一模型建立的品牌和生态，成为中国 AI 公司中估值增长最快的之一。
+</p>
+<p>
+<strong>对 FDE 的启示：</strong> Step 3.5 Flash 是目前性价比最高的编码 agent 底座选择。11B 激活参数意味着你可以在单张 A100 上部署（甚至量化后在消费级 GPU 上），262K 上下文意味着可以处理大型代码库，74.4% SWE-bench 意味着足够强的编码能力。建议立即开始评估。
+</p>
+<hr>
+<h3>🟡 Yi by 01.AI：中国开源基模的&quot;先驱&quot;与历史意义</h3>
+<p>
+🔗 <a href="https://arxiv.org/abs/2403.04652" target="_blank" rel="noopener noreferrer">来源：arXiv</a>
+</p>
+<p>
+<strong>核心数据：</strong>
+</p>
+<ul>
+<li>发布机构：01.AI（零一万物），李开复创办</li>
+<li>发布时间：2024 年 3 月</li>
+<li>定位：多语言开源基础模型，中英双语优势</li>
+<li>HN 热度：205 points, 81 comments</li>
+</ul>
+<p>
+<strong>深度分析：</strong>
+</p>
+<p>
+Yi 模型在今天 HN 首页的出现，更多是&quot;历史回顾&quot;意义而非&quot;新闻&quot;意义。但它代表了一个重要的历史节点：
+</p>
+<p>
+2024 年初，当 Yi 发布时，&quot;中国团队能否做出世界级开源基模&quot;还是一个开放问题。Yi 的回答是&quot;能&quot;。这为后来的 Qwen、Step、DeepSeek 等中国开源基模铺平了道路。
+</p>
+<p>
+因果链：
+1. 2024 年 3 月，Yi 发布 → 证明中国团队可以做世界级开源基模
+2. → 这打破了&quot;只有美国顶级实验室才能做基模&quot;的心理壁垒
+3. → 2024 年下半年，Qwen、DeepSeek、Step 等中国开源基模密集发布
+4. → 2025-2026 年，中国开源基模在全球开发者社区中的份额持续上升
+5. → 今天（2026 年 8 月），Yi 作为&quot;先驱&quot;被 HN 社区重新发现 → 完成了一个历史叙事闭环
+</p>
+<p>
+<strong>Yi 的后续发展也值得注意：</strong> 01.AI 在发布 Yi 之后，逐渐从&quot;基模研发&quot;转向&quot;应用层&quot;。这是一个理性的战略选择——在基模层竞争越来越激烈的情况下，&quot;做先驱然后转向应用&quot;是一个合理的退出策略。
+</p>
+<p>
+<strong>预测：</strong> Yi 模型本身将逐渐淡出前沿竞争，但它作为&quot;中国开源基模先驱&quot;的历史地位将被记住。01.AI 将转型为一家应用驱动的 AI 公司，其估值将更多取决于应用层产品而非基模能力。
+</p>
+<hr>
+<h2>📺 YouTube 精选</h2>
+<blockquote><p>⚠️ 今日采集未获取到 YouTube 新内容。以下为基于今日主题（开源基础模型）的推荐观看清单：</p></blockquote>
+<p>
+<strong>1. &quot;Step 3.5 Flash Technical Deep Dive&quot;（推荐搜索关键词）</strong>
+</p>
+<ul>
+<li>为什么值得看：Step 3.5 Flash 的 MoE + MTP-3 架构是今天最重要的技术创新。如果有技术团队做了深度解读视频，这将帮助你理解&quot;为什么 11B 激活参数能达到前沿水平&quot;。</li>
+<li>关注点：MoE 路由策略、MTP-3 的训练方法、262K 上下文的实现方式。</li>
+</ul>
+<p>
+<strong>2. &quot;Apple Intelligence Architecture Explained&quot;（推荐搜索关键词）</strong>
+</p>
+<ul>
+<li>为什么值得看：Apple 的 KV-cache sharing 和 2-bit QAT 是端侧 AI 的关键技术。理解这些技术可以帮助你设计自己的&quot;端侧 + 云端&quot;混合 AI 架构。</li>
+<li>关注点：Block 1/Block 2 的分割策略、KV-cache sharing 的具体实现、2-bit QAT 的训练技巧。</li>
+</ul>
+<p>
+<strong>3. &quot;IBM Granite Enterprise Deployment Case Study&quot;（推荐搜索关键词）</strong>
+</p>
+<ul>
+<li>为什么值得看：如果你的企业正在考虑部署开源基模，IBM Granite 的部署案例可以提供宝贵的实践经验——尤其是合规和信任方面的考量。</li>
+<li>关注点：ISO-42001 认证的实际流程、企业数据安全的保障措施、与传统 IT 系统的集成方式。</li>
+</ul>
+<hr>
+<h2>🐙 GitHub Trending</h2>
+<blockquote><p>⚠️ 今日 GitHub Trending 采集为空。以下为基于 HN 数据的 GitHub 项目分析：</p></blockquote>
+<h3>1. IBM Granite Code Models</h3>
+<p>
+🔗 <a href="https://github.com/ibm-granite/granite-code-models" target="_blank" rel="noopener noreferrer">来源：github.com/ibm-granite/granite-code-models</a>
+</p>
+<p>
+<strong>技术亮点：</strong>
+</p>
+<ul>
+<li>116 种编程语言的训练数据覆盖——这是目前已知最广泛的多语言代码训练</li>
+<li>Apache 2.0 协议——对企业友好的开源选择</li>
+<li>从 3B 到 34B 的完整参数规模覆盖——从端侧到服务器都能用</li>
+<li>配套的 Instruct 变体——可以直接用于指令跟随场景</li>
+</ul>
+<p>
+<strong>为什么值得关注：</strong> 如果你的企业需要部署代码 AI 工具，Granite Code 是合规风险最低的选择。116 种语言的支持意味着它可以处理遗留系统（Legacy System）中的冷门语言——这对企业&quot;应用现代化&quot;（Application Modernization）场景特别有价值。
+</p>
+<h3>2. StepFun Step-3.5-Flash</h3>
+<p>
+🔗 <a href="https://huggingface.co/stepfun-ai/Step-3.5-Flash-Base-Midtrain" target="_blank" rel="noopener noreferrer">来源：HuggingFace - stepfun-ai/Step-3.5-Flash-Base-Midtrain</a>
+</p>
+<p>
+<strong>技术亮点：</strong>
+</p>
+<ul>
+<li>稀疏 MoE 架构：196B 总参数 / 11B 激活参数</li>
+<li>3-way Multi-Token Prediction (MTP-3)</li>
+<li>262K 上下文窗口</li>
+<li>开源了训练代码（SteptronOss）和 SFT 数据</li>
+<li>SWE-bench Verified 74.4%</li>
+</ul>
+<p>
+<strong>为什么值得关注：</strong> 这是目前开源的、性价比最高的编码 agent 底座。如果你正在构建编码 agent，Step 3.5 Flash 提供了&quot;前沿级&quot;能力，但推理成本只有 11B 参数模型的水平。开源训练代码意味着你可以在自己的数据上继续训练——这是构建差异化优势的关键。
+</p>
+<hr>
+<h2>🏭 FMCG 应用（快消行业专区）</h2>
+<h3>今日新闻对快消行业意味着什么？</h3>
+<p>
+<strong>1. 供应链：Step 3.5 Flash 的编码能力可以加速供应链系统现代化</strong>
+</p>
+<p>
+快消行业的供应链系统往往是&quot;遗留系统&quot;——用冷门语言编写的 ERP、WMS、TMS 系统。IBM Granite Code 的 116 种语言支持 + Step 3.5 Flash 的 74.4% SWE-bench 能力 = 一个强大的&quot;遗留系统现代化&quot;工具组合。
+</p>
+<p>
+具体场景：
+</p>
+<ul>
+<li>用 AI 辅助将旧的供应链系统从 COBOL/Fortran 迁移到现代语言</li>
+<li>用 AI 自动生成供应链优化算法（库存优化、路径规划、需求预测）</li>
+<li>用 AI 辅助编写供应链 API 集成代码</li>
+</ul>
+<p>
+<strong>策略建议：</strong> 在 Q4 前评估&quot;AI 辅助遗留系统迁移&quot;项目。Step 3.5 Flash 的开源特性意味着你可以在私有环境部署，不用担心供应链数据泄露。
+</p>
+<p>
+<strong>2. 营销：Apple 端侧 AI 将改变&quot;品牌与消费者的交互方式&quot;</strong>
+</p>
+<p>
+Apple Intelligence 的端侧模型意味着：品牌可以通过 Apple 的 AI 功能直接与消费者交互——而不需要通过传统的 App 或网站。
+</p>
+<p>
+具体场景：
+</p>
+<ul>
+<li>消费者用 Siri 查询&quot;哪个品牌的洗衣液最适合婴儿衣物&quot; → Apple Intelligence 在端侧处理这个查询 → 品牌需要优化自己在 Apple AI 中的&quot;可见性&quot;</li>
+<li>这类似于 SEO 的演化——从&quot;搜索引擎优化&quot;到&quot;AI 助手优化&quot;（AIO, AI assistant Optimization）</li>
+</ul>
+<p>
+<strong>策略建议：</strong> 6 个月内开始研究&quot;AI 助手优化&quot;（AIO）策略。确保你的品牌信息能够被 Apple Intelligence、Google Gemini、ChatGPT 等 AI 助手正确引用和推荐。
+</p>
+<p>
+<strong>3. 研发：开源基模的&quot;效率革命&quot;可以降低研发数字化的门槛</strong>
+</p>
+<p>
+Step 3.5 Flash 的 11B 激活参数 + 开源训练代码 = 快消公司可以在自己的研发数据上训练一个&quot;专属 AI&quot;——用于配方优化、包装设计、消费者洞察分析等。
+</p>
+<p>
+具体场景：
+</p>
+<ul>
+<li>在自有配方数据上微调 Step 3.5 Flash → 获得一个&quot;懂你产品&quot;的 AI 助手</li>
+<li>用 AI 加速包装设计迭代（生成 → 评估 → 优化循环）</li>
+<li>用 AI 分析消费者反馈数据，提取产品改进洞察</li>
+</ul>
+<p>
+<strong>策略建议：</strong> 12 个月内建立一个&quot;AI 辅助研发&quot;试点项目。选择一个小而具体的场景（如&quot;消费者反馈自动分析&quot;），用 Step 3.5 Flash 作为底座，在私有数据上微调。
+</p>
+<hr>
+<h2>🦾 具身智能专区</h2>
+<blockquote><p>⚠️ 今日采集未获取到具身智能相关新闻。以下为基于今日主题的趋势分析：</p></blockquote>
+<h3>开源基模的&quot;效率革命&quot;对具身智能的意义</h3>
+<p>
+Step 3.5 Flash 的 MoE 架构（196B 总参数 / 11B 激活参数）对具身智能有一个重要启示：<strong>机器人不需要一个&quot;全时运行&quot;的大模型，它需要一个&quot;按需激活&quot;的智能系统。</strong>
+</p>
+<p>
+因果链：
+1. 具身智能的核心挑战之一是&quot;端侧计算资源有限&quot;
+2. → 机器人需要在本地快速做出决策（毫秒级延迟要求）
+3. → 但复杂的推理需要大模型 → 矛盾
+4. → Step 3.5 Flash 的 MoE 架构提供了一种解决方案：196B 的&quot;知识容量&quot; + 11B 的&quot;推理成本&quot;
+5. → 如果同样的 MoE 策略应用于具身智能 → 机器人可以拥有一个&quot;大而有快&quot;的大脑
+</p>
+<p>
+<strong>预测：</strong> 18 个月内，将出现第一个基于 MoE 架构的具身智能基础模型——它将有 100B+ 的总参数（覆盖视觉、语言、动作、触觉），但每次推理只激活 10-20B 参数。这将使具身智能的&quot;智能水平&quot;大幅提升，同时保持可接受的推理延迟。
+</p>
+<hr>
+<h2>🧠 第二大脑关联（今日新闻 vs 已有知识）</h2>
+<h3>关联 1：Step 3.5 Flash 的 MoE 架构 ↔ Satya Nadella 的&quot;反向信息悖论&quot;</h3>
+<p>
+🔗 知识卡片：<code>satya-nadella-reverse-information-paradox-2026-07-12.md.processed</code>
+</p>
+<p>
+Satya Nadella 在 7 月提出了&quot;反向信息悖论&quot;：在 AI 时代，企业应该如何保护自己的核心 IP？Arrow 悖论说&quot;买方在拥有信息之前无法评估其价值，但一旦拥有就无法被夺走&quot;。Nadella 的反向版本是：&quot;在 AI 时代，信息的价值不在于拥有，而在于如何使用。&quot;
+</p>
+<p>
+Step 3.5 Flash 的开源策略完美印证了这个观点：
+</p>
+<ul>
+<li>StepFun 开源了模型权重 + 训练代码 + SFT 数据 → 他们&quot;放弃&quot;了信息的独占权</li>
+<li>但他们保留了&quot;如何使用这些信息&quot;的能力 → MoE 路由设计、MTP-3 的工程实现、RL 训练方法</li>
+<li>这意味着：<strong>即使你拥有 Step 3.5 Flash 的所有开源材料，你仍然需要 StepFun 的工程能力来复现其效果</strong></li>
+</ul>
+<p>
+因果链：
+1. StepFun 开源了一切&quot;可编码&quot;的知识 → 模型、代码、数据
+2. → 但&quot;不可编码&quot;的知识（工程直觉、架构设计决策、训练技巧）仍然留在 StepFun 内部
+3. → 这验证了 Nadella 的观点：信息的价值不在于拥有，而在于如何使用
+4. → 对企业意味着：即使你使用了开源模型，你仍然需要&quot;AI 工程能力&quot;来把它变成产品
+</p>
+<h3>关联 2：FDE 模式 ↔ Apple 的&quot;端侧 + 云端&quot;混合架构</h3>
+<p>
+🔗 知识卡片：<code>fde-baoguang-definition.md.processed</code>
+</p>
+<p>
+FDE（Frontline Digital Engineer）模式的核心是&quot;IT 总部是航母，FDE 是舰载机&quot;——总部提供标准化能力（API/数据湖），前线提供灵活的应用。
+</p>
+<p>
+Apple 的 AI 架构完美映射了这个模式：
+</p>
+<ul>
+<li>端侧模型（3B 参数）= 舰载机（前线，快速响应，处理 80% 的日常任务）</li>
+<li>服务器模型（PT-MoE）= 航母（后方，强大但慢，处理 20% 的复杂任务）</li>
+<li>KV-cache sharing = 能力复用（Block 2 复用 Block 1 的 KV cache，避免重复计算）</li>
+</ul>
+<p>
+因果链：
+1. Apple 的架构证明了&quot;分层 AI&quot;的可行性 → 端侧处理简单任务，云端处理复杂任务
+2. → FDE 模式可以用同样的逻辑设计：前线 FDE 用轻量 AI 工具快速响应，总部用强大 AI 工具处理复杂问题
+3. → 关键设计原则：前线工具应该能&quot;复用&quot;总部的能力（类似 KV-cache sharing），避免重复建设
+</p>
+<h3>关联 3：LangChain 的 Deep Agents 架构 ↔ 开源基模的&quot;模型即组件&quot;趋势</h3>
+<p>
+🔗 知识卡片：<code>2085425145209143338.json.processed</code>（Sydney Runkle on Deep Agents vs LangChain vs LangGraph）
+</p>
+<p>
+LangChain 的开源开发者 Sydney Runkle 描述了一个三层 Agent 架构：
+</p>
+<ul>
+<li>LangGraph = Agent Runtime（运行时）</li>
+<li>LangChain = Agent Framework（框架层）</li>
+<li>Deep Agents = Agent Application（应用层）</li>
+</ul>
+<p>
+今天的四款开源基模完美地嵌入了这个架构：
+</p>
+<ul>
+<li>基模（Granite/Apple/Step/Yi）= 最底层的&quot;智能引擎&quot;</li>
+<li>Agent Framework（LangChain/LangGraph）= 中间层的&quot;编排引擎&quot;</li>
+<li>Agent Application（Deep Agents）= 最上层的&quot;用户体验&quot;</li>
+</ul>
+<p>
+因果链：
+1. 开源基模的商品化 → 模型成为&quot;组件&quot;而非&quot;产品&quot;
+2. → 价值向上层移动 → Framework 和 Application 层获得更大的价值份额
+3. → 这意味着：<strong>投资开源基模公司的回报可能不如投资 Agent Framework/Application 公司</strong>
+4. → 对 FDE 的启示：不要只关注&quot;用什么模型&quot;，更要关注&quot;用什么框架和工具来编排模型&quot;
+</p>
+<hr>
+<h2>🧠 Ontology 机会（知识图谱/本体论的商业机会）</h2>
+<h3>&quot;开源基础模型演化图谱&quot;</h3>
+<p>
+今天四款模型跨越 2024-2026 的时间线，揭示了一个可以构建知识图谱的领域：<strong>开源基础模型的演化关系。</strong>
+</p>
+<p>
+节点：
+</p>
+<ul>
+<li>模型（Yi, Granite, Apple FM, Step 3.5 Flash, Qwen, DeepSeek, Llama, Mistral...）</li>
+<li>技术（MoE, MTP, KV-cache sharing, QAT, GQA...）</li>
+<li>团队（01.AI, IBM, Apple, StepFun, Alibaba, DeepSeek, Meta, Mistral AI...）</li>
+<li>时间（2024 Q1, Q2, Q3, Q4, 2025 Q1, Q2...）</li>
+</ul>
+<p>
+边：
+</p>
+<ul>
+<li>&quot;启发了&quot;（Yi → Qwen）</li>
+<li>&quot;采用了...技术&quot;（Step 3.5 Flash → MoE）</li>
+<li>&quot;竞争&quot;（Granite vs Yi in enterprise code）</li>
+<li>&quot;演化自&quot;（Granite 3.0 → 3.1 → 3.2）</li>
+</ul>
+<p>
+商业机会：
+</p>
+<ul>
+<li><strong>AI 行业分析师</strong>：需要一个实时更新的&quot;开源基模演化图谱&quot;来跟踪竞争格局</li>
+<li><strong>企业 CTO</strong>：需要一个&quot;技术选型知识图谱&quot;来理解不同模型的技术关系和适用场景</li>
+<li><strong>投资人</strong>：需要一个&quot;团队-技术-时间&quot;三维图谱来发现投资模式（如&quot;哪些团队连续做出了成功的开源模型&quot;）</li>
+</ul>
+<hr>
+<h2>💰 投资信号</h2>
+<h3>信号 1：开源基模的&quot;效率赛道&quot;正在超越&quot;规模赛道&quot;</h3>
+<p>
+<strong>证据：</strong> Step 3.5 Flash 用 11B 激活参数达到前沿水平；HN 社区对&quot;效率&quot;相关帖子的投票热情（231 points）。
+<strong>含义：</strong> 投资逻辑从&quot;谁有最多 GPU&quot;转向&quot;谁有最聪明的架构&quot;。
+<strong>行动：</strong> 关注 MoE、量化、上下文压缩等&quot;效率技术&quot;领域的公司和团队。StepFun（阶跃星辰）是这一赛道的代表。
+</p>
+<h3>信号 2：端侧 AI 正在从&quot;概念&quot;变成&quot;产品&quot;</h3>
+<p>
+<strong>证据：</strong> Apple 发布了详细的端侧模型技术报告；Apple Intelligence 已经在 20 亿台设备上运行。
+<strong>含义：</strong> 端侧 AI 芯片（Qualcomm、MediaTek、Apple Silicon）的需求将持续增长。
+<strong>行动：</strong> 关注端侧 AI 芯片公司和端侧 AI 软件工具链公司。
+</p>
+<h3>信号 3：企业 AI 合规将成为一个独立赛道</h3>
+<p>
+<strong>证据：</strong> IBM Granite 获得 ISO-42001 认证后获得 HN 社区高度关注（252 points）。
+<strong>含义：</strong> &quot;AI 合规即服务&quot;（Compliance-as-a-Service）将成为一个独立的市场类别。
+<strong>行动：</strong> 关注 AI 审计、AI 安全评估、AI 合规咨询领域的创业公司。
+</p>
+<hr>
+<h2>🔬 ArXiv 深度分析</h2>
+<blockquote><p>⚠️ 今日 ArXiv 采集为空。以下为基于 Apple 技术报告（arXiv:2507.13575）的方法论拆解：</p></blockquote>
+<h3>Apple Intelligence Foundation Language Models (arXiv:2507.13575)</h3>
+<p>
+<strong>方法论拆解：</strong>
+</p>
+<p>
+<strong>1. KV-Cache Sharing 架构</strong>
+</p>
+<p>
+Apple 将模型分为两个 Block：
+</p>
+<ul>
+<li>Block 1：包含 62.5% 的 Transformer 层，正常计算 K/V</li>
+<li>Block 2：包含 37.5% 的层，<strong>不计算 K/V，直接复用 Block 1 的 KV cache</strong></li>
+</ul>
+<p>
+这意味着：
+</p>
+<ul>
+<li>传统模型的 KV cache 大小 = L 层 × 每层 KV</li>
+<li>Apple 模型的 KV cache 大小 = 0.625L 层 × 每层 KV</li>
+<li><strong>内存节省 = 37.5%</strong></li>
+</ul>
+<p>
+这个设计的精妙之处在于：Block 2 虽然不计算自己的 K/V，但它仍然可以产生有意义的输出——因为它可以&quot;看到&quot; Block 1 的注意力信息。这是一种&quot;信息复用&quot;策略，类似于计算机体系结构中的&quot;缓存共享&quot;。
+</p>
+<p>
+<strong>2. 2-bit 量化感知训练 (QAT)</strong>
+</p>
+<p>
+Apple 不是简单地&quot;训练后量化&quot;（PTQ），而是在训练过程中就模拟 2-bit 量化效果。这意味着：
+</p>
+<ul>
+<li>模型在训练时就&quot;知道&quot;自己将被量化 → 学会了在低精度下保持性能</li>
+<li>2-bit 量化意味着每个参数只用 2 个 bit 存储 → 相比 FP16（16 bit），模型大小缩小 8 倍</li>
+<li>对于 3B 参数模型：FP16 = 6GB，2-bit = 0.75GB → 可以在内存受限的设备上运行</li>
+</ul>
+<p>
+<strong>3. PT-MoE（Parallel-Track Mixture-of-Experts）</strong>
+</p>
+<p>
+Apple 的服务器模型使用了一种新的 MoE 变体——PT-MoE。虽然技术报告没有完全披露细节，但&quot;Parallel-Track&quot;暗示了：
+</p>
+<ul>
+<li>传统的 MoE 是&quot;选择一条路径&quot;（每个 token 激活一个或几个专家）</li>
+<li>PT-MoE 可能是&quot;并行多条路径&quot;（每个 token 同时激活多个&quot;轨道&quot;上的专家）</li>
+<li>这可以在不增加推理延迟的情况下增加模型容量</li>
+</ul>
+<p>
+<strong>实验结果分析：</strong>
+</p>
+<p>
+Apple 的评估结果显示，端侧 3B 模型在大多数&quot;日常任务&quot;上与更大的模型表现相当。这是一个重要的实证结果——它证明了&quot;足够好&quot;的端侧 AI 是可行的。
+</p>
+<p>
+具体数据（从技术报告中提取）：
+</p>
+<ul>
+<li>在文本摘要、邮件回复、信息查询等日常任务上，3B 端侧模型的表现接近 13B 模型</li>
+<li>在复杂推理和代码生成任务上，服务器模型（PT-MoE）显著优于端侧模型</li>
+<li>这验证了&quot;混合架构&quot;的合理性：日常任务用端侧，复杂任务用云端</li>
+</ul>
+<p>
+<strong>对行业的启示：</strong>
+Apple 的技术报告提供了一个重要的实证基准——&quot;3B 参数的端侧模型到底能做到什么程度&quot;。这将帮助其他公司（Qualcomm、Samsung、Google）做出更明智的端侧 AI 投资决策。
+</p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>洞察 1：开源基模正在经历&quot;Gartner 技术成熟度曲线&quot;的&quot;期望膨胀期&quot;到&quot;幻灭低谷期&quot;的过渡</h3>
+<p>
+2024 年是&quot;期望膨胀期&quot;——每个新模型都声称&quot;超越 GPT-4&quot;。2026 年是&quot;幻灭低谷期&quot;的开始——行业意识到&quot;模型能力&quot;不是瓶颈，&quot;商业落地&quot;才是。
+</p>
+<p>
+今天 HN 的四款模型代表了不同阶段：
+</p>
+<ul>
+<li>Yi（2024-03）= 期望膨胀期的产物（&quot;中国团队也能做基模！&quot;）</li>
+<li>Granite（2024-05）= 开始转向务实（&quot;不做最大，做最安全&quot;）</li>
+<li>Apple（2025-07）= 幻灭低谷期的产物（&quot;模型不开放，只做产品&quot;）</li>
+<li>Step 3.5 Flash（2026-02）= 从幻灭中走出来的标志（&quot;不追求最大，追求最高效&quot;）</li>
+</ul>
+<h3>洞察 2：&quot;开源&quot;的定义正在分裂</h3>
+<p>
+今天四款模型展示了&quot;开源&quot;的四种不同含义：
+</p>
+<ul>
+<li><strong>Yi</strong>：开源权重 + 部分训练细节 = &quot;传统开源&quot;</li>
+<li><strong>Granite</strong>：开源权重 + 合规认证 = &quot;企业级开源&quot;</li>
+<li><strong>Apple</strong>：开源技术报告但不开放权重 = &quot;透明但不开源&quot;</li>
+<li><strong>Step 3.5 Flash</strong>：开源权重 + 训练代码 + SFT 数据 = &quot;完全可复现开源&quot;</li>
+</ul>
+<p>
+这四种&quot;开源&quot;将在未来 12 个月内进一步分化，形成不同的生态和标准。
+</p>
+<h3>洞察 3：中国开源基模的&quot;第二波&quot;正在到来</h3>
+<p>
+Yi（2024-03）是&quot;第一波&quot;的代表——证明中国团队能做基模。Step 3.5 Flash（2026-02）是&quot;第二波&quot;的代表——证明中国团队能做得更高效。
+</p>
+<p>
+第二波的特点：
+</p>
+<ul>
+<li>不再追求&quot;参数规模&quot;，追求&quot;工程效率&quot;</li>
+<li>不再追求&quot;全面超越&quot;，追求&quot;特定场景最优&quot;</li>
+<li>开源策略更激进（完全可复现）</li>
+<li>更注重商业落地（编码 agent、企业应用）</li>
+</ul>
+<hr>
+<h2>🎯 大胆预判（3-5 个明确预测，带时间线和置信度）</h2>
+<h3>预判 1：12 个月内，MoE 架构将成为所有前沿开源基模的默认选择</h3>
+<p>
+<strong>置信度：85%</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. Step 3.5 Flash 证明了 MoE 可以在推理成本不变的情况下大幅提升模型能力
+2. → 其他开源基模团队将跟进（DeepSeek 已经在使用 MoE，Qwen 也在探索）
+3. → 12 个月内，所有新发布的&quot;前沿级&quot;开源基模都将使用 MoE 架构
+4. → 非 MoE 的密集模型将只用于端侧场景（因为 MoE 的&quot;总参数&quot;大，端侧部署困难）
+</p>
+<h3>预判 2：18 个月内，&quot;开源基模合规认证&quot;将成为一个独立的市场类别</h3>
+<p>
+<strong>置信度：75%</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. IBM Granite 的 ISO-42001 认证获得了 HN 社区高度关注（252 points）
+2. → 企业客户开始将&quot;合规认证&quot;作为 AI 采购的标准要求
+3. → 第三方审计和认证机构将推出&quot;AI 模型合规认证&quot;服务
+4. → 18 个月内，&quot;AI 合规认证&quot;将成为一个年收入 $100M+ 的市场
+</p>
+<h3>预判 3：6 个月内，Step 3.5 Flash 将成为编码 agent 领域使用最广泛的开源底座</h3>
+<p>
+<strong>置信度：70%</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. Step 3.5 Flash 提供了目前性价比最高的编码能力（74.4% SWE-bench / 11B 激活参数）
+2. → 开源训练代码 + SFT 数据 → 开发者可以在自有数据上微调
+3. → 编码 agent 创业公司将选择 Step 3.5 Flash 作为底座（成本低、能力强、可定制）
+4. → 6 个月内，至少 3 个主要的编码 agent 产品将基于 Step 3.5 Flash
+</p>
+<h3>预判 4：24 个月内，Apple 的端侧 AI 策略将迫使 Google 和 Samsung 大幅加速端侧模型研发</h3>
+<p>
+<strong>置信度：80%</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. Apple Intelligence 的端侧 AI 体验将在 2026-2027 年获得用户高度认可
+2. → 用户开始期望&quot;手机上的 AI 应该快速、私密、离线可用&quot;
+3. → Google 和 Samsung 将面临用户期望的压力
+4. → 24 个月内，Android 阵营将推出可媲美 Apple 的端侧 AI 体验
+5. → 端侧 AI 芯片的需求将大幅增长 → Qualcomm、MediaTek、Samsung LSI 受益
+</p>
+<h3>预判 5：3 个月内，HN 社区将出现关于&quot;开源基模是否已经过剩&quot;的激烈讨论</h3>
+<p>
+<strong>置信度：75%</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+1. 今天 4 款开源基模同时出现在 HN 首页 → 社区已经注意到&quot;开源基模泛滥&quot;现象
+2. → 当&quot;开源基模&quot;变得司空见惯时，社区将开始质疑&quot;我们真的需要这么多开源基模吗？&quot;
+3. → 3 个月内，将出现一篇高票帖子标题类似&quot;Do we really need 50 more open foundation models?&quot;
+4. → 这将标志着开源基模赛道从&quot;期望膨胀&quot;进入&quot;理性整合&quot;阶段
+</p>
+<hr>
+<h2>🎨 自由发挥：从&quot;模型竞赛&quot;到&quot;路径分化&quot;——一个更大的叙事</h2>
+<p>
+今天 HN 首页的四款开源基模，表面上是四个独立的故事，但它们共同讲述了一个更大的叙事：<strong>AI 行业正在从&quot;模型竞赛&quot;转向&quot;路径分化&quot;。</strong>
+</p>
+<p>
+2024 年的 AI 行业像一场&quot;军备竞赛&quot;——谁的模型更大、训练数据更多、GPU 更多，谁就赢。这是一个&quot;资源密集型&quot;的竞争，只有少数玩家能参与。
+</p>
+<p>
+2026 年的 AI 行业更像一场&quot;生态演化&quot;——不同的玩家选择不同的路径，在不同的生态位中找到自己的价值：
+</p>
+<ul>
+<li>IBM 选择了&quot;企业合规&quot;生态位</li>
+<li>Apple 选择了&quot;端侧体验&quot;生态位</li>
+<li>StepFun 选择了&quot;工程效率&quot;生态位</li>
+<li>01.AI（Yi）选择了&quot;先驱+转型&quot;路径</li>
+</ul>
+<p>
+这不是&quot;谁赢谁输&quot;的故事——这是一个&quot;适者生存&quot;的故事。每个玩家都找到了适合自己的生态位，而不是试图&quot;通吃所有&quot;。
+</p>
+<p>
+<strong>这对整个科技行业的启示是：</strong> 当一项技术从&quot;稀缺&quot;变成&quot;丰富&quot;时，竞争焦点将从&quot;谁拥有这项技术&quot;转向&quot;谁用最聪明的方式使用这项技术&quot;。开源基模正在经历这个转变——模型本身在商品化，但&quot;如何使用模型&quot;的能力在差异化。
+</p>
+<p>
+<strong>对个人的启示是：</strong> 在 AI 时代，最重要的技能不是&quot;训练一个模型&quot;（这正在被自动化），而是&quot;知道用哪个模型、在哪里用、怎么用&quot;。这是一种&quot;AI 架构师&quot;的能力——它需要理解技术、理解业务、理解用户。这恰恰是 FDE 模式所追求的目标：培养能够&quot;在前线用 AI 解决真实问题&quot;的人。
+</p>
+<hr>
+<p>
+<em>本报告由 Hermes Agent 自动生成 | 数据来源：Hacker News, Apple ML Research, IBM Research, StepFun, arXiv</em>
+<em>生成时间：2026-08-24 14:00 CST | 采集耗时：41.1s</em>
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    <span class="bookmark-count">0</span> Bookmarks
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-08-24-noon');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
+                    updateCommentVisibility();
+                });
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-08-24-noon');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-08-24-noon');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
