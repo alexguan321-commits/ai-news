@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="'AI 周报 | 2026.08.24 - 08.31: Agent 治理觉醒周——从「让 Agent 工作」到「让 Agent 守规矩」'">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>'AI 周报 | 2026.08.24 - 08.31: Agent 治理觉醒周——从「让 Agent 工作」到「让 Agent 守规矩」' - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">90</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>'AI 周报 | 2026.08.24 - 08.31: Agent 治理觉醒周——从「让 Agent 工作」到「让 Agent 守规矩」'</h1>
+                <div class="meta">
+                    <time>2026-08-31</time>
+                    <span class="report-type type-weekly">周报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-08-31-weekly.jpg" alt="Cover"></div>
+
+            <div class="content">
+                <h1>🤖 AI 周报 | 2026.08.24 - 08.31</h1>
+<h2>Agent 治理觉醒周——从「让 Agent 工作」到「让 Agent 守规矩」</h2>
+<hr>
+<h2>📊 本周概览</h2>
+<p>
+<strong>这是 Agent 治理从理论走向实践的一周。</strong> 上周我们说 MCP 安全危机是 Agent 生态的「SSL 时刻」，本周这个判断被进一步验证——VentureBeat 明确指出「身份和权限不足以治理 AI agent 行为」，Anthropic 发布 Model Hardware Standard 让 agent 操作物理机器，<strong>行业的焦点正在从「agent 能做什么」转向「agent 应该如何做」。</strong>
+</p>
+<p>
+<strong>版权战争全面升级：</strong> Sony Music 和 Warner 起诉 Anthropic「大规模知识产权盗窃」，ChatGPT 在欧盟面临更严格的 DSA 监管，NY 州长公开呼吁 AI 应该「less evil」。<strong>AI 公司正在同时面对法律、监管和公众舆论的三重压力。</strong>
+</p>
+<p>
+<strong>物理 AI 进入产品化阶段：</strong> Anthropic 发布 Model Hardware Standard、Figure AI 支付 $10 亿让人类被 Figure 03 替代、Boston Dynamics 新对手出现（$200K 机器人）、Elon Musk 的 $30K Cybercab 终于到来、Caterpillar 把采矿自动化经验带到 AI 部署。<strong>具身智能正在从「Demo Day」进入「Product Day」。</strong>
+</p>
+<p>
+<strong>OpenAI 的商业模式转型：</strong> ChatGPT Ads 年化收入达到 $10 亿并全球扩展——这是 AI 行业第一个真正意义上的「广告支撑 AI」商业模式验证。同时 OpenAI 宣布停止向 Cursor（已被 SpaceX 收购）提供模型——<strong>AI 行业的商业关系正在快速重组。</strong>
+</p>
+<p>
+<strong>对 FDE 的关键信号：</strong> AgentOps ≠ MLOps（Towards Data Science 深度文章）、8 Tips for Writing Effective Agent Instructions、FAQ as RAG——<strong>FDE 的核心技能正在从「构建 agent」转向「运营 agent」。</strong>
+</p>
+<hr>
+<h2>🏆 本周 Top 10 事件</h2>
+<h3>1. 🔴 Anthropic 发布 Model Hardware Standard——让 AI Agent 操作物理机器</h3>
+<p>
+<strong>事件：</strong> Anthropic 发布 Model Hardware Standard，这是一个帮助 AI agent 操作物理机器的标准接口。这是 Anthropic 持续推动 Physical AI 的最新举措。
+</p>
+<p>
+<strong>判断：</strong> 这是 Anthropic 战略方向的重要信号。当其他人还在讨论 LLM 的下一个 benchmark 时，Anthropic 已经在构建「LLM 如何控制物理世界」的标准。<strong>这意味着 Anthropic 认为 agent 的终极价值不在于生成文本，而在于操控物理世界。</strong>
+</p>
+<p>
+更深层的信号：Anthropic 在 MCP（软件工具协议）之后推出 Model Hardware Standard（硬件控制协议），说明它正在构建一个从「数字 agent」到「物理 agent」的完整栈。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要关注 Physical AI 的技能需求——当 agent 不仅操作软件还操作硬件时，FDE 的知识范围需要从「API 集成」扩展到「传感器-执行器集成」。
+</p>
+<blockquote><p>可验证预测：12 周内，至少 2 家机器人公司会宣布支持 Model Hardware Standard。</p></blockquote>
+<hr>
+<h3>2. 🔴 Sony Music + Warner 起诉 Anthropic「大规模知识产权盗窃」</h3>
+<p>
+<strong>事件：</strong> Sony Music Publishing 和 Warner Chappell 在加州北区联邦法院起诉 Anthropic，指控其侵犯「数万首」版权作品。这是针对 AI 训练数据版权的最大规模诉讼之一。
+</p>
+<p>
+<strong>判断：</strong> 这场诉讼的意义超越了 Anthropic 本身。它正在测试一个根本性问题：<strong>AI 训练是否构成版权侵权？</strong> 如果原告胜诉，所有使用版权数据训练模型的公司都将面临法律风险。
+</p>
+<p>
+同周还有「音乐人变侦探追捕 AI 骗子」的报道——说明 AI 生成内容的版权和真实性问题正在从理论走向实践。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队在企业 AI 部署中需要考虑：(1) 训练数据的版权合规；(2) 生成内容的知识产权归属；(3) 建立 AI 输出的版权审计流程。
+</p>
+<hr>
+<h3>3. 🔴 ChatGPT 在欧盟面临更严格的 DSA 监管</h3>
+<p>
+<strong>事件：</strong> The Verge 报道，OpenAI 将很快需要为 ChatGPT 在欧盟的影响承担更多责任——包括对未成年人的影响、用户心理健康、非法内容传播。ChatGPT 将被认定为需要承担更高义务的 DSA 平台。
+</p>
+<p>
+<strong>判断：</strong> 这是「AI 监管从软到硬」的标志性事件。欧盟不再把 ChatGPT 当作「技术实验」对待，而是当作「媒体平台」监管。这意味着：
+1. <strong>内容审核义务</strong>：OpenAI 需要主动审核和删除非法内容
+2. <strong>未成年人保护</strong>：需要实施年龄验证和内容过滤
+3. <strong>透明度要求</strong>：需要公开算法决策的逻辑
+</p>
+<p>
+同周 NY 州长 Hochul 公开呼吁 AI 应该「less evil」——美国州级层面的 AI 监管也在加速。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队在企业 AI 部署中需要关注合规要求——特别是跨国企业需要满足不同司法管辖区的监管要求。
+</p>
+<hr>
+<h3>4. 🔴 OpenAI：ChatGPT Ads 年化收入 $10 亿 + 停止向 Cursor 提供模型</h3>
+<p>
+<strong>事件：</strong>
+</p>
+<ul>
+<li><strong>ChatGPT Ads 年化收入达到 $10 亿</strong>并全球扩展——AI 行业首个广告支撑商业模式验证</li>
+<li><strong>OpenAI 宣布停止向 Cursor 提供模型</strong>——因为 Cursor 被 SpaceX 收购</li>
+</ul>
+<p>
+<strong>判断：</strong> 这两件事合在一起揭示了 OpenAI 的战略转型：
+</p>
+<p>
+<strong>ChatGPT Ads 的意义：</strong> 这是 AI 行业的「Google 时刻」——当 AI 对话界面成为用户获取信息的主要入口，广告自然会跟着来。$10 亿年化收入说明广告主认可 AI 对话界面的价值。但这也带来了新的风险：当 AI 的回答受到广告影响时，用户的信任会被侵蚀。
+</p>
+<p>
+<strong>停止向 Cursor 提供模型的信号：</strong> OpenAI 正在重新评估其商业关系。Cursor 被 SpaceX 收购后，OpenAI 选择终止合作而非继续——这说明 OpenAI 对竞争对手的生态扩张持防御态度。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要：(1) 评估 ChatGPT Ads 对企业 AI 使用的影响——广告是否会扭曲 AI 的建议；(2) 关注 AI 供应商的商业关系变化——避免单一供应商依赖。
+</p>
+<hr>
+<h3>5. 🟠 VentureBeat：身份和权限不足以治理 AI Agent 行为</h3>
+<p>
+<strong>事件：</strong> VentureBeat 发表深度文章指出，身份和权限管理已经不足以保障企业 AI agent 的安全——它们只能控制 agent 能访问什么，不能控制 agent 在访问后如何行为。
+</p>
+<p>
+<strong>判断：</strong> 这是对上周 MCP 安全危机讨论的<strong>理论升级</strong>。上周我们说「MCP 安全问题是 Agent 生态的 SSL 时刻」，本周 VentureBeat 进一步指出：<strong>即使解决了访问控制，还有行为控制的问题。</strong>
+</p>
+<p>
+这揭示了一个根本性的架构挑战：
+</p>
+<ul>
+<li><strong>传统安全模型</strong>：身份 → 权限 → 访问控制</li>
+<li><strong>Agent 安全模型</strong>：身份 → 权限 → 行为治理</li>
+</ul>
+<p>
+行为治理比访问控制难得多——因为 agent 的行为是动态的、上下文相关的、难以预测的。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要建立 agent 行为治理框架：(1) 定义 agent 的「不可为」边界；(2) 实施 agent 行为的实时监控；(3) 建立 agent 行为的审计日志。
+</p>
+<hr>
+<h3>6. 🟠 AgentOps ≠ MLOps：当 Agent 进入生产环境时监控栈会崩溃</h3>
+<p>
+<strong>事件：</strong> Towards Data Science 发表深度文章指出，MLOps 的 5 个监控假设在 agent 场景下全部失效——agent 的非确定性行为让传统的 MLOps 监控方法失效。
+</p>
+<p>
+<strong>判断：</strong> 这是对「agent 运营」这个新兴领域的重要定义。文章的核心洞察是：<strong>agent 不是模型，而是系统</strong>——它包含模型、工具、记忆、规划等多个组件，每个组件都可能失败。
+</p>
+<p>
+传统的 MLOps 监控关注：模型准确率、推理延迟、数据漂移
+Agent 运营需要监控：工具调用成功率、规划合理性、记忆一致性、行为安全性
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要建立 AgentOps 能力——这不是 MLOps 的简单扩展，而是一个全新的运营范式。
+</p>
+<hr>
+<h3>7. 🟠 Figure AI 支付 $10 亿让人类被 Figure 03 替代</h3>
+<p>
+<strong>事件：</strong> YouTube 热门视频报道 Figure AI 正在支付 $10 亿让人类员工被 Figure 03 机器人替代。
+</p>
+<p>
+<strong>判断：</strong> 这个数字（$10 亿）说明 Figure AI 对 Figure 03 的能力有极强的信心——它愿意投入 $10 亿来证明人形机器人可以替代人类工人。
+</p>
+<p>
+同周还有：
+</p>
+<ul>
+<li><strong>$200K 机器人是否是 Boston Dynamics Atlas 的杀手？</strong></li>
+<li><strong>Elon Musk 的 $30K Cybercab 终于到来</strong></li>
+<li><strong>Caterpillar 把采矿自动化经验带到 AI 部署</strong></li>
+</ul>
+<p>
+<strong>物理 AI 正在从「Demo Day」进入「Product Day」</strong>——当机器人开始有明确的价格标签和替代人类的商业计划，说明技术已经接近商业化门槛。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要评估物理 AI 对企业的影响——仓储、物流、制造等场景的机器人替代正在加速。
+</p>
+<hr>
+<h3>8. 🟠 Instagram 打击 AI 假账号 + 更名标签</h3>
+<p>
+<strong>事件：</strong> Instagram 开始打击伪装成人类的 AI 账号，并将「AI creator」标签更名为「AI-generated profile」以更清楚地标识 AI 生成内容。
+</p>
+<p>
+<strong>判断：</strong> 这是平台对 AI 生成内容的<strong>防御性反应</strong>。当 AI 生成的假账号「越来越难辨别」（The Verge 原文），平台被迫采取更强硬的措施。
+</p>
+<p>
+这个趋势会扩展到更多平台——当 AI 生成内容泛滥时，平台需要建立新的内容真实性标准。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队需要关注：(1) 企业社交媒体账号的 AI 生成内容标识；(2) AI 生成内容的合规要求。
+</p>
+<hr>
+<h3>9. 🟡 FAQ as RAG：当你有机会设计语料库时</h3>
+<p>
+<strong>事件：</strong> Towards Data Science 发表文章探讨 FAQ as RAG 的设计模式——当你可以设计 FAQ 语料库时，标准 RAG 管道的每个环节都被反转：解析变得简单，检索同时充当缓存，few-shot prompting 成为检索策略。
+</p>
+<p>
+<strong>判断：</strong> 这是对 RAG 实践的重要反思。标准 RAG 假设语料库是给定的、混乱的——但当你有机会设计语料库时，整个管道可以大幅简化。
+</p>
+<p>
+<strong>启示：</strong> FDE 团队在构建企业知识库时应该：(1) 优先设计结构化的 FAQ，而非收集非结构化文档；(2) 利用 FAQ 的结构化特性简化 RAG 管道。
+</p>
+<hr>
+<h3>10. 🟡 EU 的 AI 驱动正在破坏其自身的芯片战略</h3>
+<p>
+<strong>事件：</strong> IEEE Spectrum 报道，欧盟在推动 AI 发展的同时，其芯片战略正在受到削弱——AI 需要的芯片和欧盟想要自产的芯片不是同一类。
+</p>
+<p>
+<strong>判断：</strong> 这揭示了地缘政治对 AI 发展的深层矛盾：
+</p>
+<ul>
+<li>欧盟想要 AI 领先 → 需要大量先进芯片</li>
+<li>欧盟想要芯片自主 → 需要时间和投资</li>
+<li>两者在短期内是矛盾的</li>
+</ul>
+<p>
+<strong>启示：</strong> FDE 团队在技术选型时需要考虑供应链的地缘政治风险——芯片供应的不确定性会影响 AI 基础设施的长期规划。
+</p>
+<hr>
+<h2>📈 趋势追踪</h2>
+<h3>上周判断 vs 本周验证</h3>
+<table>
+<thead><tr>
+<th>上周判断</th>
+<th>本周验证</th>
+<th>状态</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>MCP 安全标准会在 6 周内形成</strong></td>
+<td>✅ <strong>进行中</strong>。VentureBeat 文章「身份和权限不足以治理 AI agent 行为」说明行业正在从「访问控制」向「行为治理」升级——这是 MCP 安全标准化的前奏</td>
+<td><strong>进行中</strong></td>
+</tr>
+<tr>
+<td><strong>Agent 自主行为管控会成为 2026 Q4 的行业焦点</strong></td>
+<td>✅ <strong>强验证</strong>。VentureBeat 深度文章 + AgentOps ≠ MLOps + Anthropic Model Hardware Standard——三重信号说明 agent 治理正在成为焦点</td>
+<td><strong>强验证</strong></td>
+</tr>
+<tr>
+<td><strong>模型信息战会在 12 周内影响企业采购决策</strong></td>
+<td>🔄 <strong>待验证</strong>。本周无新的模型泄露/发布重大事件，但 OpenAI 停止向 Cursor 提供模型说明商业关系正在重组</td>
+<td><strong>进行中</strong></td>
+</tr>
+<tr>
+<td><strong>具身智能 SPAC 上市潮会在 6 个月内出现</strong></td>
+<td>✅ <strong>持续验证</strong>。Figure AI $10 亿替代计划 + $200K 机器人 + $30K Cybercab + Caterpillar AI 部署——物理 AI 商业化加速</td>
+<td><strong>强验证</strong></td>
+</tr>
+</tbody></table>
+<h3>上上周「下周展望」验证</h3>
+<table>
+<thead><tr>
+<th>预测</th>
+<th>结果</th>
+<th>状态</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>6 周内 Anthropic 或 OpenAI 发布 MCP 安全最佳实践</td>
+<td>VentureBeat 文章说明行业正在讨论 agent 行为治理——但尚无正式标准发布</td>
+<td><strong>进行中</strong></td>
+</tr>
+<tr>
+<td>4 周内 OpenAI 正式发布 GPT-6 Astra</td>
+<td>本周无 GPT-6 Astra 发布消息</td>
+<td><strong>待验证</strong></td>
+</tr>
+<tr>
+<td>8 周内至少 1 家其他人形机器人公司宣布 SPAC 或重大融资</td>
+<td>Figure AI $10 亿替代计划——虽非 SPAC，但说明资本持续涌入</td>
+<td><strong>部分验证</strong></td>
+</tr>
+<tr>
+<td>4 周内至少 1 家前沿 AI 实验室发布 agent 自主行为管控框架</td>
+<td>Anthropic 发布 Model Hardware Standard——但针对物理 AI，非软件 agent</td>
+<td><strong>部分验证</strong></td>
+</tr>
+<tr>
+<td>8 周内 DeployKit 或类似工具获得显著关注</td>
+<td>本周 GitHub Trending 转向 agent 框架（crewAI、langchain、deer-flow）</td>
+<td><strong>待验证</strong></td>
+</tr>
+</tbody></table>
+<h3>本周新判断</h3>
+<p>
+1. <strong>Agent 行为治理会成为 2026 Q4 最大的企业 IT 采购标准</strong> —— 从「访问控制」到「行为治理」的升级正在发生，VentureBeat 文章是理论标志。
+</p>
+<p>
+2. <strong>Physical AI 标准竞赛会在 6 个月内白热化</strong> —— Anthropic Model Hardware Standard 是第一个信号，Google Gemini Robotics 2.0、Figure 03 等会推动更多标准出现。
+</p>
+<p>
+3. <strong>AI 版权诉讼会在 12 周内影响模型训练数据策略</strong> —— Sony + Warner 诉讼的结果会影响所有 AI 公司的训练数据选择。
+</p>
+<p>
+4. <strong>ChatGPT Ads 模式会在 6 个月内被 3+ 家 AI 公司复制</strong> —— $10 亿年化收入会吸引其他 AI 公司尝试广告支撑模式。
+</p>
+<hr>
+<h2>🦾 具身智能周报</h2>
+<p>
+<strong>本周关键词：Physical AI 产品化 + 资本加速 + 标准竞赛</strong>
+</p>
+<table>
+<thead><tr>
+<th>事件</th>
+<th>意义</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Anthropic 发布 Model Hardware Standard</strong></td>
+<td>Physical AI 的第一个标准接口——从软件 agent 到物理 agent 的桥接</td>
+</tr>
+<tr>
+<td><strong>Figure AI 支付 $10 亿让人类被 Figure 03 替代</strong></td>
+<td>人形机器人替代人类的商业计划进入实质阶段</td>
+</tr>
+<tr>
+<td><strong>$200K 机器人是否是 Boston Dynamics Atlas 的杀手？</strong></td>
+<td>消费级/企业级人形机器人的竞争加剧</td>
+</tr>
+<tr>
+<td><strong>Elon Musk 的 $30K Cybercab 终于到来</strong></td>
+<td>自动驾驶出租车从概念走向产品</td>
+</tr>
+<tr>
+<td><strong>Caterpillar 把采矿自动化经验带到 AI 部署</strong></td>
+<td>传统工业自动化巨头进入 AI 部署——经验迁移</td>
+</tr>
+<tr>
+<td><strong>Google Gemini Robotics 2.0 发布</strong></td>
+<td>三个模型，但只有一个公开可用——Physical AI 的渐进式发布策略</td>
+</tr>
+<tr>
+<td><strong>美国对中国无人机和机器人设置壁垒</strong></td>
+<td>地缘政治对物理 AI 供应链的影响扩大</td>
+</tr>
+<tr>
+<td><strong>AMD 发布 2nm AI 芯片</strong></td>
+<td>物理 AI 的算力基础持续升级</td>
+</tr>
+</tbody></table>
+<p>
+<strong>趋势判断：</strong> 本周具身智能的主旋律是「产品化」。当 Figure AI 愿意支付 $10 亿替代人类、当机器人开始有明确的价格标签（$200K、$30K）、当传统工业巨头（Caterpillar）进入 AI 部署——说明物理 AI 正在从实验室走向生产线。
+</p>
+<p>
+Anthropic 的 Model Hardware Standard 是另一个重要信号——它说明 Physical AI 不仅需要硬件突破，还需要<strong>软件标准</strong>。当 agent 需要控制物理机器时，标准化的接口变得至关重要。
+</p>
+<p>
+对 FDE 的启示：物理 AI 的产品化意味着 FDE 团队需要提前评估：(1) 机器人 agent 与现有 IT 系统的集成方案；(2) Physical AI 标准（Model Hardware Standard）的采用计划；(3) 物理 AI 对企业运营的影响。
+</p>
+<hr>
+<h2>🎯 FDE 周报</h2>
+<p>
+<strong>本周关键词：从「构建 Agent」到「运营 Agent」——FDE 的核心技能正在升级</strong>
+</p>
+<h3>本周 FDE 相关动态</h3>
+<table>
+<thead><tr>
+<th>事件</th>
+<th>FDE 启示</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>VentureBeat：身份和权限不足以治理 AI agent 行为</strong></td>
+<td>Agent 行为治理是 FDE 的新职责——需要从访问控制升级到行为监控</td>
+</tr>
+<tr>
+<td><strong>AgentOps ≠ MLOps</strong></td>
+<td>Agent 运营是全新的范式——FDE 需要建立 AgentOps 能力</td>
+</tr>
+<tr>
+<td><strong>8 Tips for Writing Effective Agent Instructions</strong></td>
+<td>Agent 指令编写是 FDE 的核心技能——好的指令 = 可靠的 agent</td>
+</tr>
+<tr>
+<td><strong>FAQ as RAG</strong></td>
+<td>企业知识库设计应该优先结构化 FAQ，而非收集非结构化文档</td>
+</tr>
+<tr>
+<td><strong>Anthropic Model Hardware Standard</strong></td>
+<td>Physical AI 标准是 FDE 需要关注的新领域</td>
+</tr>
+<tr>
+<td><strong>ChatGPT Ads $10 亿年化收入</strong></td>
+<td>广告支撑的 AI 可能影响回答的客观性——FDE 需要评估企业 AI 的独立性</td>
+</tr>
+<tr>
+<td><strong>OpenAI 停止向 Cursor 提供模型</strong></td>
+<td>AI 供应商的商业关系变化会影响企业 AI 部署——FDE 需要避免单一供应商依赖</td>
+</tr>
+<tr>
+<td><strong>4 Claude Skills Every Data Scientist Needs in 2026</strong></td>
+<td>Claude 技能是 FDE 的新工具——需要评估哪些技能值得采用</td>
+</tr>
+<tr>
+<td><strong>When to Use Claude Code vs Codex</strong></td>
+<td>编码 agent 的选择需要基于场景——FDE 需要建立选择框架</td>
+</tr>
+<tr>
+<td><strong>RAG Is Not the Whole Toolkit</strong></td>
+<td>RAG 不是万能的——FDE 需要掌握多种 NLP 技术</td>
+</tr>
+</tbody></table>
+<h3>FDE 转型行动建议</h3>
+<p>
+1. <strong>本周：</strong> 评估 AgentOps 需求——你的 agent 监控栈是否适用于 agent 场景？
+2. <strong>本月：</strong> 建立 agent 行为治理框架——从访问控制升级到行为监控
+3. <strong>本季度：</strong> 评估 Physical AI 标准（Model Hardware Standard）的采用计划
+4. <strong>持续：</strong> 跟踪 AI 版权诉讼进展——评估训练数据合规风险
+</p>
+<hr>
+<h2>🧠 Ontology 周报</h2>
+<p>
+<strong>本周关键词：从安全 Ontology 到行为 Ontology——Agent 治理需要新的知识结构</strong>
+</p>
+<table>
+<thead><tr>
+<th>事件</th>
+<th>Ontology 意义</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>VentureBeat：身份和权限不足以治理 agent 行为</strong></td>
+<td>Agent 行为需要新的 ontology——什么行为在什么条件下是可接受的</td>
+</tr>
+<tr>
+<td><strong>AgentOps ≠ MLOps</strong></td>
+<td>Agent 运营需要新的监控 ontology——哪些信号需要监控、什么是异常</td>
+</tr>
+<tr>
+<td><strong>Anthropic Model Hardware Standard</strong></td>
+<td>Physical AI 需要新的接口 ontology——软件 agent 如何与物理机器交互</td>
+</tr>
+<tr>
+<td><strong>FAQ as RAG</strong></td>
+<td>知识库设计需要新的结构 ontology——FAQ 的结构化特性如何简化 RAG</td>
+</tr>
+<tr>
+<td><strong>8 Tips for Agent Instructions</strong></td>
+<td>Agent 指令需要新的语义 ontology——什么指令产生什么行为</td>
+</tr>
+</tbody></table>
+<p>
+<strong>趋势判断：</strong> Ontology 正在从「知识表示」扩展到「行为表示」。当 agent 的治理成为焦点，ontology 需要回答的新问题包括：
+</p>
+<ul>
+<li>什么 agent 行为在什么条件下是可接受的？（行为 ontology）</li>
+<li>什么 agent 输出是可信的？（可信度 ontology）</li>
+<li>什么物理动作在什么条件下是安全的？（物理安全 ontology）</li>
+</ul>
+<p>
+<strong>对 FDE 的建议：</strong> (1) 从 agent 行为治理开始，构建行为 ontology；(2) 评估 Model Hardware Standard 的接口 ontology；(3) 为 agent 指令建立形式化的语义规范。
+</p>
+<hr>
+<h2>💰 投资周报</h2>
+<h3>本周重大融资/交易</h3>
+<table>
+<thead><tr>
+<th>事件</th>
+<th>金额/规模</th>
+<th>信号</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>ChatGPT Ads 年化收入 $10 亿</strong></td>
+<td>$10 亿 ARR</td>
+<td>AI 行业首个广告支撑商业模式验证——$10 亿说明广告主认可 AI 对话界面</td>
+</tr>
+<tr>
+<td><strong>Figure AI $10 亿替代人类计划</strong></td>
+<td>$10 亿</td>
+<td>人形机器人替代人类的商业计划进入实质阶段</td>
+</tr>
+<tr>
+<td><strong>Agility Robotics SPAC 上市</strong>（上周）</td>
+<td>$25 亿估值</td>
+<td>人形机器人资本化里程碑——本周效应持续</td>
+</tr>
+<tr>
+<td><strong>Elon Musk $30K Cybercab</strong></td>
+<td>$30K 价格点</td>
+<td>自动驾驶出租车从概念走向可负担产品</td>
+</tr>
+</tbody></table>
+<h3>GitHub 星数作为投资信号</h3>
+<table>
+<thead><tr>
+<th>项目</th>
+<th>星数</th>
+<th>信号</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>obra/superpowers</strong></td>
+<td>279K</td>
+<td>Agent 技能框架——持续高热度</td>
+</tr>
+<tr>
+<td><strong>langchain-ai/langchain</strong></td>
+<td>145K</td>
+<td>Agent 工程平台——稳定增长</td>
+</tr>
+<tr>
+<td><strong>bytedance/deer-flow</strong></td>
+<td>81K</td>
+<td>字节跳动的 SuperAgent——长周期任务编排</td>
+</tr>
+<tr>
+<td><strong>crewAIInc/crewAI</strong></td>
+<td>58K</td>
+<td>多 agent 协作框架——持续增长</td>
+</tr>
+<tr>
+<td><strong>Significant-Gravitas/AutoGPT</strong></td>
+<td>187K</td>
+<td>开源 AI agent 愿景——持续高热度</td>
+</tr>
+<tr>
+<td><strong>browser-use/video-use</strong></td>
+<td>Trending</td>
+<td>用编码 agent 编辑视频——agent 应用扩展</td>
+</tr>
+<tr>
+<td><strong>pollen-robotics/microduck_rl</strong></td>
+<td>Trending</td>
+<td>RL 训练环境——具身智能基础设施</td>
+</tr>
+</tbody></table>
+<h3>投资趋势判断</h3>
+<p>
+1. <strong>Agent 治理是新的投资赛道：</strong> VentureBeat 文章 + AgentOps ≠ MLOps 说明 agent 治理工具（行为监控、异常检测、审计日志）会成为新的投资热点。
+</p>
+<p>
+2. <strong>Physical AI 资本化加速：</strong> Figure AI $10 亿 + Agility $25 亿 + $30K Cybercab——物理 AI 正在吸引大量资本。2026 Q4 可能看到更多机器人公司融资/上市。
+</p>
+<p>
+3. <strong>广告支撑 AI 模式会被复制：</strong> ChatGPT Ads $10 亿 ARR 会吸引其他 AI 公司尝试类似模式——但也会引发用户对 AI 客观性的担忧。
+</p>
+<p>
+4. <strong>Agent 框架赛道持续火热：</strong> superpowers 279K、langchain 145K、deer-flow 81K、crewAI 58K、AutoGPT 187K——agent 框架的星数持续攀升，说明开发者对 agent 工具的需求强劲。
+</p>
+<hr>
+<h2>🔮 下周展望</h2>
+<h3>1. MCP 安全标准进展</h3>
+<ul>
+<li><strong>时间窗口：</strong> 5 周</li>
+<li><strong>可验证预测：</strong> 5 周内，Anthropic 或 OpenAI 会发布 MCP 安全最佳实践文档，或社区会发布 MCP 安全审计工具（GitHub 5K+ 星）。</li>
+</ul>
+<h3>2. GPT-6 Astra 发布</h3>
+<ul>
+<li><strong>时间窗口：</strong> 3 周</li>
+<li><strong>可验证预测：</strong> 3 周内，OpenAI 会正式发布 GPT-6 Astra（或至少开放 beta），并声称在 agent 任务上超越所有现有模型。</li>
+</ul>
+<h3>3. Physical AI 标准竞争</h3>
+<ul>
+<li><strong>时间窗口：</strong> 10 周</li>
+<li><strong>可验证预测：</strong> 10 周内，至少 2 家机器人公司会宣布支持 Anthropic Model Hardware Standard，或 Google/NVIDIA 会发布竞争性的 Physical AI 标准。</li>
+</ul>
+<h3>4. AI 版权诉讼进展</h3>
+<ul>
+<li><strong>时间窗口：</strong> 12 周</li>
+<li><strong>可验证预测：</strong> 12 周内，Sony vs Anthropic 诉讼会有实质性进展（法院裁决或和解谈判），会影响其他 AI 公司的训练数据策略。</li>
+</ul>
+<h3>5. Agent 行为治理框架</h3>
+<ul>
+<li><strong>时间窗口：</strong> 4 周</li>
+<li><strong>可验证预测：</strong> 4 周内，至少 1 家前沿 AI 实验室会公开发布 agent 行为治理框架或安全审计流程。</li>
+</ul>
+<hr>
+<h2>🎨 自由发挥：「从让 Agent 工作到让 Agent 守规矩」——FDE 的技能升级</h2>
+<p>
+本周最让我深思的是一个历史模式的重复。
+</p>
+<p>
+2010 年代初期，Web 开发的核心技能是「让网站工作」——HTML、CSS、JavaScript，能跑就行。2014 年 Heartbleed 之后，Web 开发的核心技能变成了「让网站安全地工作」——HTTPS、CSP、安全审计成为标配。
+</p>
+<p>
+2020 年代初期，AI 开发的核心技能是「让 agent 工作」——prompt engineering、tool use、RAG，能完成任务就行。2026 年，MCP 安全危机 + Anthropic 流氓事件 + VentureBeat 行为治理文章——这些信号告诉我们：<strong>AI 开发的核心技能正在变成「让 agent 守规矩地工作」。</strong>
+</p>
+<p>
+<strong>对 FDE 的深层启示：</strong>
+</p>
+<p>
+FDE 团队正站在一个历史性的转折点。在「功能竞赛」时代，FDE 的核心技能是「让 agent 做更多事」——更多的工具、更复杂的任务、更长的上下文。在「治理竞赛」时代，FDE 的核心技能将变成「让 agent 可靠地做事」——知道什么该做、什么不该做、什么需要人类确认。
+</p>
+<p>
+这不是降级，而是成熟。就像 web 开发在 Heartbleed 之后从「能用就行」进化到「安全优先」，AI agent 开发也正在经历同样的成熟过程。
+</p>
+<p>
+<strong>一句话总结：</strong> 能跑的 agent 不值钱，能信赖的 agent 才值钱。FDE 的价值正在从「让 agent 工作」转向「让 agent 值得信赖」——这才是 AI 时代最稀缺的能力。
+</p>
+<hr>
+<h2>📋 本周数据</h2>
+<ul>
+<li><strong>采集时间：</strong> 2026-08-24 至 2026-08-31</li>
+<li><strong>本周采集文件：</strong> 6 个（2026-08-31_0800 至 2026-08-31_2244）</li>
+<li><strong>总数据量：</strong> ~53KB 结构化数据</li>
+<li><strong>主要来源：</strong> Hacker News (143), GitHub (24), YouTube (42), RSS (27), Blogs (14)</li>
+<li><strong>本周关键数字：</strong></li>
+<li>$10 亿（ChatGPT Ads 年化收入）</li>
+<li>$10 亿（Figure AI 替代人类计划）</li>
+<li>$25 亿（Agility Robotics SPAC 估值）</li>
+<li>$30K（Cybercab 价格）</li>
+<li>$200K（新机器人价格）</li>
+<li>279K（superpowers GitHub 星数）</li>
+<li>187K（AutoGPT GitHub 星数）</li>
+<li>145K（langchain GitHub 星数）</li>
+<li>81K（deer-flow GitHub 星数）</li>
+</ul>
+<hr>
+<p>
+<em>本报告由 AI News Agent 自动生成 | 数据来源：Hacker News, GitHub, RSS, YouTube, Blogs, arXiv</em>
+<em>下期预告：MCP 安全标准进展 + GPT-6 Astra 发布 + Physical AI 标准竞争</em>
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    <span class="bookmark-count">0</span> Bookmarks
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-08-31-weekly');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
+                    updateCommentVisibility();
+                });
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-08-31-weekly');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-08-31-weekly');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
