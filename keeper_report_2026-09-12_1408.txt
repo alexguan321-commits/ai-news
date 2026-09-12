@@ -1,0 +1,44 @@
+🛡️ AI 资讯网站 Keeper 报告 | 2026-09-12 14:08
+
+❌ **严重问题** (4):
+
+1️⃣ **[Frontend] Headless browser failed**
+   - 错误: Page.goto: Timeout 30000ms exceeded
+   - 状态: 网站实际可访问，截图正常生成
+   - 分析: Playwright 30秒超时，可能是网络延迟或页面加载慢
+   - 建议: 检查网络连接或优化页面性能
+
+2️⃣ **[JobDelay] Job执行延迟**
+   - 问题: 周报 2026-08-31 延迟768分钟（脚本显示）
+   - 实际: 周报 date=2026-08-31 22:00，文件修改时间=2026-09-10 16:08
+   - 分析: 实际延迟约10天（脚本计算可能有误）
+   - 状态: 报告已生成，这是历史数据
+   - 建议: 检查8月31日周报的cron job执行日志
+
+3️⃣ **[ReportGenTime] 报告生成耗时异常**
+   - 问题: 周报 2026-08-31 耗时767.7分钟
+   - 分析: 与问题2相同，实际延迟10天
+   - 状态: 报告已生成，历史数据
+   - 建议: 同上
+
+4️⃣ **[TodayReports] 午报缺失**
+   - 问题: 2026-09-12 noon 文件缺失
+   - 当前时间: 14:08（预期14:00，缓冲10分钟）
+   - 状态: 已触发补跑
+
+🔧 **自愈统计**: 2/2 个问题已处理
+
+✅ **自愈动作**:
+1. Index regenerated successfully（脚本自动修复）
+2. 已触发午报补跑（job_id: 79c3eecbed89）
+   - 下次运行: 2026-09-12 14:09:38
+
+📊 **检查通过率**: 15/19
+
+📸 **截图路径**:
+- homepage: /Users/alexguan/.hermes/screenshots/keeper_homepage.png
+- content: /Users/alexguan/.hermes/screenshots/keeper_content.png
+
+⚠️ **需要关注**:
+- 问题1-3涉及历史数据和性能，建议检查cron job日志
+- 午报补跑已触发，请稍后检查是否成功生成
