@@ -91,6 +91,16 @@
                         <span class="count">6 most recent</span>
                     </div>
                     <div class="report-grid">
+        <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事：AI模型价格战全面爆发，frontier intelligence进入&quot;白菜价&quot;时代 2026年9月22日，OpenAI和Anthropic同一天发布新模型，这不是巧合，这是战争。 OpenAI推出GPT-6 Sol和Luna两款模型，Anthropic发布Claude Opus 5.5，声称性能达到Fable 5.1水平但成本降低40%。这两件事必须放在一起看，因为它们共同标志着AI行业从&quot;能力竞赛&quot;转向&quot;性价比竞赛&quot;的临界点。 因果链分析 第一层：为什么是现在？ - GPT-6 Astra已经在9月初发布，定位超高端市场 - Sol和Luna是Astra的&quot;降维版&quot;，用相同技术但优化成本结构 - Anthropic被迫跟进，因为企业客户不会为&quot;稍好一点&quot;的性能支付2倍价格 - 这是典型的&quot;高端树立标杆，中端收割市场&quot;策略 第二层：谁会被淘汰？ - 18个月内，中等价位的模型提供商（Cohere、Mistral的中端产品线）将失去30-40%市场份额 - 原因：当OpenAI和Anthropic把frontier性能打到$X/M tokens时，中等玩家没有生存空间 - 要么做极低端（开源微调），要么做极高端（定制化），中间地带会被碾碎 第三层：对Agent工程的影响 - Andrew Ng的Graph Engineering课程刚在9月18日发布，强调&quot;agent loop的成本控制是关键&quot; - 模型价格下降40%意味着：同样的agent workflow，运行成本降低40% - 这会触发agent部署的&quot;J曲线&quot;：原本ROI为负的agent场景，现在ROI为正 - 预测：6个月内，企业agent部署量增长300%，因为成本门槛消失了 第四层：Satya Nadella的&quot;反向信息悖论&quot;被验证 - 7月12日Nadella警告：企业使用AI时，必须把专有知识喂给模型，等于付两次费 - 现在模型价格下降，企业的&quot;知识税&quot;相对减轻 - 但更深层的问题是：当模型足够便宜时，企业会同时使用多个模型，避免被单一供应商锁定 - 这解释了为什么Anthropic强调Opus 5.5的&quot;更严格网络安全防护&quot;——他们在争夺企业信任 策略建议： 1. 立即行动 ：如果你的agent workflow还在用GPT-4或Claude 3.5，本周内迁移到GPT-">
+            <a href="/ai-news/2026-09-23/morning/">
+                <div class="card-image"><img src="/ai-news/assets/covers/2026-09-23-morning.jpg" alt="0923-早报 | OpenAI发布GPT-6双模型，Anthropic Opus 5.5降价40%" loading="lazy"></div>
+                <div class="card-content">
+                    <h3>0923-早报 | OpenAI发布GPT-6双模型，Anthropic Opus 5.5降价40%</h3>
+                    <time>2026-09-23 08:00:00</time>
+                    <span class="report-type type-morning">Morning</span>
+                </div>
+            </a>
+        </article>
         <article class="report-card" data-type="evening" data-content="📌 今日最重要的一件事 🔴 Google开源Agent编排运行时AX + Agent Substrate——这不是一个GitHub项目，这是Google在Agent时代划下的势力范围线，12个月内将重新定义整个Agent基础设施的游戏规则 🔗 来源：GitHub - google/ax https://github.com/google/ax 🔗 来源：GitHub - agent-substrate/substrate https://github.com/agent-substrate/substrate 优先级：🔴 最高 大胆预判：6个月内，Google AX将成为Agent编排领域的事实标准，star数突破30k。12个月内，AWS和Azure将各自发布对标产品（AWS Agent Runtime / Azure Agent Fabric），引发一场Agent基础设施的&quot;Kubernetes时刻&quot;。18个月内，Fortune 500中40%的Agent部署将运行在AX或其衍生产品上。24个月内，Agent Substrate的&quot;actor multiplexing&quot;技术将成为行业标配，所有主流Agent框架（LangChain、CrewAI、AutoGen）都将原生支持Substrate API。36个月内，没有Substrate级隔离的Agent部署将被企业安全团队视为&quot;不可接受的风险&quot;。 发生了什么 Google在一天之内同时开源了两个项目： 1. AX（google/ax）——Agent编排运行时 - 5.8k stars（首日！），Apache 2.0协议 - 定位：高吞吐、声明式编排器，设计目标是运行 数十亿 agent工作负载 - 架构：Kubernetes原生，CLI故意设计成kubectl风格（apply/get/describe/watch/delete） - 核心原语：Task（沙箱执行）、Workspace（预热环境）、Gateway（出站流量白名单）、Model（LLM配置）、suspend/resume（状态检查点） - 杀手功能： ax ssh 可以直接shell进agent沙箱观察/调试 2. Agent Substrate（agent-substrate/substrate）——Agent执行运行时 - 2.6k stars，">
             <a href="/ai-news/2026-09-22/evening/">
                 <div class="card-image"><img src="/ai-news/assets/covers/2026-09-22-evening.jpg" alt="0922-晚报 | Google开源Agent编排运行时AX，Agent基础设施之战全面升级" loading="lazy"></div>
@@ -141,16 +151,6 @@
                 </div>
             </a>
         </article>
-        <article class="report-card" data-type="morning" data-content="📌 今日最重要的一件事：Trump 宣布要组建&quot;AI Force&quot;并任命 AI Czar——这是在 Anthropic/OpenAI 呼吁&quot;减速&quot;、Gemini 黑入真实公司、全球 AI 安全恐慌达到顶点的时刻，白宫选择了&quot;加速&quot;路线，标志着美国 AI 政策正式分裂为两个阵营：科技安全派（Amodei/Altman）vs 政治加速派（Trump/Huang），未来 6 个月内这场路线之争将决定全球 AI 监管走向 🔗 来源：The Verge - Trump now says he wants to form an &#x27;AI Force&#x27; https://www.theverge.com/ai-artificial-intelligence/997867/trump-ai-force-ai-czar 优先级：🔴 最高级别 大胆预判：3个月内，Trump 将签署行政命令正式成立&quot;AI Force&quot;，首任 AI Czar 将从以下三人中产生：David Sacks（已证明对 AI 的友好态度）、Palantir CEO Alex Karp（具备政府+AI 双重经验）、或 Marc Andreessen（a16z 创始人，技术+资本双重影响力）。6个月内，AI Force 将发布第一份&quot;国家 AI 竞争力白皮书&quot;，明确将 AI 定位为&quot;国家安全资产&quot;而非&quot;安全风险&quot;。12个月内，美国将与中国形成&quot;AI 军备竞赛&quot;的正式制度化框架，AI 出口管制将从&quot;限制&quot;转向&quot;选择性开放&quot;——允许盟友使用美国 AI 模型，但要求数据回传美国。18个月内，&quot;AI Force&quot;模式将被至少 3 个盟国（日本、英国、以色列）效仿，全球 AI 治理正式分裂为&quot;安全减速派&quot;（欧盟主导）和&quot;战略加速派&quot;（美国主导）两大阵营。 发生了什么 2026年9月20日，美国总统 Trump 在 Truth Social 上发布了一篇长文，宣布了两个重大决定： 1. 任命&quot;AI Czar&quot; （AI 沙皇）——一个全新的白宫职位，专门负责领导 AI 政策 2. 组建&quot;AI Force&quot; （AI 部队）——仿照他此前创建的 Space Force（太空军），将 AI 提升为国家安全级别的独立力量 Trump 在帖子中写道：&quot;我们的政府不会以任何方式阻碍或压制这个不可思议的行业的增长。相反，我们将珍惜它、帮助它、守护它">
-            <a href="/ai-news/2026-09-21/morning/">
-                <div class="card-image"><img src="/ai-news/assets/covers/2026-09-21-morning.jpg" alt="0921-早报 | Trump要建AI军队，黄仁勋称AI恐惧是骗局" loading="lazy"></div>
-                <div class="card-content">
-                    <h3>0921-早报 | Trump要建AI军队，黄仁勋称AI恐惧是骗局</h3>
-                    <time>2026-09-21 08:30:00 +0800</time>
-                    <span class="report-type type-morning">Morning</span>
-                </div>
-            </a>
-        </article>
                     </div>
                 </section>
 
@@ -160,6 +160,11 @@
                         <span class="count">63 reports</span>
                     </div>
                     <div class="report-archive">
+        <div class="archive-item" data-type="morning" data-content="📌 今日最重要的一件事：AI模型价格战全面爆发，frontier intelligence进入&quot;白菜价&quot;时代 2026年9月22日，OpenAI和Anthropic同一天发布新模型，这不是巧合，这是战争。 OpenAI推出GPT-6 Sol和Luna两款模型，Anthropic发布Claude Opus 5.5，声称性能达到Fable 5.1水平但成本降低40%。这两件事必须放在一起看，因为它们共同标志着AI行业从&quot;能力竞赛&quot;转向&quot;性价比竞赛&quot;的临界点。 因果链分析 第一层：为什么是现在？ - GPT-6 Astra已经在9月初发布，定位超高端市场 - Sol和Luna是Astra的&quot;降维版&quot;，用相同技术但优化成本结构 - Anthropic被迫跟进，因为企业客户不会为&quot;稍好一点&quot;的性能支付2倍价格 - 这是典型的&quot;高端树立标杆，中端收割市场&quot;策略 第二层：谁会被淘汰？ - 18个月内，中等价位的模型提供商（Cohere、Mistral的中端产品线）将失去30-40%市场份额 - 原因：当OpenAI和Anthropic把frontier性能打到$X/M tokens时，中等玩家没有生存空间 - 要么做极低端（开源微调），要么做极高端（定制化），中间地带会被碾碎 第三层：对Agent工程的影响 - Andrew Ng的Graph Engineering课程刚在9月18日发布，强调&quot;agent loop的成本控制是关键&quot; - 模型价格下降40%意味着：同样的agent workflow，运行成本降低40% - 这会触发agent部署的&quot;J曲线&quot;：原本ROI为负的agent场景，现在ROI为正 - 预测：6个月内，企业agent部署量增长300%，因为成本门槛消失了 第四层：Satya Nadella的&quot;反向信息悖论&quot;被验证 - 7月12日Nadella警告：企业使用AI时，必须把专有知识喂给模型，等于付两次费 - 现在模型价格下降，企业的&quot;知识税&quot;相对减轻 - 但更深层的问题是：当模型足够便宜时，企业会同时使用多个模型，避免被单一供应商锁定 - 这解释了为什么Anthropic强调Opus 5.5的&quot;更严格网络安全防护&quot;——他们在争夺企业信任 策略建议： 1. 立即行动 ：如果你的agent workflow还在用GPT-4或Claude 3.5，本周内迁移到GPT-">
+            <a href="/ai-news/2026-09-23/morning/">0923-早报 | OpenAI发布GPT-6双模型，Anthropic Opus 5.5降价40%</a>
+            <time>2026-09-23 08:00:00</time>
+            <span class="report-type type-morning">Morning</span>
+        </div>
         <div class="archive-item" data-type="evening" data-content="📌 今日最重要的一件事 🔴 Google开源Agent编排运行时AX + Agent Substrate——这不是一个GitHub项目，这是Google在Agent时代划下的势力范围线，12个月内将重新定义整个Agent基础设施的游戏规则 🔗 来源：GitHub - google/ax https://github.com/google/ax 🔗 来源：GitHub - agent-substrate/substrate https://github.com/agent-substrate/substrate 优先级：🔴 最高 大胆预判：6个月内，Google AX将成为Agent编排领域的事实标准，star数突破30k。12个月内，AWS和Azure将各自发布对标产品（AWS Agent Runtime / Azure Agent Fabric），引发一场Agent基础设施的&quot;Kubernetes时刻&quot;。18个月内，Fortune 500中40%的Agent部署将运行在AX或其衍生产品上。24个月内，Agent Substrate的&quot;actor multiplexing&quot;技术将成为行业标配，所有主流Agent框架（LangChain、CrewAI、AutoGen）都将原生支持Substrate API。36个月内，没有Substrate级隔离的Agent部署将被企业安全团队视为&quot;不可接受的风险&quot;。 发生了什么 Google在一天之内同时开源了两个项目： 1. AX（google/ax）——Agent编排运行时 - 5.8k stars（首日！），Apache 2.0协议 - 定位：高吞吐、声明式编排器，设计目标是运行 数十亿 agent工作负载 - 架构：Kubernetes原生，CLI故意设计成kubectl风格（apply/get/describe/watch/delete） - 核心原语：Task（沙箱执行）、Workspace（预热环境）、Gateway（出站流量白名单）、Model（LLM配置）、suspend/resume（状态检查点） - 杀手功能： ax ssh 可以直接shell进agent沙箱观察/调试 2. Agent Substrate（agent-substrate/substrate）——Agent执行运行时 - 2.6k stars，">
             <a href="/ai-news/2026-09-22/evening/">0922-晚报 | Google开源Agent编排运行时AX，Agent基础设施之战全面升级</a>
             <time>2026-09-22 21:00:00 +0800</time>
@@ -255,13 +260,13 @@
             <time>2026-09-17 08:30:00 +0800</time>
             <span class="report-type type-morning">Morning</span>
         </div>
+                    </div>
+                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="evening" data-content="📌 今日最重要的一件事：中国正式拒绝硅谷的AI减速呼吁，全球AI竞赛进入「囚徒困境」死局 🔗 来源：Wired - China Isn&#x27;t Buying Silicon Valley&#x27;s Call for an AI Slowdown https://www.wired.com/story/china-isnt-buying-silicon-valley-call-for-ai-slowdown/ 优先级：🔴 最高级别 大胆预判：18个月内，中美AI竞赛将正式分化为两个互不兼容的技术生态——不是脱钩，而是「平行宇宙」。美国会因内部减速共识而落后6-9个月，中国会利用这个窗口期在Agent落地和工业AI应用上建立不可逆的先发优势。最终结果：2028年Q2前，全球AI应用市场（非基础模型）中国份额将超过美国。 发生了什么 Wired今日发表重磅地缘科技分析：在中美双方都承认先进AI存在严重风险的前提下，北京对一项「优先保持美国公司领先」的减速协议深表怀疑。 这篇文章的背景是过去48小时内发生的一系列事件： 1. OpenAI CEO Sam Altman 公开呼吁&quot;在失去控制之前减速&quot; 2. Anthropic、Google DeepMind 高管纷纷附和 3. The Verge 梳理了一份&quot;AI高管呼吁监管简史&quot;——结论是：这些人过去两年一直在反对监管，突然转向是因为政治计算变了 4. 中国回应 ：不買賬。北京认为减速协议的本质是&quot;让中国停下来，等美国追上来&quot; 因果链分析 第一层：减速呼吁的真实动机 AI高管集体转向&quot;呼吁减速&quot;不是良心发现，而是博弈论计算： Altman的处境 → OpenAI估值$3000亿，IPO窗口在2027 Q1-Q2 → 如果国会通过强硬监管法案（概率从30%飙升至65%），合规成本增加20-30%，IPO估值缩水40% → 主动&quot;呼吁减速&quot;=把监管框架制定权从国会手里抢回来 → 本质是&quot;自我监管换宽松立法&quot;的游说策略 但中国看穿了这个博弈 ： 北京的分析 → 美国AI公司呼吁减速 = 美国内部出现分裂 → 如果中国同意减速 = 单方面缴械 → 如果中国拒绝减速 = 获得6-9个月的战略窗口 → 在这个窗口内加速Agent落地、工业AI部署、自动驾驶商业化 → 建立不可逆的市场份额优势 第二层：囚徒困境的数学结构 这是一个经典的囚徒困境：">
             <a href="/ai-news/2026-09-16/evening/">0916-晚报 | 中国拒绝AI减速，编程Agent已趋同</a>
             <time>2026-09-16 21:30:00 +0800</time>
             <span class="report-type type-evening">Evening</span>
         </div>
-                    </div>
-                    <div class="archive-hidden" id="archive-hidden" style="display:none;">
         <div class="archive-item" data-type="noon" data-content="📌 今日最重要的一件事 黄仁勋公开叫板AI监管——&quot;安全是工程问题，不是法律问题&quot;——但这恰恰暴露了AI行业最深层的博弈裂痕 🔗 来源：TechCrunch - We don&#x27;t need AI regulation — leave safety to us, Nvidia&#x27;s Jensen Huang says https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/ 事件概述 2026年9月15日，NVIDIA创始人兼CEO黄仁勋在Salesforce Dreamforce大会上发表了一番被TechCrunch称为&quot;对AI危险立场非常明确&quot;的演讲。核心观点只有一句话： &quot;安全是工程问题，不是法律问题。我们不需要新法律，不需要新监管。&quot; 他的完整逻辑链是： 1. AI不是某种&quot;外星智能&quot;（暗指OpenAI安全研究员的说法），它只是硬件和软件 2. 既然是计算系统，就可以被人类控制和工程化 3. 市场力量已经足够——如果产品不安全，市场会惩罚你 4. 公司应该&quot;尽可能快地跑，但在不确定时暂停&quot; 5. 创新和速度与安全不是&quot;虚假选择&quot;——你可以同时拥有两者 为什么这是今天最重要的事？ 因为黄仁勋的发言必须和 今早报道的三巨头秘密安全谈判 放在一起看。这两件事构成了2026年AI行业最核心的矛盾： 一边是OpenAI、Anthropic、Google DeepMind在进行&quot;数周&quot;的秘密安全谈判 ——这意味着他们内部已经意识到AI能力扩展速度超出了现有安全框架的覆盖范围。 另一边是NVIDIA的Jensen Huang说&quot;不需要监管&quot; ——而NVIDIA恰恰是这场AI军备竞赛中最大的军火商。 这不是两个独立事件。这是 一场精心编排的博弈 。 深度分析：三层博弈结构 第一层：Jensen Huang的利益结构决定了他必须这么说 让我把利益链画清楚： - NVIDIA 2026年Q2数据中心收入同比增长超过 70%，AI芯片收入占总收入比超过 80% - NVIDIA 不仅卖芯片，还做开源模型（Nemotron）、Agent框架（AgentIQ）、沙盒（AI Blueprint） - 任何监管——哪怕是&quot;自律框架&quot;——都">
             <a href="/ai-news/2026-09-16/noon/">0916-午报 | 黄仁勋叫板AI监管：安全是工程问题</a>
             <time>2026-09-16 14:30:00</time>
