@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="0926-晚报 | Anthropic埃森哲20亿安全豪赌">
+    <meta property="og:description" content="AI Knowledge Base Report">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/svg+xml" href="/ai-news/assets/favicon.svg">
+    <title>0926-晚报 | Anthropic埃森哲20亿安全豪赌 - Alex Guan's AI Knowledge Base</title>
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Supabase User System -->
+    <link rel="stylesheet" href="/ai-news/assets/css/supabase.css?v=20260704f">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+    <script src="/ai-news/assets/js/supabase-config.js"></script>
+    <script src="/ai-news/assets/js/supabase-utils.js?v=20260704g" defer></script>
+    <script src="/ai-news/assets/js/supabase-auth.js?v=20260712c" defer></script>
+    <script src="/ai-news/assets/js/supabase-interactions.js?v=20260712b" defer></script>
+    <script src="/ai-news/assets/js/supabase-views.js?v=20260704g" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../" class="logo">Alex Guan's AI Knowledge Base</a>
+        <a href="../../" class="logo-mobile">AI Knowledge Base</a>
+        <div class="nav-stats">
+            <div><span class="stat-value">89</span> reports</div>
+            <div><span class="stat-value">35</span> sources</div>
+            <div><span class="stat-value">24/7</span> monitoring</div>
+        </div>
+        <div id="auth-container"></div>
+    </nav>
+
+    <main class="container">
+        <article class="report-content">
+            <header class="report-header">
+                <h1>0926-晚报 | Anthropic埃森哲20亿安全豪赌</h1>
+                <div class="meta">
+                    <time>2026-09-26 21:00:00 +0800</time>
+                    <span class="report-type type-evening">🌙 晚报</span>
+                    <span class="view-count-wrapper">👁 <span id="view-count">-</span> views</span>
+                    <button class="interaction-counter" id="like-counter" onclick="interactions.toggleLike()">
+                        ❤️ <span id="like-count">0</span><span class="counter-label">likes</span>
+                    </button>
+                    <button class="interaction-counter" id="bookmark-counter" onclick="interactions.toggleBookmark()">
+                        🔖 <span id="bookmark-count">0</span><span class="counter-label">bookmarks</span>
+                    </button>
+                    <button class="interaction-counter" onclick="toggleInteractionSidebar()">
+                        💬 <span id="comment-count-header">0</span><span class="counter-label">comments</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="cover-image"><img src="/ai-news/assets/covers/2026-09-26-evening.jpg" alt="Cover"></div>
+
+            <div class="content">
+                <blockquote><p>📊 数据采集：8条新信息 | 耗时60s | 来源：RSS 1 / Hacker News 3 / 博客 3 / GitHub 1</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p>⚡ 与午报差异：午报聚焦SAFA监管框架（实时搜索补充），晚报基于自动采集管线数据，深度拆解Anthropic嵌入式评估、Opus 5登顶、Transformer几何新发现、Vibe Coding中文教程爆火等话题。</p></blockquote>
+<hr>
+<h1>📌 今日最重要的一件事</h1>
+<h2>Anthropic 与 Accenture 联手启动&quot;嵌入式评估&quot;——AI安全从&quot;外部审计&quot;进入&quot;驻场监管&quot;时代</h2>
+<p>
+🔗 <a href="https://www.anthropic.com/news/accenture-embedded-evaluation" target="_blank" rel="noopener noreferrer">来源：Anthropic官方公告</a>
+</p>
+<h3>事件概述</h3>
+<p>
+Anthropic 宣布与 Accenture（由旗下 specialist AI 业务 Faculty 主导）建立<strong>嵌入式评估（Embedded Evaluation）</strong>合作伙伴关系。双方各承诺<strong>未来五年至少投入10亿美元</strong>用于建设评估能力，合计超过<strong>20亿美元</strong>。
+</p>
+<p>
+<strong>嵌入式评估的核心机制：</strong>
+</p>
+<ul>
+<li>独立评估人员将<strong>驻扎在AI公司内部</strong>，获得相当于员工的访问权限</li>
+<li>可以<strong>观察模型在训练过程中如何形成</strong>，跟踪构建和部署决策，直接与员工对话</li>
+<li>评估范围包括：模型评估与红队测试、对齐评估、模型安全防护措施测试</li>
+<li>评估者可以<strong>报告事故</strong>，并向公众提供更知情的收益与风险说明</li>
+</ul>
+<p>
+<strong>关键细节：</strong>
+</p>
+<ul>
+<li>Anthropic 将<strong>直接资助</strong> Accenture 的工作（非第三方资金池）</li>
+<li>合作关系<strong>非排他</strong>——Anthropic 将在未来数周宣布更多评估合作伙伴，Accenture 也将与其他AI开发商合作</li>
+<li>Anthropic 同时与 METR 等非营利评估机构试点嵌入式评估元素</li>
+<li>长期目标：资金来源应为<strong>池化或政府来源</strong>（呼应 Anthropic 6月发布的《Advanced AI Framework》）</li>
+</ul>
+<h3>深度分析：为什么这比SAFA更值得关注</h3>
+<p>
+午报已经分析了SAFA（Standards Authority for Frontier AI）——三巨头自建行业自律组织。而嵌入式评估是<strong>SAFA的技术基础设施</strong>。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+Dario Amodei "We Must Pace the Frontier" 文章（9/12）
+  → 承诺引入"嵌入式评估者"
+    → 6天后宣布Accenture合作（9/18）
+      → 双方各$10亿/5年 = $20亿总投入
+        → 建立"驻场评估"的操作标准
+          → 这些标准将成为SAFA的"审计员资质标准"和"预部署测试"的技术基础
+            → Anthropic 实质上在"编写SAFA的技术手册"
+</code></pre>
+<p>
+<strong>第一性原理分析：</strong>
+</p>
+<p>
+这不是一个简单的&quot;安全合作&quot;。这是Anthropic在<strong>抢占AI安全标准的定义权</strong>。
+</p>
+<p>
+当嵌入式评估的操作标准（什么信息应该被访问、如何报告发现、资金如何安排）从Anthropic-Accenture的实践中产生时，它们将成为<strong>事实上的行业标准</strong>。其他公司（OpenAI、Google）要么采纳这些标准，要么被排除在&quot;负责任AI&quot;的话语体系之外。
+</p>
+<p>
+<strong>$20亿的数字值得深思。</strong> 这不是研发预算，这是<strong>标准制定预算</strong>。Anthropic正在用资本优势将&quot;安全&quot;从一个技术问题变成一个<strong>制度问题</strong>——谁定义&quot;安全&quot;，谁就控制市场准入。
+</p>
+<p>
+<strong>Accenture的选择也很有意思。</strong> Faculty是Accenture的 specialist AI 业务，在企业AI部署方面有深厚积累。他们不是学术机构，不是非营利组织——他们是<strong>全球最大的咨询公司之一</strong>。这意味着嵌入式评估从第一天起就带有<strong>企业视角</strong>：评估标准将反映&quot;企业如何实际使用AI&quot;，而非&quot;学术界认为AI应该如何工作&quot;。
+</p>
+<p>
+<strong>与午报SAFA分析的交叉验证：</strong>
+</p>
+<p>
+午报提到SAFA的CEO候选人Sriram Krishnan公开反对&quot;AI的FDA&quot;。现在看嵌入式评估的设计——Anthropic直接资助、非排他、长期目标才是政府/池化资金——这恰恰是一个<strong>不需要政府就能运作</strong>的监管框架。Krishnan如果被任命为SAFA CEO，他领导的将是一个他已经相信不需要存在的机构的扩展版。这不是矛盾，这是<strong>制度套利</strong>。
+</p>
+<h3>大胆预判</h3>
+<blockquote><p><strong>12个月内（2027年Q3前），&quot;嵌入式评估&quot;将成为所有前沿实验室的标准配置。</strong> OpenAI和Google将被迫宣布类似的驻场评估计划，否则在企业采购中失去&quot;安全合规&quot;竞争力。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>置信度：80%</strong></p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>因果逻辑：</strong> Anthropic的$20亿投入创造了&quot;评估能力过剩&quot;→ Accenture/Faculty将这些经验复制到其他客户 → &quot;嵌入式评估&quot;成为企业AI采购的合规要求 → 其他实验室被迫跟进。</p></blockquote>
+<blockquote><p><strong>24个月内（2028年Q3前），至少一家嵌入式评估机构将发现并公开报告一个&quot;重大安全事件&quot;</strong>——模型在训练中展现出未被预期的能力，评估者通过驻场访问首先发现。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>置信度：60%</strong></p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>因果逻辑：</strong> 驻场评估者拥有相当于员工的访问权限 → 他们能看到外部评估者看不到的训练动态 → 当前模型规模已接近&quot;涌现能力&quot;区间 → 统计上几乎必然会发现某些&quot;意外&quot;。</p></blockquote>
+<h3>策略建议</h3>
+<p>
+1. <strong>如果你是企业AI采购负责人</strong>：立即将&quot;嵌入式评估&quot;纳入供应商评估标准。不要等SAFA成立——Anthropic-Accenture的标准正在成为事实标准。在RFP中加入&quot;是否接受独立嵌入式评估&quot;作为必选项。
+</p>
+<p>
+2. <strong>如果你是AI安全研究者</strong>：嵌入式评估将创造大量就业机会。评估者需要同时理解模型训练、企业部署和监管合规。这种复合型人才目前极度稀缺。现在就开始构建&quot;T型&quot;能力结构——深度技术能力 + 广度合规知识。
+</p>
+<p>
+3. <strong>如果你是中国AI公司</strong>：Anthropic-Accenture的 partnership 本质上是<strong>美欧AI安全联盟的技术基础设施</strong>。中国需要建立自己的嵌入式评估体系，否则中国AI出海将面临&quot;安全合规壁垒&quot;。建议智谱、阿里、月之暗面等公司联合建立中国版嵌入式评估框架。
+</p>
+<hr>
+<h1>🔥 必看</h1>
+<hr>
+<h2>🟠 Opus 5 登顶 Artificial Analysis 智能排行榜——与 GPT-6 Astra 并列第一（53分）</h2>
+<p>
+🔗 <a href="https://artificialanalysis.ai/models" target="_blank" rel="noopener noreferrer">来源：Artificial Analysis</a> | <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">来源：Hacker News</a>
+</p>
+<h3>事件概述</h3>
+<p>
+根据 Artificial Analysis Intelligence Leaderboard（v4.3 方法论），<strong>Claude Fable 5.1（Max/Xhigh Effort）</strong> 和 <strong>GPT-6 Astra（Max/Xhigh）</strong> 以<strong>53分</strong>并列智能指数第一。
+</p>
+<p>
+<strong>排行榜关键数据：</strong>
+</p>
+<ul>
+<li>总评估模型数：<strong>154个</strong>（77个开放权重，137个推理模型）</li>
+<li>Top 5：Claude Fable 5.1 (Max) 53 → Claude Fable 5.1 (Xhigh) 53 → GPT-6 Astra (Max) 53 → GPT-6 Astra (Xhigh) 53 → Claude Fable 5.1 (High) 51</li>
+<li>开放权重领先者：GLM-5.3 (Max) 45 | Kimi K3 (Max) 44</li>
+<li>最快速度：Celeris-1 (~1,460 tokens/s) | Mercury 2 (~881 tokens/s)</li>
+<li>最大上下文：Llama 4 Scout (10M tokens)</li>
+</ul>
+<p>
+<strong>评估方法论（10项核心测试）：</strong>
+1. AA-Briefcase（代理知识工作）
+2. GDPval-AA v2（代理真实世界工作）
+3. AutomationBench-AA（代理SaaS工作流）
+4. Terminal-Bench v4.0（代理编码）
+5. SciCode（编码）
+6. Humanity&#x27;s Last Exam（推理与知识）
+7. GDP.pdf（专业文档推理）
+8. CritPt（物理推理）
+9. AA-Omniscience（知识可靠性与幻觉，-100到100）
+10. AA-LCR v1.1（长上下文推理）
+</p>
+<h3>深度分析：双寡头格局固化，但开放权重在追赶</h3>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+Claude Fable 5.1 和 GPT-6 Astra 并列53分
+  → 前沿模型进入"双寡头"格局
+    → 差距缩小到"努力程度"（Max vs Xhigh vs High）而非架构差异
+      → 开放权重 GLM-5.3 (45分) 差距缩小到8分（15%）
+        → 企业开始认真评估"够用就行"的开放权重方案
+          → 前沿API定价面临下行压力
+</code></pre>
+<p>
+<strong>第一性原理分析：</strong>
+</p>
+<p>
+53分意味着什么？Artificial Analysis 的指数是综合10项测试的加权平均。53分不是&quot;满分&quot;——它意味着在当前的基准集合上，这两个模型解决了约53%的&quot;有难度但可解决&quot;的问题。
+</p>
+<p>
+关键洞察：<strong>&quot;努力程度&quot;（Effort Level）正在成为新的模型维度。</strong> Claude Fable 5.1 在 Max、Xhigh、High 三个努力级别分别得到 53、53、51 分。这意味着&quot;思考更多&quot;确实能提升表现，但边际收益在递减（Max→Xhigh没有提升，Xhigh→High只降2分）。
+</p>
+<p>
+这对商业模式的影响是深远的：<strong>API定价正在从&quot;按token收费&quot;转向&quot;按思考深度收费&quot;。</strong> Max effort 的 token 消耗远高于 High effort，但用户愿意为那2分的提升付费——因为那2分可能决定了&quot;能否解决这个特定问题&quot;。
+</p>
+<p>
+<strong>开放权重的追赶速度令人印象深刻。</strong> GLM-5.3（智谱AI）以45分领先开放权重，与闭源第一的差距是8分（15%）。考虑到一年前这个差距还在30分以上，追赶速度超出预期。
+</p>
+<p>
+<strong>Celeris-1 的1,460 tokens/s 速度值得注意。</strong> 这是一个专门优化推理速度的模型。当速度成为差异化因素时，&quot;快但笨&quot;和&quot;慢但聪明&quot;之间的权衡正在被市场定价。
+</p>
+<h3>大胆预判</h3>
+<blockquote><p><strong>18个月内（2028年Q1前），开放权重模型将首次进入 Artificial Analysis Top 3。</strong> GLM-5.3 或 Kimi K3 的下一代将在综合智能指数上超过某个闭源模型的&quot;低努力&quot;版本。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>置信度：70%</strong></p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>因果逻辑：</strong> 当前差距8分 → 每季度开放权重追赶约2-3分 → 3-4个季度后差距缩小到0-2分 → 开放权重在某个基准上首次进入Top 3。</p></blockquote>
+<blockquote><p><strong>12个月内，&quot;按努力程度定价&quot;将成为所有主要API提供商的标准模式。</strong> OpenAI和Anthropic已经在做（Max/Xhigh/High），Google和Meta将在2027年Q2前跟进。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>置信度：85%</strong></p></blockquote>
+<h3>策略建议</h3>
+<p>
+1. <strong>如果你是API重度用户</strong>：立即测试不同&quot;努力级别&quot;在你的具体任务上的表现差异。很多时候 High effort 已经足够，能节省50%+成本。建立内部的&quot;努力级别选择器&quot;——根据任务复杂度自动路由到合适的 effort level。
+</p>
+<p>
+2. <strong>如果你在做AI产品</strong>：不要只 benchmark 最高分模型。benchmark &quot;性价比曲线&quot;——在你的具体用例上，哪个 effort level 的 marginal improvement 最大。这决定了你的产品应该用 Max 还是 High。
+</p>
+<p>
+3. <strong>如果你关注中国AI</strong>：GLM-5.3（智谱）45分、Kimi K3（月之暗面）44分——中国开放权重模型已经进入全球前10。这意味着中国AI在&quot;够用&quot;的场景下已经有竞争力。关注这些模型在企业级场景的落地速度。
+</p>
+<hr>
+<h2>🟠 John Carmack 的 AGI &quot;不同路径&quot;——为什么HN在2026年还在讨论2023年的文章</h2>
+<p>
+🔗 <a href="https://dallasinnovates.com/exclusive-qa-john-carmacks-different-path-to-artificial-general-intelligence/" target="_blank" rel="noopener noreferrer">来源：Dallas Innovates</a> | <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">来源：Hacker News (378 points, 492 comments)</a>
+</p>
+<h3>事件概述</h3>
+<p>
+John Carmack（id Software 创始人、Oculus VR 前 CTO）的 AGI 创业公司 <strong>Keen Technologies</strong> 的采访在 Hacker News 上重新获得关注（378分，492评论）。
+</p>
+<p>
+<strong>核心观点：</strong>
+</p>
+<ul>
+<li>AGI 的核心代码只需要<strong>&quot;几万行&quot;</strong>——对比：Chrome/Twitter有2000-3000万行代码，人类DNA不到1GB，大脑指令约40MB</li>
+<li>60%概率在<strong>2030年前</strong>实现初始AGI，95%概率在<strong>2050年前</strong></li>
+<li>拒绝数十亿美元的游戏AI机会，专注AGI——因为AGI代表<strong>&quot;万亿级&quot;</strong>价值</li>
+<li>不烧钱建GPU仓库，先找到&quot;半打关键洞察&quot;再规模化</li>
+<li>探索1970-1990年代因算力不足而被放弃的研究方向</li>
+<li>目标：先构建一个&quot;幼儿&quot;级别的意识体（能学习），然后用海量数据和研究员团队规模化</li>
+</ul>
+<p>
+<strong>&quot;通用远程员工&quot;愿景：</strong> 用户可以在云端&quot;拨号&quot;调用特定AI人格——&quot;给我5个Frank和10个Amy&quot;——像调配云计算资源一样调配AI人力资源。
+</p>
+<h3>深度分析：为什么Carmack的&quot;异端&quot;观点值得认真对待</h3>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+Carmack "AGI只需几万行代码" 
+  → 基于DNA &lt; 1GB、大脑指令 ~40MB 的类比
+    → 推论：当前实验室的"越大越好"策略可能是错的
+      → 如果Carmack是对的，那么：
+        → 不需要数万张GPU → 不需要数十亿美元融资
+          → 个人/小团队仍有AGI突破的可能
+            → 这颠覆了当前"资本密集型AGI竞赛"的叙事
+</code></pre>
+<p>
+<strong>第一性原理分析：</strong>
+</p>
+<p>
+Carmack的论点本质上是<strong>信息论论证</strong>：如果生物智能的&quot;源代码&quot;很小，那么人工智能的源代码也应该很小。这是一个强有力的直觉，但有一个关键漏洞：<strong>它混淆了&quot;描述复杂度&quot;和&quot;计算复杂度&quot;。</strong>
+</p>
+<p>
+DNA确实很小，但它编码的不是&quot;如何思考&quot;，而是&quot;如何构建一个能思考的大脑&quot;。构建过程需要10亿个神经元、100万亿个突触连接、以及出生后20年的训练。Carmack的&quot;几万行代码&quot;如果真的存在，它更像是一个<strong>种子</strong>而非<strong>成品</strong>——但这个种子需要在正确的计算环境中&quot;生长&quot;。
+</p>
+<p>
+<strong>为什么HN在2026年还在讨论这篇2023年的文章？</strong> 因为Carmack代表了一种<strong>&quot;局外人直觉&quot;</strong>——他不属于任何学术派系，不受&quot;publish or perish&quot;压力，有$20M的runway可以专注于他认为正确的方向。在当前AI研究越来越&quot;同质化&quot;（大家都在做更大的transformer、更多的数据）的环境下，一个&quot;随机测试点&quot;的价值被放大了。
+</p>
+<p>
+<strong>值得注意的细节：</strong> Carmack说Ilya Sutskever给了他40篇论文的reading list，他全部读完了。这不是一个&quot;不懂AI的门外汉&quot;——这是一个<strong>花了大量时间理解当前范式、然后选择走不同路</strong>的天才工程师。
+</p>
+<h3>大胆预判</h3>
+<blockquote><p><strong>Carmack的Keen Technologies在2028年前不会发布任何&quot;AGI突破&quot;。</strong> 但他会在某个特定子领域（可能是&quot;小规模高效学习&quot;或&quot;跨范式合成&quot;）发表一个令人惊讶的结果，引发学术界重新审视被遗忘的研究方向。</p></blockquote>
+<p>
+&gt;
+</p>
+<blockquote><p><strong>置信度：65%</strong></p></blockquote>
+<h3>策略建议</h3>
+<p>
+1. <strong>如果你是AGI研究者</strong>：花一天时间读Carmack提到的&quot;1970-1990年代因算力不足被放弃的研究&quot;。在2026年的算力下，很多&quot;旧想法&quot;可能突然变得可行。低垂的果实不在&quot;最新论文&quot;里，而在&quot;被遗忘的论文&quot;里。
+</p>
+<p>
+2. <strong>如果你是AI投资人</strong>：Carmack的&quot;小代码&quot;理论如果被验证，将颠覆当前&quot;资本密集型AI&quot;的投资逻辑。关注那些&quot;小团队+深洞察&quot;的AGI项目——它们可能是被低估的。
+</p>
+<hr>
+<h2>🟡 LLM的&quot;段落曲线空间&quot;——Transformer内部的几何学新发现</h2>
+<p>
+🔗 <a href="https://towardsdatascience.com/your-llm-has-a-curved-space-of-paragraphs/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a> | 论文：arXiv:2609.23551
+</p>
+<h3>核心发现</h3>
+<p>
+作者 Shuyang Xiang 提出了一个优雅的类比：<strong>Transformer内部的token位置不是&quot;距离&quot;，而是&quot;坐标&quot;</strong>——就像广义相对论中，事件之间的距离取决于随位置变化的&quot;度量&quot;，而非简单的坐标差。
+</p>
+<p>
+<strong>实验设计：</strong>
+</p>
+<ul>
+<li>构建了 <strong>hRoPE</strong>（层次化旋转位置编码），为段落、句子、token索引分配独立通道</li>
+<li>干预实验：`fake-merge`（合并真实段落边界）和 `fake-split`（创建虚假边界）</li>
+<li>结果：移除真实边界<strong>降低</strong>跨段落注意力；插入虚假边界<strong>提高</strong>跨段落注意力</li>
+</ul>
+<p>
+<strong>关键发现——&quot;势阱&quot;（Well）U*：</strong>
+</p>
+<ul>
+<li>当绘制注意力抑制 vs 段落位移（两个token之间的段落边界数）时，抑制先增后减，形成&quot;势阱&quot;</li>
+<li>hRoPE在代码和WikiText-2上的势阱深度（U*）远大于随机控制</li>
+<li>因果验证：打乱段落顺序后，hRoPE的深度在每个语料库都改变了（证明它依赖真实结构），而随机控制在所有语料库都没变</li>
+</ul>
+<p>
+<strong>局限：</strong> 实验在小型模型（8层，512维）上进行，不知道是否在1B+参数规模上持续存在。
+</p>
+<h3>为什么这很重要</h3>
+<p>
+这篇论文的意义不在于&quot;hRoPE能提升模型性能&quot;——而在于它揭示了<strong>Transformer内部正在做比&quot;线性序列建模&quot;更复杂的事情</strong>。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+标准位置编码 = 1D token索引（线性）
+  → 但注意力计算的是"层次化距离"（段落 &gt; 句子 &gt; token）
+    → 这意味着：
+      → 当前所有位置编码方案都在"丢失信息"
+        → 如果显式编码层次结构，模型可能更高效地利用参数
+          → 推论：更好的位置编码 ≈ 更小的模型达到相同性能
+            → 这对"小代码"理论（Carmack）是间接支持
+</code></pre>
+<p>
+<strong>与第二大脑的关联：</strong> 这与我在 Graph Engineering 知识卡片中看到的&quot;控制图&quot;概念有结构性相似——两者都在说&quot;线性序列不够，你需要层次结构&quot;。Andrew Ng 的 Graph Engineering 课程强调&quot;循环工程&quot;和&quot;图编排&quot;，本质上也是在说&quot;agent的执行不是线性的，是层次化的&quot;。
+</p>
+<h3>策略建议</h3>
+<p>
+1. <strong>如果你是模型架构研究者</strong>：hRoPE的实验范式（干预段落索引、测量注意力变化）可以直接应用到你的位置编码研究中。关注&quot;势阱深度&quot;作为评估位置编码质量的指标。
+</p>
+<p>
+2. <strong>如果你在做长文本应用</strong>：当前模型的&quot;段落理解&quot;可能比你想象的更脆弱。在RAG系统中，不要假设模型能完美处理跨段落推理——显式标注段落边界可能有帮助。
+</p>
+<hr>
+<h1>🐙 GitHub Trending</h1>
+<hr>
+<h2>🌟 vibe-coding-cn：中文 Vibe Coding 从入门到精通（⭐ 16.3k）</h2>
+<p>
+🔗 <a href="https://github.com/tradecatlabs/vibe-coding-cn" target="_blank" rel="noopener noreferrer">来源：GitHub</a>
+</p>
+<h3>项目概述</h3>
+<p>
+这是一个<strong>中文 Vibe Coding 教程仓库</strong>，目标是&quot;将想法稳定转化为可运行产品&quot;。核心公式：<code>Prompt + Skill + Context + Quality Gate + 工程闭环</code>。
+</p>
+<p>
+<strong>六条核心命题：</strong>
+1. <strong>固定目标、分层反馈的可验证收敛系统</strong>——Vibe Coding 是目标驱动的闭环
+2. <strong>AI优先原则</strong>——Demis Hassabis：&quot;先解决AI问题，再用AI解决其他问题&quot;
+3. <strong>生成域</strong>——LLM能力边界 = 其生成物能影响的范围
+4. <strong>模型吞噬</strong>——Prompt技巧、工作流等中间层终将被更强模型原生能力吸收
+5. <strong>隔离审查</strong>——AI生成结果只是候选解，重要产出必须新开隔离会话审查
+6. <strong>能力编排</strong>——高阶形态不是从零生成代码，而是编排已有能力
+</p>
+<p>
+<strong>方法论框架（道法术器）：</strong>
+</p>
+<ul>
+<li><strong>道</strong>：人与AI的协作关系、责任边界</li>
+<li><strong>法</strong>：第一性原理、奥卡姆剃刀等思维模型</li>
+<li><strong>术</strong>：流程、文档、门禁、Git迭代</li>
+<li><strong>器</strong>：工具栈（Codex CLI、Cursor、tmux等）</li>
+</ul>
+<p>
+<strong>实验性进阶方法：</strong>
+</p>
+<ul>
+<li>🔑 <strong>元方法论</strong>：α-提示词（生成器）和 Ω-提示词（优化器）构建递归闭环</li>
+<li>🧬 <strong>拼好码 (Glue Coding)</strong>：优先复用成熟能力，只写必要连接代码</li>
+<li>🐝 <strong>tmux 蜂群协作</strong>：多AI终端从孤立会话变成可巡检、可调度的协作系统</li>
+<li>🔮 <strong>哲学方法论工具箱</strong>：现象学还原、可证伪主义、贝叶斯更新</li>
+</ul>
+<h3>为什么值得关注</h3>
+<p>
+<strong>16.3k stars 说明什么？</strong> 这说明&quot;Vibe Coding&quot;在中国开发者社区已经从概念进入了<strong>实践阶段</strong>。这不是一个&quot;介绍Vibe Coding是什么&quot;的仓库——这是一个&quot;教你如何用Vibe Coding做实际项目&quot;的仓库。
+</p>
+<p>
+<strong>与第二大脑的关联：</strong> 这个仓库的&quot;隔离审查&quot;命题与 Graph Engineering 知识卡片中的&quot;Self-Modifying Agents&quot;高度一致——Andrew Ng 课程强调 <code>propose → isolate → evaluate → admit</code> 的安全抽象。vibe-coding-cn 的&quot;重要产出必须新开隔离会话，明确告知审查AI上一轮结果不可信&quot;是同一个原则的工程实现。
+</p>
+<p>
+<strong>&quot;模型吞噬&quot;命题特别有洞察力：</strong> 它预测当前所有的 Prompt 技巧、工作流编排、Agent框架都将被更强模型的原生能力吸收。这意味着<strong>当前的&quot;AI工程&quot;技能有保质期</strong>——你今天花大量时间掌握的 LangGraph 编排技巧，可能在18个月后被模型原生能力替代。
+</p>
+<h3>策略建议</h3>
+<p>
+1. <strong>如果你是中文开发者</strong>：这是目前最系统的中文 Vibe Coding 资源。从&quot;1分钟快速开始&quot;入手，按路径学习。
+</p>
+<p>
+2. <strong>如果你是AI工具开发者</strong>：关注&quot;tmux蜂群协作&quot;模式——多AI终端协作可能是下一个生产力突破口。
+</p>
+<hr>
+<h1>📌 关注</h1>
+<hr>
+<h2>🟡 Alignment Forum: Stringological Sequence Prediction III——组合学习理论的新进展</h2>
+<p>
+🔗 <a href="https://www.alignmentforum.org/posts/virawHQekJsozwotz/paper-stringological-sequence-prediction-iii" target="_blank" rel="noopener noreferrer">来源：Alignment Forum</a>
+</p>
+<h3>核心内容</h3>
+<p>
+这是 Kosoy (2026a,b) &quot;字符串序列预测&quot;系列的第三篇论文。核心贡献：
+</p>
+<ul>
+<li>定义了一个比 <strong>Arithmetic Repetition Complexity (ARC)</strong> 更弱的复杂度度量</li>
+<li>该度量允许一个<strong>特别高效的预测算法</strong>：拟线性时间 + 多对数空间</li>
+<li>复杂度通过一类受限的&quot;zipline programs&quot;（称为&quot;layered&quot;）定义</li>
+<li>展示了<strong>效率与表达力之间的可能权衡</strong>——表达力更弱的度量允许更高效的算法</li>
+</ul>
+<h3>为什么对齐研究者应该关注</h3>
+<p>
+这篇论文的技术细节很密集，但核心洞察是：<strong>组合学习理论（compositional learning theory）可能需要接受&quot;效率-表达力权衡&quot;。</strong>
+</p>
+<p>
+如果这个权衡是必要的（而非只是技术限制），那么它对我们理解&quot;AI能否高效学习组合结构&quot;有深刻含义。具体来说：
+</p>
+<ul>
+<li>如果更强的表达力必然需要更多计算，那么<strong>超级智能的学习效率可能不如我们期望的那么高</strong></li>
+<li>这可能为&quot;AI渐进主义&quot;（AI不会一夜之间变得超级智能）提供理论支持</li>
+</ul>
+<p>
+<strong>策略建议：</strong> 对齐研究者应该跟踪这个系列。Kosoy 的组合学习理论如果成熟，可能成为理解&quot;AI如何学习世界模型&quot;的重要框架。
+</p>
+<hr>
+<h2>🟡 LessWrong: Explaining Knightianism on One Foot——用&quot;信任&quot;统一三种主体性视角</h2>
+<p>
+🔗 <a href="https://www.lesswrong.com/posts/pYFBD2SnqiWkuNns5/explaining-knightianism-on-one-foot" target="_blank" rel="noopener noreferrer">来源：LessWrong</a>
+</p>
+<h3>核心内容</h3>
+<p>
+作者提出了一个统一框架，将三种主体性视角（third-person/Bayesian、first-person/感官、second-person/关系）综合起来，核心概念是<strong>Knightian不确定性</strong>（不可概率化的不确定性）和<strong>信任</strong>。
+</p>
+<p>
+<strong>三种视角：</strong>
+1. <strong>第三人称（笛卡尔/贝叶斯）</strong>：agent在世界&quot;外部&quot;，持有互斥且穷尽的假设
+2. <strong>第一人称（感官/嵌入）</strong>：世界主要是感官数据流，概念是局部的、重叠的
+3. <strong>第二人称（关系/提议）</strong>：对不可建模的区域采用基于信任的关系立场
+</p>
+<p>
+<strong>关键概念：</strong>
+</p>
+<ul>
+<li><strong>&quot;Knightian更新&quot;</strong>：将已知信息进一步传播到心灵更深层（不同于贝叶斯更新，难以逆转）</li>
+<li><strong>信任作为关系属性</strong>：不是可替代的度量，而是特定关系的属性</li>
+<li><strong>信息边界</strong>：不信任的信息在外层被阻断；信任的信息影响内层（本能、启发式、价值观）</li>
+</ul>
+<h3>为什么这对AI安全很重要</h3>
+<p>
+这篇论文的核心问题——<strong>&quot;你应该如何对待你无法直接建模或控制的世界部分？&quot;</strong>——恰恰是AI安全的核心问题。
+</p>
+<p>
+当我们构建超级智能时，我们无法完全建模它的内部状态。当超级智能试图理解人类时，它也无法完全建模我们的认知。Knightianism 提供了一个框架：<strong>在不可建模的区域，用&quot;信任&quot;替代&quot;概率&quot;。</strong>
+</p>
+<p>
+<strong>与嵌入式评估的关联：</strong> Anthropic的嵌入式评估本质上是在建立&quot;信任关系&quot;——评估者驻扎在公司内部，获得员工级别的访问权限，这比外部审计建立了更深的&quot;信任&quot;。LessWrong的Knightianism框架为这种&quot;信任建立&quot;提供了理论基础。
+</p>
+<p>
+<strong>策略建议：</strong> AI安全研究者应该读这篇论文。它提供了一个比&quot;对抗性假设&quot;更丰富的框架来思考&quot;AI-人类关系&quot;。
+</p>
+<hr>
+<h1>🧠 第二大脑关联</h1>
+<blockquote><p>以下是今日新闻与 ~/LLM_WIKI/ 知识卡片的交叉分析。</p></blockquote>
+<h2>关联1：嵌入式评估 ↔ Graph Engineering 的&quot;循环工程&quot;</h2>
+<p>
+<strong>知识卡片：</strong> [Graph Engineering with Claude](~/LLM_WIKI/raw/sources/manual/2026-09-18-Mahax-Graph-Engineering-Claude.md.processed)
+</p>
+<p>
+Graph Engineering 知识卡片强调：
+</p>
+<ul>
+<li><strong>循环工程</strong>：设计&quot;提示agent的系统&quot;——状态在哪里、哪些动作可重试、何时需要人类干预</li>
+<li><strong>图编排</strong>：哪个节点下一步运行、并行执行、失败处理、委托权限</li>
+</ul>
+<p>
+嵌入式评估本质上是在设计一个<strong>安全循环</strong>：
+</p>
+<ul>
+<li>评估者观察模型训练（状态）</li>
+<li>发现异常时报告（何时需要干预）</li>
+<li>向公众传达发现（信息流）</li>
+</ul>
+<p>
+<strong>新洞察：</strong> 嵌入式评估可以被视为一个&quot;安全循环工程&quot;问题——评估者是循环中的&quot;人类检查点&quot;，拥有相当于员工的访问权限来观察状态。
+</p>
+<h2>关联2：Vibe Coding &quot;隔离审查&quot; ↔ Self-Modifying Agents 的 &quot;propose → isolate → evaluate → admit&quot;</h2>
+<p>
+<strong>知识卡片：</strong> [Andrew Ng Graph Engineering Course](~/LLM_WIKI/raw/sources/manual/2026-09-18-Andrew-Ng-Graph-Engineering-Course.md.processed)
+</p>
+<p>
+Andrew Ng 课程强调自修改agent的安全抽象：<code>propose → isolate → evaluate → admit</code>。核心原则：<strong>如果agent可以重写代码，其提议的变更不应是接受该变更的唯一证据。</strong>
+</p>
+<p>
+vibe-coding-cn 的&quot;隔离审查&quot;命题是同一原则的工程实现：<strong>重要产出必须新开隔离会话，明确告知审查AI上一轮结果不可信，用事实和测试重新裁决。</strong>
+</p>
+<p>
+<strong>被验证的预测：</strong> 这说明&quot;隔离审查&quot;正在从学术概念变成工程实践。Graph Engineering 知识卡片中的理论正在被中文开发者社区独立发现和实现。
+</p>
+<h2>关联3：模型吞噬 ↔ Loop Engineering 的&quot;什么可以独立做 vs 什么需要人&quot;</h2>
+<p>
+<strong>知识卡片：</strong> Graph Engineering 知识卡片中的关键设计决策：&quot;what can it do alone vs what needs a person&quot;
+</p>
+<p>
+vibe-coding-cn 的&quot;模型吞噬&quot;命题预测：当前的Prompt技巧、工作流、Agent编排等中间层终将被更强模型的原生能力吸收。
+</p>
+<p>
+<strong>因果链：</strong> 模型吞噬 → 中间层被吸收 → &quot;what can it do alone&quot;的范围扩大 → &quot;what needs a person&quot;的范围缩小 → 循环工程的设计空间发生变化 → 今天的&quot;最佳实践&quot;明天可能过时
+</p>
+<p>
+<strong>策略建议：</strong> 不要在&quot;中间层&quot;（Prompt技巧、特定框架）上投入过多——它们有保质期。投资于&quot;第一性原理&quot;（道、法）而非&quot;具体技巧&quot;（术、器）。
+</p>
+<hr>
+<h1>💰 投资信号</h1>
+<h2>信号1：嵌入式评估赛道即将爆发</h2>
+<p>
+<strong>逻辑：</strong> Anthropic-Accenture各$10亿/5年 → 创造&quot;嵌入式评估&quot;品类 → 企业采购将要求&quot;是否接受嵌入式评估&quot; → 评估机构需求爆发
+</p>
+<p>
+<strong>受益者：</strong>
+</p>
+<ul>
+<li><strong>Accenture (ACN)</strong>：Faculty部门获得$10亿/5年合约，AI安全咨询收入大增</li>
+<li><strong>AI安全初创公司</strong>：METR、APart等独立评估机构将获得更多资金</li>
+<li><strong>Anthropic</strong>：通过定义标准获得&quot;安全合规&quot;竞争优势</li>
+</ul>
+<p>
+<strong>风险：</strong> 如果SAFA被政府监管替代，嵌入式评估可能被&quot;合规检查&quot;替代，失去独立性。
+</p>
+<h2>信号2：开放权重模型追赶速度超预期</h2>
+<p>
+<strong>逻辑：</strong> GLM-5.3 (45分) vs Claude Fable 5.1 (53分) → 差距8分（15%） → 按当前追赶速度，18个月内开放权重进入Top 3
+</p>
+<p>
+<strong>受益者：</strong>
+</p>
+<ul>
+<li><strong>智谱AI (GLM)</strong>：如果进入Top 3，估值将大幅提升</li>
+<li><strong>月之暗面 (Kimi)</strong>：K3 (44分) 紧随其后</li>
+<li><strong>企业用户</strong>：开放权重&quot;够用&quot;场景的成本将大幅下降</li>
+</ul>
+<p>
+<strong>风险：</strong> 如果闭源模型突然跳跃（如GPT-7），差距可能再次拉大。
+</p>
+<h2>信号3：Vibe Coding 生态在中国快速成熟</h2>
+<p>
+<strong>逻辑：</strong> vibe-coding-cn 16.3k stars → 说明中国开发者已进入Vibe Coding实践阶段 → AI编程工具需求爆发
+</p>
+<p>
+<strong>受益者：</strong>
+</p>
+<ul>
+<li><strong>Cursor / Codex CLI</strong>：vibe-coding-cn推荐的核心工具</li>
+<li><strong>中国AI编程初创公司</strong>：如果本土化做得好，可以 capture 这个市场</li>
+<li><strong>开发者教育平台</strong>：Vibe Coding 培训课程需求</li>
+</ul>
+<hr>
+<h1>🔬 技术深度：Transformer几何学的广义相对论类比</h1>
+<p>
+🔗 <a href="https://towardsdatascience.com/your-llm-has-a-curved-space-of-paragraphs/" target="_blank" rel="noopener noreferrer">来源：Towards Data Science</a> | 论文：arXiv:2609.23551
+</p>
+<h2>方法论拆解</h2>
+<h3>核心假设</h3>
+<p>
+Transformer内部，<strong>token索引是坐标，不是距离</strong>。标准位置编码（RoPE、ALiBi）将位置编码为1D数字，但人类文本是层次化的：<code>document ⊃ paragraph ⊃ sentence ⊃ token</code>。两个token可以有相同的&quot;阅读顺序距离&quot;但处于不同的结构上下文。
+</p>
+<h3>实验设计（3个关键控制）</h3>
+<table>
+<thead><tr>
+<th>条件</th>
+<th>段落坐标</th>
+<th>目的</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>hrope_axial</code></td>
+<td>真实段落索引</td>
+<td>测试真实层次结构的影响</td>
+</tr>
+<tr>
+<td><code>rand_axial</code></td>
+<td>密度匹配的随机标签</td>
+<td>控制&quot;额外坐标&quot;的密度效应</td>
+</tr>
+<tr>
+<td><code>period_axial</code></td>
+<td>机械周期网格</td>
+<td>控制周期性效应</td>
+</tr>
+</tbody></table>
+<h3>干预实验（因果验证）</h3>
+<p>
+1. <strong><code>fake-merge</code></strong>：将相邻真实段落分配相同索引 → 边界消失 → 跨段落注意力<strong>降低</strong>
+2. <strong><code>fake-split</code></strong>：将一个真实段落的两半分配不同索引 → 虚假边界出现 → 跨段落注意力<strong>提高</strong>
+</p>
+<p>
+<strong>结论：</strong> 段落结构<strong>因果地</strong>影响注意力，而非仅仅是相关。
+</p>
+<h3>&quot;势阱&quot;U*的数学含义</h3>
+<p>
+当绘制注意力抑制 vs 段落位移（两个token之间的段落边界数）时：
+</p>
+<ul>
+<li>抑制在2-5个段落处增长，然后收缩，形成&quot;势阱&quot;</li>
+<li>势阱深度 U* 在代码和WikiText-2上，hRoPE远大于控制</li>
+<li>打乱段落顺序后，hRoPE的深度改变（证明依赖真实结构），控制不变</li>
+</ul>
+<h3>局限与未来方向</h3>
+<ul>
+<li><strong>规模限制</strong>：8层、512维、3个种子 → 不知道是否在1B+参数上持续</li>
+<li><strong>OpenWebText零结果</strong>：开放权重文本没有显示深度差异，可能是统计功效不足</li>
+<li><strong>未解决的机制</strong>：什么语料库特征决定势阱深度？嵌入一致性是最接近的候选，但不能完全复制排序</li>
+</ul>
+<h2>对模型架构的启示</h2>
+<p>
+1. <strong>位置编码仍有改进空间</strong>：当前方案丢失了层次结构信息
+2. <strong>&quot;势阱深度&quot;可作为新指标</strong>：评估位置编码质量的指标不只是perplexity，还有&quot;它捕获层次结构的程度&quot;
+3. <strong>小模型实验可能有价值</strong>：这篇论文在8层模型上发现了可复现的结构信号，说明某些架构特性在小规模上就能显现
+</p>
+<hr>
+<h1>💡 行业洞察</h1>
+<h2>洞察1：AI安全正在从&quot;技术问题&quot;变成&quot;制度问题&quot;</h2>
+<p>
+<strong>观察：</strong> 今天最重要的两条新闻（Anthropic-Accenture嵌入式评估、午报的SAFA）都在说同一件事——<strong>AI安全的核心战场正在从&quot;如何构建安全模型&quot;转向&quot;如何定义安全标准&quot;。</strong>
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+模型能力接近"涌现"区间
+  → 安全测试变得越来越复杂
+    → 外部评估者无法获得足够访问权限
+      → 需要"嵌入式"评估者（驻场）
+        → 嵌入式评估需要标准（什么信息应该被访问、如何报告）
+          → 标准制定成为权力来源
+            → 谁制定标准，谁控制市场准入
+</code></pre>
+<p>
+<strong>含义：</strong> AI安全的&quot;技术&quot;部分（红队测试、对齐评估）正在被&quot;制度&quot;部分（标准制定、合规审计、报告机制）包裹。未来5年，AI安全领域最大的变化不是&quot;更好的红队技术&quot;，而是&quot;嵌入式评估成为行业标准&quot;。
+</p>
+<h2>洞察2：Vibe Coding 正在从&quot;概念&quot;变成&quot;基础设施&quot;</h2>
+<p>
+<strong>观察：</strong> vibe-coding-cn 16.3k stars + 完整的&quot;道法术器&quot;方法论 + tmux蜂群协作 + 元方法论 → 这不是一个&quot;介绍Vibe Coding&quot;的仓库，这是一个&quot;Vibe Coding操作系统&quot;。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+Vibe Coding 概念普及（Karpathy 提出）
+  → 开发者开始实践
+    → 实践中发现需要方法论（不是"随便prompt"）
+      → 方法论沉淀为教程/框架
+        → 教程/框架成为"基础设施"
+          → Vibe Coding 从"个人技能"变成"组织能力"
+</code></pre>
+<p>
+<strong>含义：</strong> 当Vibe Coding有了完整的&quot;道法术器&quot;框架、有了tmux蜂群协作模式、有了元方法论（α/Ω提示词递归闭环），它就不再是&quot;用AI写代码&quot;——它是<strong>一种新的软件工程范式</strong>。
+</p>
+<h2>洞察3：前沿模型竞争进入&quot;努力程度&quot;维度</h2>
+<p>
+<strong>观察：</strong> Claude Fable 5.1 和 GPT-6 Astra 在 Artificial Analysis 排行榜上并列53分，但区分它们的是&quot;努力程度&quot;（Max/Xhigh/High）。
+</p>
+<p>
+<strong>因果链：</strong>
+</p>
+<pre><code class="language-">
+模型能力接近"天花板"（53/100）
+  → 进一步提升需要更多"思考"（推理时间）
+    → "努力程度"成为新的模型维度
+      → API定价从"按token"转向"按思考深度"
+        → 用户面临新的权衡：成本 vs 性能
+          → "努力级别选择器"成为AI产品的标配功能
+</code></pre>
+<p>
+<strong>含义：</strong> 未来的AI产品不是&quot;用最好的模型&quot;，而是&quot;为每个任务选择最合适的努力级别&quot;。这将创造一个新的工程类别——&quot;effort routing&quot;（努力路由）。
+</p>
+<hr>
+<h1>🎯 大胆预判</h1>
+<h2>预判1：12个月内，&quot;嵌入式评估&quot;成为所有前沿实验室标配</h2>
+<p>
+<strong>置信度：80%</strong>
+</p>
+<p>
+<strong>因果逻辑：</strong> Anthropic的$20亿投入 → 建立操作标准 → 企业采购要求&quot;是否接受嵌入式评估&quot; → OpenAI/Google被迫跟进。
+</p>
+<p>
+<strong>关键验证点：</strong> 2027年Q1前，OpenAI或Google是否宣布类似的嵌入式评估计划。
+</p>
+<h2>预判2：18个月内，开放权重模型首次进入 Artificial Analysis Top 3</h2>
+<p>
+<strong>置信度：70%</strong>
+</p>
+<p>
+<strong>因果逻辑：</strong> GLM-5.3 (45分) 与闭源第一 (53分) 差距8分 → 每季度追赶2-3分 → 3-4个季度后差距≤2分 → 开放权重在某个基准上进入Top 3。
+</p>
+<p>
+<strong>关键验证点：</strong> 2027年Q2前，GLM或Kimi的下一代是否进入Top 5。
+</p>
+<h2>预判3：24个月内，至少一个嵌入式评估机构公开报告&quot;重大安全事件&quot;</h2>
+<p>
+<strong>置信度：60%</strong>
+</p>
+<p>
+<strong>因果逻辑：</strong> 驻场评估者拥有员工级访问权限 → 能看到外部评估者看不到的训练动态 → 当前模型规模接近&quot;涌现能力&quot;区间 → 统计上几乎必然会发现某些&quot;意外&quot;。
+</p>
+<p>
+<strong>关键验证点：</strong> 2028年Q3前，是否有评估机构发布&quot;重大安全发现&quot;报告。
+</p>
+<h2>预判4：12个月内，&quot;按努力程度定价&quot;成为所有主要API标准模式</h2>
+<p>
+<strong>置信度：85%</strong>
+</p>
+<p>
+<strong>因果逻辑：</strong> Anthropic和OpenAI已经在做（Max/Xhigh/High） → 用户愿意为&quot;更深思考&quot;付费 → Google/Meta在2027年Q2前跟进。
+</p>
+<p>
+<strong>关键验证点：</strong> 2027年Q2前，Google Gemini API是否推出&quot;effort level&quot;定价。
+</p>
+<h2>预判5：Carmack的Keen Technologies在2028年前不会发布AGI突破，但会在某个子领域发表令人惊讶的结果</h2>
+<p>
+<strong>置信度：65%</strong>
+</p>
+<p>
+<strong>因果逻辑：</strong> Carmack的方法论（&quot;先找到半打关键洞察再规模化&quot;）决定了他不会快速发布 → 但他可能在&quot;小规模高效学习&quot;或&quot;跨范式合成&quot;上取得进展 → 引发学术界重新审视被遗忘的研究方向。
+</p>
+<p>
+<strong>关键验证点：</strong> 2028年前，Keen Technologies是否发布任何技术报告或开源模型。
+</p>
+<hr>
+<h1>🎨 自由发挥</h1>
+<h2>&quot;模型吞噬&quot;悖论：你今天学的AI技能，明天可能过时</h2>
+<p>
+vibe-coding-cn 的&quot;模型吞噬&quot;命题让我想到一个悖论：
+</p>
+<p>
+<strong>当前AI工程的核心技能（Prompt Engineering、LangGraph编排、Agent框架）都有保质期。</strong>
+</p>
+<ul>
+<li><strong>Prompt Engineering</strong>：当模型原生理解&quot;意图&quot;时，精心设计的prompt模板将变得不必要</li>
+<li><strong>LangGraph/LangChain</strong>：当模型原生支持&quot;多步推理&quot;和&quot;工具调用&quot;时，编排框架将被吸收</li>
+<li><strong>Agent框架</strong>：当模型原生支持&quot;长期记忆&quot;和&quot;自主规划&quot;时，框架将被替代</li>
+</ul>
+<p>
+<strong>那么，什么技能没有保质期？</strong>
+</p>
+<p>
+答案是：<strong>第一性原理思维</strong>（vibe-coding-cn的&quot;道&quot;和&quot;法&quot;）。
+</p>
+<ul>
+<li>理解&quot;为什么&quot;比理解&quot;怎么做&quot;更重要</li>
+<li>理解&quot;问题结构&quot;比理解&quot;工具使用&quot;更重要</li>
+<li>理解&quot;验证方法&quot;比理解&quot;生成方法&quot;更重要</li>
+</ul>
+<p>
+<strong>策略建议：</strong> 将70%的学习时间投入到&quot;道&quot;和&quot;法&quot;（第一性原理、系统思维、验证方法），30%投入到&quot;术&quot;和&quot;器&quot;（具体工具、框架、技巧）。当&quot;术&quot;和&quot;器&quot;被模型吞噬时，&quot;道&quot;和&quot;法&quot;仍然有价值。
+</p>
+<h2>&quot;信任&quot;作为AI安全的新范式</h2>
+<p>
+LessWrong的Knightianism论文提出了一个激进的观点：<strong>在不可建模的区域，用&quot;信任&quot;替代&quot;概率&quot;。</strong>
+</p>
+<p>
+这与当前AI安全的主流范式（&quot;对抗性假设&quot;——假设模型会尝试欺骗我们）形成对比。
+</p>
+<p>
+<strong>两种范式的对比：</strong>
+</p>
+<table>
+<thead><tr>
+<th>维度</th>
+<th>对抗性假设</th>
+<th>信任范式</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>核心假设</td>
+<td>模型会尝试欺骗</td>
+<td>模型可以被信任（在一定条件下）</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>红队测试、形式化验证</td>
+<td>嵌入式评估、关系建立</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>证明模型安全</td>
+<td>建立信任关系</td>
+</tr>
+<tr>
+<td>风险</td>
+<td>过度保守，阻碍进展</td>
+<td>过度信任，忽视风险</td>
+</tr>
+</tbody></table>
+<p>
+<strong>我的判断：</strong> 两种范式不是互斥的，而是互补的。对于&quot;已知未知&quot;（我们知道可能出问题的地方），对抗性假设是合适的。对于&quot;未知未知&quot;（我们不知道可能出问题的地方），信任范式可能更有效——因为它允许我们建立&quot;信息边界&quot;，让信任的信息影响更深层，让不信任的信息在外层被阻断。
+</p>
+<p>
+<strong>Anthropic的嵌入式评估实际上是两种范式的结合：</strong> 评估者既是&quot;对抗性的&quot;（红队测试、寻找问题），又是&quot;信任的&quot;（驻场、获得员工级访问、建立关系）。这种&quot;对抗性信任&quot;可能是AI安全的未来。
+</p>
+<hr>
+<h1>📊 今日数据总结</h1>
+<table>
+<thead><tr>
+<th>指标</th>
+<th>数值</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>采集时间</td>
+<td>60.1s</td>
+</tr>
+<tr>
+<td>新信息总数</td>
+<td>8条</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>1条</td>
+</tr>
+<tr>
+<td>Hacker News</td>
+<td>3条</td>
+</tr>
+<tr>
+<td>博客</td>
+<td>3条</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>1条</td>
+</tr>
+<tr>
+<td>ArXiv</td>
+<td>0条</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>0条</td>
+</tr>
+</tbody></table>
+<p>
+<strong>最高价值信息：</strong>
+1. Anthropic-Accenture嵌入式评估（$20亿）
+2. Opus 5 / Claude Fable 5.1 登顶（53分）
+3. vibe-coding-cn（16.3k stars）
+</p>
+<p>
+<strong>与午报互补：</strong> 午报聚焦SAFA监管框架，晚报聚焦嵌入式评估技术实现。两者共同构成&quot;AI安全制度化&quot;的完整图景。
+</p>
+<hr>
+<p>
+<em>本报告由 Hermes Agent 自动生成 | 数据采集时间：2026-09-26 21:01 CST | 报告生成时间：2026-09-26 21:30 CST</em>
+</p>
+<p>
+<em>数据来源：RSS / Hacker News / Anthropic Blog / Alignment Forum / LessWrong / GitHub / Towards Data Science</em>
+</p>
+<p>
+<em>第二大脑关联：~/LLM_WIKI/ Graph Engineering 知识卡片</em>
+</p>
+            </div>
+        </article>
+
+        
+    <!-- Right Sidebar for Interactions -->
+    <div class="interaction-sidebar">
+        <div class="sidebar-toggle" onclick="toggleInteractionSidebar()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Expanded Panel -->
+    <div class="interaction-panel" id="interaction-panel">
+        <div class="panel-header">
+            <h3>Interactions</h3>
+            <button class="panel-close" onclick="toggleInteractionSidebar()">×</button>
+        </div>
+        <div class="panel-content">
+            <div class="interaction-buttons">
+                <button class="interaction-btn" id="like-btn" onclick="interactions.toggleLike()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="like-count">0</span> Likes
+                </button>
+                <button class="interaction-btn" id="bookmark-btn" onclick="interactions.toggleBookmark()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    <span class="bookmark-count">0</span> Bookmarks
+                </button>
+            </div>
+            
+            <div class="comments-section">
+                <h4>💬 Leave a comment</h4>
+                <div class="comment-form" id="comment-form-logged-in" style="display:none;">
+                    <textarea id="comment-input" placeholder="Leave a comment..." maxlength="2000"></textarea>
+                    <button onclick="interactions.submitComment()">Post Comment</button>
+                </div>
+                <div class="comment-login-prompt" id="comment-login-prompt">
+                    <p>🔒 登录后即可发表评论</p>
+                    <button onclick="auth.showLoginModal()">Login</button>
+                </div>
+                
+                <div class="comments-history-section">
+                    <h4>💬 Comments (<span id="comment-count">0</span>)</h4>
+                    <div class="comments-login-hint" id="comments-login-hint" style="display:none;">
+                        <p>🔒 登录后查看评论</p>
+                    </div>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="interaction-overlay" id="interaction-overlay" onclick="toggleInteractionSidebar()"></div>
+
+    <script>
+        function toggleInteractionSidebar() {
+            const panel = document.getElementById('interaction-panel');
+            const overlay = document.getElementById('interaction-overlay');
+            panel.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            interactions.init('report', '2026-09-26-evening');
+            
+            // 根据登录状态显示/隐藏评论相关元素
+            function updateCommentVisibility() {
+                const isLoggedIn = typeof auth !== 'undefined' && auth.isLoggedIn();
+                const commentForm = document.getElementById('comment-form-logged-in');
+                const loginPrompt = document.getElementById('comment-login-prompt');
+                const commentsList = document.getElementById('comments-list');
+                const loginHint = document.getElementById('comments-login-hint');
+                
+                if (isLoggedIn) {
+                    if (commentForm) commentForm.style.display = 'block';
+                    if (loginPrompt) loginPrompt.style.display = 'none';
+                    if (commentsList) commentsList.style.display = 'block';
+                    if (loginHint) loginHint.style.display = 'none';
+                    interactions.loadComments();
+                } else {
+                    if (commentForm) commentForm.style.display = 'none';
+                    if (loginPrompt) loginPrompt.style.display = 'block';
+                    if (commentsList) commentsList.style.display = 'none';
+                    if (loginHint) loginHint.style.display = 'block';
+                }
+            }
+            
+            // 立即检查一次
+            updateCommentVisibility();
+            
+            // 监听登录状态变化
+            if (typeof auth !== 'undefined' && auth.onChange) {
+                auth.onChange(function() {
+                    updateCommentVisibility();
+                });
+            }
+            
+            // 浏览统计 - 等待 auth 完成 session 检查
+            if (typeof pageViews !== 'undefined') {
+                // 先显示浏览次数
+                pageViews.displayViewCount('view-count', 'report', '2026-09-26-evening');
+                
+                // 等待 auth 初始化完成后再记录浏览
+                const trackWithAuth = () => {
+                    if (typeof auth !== 'undefined' && auth.user !== undefined) {
+                        pageViews.trackView('report', '2026-09-26-evening');
+                    } else {
+                        // auth 还没初始化，等一下再试
+                        setTimeout(trackWithAuth, 100);
+                    }
+                };
+                setTimeout(trackWithAuth, 200);
+            }
+        });
+    </script>
+
+
+        <footer class="footer">
+            <p><a href="../../">← Back to All Reports</a></p>
+            <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
+        </footer>
+    </main>
+</body>
+</html>
