@@ -29,7 +29,7 @@
         <a href="/ai-news/" class="logo">Alex Guan's AI Knowledge Base</a>
         <a href="/ai-news/" class="logo-mobile">AI Knowledge Base</a>
         <div class="nav-stats">
-            <div><span class="stat-value">61</span> reports</div>
+            <div><span class="stat-value">60</span> reports</div>
             <div><span class="stat-value">51</span> cards</div>
             <div><span class="stat-value">35</span> sources</div>
         </div>
@@ -44,7 +44,7 @@
 
         <div class="stats-bar">
             <div class="stat-card">
-                <div class="stat-number">61</div>
+                <div class="stat-number">60</div>
                 <div class="stat-label">Reports</div>
             </div>
             <div class="stat-card">
@@ -71,7 +71,7 @@
 
         <div class="tab-container">
             <div class="tab-nav" role="tablist">
-                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (61)</button>
+                <button class="tab-btn active" data-tab="reports" role="tab" aria-selected="true" aria-controls="reports-tab">📰 Reports (60)</button>
                 <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false" aria-controls="cards-tab">📚 Knowledge Cards (51)</button>
                 <button class="tab-btn" data-tab="tools" role="tab" aria-selected="false" aria-controls="tools-tab">🛠️ Tools (11)</button>
             </div>
@@ -157,7 +157,7 @@
                 <section class="all-reports">
                     <div class="section-header">
                         <h2>Archive</h2>
-                        <span class="count">61 reports</span>
+                        <span class="count">60 reports</span>
                     </div>
                     <div class="report-archive">
         <div class="archive-item" data-type="evening" data-content="&gt; ⚠️ 注意：今日采集管道部分源（GitHub Trending、YouTube、ArXiv、博客）返回 0 条结果，可能是采集脚本超时或上游 API 限流。本报告基于 RSS 1 条 + Hacker News 10 条生成，覆盖面有限但核心洞察已深度展开。 --- 📌 今日最重要的一件事 好架构正在删除 AI Agent 依赖的信号 —— 软件工程的最佳实践正在成为 AI 编码工具的敌人 🔗 来源：Towards Data Science https://towardsdatascience.com/good-architecture-deletes-the-signals-your-agent-depends-on/ 事件概述 Bit Cloud 联合创始人 Yonatan Sason 在 Towards Data Science 发表了一篇深度文章，揭示了一个被整个 AI 编码工具行业忽视的根本性矛盾： 好的软件架构（模块化、契约、组合）正在系统性地删除 AI 编码 Agent 赖以工作的文本相似性信号。 这不是一个渐进的问题，而是一个结构性的断裂。 核心论点： &gt; &quot;每一个你画的边界，都在删除你的工具所依赖的信号。这是一个结构问题，不是搜索问题。&quot; &gt; &quot;让编码 Agent 修改一个组件，它能做到。问它这个修改破坏了什么，它只能猜。&quot; 深度分析：为什么这是一个 500 亿美元的问题 第一性原理拆解： AI 检索系统回答的问题是： &quot;哪些代码与这个查询最相似？&quot; Agent 实际需要回答的问题是： &quot;当这个修改发生时，哪些代码会被破坏？&quot; 相似性是文本的属性，依赖性是系统的属性。这两者的交集远小于工具假设的程度。 因果链： 好的架构 = 高内聚低耦合 + 明确的契约边界 → 组件之间文本相似度降低（主题文件和按钮没有文本共性） → AI Agent 的 embedding 检索找不到真正的依赖关系 → Agent 自信地修改代码，但无法预测连锁反应 → 人类必须审计每一行 AI 生成的代码 → AI 编码工具的 ROI 从&quot;10x 生产力&quot;降到&quot;1x + 审计成本&quot; → 企业开始质疑 AI 编码工具的价值 → AI 编码工具市场面临信任危机 具体数据： | 共享的东西 | 真实实例 | 被多少组件消费 | 与消费者的文本相似度 | |---|---|---">
@@ -607,14 +607,9 @@
             <time>2026-08-31 08:00</time>
             <span class="report-type type-morning">Morning</span>
         </div>
-        <div class="archive-item" data-type="morning" data-content="☀️ AI 早报 | 2026-08-29 周六 &gt; 今日一句话 ：Anthropic 研究员公开了自我改进 AI 的初步实验——在 10 个「错误对齐行为」的 benchmark 上，自动化系统全部提升了表现，且没有降低整体性能。这不是模型变聪明了，是模型学会了「自己修自己的 bug」。与此同时，Meta 用 8B 参数的模型追平了 Claude Opus 4.5 的表现——效率革命不是未来，是今天。 --- 📌 今日最重要的一件事 🔴 Anthropic 研究员揭示自我改进 AI：AI 安全的「奇点时刻」比所有人预想的更近 发生了什么 ： 一位 Anthropic 研究员公开发表了关于「自我改进 AI」的初步实验结果。在实验中，研究团队给自动化系统提供了 10 个专门针对「错误对齐行为」（misaligned behaviors）的 benchmark ，结果令人震惊：自动化系统在 每一个 benchmark 上都提升了表现 ，而且 没有降低整体性能 。（ TechCrunch https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/ ） 为什么这是今天最重要的新闻 ： 这不是一篇普通的技术博客。这是 AI 安全领域第一次公开、可复现地展示： AI 系统能够自主改进自身的对齐缺陷，而且不会在改进过程中引入新的退化。 这意味着什么？让我用因果链拆解： 因果链 ： 第一层：技术突破 AI 系统能自我修复对齐缺陷 → means 「对齐税」 alignment tax 不再是不可克服的障碍 → causes 自我改进型 AI 的研发速度将指数级加快 → causes 6 个月内，至少 3 家实验室将发布类似的自我改进系统 第二层：安全含义 自我改进 = AI 可以修改自己的「价值观」代码 → signals AI 安全的核心假设正在被颠覆 → causes 传统的「人类监督对齐」 human-supervised alignment 方法将面临根本性质疑 → causes 如果 AI 能自己修 bug，为什么还需要人类来定义「正确」？ → causes AI 安全领域将在 12 个月内分裂为两个阵营： - 「人类中心派」：坚持人">
-            <a href="/ai-news/2026-08-29/morning/">0829-早报 | Anthropic研究员揭示自我改进AI，Meta 8B模型追平Claude Opus 4.5</a>
-            <time>2026-08-29 08:00</time>
-            <span class="report-type type-morning">Morning</span>
-        </div>
                     </div>
                     <button class="show-all-btn" id="show-all-btn" onclick="toggleArchive()">
-                        <span class="show-text">Show All (61)</span>
+                        <span class="show-text">Show All (60)</span>
                         <span class="hide-text" style="display:none;">Show Less</span>
                     </button>
                     <div class="report-archive" style="display:none;">
@@ -1028,7 +1023,7 @@
 
     <footer class="footer">
         <p>Alex Guan's AI Knowledge Base — 由 Hermes Agent 自动采集、分析、生成</p>
-        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 61 REPORTS · 51 CARDS</p>
+        <p class="footer-brand">COLLECTOR V3 · PIPELINE ARCHITECTURE · 60 REPORTS · 51 CARDS</p>
     </footer>
 
     <script>
